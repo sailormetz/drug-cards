@@ -1,6 +1,7 @@
 const DRUGS = [
   {
     id: "epinephrine",
+    summary: "The first-line drug for anaphylaxis — a potent sympathomimetic that rapidly reverses bronchoconstriction, vasodilation, and cardiovascular collapse.",
     genericName: "Epinephrine",
     tradeName: "Adrenalin / EpiPen",
     classes: ["Sympathomimetic", "Catecholamine", "Vasopressor"],
@@ -28,6 +29,7 @@ const DRUGS = [
   },
   {
     id: "etomidate",
+    summary: "A rapid-onset sedative used for RSI induction; preferred for hemodynamically unstable patients because it has minimal effect on blood pressure.",
     genericName: "Etomidate",
     tradeName: "Amidate",
     classes: ["Anesthetic", "Sedative"],
@@ -48,6 +50,7 @@ const DRUGS = [
   }
   ,{
     id: "famotidine",
+    summary: "An H2 blocker that suppresses gastric acid secretion; used for GERD and peptic ulcers, and sometimes as adjunct therapy in anaphylaxis protocols.",
     genericName: "Famotidine",
     tradeName: "Pepcid",
     classes: ["Antihistamine", "H2 Blocker"],
@@ -67,6 +70,7 @@ const DRUGS = [
   }
   ,{
     id: "fentanyl",
+    summary: "A potent opioid analgesic used for rapid management of severe pain and procedural sedation; roughly 100x more potent than morphine by weight.",
     genericName: "Fentanyl",
     tradeName: "Sublimaze",
     classes: ["Opioid Analgesic"],
@@ -90,6 +94,7 @@ const DRUGS = [
   }
   ,{
     id: "flumazenil",
+    summary: "A benzodiazepine antagonist used to reverse benzo-induced sedation and respiratory depression; short duration means resedation is common — watch your patient.",
     genericName: "Flumazenil",
     tradeName: "Romazicon",
     classes: ["Benzodiazepine Antagonist", "Antidote"],
@@ -112,6 +117,7 @@ const DRUGS = [
   }
   ,{
     id: "furosemide",
+    summary: "A loop diuretic used to offload fluid in pulmonary edema and heart failure; reduces preload by driving rapid urination and has a direct vasodilatory effect.",
     genericName: "Furosemide",
     tradeName: "Lasix",
     classes: ["Loop Diuretic"],
@@ -134,6 +140,7 @@ const DRUGS = [
   }
   ,{
     id: "glucagon",
+    summary: "A hormone that rapidly raises blood glucose in hypoglycemia when IV access isn't available; also used as an antidote for beta-blocker and calcium channel blocker overdose.",
     genericName: "Glucagon",
     tradeName: "GlucaGen",
     classes: ["Hormone", "Antihypoglycemic"],
@@ -158,6 +165,7 @@ const DRUGS = [
   }
   ,{
     id: "haloperidol",
+    summary: "A first-generation antipsychotic used to manage acute psychosis and severe agitation; blocks dopamine receptors to calm combative or actively psychotic patients.",
     genericName: "Haloperidol",
     tradeName: "Haldol",
     classes: ["Antipsychotic"],
@@ -181,6 +189,7 @@ const DRUGS = [
   }
   ,{
     id: "heparin",
+    summary: "An anticoagulant used in STEMI and ACS to prevent further clot formation by inhibiting clotting factors; does not dissolve existing clots.",
     genericName: "Heparin Sodium",
     tradeName: "Heparin",
     classes: ["Anticoagulant"],
@@ -206,6 +215,7 @@ const DRUGS = [
   }
   ,{
     id: "hydralazine",
+    summary: "A direct arteriolar vasodilator used for hypertensive emergencies and acute heart failure; effective but unpredictable — causes reflex tachycardia, often paired with a beta-blocker.",
     genericName: "Hydralazine",
     tradeName: "Apresoline",
     classes: ["Vasodilator", "Antihypertensive"],
