@@ -44,7 +44,6 @@
       '<article class="card">' +
         '<header class="card-header">' +
           '<h1 class="drug-name">' + drug.name + '</h1>' +
-          '<span class="concentration-detail">' + drug.concentration + '</span>' +
           '<div class="drug-class-row">' + classesHTML + '</div>' +
         '</header>' +
 
