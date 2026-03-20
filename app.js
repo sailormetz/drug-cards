@@ -92,14 +92,37 @@
 
   function buildList(query) {
     var list = document.getElementById('drug-list');
-    var q = (query || '').toLowerCase();
+    var q = (query || '').trim().toLowerCase();
     var filtered = DRUGS.filter(function (d) {
-      return d.genericName.toLowerCase().indexOf(q) !== -1;
+      return fuzzyMatch(q, d.genericName) || fuzzyMatch(q, d.tradeName);
     });
     list.innerHTML = filtered.map(function (d) {
       var active = d.id === activeDrugId ? ' picker-item--active' : '';
-      return '<li class="picker-item' + active + '" data-id="' + d.id + '">' + d.genericName + '</li>';
+      return '<li class="picker-item' + active + '" data-id="' + d.id + '">' +
+        d.genericName +
+        '<span class="picker-trade"> ' + d.tradeName + '</span>' +
+        '</li>';
     }).join('');
+  }
+
+  function fuzzyMatch(q, str) {
+    if (!q) return true;
+    var s = str.toLowerCase();
+    if (s.indexOf(q) !== -1) return true;
+    // subsequence match
+    var qi = 0;
+    for (var i = 0; i < s.length && qi < q.length; i++) {
+      if (s[i] === q[qi]) qi++;
+    }
+    if (qi === q.length) return true;
+    // 1-char typo tolerance for queries >= 4 chars
+    if (q.length >= 4) {
+      for (var j = 0; j < q.length; j++) {
+        var variant = q.slice(0, j) + q.slice(j + 1);
+        if (s.indexOf(variant) !== -1) return true;
+      }
+    }
+    return false;
   }
 
   function setToggleLabel(drug) {
