@@ -318,6 +318,13 @@ body {
 .section-label--green  { color: var(--green); }
 .section-label--red    { color: var(--red); }
 .section-label--orange { color: var(--orange); }
+.section-label--muted  { color: var(--text-mut); }
+
+.summary-text {
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.6;
+}
 
 /* ===== MOA GRID ===== */
 .moa-grid {

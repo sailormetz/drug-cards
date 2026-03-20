@@ -49,6 +49,11 @@
         '</header>' +
 
         '<section class="section">' +
+          '<h2 class="section-label section-label--muted">Summary</h2>' +
+          '<p class="summary-text">' + drug.summary + '</p>' +
+        '</section>' +
+
+        '<section class="section">' +
           '<h2 class="section-label section-label--blue">Mechanism of Action</h2>' +
           moaHTML +
         '</section>' +
