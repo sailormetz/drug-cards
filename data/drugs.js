@@ -1,7 +1,8 @@
 const DRUGS = [
   {
     id: "epinephrine",
-    name: "Epinephrine 1:1,000",
+    genericName: "Epinephrine",
+    tradeName: "Adrenalin / EpiPen",
     classes: ["Sympathomimetic", "Catecholamine", "Vasopressor"],
     moa: [
       { receptor: "α-1", effect: "Vasoconstriction", type: "alpha" },
@@ -27,7 +28,8 @@ const DRUGS = [
   },
   {
     id: "etomidate",
-    name: "Etomidate",
+    genericName: "Etomidate",
+    tradeName: "Amidate",
     classes: ["Anesthetic", "Sedative"],
     moaBrief: 'Enhances <span class="hl hl--beta">GABA-A</span> activity <span class="moa-arrow">→</span> neuronal inhibition <span class="moa-arrow">→</span> <strong>rapid sedation &amp; unconsciousness</strong>',
     indications: ["Procedural Sedation", "RSI Induction"],

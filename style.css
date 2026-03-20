@@ -203,11 +203,19 @@ body {
   margin-bottom: 6px;
 }
 
+.drug-trade-name {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-mut);
+  margin-top: 4px;
+  letter-spacing: 0.01em;
+}
+
 .drug-class-row {
   display: flex;
   justify-content: center;
   gap: 6px;
-  margin-top: 8px;
+  margin-top: 14px;
 }
 .drug-class-pill {
   font-size: 9px;
@@ -361,7 +369,7 @@ body {
   flex-direction: row;
   align-items: flex-start;
   gap: 12px;
-  padding-bottom: 6px;
+  padding-bottom: 12px;
 }
 .dose-main {
   display: flex;
@@ -379,7 +387,7 @@ body {
 }
 .dose-row--divider {
   border-top: 1px solid var(--border);
-  padding-top: 6px;
+  padding-top: 12px;
 }
 .dose-pop {
   font-size: 10px;

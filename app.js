@@ -43,7 +43,8 @@
     document.getElementById('card-container').innerHTML =
       '<article class="card">' +
         '<header class="card-header">' +
-          '<h1 class="drug-name">' + drug.name + '</h1>' +
+          '<h1 class="drug-name">' + drug.genericName + '</h1>' +
+          '<p class="drug-trade-name">' + drug.tradeName + '</p>' +
           '<div class="drug-class-row">' + classesHTML + '</div>' +
         '</header>' +
 
@@ -93,11 +94,11 @@
     var list = document.getElementById('drug-list');
     var q = (query || '').toLowerCase();
     var filtered = DRUGS.filter(function (d) {
-      return d.name.toLowerCase().indexOf(q) !== -1;
+      return d.genericName.toLowerCase().indexOf(q) !== -1;
     });
     list.innerHTML = filtered.map(function (d) {
       var active = d.id === activeDrugId ? ' picker-item--active' : '';
-      return '<li class="picker-item' + active + '" data-id="' + d.id + '">' + d.name + '</li>';
+      return '<li class="picker-item' + active + '" data-id="' + d.id + '">' + d.genericName + '</li>';
     }).join('');
   }
 
