@@ -132,4 +132,28 @@ const DRUGS = [
     adverseEffects: ["Dizziness", "Nausea / Vomiting", "Hypovolemia", "Hypotension", "Electrolyte Imbalances", "Hyperglycemia", "Dysrhythmias", "Ototoxicity"],
     precautions: 'Use caution with underlying <span class="hl hl--warn">hypotension</span> — may worsen further. Correct severe <span class="hl hl--warn">electrolyte imbalances</span> before administering. Rapid infusion risks <span class="hl hl--danger">ototoxicity</span> (hearing loss). Monitor BP closely; hold if SBP 100–115.'
   }
+  ,{
+    id: "glucagon",
+    genericName: "Glucagon",
+    tradeName: "GlucaGen",
+    classes: ["Hormone", "Antihypoglycemic"],
+    moaBrief: 'Stimulates <span class="hl hl--beta">glycogenolysis</span> in the liver <span class="moa-arrow">→</span> rapid ↑ blood glucose. Also ↑ myocardial <span class="hl hl--beta">cAMP</span> <span class="moa-arrow">→</span> positive inotropic &amp; chronotropic effects <strong>bypassing the β-receptor</strong> (useful in CCB/BB overdose). Relaxes GI smooth muscle.',
+    indications: ["Hypoglycemia", "Insulin Overdose", "Esophageal Obstruction", "CCB / Beta-Blocker Overdose"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Pheochromocytoma" },
+      { text: "Insulinoma" },
+      { text: "Hyperglycemia", relative: true }
+    ],
+    doses: [
+      { population: "Adult — Hypoglycemia", amount: "1 mg IM/IN", notes: ["Repeat after 10–15 min if needed"] },
+      { population: "Adult — CCB/BB OD", amount: "3–10 mg IV", notes: ["Slow bolus + NS flush", "Maintenance: 3–5 mg/hr drip if needed"] },
+      { population: "Peds — Hypoglycemia", amount: "0.5–1 mg IM/IN", notes: ["Max total 1 mg", "Repeat after 10–15 min if needed"] },
+      { population: "Peds — CCB/BB OD", amount: "0.05–0.15 mg/kg IV", notes: ["Slow bolus + NS flush", "Maintenance: 0.05–0.10 mg/kg/hr if needed"] }
+    ],
+    onset: "3–15 min",
+    duration: "1–2 hrs",
+    adverseEffects: ["Dizziness", "Nausea / Vomiting", "Tachycardia", "Hypertension", "Rebound Hyperglycemia"],
+    precautions: 'Requires adequate <span class="hl hl--warn">hepatic glycogen stores</span> to work — may be ineffective in <strong>malnourished</strong> patients or those with <span class="hl hl--warn">adrenal insufficiency</span>. Give oral carbs as soon as patient can swallow to prevent rebound hypoglycemia.'
+  }
 ];
