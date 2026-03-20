@@ -18,7 +18,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Epinephrine — Drug Flashcard</title>
+<title>Etomidate — Drug Flashcard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -29,22 +29,18 @@
 
   <!-- HEADER -->
   <header class="card-header">
-    <h1 class="drug-name">Epinephrine</h1>
-    <span class="concentration-detail">1:1,000 · 1 mg/mL</span>
+    <h1 class="drug-name">Etomidate</h1>
+    <span class="concentration-detail">2 mg/mL</span>
     <div class="drug-class-row">
-      <span class="drug-class-pill">Sympathomimetic</span>
-      <span class="drug-class-pill">Catecholamine</span>
+      <span class="drug-class-pill">Anesthetic</span>
+      <span class="drug-class-pill">Sedative</span>
     </div>
   </header>
 
   <!-- MECHANISM OF ACTION -->
   <section class="section">
     <h2 class="section-label section-label--blue">Mechanism of Action</h2>
-    <div class="moa-grid">
-      <div class="moa-item"><span class="hl hl--alpha">α-1</span> <span class="moa-arrow">→</span> Vasoconstriction</div>
-      <div class="moa-item"><span class="hl hl--beta">β-1</span> <span class="moa-arrow">→</span> ↑ HR &amp; contractility</div>
-      <div class="moa-item"><span class="hl hl--beta">β-2</span> <span class="moa-arrow">→</span> Bronchodilation</div>
-    </div>
+    <p class="moa-brief">Enhances <span class="hl hl--beta">GABA-A</span> activity <span class="moa-arrow">→</span> neuronal inhibition <span class="moa-arrow">→</span> <strong>rapid sedation &amp; unconsciousness</strong></p>
   </section>
 
   <!-- INDICATIONS / CONTRAINDICATIONS -->
@@ -52,19 +48,15 @@
     <section class="section">
       <h2 class="section-label section-label--green">Indications</h2>
       <ul class="checklist">
-        <li>Anaphylaxis</li>
-        <li>Severe Allergic Reaction</li>
-        <li>Refractory Bronchospasm</li>
-        <li>Asthma (refractory)</li>
+        <li>Procedural Sedation</li>
+        <li>RSI Induction</li>
       </ul>
     </section>
     <section class="section">
       <h2 class="section-label section-label--red">Contraindications</h2>
       <ul class="checklist checklist--x">
         <li>Hypersensitivity</li>
-        <li>Hypovolemic Shock</li>
-        <li>Coronary insuff. <span class="tag">relative</span></li>
-        <li>Hypertension <span class="tag">relative</span></li>
+        <li>Labor &amp; Delivery</li>
       </ul>
     </section>
   </div>
@@ -75,25 +67,21 @@
     <div class="dose-cols">
       <div class="dose-col">
         <span class="dose-pop">Adult</span>
-        <span class="dose-amt">0.3–0.5 mg IM</span>
-        <span class="dose-note">Lateral thigh</span>
-        <span class="dose-note">Repeat every 5–15 min</span>
+        <span class="dose-amt">0.2–0.6 mg/kg IV/IO</span>
+        <span class="dose-note">Slow bolus + NS flush</span>
+        <span class="dose-note">Max 40 mg</span>
       </div>
       <div class="dose-col">
         <span class="dose-pop">Pediatric</span>
-        <span class="dose-amt">0.01 mg/kg IM</span>
-        <span class="dose-note">Max 0.3 mg</span>
-        <span class="dose-note">Lateral thigh</span>
+        <span class="dose-amt">0.1–0.4 mg/kg IV/IO</span>
+        <span class="dose-note">Slow bolus + NS flush</span>
+        <span class="dose-note">Max 20 mg</span>
       </div>
     </div>
-    <div class="dose-asthma">
-      <span class="dose-pop">Asthma</span>
-      <span class="dose-amt">0.3–0.5 mg SQ</span>
-    </div>
-    <div class="pharma-inline">
-      <span>Onset <strong>1–2 min</strong></span>
+    <div class="dose-asthma pharma-inline">
+      <span>Onset <strong>30–60 sec</strong></span>
       <span class="pharma-sep">·</span>
-      <span>Duration <strong>5–15 min</strong></span>
+      <span>Duration <strong>5–10 min</strong></span>
     </div>
   </section>
 
@@ -102,20 +90,19 @@
     <section class="section">
       <h2 class="section-label section-label--orange">Adverse Effects</h2>
       <ul class="pill-list">
-        <li>Tachycardia</li>
-        <li>Hypertension</li>
-        <li>Dysrhythmias</li>
-        <li>Anxiety / Tremor</li>
-        <li>Pallor / Headache</li>
-        <li>Angina</li>
+        <li>Apnea</li>
+        <li>Myoclonus</li>
+        <li>Nausea / Vomiting</li>
+        <li>Adrenal Suppression</li>
+        <li>Resp. Depression</li>
+        <li>BP Changes</li>
       </ul>
     </section>
     <section class="section">
       <h2 class="section-label section-label--orange">Precautions</h2>
-      <p class="precaution-text">Use caution in <strong>elderly</strong>, known <span class="hl hl--warn">cardiac disease</span>, <span class="hl hl--warn">HTN</span>, and <span class="hl hl--warn">diabetes</span>. May precipitate angina or MI in susceptible patients.</p>
+      <p class="precaution-text">Use caution in <strong>adrenal insufficiency</strong> — may ↓ cortisol. May cause transient <span class="hl hl--warn">hypotension</span> in unstable BP or <span class="hl hl--warn">cardiac</span> patients. Lower dose in <strong>elderly</strong>.</p>
     </section>
   </div>
-
 
   <!-- FOOTER -->
   <footer class="card-footer">
