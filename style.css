@@ -304,12 +304,18 @@ body {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin-bottom: 4px;
+  color: var(--white);
+  margin: -10px -14px 10px;
+  padding: 7px 14px;
+  border-radius: 7px 7px 0 0;
 }
-.section-label--blue   { color: var(--blue); }
-.section-label--green  { color: var(--green); }
-.section-label--red    { color: var(--red); }
-.section-label--orange { color: var(--orange); }
+.section--dose .section-label {
+  margin-top: -12px;
+}
+.section-label--blue   { background: var(--blue); }
+.section-label--green  { background: var(--green); }
+.section-label--red    { background: var(--red); }
+.section-label--orange { background: var(--orange); }
 
 /* ===== MOA GRID ===== */
 .moa-grid {
