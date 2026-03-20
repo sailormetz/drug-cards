@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Oswald:wght@600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1920px;
+    background: #111111;
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    overflow: hidden;
+  }
+
+  .card {
+    width: 1080px;
+    height: 1920px;
+    padding: 60px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  .ecg-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, transparent 0%, #2979ff 20%, #2979ff 80%, transparent 100%);
+    opacity: 1;
+  }
+  .ecg-line-bottom {
+    top: auto;
+    bottom: 0;
+  }
+
+  .drug-name {
+    font-size: 68px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .concentration-badge {
+    display: inline-block;
+    background: #2979ff;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 6px 24px;
+    border-radius: 30px;
+    text-align: center;
+    margin: 0 auto 8px;
+    text-transform: uppercase;
+  }
+
+  .badge-row {
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  .drug-class {
+    font-size: 24px;
+    color: #82b1ff;
+    text-align: center;
+    margin-bottom: 36px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    flex: 1;
+  }
+
+  .section {
+    background: #1e1e1e;
+    border-radius: 16px;
+    padding: 30px 28px;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .section-full {
+    grid-column: span 2;
+  }
+
+  .section-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #2979ff;
+    margin-bottom: 10px;
+  }
+
+  .section-text {
+    font-size: 24px;
+    line-height: 1.6;
+    color: #d8e4ff;
+  }
+
+  .section-text .highlight-green {
+    color: #64ffda;
+    font-weight: 600;
+  }
+
+  .section-text .highlight-yellow {
+    color: #ffca28;
+    font-weight: 600;
+  }
+
+  .section-text .highlight-red {
+    color: #ff5252;
+    font-weight: 600;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul li {
+    font-size: 24px;
+    line-height: 1.7;
+    color: #d8e4ff;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  ul li::before {
+    content: "•";
+    color: #2979ff;
+    position: absolute;
+    left: 0;
+  }
+
+  .dose-item {
+    font-size: 24px;
+    line-height: 1.8;
+    color: #d8e4ff;
+    margin-bottom: 4px;
+  }
+
+  .dose-item span {
+    color: #82b1ff;
+    font-weight: 700;
+  }
+
+  .dose-value {
+    color: #ffffff;
+    font-weight: 800;
+  }
+
+  .warning-box {
+    background: #1e1610;
+    border-left: 5px solid #ffab00;
+    border-radius: 0 12px 12px 0;
+    padding: 20px 24px;
+    grid-column: span 2;
+  }
+
+  .warning-box .section-label {
+    color: #ffab00;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.2);
+    text-transform: uppercase;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="ecg-line"></div>
+  <div class="ecg-line ecg-line-bottom"></div>
+
+  <div class="drug-name">Epinephrine</div>
+  <div class="badge-row">
+    <div class="concentration-badge">1:1,000 &nbsp;·&nbsp; 1 mg/mL</div>
+  </div>
+  <div class="drug-class">Sympathomimetic &nbsp;·&nbsp; Catecholamine</div>
+
+  <div class="grid">
+
+    <div class="section section-full">
+      <div class="section-label">Action</div>
+      <div class="section-text">
+        Alpha + Beta agonist. Causes <span class="highlight-green">vasoconstriction</span> (alpha-1), <span class="highlight-green">bronchodilation</span>, and increased <span class="highlight-green">HR/contractility</span> (beta-1/2). Reverses the life-threatening effects of anaphylaxis rapidly.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Indications</div>
+      <ul>
+        <li>Anaphylaxis</li>
+        <li>Severe Allergic Reaction</li>
+        <li>Refractory Bronchospasm</li>
+        <li>Asthma (refractory)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Contraindications</div>
+      <ul>
+        <li>Hypersensitivity</li>
+        <li>Hypovolemic Shock</li>
+        <li>Coronary insufficiency (relative)</li>
+        <li>Hypertension (relative)</li>
+      </ul>
+    </div>
+
+    <div class="section section-full">
+      <div class="section-label">Dose &amp; Route</div>
+      <div class="dose-item"><span>Adult:</span> <span class="dose-value">0.3–0.5 mg IM</span> (lateral thigh) — may repeat q5–15 min</div>
+      <div class="dose-item"><span>Peds:</span> <span class="dose-value">0.01 mg/kg IM</span> (max 0.3 mg) — lateral thigh</div>
+      <div class="dose-item"><span>Asthma (Adult):</span> <span class="dose-value">0.3–0.5 mg SQ</span></div>
+      <div style="margin-top:10px; font-size:20px; color:rgba(255,255,255,0.35);">Onset: <strong style="color:#d8e4ff;">1–2 min</strong> &nbsp;·&nbsp; Duration: <strong style="color:#d8e4ff;">5–15 min</strong></div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Adverse Effects</div>
+      <ul>
+        <li>Tachycardia</li>
+        <li>Hypertension</li>
+        <li>Dysrhythmias</li>
+        <li>Anxiety / Tremor</li>
+        <li>Pallor / Headache</li>
+        <li>Angina</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Precautions</div>
+      <div class="section-text">
+        Use caution in elderly, known <span class="highlight-yellow">cardiac disease</span>, <span class="highlight-yellow">HTN</span>, and <span class="highlight-yellow">diabetes</span>. May precipitate angina or MI in susceptible patients.
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <div class="section-label">⚠️ Critical Distinction</div>
+      <div class="section-text">
+        <span class="highlight-red">1:1,000 is IM/SQ only.</span> Never give this concentration IV — cardiac arrest protocol uses <span class="highlight-green">1:10,000 (0.1 mg/mL)</span>. Double-check your concentration every time.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">Always follow your local protocol &nbsp;·&nbsp; Rob the Paramedic</div>
+</div>
+</body>
+</html>

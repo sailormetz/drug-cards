@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1920px;
+    background: #0d1b3e;
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    overflow: hidden;
+  }
+
+  .card {
+    width: 1080px;
+    height: 1920px;
+    padding: 60px 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  /* ECG line top */
+  .ecg-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent 0%, #3a7bd5 20%, #3a7bd5 80%, transparent 100%);
+    opacity: 0.6;
+  }
+  .ecg-line-bottom {
+    top: auto;
+    bottom: 0;
+  }
+
+  .drug-name {
+    font-size: 72px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .drug-class {
+    font-size: 22px;
+    color: #7eb8f7;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    margin: 16px 0;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    flex: 1;
+  }
+
+  .section {
+    background: rgba(255,255,255,0.05);
+    border-radius: 16px;
+    padding: 24px 28px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .section-full {
+    grid-column: span 2;
+  }
+
+  .section-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #3a7bd5;
+    margin-bottom: 10px;
+  }
+
+  .section-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #e0e8ff;
+  }
+
+  .section-text strong {
+    color: #7eb8f7;
+  }
+
+  .section-text .highlight-green {
+    color: #5dde8f;
+    font-weight: 600;
+  }
+
+  .section-text .highlight-yellow {
+    color: #f5c842;
+    font-weight: 600;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul li {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #e0e8ff;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  ul li::before {
+    content: "•";
+    color: #3a7bd5;
+    position: absolute;
+    left: 0;
+  }
+
+  .dose-item {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #e0e8ff;
+    margin-bottom: 4px;
+  }
+
+  .dose-item span {
+    color: #5dde8f;
+    font-weight: 700;
+  }
+
+  .dose-value {
+    color: #f5c842;
+    font-weight: 700;
+  }
+
+  .pro-tip {
+    background: rgba(58, 123, 213, 0.15);
+    border-left: 4px solid #3a7bd5;
+    border-radius: 0 12px 12px 0;
+    padding: 20px 24px;
+    grid-column: span 2;
+  }
+
+  .pro-tip .section-label {
+    color: #7eb8f7;
+  }
+
+  .speech-bubble {
+    background: rgba(93, 222, 143, 0.12);
+    border: 2px solid rgba(93, 222, 143, 0.4);
+    border-radius: 16px;
+    padding: 20px 28px;
+    grid-column: span 2;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #e0e8ff;
+    font-style: italic;
+    text-align: center;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="ecg-line"></div>
+  <div class="ecg-line ecg-line-bottom"></div>
+
+  <div class="drug-name">Dobutamine</div>
+  <div class="drug-class">Inotropic Agent &nbsp;·&nbsp; Sympathomimetic</div>
+
+  <div class="grid">
+
+    <!-- Action - full width -->
+    <div class="section section-full">
+      <div class="section-label">Action</div>
+      <div class="section-text">
+        Stimulates beta-1 adrenergic receptors in the heart to increase <span class="highlight-green">contractility</span> and <span class="highlight-green">cardiac output</span>. Unlike other inotropic agents, it has minimal alpha-adrenergic activity — doesn't significantly cause peripheral vasoconstriction.
+      </div>
+    </div>
+
+    <!-- Indications -->
+    <div class="section">
+      <div class="section-label">Indications</div>
+      <ul>
+        <li>Cardiogenic Shock</li>
+        <li>Severe Hypotension</li>
+        <li>Decompensated Heart Failure</li>
+      </ul>
+    </div>
+
+    <!-- Contraindications -->
+    <div class="section">
+      <div class="section-label">Contraindications</div>
+      <ul>
+        <li>Hypersensitivity</li>
+        <li>Hypovolemic Shock</li>
+        <li>Acute MI</li>
+        <li>Drug-Induced Shock</li>
+        <li>IHSS</li>
+      </ul>
+    </div>
+
+    <!-- Dose & Route - full width -->
+    <div class="section section-full">
+      <div class="section-label">Dose &amp; Route</div>
+      <div class="dose-item"><span>Adults &amp; Peds:</span> <span class="dose-value">2–20 mcg/kg/min IV/IO</span> — drip diluted in NS/D5W, titrated to patient response.</div>
+      <div style="margin-top:10px; font-size:16px; color:rgba(255,255,255,0.5);">Onset: <strong style="color:#e0e8ff;">1–2 min</strong> &nbsp;·&nbsp; Duration: <strong style="color:#e0e8ff;">2–10 min</strong> after infusion stopped</div>
+    </div>
+
+    <!-- Adverse Effects -->
+    <div class="section">
+      <div class="section-label">Adverse Effects</div>
+      <ul>
+        <li>Headache</li>
+        <li>Nausea / Vomiting</li>
+        <li>Dyspnea</li>
+        <li>Tachycardia</li>
+        <li>Hyper / Hypotension</li>
+        <li>Palpitations</li>
+        <li>Arrhythmias</li>
+      </ul>
+    </div>
+
+    <!-- Precautions -->
+    <div class="section">
+      <div class="section-label">Precautions</div>
+      <div class="section-text">
+        Use extreme caution with <span class="highlight-yellow">myocardial ischemia</span> — Dobutamine increases O₂ demand. May cause or worsen <span class="highlight-yellow">hypotension</span> at higher doses. Monitor BP closely.
+      </div>
+    </div>
+
+    <!-- Pro Tip -->
+    <div class="pro-tip">
+      <div class="section-label">⚡ Pro Tip</div>
+      <div class="section-text">
+        Evaluate fluid status <em>before</em> administering. Correcting volume deficits optimizes effectiveness and minimizes complications.
+      </div>
+    </div>
+
+    <!-- Speech bubble -->
+    <div class="speech-bubble">
+      💬 Consider titrating your dose to maintain an HR increase no greater than <strong>10% of baseline</strong>.
+    </div>
+
+  </div>
+
+  <div class="footer">Please abide by your local protocol</div>
+</div>
+</body>
+</html>
