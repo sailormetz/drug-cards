@@ -312,10 +312,10 @@ body {
 .section--dose .section-label {
   margin-top: -12px;
 }
-.section-label--blue   { background: var(--blue); }
-.section-label--green  { background: var(--green); }
-.section-label--red    { background: var(--red); }
-.section-label--orange { background: var(--orange); }
+.section-label--blue   { background: #1e4f7a; }
+.section-label--green  { background: #1e5c2a; }
+.section-label--red    { background: #7a2320; }
+.section-label--orange { background: #6b4a10; }
 
 /* ===== MOA GRID ===== */
 .moa-grid {
