@@ -237,7 +237,7 @@ body {
 }
 
 .section-label {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -255,7 +255,7 @@ body {
   gap: 4px 10px;
 }
 .moa-item {
-  font-size: 10.5px;
+  font-size: 12px;
   color: var(--text);
   display: flex;
   align-items: center;
@@ -263,7 +263,7 @@ body {
 }
 .moa-item .hl {
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: 11px;
   min-width: 30px;
   text-align: center;
   display: inline-block;
@@ -274,7 +274,7 @@ body {
 }
 
 .moa-brief {
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.5;
   color: var(--text);
 }
@@ -308,7 +308,7 @@ body {
   gap: 6px;
 }
 .checklist li {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text);
   padding-left: 16px;
   position: relative;
@@ -367,7 +367,7 @@ body {
   padding-top: 6px;
 }
 .dose-pop {
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -375,12 +375,12 @@ body {
   margin-bottom: 2px;
 }
 .dose-amt {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--white);
 }
 .dose-note {
-  font-size: 10px;
+  font-size: 11px;
   color: var(--text-mut);
   line-height: 1.4;
 }
@@ -390,7 +390,7 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 10px;
+  font-size: 11px;
   color: var(--text-mut);
   border-top: 1px solid var(--border);
   margin-top: 6px;
@@ -398,7 +398,7 @@ body {
 }
 .pharma-inline strong {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   color: var(--text);
   font-weight: 600;
 }
@@ -414,7 +414,7 @@ body {
   gap: 5px;
 }
 .pill-list li {
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 500;
   color: var(--text);
   background: var(--surface-2);
@@ -426,7 +426,7 @@ body {
 
 /* ===== PRECAUTION TEXT ===== */
 .precaution-text {
-  font-size: 10.5px;
+  font-size: 12px;
   color: var(--text);
   line-height: 1.5;
 }
