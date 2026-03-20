@@ -46,4 +46,23 @@ const DRUGS = [
     adverseEffects: ["Apnea", "Myoclonus", "Nausea / Vomiting", "Adrenal Suppression", "Resp. Depression", "BP Changes"],
     precautions: 'Use caution in <strong>adrenal insufficiency</strong> — may ↓ cortisol. May cause transient <span class="hl hl--warn">hypotension</span> in unstable BP or <span class="hl hl--warn">cardiac</span> patients. Lower dose in <strong>elderly</strong>.'
   }
+  ,{
+    id: "famotidine",
+    genericName: "Famotidine",
+    tradeName: "Pepcid",
+    classes: ["Antihistamine", "H2 Blocker"],
+    moaBrief: 'Blocks <span class="hl hl--beta">H2 receptors</span> on gastric parietal cells <span class="moa-arrow">→</span> suppresses gastric acid secretion. Used to treat acid-related GI conditions.',
+    indications: ["Peptic Ulcers", "Gastroesophageal Reflux Disease (GERD)"],
+    contraindications: [
+      { text: "Hypersensitivity" }
+    ],
+    doses: [
+      { population: "Adult", amount: "20–40 mg IV", notes: ["Slow bolus + NS flush"] },
+      { population: "Pediatric", amount: "0.25–0.5 mg/kg IV", notes: ["Slow bolus + NS flush"] }
+    ],
+    onset: "10–30 min",
+    duration: "8–10 hrs",
+    adverseEffects: ["Dizziness", "Nausea / Vomiting", "Constipation", "Diarrhea", "Fatigue"],
+    precautions: 'Use caution in <span class="hl hl--warn">porphyria</span> — may exacerbate the condition. Primarily renally excreted; reduce dose in <span class="hl hl--warn">kidney disease</span>. Efficacy in <strong>pediatric patients</strong> not fully established — consult peds dosing guidelines.'
+  }
 ];
