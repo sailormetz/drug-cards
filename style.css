@@ -375,6 +375,7 @@ body {
   gap: 2px;
   flex: 1;
   padding-top: 1px;
+  text-align: right;
 }
 .dose-row--divider {
   border-top: 1px solid var(--border);
@@ -396,7 +397,6 @@ body {
 }
 .dose-note {
   font-size: 11px;
-  font-family: var(--font-mono);
   color: var(--text-mut);
   line-height: 1.4;
 }
