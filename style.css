@@ -304,7 +304,9 @@ body {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin-bottom: 4px;
+  margin: 0 -14px 10px;
+  padding: 0 14px 8px;
+  border-bottom: 1px solid var(--border);
 }
 .section-label--blue   { color: var(--blue); }
 .section-label--green  { color: var(--green); }
