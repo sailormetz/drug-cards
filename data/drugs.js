@@ -156,4 +156,27 @@ const DRUGS = [
     adverseEffects: ["Dizziness", "Nausea / Vomiting", "Tachycardia", "Hypertension", "Rebound Hyperglycemia"],
     precautions: 'Requires adequate <span class="hl hl--warn">hepatic glycogen stores</span> to work — may be ineffective in <strong>malnourished</strong> patients or those with <span class="hl hl--warn">adrenal insufficiency</span>. Give oral carbs as soon as patient can swallow to prevent rebound hypoglycemia.'
   }
+  ,{
+    id: "haloperidol",
+    genericName: "Haloperidol",
+    tradeName: "Haldol",
+    classes: ["Antipsychotic"],
+    moaBrief: 'Blocks <span class="hl hl--beta">dopamine D2 receptors</span> in the CNS <span class="moa-arrow">→</span> reduces dopaminergic activity <span class="moa-arrow">→</span> <strong>decreases psychotic symptoms, agitation, and hallucinations</strong>. Also affects serotonin and norepinephrine pathways.',
+    indications: ["Acute Psychosis", "Acute Agitation"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Prolonged QT Interval" },
+      { text: "CNS Depression / Coma" },
+      { text: "Parkinson's Disease" },
+      { text: "Dementia with Lewy Bodies" }
+    ],
+    doses: [
+      { population: "Adult", amount: "2–5 mg IV/IM", notes: ["NS flush if IV", "Repeat q45–60 min", "Max total 15 mg"] },
+      { population: "Pediatric", amount: "Not recommended in EMS", notes: [] }
+    ],
+    onset: "15–20 min",
+    duration: "6–12 hrs",
+    adverseEffects: ["Drowsiness", "Nausea / Vomiting", "Dystonia", "Hypotension", "Tachycardia", "QT Prolongation", "Seizures", "Neuroleptic Malignant Syndrome"],
+    precautions: 'If hypotension occurs, treat with <strong>fluids — not epinephrine</strong>. Haldol reverses epi\'s vasopressor effect and can worsen hypotension. <span class="hl hl--danger">IV route</span> carries significantly higher risk of QT prolongation and torsades de pointes. Use caution with <span class="hl hl--warn">alcohol use</span> and <span class="hl hl--warn">liver disease</span>. Lowers seizure threshold.'
+  }
 ];
