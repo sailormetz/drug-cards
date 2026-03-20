@@ -1,8 +1,8 @@
 const DRUGS = [
   {
     id: "epinephrine",
-    name: "Epinephrine",
-    classes: ["Sympathomimetic", "Catecholamine"],
+    name: "Epinephrine 1:1,000",
+    classes: ["Sympathomimetic", "Catecholamine", "Vasopressor"],
     moa: [
       { receptor: "α-1", effect: "Vasoconstriction", type: "alpha" },
       { receptor: "β-1", effect: "↑ HR & contractility", type: "beta" },
