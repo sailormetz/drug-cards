@@ -179,4 +179,29 @@ const DRUGS = [
     adverseEffects: ["Drowsiness", "Nausea / Vomiting", "Dystonia", "Hypotension", "Tachycardia", "QT Prolongation", "Seizures", "Neuroleptic Malignant Syndrome"],
     precautions: 'If hypotension occurs, treat with <strong>fluids — not epinephrine</strong>. Haldol reverses epi\'s vasopressor effect and can worsen hypotension. <span class="hl hl--danger">IV route</span> carries significantly higher risk of QT prolongation and torsades de pointes. Use caution with <span class="hl hl--warn">alcohol use</span> and <span class="hl hl--warn">liver disease</span>. Lowers seizure threshold.'
   }
+  ,{
+    id: "heparin",
+    genericName: "Heparin Sodium",
+    tradeName: "Heparin",
+    classes: ["Anticoagulant"],
+    moaBrief: 'Binds to and activates <span class="hl hl--beta">antithrombin III</span> <span class="moa-arrow">→</span> inhibits thrombin and Factor Xa <span class="moa-arrow">→</span> <strong>prevents new clot formation</strong>. Does NOT break down existing clots.',
+    indications: ["Acute STEMI", "ACS", "Deep Vein Thrombosis", "Pulmonary Embolism"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Active Bleeding" },
+      { text: "Severe Thrombocytopenia" },
+      { text: "Severe Hypertension", relative: true },
+      { text: "Active Anticoagulant Use (warfarin, DOACs)" },
+      { text: "Aortic Dissection" },
+      { text: "Recent Surgery (< 14 days)", relative: true }
+    ],
+    doses: [
+      { population: "Adult", amount: "70–80 units/kg IV/IO", notes: ["Max 4,000 units", "Maintenance: 10–20 units/kg/hr", "Max maintenance 1,000 units/hr"] },
+      { population: "Pediatric", amount: "Not recommended in EMS", notes: [] }
+    ],
+    onset: "Immediate",
+    duration: "4–8 hrs",
+    adverseEffects: ["Bruising", "GI Bleeding", "Hypotension", "Hyperkalemia", "Thrombocytopenia (HIT)", "Injection Site Pain"],
+    precautions: 'Use caution with <span class="hl hl--warn">head trauma</span> — risk of intracranial bleeding. <span class="hl hl--danger">Do not give for stroke</span> — cannot rule out hemorrhagic stroke in the field. <span class="hl hl--warn">Liver/kidney failure</span> alters metabolism and clearance. <strong>Reversal:</strong> Protamine sulfate 1 mg per 100 units heparin given.'
+  }
 ];
