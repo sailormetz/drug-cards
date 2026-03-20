@@ -1,0 +1,144 @@
+(function () {
+  var activeDrugId = DRUGS[0].id;
+
+  function renderCard(drug) {
+    var moaHTML;
+    if (drug.moa) {
+      var items = drug.moa.map(function (m) {
+        var hlClass = m.type === 'alpha' ? 'hl--alpha' : 'hl--beta';
+        return '<div class="moa-item"><span class="hl ' + hlClass + '">' + m.receptor + '</span><span class="moa-arrow">→</span>' + m.effect + '</div>';
+      }).join('');
+      moaHTML = '<div class="moa-grid">' + items + '</div>';
+    } else {
+      moaHTML = '<p class="moa-brief">' + drug.moaBrief + '</p>';
+    }
+
+    var indicationsHTML = drug.indications.map(function (i) {
+      return '<li>' + i + '</li>';
+    }).join('');
+
+    var contraindicationsHTML = drug.contraindications.map(function (c) {
+      return '<li>' + c.text + (c.relative ? ' <span class="tag">relative</span>' : '') + '</li>';
+    }).join('');
+
+    var mainDoses = drug.doses.slice(0, 2);
+    var extraDoses = drug.doses.slice(2);
+
+    var doseColsHTML = mainDoses.map(function (d) {
+      var notesHTML = (d.notes || []).map(function (n) {
+        return '<span class="dose-note">' + n + '</span>';
+      }).join('');
+      return '<div class="dose-col"><span class="dose-pop">' + d.population + '</span><span class="dose-amt">' + d.amount + '</span>' + notesHTML + '</div>';
+    }).join('');
+
+    var extraDosesHTML = extraDoses.map(function (d) {
+      var notesHTML = (d.notes || []).map(function (n) {
+        return '<span class="dose-note">' + n + '</span>';
+      }).join('');
+      return '<div class="dose-asthma"><span class="dose-pop">' + d.population + '</span><span class="dose-amt">' + d.amount + '</span>' + notesHTML + '</div>';
+    }).join('');
+
+    var adverseHTML = drug.adverseEffects.map(function (e) {
+      return '<li>' + e + '</li>';
+    }).join('');
+
+    var classesHTML = drug.classes.map(function (c) {
+      return '<span class="drug-class-pill">' + c + '</span>';
+    }).join('');
+
+    document.getElementById('card-container').innerHTML =
+      '<article class="card">' +
+        '<header class="card-header">' +
+          '<h1 class="drug-name">' + drug.name + '</h1>' +
+          '<span class="concentration-detail">' + drug.concentration + '</span>' +
+          '<div class="drug-class-row">' + classesHTML + '</div>' +
+        '</header>' +
+
+        '<section class="section">' +
+          '<h2 class="section-label section-label--blue">Mechanism of Action</h2>' +
+          moaHTML +
+        '</section>' +
+
+        '<div class="two-col">' +
+          '<section class="section">' +
+            '<h2 class="section-label section-label--green">Indications</h2>' +
+            '<ul class="checklist">' + indicationsHTML + '</ul>' +
+          '</section>' +
+          '<section class="section">' +
+            '<h2 class="section-label section-label--red">Contraindications</h2>' +
+            '<ul class="checklist checklist--x">' + contraindicationsHTML + '</ul>' +
+          '</section>' +
+        '</div>' +
+
+        '<section class="section section--dose">' +
+          '<h2 class="section-label section-label--blue">Dose &amp; Route</h2>' +
+          '<div class="dose-cols">' + doseColsHTML + '</div>' +
+          extraDosesHTML +
+          '<div class="pharma-inline">' +
+            '<span>Onset <strong>' + drug.onset + '</strong></span>' +
+            '<span class="pharma-sep">·</span>' +
+            '<span>Duration <strong>' + drug.duration + '</strong></span>' +
+          '</div>' +
+        '</section>' +
+
+        '<div class="two-col">' +
+          '<section class="section">' +
+            '<h2 class="section-label section-label--orange">Adverse Effects</h2>' +
+            '<ul class="pill-list">' + adverseHTML + '</ul>' +
+          '</section>' +
+          '<section class="section">' +
+            '<h2 class="section-label section-label--orange">Precautions</h2>' +
+            '<p class="precaution-text">' + drug.precautions + '</p>' +
+          '</section>' +
+        '</div>' +
+
+        '<footer class="card-footer">' +
+          '<p>Always follow your local protocol · For educational use only</p>' +
+        '</footer>' +
+      '</article>';
+  }
+
+  function buildList(query) {
+    var list = document.getElementById('drug-list');
+    var q = (query || '').toLowerCase();
+    var filtered = DRUGS.filter(function (d) {
+      return d.name.toLowerCase().indexOf(q) !== -1;
+    });
+    list.innerHTML = filtered.map(function (d) {
+      var active = d.id === activeDrugId ? ' picker-item--active' : '';
+      return '<li class="picker-item' + active + '" data-id="' + d.id + '">' + d.name + '</li>';
+    }).join('');
+  }
+
+  function init() {
+    var list = document.getElementById('drug-list');
+    var search = document.getElementById('drug-search');
+
+    list.addEventListener('click', function (e) {
+      var item = e.target.closest('.picker-item');
+      if (!item) return;
+      activeDrugId = item.dataset.id;
+      var drug = DRUGS.find(function (d) { return d.id === activeDrugId; });
+      renderCard(drug);
+      buildList(search.value);
+
+      // On mobile, scroll card into view
+      if (window.innerWidth < 768) {
+        document.getElementById('card-container').scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    search.addEventListener('input', function () {
+      buildList(search.value);
+    });
+
+    buildList('');
+    renderCard(DRUGS[0]);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
