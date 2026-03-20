@@ -21,21 +21,12 @@
       return '<li>' + c.text + (c.relative ? ' <span class="tag">relative</span>' : '') + '</li>';
     }).join('');
 
-    var mainDoses = drug.doses.slice(0, 2);
-    var extraDoses = drug.doses.slice(2);
-
-    var doseColsHTML = mainDoses.map(function (d) {
+    var doseRowsHTML = drug.doses.map(function (d, i) {
       var notesHTML = (d.notes || []).map(function (n) {
         return '<span class="dose-note">' + n + '</span>';
       }).join('');
-      return '<div class="dose-col"><span class="dose-pop">' + d.population + '</span><span class="dose-amt">' + d.amount + '</span>' + notesHTML + '</div>';
-    }).join('');
-
-    var extraDosesHTML = extraDoses.map(function (d) {
-      var notesHTML = (d.notes || []).map(function (n) {
-        return '<span class="dose-note">' + n + '</span>';
-      }).join('');
-      return '<div class="dose-asthma"><span class="dose-pop">' + d.population + '</span><span class="dose-amt">' + d.amount + '</span>' + notesHTML + '</div>';
+      var divider = i > 0 ? ' dose-row--divider' : '';
+      return '<div class="dose-row' + divider + '"><span class="dose-pop">' + d.population + '</span><span class="dose-amt">' + d.amount + '</span>' + notesHTML + '</div>';
     }).join('');
 
     var adverseHTML = drug.adverseEffects.map(function (e) {
@@ -72,8 +63,7 @@
 
         '<section class="section section--dose">' +
           '<h2 class="section-label section-label--blue">Dose &amp; Route</h2>' +
-          '<div class="dose-cols">' + doseColsHTML + '</div>' +
-          extraDosesHTML +
+          doseRowsHTML +
           '<div class="pharma-inline">' +
             '<span>Onset <strong>' + drug.onset + '</strong></span>' +
             '<span class="pharma-sep">·</span>' +

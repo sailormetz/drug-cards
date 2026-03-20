@@ -355,17 +355,16 @@ body {
   padding: 12px 14px;
 }
 
-/* ===== DOSE COLUMNS ===== */
-.dose-cols {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-bottom: 6px;
-}
-.dose-col {
+/* ===== DOSE ROWS ===== */
+.dose-row {
   display: flex;
   flex-direction: column;
   gap: 1px;
+  padding-bottom: 6px;
+}
+.dose-row--divider {
+  border-top: 1px solid var(--border);
+  padding-top: 6px;
 }
 .dose-pop {
   font-size: 9px;
@@ -385,14 +384,6 @@ body {
   color: var(--text-mut);
   line-height: 1.4;
 }
-.dose-asthma {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
-  padding-top: 6px;
-  border-top: 1px solid var(--border);
-}
 
 /* ===== PHARMA INLINE ===== */
 .pharma-inline {
@@ -401,6 +392,9 @@ body {
   gap: 8px;
   font-size: 10px;
   color: var(--text-mut);
+  border-top: 1px solid var(--border);
+  margin-top: 6px;
+  padding-top: 6px;
 }
 .pharma-inline strong {
   font-family: var(--font-mono);
