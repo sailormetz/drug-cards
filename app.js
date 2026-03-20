@@ -26,7 +26,10 @@
         return '<span class="dose-note">' + n + '</span>';
       }).join('');
       var divider = i > 0 ? ' dose-row--divider' : '';
-      return '<div class="dose-row' + divider + '"><span class="dose-pop">' + d.population + '</span><span class="dose-amt">' + d.amount + '</span>' + notesHTML + '</div>';
+      return '<div class="dose-row' + divider + '">' +
+        '<div class="dose-main"><span class="dose-pop">' + d.population + '</span><span class="dose-amt">' + d.amount + '</span></div>' +
+        (notesHTML ? '<div class="dose-notes">' + notesHTML + '</div>' : '') +
+      '</div>';
     }).join('');
 
     var adverseHTML = drug.adverseEffects.map(function (e) {

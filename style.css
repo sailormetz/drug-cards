@@ -358,9 +358,23 @@ body {
 /* ===== DOSE ROWS ===== */
 .dose-row {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 6px;
+}
+.dose-main {
+  display: flex;
   flex-direction: column;
   gap: 1px;
-  padding-bottom: 6px;
+  flex-shrink: 0;
+}
+.dose-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  padding-top: 1px;
 }
 .dose-row--divider {
   border-top: 1px solid var(--border);
@@ -377,10 +391,12 @@ body {
 .dose-amt {
   font-size: 13px;
   font-weight: 700;
+  font-family: var(--font-mono);
   color: var(--white);
 }
 .dose-note {
   font-size: 11px;
+  font-family: var(--font-mono);
   color: var(--text-mut);
   line-height: 1.4;
 }
