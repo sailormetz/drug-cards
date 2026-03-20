@@ -81,16 +81,15 @@
           '</div>' +
         '</section>' +
 
-        '<div class="two-col">' +
-          '<section class="section">' +
-            '<h2 class="section-label section-label--orange">Adverse Effects</h2>' +
-            '<ul class="pill-list">' + adverseHTML + '</ul>' +
-          '</section>' +
-          '<section class="section">' +
-            '<h2 class="section-label section-label--orange">Precautions</h2>' +
-            '<p class="precaution-text">' + drug.precautions + '</p>' +
-          '</section>' +
-        '</div>' +
+        '<section class="section">' +
+          '<h2 class="section-label section-label--orange">Adverse Effects</h2>' +
+          '<ul class="pill-list">' + adverseHTML + '</ul>' +
+        '</section>' +
+
+        '<section class="section">' +
+          '<h2 class="section-label section-label--orange">Precautions</h2>' +
+          '<p class="precaution-text">' + drug.precautions + '</p>' +
+        '</section>' +
 
         '<footer class="card-footer">' +
           '<p>Always follow your local protocol · For educational use only</p>' +
