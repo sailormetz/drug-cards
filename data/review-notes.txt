@@ -9,6 +9,10 @@ FAMOTIDINE (Card #56)
 - Likely correct: "20–40 mg IV" (mg/kg is the peds dosing pattern; standard adult IV famotidine is 20mg)
 - Action: Entered as "mg" in drugs.js — verify against protocol
 
+HYDRALAZINE (Apresoline)
+- "Headache" missing from adverse effects on card — added (one of the most commonly cited AEs).
+- Card otherwise accurate. Contraindications confirmed by multiple sources.
+
 HEPARIN SODIUM
 - ⚠️ Card lists "Ischemic Stroke" as an indication — REMOVED. Cannot rule out hemorrhagic stroke in prehospital setting; heparin in hemorrhagic stroke is catastrophic. Most EMS protocols explicitly exclude stroke patients. Verify with local protocol before adding back.
 - DVT and PE listed as prehospital indications — unusual; most systems start heparin for these in-hospital. Left in drugs.js but flagged.

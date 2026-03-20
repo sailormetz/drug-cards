@@ -204,4 +204,26 @@ const DRUGS = [
     adverseEffects: ["Bruising", "GI Bleeding", "Hypotension", "Hyperkalemia", "Thrombocytopenia (HIT)", "Injection Site Pain"],
     precautions: 'Use caution with <span class="hl hl--warn">head trauma</span> — risk of intracranial bleeding. <span class="hl hl--danger">Do not give for stroke</span> — cannot rule out hemorrhagic stroke in the field. <span class="hl hl--warn">Liver/kidney failure</span> alters metabolism and clearance. <strong>Reversal:</strong> Protamine sulfate 1 mg per 100 units heparin given.'
   }
+  ,{
+    id: "hydralazine",
+    genericName: "Hydralazine",
+    tradeName: "Apresoline",
+    classes: ["Vasodilator", "Antihypertensive"],
+    moaBrief: 'Directly relaxes <span class="hl hl--beta">arteriolar smooth muscle</span> <span class="moa-arrow">→</span> vasodilation of resistance vessels <span class="moa-arrow">→</span> ↓ SVR &amp; afterload <span class="moa-arrow">→</span> <strong>↓ blood pressure</strong>. Triggers compensatory reflex tachycardia via baroreceptors.',
+    indications: ["Severe Hypertension", "Acute Heart Failure"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Aortic Dissection" },
+      { text: "Acute MI" },
+      { text: "Coronary Artery Disease" }
+    ],
+    doses: [
+      { population: "Adult", amount: "10–20 mg IV/IM", notes: ["Slow bolus + NS flush if IV", "Repeat q20–30 min", "Max total 40 mg"] },
+      { population: "Pediatric", amount: "0.1–0.2 mg/kg IV/IM", notes: ["Slow bolus + NS flush if IV", "Repeat q20–30 min", "Max total 20 mg"] }
+    ],
+    onset: "5–20 min",
+    duration: "2–6 hrs",
+    adverseEffects: ["Dizziness", "Headache", "Flushing", "Nausea / Vomiting", "Hypotension", "Palpitations", "Reflex Tachycardia"],
+    precautions: 'Use caution with <span class="hl hl--warn">underlying tachycardia</span> — reflex tachycardia ↑ myocardial O₂ demand. Consider co-administering a <strong>beta-blocker</strong> to blunt reflex HR response. Interactions: MAOIs, NSAIDs, other antihypertensives may potentiate hypotension.'
+  }
 ];
