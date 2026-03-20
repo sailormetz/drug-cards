@@ -9,6 +9,10 @@ FAMOTIDINE (Card #56)
 - Likely correct: "20–40 mg IV" (mg/kg is the peds dosing pattern; standard adult IV famotidine is 20mg)
 - Action: Entered as "mg" in drugs.js — verify against protocol
 
+FLUMAZENIL (Card #?)
+- Card lists "Seizure-prone patients" as a contraindication — formally per FDA labeling this is a precaution/warning, not an absolute CI. Real absolute CIs: hypersensitivity, benzo used for life-threatening condition (ICP/status epilepticus), TCA overdose signs. Entered as written on card — verify against protocol.
+- "Seizures" was MISSING from adverse effects on the card — added to drugs.js since it's the primary safety concern (Box Warning per FDA). Confirm this should be included.
+
 FENTANYL (Card #57)
 - Card spells trade name "Sublimize" → corrected to "Sublimaze"
 - Card lists Hypotension and Arrhythmias as absolute contraindications

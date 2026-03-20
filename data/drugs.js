@@ -88,4 +88,26 @@ const DRUGS = [
     adverseEffects: ["Drowsiness", "Delirium", "Nausea / Vomiting", "Hypotension", "Bradycardia", "Respiratory Depression", "Chest Wall Rigidity"],
     precautions: 'Use caution in <span class="hl hl--warn">head injury</span> — may ↑ intracranial pressure. Use extreme caution with known <span class="hl hl--danger">opioid dependence</span>. <strong>Equianalgesic:</strong> 100 mcg fentanyl ≈ 10 mg morphine.'
   }
+  ,{
+    id: "flumazenil",
+    genericName: "Flumazenil",
+    tradeName: "Romazicon",
+    classes: ["Benzodiazepine Antagonist", "Antidote"],
+    moaBrief: 'Competitively binds <span class="hl hl--beta">benzodiazepine receptors</span> in the CNS <span class="moa-arrow">→</span> blocks benzo activity at the GABA receptor <span class="moa-arrow">→</span> <strong>reverses sedation, respiratory depression, and CNS depression</strong> caused by benzodiazepines',
+    indications: ["Benzodiazepine Overdose", "Reversal of Procedural Sedation"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Seizure-prone patients" },
+      { text: "TCA Overdose" },
+      { text: "Benzo used for ICP/status epilepticus" }
+    ],
+    doses: [
+      { population: "Adult", amount: "0.2–0.3 mg IV/IO", notes: ["Slow bolus + NS flush", "Repeat q1–2 min", "Max total 3 mg"] },
+      { population: "Pediatric", amount: "0.01–0.02 mg/kg IV/IO", notes: ["Max 0.2 mg/dose", "Repeat q1–2 min", "Max total 1 mg"] }
+    ],
+    onset: "1–3 min",
+    duration: "30–60 min",
+    adverseEffects: ["Dizziness", "Nausea / Vomiting", "Rebound Sedation", "Agitation", "Hyper/Hypotension", "Seizures"],
+    precautions: 'Use extreme caution with <span class="hl hl--danger">benzo dependence</span> — abrupt reversal can precipitate seizures and withdrawal. Avoid when <span class="hl hl--warn">CNS depression cause is unknown</span>. Short duration — monitor for <strong>resedation</strong> at 20–90 min.'
+  }
 ];
