@@ -110,4 +110,26 @@ const DRUGS = [
     adverseEffects: ["Dizziness", "Nausea / Vomiting", "Rebound Sedation", "Agitation", "Hyper/Hypotension", "Seizures"],
     precautions: 'Use extreme caution with <span class="hl hl--danger">benzo dependence</span> — abrupt reversal can precipitate seizures and withdrawal. Avoid when <span class="hl hl--warn">CNS depression cause is unknown</span>. Short duration — monitor for <strong>resedation</strong> at 20–90 min.'
   }
+  ,{
+    id: "furosemide",
+    genericName: "Furosemide",
+    tradeName: "Lasix",
+    classes: ["Loop Diuretic"],
+    moaBrief: 'Inhibits the <span class="hl hl--beta">Na-K-Cl cotransporter</span> in the ascending loop of Henle <span class="moa-arrow">→</span> blocks sodium, chloride &amp; water reabsorption <span class="moa-arrow">→</span> <strong>↓ fluid volume, ↓ preload, reduces edema</strong>',
+    indications: ["Pulmonary Edema", "Heart Failure"],
+    contraindications: [
+      { text: "Hypersensitivity / Sulfonamide allergy" },
+      { text: "Hypovolemia" },
+      { text: "Anuria" },
+      { text: "Hepatic Coma" }
+    ],
+    doses: [
+      { population: "Adult", amount: "0.5–1 mg/kg IV/IO", notes: ["Slow bolus + NS flush", "Repeat q15–30 min", "Max total 80 mg"] },
+      { population: "Pediatric", amount: "1 mg/kg IV/IO", notes: ["Slow bolus + NS flush", "Repeat q15–30 min", "Max total 6 mg/kg"] }
+    ],
+    onset: "5–10 min",
+    duration: "4–6 hrs",
+    adverseEffects: ["Dizziness", "Nausea / Vomiting", "Hypovolemia", "Hypotension", "Electrolyte Imbalances", "Hyperglycemia", "Dysrhythmias", "Ototoxicity"],
+    precautions: 'Use caution with underlying <span class="hl hl--warn">hypotension</span> — may worsen further. Correct severe <span class="hl hl--warn">electrolyte imbalances</span> before administering. Rapid infusion risks <span class="hl hl--danger">ototoxicity</span> (hearing loss). Monitor BP closely; hold if SBP 100–115.'
+  }
 ];
