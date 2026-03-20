@@ -102,9 +102,20 @@
     }).join('');
   }
 
+  function setToggleLabel(drug) {
+    var label = document.getElementById('picker-toggle-label');
+    if (label) label.textContent = drug.genericName;
+  }
+
   function init() {
     var list = document.getElementById('drug-list');
     var search = document.getElementById('drug-search');
+    var sidebar = document.getElementById('picker-sidebar');
+    var toggle = document.getElementById('picker-toggle');
+
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('picker-sidebar--open');
+    });
 
     list.addEventListener('click', function (e) {
       var item = e.target.closest('.picker-item');
@@ -113,6 +124,8 @@
       var drug = DRUGS.find(function (d) { return d.id === activeDrugId; });
       renderCard(drug);
       buildList(search.value);
+      setToggleLabel(drug);
+      sidebar.classList.remove('picker-sidebar--open');
 
       // On mobile, scroll card into view
       if (window.innerWidth < 768) {
@@ -126,6 +139,7 @@
 
     buildList('');
     renderCard(DRUGS[0]);
+    setToggleLabel(DRUGS[0]);
   }
 
   if (document.readyState === 'loading') {

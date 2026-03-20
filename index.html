@@ -27,11 +27,17 @@
 <body>
 
 <div class="app-layout">
-  <aside class="picker-sidebar">
-    <div class="picker-search-wrap">
-      <input class="picker-search" type="search" id="drug-search" placeholder="Search drugs..." autocomplete="off" spellcheck="false">
+  <aside class="picker-sidebar" id="picker-sidebar">
+    <button class="picker-toggle" id="picker-toggle">
+      <span id="picker-toggle-label">Select Drug</span>
+      <svg class="picker-chevron" viewBox="0 0 16 16" fill="currentColor"><path d="M4 6l4 4 4-4"/></svg>
+    </button>
+    <div class="picker-body" id="picker-body">
+      <div class="picker-search-wrap">
+        <input class="picker-search" type="search" id="drug-search" placeholder="Search drugs..." autocomplete="off" spellcheck="false">
+      </div>
+      <ul class="picker-list" id="drug-list"></ul>
     </div>
-    <ul class="picker-list" id="drug-list"></ul>
   </aside>
 
   <div id="card-container"></div>
