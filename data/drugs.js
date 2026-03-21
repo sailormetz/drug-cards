@@ -236,4 +236,32 @@ const DRUGS = [
     adverseEffects: ["Dizziness", "Headache", "Flushing", "Nausea / Vomiting", "Hypotension", "Palpitations", "Reflex Tachycardia"],
     precautions: 'Use caution with <span class="hl hl--warn">underlying tachycardia</span> — reflex tachycardia ↑ myocardial O₂ demand. Consider co-administering a <strong>beta-blocker</strong> to blunt reflex HR response. Interactions: MAOIs, NSAIDs, other antihypertensives may potentiate hypotension.'
   }
+  ,{
+    id: "dopamine",
+    summary: "A dose-dependent vasopressor and inotrope used for cardiogenic and distributive shock; beta effects dominate at moderate doses, alpha vasoconstriction takes over at high doses.",
+    genericName: "Dopamine",
+    tradeName: "Intropin",
+    classes: ["Vasopressor", "Inotropic Agent", "Sympathomimetic"],
+    moa: [
+      { receptor: "Low (2–5)", effect: "D1 vasodilation (renal, splanchnic)", type: "beta" },
+      { receptor: "Med (5–10)", effect: "β-1 ↑ contractility & CO", type: "beta" },
+      { receptor: "High (>10)", effect: "α-1 vasoconstriction ↑ BP", type: "alpha" }
+    ],
+    indications: ["Severe Hypotension", "Cardiogenic Shock", "Distributive Shock", "Symptomatic Bradycardia (refractory to atropine)"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Tachyarrhythmias" },
+      { text: "V-Fib" },
+      { text: "Pheochromocytoma" },
+      { text: "Uncorrected Hypovolemia", relative: true }
+    ],
+    doses: [
+      { population: "Adult", amount: "2–20 mcg/kg/min IV/IO", notes: ["Continuous drip in NS or D5W", "Titrate to patient response", "Start low, titrate slowly"] },
+      { population: "Pediatric", amount: "2–20 mcg/kg/min IV/IO", notes: ["Continuous drip in NS or D5W", "Titrate to patient response"] }
+    ],
+    onset: "1–3 min",
+    duration: "2–5 min after infusion stopped",
+    adverseEffects: ["Anxiety", "Dyspnea", "Nausea / Vomiting", "Hyper/Hypotension", "Palpitations", "Arrhythmias", "Tissue Necrosis (extravasation)", "Ischemia"],
+    precautions: '<strong>Incompatible with alkaline solutions</strong> (sodium bicarbonate). <span class="hl hl--danger">MAOI use:</span> reduce dose to 1/10 the normal starting dose — metabolism is blocked, causing severe HTN and arrhythmias. Use caution with <span class="hl hl--warn">ischemic heart disease</span> — increases myocardial O₂ demand. Correct hypovolemia before starting. Monitor IV site closely — extravasation causes tissue necrosis.'
+  }
 ];
