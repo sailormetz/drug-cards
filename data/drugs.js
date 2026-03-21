@@ -336,4 +336,71 @@ const DRUGS = [
     adverseEffects: ["Headache", "Nausea / Vomiting", "Dyspnea", "Tachycardia", "Hyper/Hypotension", "Palpitations", "Arrhythmias"],
     precautions: 'Use extreme caution with <span class="hl hl--warn">myocardial ischemia</span> — increases O₂ demand. May worsen hypotension at higher doses; monitor BP closely. <strong>Correct hypovolemia before starting.</strong> Do not mix with sodium bicarbonate. Contains sulfite preservative.'
   }
+  ,{
+    id: "dextrose",
+    summary: "Simple sugar given IV to rapidly reverse hypoglycemia; also used in altered mental status and seizures of unknown cause when low blood sugar can't be ruled out.",
+    genericName: "Dextrose",
+    tradeName: "D10W / D25W / D50W",
+    classes: ["Carbohydrate", "Hyperglycemic"],
+    moaBrief: 'Provides an immediate source of glucose <span class="moa-arrow">→</span> rapidly raises serum blood glucose <span class="moa-arrow">→</span> reverses CNS effects of hypoglycemia.',
+    indications: ["Hypoglycemia", "Altered Mental Status (unknown etiology)", "Seizures (unknown etiology)"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Intracranial Hemorrhage", relative: true }
+    ],
+    doses: [
+      { population: "Adult", amount: "12.5–25 g IV/IO", notes: ["25–50 mL of D50W or 125–250 mL of D10W", "Bolus or drip, titrate to response", "Check BGL before and 10 min after"] },
+      { population: "Pediatric", amount: "0.5–1 g/kg IV/IO", notes: ["2–4 mL/kg of D25W or 5–10 mL/kg of D10W", "Bolus or drip, titrate to response"] }
+    ],
+    onset: "30–60 sec",
+    duration: "15–90 min",
+    adverseEffects: ["Hyperglycemia", "Fluid Overload", "Electrolyte Imbalance", "Tissue Necrosis (extravasation)", "Cerebral Hemorrhage (worsening)"],
+    precautions: '<span class="hl hl--warn">Thiamine-deficient patients</span> (chronic alcoholism, malnutrition): administer Thiamine 100 mg IV <strong>before</strong> dextrose to prevent Wernicke\'s encephalopathy. Use a large, patent vein — extravasation causes severe tissue necrosis. Avoid in head injury or stroke unless hypoglycemia is confirmed.'
+  }
+  ,{
+    id: "dexamethasone",
+    summary: "A long-acting steroid that suppresses inflammation; used in anaphylaxis, severe asthma, croup, and cerebral edema — effects take hours to peak but last 1–3 days.",
+    genericName: "Dexamethasone",
+    tradeName: "Decadron",
+    classes: ["Corticosteroid", "Anti-inflammatory"],
+    moaBrief: 'Binds <span class="hl hl--beta">glucocorticoid receptors</span> <span class="moa-arrow">→</span> suppresses production of pro-inflammatory cytokines <span class="moa-arrow">→</span> reduces inflammation and immune response.',
+    indications: ["Anaphylaxis", "Asthma Exacerbation", "Croup", "Cerebral Edema"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Systemic Fungal Infection" },
+      { text: "GI Bleeding", relative: true },
+      { text: "Active Infection", relative: true }
+    ],
+    doses: [
+      { population: "Adult", amount: "5–10 mg IV/IM", notes: ["NS flush if IV"] },
+      { population: "Pediatric", amount: "0.6 mg/kg IV/IM", notes: ["Max 10 mg", "NS flush if IV"] }
+    ],
+    onset: "4–6 hrs (anti-inflammatory effect)",
+    duration: "24–72 hrs",
+    adverseEffects: ["Nausea / Vomiting", "Hyperglycemia", "Hypertension", "Behavioral Changes", "Fluid Retention", "Immunosuppression"],
+    precautions: 'Use caution in <span class="hl hl--warn">diabetes</span> (↑ BGL) and <span class="hl hl--warn">heart/renal failure</span> (fluid retention). Monitor BP and BGL. Single prehospital doses are generally well tolerated — most adverse effects are associated with prolonged use.'
+  }
+  ,{
+    id: "calcium-chloride",
+    summary: "An electrolyte used to stabilize the heart in hyperkalemia and counteract calcium channel blocker overdose; also a first-line agent in cardiac arrest from suspected electrolyte causes.",
+    genericName: "Calcium Chloride",
+    tradeName: "",
+    classes: ["Electrolyte", "Hypertonic Solution"],
+    moaBrief: 'Increases ionized calcium <span class="moa-arrow">→</span> stabilizes cardiac cell membranes, increases myocardial contractility and ventricular automaticity <span class="moa-arrow">→</span> counteracts effects of hyperkalemia, hypermagnesemia, and calcium channel blockade.',
+    indications: ["Hyperkalemia", "Hypocalcemia", "Hypermagnesemia", "Cardiac Arrest", "CCB / Beta Blocker Overdose"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Hypercalcemia" },
+      { text: "Digitalis Toxicity" },
+      { text: "V-Fib (unless from hyperkalemia)", relative: true }
+    ],
+    doses: [
+      { population: "Adult", amount: "0.5–1 g IV/IO (5–10 mL of 10% solution)", notes: ["Slow bolus + NS flush", "May repeat q5–10 min"] },
+      { population: "Pediatric", amount: "20 mg/kg IV/IO (0.2 mL/kg of 10% solution)", notes: ["Max 1 g", "Slow bolus + NS flush", "May repeat q5–10 min"] }
+    ],
+    onset: "1–3 min",
+    duration: "20–30 min",
+    adverseEffects: ["Nausea / Vomiting", "Bradycardia", "Hypotension", "Arrhythmias", "Tissue Necrosis (extravasation)"],
+    precautions: '<span class="hl hl--danger">Do not mix with sodium bicarbonate</span> — forms insoluble precipitate. Use separate IV lines or flush thoroughly between. Confirm IV patency before administration — extravasation causes severe tissue necrosis. Use extreme caution in patients on <span class="hl hl--warn">digoxin</span> — can precipitate fatal toxicity.'
+  }
 ];
