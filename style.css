@@ -130,7 +130,7 @@ body {
   padding: 8px 10px 8px 30px;
   color: var(--text);
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 16px;
   outline: none;
   -webkit-appearance: none;
 }
