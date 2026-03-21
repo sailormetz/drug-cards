@@ -5,11 +5,10 @@
     var moaHTML;
     if (drug.moaTiered) {
       var tiers = drug.moaTiered.map(function (t, i) {
-        var hlClass = t.type === 'alpha' ? 'hl--alpha' : 'hl--beta';
         var dividerClass = i > 0 ? ' moa-tier--divider' : '';
         return '<div class="moa-tier' + dividerClass + '">' +
           '<div class="moa-tier-header">' +
-            '<span class="moa-tier-label hl ' + hlClass + '">' + t.tier + '</span>' +
+            '<span class="moa-tier-label">' + t.tier + '</span>' +
             '<span class="moa-tier-range">' + t.range + '</span>' +
           '</div>' +
           '<p class="moa-tier-brief">' + t.brief + '</p>' +

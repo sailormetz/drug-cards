@@ -385,6 +385,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  color: var(--cyan);
 }
 .moa-tier-range {
   font-family: var(--font-mono);
