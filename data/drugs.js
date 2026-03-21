@@ -405,7 +405,7 @@ const DRUGS = [
   }
   ,{
     id: "aspirin",
-    summary: "A blood thinner given for suspected heart attacks — it stops platelets from clumping and clotting off the coronary arteries. One of the most impactful prehospital interventions for ACS.",
+    summary: "An antiplatelet drug that prevents platelets from clumping — used in suspected ACS and cardiac chest pain to reduce clot formation in the coronary arteries.",
     genericName: "Aspirin",
     tradeName: "Acetylsalicylic Acid (ASA)",
     classes: ["NSAID", "Antiplatelet"],
