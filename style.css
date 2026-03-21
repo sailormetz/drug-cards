@@ -376,7 +376,7 @@ body {
 .moa-tier-header {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   margin-bottom: 6px;
 }
 .moa-tier-label {
@@ -391,8 +391,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--text-mut);
-  margin-left: auto;
+  color: var(--orange);
 }
 .moa-tier-range {
   font-family: var(--font-mono);
