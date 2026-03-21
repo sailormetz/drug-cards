@@ -6,11 +6,13 @@
     if (drug.moaTiered) {
       var tiers = drug.moaTiered.map(function (t, i) {
         var dividerClass = i > 0 ? ' moa-tier--divider' : '';
+        var targetHTML = t.target ? '<div class="moa-tier-target">' + t.target + '</div>' : '';
         return '<div class="moa-tier' + dividerClass + '">' +
           '<div class="moa-tier-header">' +
             '<span class="moa-tier-label">' + t.tier + '</span>' +
             '<span class="moa-tier-range">' + t.range + '</span>' +
           '</div>' +
+          targetHTML +
           '<p class="moa-tier-brief">' + t.brief + '</p>' +
         '</div>';
       }).join('');
