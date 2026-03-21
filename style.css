@@ -362,6 +362,38 @@ body {
   color: var(--white);
 }
 
+/* ===== MOA TIERED ===== */
+.moa-tier {
+  padding-bottom: 8px;
+}
+.moa-tier--divider {
+  border-top: 1px solid var(--border);
+  padding-top: 8px;
+}
+.moa-tier-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+.moa-tier-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.moa-tier-range {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-mut);
+}
+.moa-tier-brief {
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
 /* ===== HIGHLIGHTS ===== */
 .hl {
   font-weight: 600;

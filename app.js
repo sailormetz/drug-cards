@@ -3,7 +3,20 @@
 
   function renderCard(drug) {
     var moaHTML;
-    if (drug.moa) {
+    if (drug.moaTiered) {
+      var tiers = drug.moaTiered.map(function (t, i) {
+        var hlClass = t.type === 'alpha' ? 'hl--alpha' : 'hl--beta';
+        var dividerClass = i > 0 ? ' moa-tier--divider' : '';
+        return '<div class="moa-tier' + dividerClass + '">' +
+          '<div class="moa-tier-header">' +
+            '<span class="moa-tier-label hl ' + hlClass + '">' + t.tier + '</span>' +
+            '<span class="moa-tier-range">' + t.range + '</span>' +
+          '</div>' +
+          '<p class="moa-tier-brief">' + t.brief + '</p>' +
+        '</div>';
+      }).join('');
+      moaHTML = tiers;
+    } else if (drug.moa) {
       var items = drug.moa.map(function (m) {
         var hlClass = m.type === 'alpha' ? 'hl--alpha' : 'hl--beta';
         return '<div class="moa-item"><span class="hl ' + hlClass + '">' + m.receptor + '</span><span class="moa-arrow">→</span>' + m.effect + '</div>';

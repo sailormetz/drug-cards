@@ -242,10 +242,10 @@ const DRUGS = [
     genericName: "Dopamine",
     tradeName: "Intropin",
     classes: ["Vasopressor", "Inotropic Agent", "Sympathomimetic"],
-    moa: [
-      { receptor: "Low (2–5)", effect: "D1 vasodilation (renal, splanchnic)", type: "beta" },
-      { receptor: "Med (5–10)", effect: "β-1 ↑ contractility & CO", type: "beta" },
-      { receptor: "High (>10)", effect: "α-1 vasoconstriction ↑ BP", type: "alpha" }
+    moaTiered: [
+      { tier: "Low", range: "2–5 mcg/kg/min",  type: "beta",  brief: "D1 receptor agonism → renal & splanchnic vasodilation" },
+      { tier: "Mod", range: "5–10 mcg/kg/min", type: "beta",  brief: "β-1 stimulation → ↑ contractility & cardiac output" },
+      { tier: "High", range: ">10 mcg/kg/min", type: "alpha", brief: "α-1 stimulation → vasoconstriction, ↑ SVR & BP" }
     ],
     indications: ["Severe Hypotension", "Cardiogenic Shock", "Distributive Shock", "Symptomatic Bradycardia (refractory to atropine)"],
     contraindications: [
