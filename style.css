@@ -392,15 +392,6 @@ body {
   font-size: 12px;
   color: var(--text);
 }
-.moa-tier-target {
-  font-family: var(--font-head);
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--white);
-  margin: 4px 0 2px;
-}
 .moa-tier-brief {
   font-size: 12px;
   color: var(--text);
