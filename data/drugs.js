@@ -476,4 +476,121 @@ const DRUGS = [
     adverseEffects: ["Dizziness", "Nausea / Vomiting", "Muscle Cramps", "Hypovolemia", "Hypokalemia", "Metabolic Alkalosis", "Hypotension", "Ototoxicity", "ECG Changes"],
     precautions: 'Use caution in patients with <span class="hl hl--warn">sulfonamide allergy</span> — cross-sensitivity possible. Unlike furosemide, <strong>no vasodilatory effect</strong> — consider this in CHF management. Monitor for hypokalemia, especially in patients on digoxin — low K⁺ potentiates digitalis toxicity. Ototoxicity risk increases with high doses, rapid IV push, or concurrent aminoglycosides.'
   }
+  ,{
+    id: "acetaminophen",
+    summary: "A non-opioid pain reliever and fever reducer; available IV for patients who can't take it orally — no anti-inflammatory effect, and overdose causes serious liver damage.",
+    genericName: "Acetaminophen",
+    tradeName: "Tylenol / Ofirmev",
+    classes: ["Analgesic", "Antipyretic"],
+    moaBrief: 'Inhibits <span class="hl hl--beta">prostaglandin synthesis</span> in the CNS <span class="moa-arrow">→</span> raises pain threshold and reduces fever. Unlike NSAIDs, has minimal peripheral anti-inflammatory effect.',
+    indications: ["Mild to Moderate Pain", "Fever"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Hepatic Failure" },
+      { text: "Severe Renal Impairment", relative: true }
+    ],
+    doses: [
+      { population: "Adult", amount: "650–1000 mg PO or 1000 mg IV over 15 min", notes: ["Max 4 g/day (healthy adults)", "Max 2 g/day in elderly, chronic alcohol use, or hepatic impairment"] },
+      { population: "Pediatric", amount: "15 mg/kg PO/IV", notes: ["Max 75 mg/kg/day", "IV over 15 min"] }
+    ],
+    onset: "PO 30–60 min | IV 5–10 min",
+    duration: "4–6 hrs",
+    adverseEffects: ["Nausea / Vomiting", "Hepatotoxicity (overdose)", "Rash", "Hypotension (IV)"],
+    precautions: 'Primary danger is <span class="hl hl--danger">overdose-induced hepatotoxicity</span> — often delayed 24–72 hrs. Chronic alcohol use, malnutrition, and hepatic disease significantly lower the toxic threshold. N-acetylcysteine (NAC) is the antidote. Safe at therapeutic doses; dangerous when stacked with other acetaminophen-containing products.'
+  }
+  ,{
+    id: "activated-charcoal",
+    summary: "A binding agent given after toxic ingestions to trap the poison in the gut before it absorbs — only works early (within ~1 hour) and only for drugs it can bind.",
+    genericName: "Activated Charcoal",
+    tradeName: "Actidose / CharcoAid",
+    classes: ["Antidote", "Adsorbent"],
+    moaBrief: 'Highly porous charcoal <span class="moa-arrow">→</span> adsorbs (binds) toxins and drugs in the GI tract <span class="moa-arrow">→</span> prevents absorption into bloodstream. Does NOT work for all substances (see precautions).',
+    indications: ["Toxic Ingestion (within ~1 hr of ingestion)"],
+    contraindications: [
+      { text: "Altered Mental Status / Unprotected Airway" },
+      { text: "Caustic Ingestion (acids, alkalis)" },
+      { text: "Hydrocarbon / Petroleum Ingestion" },
+      { text: "Hypersensitivity" }
+    ],
+    doses: [
+      { population: "Adult", amount: "50–100 g PO or via NGT", notes: ["Premixed slurry (25 g/120 mL)", "Give with sorbitol if available to reduce constipation"] },
+      { population: "Pediatric", amount: "1 g/kg PO or via NGT", notes: ["Max 50 g", "Premixed slurry preferred"] }
+    ],
+    onset: "Immediate (binds in GI tract)",
+    duration: "N/A",
+    adverseEffects: ["Vomiting", "Aspiration", "Constipation / Bowel Obstruction", "Black Stools"],
+    precautions: '<span class="hl hl--danger">Does NOT bind:</span> iron, lithium, potassium, ethanol, caustics, or hydrocarbons — charcoal is ineffective and dangerous for these. Most effective within <strong>1 hour of ingestion</strong>; benefit diminishes rapidly after. <span class="hl hl--danger">Aspiration risk is high</span> — never give to a patient with an unprotected airway or decreased LOC. Contact Poison Control before administration when possible.'
+  }
+  ,{
+    id: "adenosine",
+    summary: "The first-line drug for SVT — briefly stops the heart's electrical conduction to break a reentrant loop and restore normal rhythm. Short-acting, works in seconds.",
+    genericName: "Adenosine",
+    tradeName: "Adenocard",
+    classes: ["Antiarrhythmic"],
+    moaBrief: 'Activates <span class="hl hl--beta">A1 adenosine receptors</span> at SA and AV nodes <span class="moa-arrow">→</span> hyperpolarizes nodal cells, transiently blocks AV conduction <span class="moa-arrow">→</span> interrupts reentry circuit <span class="moa-arrow">→</span> restores sinus rhythm. Half-life &lt;10 seconds.',
+    indications: ["SVT (narrow complex, regular, stable)"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "2nd or 3rd Degree Heart Block (without pacemaker)" },
+      { text: "Sick Sinus Syndrome (without pacemaker)" },
+      { text: "WPW with Atrial Fibrillation" },
+      { text: "Bronchospasm / Asthma" },
+      { text: "Irregular or Polymorphic Wide-Complex Tachycardia" }
+    ],
+    doses: [
+      { population: "Adult", amount: "6 mg rapid IV/IO push + 20 mL NS flush", notes: ["If no conversion in 1–2 min → 12 mg rapid push", "May repeat 12 mg once more", "Use most proximal access available"] },
+      { population: "Pediatric", amount: "0.1 mg/kg rapid IV/IO push (max 6 mg)", notes: ["If no conversion → 0.2 mg/kg (max 12 mg)", "Rapid push + immediate flush"] },
+      { population: "Special — Heart transplant / dipyridamole / carbamazepine", amount: "3 mg starting dose", notes: [] }
+    ],
+    onset: "Immediate",
+    duration: "&lt;10 sec (metabolized in &lt;30 sec)",
+    adverseEffects: ["Transient Asystole", "Flushing", "Chest Pressure / Dyspnea", "Sense of Impending Doom", "Hypotension", "Bronchospasm", "New Arrhythmias"],
+    precautions: '<strong>Warn the patient</strong> before giving — transient chest pressure, flushing, and "doom" sensation are expected and last only seconds. <span class="hl hl--danger">Must be given as rapid bolus</span> — slow administration metabolizes before reaching the heart. Have defibrillator ready. <span class="hl hl--warn">Caffeine and theophylline</span> block adenosine receptors — higher doses may be needed. <span class="hl hl--warn">Dipyridamole</span> potentiates effect — use 3 mg dose.'
+  }
+  ,{
+    id: "albuterol",
+    summary: "A fast-acting bronchodilator that relaxes the airways — first-line for asthma, COPD exacerbations, and bronchospasm from anaphylaxis.",
+    genericName: "Albuterol Sulfate",
+    tradeName: "Proventil / Ventolin / ProAir",
+    classes: ["Bronchodilator", "Beta-2 Agonist", "Sympathomimetic"],
+    moaBrief: 'Stimulates <span class="hl hl--beta">β-2 adrenergic receptors</span> in bronchial smooth muscle <span class="moa-arrow">→</span> relaxation and bronchodilation. Minimal β-1 (cardiac) activity at standard doses.',
+    indications: ["Asthma", "COPD Exacerbation / Bronchospasm", "Anaphylaxis (bronchospasm component)"],
+    contraindications: [
+      { text: "Hypersensitivity" }
+    ],
+    doses: [
+      { population: "Adult", amount: "2.5 mg in 3 mL NS via nebulizer", notes: ["May repeat q20 min × 3 if needed", "Drive with 6 LPM O₂"] },
+      { population: "Pediatric (>10 kg)", amount: "2.5 mg in 3 mL NS via nebulizer", notes: ["May repeat q20 min × 3"] },
+      { population: "Pediatric (≤10 kg)", amount: "1.25 mg in 3 mL NS via nebulizer", notes: ["May repeat q20 min × 3"] }
+    ],
+    onset: "5–15 min",
+    duration: "3–6 hrs",
+    adverseEffects: ["Tachycardia", "Tremors", "Palpitations", "Anxiety / Nervousness", "Hypokalemia (repeat doses)", "Hypertension", "Paradoxical Bronchospasm (rare)"],
+    precautions: 'Use caution with <span class="hl hl--warn">tachycardia or known cardiac disease</span> — consult medical direction if HR >150. <strong>Not a substitute for epinephrine</strong> in severe anaphylaxis — epi is still first-line. Often combined with ipratropium (Atrovent) for COPD exacerbations. Paradoxical bronchospasm is rare but discontinue immediately if it occurs.'
+  }
+  ,{
+    id: "amiodarone",
+    summary: "A broad-spectrum antiarrhythmic for life-threatening rhythms — first-line for shock-refractory VF and pulseless VT in cardiac arrest, and for stable wide-complex tachycardia.",
+    genericName: "Amiodarone",
+    tradeName: "Cordarone / Pacerone",
+    classes: ["Antiarrhythmic (Class III)"],
+    moaBrief: 'Blocks <span class="hl hl--beta">K⁺ channels</span> (prolongs repolarization), <span class="hl hl--alpha">Na⁺ channels</span> (slows conduction), and <span class="hl hl--beta">Ca²⁺ channels</span> + <span class="hl hl--alpha">α/β-adrenergic receptors</span> <span class="moa-arrow">→</span> ↓ automaticity, ↓ AV conduction, stabilizes membranes <span class="moa-arrow">→</span> terminates reentrant and ectopic arrhythmias.',
+    indications: ["VF / Pulseless VT (shock-refractory)", "Stable Wide-Complex Tachycardia"],
+    contraindications: [
+      { text: "Hypersensitivity (includes iodine allergy)" },
+      { text: "2nd or 3rd Degree Heart Block (without pacemaker)" },
+      { text: "Sinus Bradycardia (without pacemaker)" },
+      { text: "WPW with Atrial Fibrillation" }
+    ],
+    doses: [
+      { population: "Adult — Cardiac Arrest (VF/pulseless VT)", amount: "300 mg IV/IO bolus", notes: ["After 3rd defibrillation", "May repeat 150 mg IV/IO once"] },
+      { population: "Adult — Stable Wide-Complex VT", amount: "150 mg IV over 10 min", notes: ["Mix 150 mg in 50 mL NS", "May repeat 150 mg once"] },
+      { population: "Pediatric — Cardiac Arrest", amount: "5 mg/kg IV/IO bolus (max 300 mg)", notes: ["May repeat × 2", "Max total 15 mg/kg"] },
+      { population: "Pediatric — Stable VT", amount: "5 mg/kg IV over 20 min", notes: ["Max 300 mg"] }
+    ],
+    onset: "&lt;30 min (IV antiarrhythmic effect)",
+    duration: "Variable (half-life 40–55 days with chronic use)",
+    adverseEffects: ["Hypotension", "Bradycardia", "QT Prolongation", "Torsades de Pointes", "AV Block", "Nausea / Vomiting"],
+    precautions: '<span class="hl hl--danger">No CIs in pulseless cardiac arrest</span> — benefits outweigh all risks. For stable VT, <strong>slow infusion</strong> if hypotension develops. Amiodarone + digoxin can double digoxin plasma levels — monitor carefully. Solution is viscous — do not shake; give through proximal IV.'
+  }
 ];
