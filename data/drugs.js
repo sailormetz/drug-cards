@@ -312,4 +312,28 @@ const DRUGS = [
     adverseEffects: ["Drowsiness", "Dystonia", "Akathisia", "Tachycardia", "Hypotension", "QT Prolongation", "CNS Depression", "Respiratory Depression", "Neuroleptic Malignant Syndrome (rare)"],
     precautions: '<span class="hl hl--danger">⚠ FDA BLACK BOX:</span> Fatal QT prolongation and torsade de pointes reported at or below recommended doses. Obtain <strong>12-lead ECG before administration</strong> and monitor 2–3 hrs after. Use caution with <span class="hl hl--warn">heart disease</span>, electrolyte imbalances (hypoK⁺, hypoMg²⁺), and <span class="hl hl--warn">seizure disorders</span> (lowers threshold). Treat extrapyramidal reactions with diphenhydramine.'
   }
+  ,{
+    id: "dobutamine",
+    summary: "A beta-1 selective inotrope that strengthens the heart's squeeze without major vasoconstriction; first-line for cardiogenic shock and decompensated heart failure.",
+    genericName: "Dobutamine",
+    tradeName: "Dobutrex",
+    classes: ["Inotropic Agent", "Sympathomimetic"],
+    moaBrief: 'Stimulates <span class="hl hl--beta">β-1 receptors</span> on the heart <span class="moa-arrow">→</span> ↑ contractility and cardiac output with minimal vasoconstriction. Some <span class="hl hl--beta">β-2</span> activity causes mild vasodilation, reducing afterload.',
+    indications: ["Cardiogenic Shock", "Decompensated Heart Failure", "Severe Hypotension"],
+    contraindications: [
+      { text: "Hypersensitivity (includes sulfite allergy)" },
+      { text: "Drug-Induced Shock" },
+      { text: "Hypovolemic Shock" },
+      { text: "Acute MI", relative: true },
+      { text: "Idiopathic Hypertrophic Subaortic Stenosis" }
+    ],
+    doses: [
+      { population: "Adult", amount: "2–20 mcg/kg/min IV/IO drip", notes: ["Dilute in NS or D5W", "Titrate to patient response", "Avoid HR increase >10% of baseline"] },
+      { population: "Pediatric", amount: "2–20 mcg/kg/min IV/IO drip", notes: ["Dilute in NS or D5W", "Titrate to patient response"] }
+    ],
+    onset: "1–2 min",
+    duration: "2–10 min after infusion stopped",
+    adverseEffects: ["Headache", "Nausea / Vomiting", "Dyspnea", "Tachycardia", "Hyper/Hypotension", "Palpitations", "Arrhythmias"],
+    precautions: 'Use extreme caution with <span class="hl hl--warn">myocardial ischemia</span> — increases O₂ demand. May worsen hypotension at higher doses; monitor BP closely. <strong>Correct hypovolemia before starting.</strong> Do not mix with sodium bicarbonate. Contains sulfite preservative.'
+  }
 ];
