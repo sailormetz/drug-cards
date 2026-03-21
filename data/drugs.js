@@ -264,4 +264,28 @@ const DRUGS = [
     adverseEffects: ["Anxiety", "Dyspnea", "Nausea / Vomiting", "Hyper/Hypotension", "Palpitations", "Arrhythmias", "Tissue Necrosis (extravasation)", "Ischemia"],
     precautions: '<strong>Incompatible with alkaline solutions</strong> (sodium bicarbonate). <span class="hl hl--danger">MAOI use:</span> reduce dose to 1/10 the normal starting dose — metabolism is blocked, causing severe HTN and arrhythmias. Use caution with <span class="hl hl--warn">ischemic heart disease</span> — increases myocardial O₂ demand. Correct hypovolemia before starting. Monitor IV site closely — extravasation causes tissue necrosis.'
   }
+  ,{
+    id: "hydromorphone",
+    summary: "A potent opioid analgesic (roughly 7–10x stronger than morphine) used for moderate to severe pain; faster onset and smaller doses needed compared to morphine.",
+    genericName: "Hydromorphone",
+    tradeName: "Dilaudid",
+    classes: ["Opioid Analgesic"],
+    moaBrief: 'Binds to <span class="hl hl--beta">μ-opioid receptors</span> in the CNS <span class="moa-arrow">→</span> inhibits pain signal transmission at spinal cord and brain level <span class="moa-arrow">→</span> <strong>potent analgesia, sedation, and respiratory depression</strong>. ~7–10x more potent than morphine by weight.',
+    indications: ["Moderate to Severe Pain"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Hypotension" },
+      { text: "GI Obstruction" },
+      { text: "CNS / Respiratory Depression" },
+      { text: "MAOI Use (within 14 days)" }
+    ],
+    doses: [
+      { population: "Adult", amount: "0.5–2 mg IV/IO/IM", notes: ["Slow bolus + NS flush if IV", "Repeat q10–15 min PRN"] },
+      { population: "Pediatric", amount: "0.01–0.02 mg/kg IV/IO/IM", notes: ["Slow bolus + NS flush if IV", "Max 0.5 mg/dose"] }
+    ],
+    onset: "5–15 min",
+    duration: "4–6 hrs",
+    adverseEffects: ["Drowsiness", "Nausea / Vomiting", "Pruritus", "Apnea", "Hypotension", "Respiratory Depression", "Chest Wall Rigidity", "Miosis"],
+    precautions: 'Use caution with <span class="hl hl--warn">head injury</span> — may ↑ intracranial pressure. Avoid or reduce dose in <span class="hl hl--warn">hepatic/renal impairment</span>. Use extreme caution with known <span class="hl hl--danger">opioid dependence</span>. <strong>Equianalgesic:</strong> 1.5 mg hydromorphone IV ≈ 10 mg morphine IV. Have naloxone immediately available.'
+  }
 ];

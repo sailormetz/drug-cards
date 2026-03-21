@@ -9,6 +9,11 @@ FAMOTIDINE (Card #56)
 - Likely correct: "20–40 mg IV" (mg/kg is the peds dosing pattern; standard adult IV famotidine is 20mg)
 - Action: Entered as "mg" in drugs.js — verify against protocol
 
+HYDROMORPHONE (Dilaudid)
+- ⚠️ CRITICAL: Card says peds dose is "0.2–1 mg/kg" — this is almost certainly a life-threatening typo. Multiple EMS references confirm peds hydromorphone is 0.01–0.02 mg/kg (max 0.5 mg/dose). 0.2–1 mg/kg would be a 10–100x overdose in a child. Corrected in drugs.js — MUST verify against authoritative source before publishing.
+- Duration: Card says 2–3 hrs. References (including FDA label, OKC EMS protocol) say 4–6 hrs for IV. Corrected in drugs.js.
+- "Overdose" removed from adverse effects — not a standard AE, it's a risk/precaution.
+
 HYDRALAZINE (Apresoline)
 - "Headache" missing from adverse effects on card — added (one of the most commonly cited AEs).
 - Card otherwise accurate. Contraindications confirmed by multiple sources.
