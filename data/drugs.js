@@ -243,9 +243,9 @@ const DRUGS = [
     tradeName: "Intropin",
     classes: ["Vasopressor", "Inotropic Agent", "Sympathomimetic"],
     moaTiered: [
-      { tier: "Low",  range: "2–5 mcg/kg/min",  brief: "D1 receptor agonism → renal & splanchnic vasodilation" },
-      { tier: "Mod",  range: "5–10 mcg/kg/min", brief: '<span class="hl hl--beta">β-1</span> stimulation → ↑ contractility & cardiac output' },
-      { tier: "High", range: ">10 mcg/kg/min",  brief: '<span class="hl hl--alpha">α-1</span> stimulation → vasoconstriction, ↑ SVR & BP' }
+      { tier: "Low",  range: "2–5 mcg/kg/min",  brief: '<strong>Renal</strong> — D1 receptors → vasodilation of renal and splanchnic (gut) vessels → increases kidney and intestinal blood flow' },
+      { tier: "Mod",  range: "5–10 mcg/kg/min", brief: '<strong>Cardiac</strong> — <span class="hl hl--beta">β-1</span> receptors → increases heart contractility and heart rate. Cardiac output rises.' },
+      { tier: "High", range: ">10 mcg/kg/min",  brief: '<strong>Vasopressor</strong> — <span class="hl hl--alpha">α-1</span> receptors → widespread vasoconstriction → SVR and blood pressure rise. Increased afterload — heart works harder against tighter vessels.' }
     ],
     indications: ["Severe Hypotension", "Cardiogenic Shock", "Distributive Shock", "Symptomatic Bradycardia (refractory to atropine)"],
     contraindications: [
