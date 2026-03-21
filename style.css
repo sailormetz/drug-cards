@@ -315,6 +315,9 @@ body {
   margin: 0 -14px 10px;
   padding: 0 14px 8px;
   border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .section-label--blue   { color: var(--blue); }
 .section-label--green  { color: var(--green); }
@@ -385,8 +388,8 @@ body {
 }
 .moa-tier-range {
   font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-mut);
+  font-size: 12px;
+  color: var(--text);
 }
 .moa-tier-brief {
   font-size: 12px;
@@ -460,6 +463,11 @@ body {
   vertical-align: middle;
   margin-left: 2px;
   line-height: 1.6;
+}
+.tag--blue {
+  color: var(--blue);
+  background: rgba(88, 166, 255, 0.1);
+  border-color: rgba(88, 166, 255, 0.25);
 }
 
 /* ===== DOSE SECTION ===== */

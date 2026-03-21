@@ -67,7 +67,7 @@
         '</section>' +
 
         '<section class="section">' +
-          '<h2 class="section-label section-label--blue">Mechanism of Action</h2>' +
+          '<h2 class="section-label section-label--blue">' + (drug.moaTiered ? 'Mechanism of Action<span class="tag tag--blue">Dose-Dependent</span>' : 'Mechanism of Action') + '</h2>' +
           moaHTML +
         '</section>' +
 
