@@ -403,4 +403,53 @@ const DRUGS = [
     adverseEffects: ["Nausea / Vomiting", "Bradycardia", "Hypotension", "Arrhythmias", "Tissue Necrosis (extravasation)"],
     precautions: '<span class="hl hl--danger">Do not mix with sodium bicarbonate</span> — forms insoluble precipitate. Use separate IV lines or flush thoroughly between. Confirm IV patency before administration — extravasation causes severe tissue necrosis. Use extreme caution in patients on <span class="hl hl--warn">digoxin</span> — can precipitate fatal toxicity.'
   }
+  ,{
+    id: "aspirin",
+    summary: "A blood thinner given for suspected heart attacks — it stops platelets from clumping and clotting off the coronary arteries. One of the most impactful prehospital interventions for ACS.",
+    genericName: "Aspirin",
+    tradeName: "Acetylsalicylic Acid (ASA)",
+    classes: ["NSAID", "Antiplatelet"],
+    moaBrief: 'Irreversibly inhibits <span class="hl hl--beta">cyclooxygenase (COX)</span> <span class="moa-arrow">→</span> blocks thromboxane A2 production <span class="moa-arrow">→</span> prevents platelet aggregation. Antiplatelet effect lasts the life of the platelet (~7–10 days).',
+    indications: ["Suspected MI / ACS", "Angina"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Hemorrhagic Stroke" },
+      { text: "Active GI Bleeding / Gastric Ulcer" },
+      { text: "Bleeding Disorders" }
+    ],
+    doses: [
+      { population: "Adult", amount: "162–324 mg PO", notes: ["Chew — do not swallow whole", "Non-enteric coated only", "Single dose for ACS"] },
+      { population: "Pediatric", amount: "Not recommended in EMS", notes: ["Risk of Reye syndrome"] }
+    ],
+    onset: "10–20 min",
+    duration: "Antiplatelet effect irreversible (~7–10 days)",
+    adverseEffects: ["Nausea / Vomiting", "GI Irritation / Bleeding", "Bronchospasm", "Reye Syndrome (peds)"],
+    precautions: 'Use caution in <span class="hl hl--warn">asthma/COPD</span> — may trigger bronchospasm (higher rate in asthmatics ~26%). Have patient <strong>chew</strong>, not swallow whole — faster absorption. If patient already took aspirin today, top up to 324 mg total. Aortic dissection or ripping/tearing chest pain → withhold aspirin.'
+  }
+  ,{
+    id: "atropine",
+    summary: "An anticholinergic that speeds up the heart by blocking the vagus nerve; first-line for symptomatic bradycardia and critical for reversing organophosphate/nerve agent poisoning.",
+    genericName: "Atropine Sulfate",
+    tradeName: "",
+    classes: ["Anticholinergic", "Vagolytic"],
+    moaBrief: 'Blocks <span class="hl hl--beta">muscarinic acetylcholine receptors</span> at the SA/AV node <span class="moa-arrow">→</span> removes parasympathetic brake on the heart <span class="moa-arrow">→</span> ↑ heart rate and AV conduction. Also dries secretions (organophosphate use).',
+    indications: ["Symptomatic Bradycardia", "Organophosphate / Nerve Agent Poisoning"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Tachycardia" },
+      { text: "2nd Degree Type II (Mobitz II) Block" },
+      { text: "3rd Degree Block (wide QRS)" },
+      { text: "Narrow-Angle Glaucoma", relative: true }
+    ],
+    doses: [
+      { population: "Adult — Bradycardia", amount: "1 mg IV/IO rapid push", notes: ["May repeat q3–5 min", "Max 3 mg total", "ET/SGA if no IV access"] },
+      { population: "Adult — Organophosphate", amount: "2–5 mg IV/IO/IM", notes: ["Repeat q5–10 min until secretions dry", "No max dose in severe poisoning"] },
+      { population: "Pediatric — Bradycardia", amount: "0.02–0.06 mg/kg IV/IO", notes: ["Max single dose 0.5 mg", "Max total 1 mg", "Repeat q3–5 min PRN"] },
+      { population: "Pediatric — Organophosphate", amount: "0.05 mg/kg IV/IO/IM", notes: ["Repeat q5–10 min until secretions dry"] }
+    ],
+    onset: "Immediate (IV)",
+    duration: "4–6 hrs",
+    adverseEffects: ["Tachycardia", "Paradoxical Bradycardia (if given too slowly)", "Dizziness", "Urinary Retention", "Dry Mouth", "Dilated Pupils", "Arrhythmias"],
+    precautions: 'Give as <strong>rapid IV push</strong> — slow administration or doses &lt;0.5 mg can cause <span class="hl hl--danger">paradoxical bradycardia</span>. Ineffective in <span class="hl hl--warn">heart transplant patients</span> (denervated heart — go straight to pacing). Effects enhanced by antihistamines and antidepressants. Use caution in <span class="hl hl--warn">myocardial ischemia</span> — increases O₂ demand.'
+  }
 ];
