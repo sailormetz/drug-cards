@@ -288,4 +288,28 @@ const DRUGS = [
     adverseEffects: ["Drowsiness", "Nausea / Vomiting", "Pruritus", "Apnea", "Hypotension", "Respiratory Depression", "Chest Wall Rigidity", "Miosis"],
     precautions: 'Use caution with <span class="hl hl--warn">head injury</span> — may ↑ intracranial pressure. Avoid or reduce dose in <span class="hl hl--warn">hepatic/renal impairment</span>. Use extreme caution with known <span class="hl hl--danger">opioid dependence</span>. <strong>Equianalgesic:</strong> 1.5 mg hydromorphone IV ≈ 10 mg morphine IV. Have naloxone immediately available.'
   }
+  ,{
+    id: "droperidol",
+    summary: "A powerful antipsychotic and antiemetic used to sedate agitated patients and stop nausea/vomiting; carries an FDA black box warning for fatal heart rhythm problems.",
+    genericName: "Droperidol",
+    tradeName: "Inapsine",
+    classes: ["Antipsychotic", "Antiemetic", "Butyrophenone"],
+    moaBrief: 'Blocks <span class="hl hl--beta">D2 dopamine receptors</span> in the CNS <span class="moa-arrow">→</span> sedation, reduced agitation, and antiemetic effect. Butyrophenone class (related to haloperidol).',
+    indications: ["Agitation / Acute Psychosis", "Nausea / Vomiting"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Prolonged QT Interval" },
+      { text: "Parkinson's Disease" },
+      { text: "CNS Depression" },
+      { text: "Pheochromocytoma" }
+    ],
+    doses: [
+      { population: "Adult", amount: "1.25–5 mg IV/IM", notes: ["Slow bolus + NS flush if IV", "May repeat q15–30 min", "Max 10 mg total"] },
+      { population: "Pediatric", amount: "Not recommended in EMS", notes: [] }
+    ],
+    onset: "3–10 min",
+    duration: "2–4 hrs",
+    adverseEffects: ["Drowsiness", "Dystonia", "Akathisia", "Tachycardia", "Hypotension", "QT Prolongation", "CNS Depression", "Respiratory Depression", "Neuroleptic Malignant Syndrome (rare)"],
+    precautions: '<span class="hl hl--danger">⚠ FDA BLACK BOX:</span> Fatal QT prolongation and torsade de pointes reported at or below recommended doses. Obtain <strong>12-lead ECG before administration</strong> and monitor 2–3 hrs after. Use caution with <span class="hl hl--warn">heart disease</span>, electrolyte imbalances (hypoK⁺, hypoMg²⁺), and <span class="hl hl--warn">seizure disorders</span> (lowers threshold). Treat extrapyramidal reactions with diphenhydramine.'
+  }
 ];
