@@ -1,5 +1,19 @@
 (function () {
   var activeDrugId = DRUGS[0].id;
+  var activeCategoryId = 'all';
+
+  var CATEGORIES = [
+    { id: 'all',          label: 'All',          classes: null },
+    { id: 'vasopressors', label: 'Vasopressors',  classes: ['Vasopressor', 'Inotropic Agent'] },
+    { id: 'opioids',      label: 'Opioids',       classes: ['Opioid Analgesic'] },
+    { id: 'cardiac',      label: 'Cardiac Meds',  classes: ['Antiarrhythmic', 'Antiarrhythmic (Class III)', 'Anticoagulant', 'Antiplatelet', 'Anticholinergic', 'Vagolytic', 'Vasodilator', 'Antihypertensive'] },
+    { id: 'respiratory',  label: 'Respiratory',   classes: ['Bronchodilator', 'Beta-2 Agonist', 'Corticosteroid', 'Anti-inflammatory'] },
+    { id: 'sedation',     label: 'Sedation',      classes: ['Anesthetic', 'Sedative', 'Antipsychotic', 'Butyrophenone'] },
+    { id: 'antidotes',    label: 'Antidotes',     classes: ['Antidote', 'Adsorbent', 'Benzodiazepine Antagonist'] },
+    { id: 'analgesics',   label: 'Pain Relief',   classes: ['Analgesic', 'Antipyretic', 'NSAID'] },
+    { id: 'diuretics',    label: 'Diuretics',     classes: ['Loop Diuretic'] },
+    { id: 'metabolic',    label: 'Metabolic',     classes: ['Carbohydrate', 'Hyperglycemic', 'Hormone', 'Antihypoglycemic', 'Electrolyte', 'Hypertonic Solution'] },
+  ];
 
   function renderCard(drug) {
     var moaHTML;
@@ -108,10 +122,23 @@
       '</article>';
   }
 
+  function buildFilters() {
+    var container = document.getElementById('filter-chips');
+    container.innerHTML = CATEGORIES.map(function (cat) {
+      var active = cat.id === activeCategoryId ? ' filter-chip--active' : '';
+      return '<button class="filter-chip' + active + '" data-cat="' + cat.id + '">' + cat.label + '</button>';
+    }).join('');
+  }
+
   function buildList(query) {
     var list = document.getElementById('drug-list');
     var q = (query || '').trim().toLowerCase();
+    var cat = CATEGORIES.find(function (c) { return c.id === activeCategoryId; });
     var filtered = DRUGS.filter(function (d) {
+      if (cat && cat.classes) {
+        var hasClass = cat.classes.some(function (cls) { return d.classes.indexOf(cls) !== -1; });
+        if (!hasClass) return false;
+      }
       return fuzzyMatch(q, d.genericName) || fuzzyMatch(q, d.tradeName);
     });
     list.innerHTML = filtered.map(function (d) {
@@ -178,6 +205,16 @@
       buildList(search.value);
     });
 
+    var filterChips = document.getElementById('filter-chips');
+    filterChips.addEventListener('click', function (e) {
+      var chip = e.target.closest('.filter-chip');
+      if (!chip) return;
+      activeCategoryId = chip.dataset.cat;
+      buildFilters();
+      buildList(search.value);
+    });
+
+    buildFilters();
     buildList('');
     renderCard(DRUGS[0]);
     setToggleLabel(DRUGS[0]);
