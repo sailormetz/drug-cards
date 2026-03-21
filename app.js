@@ -10,6 +10,7 @@
           '<div class="moa-tier-header">' +
             '<span class="moa-tier-label">' + t.tier + '</span>' +
             '<span class="moa-tier-range">' + t.range + '</span>' +
+            (t.label ? '<span class="moa-tier-category">' + t.label + '</span>' : '') +
           '</div>' +
           '<p class="moa-tier-brief">' + t.brief + '</p>' +
         '</div>';

@@ -380,12 +380,19 @@ body {
   margin-bottom: 6px;
 }
 .moa-tier-label {
-  font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--cyan);
+}
+.moa-tier-category {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-mut);
+  margin-left: auto;
 }
 .moa-tier-range {
   font-family: var(--font-mono);
@@ -396,9 +403,6 @@ body {
   font-size: 12px;
   color: var(--text);
   line-height: 1.5;
-}
-.moa-tier-brief strong {
-  color: #8b949e;
 }
 
 /* ===== HIGHLIGHTS ===== */
