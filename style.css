@@ -367,21 +367,21 @@ body {
 
 /* ===== MOA TIERED ===== */
 .moa-tier {
-  padding-bottom: 8px;
+  padding-bottom: 12px;
 }
 .moa-tier--divider {
   border-top: 1px solid var(--border);
-  padding-top: 8px;
+  padding-top: 12px;
 }
 .moa-tier-header {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 3px;
+  margin-bottom: 6px;
 }
 .moa-tier-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
