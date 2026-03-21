@@ -397,6 +397,9 @@ body {
   color: var(--text);
   line-height: 1.5;
 }
+.moa-tier-brief strong {
+  color: #8b949e;
+}
 
 /* ===== HIGHLIGHTS ===== */
 .hl {
