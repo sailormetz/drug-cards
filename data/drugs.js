@@ -452,4 +452,28 @@ const DRUGS = [
     adverseEffects: ["Tachycardia", "Paradoxical Bradycardia (if given too slowly)", "Dizziness", "Urinary Retention", "Dry Mouth", "Dilated Pupils", "Arrhythmias"],
     precautions: 'Give as <strong>rapid IV push</strong> — slow administration or doses &lt;0.5 mg can cause <span class="hl hl--danger">paradoxical bradycardia</span>. Ineffective in <span class="hl hl--warn">heart transplant patients</span> (denervated heart — go straight to pacing). Effects enhanced by antihistamines and antidepressants. Use caution in <span class="hl hl--warn">myocardial ischemia</span> — increases O₂ demand.'
   }
+  ,{
+    id: "bumetanide",
+    summary: "A loop diuretic (~40x more potent than furosemide) used to pull fluid off in pulmonary edema and CHF; doesn't have furosemide's vasodilatory effect.",
+    genericName: "Bumetanide",
+    tradeName: "Bumex",
+    classes: ["Loop Diuretic"],
+    moaBrief: 'Blocks Na⁺/K⁺/Cl⁻ reabsorption in the <span class="hl hl--beta">ascending loop of Henle</span> <span class="moa-arrow">→</span> ↑ urine output <span class="moa-arrow">→</span> reduces fluid volume and edema. ~40x more potent than furosemide by weight.',
+    indications: ["Pulmonary Edema", "Congestive Heart Failure"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Anuria" },
+      { text: "Hypovolemia" },
+      { text: "Hepatic Coma" },
+      { text: "Severe Electrolyte Imbalance" }
+    ],
+    doses: [
+      { population: "Adult", amount: "0.5–1 mg IV slow bolus", notes: ["NS flush after", "May repeat q2–3 hrs", "Max 10 mg/day"] },
+      { population: "Pediatric", amount: "Not recommended in EMS", notes: [] }
+    ],
+    onset: "3–8 min",
+    duration: "3–6 hrs",
+    adverseEffects: ["Dizziness", "Nausea / Vomiting", "Muscle Cramps", "Hypovolemia", "Hypokalemia", "Metabolic Alkalosis", "Hypotension", "Ototoxicity", "ECG Changes"],
+    precautions: 'Use caution in patients with <span class="hl hl--warn">sulfonamide allergy</span> — cross-sensitivity possible. Unlike furosemide, <strong>no vasodilatory effect</strong> — consider this in CHF management. Monitor for hypokalemia, especially in patients on digoxin — low K⁺ potentiates digitalis toxicity. Ototoxicity risk increases with high doses, rapid IV push, or concurrent aminoglycosides.'
+  }
 ];
