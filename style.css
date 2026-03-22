@@ -242,10 +242,12 @@ body {
 .card-nav {
   display: flex;
   gap: 8px;
-  width: 100%;
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 8px 10px 0;
+  padding: 6px 12px 8px;
+  border-top: 1px solid var(--border);
+}
+
+.picker-sidebar--open .card-nav {
+  display: none;
 }
 
 .card-nav-btn {
@@ -253,10 +255,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
-  background: var(--surface);
+  padding: 6px;
+  background: var(--surface-2);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 6px;
   color: var(--text-mut);
   cursor: pointer;
   transition: background 0.12s, color 0.12s;
@@ -341,8 +343,7 @@ body {
   }
 
   .card-nav {
-    padding: 16px 24px 0;
-    max-width: none;
+    display: none;
   }
 
   #card-container {
