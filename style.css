@@ -232,6 +232,46 @@ body {
   color: var(--text-faint);
 }
 
+/* ===== CARD AREA + NAV ===== */
+.card-area {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-nav {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 8px 10px 0;
+}
+
+.card-nav-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-mut);
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+
+.card-nav-btn:hover {
+  background: var(--border);
+  color: var(--text);
+}
+
+.card-nav-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
 /* ===== CARD CONTAINER ===== */
 #card-container {
   display: flex;
@@ -295,11 +335,21 @@ body {
     overflow-y: auto;
   }
 
+  .card-area {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .card-nav {
+    padding: 16px 24px 0;
+    max-width: none;
+  }
+
   #card-container {
     flex: 1;
     overflow-y: auto;
     align-items: flex-start;
-    padding: 24px;
+    padding: 16px 24px 24px;
   }
 }
 

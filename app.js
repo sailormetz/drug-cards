@@ -199,9 +199,18 @@
     if (label) label.textContent = drug.genericName;
   }
 
+  function navigateTo(drug) {
+    activeDrugId = drug.id;
+    renderCard(drug);
+    buildList(search.value);
+    setToggleLabel(drug);
+  }
+
+  var search;
+
   function init() {
     var list = document.getElementById('drug-list');
-    var search = document.getElementById('drug-search');
+    search = document.getElementById('drug-search');
     var sidebar = document.getElementById('picker-sidebar');
     var toggle = document.getElementById('picker-toggle');
 
@@ -243,6 +252,16 @@
       activeCategoryId = chip.dataset.cat;
       buildFilters();
       buildList(search.value);
+    });
+
+    document.getElementById('btn-prev').addEventListener('click', function () {
+      var idx = DRUGS.findIndex(function (d) { return d.id === activeDrugId; });
+      navigateTo(DRUGS[(idx - 1 + DRUGS.length) % DRUGS.length]);
+    });
+
+    document.getElementById('btn-next').addEventListener('click', function () {
+      var idx = DRUGS.findIndex(function (d) { return d.id === activeDrugId; });
+      navigateTo(DRUGS[(idx + 1) % DRUGS.length]);
     });
 
     buildFilters();
