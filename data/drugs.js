@@ -982,5 +982,133 @@ const DRUGS = [
     duration: "2–6 hrs",
     adverseEffects: ["Tachycardia", "Palpitations", "Hypertension", "Tremors", "Headache", "Anxiety", "Hypokalemia"],
     precautions: 'Theoretically fewer cardiac side effects than racemic albuterol (tachycardia, tremor), but <span class="hl hl--warn">clinical trials show mixed evidence</span> of meaningful real-world advantage — albuterol remains acceptable in most EMS settings. Consider levalbuterol when cardiac tachycardia is a significant concern. Monitor BGL in diabetic patients — beta-2 agonists stimulate glycogenolysis. Hypokalemia can develop with repeated doses — relevant in arrhythmia-prone patients.'
+  },
+  {
+    id: "lidocaine",
+    summary: "Class 1b antiarrhythmic — suppresses ventricular ectopy and raises the VF threshold. AHA-equivalent alternative to amiodarone for shock-refractory VF/pVT.",
+    genericName: "Lidocaine",
+    tradeName: "Xylocaine",
+    classes: ["Class 1b Antiarrhythmic", "Sodium Channel Blocker"],
+    moaBrief: 'Blocks <span class="hl hl--beta">fast sodium channels</span> in ventricular myocardium <span class="moa-arrow">→</span> suppresses phase 4 depolarization and decreases automaticity <span class="moa-arrow">→</span> <strong>raises VF threshold</strong> and suppresses PVCs and ventricular tachycardia.',
+    indications: ["Cardiac Arrest (V-Fib / Pulseless V-Tach)", "Ventricular Tachycardia with Pulse"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Bradycardia" },
+      { text: "Stokes-Adams Syndrome (idioventricular pacemaker)" },
+      { text: "2nd or 3rd Degree AV Block" },
+      { text: "Prophylactic Use in Acute MI (no benefit per current guidelines)" }
+    ],
+    doses: [
+      {
+        population: "Adult — Cardiac Arrest (V-Fib / pVT)",
+        amount: "1–1.5 mg/kg IV/IO",
+        notes: [
+          "May repeat at 0.5–0.75 mg/kg every 3–5 min (max total 3 mg/kg)",
+          "ET/SGA dose: 2–2.5× the IV dose, diluted in 10 mL NS",
+          "Maintenance drip: 1–4 mg/min IV after ROSC"
+        ]
+      },
+      {
+        population: "Adult — V-Tach with Pulse",
+        amount: "1–1.5 mg/kg IV/IO",
+        notes: [
+          "May repeat at 0.5–0.75 mg/kg every 3–5 min (max total 3 mg/kg)",
+          "Maintenance drip: 1–4 mg/min IV"
+        ]
+      },
+      {
+        population: "Pediatric",
+        amount: "1–1.5 mg/kg IV/IO (max 100 mg/dose)",
+        notes: [
+          "May repeat after 3–5 min (max total 3 mg/kg)",
+          "Maintenance drip: 20–50 mcg/kg/min IV"
+        ]
+      }
+    ],
+    onset: "1–3 min",
+    duration: "20–60 min",
+    adverseEffects: ["Drowsiness", "CNS Toxicity (tinnitus, perioral numbness, confusion)", "Seizures (toxicity)", "Hypotension", "Bradycardia", "Cardiac Arrest (overdose)"],
+    precautions: 'Per 2018/2023 AHA guidelines, amiodarone and lidocaine are <span class="hl hl--warn">equivalent alternatives</span> for shock-refractory VF/pVT — neither is formally preferred. 2023 in-hospital data showed lidocaine associated with higher ROSC and survival to discharge than amiodarone. Reduce dose by 50% in hepatic impairment or heart failure — hepatically metabolized and prone to accumulation. Watch for early CNS toxicity signs (tinnitus, perioral tingling) before seizures develop. <strong>ET/SGA dose is 2–2.5× the IV dose</strong> — card lists the same dose for all routes which understates the ET requirement.'
+  },
+  {
+    id: "lorazepam",
+    summary: "Intermediate-acting benzodiazepine — preferred over diazepam for seizures in many EMS systems due to longer anticonvulsant effect and more predictable IM absorption.",
+    genericName: "Lorazepam",
+    tradeName: "Ativan",
+    classes: ["Benzodiazepine", "Anticonvulsant", "Sedative"],
+    moaBrief: 'Binds to <span class="hl hl--beta">GABA-A receptors</span> in the CNS <span class="moa-arrow">→</span> enhances chloride channel opening and neuronal inhibition <span class="moa-arrow">→</span> <strong>raises seizure threshold</strong>, sedation, and anxiolysis.',
+    indications: ["Active Seizures / Status Epilepticus", "Agitation & Anxiety"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Significant Respiratory Depression" },
+      { text: "Suspected CNS Depressant Overdose (opioids, alcohol, other benzos) — additive respiratory depression risk", relative: true },
+      { text: "Hypotension", relative: true }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "2–4 mg IV/IM slow push",
+        notes: [
+          "Administer IV no faster than 2 mg/min",
+          "May repeat after 15–20 min (max total 8 mg)"
+        ]
+      },
+      {
+        population: "Pediatric",
+        amount: "0.05–0.1 mg/kg IV/IM (max 4 mg/dose)",
+        notes: [
+          "May repeat after 15–20 min (max total 4 mg)",
+          "Administer IV slowly"
+        ]
+      }
+    ],
+    onset: "2–5 min (IV); 15–30 min (IM)",
+    duration: "6–8 hrs (sedation); 1–2 hrs (anticonvulsant)",
+    adverseEffects: ["Respiratory Depression", "CNS Depression", "Hypotension", "Drowsiness", "Bradycardia", "Nausea & Vomiting"],
+    precautions: 'Monitor closely for <span class="hl hl--danger">respiratory depression</span> — have airway management immediately available; risk increases with repeat doses or combined with opioids, alcohol, or other CNS depressants. Administer IV <strong>no faster than 2 mg/min</strong>. Lorazepam is more potent mg-for-mg than diazepam — smaller doses achieve equivalent effect. Caution in hepatic impairment and pregnancy (crosses the placenta). Most EMS systems favor midazolam IM as first-line for active seizures.'
+  },
+  {
+    id: "magnesium-sulfate",
+    summary: "Electrolyte and smooth muscle relaxant — cornerstone drug for TdP, eclampsia seizures, and refractory status asthmaticus.",
+    genericName: "Magnesium Sulfate",
+    tradeName: "MgSO₄",
+    classes: ["Electrolyte", "Anticonvulsant", "Antiarrhythmic", "Bronchodilator"],
+    moaBrief: 'Acts as a physiological <span class="hl hl--beta">calcium antagonist</span> — blocks calcium entry into smooth muscle and neural cells <span class="moa-arrow">→</span> smooth muscle relaxation, membrane stabilization <span class="moa-arrow">→</span> <strong>suppresses seizures, TdP, and bronchospasm</strong>.',
+    indications: ["Torsades de Pointes (TdP)", "Seizures of Eclampsia / Preeclampsia", "Status Asthmaticus (refractory to initial treatment)", "Hypomagnesemia"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "2nd or 3rd Degree AV Block / Heart Block" },
+      { text: "Cardiogenic Shock / Hypotension" },
+      { text: "Myasthenia Gravis" }
+    ],
+    doses: [
+      {
+        population: "Adult — Torsades de Pointes (with pulse)",
+        amount: "1–2 g IV over 5–20 min",
+        notes: ["Pulseless TdP: 1–2 g IV slow push over 1–2 min"]
+      },
+      {
+        population: "Adult — Eclampsia Seizures",
+        amount: "4–6 g IV over 2–15 min",
+        notes: [
+          "Preeclampsia (prophylaxis): 4 g IV over 20 min",
+          "If seizures recur: may repeat 2 g IV"
+        ]
+      },
+      {
+        population: "Adult — Status Asthmaticus",
+        amount: "2 g IV over 10–20 min",
+        notes: ["Use only when refractory to albuterol + ipratropium"]
+      },
+      {
+        population: "Pediatric",
+        amount: "25–50 mg/kg IV/IO over 10–20 min (max 2 g)",
+        notes: ["Pulseless TdP: push over 1–2 min", "Dilute in NS or D5W"]
+      }
+    ],
+    onset: "1–2 min",
+    duration: "30–45 min",
+    adverseEffects: ["Hypotension", "Bradycardia", "Transient AV Block", "Respiratory Depression", "Loss of Deep Tendon Reflexes", "Drowsiness", "Flushing / Diaphoresis"],
+    precautions: '<span class="hl hl--warn">Loss of deep tendon reflexes (DTR) is the earliest sign of toxicity</span> — precedes respiratory depression. Check patellar reflex before each dose; if absent, hold drug and notify medical direction. <span class="hl hl--danger">Respiratory paralysis and cardiac arrest can occur at toxic levels.</span> Reversal: <strong>calcium chloride 1 g IV</strong>. Caution in myasthenia gravis — magnesium exacerbates neuromuscular blockade. Rapid IV push reserved for pulseless TdP only — all other indications require infusion over 10+ minutes.'
   }
 ];

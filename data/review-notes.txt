@@ -2,6 +2,23 @@ DRUG CARD REVIEW NOTES
 ======================
 Discrepancies flagged during data entry. Review before publishing.
 
+MAGNESIUM SULFATE
+- ➕ Dose broken out by indication — card's flat "1–4 g" is inadequate; TdP (1–2 g), eclampsia (4–6 g), and asthma (2 g) are very different
+- ➕ Removed "Myocardial Damage" as CI — vague, not standard; replaced with Cardiogenic Shock/Hypotension and Myasthenia Gravis
+- ➕ Added DTR monitoring as key toxicity warning — loss of reflexes precedes respiratory depression
+- ➕ Added IV rate guidance per indication
+
+LORAZEPAM (Ativan)
+- ⚠️ "Suspected Drug Use" CI revised — dangerously vague; lorazepam is appropriate for stimulant agitation. Corrected to "Suspected CNS Depressant Overdose" as relative CI
+- ➕ Added route-dependent onset: IV 2–5 min vs IM 15–30 min
+- ➕ Added IV rate limit (no faster than 2 mg/min) — missing from card
+
+LIDOCAINE (Xylocaine)
+- ➕ Dose split by indication: cardiac arrest vs VT with pulse
+- ➕ ET/SGA dose note added — 2–2.5× the IV dose; card listed identical dose for all routes which understates ET requirement
+- ➕ Added CNS toxicity (tinnitus, perioral numbness) to adverse effects — early warning signs before seizures
+- ➕ Noted 2018/2023 AHA equivalence with amiodarone and 2023 in-hospital data context
+
 LEVALBUTEROL (Xopenex)
 - ➕ Removed "lowers seizure threshold" from precautions — not well-supported at standard EMS dosing
 - ➕ Clarified cardiac advantage claim: theoretical, clinical trials show mixed evidence — card's "drug of choice over albuterol for cardiac concerns" is overstated
