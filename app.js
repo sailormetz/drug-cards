@@ -182,7 +182,12 @@
     var toggle = document.getElementById('picker-toggle');
 
     toggle.addEventListener('click', function () {
-      sidebar.classList.toggle('picker-sidebar--open');
+      var isOpen = sidebar.classList.toggle('picker-sidebar--open');
+      if (!isOpen) {
+        activeCategoryId = 'all';
+        buildFilters();
+        buildList(search.value);
+      }
     });
 
     list.addEventListener('click', function (e) {
