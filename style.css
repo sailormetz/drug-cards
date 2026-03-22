@@ -148,17 +148,18 @@ body {
 
 /* ===== FILTER CHIPS ===== */
 .filter-chips {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 6px;
   padding: 10px 12px;
   border-bottom: 1px solid var(--border);
 }
 
 .filter-chip {
-  padding: 6px 13px;
+  padding: 6px 4px;
   border-radius: 14px;
-  font-size: 12px;
+  font-size: 11px;
+  text-align: center;
   font-weight: 500;
   color: var(--text-mut);
   background: transparent;
@@ -168,7 +169,6 @@ body {
   white-space: nowrap;
   font-family: var(--font-body);
   transition: background 0.12s, color 0.12s, border-color 0.12s;
-  flex-shrink: 0;
 }
 
 .filter-chip:hover {
