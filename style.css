@@ -62,7 +62,7 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 13px 16px;
+  padding: 17px 16px;
   background: var(--surface-2);
   border: none;
   border-bottom: 1px solid var(--border);
@@ -94,8 +94,10 @@ body {
 }
 
 .picker-body {
-  display: none;
+  overflow: hidden;
+  max-height: 0;
   border-top: 1px solid var(--border);
+  transition: max-height 0.18s ease;
 }
 
 .picker-sidebar--open {
@@ -110,6 +112,7 @@ body {
   display: flex;
   flex-direction: column;
   height: calc(100dvh - 48px);
+  max-height: calc(100dvh - 48px);
   overflow: hidden;
 }
 
@@ -282,6 +285,8 @@ body {
     flex: 1;
     overflow: hidden;
     border-top: none;
+    max-height: none;
+    transition: none;
   }
 
   .picker-list {
