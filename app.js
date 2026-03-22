@@ -53,8 +53,15 @@
         return '<span class="dose-note">' + n + '</span>';
       }).join('');
       var divider = i > 0 ? ' dose-row--divider' : '';
+      var indicationHTML = d.indication
+        ? '<span class="dose-ind">' + d.indication + '</span>'
+        : '';
       return '<div class="dose-row' + divider + '">' +
-        '<div class="dose-main"><span class="dose-pop">' + d.population + '</span><span class="dose-amt">' + d.amount + '</span></div>' +
+        '<div class="dose-main">' +
+          '<span class="dose-pop">' + d.population + '</span>' +
+          indicationHTML +
+          '<span class="dose-amt">' + d.amount + '</span>' +
+        '</div>' +
         (notesHTML ? '<div class="dose-notes">' + notesHTML + '</div>' : '') +
       '</div>';
     }).join('');
