@@ -2,6 +2,25 @@ DRUG CARD REVIEW NOTES
 ======================
 Discrepancies flagged during data entry. Review before publishing.
 
+LEVALBUTEROL (Xopenex)
+- ➕ Removed "lowers seizure threshold" from precautions — not well-supported at standard EMS dosing
+- ➕ Clarified cardiac advantage claim: theoretical, clinical trials show mixed evidence — card's "drug of choice over albuterol for cardiac concerns" is overstated
+
+LACTATED RINGER'S
+- ➕ Added blood product incompatibility as explicit CI — calcium in LR causes clotting in IV tubing; critical safety point missing from card
+- ➕ Added hyperkalemia as relative CI — LR contains 4 mEq/L K+
+- ➕ Added permissive hypotension guidance for penetrating trauma
+- ➕ Removed "Lactate Metabolism" as adverse effect — not an adverse effect, it's a mechanism
+- ➕ Contextualized Metabolic Alkalosis as rare/large-volume only
+
+LABETALOL (Trandate)
+- ⚠️ Class corrected: "Beta-Blocker" → "Alpha-1 and Beta Blocker (Non-selective)" — alpha-1 blockade is what causes vasodilation; calling it only a beta-blocker is clinically misleading
+- ⚠️ MOA corrected — card omitted alpha-1 blockade and vasodilation mechanism entirely
+- ⚠️ Maintenance drip corrected: 2–5 mg/min → 0.5–2 mg/min (card's range too high per StatPearls and standard references)
+- ⚠️ "Hyperglycemia" removed from adverse effects — incorrect; beta-blockers MASK hypoglycemia, not cause hyperglycemia. Replaced with Orthostatic Hypotension (real effect from alpha-1 blockade)
+- ➕ Added preeclampsia/eclampsia and aortic dissection as indications — major EMS use cases omitted from card
+- ➕ Added orthostatic hypotension precaution — keep patient supine due to alpha-1 vasodilation
+
 KETOROLAC (Toradol)
 - ✅ Dosing accurate
 - ➕ Split elderly (≥65) into separate dose entry at 15 mg max — card mentioned it only in a note

@@ -876,5 +876,111 @@ const DRUGS = [
     duration: "4–6 hrs",
     adverseEffects: ["GI Bleeding / Irritation", "Nausea & Vomiting", "Drowsiness", "Hypertension", "Dyspnea", "Allergic Reaction", "Renal Toxicity"],
     precautions: 'Excellent choice for patients with <span class="hl hl--beta">substance use history or opioid addiction</span> — potent analgesia without addiction risk or respiratory depression. Separate elderly dosing (15 mg max) — higher risk of GI bleeding and renal damage; elderly patients should never receive the full adult dose. Caution in renal impairment — NSAIDs reduce renal blood flow. Avoid in aspirin-sensitive asthma — may trigger severe bronchospasm. Caution in hypertension and cardiovascular disease — may increase CV event risk.'
+  },
+  {
+    id: "labetalol",
+    summary: "Non-selective alpha-1 and beta blocker — lowers BP without reflex tachycardia. Go-to for hypertensive emergencies including preeclampsia and aortic dissection.",
+    genericName: "Labetalol",
+    tradeName: "Trandate",
+    classes: ["Alpha-1 and Beta Blocker (Non-selective)", "Antihypertensive"],
+    moaBrief: 'Blocks <span class="hl hl--alpha">alpha-1 receptors</span> (vasodilation) and <span class="hl hl--beta">beta-1/beta-2 receptors</span> (↓ HR and contractility) <span class="moa-arrow">→</span> reduces peripheral vascular resistance and cardiac output <span class="moa-arrow">→</span> <strong>lowers BP without reflex tachycardia</strong>.',
+    indications: ["Moderate to Severe Hypertension", "Hypertensive Emergency in Pregnancy (Preeclampsia / Eclampsia)", "Hypertensive Emergency with Stroke or Aortic Dissection (with medical direction)"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Hypotension" },
+      { text: "Bradycardia" },
+      { text: "Cardiogenic Shock" },
+      { text: "Severe Asthma or COPD (beta-2 blockade causes bronchospasm)" },
+      { text: "2nd or 3rd Degree AV Block" },
+      { text: "Decompensated Heart Failure", relative: true }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "10–20 mg IV slow push over 2 min",
+        notes: [
+          "May repeat after 10–15 min at 40–80 mg IV",
+          "Maintenance drip: 0.5–2 mg/min IV if needed, titrated to response",
+          "Max total: 300 mg"
+        ]
+      },
+      {
+        population: "Pediatric",
+        amount: "Not recommended in EMS setting",
+        notes: []
+      }
+    ],
+    onset: "2–5 min",
+    duration: "3–6 hrs",
+    adverseEffects: ["Hypotension", "Orthostatic Hypotension", "Bradycardia", "Bronchospasm", "Headache", "Drowsiness", "Nausea & Vomiting", "Dyspnea"],
+    precautions: 'Keep patient <span class="hl hl--warn">supine during and after administration</span> — alpha-1 blockade causes significant orthostatic hypotension; have IV fluids and vasopressors immediately available. <strong>Masks hypoglycemia symptoms</strong> (tachycardia, tremor) in diabetic patients — monitor BGL. Caution in hepatic impairment — extensively liver-metabolized. Beta-blocker overdose reversal: <strong>glucagon 50 mcg/kg IV</strong> loading dose, then 1–15 mg/hr infusion. Most EMS systems require medical direction approval before administration.'
+  },
+  {
+    id: "lactated-ringers",
+    summary: "Balanced isotonic crystalloid — preferred over NS in trauma, burns, and sepsis due to more physiologic electrolyte composition.",
+    genericName: "Lactated Ringer's Solution",
+    tradeName: "LR / Hartmann's Solution",
+    classes: ["Isotonic Crystalloid", "Intravenous Fluid"],
+    moaBrief: 'Balanced electrolyte solution with osmolarity close to plasma <span class="moa-arrow">→</span> expands intravascular volume <span class="moa-arrow">→</span> <strong>improves organ perfusion and blood pressure</strong>. Lactate metabolized by the liver to bicarbonate <span class="moa-arrow">→</span> mild buffering of metabolic acidosis.',
+    indications: ["Hypovolemia / Fluid Resuscitation", "Dehydration", "Burns"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Do NOT run with blood products — calcium content causes clotting in the IV line (use NS for blood administration)" },
+      { text: "Significant Hyperkalemia — LR contains potassium (4 mEq/L)", relative: true }
+    ],
+    doses: [
+      {
+        population: "Adult — Fluid Resuscitation",
+        amount: "1–2 L IV/IO open infusion",
+        notes: ["Titrate to HR, BP, and mental status", "In penetrating trauma — target permissive hypotension (SBP ~80–90 mmHg); avoid aggressive resuscitation"]
+      },
+      {
+        population: "Adult — Maintenance",
+        amount: "100–150 mL/hr IV",
+        notes: ["Titrate to response"]
+      },
+      {
+        population: "Pediatric — Fluid Resuscitation",
+        amount: "20 mL/kg IV/IO",
+        notes: ["May repeat as needed, titrated to response"]
+      },
+      {
+        population: "Pediatric — Maintenance",
+        amount: "40–70 mL/hr IV",
+        notes: ["Titrate to response"]
+      }
+    ],
+    onset: "Immediate",
+    duration: "Variable",
+    adverseEffects: ["Fluid Overload / Pulmonary Edema", "Electrolyte Imbalance", "Dilutional Coagulopathy (large volumes)", "Metabolic Alkalosis (rare, large volumes)"],
+    precautions: 'Preferred over NS in <span class="hl hl--beta">trauma, burns, and sepsis</span> — more balanced electrolytes reduce hyperchloremic metabolic acidosis seen with large-volume NS. <span class="hl hl--danger">Never run with blood products</span> — LR\'s calcium causes clotting in IV tubing; prime blood lines with NS. Caution in heart failure and renal failure — risk of fluid overload. Caution in liver failure — impaired lactate clearance. In penetrating trauma, avoid aggressive resuscitation — dilutes clotting factors before hemorrhage is surgically controlled.'
+  },
+  {
+    id: "levalbuterol",
+    summary: "R-enantiomer of albuterol — same bronchodilator action with theoretically fewer cardiac side effects, though real-world clinical advantage over albuterol is debated.",
+    genericName: "Levalbuterol",
+    tradeName: "Xopenex",
+    classes: ["Beta-2 Agonist", "Bronchodilator", "Sympathomimetic"],
+    moaBrief: 'Selectively binds <span class="hl hl--beta">beta-2 adrenergic receptors</span> in bronchial smooth muscle <span class="moa-arrow">→</span> ↑ cAMP via adenylyl cyclase <span class="moa-arrow">→</span> <strong>smooth muscle relaxation and bronchodilation</strong>. As the pure R-enantiomer of albuterol, avoids the S-enantiomer linked to some adverse cardiac effects.',
+    indications: ["Asthma Exacerbation", "COPD Exacerbation", "Acute Bronchospasm"],
+    contraindications: [
+      { text: "Hypersensitivity" }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "0.63–1.25 mg nebulized",
+        notes: ["May repeat after 15–20 min (max 3 doses)", "Often combined with ipratropium and oxygen therapy"]
+      },
+      {
+        population: "Pediatric",
+        amount: "0.31–0.63 mg nebulized",
+        notes: ["May repeat after 15–20 min (max 3 doses)"]
+      }
+    ],
+    onset: "5–15 min",
+    duration: "2–6 hrs",
+    adverseEffects: ["Tachycardia", "Palpitations", "Hypertension", "Tremors", "Headache", "Anxiety", "Hypokalemia"],
+    precautions: 'Theoretically fewer cardiac side effects than racemic albuterol (tachycardia, tremor), but <span class="hl hl--warn">clinical trials show mixed evidence</span> of meaningful real-world advantage — albuterol remains acceptable in most EMS settings. Consider levalbuterol when cardiac tachycardia is a significant concern. Monitor BGL in diabetic patients — beta-2 agonists stimulate glycogenolysis. Hypokalemia can develop with repeated doses — relevant in arrhythmia-prone patients.'
   }
 ];
