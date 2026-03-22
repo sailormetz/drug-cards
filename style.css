@@ -100,6 +100,9 @@ body {
 
 .picker-sidebar--open .picker-body {
   display: block;
+  max-height: calc(67dvh - 48px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .picker-search-wrap {
@@ -146,23 +149,16 @@ body {
 /* ===== FILTER CHIPS ===== */
 .filter-chips {
   display: flex;
-  flex-wrap: nowrap;
-  gap: 5px;
-  padding: 8px 12px;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 12px;
   border-bottom: 1px solid var(--border);
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.filter-chips::-webkit-scrollbar {
-  display: none;
 }
 
 .filter-chip {
-  padding: 3px 10px;
-  border-radius: 12px;
-  font-size: 11px;
+  padding: 6px 13px;
+  border-radius: 14px;
+  font-size: 12px;
   font-weight: 500;
   color: var(--text-mut);
   background: transparent;
