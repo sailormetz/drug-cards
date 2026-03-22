@@ -13,7 +13,9 @@ A static HTML/CSS paramedic pharmacology study guide — no build step, no depen
 
 ## Card design
 
-Cards are sized exactly for iPhone 14 Pro (390×844 px) with CSS scroll-snap (`scroll-snap-type: y mandatory`). Each card must fit within that fixed height — content that overflows is clipped (`overflow: hidden`). When adding new drug cards, copy an existing `<main class="card">...</main>` block and adjust content to fit within the 844px constraint.
+Cards are currently sized with iPhone 14 Pro (390×844 px) as the primary reference, using CSS scroll-snap (`scroll-snap-type: y mandatory`). Content that overflows is clipped (`overflow: hidden`). When adding new drug cards, copy an existing `<main class="card">...</main>` block and adjust content to fit within the 844px constraint.
+
+**Future goal:** The layout should eventually be fully responsive and fit all device screen sizes, not just iPhone 14 Pro. Avoid hardcoding dimensions that would prevent adaptation to other viewports.
 
 ## CSS conventions
 
