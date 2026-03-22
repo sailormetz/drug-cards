@@ -107,8 +107,14 @@ body {
 }
 
 .picker-sidebar--open .picker-body {
-  display: block;
+  display: flex;
+  flex-direction: column;
   height: calc(100dvh - 48px);
+  overflow: hidden;
+}
+
+.picker-sidebar--open .picker-list {
+  flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
