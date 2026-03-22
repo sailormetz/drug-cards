@@ -24,10 +24,17 @@ Full reference for `data/drugs.js` entries.
   ],
   doses: [
     {
-      population: "Adult",        // WHO: "Adult", "Pediatric", "Elderly (≥65 yrs)", "Adult (<65 yrs)", "Pediatric (>10 kg)", etc.
+      population: "Adult",        // WHO: "Adult", "Pediatric", "Elderly (≥65 yrs)", etc.
       indication: "Seizures",     // WHAT FOR: optional — only when dose varies by use case
-      amount: "",                 // DOSE + ROUTE only — no titration guidance, no repeat intervals
-      notes: []                   // Titration, repeat intervals, max doses, special instructions go here
+      routes: [                   // Array of route-specific dosing
+        {
+          via: ["IV", "IO"],      // Array of route enums (see Route Enums below)
+          amount: "5 mg",         // Number + unit ONLY — no admin instructions
+          frequency: "May repeat every 5 min (max 10 mg total)",  // Repeat + max in one string (optional)
+          notes: ["Slow push"]    // Route-specific admin notes
+        }
+      ],
+      notes: []                   // General notes for this population/indication combo
     }
   ],
   onset: "",
@@ -37,9 +44,12 @@ Full reference for `data/drugs.js` entries.
 }
 ```
 
-## Dose Field Rules
+## Dose Structure: `doses` → `routes` → `via`
 
-### `population` — WHO gets this dose
+### `doses` — top-level array
+Each object = one population + optional indication combo.
+
+### `doses[].population` — WHO gets this dose
 Only the age/weight group. Keep it clean.
 
 Valid values:
@@ -50,36 +60,54 @@ Valid values:
 - `"Pediatric (>10 kg)"` / `"Pediatric (≤10 kg)"` — weight-split peds
 - `"Neonatal"` — if needed
 
-### `indication` — WHAT FOR (optional)
+### `doses[].indication` — WHAT FOR (optional)
 Only present when the drug has different doses for different conditions.
 
-Examples:
-- `"Seizures"`, `"Procedural Sedation / Agitation"` (midazolam)
-- `"Cardiac Arrest (VF / pulseless VT)"`, `"Stable Wide-Complex VT"` (amiodarone)
-- `"Bradycardia"`, `"Organophosphate / Nerve Agent"` (atropine)
-- `"Hypoglycemia"`, `"CCB/BB Overdose"` (glucagon)
-- `"Torsades de Pointes (with pulse)"`, `"Eclampsia Seizures"`, `"Status Asthmaticus"` (magnesium)
-- `"Fluid Resuscitation"`, `"Maintenance"` (LR)
-- `"Sublingual"`, `"IV Drip"` (nitroglycerin — route-based split)
+**Rule:** If no `indication` field, the dose applies to ALL indications for that population.
+**Rule:** Err on the side of granularity. Multiple dose entries is fine if clinically accurate.
 
-**Rule:** If no `indication` field is present, the dose applies to ALL indications for that population.
+### `doses[].routes` — array of route objects
+Each object = one route (or set of interchangeable routes) with its own dosing.
 
-**Rule:** Err on the side of granularity. 5+ dose entries is fine if that's what's clinically accurate.
+Every drug uses this array — single-route drugs just have one object.
 
-### `amount` — DOSE + ROUTE only
-The amount field contains ONLY the dose and route of administration. Nothing else.
+### Route object fields
 
-✅ Good: `"5 mg IV slow push over 2 min"`
-✅ Good: `"0.4 mg SL tablet or spray"`
-✅ Good: `"5 mg/hr IV drip"`
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `via` | `string[]` | Yes | Array of route enums |
+| `amount` | `string` | Yes | Number + unit ONLY. No admin instructions. |
+| `frequency` | `string` | No | Repeat interval + max dose in one descriptive string |
+| `notes` | `string[]` | Yes | Route-specific admin notes (slow push, flush, dilution, etc.) |
 
-❌ Bad: `"5 mg/hr IV drip, titrate by 2.5 mg/hr every 5–15 min"` — titration is a note
-❌ Bad: `"0.4–2 mg IV/IO/IM/IN, titrate to respiratory effort"` — guidance is a note
-❌ Bad: `"0.4 mg SL tablet or spray, repeat every 3–5 min"` — repeat interval is a note
-❌ Bad: `"5–10 mg IM (preferred) OR 0.2 mg/kg IN"` — "(preferred)" is a recommendation
+### `amount` rules
+✅ Good: `"5 mg"`, `"0.2 mg/kg"`, `"2.5 mg in 3 mL NS"`, `"1–2 L"`
+❌ Bad: `"5 mg slow push"` — admin instruction belongs in notes
+❌ Bad: `"5 mg, may repeat"` — repeat belongs in frequency
+❌ Bad: `"5 mg (preferred)"` — recommendation belongs in notes
 
-### `notes` — everything else
-Titration guidance, repeat intervals, max doses, special instructions, clinical pearls.
+### `doses[].notes` — general notes (array)
+Notes that apply to ALL routes for this population/indication combo. Avoids duplication across route objects.
+
+## Route Enums
+
+Valid values for the `via` array:
+
+| Enum | Meaning |
+|------|---------|
+| `IV` | Intravenous push/bolus |
+| `IO` | Intraosseous |
+| `IM` | Intramuscular |
+| `IN` | Intranasal |
+| `SQ` | Subcutaneous |
+| `SL` | Sublingual |
+| `PO` | Oral |
+| `BUC` | Buccal |
+| `ET` | Endotracheal |
+| `NEB` | Nebulized |
+| `NGT` | Nasogastric tube |
+| `IV drip` | Continuous IV infusion |
+| `Inhaled` | Demand valve / mask |
 
 ## MOA Formats
 
