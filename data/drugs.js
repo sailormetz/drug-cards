@@ -20,7 +20,7 @@ const DRUGS = [
     doses: [
       { population: "Adult", amount: "0.3–0.5 mg IM", notes: ["Lateral thigh", "Repeat every 5–15 min"] },
       { population: "Pediatric", amount: "0.01 mg/kg IM", notes: ["Max 0.3 mg", "Lateral thigh"] },
-      { population: "Asthma", amount: "0.3–0.5 mg SQ" }
+      { population: "Adult", indication: "Asthma (refractory)", amount: "0.3–0.5 mg SQ" }
     ],
     onset: "1–2 min",
     duration: "5–15 min",
@@ -153,10 +153,10 @@ const DRUGS = [
       { text: "Hyperglycemia", relative: true }
     ],
     doses: [
-      { population: "Adult — Hypoglycemia", amount: "1 mg IM/IN", notes: ["Repeat after 10–15 min if needed"] },
-      { population: "Adult — CCB/BB OD", amount: "3–10 mg IV", notes: ["Slow bolus + NS flush", "Maintenance: 3–5 mg/hr drip if needed"] },
-      { population: "Peds — Hypoglycemia", amount: "0.5–1 mg IM/IN", notes: ["Max total 1 mg", "Repeat after 10–15 min if needed"] },
-      { population: "Peds — CCB/BB OD", amount: "0.05–0.15 mg/kg IV", notes: ["Slow bolus + NS flush", "Maintenance: 0.05–0.10 mg/kg/hr if needed"] }
+      { population: "Adult", indication: "Hypoglycemia", amount: "1 mg IM/IN", notes: ["Repeat after 10–15 min if needed"] },
+      { population: "Adult", indication: "CCB/BB Overdose", amount: "3–10 mg IV", notes: ["Slow bolus + NS flush", "Maintenance: 3–5 mg/hr drip if needed"] },
+      { population: "Pediatric", indication: "Hypoglycemia", amount: "0.5–1 mg IM/IN", notes: ["Max total 1 mg", "Repeat after 10–15 min if needed"] },
+      { population: "Pediatric", indication: "CCB/BB Overdose", amount: "0.05–0.15 mg/kg IV", notes: ["Slow bolus + NS flush", "Maintenance: 0.05–0.10 mg/kg/hr if needed"] }
     ],
     onset: "3–15 min",
     duration: "1–2 hrs",
@@ -442,10 +442,10 @@ const DRUGS = [
       { text: "Narrow-Angle Glaucoma", relative: true }
     ],
     doses: [
-      { population: "Adult — Bradycardia", amount: "1 mg IV/IO rapid push", notes: ["May repeat q3–5 min", "Max 3 mg total", "ET/SGA if no IV access"] },
-      { population: "Adult — Organophosphate", amount: "2–5 mg IV/IO/IM", notes: ["Repeat q5–10 min until secretions dry", "No max dose in severe poisoning"] },
-      { population: "Pediatric — Bradycardia", amount: "0.02–0.06 mg/kg IV/IO", notes: ["Max single dose 0.5 mg", "Max total 1 mg", "Repeat q3–5 min PRN"] },
-      { population: "Pediatric — Organophosphate", amount: "0.05 mg/kg IV/IO/IM", notes: ["Repeat q5–10 min until secretions dry"] }
+      { population: "Adult", indication: "Bradycardia", amount: "1 mg IV/IO rapid push", notes: ["May repeat q3–5 min", "Max 3 mg total", "ET/SGA if no IV access"] },
+      { population: "Adult", indication: "Organophosphate / Nerve Agent", amount: "2–5 mg IV/IO/IM", notes: ["Repeat q5–10 min until secretions dry", "No max dose in severe poisoning"] },
+      { population: "Pediatric", indication: "Bradycardia", amount: "0.02–0.06 mg/kg IV/IO", notes: ["Max single dose 0.5 mg", "Max total 1 mg", "Repeat q3–5 min PRN"] },
+      { population: "Pediatric", indication: "Organophosphate / Nerve Agent", amount: "0.05 mg/kg IV/IO/IM", notes: ["Repeat q5–10 min until secretions dry"] }
     ],
     onset: "Immediate (IV)",
     duration: "4–6 hrs",
@@ -540,7 +540,7 @@ const DRUGS = [
     doses: [
       { population: "Adult", amount: "6 mg rapid IV/IO push + 20 mL NS flush", notes: ["If no conversion in 1–2 min → 12 mg rapid push", "May repeat 12 mg once more", "Use most proximal access available"] },
       { population: "Pediatric", amount: "0.1 mg/kg rapid IV/IO push (max 6 mg)", notes: ["If no conversion → 0.2 mg/kg (max 12 mg)", "Rapid push + immediate flush"] },
-      { population: "Special — Heart transplant / dipyridamole / carbamazepine", amount: "3 mg starting dose", notes: [] }
+      { population: "Adult", indication: "Heart transplant / dipyridamole / carbamazepine use", amount: "3 mg starting dose", notes: ["These patients have heightened sensitivity to adenosine"] }
     ],
     onset: "Immediate",
     duration: "&lt;10 sec (metabolized in &lt;30 sec)",
@@ -583,10 +583,10 @@ const DRUGS = [
       { text: "WPW with Atrial Fibrillation" }
     ],
     doses: [
-      { population: "Adult — Cardiac Arrest (VF/pulseless VT)", amount: "300 mg IV/IO bolus", notes: ["After 3rd defibrillation", "May repeat 150 mg IV/IO once"] },
-      { population: "Adult — Stable Wide-Complex VT", amount: "150 mg IV over 10 min", notes: ["Mix 150 mg in 50 mL NS", "May repeat 150 mg once"] },
-      { population: "Pediatric — Cardiac Arrest", amount: "5 mg/kg IV/IO bolus (max 300 mg)", notes: ["May repeat × 2", "Max total 15 mg/kg"] },
-      { population: "Pediatric — Stable VT", amount: "5 mg/kg IV over 20 min", notes: ["Max 300 mg"] }
+      { population: "Adult", indication: "Cardiac Arrest (VF / pulseless VT)", amount: "300 mg IV/IO bolus", notes: ["After 3rd defibrillation", "May repeat 150 mg IV/IO once"] },
+      { population: "Adult", indication: "Stable Wide-Complex VT", amount: "150 mg IV over 10 min", notes: ["Mix 150 mg in 50 mL NS", "May repeat 150 mg once"] },
+      { population: "Pediatric", indication: "Cardiac Arrest", amount: "5 mg/kg IV/IO bolus (max 300 mg)", notes: ["May repeat × 2", "Max total 15 mg/kg"] },
+      { population: "Pediatric", indication: "Stable VT", amount: "5 mg/kg IV over 20 min", notes: ["Max 300 mg"] }
     ],
     onset: "&lt;30 min (IV antiarrhythmic effect)",
     duration: "Variable (half-life 40–55 days with chronic use)",
@@ -809,22 +809,26 @@ const DRUGS = [
     ],
     doses: [
       {
-        population: "Adult — Sub-dissociative Analgesia",
+        population: "Adult",
+        indication: "Sub-dissociative Analgesia",
         amount: "0.1–0.3 mg/kg IV slow push over 10–15 min",
         notes: ["May repeat PRN", "Alternatively: 50 mg IM for field analgesia"]
       },
       {
-        population: "Adult — Procedural Sedation",
+        population: "Adult",
+        indication: "Procedural Sedation",
         amount: "1–2 mg/kg IV slow push OR 4–5 mg/kg IM",
         notes: ["May repeat 0.5 mg/kg IV PRN"]
       },
       {
-        population: "Adult — RSI Induction",
+        population: "Adult",
+        indication: "RSI Induction",
         amount: "2 mg/kg IV (max 200 mg)",
         notes: ["Drug of choice in hypotensive or asthmatic patients", "Follow immediately with paralytic"]
       },
       {
-        population: "Adult — Excited Delirium / Agitation",
+        population: "Adult",
+        indication: "Excited Delirium / Agitation",
         amount: "3–5 mg/kg IM",
         notes: ["IM preferred — avoids IV needle stick in combative patients", "5 mg/kg IM — be prepared to manage airway"]
       },
@@ -862,7 +866,7 @@ const DRUGS = [
         notes: ["Administer IV slowly over ≥15 sec"]
       },
       {
-        population: "Adult (≥65 yrs)",
+        population: "Elderly (≥65 yrs)",
         amount: "15 mg IV/IM",
         notes: ["Higher risk of GI bleeding and renal toxicity — use lower dose"]
       },
@@ -930,22 +934,26 @@ const DRUGS = [
     ],
     doses: [
       {
-        population: "Adult — Fluid Resuscitation",
+        population: "Adult",
+        indication: "Fluid Resuscitation",
         amount: "1–2 L IV/IO open infusion",
         notes: ["Titrate to HR, BP, and mental status", "In penetrating trauma — target permissive hypotension (SBP ~80–90 mmHg); avoid aggressive resuscitation"]
       },
       {
-        population: "Adult — Maintenance",
+        population: "Adult",
+        indication: "Maintenance",
         amount: "100–150 mL/hr IV",
         notes: ["Titrate to response"]
       },
       {
-        population: "Pediatric — Fluid Resuscitation",
+        population: "Pediatric",
+        indication: "Fluid Resuscitation",
         amount: "20 mL/kg IV/IO",
         notes: ["May repeat as needed, titrated to response"]
       },
       {
-        population: "Pediatric — Maintenance",
+        population: "Pediatric",
+        indication: "Maintenance",
         amount: "40–70 mL/hr IV",
         notes: ["Titrate to response"]
       }
@@ -1000,7 +1008,8 @@ const DRUGS = [
     ],
     doses: [
       {
-        population: "Adult — Cardiac Arrest (V-Fib / pVT)",
+        population: "Adult",
+        indication: "Cardiac Arrest (VF / pulseless VT)",
         amount: "1–1.5 mg/kg IV/IO",
         notes: [
           "May repeat at 0.5–0.75 mg/kg every 3–5 min (max total 3 mg/kg)",
@@ -1009,7 +1018,8 @@ const DRUGS = [
         ]
       },
       {
-        population: "Adult — V-Tach with Pulse",
+        population: "Adult",
+        indication: "VT with Pulse",
         amount: "1–1.5 mg/kg IV/IO",
         notes: [
           "May repeat at 0.5–0.75 mg/kg every 3–5 min (max total 3 mg/kg)",
@@ -1083,12 +1093,14 @@ const DRUGS = [
     ],
     doses: [
       {
-        population: "Adult — Torsades de Pointes (with pulse)",
+        population: "Adult",
+        indication: "Torsades de Pointes (with pulse)",
         amount: "1–2 g IV over 5–20 min",
         notes: ["Pulseless TdP: 1–2 g IV slow push over 1–2 min"]
       },
       {
-        population: "Adult — Eclampsia Seizures",
+        population: "Adult",
+        indication: "Eclampsia Seizures",
         amount: "4–6 g IV over 2–15 min",
         notes: [
           "Preeclampsia (prophylaxis): 4 g IV over 20 min",
@@ -1096,7 +1108,8 @@ const DRUGS = [
         ]
       },
       {
-        population: "Adult — Status Asthmaticus",
+        population: "Adult",
+        indication: "Status Asthmaticus",
         amount: "2 g IV over 10–20 min",
         notes: ["Use only when refractory to albuterol + ipratropium"]
       },
@@ -1261,15 +1274,17 @@ const DRUGS = [
     ],
     doses: [
       {
-        population: "Adult — Seizures",
-        amount: "5–10 mg IM (preferred) OR 0.2 mg/kg IN",
+        population: "Adult",
+        indication: "Seizures",
+        amount: "5–10 mg IM OR 0.2 mg/kg IN",
         notes: [
           "IV: 2–4 mg slow push, may repeat every 5 min",
           "IM preferred over IV in active seizures — no IV access needed, faster prehospital delivery (RAMPART trial)"
         ]
       },
       {
-        population: "Adult — Procedural Sedation / Agitation",
+        population: "Adult",
+        indication: "Procedural Sedation / Agitation",
         amount: "2–5 mg IV/IM/IN",
         notes: ["May repeat after 5–10 min (max total 10 mg)", "Reduce dose by 50% in elderly or hepatic/renal impairment"]
       },
@@ -1335,7 +1350,7 @@ const DRUGS = [
     doses: [
       {
         population: "Adult",
-        amount: "0.4–2 mg IV/IO/IM/IN, titrate to respiratory effort",
+        amount: "0.4–2 mg IV/IO/IM/IN",
         notes: [
           "IN: 4 mg (2 mg per nostril) using concentrated formulation",
           "ET: 2–2.5x IV dose",
@@ -1372,8 +1387,9 @@ const DRUGS = [
     doses: [
       {
         population: "Adult",
-        amount: "5 mg/hr IV drip, titrate by 2.5 mg/hr every 5–15 min",
+        amount: "5 mg/hr IV drip",
         notes: [
+          "Titrate by 2.5 mg/hr every 5–15 min",
           "Max 15 mg/hr",
           "Dilute in NS or D5W",
           "Dedicated IV line preferred — incompatible with some solutions"
@@ -1409,14 +1425,16 @@ const DRUGS = [
     ],
     doses: [
       {
-        population: "Adult — Sublingual",
-        amount: "0.4 mg SL tablet or spray, repeat every 3–5 min",
-        notes: ["Max 3 doses (1.2 mg total)", "Check BP before each dose — hold if SBP < 100"]
+        population: "Adult",
+        indication: "Sublingual",
+        amount: "0.4 mg SL tablet or spray",
+        notes: ["May repeat every 3–5 min (max 3 doses / 1.2 mg total)", "Check BP before each dose — hold if SBP < 100"]
       },
       {
-        population: "Adult — IV Drip",
-        amount: "5–10 mcg/min, titrate by 5–10 mcg/min every 3–5 min",
-        notes: ["Dilute in NS or D5W", "Use non-PVC tubing — NTG adsorbs to standard PVC", "No fixed max — titrate to effect and BP tolerance"]
+        population: "Adult",
+        indication: "IV Drip",
+        amount: "5–10 mcg/min IV drip",
+        notes: ["Titrate by 5–10 mcg/min every 3–5 min", "Dilute in NS or D5W", "Use non-PVC tubing — NTG adsorbs to standard PVC", "No fixed max — titrate to effect and BP tolerance"]
       },
       {
         population: "Pediatric",
