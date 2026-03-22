@@ -200,9 +200,11 @@
       setToggleLabel(drug);
       sidebar.classList.remove('picker-sidebar--open');
 
-      // On mobile, scroll card into view
+      // On mobile, scroll card into view below sticky header
       if (window.innerWidth < 768) {
-        document.getElementById('card-container').scrollIntoView({ behavior: 'smooth' });
+        var headerH = sidebar.getBoundingClientRect().height;
+        var cardTop = document.getElementById('card-container').getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: cardTop - headerH, behavior: 'smooth' });
       }
     });
 
