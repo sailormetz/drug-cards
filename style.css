@@ -98,9 +98,17 @@ body {
   border-top: 1px solid var(--border);
 }
 
+.picker-sidebar--open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
 .picker-sidebar--open .picker-body {
   display: block;
-  max-height: calc(67dvh - 48px);
+  height: calc(100dvh - 48px);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
