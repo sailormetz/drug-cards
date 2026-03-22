@@ -592,5 +592,81 @@ const DRUGS = [
     duration: "Variable (half-life 40–55 days with chronic use)",
     adverseEffects: ["Hypotension", "Bradycardia", "QT Prolongation", "Torsades de Pointes", "AV Block", "Nausea / Vomiting"],
     precautions: '<span class="hl hl--danger">No CIs in pulseless cardiac arrest</span> — benefits outweigh all risks. For stable VT, <strong>slow infusion</strong> if hypotension develops. Amiodarone + digoxin can double digoxin plasma levels — monitor carefully. Solution is viscous — do not shake; give through proximal IV.'
+  },
+  {
+    id: "diltiazem",
+    summary: "Class IV antiarrhythmic — the go-to for rate control in A-Fib and A-Flutter with RVR.",
+    genericName: "Diltiazem",
+    tradeName: "Cardizem",
+    classes: ["Class IV Antiarrhythmic", "Calcium Channel Blocker (Non-DHP)"],
+    moaBrief: 'Blocks <span class="hl hl--beta">calcium channels</span> in the AV node <span class="moa-arrow">→</span> slows conduction and prolongs AV refractory period <span class="moa-arrow">→</span> <strong>controlled ventricular response</strong> in A-Fib and A-Flutter.',
+    indications: ["Atrial Fibrillation with RVR", "Atrial Flutter with RVR"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Hypotension" },
+      { text: "Ventricular Tachycardia (Wide-Complex Tachycardia)" },
+      { text: "WPW / Pre-excitation Syndrome — may accelerate accessory pathway → VF" },
+      { text: "Sick Sinus Syndrome (without pacemaker)" },
+      { text: "2nd or 3rd Degree AV Block (without pacemaker)" },
+      { text: "Cardiogenic Shock" },
+      { text: "Acute Decompensated Heart Failure / Reduced EF (<40%)", relative: true }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "0.25 mg/kg IV (max 20 mg) slow push over 2 min",
+        notes: [
+          "May repeat after 15 min at 0.35 mg/kg IV (max 25 mg)",
+          "Maintenance drip: 5–15 mg/hr titrated to response"
+        ]
+      },
+      {
+        population: "Pediatric",
+        amount: "Not recommended in EMS setting",
+        notes: []
+      }
+    ],
+    onset: "2–5 min",
+    duration: "1–3 hrs",
+    adverseEffects: ["Hypotension", "Bradycardia", "Transient AV Block", "Dizziness", "Headache", "Dyspnea", "Palpitations", "Peripheral Edema"],
+    precautions: 'Use with extreme caution in <span class="hl hl--warn">heart failure with reduced EF</span> — may worsen hemodynamics; consider amiodarone instead. Administer <strong>slowly over 2 minutes</strong> to reduce hypotension risk. If severe hypotension develops, <span class="hl hl--warn">calcium chloride 1 g IV</span> can be used as a reversal agent. Avoid with beta-blockers or antiarrhythmics — additive AV block or hypotension risk.'
+  },
+  {
+    id: "diazepam",
+    summary: "Long-acting benzodiazepine for seizures, sedation, and agitation — largely superseded prehospital by midazolam but still widely carried.",
+    genericName: "Diazepam",
+    tradeName: "Valium",
+    classes: ["Benzodiazepine", "Anticonvulsant", "Sedative"],
+    moaBrief: 'Binds to <span class="hl hl--beta">GABA-A receptors</span> in the CNS <span class="moa-arrow">→</span> enhances chloride channel opening and neuronal inhibition <span class="moa-arrow">→</span> <strong>raises seizure threshold</strong>, sedation, and anxiolysis.',
+    indications: ["Active Seizures / Status Epilepticus", "Agitation & Anxiety", "Procedural Sedation"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Myasthenia Gravis" },
+      { text: "Narrow-Angle Glaucoma" },
+      { text: "Significant Respiratory Depression" },
+      { text: "Acute Alcohol Intoxication with CNS Depression", relative: true }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "5–10 mg IV/IM slow push",
+        notes: [
+          "May repeat once after 5–10 min (max 20 mg total)",
+          "Administer IV no faster than 5 mg/min"
+        ]
+      },
+      {
+        population: "Pediatric",
+        amount: "0.2–0.3 mg/kg IV/IM (max 5 mg/dose)",
+        notes: [
+          "May repeat once after 5–10 min (max 10 mg total)",
+          "Administer IV slowly"
+        ]
+      }
+    ],
+    onset: "2–5 min (IV); 15–30 min (IM)",
+    duration: "20–60 min (anticonvulsant); sedation may persist several hours",
+    adverseEffects: ["Respiratory Depression", "CNS Depression", "Hypotension", "Drowsiness", "Muscle Weakness", "Nausea & Vomiting", "Paradoxical Agitation (rare)"],
+    precautions: 'Monitor closely for <span class="hl hl--danger">respiratory depression</span> — have airway management immediately available, especially with repeat doses or combined with opioids/CNS depressants. <span class="hl hl--warn">Long half-life</span> — sedative effects can persist for hours. Most EMS systems now prefer <strong>midazolam IM</strong> as first-line for active seizures (faster and more reliable absorption, no refrigeration required). Reduce dose in elderly and patients with hepatic impairment.'
   }
 ];

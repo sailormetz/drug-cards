@@ -2,6 +2,19 @@ DRUG CARD REVIEW NOTES
 ======================
 Discrepancies flagged during data entry. Review before publishing.
 
+DIAZEPAM (Valium)
+- ⚠️ Adult max corrected: 30 mg → 20 mg (card's ceiling is outside standard EMS practice)
+- ⚠️ Adult dose range corrected: 5–15 mg → 5–10 mg per dose (15 mg single dose is high for EMS)
+- ⚠️ Peds upper dose corrected: 1 mg/kg → 0.3 mg/kg (1 mg/kg is dangerous — equals max total dose in a 10 kg child; standard EMS is 0.2–0.3 mg/kg per dose)
+- ➕ Added acute alcohol/CNS depression as relative CI (field-relevant)
+- ➕ Added note that midazolam IM is now preferred prehospital for active seizures
+
+DILTIAZEM (Cardizem)
+- ✅ Dosing accurate (0.25/0.35 mg/kg confirmed across multiple EMS protocols)
+- ➕ Added HF with reduced EF (<40%) as relative CI — card listed precaution only, but AHA and EMS guidelines say avoid and use amiodarone/digoxin instead
+- ➕ Clarified WPW CI with mechanism (accessory pathway acceleration → VF) — field decision-making context
+- ➕ Added calcium chloride 1g IV as reversal agent for severe hypotension (from card Pro Tip)
+
 ---
 
 FAMOTIDINE (Card #56)
