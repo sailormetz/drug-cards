@@ -2,6 +2,32 @@ DRUG CARD REVIEW NOTES
 ======================
 Discrepancies flagged during data entry. Review before publishing.
 
+NITROUS OXIDE (Nitronox)
+- ➕ Added suspected bowel obstruction as CI — same gas-expansion physics as pneumothorax
+- ➕ Added diffusion hypoxia warning after discontinuation
+- ➕ Added self-administration safety mechanism explanation (demand valve design)
+- ➕ Added provider chronic exposure note (B12 depletion)
+
+NITROGLYCERIN (Nitrostat)
+- ➕ Specified PDE-5 inhibitor timeframes: sildenafil/vardenafil 24 hrs, tadalafil 48–72 hrs (card said "24–72 hrs" without distinguishing)
+- ➕ Added "check BP before each dose" — critical safety step missing from card
+- ➕ Added non-PVC tubing note for IV drip
+- ➕ Corrected MOA: NTG is metabolized to NO systemically, not "released into the lungs"
+- ➕ Separated SL and IV dosing into distinct entries
+- ➕ Added severe anemia as relative CI
+
+NICARDIPINE (Cardene)
+- ➕ Added HF as relative CI (was only in precautions on card)
+- ➕ Added titration increment guidance (2.5 mg/hr every 5–15 min)
+- ➕ Removed "Ischemia" from AEs — misleading; nicardipine treats ischemia
+
+NALOXONE (Narcan)
+- ➕ Added titrate-to-breathing guidance — most important clinical pearl; card doesn't emphasize
+- ➕ Re-sedation warning elevated — critical with synthetic opioids
+- ➕ Added AMS of unknown etiology as diagnostic indication
+- ➕ Narrowed adult starting dose 0.4–4 mg → 0.4–2 mg — 4 mg risks severe withdrawal
+- ➕ Added pulmonary edema as rare AE
+
 MORPHINE SULFATE
 - ➕ "Angina" indication changed to "STEMI with Severe Pain" — CRUSADE registry showed morphine associated with worse outcomes in NSTEMI; AHA/ACC guidelines advise against it in NSTEMI
 - ➕ Added NSTEMI as relative CI

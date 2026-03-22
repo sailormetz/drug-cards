@@ -1320,5 +1320,151 @@ const DRUGS = [
     duration: "2–5 hrs",
     adverseEffects: ["Respiratory Depression", "Hypotension", "Bradycardia", "Bronchospasm", "Nausea & Vomiting", "Drowsiness", "Dyspnea"],
     precautions: 'Administer <strong>slowly</strong> — rapid IV push causes histamine release, hypotension, and bronchospasm. <span class="hl hl--warn">Use with extreme caution in inferior MI</span> — RV involvement causes preload-dependence; morphine\'s vasodilation + bradycardia can cause severe hypotension. <span class="hl hl--warn">Avoid in NSTEMI</span> — CRUSADE registry data associated morphine with higher mortality in NSTEMI patients; fentanyl is generally preferred. Head injury is a relative CI — respiratory depression → CO₂ retention → elevated ICP. MAOI interaction can cause serotonin syndrome.'
+  },
+  {
+    id: "naloxone",
+    summary: "Pure opioid antagonist — reverses respiratory depression from opioid overdose. Titrate to breathing, not consciousness.",
+    genericName: "Naloxone",
+    tradeName: "Narcan",
+    classes: ["Opioid Antagonist", "Antidote"],
+    moaBrief: 'Competitively binds to <span class="hl hl--beta">mu, kappa, and delta opioid receptors</span> in the CNS <span class="moa-arrow">→</span> displaces opioids from receptor sites <span class="moa-arrow">→</span> <strong>reverses respiratory depression, sedation, and hypotension</strong>.',
+    indications: ["Known or Suspected Opioid Overdose", "Altered Mental Status of Unknown Etiology (diagnostic)"],
+    contraindications: [
+      { text: "Hypersensitivity" }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "0.4–2 mg IV/IO/IM/IN, titrate to respiratory effort",
+        notes: [
+          "IN: 4 mg (2 mg per nostril) using concentrated formulation",
+          "ET: 2–2.5x IV dose",
+          "May repeat every 2–3 min as needed",
+          "Titrate to adequate respirations — NOT full consciousness"
+        ]
+      },
+      {
+        population: "Pediatric",
+        amount: "0.1 mg/kg IV/IO/IM/IN (max 2 mg/dose)",
+        notes: ["May repeat every 2–3 min"]
+      }
+    ],
+    onset: "30–90 sec (IV); 2–5 min (IM/IN)",
+    duration: "30–90 min",
+    adverseEffects: ["Acute Opioid Withdrawal (agitation, combativeness, diaphoresis)", "Nausea & Vomiting", "Tachycardia", "Hypertension", "Seizures (rare)", "Pulmonary Edema (rare)", "Arrhythmias (rare)"],
+    precautions: '<span class="hl hl--danger">Titrate to respiratory effort, NOT consciousness</span> — full reversal precipitates acute withdrawal (agitation, vomiting, combativeness, aspiration risk). Start low and titrate up. <span class="hl hl--warn">Duration is shorter than most opioids</span> — patients can re-sedate after naloxone wears off (30–90 min), especially with long-acting opioids or synthetic fentanyl analogs. Monitor closely and be prepared to re-dose or start a drip. Ensure scene safety and appropriate PPE — potential fentanyl/carfentanil exposure risk.'
+  },
+  {
+    id: "nicardipine",
+    summary: "Dihydropyridine CCB — IV drip for hypertensive emergencies. Targets vascular smooth muscle, not cardiac conduction (unlike diltiazem/verapamil).",
+    genericName: "Nicardipine",
+    tradeName: "Cardene",
+    classes: ["Calcium Channel Blocker (Dihydropyridine)", "Antihypertensive"],
+    moaBrief: 'Selectively blocks <span class="hl hl--beta">L-type calcium channels</span> in vascular smooth muscle <span class="moa-arrow">→</span> reduces calcium influx <span class="moa-arrow">→</span> <strong>vasodilation and decreased systemic vascular resistance</strong>. Minimal effect on cardiac conduction — NOT a Class IV antiarrhythmic.',
+    indications: ["Hypertensive Emergency", "Stroke-Associated Hypertension"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Severe Aortic Stenosis" },
+      { text: "Acute MI" },
+      { text: "Cardiogenic Shock" },
+      { text: "Decompensated Heart Failure", relative: true }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "5 mg/hr IV drip, titrate by 2.5 mg/hr every 5–15 min",
+        notes: [
+          "Max 15 mg/hr",
+          "Dilute in NS or D5W",
+          "Dedicated IV line preferred — incompatible with some solutions"
+        ]
+      },
+      {
+        population: "Pediatric",
+        amount: "Not recommended in EMS setting",
+        notes: []
+      }
+    ],
+    onset: "3–5 min",
+    duration: "3–6 hrs (after infusion stopped)",
+    adverseEffects: ["Hypotension", "Reflex Tachycardia", "Peripheral Edema", "Dizziness", "Nausea & Vomiting", "Palpitations", "Headache"],
+    precautions: 'Titrate carefully — <span class="hl hl--warn">effects persist 3–6 hours after stopping the drip</span>; overcorrection of BP is difficult to reverse quickly. Monitor for reflex tachycardia. Use caution with concurrent beta-blockers or other antihypertensives — additive hypotension. Unlike diltiazem/verapamil, nicardipine is a <strong>dihydropyridine</strong> CCB — it targets vascular smooth muscle, not cardiac conduction tissue, so it is NOT used for rate control.'
+  },
+  {
+    id: "nitroglycerin",
+    summary: "Potent vasodilator — reduces preload and myocardial O₂ demand. First-line for angina, ACS, and acute pulmonary edema. Always rule out RV infarct first.",
+    genericName: "Nitroglycerin",
+    tradeName: "Nitrostat",
+    classes: ["Vasodilator", "Antianginal", "Nitrate"],
+    moaBrief: 'Metabolized to <span class="hl hl--beta">nitric oxide (NO)</span> <span class="moa-arrow">→</span> activates guanylate cyclase <span class="moa-arrow">→</span> increases cGMP in vascular smooth muscle <span class="moa-arrow">→</span> <strong>venous and arterial vasodilation</strong>. Primarily reduces preload (venodilation) <span class="moa-arrow">→</span> decreases myocardial O₂ demand. At higher doses, arterial dilation reduces afterload.',
+    indications: ["Angina / Acute Coronary Syndrome", "Hypertension", "Acute Pulmonary Edema (cardiogenic)"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Hypotension (SBP < 100 mmHg)" },
+      { text: "Hypovolemia" },
+      { text: "Right Ventricular MI — preload-dependent; vasodilation causes cardiovascular collapse" },
+      { text: "PDE-5 Inhibitors — sildenafil/vardenafil within 24 hrs, tadalafil within 48–72 hrs" },
+      { text: "Intracranial Hemorrhage" },
+      { text: "Severe Anemia", relative: true }
+    ],
+    doses: [
+      {
+        population: "Adult — Sublingual",
+        amount: "0.4 mg SL tablet or spray, repeat every 3–5 min",
+        notes: ["Max 3 doses (1.2 mg total)", "Check BP before each dose — hold if SBP < 100"]
+      },
+      {
+        population: "Adult — IV Drip",
+        amount: "5–10 mcg/min, titrate by 5–10 mcg/min every 3–5 min",
+        notes: ["Dilute in NS or D5W", "Use non-PVC tubing — NTG adsorbs to standard PVC", "No fixed max — titrate to effect and BP tolerance"]
+      },
+      {
+        population: "Pediatric",
+        amount: "Not recommended in EMS setting",
+        notes: []
+      }
+    ],
+    onset: "1–3 min (SL); 1–2 min (IV)",
+    duration: "20–30 min (SL); duration of infusion (IV)",
+    adverseEffects: ["Headache (most common)", "Hypotension", "Reflex Tachycardia", "Dizziness / Syncope", "Nausea & Vomiting", "Palpitations"],
+    precautions: '<span class="hl hl--danger">Always rule out right ventricular MI before administration</span> — if inferior STEMI on 12-lead, obtain right-sided ECG (V4R) first. RV infarction is preload-dependent; nitro causes cardiovascular collapse. <span class="hl hl--warn">Check BP before every dose</span> — hold if SBP &lt; 100 mmHg. PDE-5 inhibitor interaction causes severe, refractory hypotension — ask about sildenafil (Viagra), vardenafil (Levitra) within 24 hrs and tadalafil (Cialis) within 48–72 hrs. Store away from light and heat — potency degrades rapidly.'
+  },
+  {
+    id: "nitrous-oxide",
+    summary: "Inhaled 50/50 N₂O:O₂ analgesic — rapid onset, patient-controlled via demand valve. Expands trapped gas spaces — contraindicated in pneumothorax.",
+    genericName: "Nitrous Oxide",
+    tradeName: "Nitronox",
+    classes: ["Gaseous Analgesic / Anesthetic"],
+    moaBrief: 'Acts as an <span class="hl hl--beta">NMDA receptor antagonist</span> and enhances <span class="hl hl--beta">GABA-mediated inhibition</span> <span class="moa-arrow">→</span> <strong>suppresses pain signal transmission, produces sedation and euphoria</strong>.',
+    indications: ["Moderate to Severe Pain", "Anxiety (procedural)"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Pneumothorax — N₂O expands trapped gas (34x more soluble than N₂)" },
+      { text: "Suspected Bowel Obstruction — gas expansion worsens distension" },
+      { text: "Decompression Sickness (the bends)" },
+      { text: "Decreased Level of Consciousness — cannot self-administer safely" },
+      { text: "Head Injury — risk of expanding pneumocephalus" },
+      { text: "Respiratory Distress / Hypoxia" },
+      { text: "Hypotension / Shock" }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "Self-administered via demand valve — 50% N₂O / 50% O₂",
+        notes: [
+          "Patient MUST hold the mask — built-in safety (drops mask if oversedated)",
+          "Do not strap mask to patient's face"
+        ]
+      },
+      {
+        population: "Pediatric",
+        amount: "Self-administered via demand valve — 50% N₂O / 50% O₂",
+        notes: ["Patient must be old enough to follow instructions and hold mask independently"]
+      }
+    ],
+    onset: "2–5 min",
+    duration: "5–10 min (effects cease rapidly after stopping inhalation)",
+    adverseEffects: ["Nausea & Vomiting", "Dizziness", "Hallucinations", "Hypoxia (if improperly mixed)", "Respiratory Depression (rare at 50/50)"],
+    precautions: 'N₂O is 34x more soluble than nitrogen in blood — it <span class="hl hl--danger">rapidly expands any trapped gas space</span> (pneumothorax, bowel obstruction, middle ear, pneumocephalus). <strong>Patient must hold the mask themselves</strong> — this is the primary safety mechanism; never strap it on. Ensure adequate ventilation of the treatment area — chronic provider exposure causes B12 depletion and neuropathy. Administer <span class="hl hl--warn">diffusion oxygen after discontinuation</span> to prevent diffusion hypoxia (N₂O floods out of blood into alveoli, displacing O₂).'
   }
 ];
