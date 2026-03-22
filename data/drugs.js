@@ -763,5 +763,118 @@ const DRUGS = [
     duration: "4–6 hrs",
     adverseEffects: ["Drowsiness / Sedation", "Hypotension", "Nausea & Vomiting", "Constipation", "Urinary Retention", "Injection Site Pain / Necrosis (if extravasated)", "QTc Prolongation"],
     precautions: '<span class="hl hl--danger">IM ONLY — IV is absolutely contraindicated.</span> IV/subcutaneous administration causes severe tissue necrosis, thrombosis, and gangrene. Potentiates CNS depressants — use caution with opioids, benzodiazepines, and alcohol. <span class="hl hl--warn">Can inhibit epinephrine\'s vasopressor effect</span> — if a vasopressor is needed, use norepinephrine, not epi. Monitor for QTc prolongation.'
+  },
+  {
+    id: "ipratropium",
+    summary: "Anticholinergic bronchodilator — most effective when combined with albuterol (DuoNeb) for asthma/COPD exacerbations.",
+    genericName: "Ipratropium Bromide",
+    tradeName: "Atrovent",
+    classes: ["Anticholinergic", "Bronchodilator"],
+    moaBrief: 'Blocks <span class="hl hl--beta">muscarinic (M3) receptors</span> in bronchial smooth muscle <span class="moa-arrow">→</span> prevents acetylcholine-induced bronchoconstriction and reduces secretions <span class="moa-arrow">→</span> bronchodilation and improved airflow.',
+    indications: ["Asthma Exacerbation", "COPD Exacerbation", "Acute Bronchospasm"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Peanut or Soy Allergy (MDI/inhaler form only — nebulized solution is typically safe)" }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "0.5 mg nebulized in NS",
+        notes: ["May repeat after 15–20 min (max 3 doses)", "Commonly combined with albuterol 2.5 mg in same neb (DuoNeb)"]
+      },
+      {
+        population: "Pediatric",
+        amount: "0.25–0.5 mg nebulized in NS",
+        notes: ["May repeat after 15–20 min (max 3 doses)", "Use in children requires careful risk/benefit assessment"]
+      }
+    ],
+    onset: "10–20 min",
+    duration: "1–4 hrs",
+    adverseEffects: ["Tachycardia", "Arrhythmias", "Blurred Vision (if mist contacts eyes)", "Dizziness", "Nausea & Vomiting", "Tremors", "Anxiety"],
+    precautions: 'More effective in <span class="hl hl--beta">COPD</span> than in pure asthma — bronchospasm in COPD is more parasympathetically mediated. <strong>Combine with albuterol</strong> for maximum effect — neither alone is as effective as the combination. Caution in narrow-angle glaucoma — nebulized mist entering the eyes can increase intraocular pressure. Caution in underlying cardiovascular conditions — may cause tachycardia or arrhythmias.'
+  },
+  {
+    id: "ketamine",
+    summary: "Dissociative anesthetic — preserves hemodynamics and airway reflexes. Ideal for RSI, procedural sedation, and analgesia in hypotensive or combative patients.",
+    genericName: "Ketamine",
+    tradeName: "Ketalar",
+    classes: ["Dissociative Anesthetic", "Analgesic", "Sedative"],
+    moaBrief: 'Blocks <span class="hl hl--beta">NMDA receptors</span> in the CNS <span class="moa-arrow">→</span> dissociative anesthesia, profound analgesia, amnesia, and sedation. Stimulates catecholamine release <span class="moa-arrow">→</span> <strong>maintains or increases BP and HR</strong> — beneficial in shock.',
+    indications: ["Moderate to Severe Pain (sub-dissociative)", "Procedural Sedation", "RSI Induction", "Excited Delirium / Acute Agitation"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Severe / Uncontrolled Hypertension" },
+      { text: "Known Active Psychosis / Schizophrenia", relative: true },
+      { text: "Severe Hepatic Impairment", relative: true }
+    ],
+    doses: [
+      {
+        population: "Adult — Sub-dissociative Analgesia",
+        amount: "0.1–0.3 mg/kg IV slow push over 10–15 min",
+        notes: ["May repeat PRN", "Alternatively: 50 mg IM for field analgesia"]
+      },
+      {
+        population: "Adult — Procedural Sedation",
+        amount: "1–2 mg/kg IV slow push OR 4–5 mg/kg IM",
+        notes: ["May repeat 0.5 mg/kg IV PRN"]
+      },
+      {
+        population: "Adult — RSI Induction",
+        amount: "2 mg/kg IV (max 200 mg)",
+        notes: ["Drug of choice in hypotensive or asthmatic patients", "Follow immediately with paralytic"]
+      },
+      {
+        population: "Adult — Excited Delirium / Agitation",
+        amount: "3–5 mg/kg IM",
+        notes: ["IM preferred — avoids IV needle stick in combative patients", "5 mg/kg IM — be prepared to manage airway"]
+      },
+      {
+        population: "Pediatric",
+        amount: "1–2 mg/kg IV OR 4–5 mg/kg IM",
+        notes: ["Not recommended <3 months (laryngospasm risk)", "Weight-based dosing required"]
+      }
+    ],
+    onset: "30–60 sec (IV); 5–10 min (IM)",
+    duration: "10–15 min (IV); 20–60 min (IM)",
+    adverseEffects: ["Hallucinations / Emergence Reactions", "Tachycardia", "Hypertension", "Hypersalivation", "Nausea & Vomiting", "Laryngospasm (rare)", "Transient Apnea (rapid IV push)"],
+    precautions: '<span class="hl hl--warn">Elevated ICP is NOT a contraindication</span> — the ICP concern originated from flawed 1970s studies. The 2020 ACS-COT/ACEP/NAEMSP consensus confirms ketamine has minimal effects on ICP and does not worsen neurologic outcomes in head trauma. <strong>Administer IV slowly</strong> — rapid push can cause transient apnea. Treat emergence reactions with midazolam if needed; do not pre-medicate prophylactically. Document GCS before administration in head-injured patients — dissociative state complicates neuro monitoring. Caution in severe CAD — increases myocardial O₂ demand.'
+  },
+  {
+    id: "ketorolac",
+    summary: "Potent non-narcotic NSAID — excellent for moderate to severe pain without addiction risk, no respiratory depression, opioid-sparing.",
+    genericName: "Ketorolac",
+    tradeName: "Toradol",
+    classes: ["NSAID", "Non-opioid Analgesic"],
+    moaBrief: 'Inhibits <span class="hl hl--beta">COX-1 and COX-2 enzymes</span> <span class="moa-arrow">→</span> reduces prostaglandin synthesis <span class="moa-arrow">→</span> <strong>decreases pain, inflammation, and fever</strong>. No opioid receptor activity — no addiction potential or respiratory depression.',
+    indications: ["Moderate to Severe Pain"],
+    contraindications: [
+      { text: "Hypersensitivity to ketorolac or NSAIDs" },
+      { text: "Bleeding Disorders / Active Bleeding" },
+      { text: "NSAID-Exacerbated Respiratory Disease (aspirin-sensitive asthma)" },
+      { text: "3rd Trimester Pregnancy" },
+      { text: "Severe Renal Impairment", relative: true },
+      { text: "Active Peptic Ulcer Disease", relative: true }
+    ],
+    doses: [
+      {
+        population: "Adult (<65 yrs)",
+        amount: "15–30 mg IV/IM",
+        notes: ["Administer IV slowly over ≥15 sec"]
+      },
+      {
+        population: "Adult (≥65 yrs)",
+        amount: "15 mg IV/IM",
+        notes: ["Higher risk of GI bleeding and renal toxicity — use lower dose"]
+      },
+      {
+        population: "Pediatric",
+        amount: "Not recommended in EMS setting",
+        notes: []
+      }
+    ],
+    onset: "10–30 min",
+    duration: "4–6 hrs",
+    adverseEffects: ["GI Bleeding / Irritation", "Nausea & Vomiting", "Drowsiness", "Hypertension", "Dyspnea", "Allergic Reaction", "Renal Toxicity"],
+    precautions: 'Excellent choice for patients with <span class="hl hl--beta">substance use history or opioid addiction</span> — potent analgesia without addiction risk or respiratory depression. Separate elderly dosing (15 mg max) — higher risk of GI bleeding and renal damage; elderly patients should never receive the full adult dose. Caution in renal impairment — NSAIDs reduce renal blood flow. Avoid in aspirin-sensitive asthma — may trigger severe bronchospasm. Caution in hypertension and cardiovascular disease — may increase CV event risk.'
   }
 ];

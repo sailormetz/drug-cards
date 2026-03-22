@@ -2,6 +2,24 @@ DRUG CARD REVIEW NOTES
 ======================
 Discrepancies flagged during data entry. Review before publishing.
 
+KETOROLAC (Toradol)
+- ✅ Dosing accurate
+- ➕ Split elderly (≥65) into separate dose entry at 15 mg max — card mentioned it only in a note
+- ➕ Renamed "Severe Asthma/COPD" CI to "NSAID-Exacerbated Respiratory Disease" — more precise
+- ➕ Added renal impairment and active PUD as relative CIs
+
+KETAMINE (Ketalar)
+- ⚠️ Removed "Intracranial Pressure" as CI — definitively debunked; 2020 ACS-COT/ACEP/NAEMSP consensus confirms ketamine safe in head trauma with minimal ICP effects
+- ⚠️ Removed "Stroke" as CI — no current evidence base; emerging research suggests neuroprotective properties
+- ➕ Dose tiers added: sub-dissociative analgesia, procedural sedation, RSI, excited delirium — card's single range lumped all use cases
+- ➕ Added IM dosing — missing entirely from card (critical for excited delirium/agitation)
+- ➕ Added "Dissociative Anesthetic" to class
+
+IPRATROPIUM (Atrovent)
+- ➕ Clarified peanut/soy CI: applies to MDI/inhaler form only (soy lecithin propellant), not nebulized solution used by EMS
+- ➕ Added DuoNeb combination note — most effective when combined with albuterol
+- ➕ Clarified "Blurred Vision" mechanism — from nebulized mist contacting eyes, not systemic effect
+
 HYDROXYZINE (Vistaril)
 - ➕ Added IV/subcutaneous as explicit CI — vesicant, causes tissue necrosis, thrombosis, gangrene; card did not make this clear enough
 - ➕ Added epinephrine interaction — hydroxyzine inhibits epi's vasopressor effect; use norepinephrine instead if vasopressor needed
