@@ -1,6 +1,7 @@
 (function () {
   var activeDrugId = DRUGS[0].id;
   var activeCategoryId = 'all';
+  var sortAsc = true;
 
   var CATEGORIES = [
     { id: 'all',          label: 'All',          classes: null },
@@ -164,6 +165,9 @@
         if (!hasClass) return false;
       }
       return fuzzyMatch(q, d.genericName) || fuzzyMatch(q, d.tradeName);
+    }).slice().sort(function (a, b) {
+      var cmp = a.genericName.localeCompare(b.genericName);
+      return sortAsc ? cmp : -cmp;
     });
     list.innerHTML = filtered.map(function (d) {
       var active = d.id === activeDrugId ? ' picker-item--active' : '';
@@ -262,6 +266,12 @@
     document.getElementById('btn-next').addEventListener('click', function () {
       var idx = DRUGS.findIndex(function (d) { return d.id === activeDrugId; });
       navigateTo(DRUGS[(idx + 1) % DRUGS.length]);
+    });
+
+    document.getElementById('sort-btn').addEventListener('click', function () {
+      sortAsc = !sortAsc;
+      document.getElementById('sort-label').textContent = sortAsc ? 'A–Z' : 'Z–A';
+      buildList(search.value);
     });
 
     buildFilters();
