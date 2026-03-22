@@ -2,6 +2,24 @@ DRUG CARD REVIEW NOTES
 ======================
 Discrepancies flagged during data entry. Review before publishing.
 
+OXYGEN
+- ⚠️ Removed "Severe COPD" and "Hyperventilation" as CIs — oxygen is never truly contraindicated; COPD is a titration precaution (88–92%)
+- ⚠️ Corrected peds NRB units: card said "40–60% SpO2" — should be FiO2, corrected to 60–80% FiO2
+- ⚠️ "Hypercapnia" and "Respiratory Acidosis" removed as AEs — these are consequences of blunted hypoxic drive in COPD, not direct AEs of oxygen itself; replaced with CO2 Retention in COPD
+- ➕ Added titration targets: 94–99% general, 88–92% CO2 retainers
+- ➕ Added hyperoxia harm note (AVOID trial) for stroke/ACS/post-ROSC
+
+ORAL GLUCOSE
+- ⚠️ Peds dose clarified: card says "0.5–1 g" flat — corrected to 0.5–1 g/kg (0.5g would be clinically useless)
+- ➕ Added intact gag reflex requirement to reinforce decreased LOC CI
+- ➕ Removed "Allergic Reaction" and "Diarrhea" from AEs — not clinically relevant for emergency glucose gel
+
+ONDANSETRON (Zofran)
+- ⚠️ Removed "GI Obstruction" as CI — this is a metoclopramide CI (increases GI motility), not ondansetron. Ondansetron doesn't significantly affect motility; error on card.
+- ➕ Elevated Long QT Syndrome from precautions to formal CI
+- ➕ Added ODT route — extremely common in EMS, missing from card
+- ➕ Corrected onset: IV ~5 min, not 15–30 min; 15–30 applies to oral/ODT
+
 NITROUS OXIDE (Nitronox)
 - ➕ Added suspected bowel obstruction as CI — same gas-expansion physics as pneumothorax
 - ➕ Added diffusion hypoxia warning after discontinuation

@@ -1466,5 +1466,105 @@ const DRUGS = [
     duration: "5–10 min (effects cease rapidly after stopping inhalation)",
     adverseEffects: ["Nausea & Vomiting", "Dizziness", "Hallucinations", "Hypoxia (if improperly mixed)", "Respiratory Depression (rare at 50/50)"],
     precautions: 'N₂O is 34x more soluble than nitrogen in blood — it <span class="hl hl--danger">rapidly expands any trapped gas space</span> (pneumothorax, bowel obstruction, middle ear, pneumocephalus). <strong>Patient must hold the mask themselves</strong> — this is the primary safety mechanism; never strap it on. Ensure adequate ventilation of the treatment area — chronic provider exposure causes B12 depletion and neuropathy. Administer <span class="hl hl--warn">diffusion oxygen after discontinuation</span> to prevent diffusion hypoxia (N₂O floods out of blood into alveoli, displacing O₂).'
+  },
+  {
+    id: "ondansetron",
+    summary: "5-HT3 antagonist antiemetic — blocks serotonin receptors to suppress the vomiting reflex. Watch for QT prolongation.",
+    genericName: "Ondansetron",
+    tradeName: "Zofran",
+    classes: ["Antiemetic", "5-HT3 Receptor Antagonist"],
+    moaBrief: 'Selectively blocks <span class="hl hl--beta">serotonin 5-HT3 receptors</span> in the CNS (chemoreceptor trigger zone) and GI tract <span class="moa-arrow">→</span> inhibits vagal nerve activity <span class="moa-arrow">→</span> <strong>suppresses the vomiting reflex and alleviates nausea</strong>.',
+    indications: ["Nausea & Vomiting"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Congenital Long QT Syndrome — risk of torsades de pointes" }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "4 mg IV/IO/IM or 4 mg ODT (orally disintegrating tablet)",
+        notes: [
+          "May repeat after 10–15 min",
+          "Administer IV slowly over 2–5 min",
+          "ODT: place on tongue — dissolves without water"
+        ]
+      },
+      {
+        population: "Pediatric",
+        amount: "0.15 mg/kg IV/IO/IM (max 4 mg)",
+        notes: ["May repeat after 10–15 min"]
+      }
+    ],
+    onset: "~5 min (IV); 15–30 min (ODT/oral)",
+    duration: "3–6 hrs",
+    adverseEffects: ["QT Prolongation", "Headache", "Drowsiness", "Constipation", "Fatigue", "Abdominal Pain"],
+    precautions: '<span class="hl hl--warn">QT prolongation risk</span> — monitor ECG, especially in patients with electrolyte abnormalities (hypokalemia, hypomagnesemia) or concurrent QT-prolonging medications. Congenital long QT syndrome is a contraindication. Reduce dose in severe hepatic impairment — impaired metabolism leads to drug accumulation. FDA black box warning applies to IV doses &gt;16 mg (removed from market); standard 4 mg EMS dose is within safety margin but QT effect is dose-dependent.'
+  },
+  {
+    id: "oral-glucose",
+    summary: "Simple carbohydrate for conscious hypoglycemic patients. Requires intact gag reflex — never give to altered patients.",
+    genericName: "Oral Glucose",
+    tradeName: "Glutose / Insta-Glucose",
+    classes: ["Carbohydrate", "Hyperglycemic"],
+    moaBrief: 'Provides <span class="hl hl--beta">rapidly absorbable glucose</span> through the oral/buccal mucosa and GI tract <span class="moa-arrow">→</span> directly raises blood glucose levels <span class="moa-arrow">→</span> <strong>restores cellular energy substrate</strong>.',
+    indications: ["Hypoglycemia (in conscious patients with intact gag reflex)"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Decreased LOC / Inability to Swallow — aspiration risk" }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "15–25 g buccal/oral (one tube of glucose gel)",
+        notes: ["May repeat after 10–15 min", "Obtain BGL before and after administration"]
+      },
+      {
+        population: "Pediatric",
+        amount: "0.5–1 g/kg buccal/oral",
+        notes: ["May repeat after 10–15 min", "Patient must be conscious with intact gag reflex"]
+      }
+    ],
+    onset: "10–15 min",
+    duration: "1–2 hrs",
+    adverseEffects: ["Nausea & Vomiting", "Hyperglycemia", "Rebound Hypoglycemia", "Aspiration (if LOC deteriorates)"],
+    precautions: 'Patient <span class="hl hl--danger">must be conscious with an intact gag reflex</span> — aspiration risk is the primary safety concern. Obtain BGL before administration to confirm hypoglycemia. Monitor for rebound hypoglycemia after initial response — oral glucose is short-acting. If patient cannot protect airway or deteriorates, switch to IV dextrose or IM glucagon.'
+  },
+  {
+    id: "oxygen",
+    summary: "Supplemental O₂ — titrate to SpO₂ 94–99% (88–92% for CO₂ retainers). Hyperoxia harms stroke, ACS, and post-ROSC patients.",
+    genericName: "Oxygen",
+    tradeName: "O₂",
+    classes: ["Medical Gas"],
+    moaBrief: '<span class="hl hl--beta">Increases inspired O₂ concentration (FiO₂)</span> <span class="moa-arrow">→</span> raises alveolar O₂ partial pressure <span class="moa-arrow">→</span> <strong>increases blood oxygen saturation and tissue oxygen delivery</strong>.',
+    indications: ["Hypoxemia (SpO₂ < 94%)", "Cardiac Arrest", "Carbon Monoxide Poisoning", "Respiratory Insufficiency", "Shock / Trauma"],
+    contraindications: [
+      { text: "No absolute contraindications — oxygen should never be withheld from a hypoxic patient" }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "Titrate to SpO₂ target",
+        notes: [
+          "Nasal Cannula: 1–6 L/min (24–44% FiO₂)",
+          "Non-Rebreather Mask: 10–15 L/min (60–90% FiO₂)",
+          "BVM: 15 L/min (100% FiO₂)",
+          "Target SpO₂ 94–99% (general) or 88–92% (suspected CO₂ retainers / COPD)"
+        ]
+      },
+      {
+        population: "Pediatric",
+        amount: "Titrate to SpO₂ target",
+        notes: [
+          "Nasal Cannula: 0.25–4 L/min (24–35% FiO₂)",
+          "Non-Rebreather Mask: 8–10 L/min (60–80% FiO₂)",
+          "BVM: 10–15 L/min (100% FiO₂)",
+          "Blow-by O₂ for infants who won't tolerate a mask"
+        ]
+      }
+    ],
+    onset: "Immediate",
+    duration: "Duration of administration",
+    adverseEffects: ["Hyperoxia (tissue damage at prolonged high FiO₂)", "Dry Mucous Membranes", "Absorption Atelectasis (high FiO₂ washes out nitrogen)", "CO₂ Retention in COPD (reduced hypoxic drive)"],
+    precautions: '<span class="hl hl--warn">Titrate to target — more is not always better.</span> Hyperoxia worsens outcomes in stroke, ACS, and post-cardiac arrest (AVOID trial). In suspected CO₂ retainers (severe COPD), titrate to SpO₂ 88–92% — high-flow O₂ can blunt hypoxic respiratory drive and worsen CO₂ retention, but <strong>never withhold oxygen from a hypoxic patient</strong>. CO poisoning requires high-flow 100% O₂ regardless of SpO₂ reading (pulse ox is unreliable — reads COHb as O₂Hb). Oxygen supports combustion — ensure no open flames or ignition sources.'
   }
 ];
