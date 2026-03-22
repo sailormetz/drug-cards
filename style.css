@@ -543,32 +543,21 @@ body {
   padding: 12px 14px;
 }
 
-/* ===== DOSE ROWS ===== */
-.dose-row {
+/* ===== DOSE BLOCKS ===== */
+.dose-block {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 12px;
+  flex-direction: column;
+  gap: 6px;
   padding-bottom: 12px;
 }
-.dose-main {
+.dose-block--divider {
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+.dose-header {
   display: flex;
   flex-direction: column;
   gap: 1px;
-  flex-shrink: 0;
-}
-.dose-notes {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  flex: 1;
-  min-width: 0;
-  padding-top: 1px;
-  text-align: right;
-}
-.dose-row--divider {
-  border-top: 1px solid var(--border);
-  padding-top: 12px;
 }
 .dose-pop {
   font-size: 10px;
@@ -576,7 +565,6 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--cyan);
-  margin-bottom: 2px;
 }
 .dose-ind {
   font-size: 11px;
@@ -584,7 +572,36 @@ body {
   color: var(--text-mut);
   letter-spacing: 0.01em;
   line-height: 1.3;
-  margin-bottom: 2px;
+}
+.dose-routes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.dose-route {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+}
+.dose-via {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-mut);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.dose-route-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
 }
 .dose-amt {
   font-size: 13px;
@@ -593,10 +610,23 @@ body {
   color: var(--white);
   overflow-wrap: break-word;
 }
+.dose-freq {
+  font-size: 11px;
+  color: var(--text-mut);
+  line-height: 1.4;
+}
 .dose-note {
   font-size: 11px;
   color: var(--text-mut);
   line-height: 1.4;
+}
+.dose-gen-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 2px;
+  border-left: 2px solid var(--border);
+  margin-left: 2px;
 }
 
 /* ===== PHARMA INLINE ===== */
