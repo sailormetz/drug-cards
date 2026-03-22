@@ -1110,5 +1110,100 @@ const DRUGS = [
     duration: "30–45 min",
     adverseEffects: ["Hypotension", "Bradycardia", "Transient AV Block", "Respiratory Depression", "Loss of Deep Tendon Reflexes", "Drowsiness", "Flushing / Diaphoresis"],
     precautions: '<span class="hl hl--warn">Loss of deep tendon reflexes (DTR) is the earliest sign of toxicity</span> — precedes respiratory depression. Check patellar reflex before each dose; if absent, hold drug and notify medical direction. <span class="hl hl--danger">Respiratory paralysis and cardiac arrest can occur at toxic levels.</span> Reversal: <strong>calcium chloride 1 g IV</strong>. Caution in myasthenia gravis — magnesium exacerbates neuromuscular blockade. Rapid IV push reserved for pulseless TdP only — all other indications require infusion over 10+ minutes.'
+  },
+  {
+    id: "mannitol",
+    summary: "Osmotic diuretic — draws water out of brain tissue to reduce ICP. Also used in rhabdomyolysis to protect kidneys via forced diuresis.",
+    genericName: "Mannitol",
+    tradeName: "Osmitrol",
+    classes: ["Osmotic Diuretic"],
+    moaBrief: 'Increases plasma osmolarity <span class="moa-arrow">→</span> draws water from brain tissue and interstitial spaces into the bloodstream <span class="moa-arrow">→</span> <strong>reduces cerebral edema and intracranial pressure</strong>. In the kidneys, osmotic gradient increases urine output <span class="moa-arrow">→</span> forced diuresis.',
+    indications: ["Cerebral Edema / Elevated ICP", "Rhabdomyolysis (renal protection via forced diuresis)", "Blood Transfusion Reactions"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Pulmonary Edema — osmotic fluid shifts can worsen it" },
+      { text: "Hypovolemia / Hypotension — osmotic diuresis worsens volume depletion" },
+      { text: "Anuria / Severe Renal Failure" },
+      { text: "Decompensated Heart Failure" },
+      { text: "Intracranial Hemorrhage — initial plasma expansion may worsen bleeding", relative: true }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "0.5–1 g/kg IV/IO over 15–20 min",
+        notes: ["Use in-line filter — solution can crystallize", "Warm crystallized solution before use; do not administer if crystals remain"]
+      },
+      {
+        population: "Pediatric",
+        amount: "0.25–1 g/kg IV/IO over 15–20 min",
+        notes: ["Use in-line filter"]
+      }
+    ],
+    onset: "15–60 min",
+    duration: "3–8 hrs",
+    adverseEffects: ["Dehydration / Hypovolemia", "Electrolyte Imbalances (hyponatremia, hypokalemia)", "Hypotension", "Nausea & Vomiting", "Headache", "Pulmonary Edema (fluid shift)", "Acute Heart Failure"],
+    precautions: '<span class="hl hl--warn">Inspect solution before administration</span> — mannitol crystallizes at low temperatures. Use an in-line filter (0.22 micron) to catch any crystals; warm the bag if crystals are present and do not administer until fully dissolved. Monitor fluid status closely — osmotic diuresis can cause significant dehydration and electrolyte shifts (hyponatremia, hypokalemia). Caution in intracranial hemorrhage — initial plasma volume expansion may transiently worsen bleeding before ICP effects take hold. Avoid in severe renal failure — depends on intact kidney function for diuresis.'
+  },
+  {
+    id: "meperidine",
+    summary: "Short-acting opioid analgesic — largely being phased out of EMS due to normeperidine toxicity risk. Use fentanyl or morphine when available.",
+    genericName: "Meperidine",
+    tradeName: "Demerol",
+    classes: ["Opioid Analgesic"],
+    moaBrief: 'Binds to <span class="hl hl--beta">mu-opioid receptors</span> in the CNS <span class="moa-arrow">→</span> inhibits ascending pain pathways <span class="moa-arrow">→</span> <strong>analgesia, sedation, and euphoria</strong>. Faster onset but shorter duration than morphine.',
+    indications: ["Moderate to Severe Pain"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "MAOI Use (within 14 days) — risk of fatal serotonin syndrome" },
+      { text: "CNS or Respiratory Depression" },
+      { text: "Head Injury (masks neurological exam, elevates ICP)", relative: true },
+      { text: "Renal Impairment — normeperidine accumulates and causes seizures", relative: true }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "25–100 mg IV/IO/IM slow push",
+        notes: ["Start at 25–50 mg IV due to rapid onset and hypotension risk", "Administer IV slowly — rapid push causes histamine release and hypotension"]
+      },
+      {
+        population: "Pediatric",
+        amount: "1–1.5 mg/kg IV/IO/IM (max 100 mg/dose)",
+        notes: ["Administer IV slowly"]
+      }
+    ],
+    onset: "2–15 min",
+    duration: "2–4 hrs",
+    adverseEffects: ["Respiratory Depression", "Hypotension", "Bradycardia", "Nausea & Vomiting", "Dizziness", "Seizures (normeperidine toxicity)", "Constipation"],
+    precautions: '<span class="hl hl--danger">MAOI interaction is potentially fatal</span> — can cause serotonin syndrome (hyperthermia, agitation, neuromuscular instability) or severe respiratory depression. Do not use within 14 days of MAOI use. Meperidine is metabolized to <span class="hl hl--warn">normeperidine</span>, which accumulates in renal impairment and causes CNS excitability, tremors, and seizures — risk increases with repeat dosing. Many EMS systems have replaced meperidine with fentanyl or morphine for this reason. Use caution in patients with seizure history — normeperidine lowers seizure threshold.'
+  },
+  {
+    id: "methylprednisolone",
+    summary: "Synthetic corticosteroid — reduces airway inflammation in asthma/COPD and anaphylaxis. Effects are delayed 1–4 hours but durable.",
+    genericName: "Methylprednisolone",
+    tradeName: "Solu-Medrol",
+    classes: ["Corticosteroid", "Anti-inflammatory"],
+    moaBrief: 'Binds to <span class="hl hl--beta">glucocorticoid receptors</span> in cells <span class="moa-arrow">→</span> activates anti-inflammatory and immunosuppressive gene expression <span class="moa-arrow">→</span> <strong>reduces cytokine release, airway inflammation, and edema</strong>.',
+    indications: ["Asthma / COPD Exacerbation", "Anaphylaxis (adjunct to epinephrine)"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Systemic Fungal Infection (steroids can promote fungal spread)" },
+      { text: "Active GI Bleed", relative: true }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "125–250 mg IV/IM slow push",
+        notes: ["Most EMS protocols use 125 mg as the standard dose", "Follow IV dose with NS flush"]
+      },
+      {
+        population: "Pediatric",
+        amount: "1–2 mg/kg IV/IM (max 125 mg)",
+        notes: ["Follow IV dose with NS flush"]
+      }
+    ],
+    onset: "1–4 hrs (clinical anti-inflammatory effect)",
+    duration: "8–24 hrs",
+    adverseEffects: ["Hyperglycemia", "Hypokalemia", "Fluid Retention / Hypertension", "Nausea & Vomiting", "Immunosuppression"],
+    precautions: 'Effects are <span class="hl hl--warn">delayed 1–4 hours</span> — methylprednisolone does not provide immediate bronchodilation; administer early and continue bronchodilator therapy. In anaphylaxis, <strong>epinephrine is always first-line</strong> — methylprednisolone is adjunct only and will not reverse anaphylaxis acutely. Monitor BGL in diabetic patients — steroids cause hyperglycemia. Avoid in systemic fungal infection — steroids can promote dissemination. Current evidence does <strong>not support</strong> routine use in acute spinal cord injury (NASCIS III failed to confirm benefit; AANS guidelines recommend against it).'
   }
 ];

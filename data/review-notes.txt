@@ -2,6 +2,25 @@ DRUG CARD REVIEW NOTES
 ======================
 Discrepancies flagged during data entry. Review before publishing.
 
+METHYLPREDNISOLONE (Solu-Medrol)
+- ⚠️ "Hyperkalemia" corrected to "Hypokalemia" — steroids cause potassium excretion (hypokalemia), not retention. Card has this backwards.
+- ➕ Removed "Increased ICP" and "Adrenal Suppression" from adverse effects — chronic/prolonged-use effects, not relevant for single-dose EMS
+- ➕ Onset corrected: 1–4 hrs — card's 30–60 min is optimistic for clinical anti-inflammatory effect
+- ➕ Spinal cord injury note updated: current AANS guidelines recommend AGAINST routine use; NASCIS III failed to confirm benefit
+
+MEPERIDINE (Demerol)
+- ➕ MAOI CI clarified as potentially fatal (serotonin syndrome) — card listed CI but didn't explain severity
+- ➕ Removed "Preterm Labor" as CI — meperidine is sometimes used in preterm labor; not a standard CI. Real concern is fetal respiratory depression near delivery.
+- ➕ Added renal impairment as relative CI — normeperidine accumulates and causes seizures; primary safety concern with this drug
+- ➕ Added IV rate note — rapid push causes histamine release and hypotension
+- ➕ Added clinical context: meperidine largely being phased out in favor of fentanyl/morphine
+
+MANNITOL (Osmitrol)
+- ➕ Added in-line filter requirement — critical safety point; crystallized mannitol can cause vascular embolism
+- ➕ Intracranial Bleeding changed from absolute → relative CI — TBI with herniation may still benefit; judgment call with medical direction
+- ➕ Corrected electrolyte imbalances: card says "hyperkalemia" but mannitol causes hypokalemia from osmotic diuresis; corrected
+- ➕ Added Anuria / Severe Renal Failure as CI — mannitol requires intact kidneys; was missing
+
 MAGNESIUM SULFATE
 - ➕ Dose broken out by indication — card's flat "1–4 g" is inadequate; TdP (1–2 g), eclampsia (4–6 g), and asthma (2 g) are very different
 - ➕ Removed "Myocardial Damage" as CI — vague, not standard; replaced with Cardiogenic Shock/Hypotension and Myasthenia Gravis
