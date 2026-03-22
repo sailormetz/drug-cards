@@ -550,7 +550,7 @@ const DRUGS = [
   ,{
     id: "albuterol",
     summary: "A fast-acting bronchodilator that relaxes the airways — first-line for asthma, COPD exacerbations, and bronchospasm from anaphylaxis.",
-    genericName: "Albuterol Sulfate",
+    genericName: "Albuterol",
     tradeName: "Proventil / Ventolin / ProAir",
     classes: ["Bronchodilator", "Beta-2 Agonist", "Sympathomimetic"],
     moaBrief: 'Stimulates <span class="hl hl--beta">β-2 adrenergic receptors</span> in bronchial smooth muscle <span class="moa-arrow">→</span> relaxation and bronchodilation. Minimal β-1 (cardiac) activity at standard doses.',
