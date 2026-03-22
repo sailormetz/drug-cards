@@ -49,20 +49,37 @@
     }).join('');
 
     var doseRowsHTML = drug.doses.map(function (d, i) {
-      var notesHTML = (d.notes || []).map(function (n) {
-        return '<span class="dose-note">' + n + '</span>';
-      }).join('');
-      var divider = i > 0 ? ' dose-row--divider' : '';
+      var divider = i > 0 ? ' dose-block--divider' : '';
       var indicationHTML = d.indication
         ? '<span class="dose-ind">' + d.indication + '</span>'
         : '';
-      return '<div class="dose-row' + divider + '">' +
-        '<div class="dose-main">' +
+      var routesHTML = (d.routes || []).map(function (r) {
+        var viaLabel = (r.via || []).join(' / ');
+        var freqHTML = r.frequency
+          ? '<span class="dose-freq">' + r.frequency + '</span>'
+          : '';
+        var routeNotesHTML = (r.notes || []).map(function (n) {
+          return '<span class="dose-note">' + n + '</span>';
+        }).join('');
+        return '<div class="dose-route">' +
+          '<span class="dose-via">' + viaLabel + '</span>' +
+          '<div class="dose-route-body">' +
+            '<span class="dose-amt">' + r.amount + '</span>' +
+            freqHTML +
+            routeNotesHTML +
+          '</div>' +
+        '</div>';
+      }).join('');
+      var genNotesHTML = (d.notes || []).map(function (n) {
+        return '<span class="dose-note">' + n + '</span>';
+      }).join('');
+      return '<div class="dose-block' + divider + '">' +
+        '<div class="dose-header">' +
           '<span class="dose-pop">' + d.population + '</span>' +
           indicationHTML +
-          '<span class="dose-amt">' + d.amount + '</span>' +
         '</div>' +
-        (notesHTML ? '<div class="dose-notes">' + notesHTML + '</div>' : '') +
+        '<div class="dose-routes">' + routesHTML + '</div>' +
+        (genNotesHTML ? '<div class="dose-gen-notes">' + genNotesHTML + '</div>' : '') +
       '</div>';
     }).join('');
 
