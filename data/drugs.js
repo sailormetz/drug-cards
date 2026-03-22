@@ -668,5 +668,100 @@ const DRUGS = [
     duration: "20–60 min (anticonvulsant); sedation may persist several hours",
     adverseEffects: ["Respiratory Depression", "CNS Depression", "Hypotension", "Drowsiness", "Muscle Weakness", "Nausea & Vomiting", "Paradoxical Agitation (rare)"],
     precautions: 'Monitor closely for <span class="hl hl--danger">respiratory depression</span> — have airway management immediately available, especially with repeat doses or combined with opioids/CNS depressants. <span class="hl hl--warn">Long half-life</span> — sedative effects can persist for hours. Most EMS systems now prefer <strong>midazolam IM</strong> as first-line for active seizures (faster and more reliable absorption, no refrigeration required). Reduce dose in elderly and patients with hepatic impairment.'
+  },
+  {
+    id: "diphenhydramine",
+    summary: "First-generation antihistamine for allergic reactions and dystonic reactions — adjunct in anaphylaxis, never primary treatment.",
+    genericName: "Diphenhydramine",
+    tradeName: "Benadryl",
+    classes: ["Antihistamine", "Anticholinergic"],
+    moaBrief: 'Blocks <span class="hl hl--beta">H1 histamine receptors</span> → reduces allergic symptoms (itching, urticaria, bronchoconstriction). Anticholinergic properties contribute to reversal of <strong>dystonic reactions</strong>.',
+    indications: ["Allergic Reactions (mild-to-moderate)", "Anaphylaxis (adjunct to epinephrine)", "Dystonic Reactions / EPS"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Neonates / Premature Infants" },
+      { text: "Narrow-Angle Glaucoma" },
+      { text: "MAOI Use (within 14 days)" }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "25–50 mg IV/IM",
+        notes: ["May repeat after 4–6 hrs", "Administer IV slowly"]
+      },
+      {
+        population: "Pediatric",
+        amount: "1 mg/kg IV/IM (max 50 mg/dose)",
+        notes: ["May repeat after 4–6 hrs", "Administer IV slowly"]
+      }
+    ],
+    onset: "10–30 min",
+    duration: "3–12 hrs",
+    adverseEffects: ["Drowsiness / Sedation", "CNS Depression", "Hypotension", "Tachycardia / Palpitations", "Paradoxical Agitation or Hallucinations (rare)", "Nausea & Vomiting", "Seizures (rare, overdose)"],
+    precautions: '<span class="hl hl--danger">Not a first-line treatment for anaphylaxis</span> — <strong>epinephrine is always first</strong>. Diphenhydramine is adjunct only. Use caution in CNS or respiratory depression — may potentiate sedation. Caution with underlying cardiac conditions — can cause tachycardia. Monitor for paradoxical reactions (hyperactivity, agitation, hallucinations) — discontinue if they occur.'
+  },
+  {
+    id: "hydroxocobalamin",
+    summary: "Cyanide antidote — directly binds cyanide ions. First-line for suspected cyanide poisoning in EMS, especially smoke inhalation and closed-space fires.",
+    genericName: "Hydroxocobalamin",
+    tradeName: "Cyanokit",
+    classes: ["Antidote", "Cyanide Antagonist"],
+    moaBrief: 'Directly binds <span class="hl hl--danger">cyanide ions</span> in the bloodstream <span class="moa-arrow">→</span> forms nontoxic <strong>cyanocobalamin</strong> (Vitamin B12) <span class="moa-arrow">→</span> renally excreted <span class="moa-arrow">→</span> restores cellular oxygen utilization.',
+    indications: ["Cyanide Poisoning (suspected or confirmed)"],
+    contraindications: [
+      { text: "Hypersensitivity" }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "5 g IV over 15 min",
+        notes: [
+          "May repeat once after 5–10 min if inadequate response (max 10 g total)",
+          "Dilute in 200 mL NS or D5W; invert/rock vial ≥60 sec — do not shake"
+        ]
+      },
+      {
+        population: "Pediatric",
+        amount: "70 mg/kg IV over 15 min (max 5 g/dose)",
+        notes: [
+          "May repeat once (max 10 g total)",
+          "Same preparation as adult"
+        ]
+      }
+    ],
+    onset: "5–10 min",
+    duration: "12–24 hrs",
+    adverseEffects: ["Hypertension (transient)", "Skin / Urine Discoloration (red-crimson — expected and transient)", "Injection Site Pain", "Nausea & Vomiting", "Dizziness", "Dyspnea"],
+    precautions: 'Expect <span class="hl hl--warn">red/crimson skin and urine discoloration</span> — normal, temporary side effect; communicate to patient and receiving hospital. Monitor BP during infusion — may cause transient hypertension. Reassess airway, oxygenation, and hydration continuously. Think cyanide in: <strong>closed-space fire victims, smoke inhalation with altered mental status, or unexplained cardiac arrest with fire exposure</strong>.'
+  },
+  {
+    id: "hydroxyzine",
+    summary: "Antihistamine/anxiolytic for mild allergic reactions and anxiety — IM only in EMS; IV is absolutely contraindicated.",
+    genericName: "Hydroxyzine",
+    tradeName: "Vistaril",
+    classes: ["Antihistamine", "Anxiolytic", "Antiemetic"],
+    moaBrief: 'Blocks <span class="hl hl--beta">H1 histamine receptors</span> and acts on the CNS <span class="moa-arrow">→</span> reduces allergic symptoms, anxiety, and agitation. Anticholinergic and antiemetic properties contribute to sedation.',
+    indications: ["Mild Allergic Reactions", "Anxiety & Agitation"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Early Pregnancy (teratogenic)" },
+      { text: "IV or subcutaneous administration — vesicant; causes severe tissue necrosis and gangrene" }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "25–50 mg IM deep injection",
+        notes: ["May repeat after 4–6 hrs", "Inject deep into ventrogluteal or midlateral thigh — IM only"]
+      },
+      {
+        population: "Pediatric",
+        amount: "0.5–1 mg/kg IM deep injection",
+        notes: ["May repeat after 4–6 hrs", "Inject into midlateral thigh"]
+      }
+    ],
+    onset: "15–30 min",
+    duration: "4–6 hrs",
+    adverseEffects: ["Drowsiness / Sedation", "Hypotension", "Nausea & Vomiting", "Constipation", "Urinary Retention", "Injection Site Pain / Necrosis (if extravasated)", "QTc Prolongation"],
+    precautions: '<span class="hl hl--danger">IM ONLY — IV is absolutely contraindicated.</span> IV/subcutaneous administration causes severe tissue necrosis, thrombosis, and gangrene. Potentiates CNS depressants — use caution with opioids, benzodiazepines, and alcohol. <span class="hl hl--warn">Can inhibit epinephrine\'s vasopressor effect</span> — if a vasopressor is needed, use norepinephrine, not epi. Monitor for QTc prolongation.'
   }
 ];

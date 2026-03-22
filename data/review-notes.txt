@@ -2,6 +2,22 @@ DRUG CARD REVIEW NOTES
 ======================
 Discrepancies flagged during data entry. Review before publishing.
 
+HYDROXYZINE (Vistaril)
+- ➕ Added IV/subcutaneous as explicit CI — vesicant, causes tissue necrosis, thrombosis, gangrene; card did not make this clear enough
+- ➕ Added epinephrine interaction — hydroxyzine inhibits epi's vasopressor effect; use norepinephrine instead if vasopressor needed
+- ➕ Added QTc prolongation to adverse effects (not on card)
+- ⚠️ Removed 3 g adult max total — 24-hr pharmaceutical ceiling, not relevant for EMS
+
+HYDROXOCOBALAMIN (Cyanokit)
+- ➕ Removed "Vitamin B12 Deficiency" indication — not an EMS indication (hospital/chronic care only)
+- ➕ Added clinical recognition triggers (closed-space fire, smoke inhalation, unexplained arrest) to precautions
+- ➕ Clarified red/crimson discoloration is expected and transient — important for PCR documentation
+
+DIPHENHYDRAMINE (Benadryl)
+- ⚠️ Peds upper dose corrected: 2 mg/kg → 1 mg/kg (max 50 mg) — card's upper end out of step with Chicago EMS, Marin County EMS, and standard protocols
+- ➕ Added "Anaphylaxis (adjunct to epinephrine)" as explicit indication
+- ➕ "Epinephrine is always first" moved into precautions from card's Pro Tip note
+
 DIAZEPAM (Valium)
 - ⚠️ Adult max corrected: 30 mg → 20 mg (card's ceiling is outside standard EMS practice)
 - ⚠️ Adult dose range corrected: 5–15 mg → 5–10 mg per dose (15 mg single dose is high for EMS)
