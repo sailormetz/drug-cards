@@ -2,6 +2,25 @@ DRUG CARD REVIEW NOTES
 ======================
 Discrepancies flagged during data entry. Review before publishing.
 
+MORPHINE SULFATE
+- ➕ "Angina" indication changed to "STEMI with Severe Pain" — CRUSADE registry showed morphine associated with worse outcomes in NSTEMI; AHA/ACC guidelines advise against it in NSTEMI
+- ➕ Added NSTEMI as relative CI
+- ➕ Added MAOI interaction (serotonin syndrome risk) — missing from card
+- ➕ Added IM dosing (5–10 mg) — card only listed IV/IO
+- ➕ Inferior MI/RV involvement warning elevated from note to precautions
+
+MIDAZOLAM (Versed)
+- ➕ Added "Agitation" as indication — widely used prehospital, missing from card
+- ➕ Split doses by use case: seizures (IM preferred) vs procedural sedation/agitation
+- ➕ Added IM as preferred route for seizures — RAMPART trial / 2023 AHA guideline; card listed all routes equally
+- ➕ Duration corrected: IV 30–60 min (not 2–4 hrs as on card); IM/IN 1–2 hrs
+
+METOPROLOL (Lopressor)
+- ✅ Dosing accurate
+- ➕ Clarified "selective beta-1" — distinguishes from labetalol (non-selective)
+- ➕ Asthma/COPD moved to relative CI — not absolute at standard EMS doses; selectivity matters
+- ➕ Sick sinus syndrome added as formal relative CI (was only in precautions on card)
+
 METHYLPREDNISOLONE (Solu-Medrol)
 - ⚠️ "Hyperkalemia" corrected to "Hypokalemia" — steroids cause potassium excretion (hypokalemia), not retention. Card has this backwards.
 - ➕ Removed "Increased ICP" and "Adrenal Suppression" from adverse effects — chronic/prolonged-use effects, not relevant for single-dose EMS

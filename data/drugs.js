@@ -1205,5 +1205,120 @@ const DRUGS = [
     duration: "8–24 hrs",
     adverseEffects: ["Hyperglycemia", "Hypokalemia", "Fluid Retention / Hypertension", "Nausea & Vomiting", "Immunosuppression"],
     precautions: 'Effects are <span class="hl hl--warn">delayed 1–4 hours</span> — methylprednisolone does not provide immediate bronchodilation; administer early and continue bronchodilator therapy. In anaphylaxis, <strong>epinephrine is always first-line</strong> — methylprednisolone is adjunct only and will not reverse anaphylaxis acutely. Monitor BGL in diabetic patients — steroids cause hyperglycemia. Avoid in systemic fungal infection — steroids can promote dissemination. Current evidence does <strong>not support</strong> routine use in acute spinal cord injury (NASCIS III failed to confirm benefit; AANS guidelines recommend against it).'
+  },
+  {
+    id: "metoprolol",
+    summary: "Selective beta-1 blocker — rate control for A-Fib/flutter, AMI, and hypertension. Selectivity is lost at high doses, risking bronchospasm.",
+    genericName: "Metoprolol",
+    tradeName: "Lopressor",
+    classes: ["Class II Antiarrhythmic", "Selective Beta-1 Blocker"],
+    moaBrief: 'Selectively blocks <span class="hl hl--beta">beta-1 adrenergic receptors</span> in the heart <span class="moa-arrow">→</span> decreases HR, contractility, and conduction velocity <span class="moa-arrow">→</span> <strong>reduces myocardial O₂ demand and ventricular rate</strong>.',
+    indications: ["Acute MI / Angina", "Atrial Fibrillation with RVR", "Atrial Flutter with RVR", "SVT / PSVT", "Hypertension"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Hypotension" },
+      { text: "Bradycardia" },
+      { text: "Cardiogenic Shock" },
+      { text: "2nd or 3rd Degree AV Block" },
+      { text: "Decompensated Heart Failure" },
+      { text: "Severe Asthma or COPD (beta-1 selectivity lost at higher doses)", relative: true },
+      { text: "Sick Sinus Syndrome (without pacemaker)", relative: true }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "5 mg IV slow push over 2 min",
+        notes: [
+          "May repeat every 5–10 min (max total 15 mg)",
+          "Elderly patients may require lower doses — more sensitive to bradycardia and hypotension"
+        ]
+      },
+      {
+        population: "Pediatric",
+        amount: "Not recommended in EMS setting",
+        notes: []
+      }
+    ],
+    onset: "1–3 min",
+    duration: "3–6 hrs",
+    adverseEffects: ["Hypotension", "Bradycardia", "Bronchospasm", "Transient AV Block", "Dizziness", "Nausea & Vomiting", "Dyspnea", "Palpitations"],
+    precautions: 'Unlike labetalol, metoprolol is a <span class="hl hl--beta">selective beta-1 blocker</span> — minimal bronchospasm risk at standard doses, but selectivity is lost at high doses. Use with caution in asthma/COPD — not absolutely contraindicated at standard EMS doses. Monitor closely for bradycardia and AV block after each dose. Have atropine and IV fluids ready. Caution in sick sinus syndrome without a pacemaker — may suppress the sinus node. Beta-blocker overdose reversal: glucagon 50 mcg/kg IV.'
+  },
+  {
+    id: "midazolam",
+    summary: "Short-acting benzodiazepine — now first-line for prehospital seizures via IM/IN route per AHA guidelines. Also used for procedural sedation and agitation.",
+    genericName: "Midazolam",
+    tradeName: "Versed",
+    classes: ["Benzodiazepine", "Anticonvulsant", "Sedative"],
+    moaBrief: 'Binds to <span class="hl hl--beta">GABA-A receptors</span> in the CNS <span class="moa-arrow">→</span> enhances chloride channel opening and neuronal inhibition <span class="moa-arrow">→</span> <strong>raises seizure threshold</strong>, sedation, amnesia, and anxiolysis.',
+    indications: ["Active Seizures / Status Epilepticus", "Procedural Sedation", "Agitation"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Narrow-Angle Glaucoma" },
+      { text: "Significant CNS or Respiratory Depression" },
+      { text: "Shock or Coma", relative: true },
+      { text: "Hypotension", relative: true }
+    ],
+    doses: [
+      {
+        population: "Adult — Seizures",
+        amount: "5–10 mg IM (preferred) OR 0.2 mg/kg IN",
+        notes: [
+          "IV: 2–4 mg slow push, may repeat every 5 min",
+          "IM preferred over IV in active seizures — no IV access needed, faster prehospital delivery (RAMPART trial)"
+        ]
+      },
+      {
+        population: "Adult — Procedural Sedation / Agitation",
+        amount: "2–5 mg IV/IM/IN",
+        notes: ["May repeat after 5–10 min (max total 10 mg)", "Reduce dose by 50% in elderly or hepatic/renal impairment"]
+      },
+      {
+        population: "Pediatric",
+        amount: "0.1–0.2 mg/kg IV/IM/IN (max 10 mg)",
+        notes: ["IM/IN preferred for active seizures", "May repeat after 5–10 min"]
+      }
+    ],
+    onset: "1–3 min (IV); 5–10 min (IM/IN)",
+    duration: "30–60 min (IV); 1–2 hrs (IM/IN)",
+    adverseEffects: ["Respiratory Depression", "Oversedation", "Hypotension", "Drowsiness", "Amnesia", "Nausea & Vomiting"],
+    precautions: 'Per 2023 AHA/ILCOR guidelines, <span class="hl hl--beta">IM midazolam is now first-line for prehospital seizures</span> (RAMPART trial: equivalent efficacy to IV lorazepam with faster delivery). Monitor for <span class="hl hl--danger">respiratory depression</span> — have airway management immediately available; risk greatly increases with opioids, alcohol, or other CNS depressants. Reduce dose by 50% in elderly and patients with hepatic/renal impairment. Profound sedation in alcohol use disorder patients — use lowest effective dose.'
+  },
+  {
+    id: "morphine-sulfate",
+    summary: "Classic opioid analgesic with vasodilatory properties — effective for pain and STEMI. Use caution in NSTEMI — evidence suggests worse outcomes.",
+    genericName: "Morphine Sulfate",
+    tradeName: "MS Contin (oral) / generic IV",
+    classes: ["Opioid Analgesic"],
+    moaBrief: 'Binds to <span class="hl hl--beta">mu-opioid receptors</span> in the CNS <span class="moa-arrow">→</span> inhibits ascending pain pathways <span class="moa-arrow">→</span> <strong>analgesia and sedation</strong>. Peripheral vasodilation <span class="moa-arrow">→</span> reduces preload and systemic vascular resistance.',
+    indications: ["Moderate to Severe Pain", "STEMI with Severe Pain (adjunct)"],
+    contraindications: [
+      { text: "Hypersensitivity" },
+      { text: "Hypotension / Hypovolemia" },
+      { text: "CNS or Respiratory Depression" },
+      { text: "MAOI Use (within 14 days) — risk of serotonin syndrome" },
+      { text: "Head Injury / Elevated ICP — respiratory depression elevates CO₂ → increases ICP", relative: true },
+      { text: "NSTEMI — associated with worse outcomes (CRUSADE registry)", relative: true }
+    ],
+    doses: [
+      {
+        population: "Adult",
+        amount: "2–5 mg IV/IO slow push",
+        notes: [
+          "May repeat every 5–15 min (max total 15 mg)",
+          "IM: 5–10 mg — slower onset, less titratable",
+          "Administer slowly — rapid IV push causes histamine release and hypotension"
+        ]
+      },
+      {
+        population: "Pediatric",
+        amount: "0.1–0.2 mg/kg IV/IO slow push (max 10 mg total)",
+        notes: ["May repeat every 5–15 min", "Administer slowly"]
+      }
+    ],
+    onset: "3–5 min (IV); 15–30 min (IM)",
+    duration: "2–5 hrs",
+    adverseEffects: ["Respiratory Depression", "Hypotension", "Bradycardia", "Bronchospasm", "Nausea & Vomiting", "Drowsiness", "Dyspnea"],
+    precautions: 'Administer <strong>slowly</strong> — rapid IV push causes histamine release, hypotension, and bronchospasm. <span class="hl hl--warn">Use with extreme caution in inferior MI</span> — RV involvement causes preload-dependence; morphine\'s vasodilation + bradycardia can cause severe hypotension. <span class="hl hl--warn">Avoid in NSTEMI</span> — CRUSADE registry data associated morphine with higher mortality in NSTEMI patients; fentanyl is generally preferred. Head injury is a relative CI — respiratory depression → CO₂ retention → elevated ICP. MAOI interaction can cause serotonin syndrome.'
   }
 ];
