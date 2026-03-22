@@ -2,6 +2,15 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Workflow
+
+For every feature or fix, follow this process:
+1. Create a new branch with an appropriate name
+2. Make the changes on that branch
+3. Open a PR to merge into `master`
+4. Ask the user if they want to accept the PR
+5. If yes, merge the PR into `master`
+
 ## What this is
 
 A static HTML/CSS paramedic pharmacology study guide — no build step, no dependencies, no framework. Open `index.html` directly in a browser to view.
