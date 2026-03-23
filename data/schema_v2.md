@@ -1,29 +1,8 @@
-# Drug Object Schema v2
+# Drug Object Schema
 
 Full reference for `data/drugs.js` entries.
 
 **Source of truth.** This file defines the contract between data and front-end.
-**Version:** 2.0 — rebuilt for NASEMSO-first data pipeline.
-
-## Changes from v1
-
-| Change | v1 | v2 |
-|--------|----|----|
-| Trade names | `tradeName: "string"` | `tradeNames: ["array"]` |
-| Category | (none) | `category: ["array"]` |
-| Source | (none) | `source: "string"` |
-| Protocols | (none) | Moved to `data/protocol-map.js` (authoring reference, not on drug object) |
-| Frequency/max | Single `frequency` string | Split into `repeat` + `maxDose` |
-| Population | Free text with qualifiers baked in | Enum `population` + optional `qualifier` |
-| Formulation | Concentration in route `notes` | `formulation: "string"` on dose entry |
-| Indication consistency | No rule | If any entry has `indication`, all must |
-| Indications | `indications: ["strings"]` | `indications: [{ name, sameDoseAs? }]` — single source of truth for dose tab labels |
-| No peds dose | `amount: "Not recommended in EMS"` | Omit the entry entirely |
-| Precautions | Single HTML string | Array of HTML strings |
-| Onset/Duration | Top-level strings on drug | Moved to dose entry objects inside `doses[]` |
-| MOA | Three mutually exclusive properties | Unified `moa: []` array with `target` metadata |
-
----
 
 ## EMS Scope
 
