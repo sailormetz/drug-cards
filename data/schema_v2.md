@@ -20,6 +20,7 @@ Full reference for `data/drugs.js` entries.
 | Indications | `indications: ["strings"]` | `indications: [{ name, sameDoseAs? }]` — single source of truth for dose tab labels |
 | No peds dose | `amount: "Not recommended in EMS"` | Omit the entry entirely |
 | Precautions | Single HTML string | Array of HTML strings |
+| Onset/Duration | Top-level strings on drug | Moved to dose entry objects inside `doses[]` |
 | MOA | Three mutually exclusive properties | Unified `moa: []` array with `target` metadata |
 
 ---
@@ -35,11 +36,11 @@ Full reference for `data/drugs.js` entries.
   category: [],                   // Clinical categories — array (see Category Enums)
   classes: [],                    // Pharmacological classes
   source: "",                     // Primary data source (see Source Values)
-  moa: [],                          // Array of MOA entries (see MOA section below)
+  moa: [],                        // Array of MOA entries (see MOA section below)
 
-  indications: [                     // Array of indication objects (see Indications section)
+  indications: [                  // Array of indication objects (see Indications section)
     { name: "" },
-    { name: "", sameDoseAs: "" }     // Optional — points to another indication's dosing
+    { name: "", sameDoseAs: "" }    // Optional — points to another indication's dosing
   ],
   contraindications: [
     { text: "" },
@@ -51,6 +52,8 @@ Full reference for `data/drugs.js` entries.
       // qualifier: "",           // Optional — age/weight split (e.g. "<65 yrs", ">10 kg"). Omit if not needed.
       // indication: "",          // Optional — must match an indications[].name value. Omit if drug has single indication.
       // formulation: "",         // Optional — vial/concentration. Omit if drug has single concentration.
+      onset: "",                  // Time to clinical effect (see Onset/Duration below)
+      duration: "",               // Duration of clinical effect (see Onset/Duration below)
       routes: [
         {
           via: ["IV", "IO"],
@@ -63,8 +66,6 @@ Full reference for `data/drugs.js` entries.
       notes: []                   // General notes for this population/indication combo
     }
   ],
-  onset: "",                     // Free text. Use semicolons for route-specific values: "1–2 min (IM); immediate (IV)"
-  duration: "",                  // Free text. Same format as onset: "5–15 min" or "4–6 hrs (PO); 2–4 hrs (IV)"
   adverseEffects: [],            // Array of plain text strings — no HTML
   precautions: []                // Array of HTML strings — rendered as list items
 }
@@ -145,17 +146,18 @@ Examples:
 
 ```
 Analgesic                  Anticholinergic          Anticoagulant
-Anticonvulsant             Antiemetic               Antihistamine
-Antihypertensive           Antiplatelet             Antipsychotic
-Benzodiazepine             Beta-2 Agonist           Bronchodilator
-Butyrophenone              Calcium Channel Blocker  Carbohydrate
-Catecholamine              Class Ia Antiarrhythmic  Class Ib Antiarrhythmic
-Class III Antiarrhythmic   Class IV Antiarrhythmic  Corticosteroid
-Cyanide Antagonist         Dissociative Anesthetic  Electrolyte
-Hormone                    Inotropic Agent          Loop Diuretic
-NSAID                      Opioid Analgesic         Opioid Antagonist
-Osmotic Diuretic           Sedative                 Sympathomimetic
-Vagolytic                  Vasodilator              Vasopressor
+Anticonvulsant             Antidote                 Antiemetic
+Antihistamine              Antihypertensive         Antiplatelet
+Antipsychotic              Benzodiazepine           Beta-2 Agonist
+Bronchodilator             Butyrophenone            Calcium Channel Blocker
+Carbohydrate               Catecholamine            Class Ia Antiarrhythmic
+Class Ib Antiarrhythmic    Class III Antiarrhythmic Class IV Antiarrhythmic
+Corticosteroid             Cyanide Antagonist       Dissociative Anesthetic
+Electrolyte                Hormone                  Inotropic Agent
+Loop Diuretic              NSAID                    Opioid Analgesic
+Opioid Antagonist          Osmotic Diuretic         Sedative
+Sympathomimetic            Vagolytic                Vasodilator
+Vasopressor
 ```
 
 ### `source`
@@ -322,8 +324,8 @@ indications: [
 // Single indication, no sameDoseAs, no dose tabs.
 // doses[] entries have no indication field — they apply to everything.
 doses: [
-  { population: "Adult", routes: [...] },
-  { population: "Pediatric", routes: [...] }
+  { population: "Adult", onset: "...", duration: "...", routes: [...] },
+  { population: "Pediatric", onset: "...", duration: "...", routes: [...] }
 ]
 ```
 
@@ -351,7 +353,7 @@ doses: [
 ## Dose Structure
 
 ### `doses` — top-level array
-Each object = one population + optional qualifier + optional indication.
+Each object = one population + onset/duration + optional qualifier + optional indication + routes.
 
 ### `doses[].population` — WHO gets this dose
 
@@ -431,6 +433,25 @@ Only needed when a single drug comes in multiple concentrations that determine c
 
 Free text — include both the concentration and the common name.
 
+### `doses[].onset` — time to clinical effect
+Required. Free text string. Scoped to this population + indication combo.
+
+When all routes in the entry share the same onset, use a flat string. When routes differ, separate with semicolons and include the route in parentheses.
+
+- ✅ `"3–5 min"` — single value, all routes share it
+- ✅ `"Immediate"` — IV/IO
+- ✅ `"1–3 min (IV); 10–20 min (IM)"` — semicolons when routes differ
+
+### `doses[].duration` — duration of clinical effect
+Required. Same format as `onset`.
+
+- ✅ `"5–15 min"`
+- ✅ `"4–6 hrs"`
+- ✅ `"Duration of infusion"` — for continuous drips
+- ✅ `"15–30 min (IV); 1–2 hrs (IM)"` — semicolons when routes differ
+
+**Semicolon format:** `"value (ROUTE); value (ROUTE)"`. Always include the route label in parentheses after each value when using semicolons.
+
 ### `doses[].routes` — array of route objects
 
 | Field | Type | Required | Description |
@@ -496,6 +517,8 @@ function renderDoses(drug, container) {
     renderPopulationHeader(pop, container);
 
     entries.forEach(entry => {
+      renderOnsetDuration(entry.onset, entry.duration, container);
+
       entry.routes.forEach(route => {
         // formulation renders as inline badge if present
         renderDoseRow(route, entry.formulation, container);
@@ -794,6 +817,8 @@ precautions: [
       population: "Adult",
       indication: "Anaphylaxis",
       formulation: "1 mg/mL (1:1,000)",
+      onset: "3–5 min",
+      duration: "5–15 min",
       routes: [
         {
           via: ["IM"],
@@ -808,6 +833,8 @@ precautions: [
       population: "Adult",
       indication: "Cardiac Arrest",
       formulation: "0.1 mg/mL (1:10,000)",
+      onset: "Immediate",
+      duration: "5–10 min",
       routes: [
         {
           via: ["IV", "IO"],
@@ -822,6 +849,8 @@ precautions: [
       population: "Adult",
       indication: "Shock",
       formulation: "0.1 mg/mL (1:10,000)",
+      onset: "Immediate",
+      duration: "Duration of infusion",
       routes: [
         {
           via: ["IV drip"],
@@ -836,6 +865,8 @@ precautions: [
       qualifier: "<25 kg",
       indication: "Anaphylaxis",
       formulation: "1 mg/mL (1:1,000)",
+      onset: "3–5 min",
+      duration: "5–15 min",
       routes: [
         {
           via: ["IM"],
@@ -850,6 +881,8 @@ precautions: [
       population: "Pediatric",
       indication: "Cardiac Arrest",
       formulation: "0.1 mg/mL (1:10,000)",
+      onset: "Immediate",
+      duration: "5–10 min",
       routes: [
         {
           via: ["IV", "IO"],
@@ -865,6 +898,8 @@ precautions: [
       population: "Pediatric",
       indication: "Shock",
       formulation: "0.1 mg/mL (1:10,000)",
+      onset: "Immediate",
+      duration: "Duration of infusion",
       routes: [
         {
           via: ["IV drip"],
@@ -878,6 +913,8 @@ precautions: [
       population: "Adult",
       indication: "Croup / Bronchospasm",
       formulation: "1 mg/mL (1:1,000)",
+      onset: "1–5 min",
+      duration: "1–2 hrs",
       routes: [
         {
           via: ["NEB"],
@@ -893,8 +930,6 @@ precautions: [
     // so the tab doesn't appear to be missing peds data. Alternatively, use
     // population: "All Ages" if a fifth population value is added later.
   ],
-  onset: "1–2 min (IM); immediate (IV)",
-  duration: "5–15 min",
   adverseEffects: [
     "Tachycardia",
     "Hypertension",
