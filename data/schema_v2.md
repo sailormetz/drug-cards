@@ -25,6 +25,25 @@ Full reference for `data/drugs.js` entries.
 
 ---
 
+## EMS Scope
+
+Every field is filtered through one lens: **a paramedic on a prehospital call**.
+
+**Include:**
+- Indications a paramedic would treat in the field
+- Single-encounter prehospital doses only — no multi-day regimens, no drips requiring lab monitoring
+- Adverse effects observable within the prehospital window
+- CIs and precautions clinically relevant to the field
+
+**Exclude:**
+- Hospital maintenance dosing or discharge prescriptions
+- Indications specific to ICU, OR, or inpatient care
+- Dosing that requires real-time lab values to titrate safely
+
+> **When in doubt:** Would a paramedic give this, at this dose, for this reason, on a call? If no — leave it out.
+
+---
+
 ## JS Object Template
 
 ```js
