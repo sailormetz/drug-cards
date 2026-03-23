@@ -202,7 +202,7 @@ Each object = one population + optional qualifier + optional indication.
 |-------|-------------|
 | `"Adult"` | Standard adult |
 | `"Pediatric"` | Standard pediatric |
-| `"Elderly"` | Geriatric (typically ≥65) |
+| `"Geriatric"` | Geriatric (typically ≥65) |
 | `"Neonatal"` | Neonatal / newborn |
 
 **Rule:** Only use these four values. Age/weight splits go in `qualifier`.
