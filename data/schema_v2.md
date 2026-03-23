@@ -12,7 +12,7 @@ Full reference for `data/drugs.js` entries.
 | Trade names | `tradeName: "string"` | `tradeNames: ["array"]` |
 | Category | (none) | `category: ["array"]` |
 | Source | (none) | `source: "string"` |
-| Protocols | (none) | `protocols: ["array"]` |
+| Protocols | (none) | Moved to `data/protocol-map.js` (authoring reference, not on drug object) |
 | Frequency/max | Single `frequency` string | Split into `repeat` + `maxDose` |
 | Population | Free text with qualifiers baked in | Enum `population` + optional `qualifier` |
 | Formulation | Concentration in route `notes` | `formulation: "string"` on dose entry |
@@ -34,8 +34,6 @@ Full reference for `data/drugs.js` entries.
   category: [],                   // Clinical categories — array (see Category Enums)
   classes: [],                    // Pharmacological classes
   source: "",                     // Primary data source (see Source Values)
-  protocols: [],                  // NASEMSO guidelines referencing this drug (see Protocol Enums)
-
   moa: [],                          // Array of MOA entries (see MOA section below)
 
   indications: [],
@@ -148,44 +146,6 @@ Primary data source for this entry. Gives credibility and audit trail.
 | `"StatPearls"` | Supplemental drug not in NASEMSO, sourced from StatPearls |
 | `"AHA 2023"` | Data sourced from AHA guidelines |
 | `"Mixed"` | Core data from NASEMSO, supplemented by other sources |
-
-### `protocols`
-Array of NASEMSO guideline names where this drug appears in a Treatment and Interventions section. Enables "where is this drug used?" lookups.
-
-#### Protocol Enums
-
-Use the NASEMSO guideline name. Common values:
-
-| Value |
-|-------|
-| `"Anaphylaxis and Allergic Reaction"` |
-| `"Agitated or Violent Patient/Behavioral Emergency"` |
-| `"Bradycardia"` |
-| `"Cardiac Arrest"` |
-| `"Chest Pain/ACS/STEMI"` |
-| `"Eclampsia/Pre-Eclampsia"` |
-| `"Hypoglycemia"` |
-| `"Hyperglycemia"` |
-| `"Nausea-Vomiting"` |
-| `"Pain Management"` |
-| `"Respiratory Distress"` |
-| `"Seizures"` |
-| `"Shock"` |
-| `"Tachycardia with a Pulse"` |
-| `"Poisoning/Overdose Universal Care"` |
-| `"Beta Blocker Poisoning/Overdose"` |
-| `"Calcium Channel Blocker Poisoning/Overdose"` |
-| `"Cyanide Exposure"` |
-| `"Stimulant Poisoning/Overdose"` |
-| `"Pediatric Respiratory Distress (Croup)"` |
-| `"Pediatric Respiratory Distress (Bronchiolitis)"` |
-| `"Neonatal Resuscitation"` |
-| `"General Trauma Management"` |
-| `"Head Injury"` |
-| `"Crush Injury/Crush Syndrome"` |
-| `"Burns"` |
-
-Not exhaustive — add new protocols as needed, matching the NASEMSO guideline title exactly.
 
 ---
 
@@ -575,14 +535,6 @@ precautions: [
   category: ["Resuscitation", "Cardiovascular", "Airway & Respiratory"],
   classes: ["Sympathomimetic", "Catecholamine", "Vasopressor"],
   source: "NASEMSO 2022 v3.0",
-  protocols: [
-    "Anaphylaxis and Allergic Reaction",
-    "Cardiac Arrest",
-    "Shock",
-    "Respiratory Distress",
-    "Pediatric Respiratory Distress (Croup)",
-    "Neonatal Resuscitation"
-  ],
   moa: [
     {
       brief: '<span class="hl hl--alpha">α-1 receptors</span> on vascular smooth muscle <span class="moa-arrow">→</span> <strong>vasoconstriction</strong> and increased SVR. Reverses vasodilation of anaphylaxis.',
