@@ -44,6 +44,25 @@ Every field is filtered through one lens: **a paramedic on a prehospital call**.
 
 ---
 
+## Data Sources
+
+Every drug entry is verified against authoritative sources before being committed. Use sources in this order:
+
+**1. Primary (always check first)**
+- **NASEMSO EMS Pharmacology Reference** (`references/NASEMSO-pharmacology-reference.md`) — the curated prehospital pharmacology reference derived from NASEMSO 2022 v3.0. Check here first for indications, doses, CIs, and MOA.
+
+**2. Secondary (fill gaps NASEMSO doesn't cover)**
+- **AHA ACLS/PALS Guidelines** — gold standard for cardiac arrest, arrhythmia, and resuscitation dosing. Most recent major update 2020, focused updates 2023 and 2025.
+- **StatPearls** (statpearls.com) — peer-reviewed, continuously updated. Good general clinical reference.
+- **DailyMed** (dailymed.nlm.nih.gov) — FDA official drug labeling. Best source for adverse effects, exact formulations, pregnancy warnings, and pharmacokinetics.
+- **NAEMSP Position Statements** — high-quality, peer-reviewed papers on specific prehospital topics (ketamine for agitation, prehospital blood products, etc.).
+- **ITLS / PHTLS textbooks** — trauma-related pharmacology context. Less granular on dosing.
+- **Lexicomp / Epocrates** — excellent for onset/duration, drug interactions, and renal/hepatic dosing adjustments.
+
+**Rule:** NASEMSO pharmacology reference is always checked first. All other sources are secondary and may be consulted in any order to fill gaps.
+
+---
+
 ## JS Object Template
 
 ```js
@@ -186,10 +205,12 @@ Primary data source for this entry. Gives credibility and audit trail.
 
 | Value | When to use |
 |-------|-------------|
-| `"NASEMSO 2022 v3.0"` | Drug appears in NASEMSO guidelines (appendix + treatment sections) |
-| `"StatPearls"` | Supplemental drug not in NASEMSO, sourced from StatPearls |
-| `"AHA 2023"` | Data sourced from AHA guidelines |
-| `"Mixed"` | Core data from NASEMSO, supplemented by other sources |
+| `"NASEMSO 2022 v3.0"` | Data sourced from NASEMSO pharmacology reference |
+| `"AHA 2020/2023"` | Data sourced from AHA ACLS/PALS guidelines |
+| `"StatPearls"` | Supplemental data from StatPearls |
+| `"DailyMed"` | Data from FDA official drug labeling |
+| `"NAEMSP"` | Data from NAEMSP position statement |
+| `"Mixed"` | Core from NASEMSO, supplemented by other sources |
 
 ---
 
