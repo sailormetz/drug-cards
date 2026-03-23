@@ -17,6 +17,7 @@ Full reference for `data/drugs.js` entries.
 | Population | Free text with qualifiers baked in | Enum `population` + optional `qualifier` |
 | Formulation | Concentration in route `notes` | `formulation: "string"` on dose entry |
 | Indication consistency | No rule | If any entry has `indication`, all must |
+| Indications | `indications: ["strings"]` | `indications: [{ name, sameDoseAs? }]` — single source of truth for dose tab labels |
 | No peds dose | `amount: "Not recommended in EMS"` | Omit the entry entirely |
 | Precautions | Single HTML string | Array of HTML strings |
 | MOA | Three mutually exclusive properties | Unified `moa: []` array with `target` metadata |
@@ -36,7 +37,10 @@ Full reference for `data/drugs.js` entries.
   source: "",                     // Primary data source (see Source Values)
   moa: [],                          // Array of MOA entries (see MOA section below)
 
-  indications: [],
+  indications: [                     // Array of indication objects (see Indications section)
+    { name: "" },
+    { name: "", sameDoseAs: "" }     // Optional — points to another indication's dosing
+  ],
   contraindications: [
     { text: "" },
     { text: "", relative: true }
@@ -149,6 +153,167 @@ Primary data source for this entry. Gives credibility and audit trail.
 
 ---
 
+## Indications
+
+Array of indication objects. This is the **single source of truth** — every `doses[].indication` value must be an exact match to an `indications[].name` on the same drug.
+
+### Indication Object
+
+```js
+{
+  name: "",          // Required — the clinical condition
+  sameDoseAs: ""     // Optional — points to another indication's name that shares identical dosing
+}
+```
+
+### `name` — the clinical condition
+Required. Short clinical label. This string appears:
+- On the card's indications list (always)
+- As a dose tab label (only if a dose entry references it)
+
+### `sameDoseAs` — shared dosing pointer (optional)
+When present, tells the student: "this condition uses the same dose as [that other indication]." The value must exactly match another `indications[].name` on the same drug that has at least one dose entry.
+
+**When to use:** The drug is indicated for a condition, but the dose is identical to another condition's dose. Instead of duplicating dose entries with the same numbers, point to the existing one.
+
+**When NOT to use:** If the dose differs at all (different amount, different route, different max) — create a separate dose entry instead.
+
+### Relationship to `doses[].indication`
+
+```
+indications[].name     →  the COMPLETE clinical list (displayed on card)
+doses[].indication     →  the SUBSET that has unique dosing (drives tabs)
+sameDoseAs             →  links an indication without unique dosing to one that has it
+```
+
+Not every indication needs a dose tab. A drug can be indicated for 5 conditions but only have 3 dose groupings. The indications without dose entries should use `sameDoseAs` to point to the one they share dosing with.
+
+### Rules
+
+1. Every `doses[].indication` value **must** be an exact member of the drug's `indications[].name` list
+2. Every `sameDoseAs` value **must** match an `indications[].name` that has at least one dose entry
+3. Indications without `sameDoseAs` and without any matching dose entry are **validation errors** — the data is incomplete
+4. An indication with its own dose entries should **never** have `sameDoseAs`
+
+### Validation
+
+```js
+function validateIndications(drug) {
+  const names = drug.indications.map(i => i.name);
+  const doseInds = new Set(drug.doses.map(d => d.indication).filter(Boolean));
+
+  // Rule 1: every dose tab must match an indication name
+  drug.doses.forEach(d => {
+    if (d.indication && !names.includes(d.indication)) {
+      error(`"${d.indication}" in doses but not in indications[]`);
+    }
+  });
+
+  // Rule 2: every sameDoseAs must point to a name with dose entries
+  drug.indications.forEach(ind => {
+    if (ind.sameDoseAs && !doseInds.has(ind.sameDoseAs)) {
+      error(`${ind.name} sameDoseAs "${ind.sameDoseAs}" has no dose tab`);
+    }
+  });
+
+  // Rule 3: every indication must be accounted for
+  drug.indications.forEach(ind => {
+    if (!ind.sameDoseAs && doseInds.size > 0 && !doseInds.has(ind.name)) {
+      error(`${ind.name} has no dose tab and no sameDoseAs — data incomplete`);
+    }
+  });
+}
+```
+
+### Front-end rendering
+
+```js
+// Card indications list
+drug.indications.forEach(ind => {
+  renderIndicationRow(ind.name);
+  if (ind.sameDoseAs) {
+    renderSharedDoseNote(ind.sameDoseAs);  // e.g. "→ see Hypoglycemia dosing"
+  }
+});
+```
+
+### Examples
+
+**Glucagon — 4 indications, 2 dose groupings:**
+```js
+indications: [
+  { name: "Hypoglycemia" },
+  { name: "CCB/BB Overdose" },
+  { name: "Insulin Overdose", sameDoseAs: "Hypoglycemia" },
+  { name: "Esophageal Obstruction", sameDoseAs: "Hypoglycemia" }
+],
+// Only "Hypoglycemia" and "CCB/BB Overdose" appear as dose tabs.
+// Card shows all 4 indications. Insulin OD and Esophageal Obstruction
+// display "→ Hypoglycemia dosing" on the indications list.
+doses: [
+  { indication: "Hypoglycemia", population: "Adult", ... },
+  { indication: "Hypoglycemia", population: "Pediatric", ... },
+  { indication: "CCB/BB Overdose", population: "Adult", ... },
+  { indication: "CCB/BB Overdose", population: "Pediatric", ... }
+]
+```
+
+**Epinephrine — 5 indications, 4 dose groupings:**
+```js
+indications: [
+  { name: "Anaphylaxis" },
+  { name: "Cardiac Arrest" },
+  { name: "Shock" },
+  { name: "Croup / Bronchospasm" },
+  { name: "Severe Allergic Reaction", sameDoseAs: "Anaphylaxis" }
+],
+// "Severe Allergic Reaction" shares anaphylaxis dosing — no separate tab.
+// 4 tabs: Anaphylaxis | Cardiac Arrest | Shock | Croup / Bronchospasm
+doses: [
+  { indication: "Anaphylaxis", population: "Adult", ... },
+  { indication: "Anaphylaxis", population: "Pediatric", ... },
+  { indication: "Cardiac Arrest", population: "Adult", ... },
+  { indication: "Cardiac Arrest", population: "Pediatric", ... },
+  { indication: "Shock", population: "Adult", ... },
+  { indication: "Shock", population: "Pediatric", ... },
+  { indication: "Croup / Bronchospasm", population: "Adult", ... }
+]
+```
+
+**Ondansetron — 1 indication, no tabs needed:**
+```js
+indications: [
+  { name: "Nausea & Vomiting" }
+],
+// Single indication, no sameDoseAs, no dose tabs.
+// doses[] entries have no indication field — they apply to everything.
+doses: [
+  { population: "Adult", routes: [...] },
+  { population: "Pediatric", routes: [...] }
+]
+```
+
+**Midazolam — 3 indications, all with different doses:**
+```js
+indications: [
+  { name: "Seizures" },
+  { name: "Agitation" },
+  { name: "Sedation" }
+],
+// No sameDoseAs — all three have unique dosing.
+// 3 tabs: Seizures | Agitation | Sedation
+doses: [
+  { indication: "Seizures", population: "Adult", ... },
+  { indication: "Seizures", population: "Pediatric", ... },
+  { indication: "Agitation", population: "Adult", ... },
+  { indication: "Agitation", population: "Pediatric", ... },
+  { indication: "Sedation", population: "Adult", ... },
+  { indication: "Sedation", population: "Geriatric", ... }
+]
+```
+
+---
+
 ## Dose Structure
 
 ### `doses` — top-level array
@@ -178,32 +343,39 @@ Free text string for age or weight splits. Only present when the population need
 - ❌ Don't bake qualifiers into population: `"Pediatric (>10 kg)"` → use `population: "Pediatric", qualifier: ">10 kg"`
 
 ### `doses[].indication` — WHAT FOR (optional)
-Only present when the drug has different doses for different conditions.
-
-**Rule:** If no `indication` field, the dose applies to ALL indications for that population.
-
-**Consistency rule:** If ANY dose entry on a drug has `indication`, then ALL entries on that drug must have it. Orphaned entries without `indication` won't appear under any pathology tab.
+Only present when the drug has different doses for different conditions. The value **must** be an exact match to one of the drug's `indications[].name` values — the top-level `indications` array is the single source of truth. No freestyling.
 
 ```js
-// ✅ Good — all entries have indication
+// Given this indications array:
+indications: [
+  { name: "Seizures" },
+  { name: "Agitation" }
+],
+
+// ✅ Good — values match indications[].name exactly
 { population: "Adult",     indication: "Seizures",  routes: [...] }
 { population: "Adult",     indication: "Agitation",  routes: [...] }
 { population: "Pediatric", indication: "Seizures",  routes: [...] }
 { population: "Pediatric", indication: "Agitation",  routes: [...] }
 
+// ❌ Bad — "Behavioral Emergency" is not in indications[].name
+{ population: "Adult",     indication: "Behavioral Emergency",  routes: [...] }
+
 // ❌ Bad — peds entry has no indication, won't land under any tab
-{ population: "Adult",     indication: "Seizures",  routes: [...] }
-{ population: "Adult",     indication: "Agitation",  routes: [...] }
 { population: "Pediatric", routes: [...] }
 ```
+
+**Rule:** If no `indication` field on any entry, the dose applies to ALL indications for that population.
+
+**Consistency rule:** If ANY dose entry on a drug has `indication`, then ALL entries on that drug must have it. Orphaned entries without `indication` won't appear under any pathology tab.
+
+**Membership rule:** Every `doses[].indication` string must appear in the drug's `indications[].name` list. See the Indications section above for full validation logic.
 
 **When NOT to use:** If the dose is identical across all the drug's indications, omit `indication` entirely. No tabs will render. Don't create redundant tabs that show the same numbers — it looks like a bug.
 
 **Front-end behavior:**
-- 0 unique indications → no tabs, flat dose list
-- 2+ unique indications → pathology tabs; each tab shows all populations for that indication
-
-Free text — not a strict enum. Use short clinical labels that match the drug's `indications[]` array where possible.
+- 0 unique indications in doses → no tabs, flat dose list
+- 2+ unique indications in doses → pathology tabs; each tab shows all populations for that indication
 
 ### `doses[].formulation` — WHICH vial or concentration (optional)
 Only needed when a single drug comes in multiple concentrations that determine clinical use. Currently applies to epinephrine and dextrose.
@@ -550,11 +722,11 @@ precautions: [
     }
   ],
   indications: [
-    "Anaphylaxis",
-    "Cardiac Arrest",
-    "Severe Allergic Reaction",
-    "Shock (vasopressor)",
-    "Refractory Bronchospasm"
+    { name: "Anaphylaxis" },
+    { name: "Cardiac Arrest" },
+    { name: "Shock" },
+    { name: "Croup / Bronchospasm" },
+    { name: "Severe Allergic Reaction", sameDoseAs: "Anaphylaxis" }
   ],
   contraindications: [
     { text: "Hypersensitivity" },
@@ -642,6 +814,20 @@ precautions: [
           via: ["IV drip"],
           amount: "0.05–0.3 mcg/kg/min",
           notes: ["Titrate to physiologic targets"]
+        }
+      ],
+      notes: []
+    },
+    {
+      population: "Adult",
+      indication: "Croup / Bronchospasm",
+      formulation: "1 mg/mL (1:1,000)",
+      routes: [
+        {
+          via: ["NEB"],
+          amount: "5 mg (5 mL)",
+          repeat: "May repeat in 20 min",
+          notes: []
         }
       ],
       notes: []
