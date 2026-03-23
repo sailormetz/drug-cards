@@ -48,25 +48,25 @@ Full reference for `data/drugs.js` entries.
   doses: [
     {
       population: "Adult",        // Enum (see Population Enums)
-      qualifier: "",              // Optional — age/weight split (e.g. "<65 yrs", ">10 kg")
-      indication: "",             // Optional — only when dose varies by use case
-      formulation: "",            // Optional — vial/concentration (see Formulation below)
+      // qualifier: "",           // Optional — age/weight split (e.g. "<65 yrs", ">10 kg"). Omit if not needed.
+      // indication: "",          // Optional — must match an indications[].name value. Omit if drug has single indication.
+      // formulation: "",         // Optional — vial/concentration. Omit if drug has single concentration.
       routes: [
         {
           via: ["IV", "IO"],
           amount: "5 mg",
-          repeat: "",             // How often to re-dose (optional)
-          maxDose: "",            // Ceiling per encounter (optional)
+          // repeat: "",          // Optional — omit if not repeatable
+          // maxDose: "",         // Optional — omit if no ceiling
           notes: []               // Route-specific admin notes
         }
       ],
       notes: []                   // General notes for this population/indication combo
     }
   ],
-  onset: "",
-  duration: "",
-  adverseEffects: [],
-  precautions: []                 // Array of HTML strings — rendered as list items
+  onset: "",                     // Free text. Use semicolons for route-specific values: "1–2 min (IM); immediate (IV)"
+  duration: "",                  // Free text. Same format as onset: "5–15 min" or "4–6 hrs (PO); 2–4 hrs (IV)"
+  adverseEffects: [],            // Array of plain text strings — no HTML
+  precautions: []                // Array of HTML strings — rendered as list items
 }
 ```
 
@@ -117,6 +117,8 @@ Array of clinical groupings for front-end filtering. A drug appears under every 
 
 **Rule:** Include every category that applies. List the primary use first. Front-end filters with `drug.category.includes(filter)`.
 
+**Note:** `category` is a coarse filter maintained by the author — it is NOT derived from `indications[].name`. Categories group drugs by clinical domain (e.g. "Cardiovascular"), while indications list specific conditions (e.g. "Cardiac Arrest"). They will overlap conceptually but are maintained independently.
+
 Examples:
 - **Epinephrine:** `["Resuscitation", "Cardiovascular", "Airway & Respiratory"]`
 - **Amiodarone:** `["Cardiovascular", "Resuscitation"]`
@@ -138,6 +140,23 @@ Examples:
 - **Atropine:** `["Anticholinergic", "Vagolytic"]`
 - **Ketamine:** `["Dissociative Anesthetic", "Analgesic", "Sedative"]`
 - **Droperidol:** `["Antipsychotic", "Antiemetic", "Butyrophenone"]`
+
+**Not an enum** — add new values when none of the existing ones fit. But use these preferred spellings for consistency across the dataset:
+
+```
+Analgesic                  Anticholinergic          Anticoagulant
+Anticonvulsant             Antiemetic               Antihistamine
+Antihypertensive           Antiplatelet             Antipsychotic
+Benzodiazepine             Beta-2 Agonist           Bronchodilator
+Butyrophenone              Calcium Channel Blocker  Carbohydrate
+Catecholamine              Class Ia Antiarrhythmic  Class Ib Antiarrhythmic
+Class III Antiarrhythmic   Class IV Antiarrhythmic  Corticosteroid
+Cyanide Antagonist         Dissociative Anesthetic  Electrolyte
+Hormone                    Inotropic Agent          Loop Diuretic
+NSAID                      Opioid Analgesic         Opioid Antagonist
+Osmotic Diuretic           Sedative                 Sympathomimetic
+Vagolytic                  Vasodilator              Vasopressor
+```
 
 ### `source`
 Primary data source for this entry. Gives credibility and audit trail.
@@ -171,6 +190,8 @@ Required. Short clinical label. This string appears:
 - On the card's indications list (always)
 - As a dose tab label (only if a dose entry references it)
 
+**Ordering:** List the most common or life-threatening EMS use first. Array order determines tab order on the front end.
+
 ### `sameDoseAs` — shared dosing pointer (optional)
 When present, tells the student: "this condition uses the same dose as [that other indication]." The value must exactly match another `indications[].name` on the same drug that has at least one dose entry.
 
@@ -190,10 +211,11 @@ Not every indication needs a dose tab. A drug can be indicated for 5 conditions 
 
 ### Rules
 
+0. If a drug has **multiple indications**, its dose entries **must** use the `indication` field — otherwise the front end can't build tabs
 1. Every `doses[].indication` value **must** be an exact member of the drug's `indications[].name` list
 2. Every `sameDoseAs` value **must** match an `indications[].name` that has at least one dose entry
 3. Indications without `sameDoseAs` and without any matching dose entry are **validation errors** — the data is incomplete
-4. An indication with its own dose entries should **never** have `sameDoseAs`
+4. An indication with its own dose entries should **never** have `sameDoseAs` — pick one or the other
 
 ### Validation
 
@@ -201,6 +223,11 @@ Not every indication needs a dose tab. A drug can be indicated for 5 conditions 
 function validateIndications(drug) {
   const names = drug.indications.map(i => i.name);
   const doseInds = new Set(drug.doses.map(d => d.indication).filter(Boolean));
+
+  // Rule 0: multi-indication drugs must use indication on dose entries
+  if (drug.indications.length > 1 && !drug.doses.some(d => d.indication)) {
+    error(`Drug has ${drug.indications.length} indications but no dose entries use indication field`);
+  }
 
   // Rule 1: every dose tab must match an indication name
   drug.doses.forEach(d => {
@@ -220,6 +247,13 @@ function validateIndications(drug) {
   drug.indications.forEach(ind => {
     if (!ind.sameDoseAs && doseInds.size > 0 && !doseInds.has(ind.name)) {
       error(`${ind.name} has no dose tab and no sameDoseAs — data incomplete`);
+    }
+  });
+
+  // Rule 4: sameDoseAs must not coexist with own dose entries
+  drug.indications.forEach(ind => {
+    if (ind.sameDoseAs && doseInds.has(ind.name)) {
+      error(`${ind.name} has both dose entries and sameDoseAs — pick one`);
     }
   });
 }
@@ -469,6 +503,12 @@ function renderDoses(drug, container) {
     });
   });
 }
+
+// 5. When navigating from indications list, resolve sameDoseAs
+function handleIndicationTap(ind, indications, setActiveTab) {
+  const target = ind.sameDoseAs || ind.name;
+  setActiveTab(target);
+}
 ```
 
 ---
@@ -517,6 +557,8 @@ The renderer checks `moa[0].tier` to decide layout:
     result: "",   // Clinical effect for the patient
     system: "",   // Biological system (see SYSTEM enum)
     dose: ""      // Optional — only for dose-dependent drugs (e.g. "2–5 mcg/kg/min")
+                  // NOTE: This is a DISPLAY LABEL for the MOA card only. The doses[] array
+                  // is the source of truth for actual dosing. These may overlap but are maintained independently.
   }
 }
 ```
@@ -646,6 +688,20 @@ moa: [
   }
 ]
 ```
+
+---
+
+## Safety Fields — Why Three Different Shapes
+
+The drug object has three fields that all relate to "warnings," each with a different data shape. This is intentional:
+
+| Field | Shape | Why |
+|-------|-------|-----|
+| `contraindications` | `[{ text, relative? }]` | Needs the `relative` boolean for absolute vs. relative distinction — quiz and display logic depend on it |
+| `precautions` | `["html strings"]` | Needs HTML for inline emphasis (`hl--danger`, `hl--warn`) — these are displayed as formatted list items |
+| `adverseEffects` | `["plain strings"]` | Plain text is sufficient — these are simple labels rendered as a flat list, no formatting needed |
+
+Do not normalize these into a single shape. The different structures serve different rendering and querying needs.
 
 ---
 
@@ -832,6 +888,10 @@ precautions: [
       ],
       notes: []
     }
+    // NOTE: Nebulized epi dose is the same for all ages (5 mg).
+    // A Pediatric entry with the same numbers could be added for completeness
+    // so the tab doesn't appear to be missing peds data. Alternatively, use
+    // population: "All Ages" if a fifth population value is added later.
   ],
   onset: "1–2 min (IM); immediate (IV)",
   duration: "5–15 min",
