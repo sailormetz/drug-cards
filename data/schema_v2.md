@@ -125,7 +125,17 @@ Examples:
 
 ### `classes`
 Array of pharmacological class strings. These are the drug's formal classifications, not its use category.
-- ✅ `["Sympathomimetic", "Catecholamine", "Vasopressor"]`
+
+Examples:
+- **Epinephrine:** `["Sympathomimetic", "Catecholamine", "Vasopressor"]`
+- **Diltiazem:** `["Class IV Antiarrhythmic", "Calcium Channel Blocker (Non-DHP)"]`
+- **Naloxone:** `["Opioid Antagonist", "Antidote"]`
+- **Albuterol:** `["Bronchodilator", "Beta-2 Agonist", "Sympathomimetic"]`
+- **Magnesium Sulfate:** `["Electrolyte", "Anticonvulsant", "Antiarrhythmic", "Bronchodilator"]`
+- **Aspirin:** `["NSAID", "Antiplatelet"]`
+- **Atropine:** `["Anticholinergic", "Vagolytic"]`
+- **Ketamine:** `["Dissociative Anesthetic", "Analgesic", "Sedative"]`
+- **Droperidol:** `["Antipsychotic", "Antiemetic", "Butyrophenone"]`
 
 ### `source`
 Primary data source for this entry. Gives credibility and audit trail.
