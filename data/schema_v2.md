@@ -10,7 +10,7 @@ Full reference for `data/drugs.js` entries.
 | Change | v1 | v2 |
 |--------|----|----|
 | Trade names | `tradeName: "string"` | `tradeNames: ["array"]` |
-| Category | (none) | `category: "string"` |
+| Category | (none) | `category: ["array"]` |
 | Source | (none) | `source: "string"` |
 | Protocols | (none) | `protocols: ["array"]` |
 | Frequency/max | Single `frequency` string | Split into `repeat` + `maxDose` |
@@ -31,7 +31,7 @@ Full reference for `data/drugs.js` entries.
   summary: "",                    // One-liner: what it is + when you reach for it
   genericName: "",
   tradeNames: [],                 // Array of trade name strings
-  category: "",                   // Clinical category (see Category Enums)
+  category: [],                   // Clinical categories — array (see Category Enums)
   classes: [],                    // Pharmacological classes
   source: "",                     // Primary data source (see Source Values)
   protocols: [],                  // NASEMSO guidelines referencing this drug (see Protocol Enums)
@@ -77,7 +77,14 @@ Lowercase, hyphenated generic name. Must be unique.
 - ✅ `"epinephrine"`, `"calcium-chloride"`, `"lactated-ringers"`
 
 ### `summary`
-One sentence. What it is + when a paramedic reaches for it. No HTML.
+One sentence. What it is + when a paramedic reaches for it. No HTML. Write like you're explaining it to a medic student — clinical but conversational.
+
+Examples from current data:
+- **Fentanyl:** `"A potent opioid analgesic used for rapid management of severe pain and procedural sedation; roughly 100x more potent than morphine by weight."`
+- **Flumazenil:** `"A benzodiazepine antagonist used to reverse benzo-induced sedation and respiratory depression; short duration means resedation is common — watch your patient."`
+- **Glucagon:** `"A hormone that rapidly raises blood glucose in hypoglycemia when IV access isn't available; also used as an antidote for beta-blocker and calcium channel blocker overdose."`
+- **Droperidol:** `"A powerful antipsychotic and antiemetic used to sedate agitated patients and stop nausea/vomiting; carries an FDA black box warning for fatal heart rhythm problems."`
+- **Hydralazine:** `"A direct arteriolar vasodilator used for hypertensive emergencies and acute heart failure; effective but unpredictable — causes reflex tachycardia, often paired with a beta-blocker."`
 
 ### `genericName`
 Proper-case generic name as it appears on the drug label.
@@ -90,7 +97,7 @@ Array of trade name strings. One entry per distinct brand.
 - If no trade name exists: `[]`
 
 ### `category`
-Clinical grouping for front-end filtering. One category per drug — pick the primary use.
+Array of clinical groupings for front-end filtering. A drug appears under every category it belongs to.
 
 #### Category Enums
 
@@ -106,7 +113,15 @@ Clinical grouping for front-end filtering. One category per drug — pick the pr
 | `"Toxicology"` | Antidotes, reversal agents, poisoning management |
 | `"IV Fluids"` | Crystalloids, colloids |
 
-**Rule:** A drug may fit multiple categories. Pick the one that best matches its primary EMS use. Epinephrine's primary EMS use is resuscitation/anaphylaxis — but since it spans so many, use `"Resuscitation"`. Midazolam is primarily `"Neurological"` even though it's used for sedation.
+**Rule:** Include every category that applies. List the primary use first. Front-end filters with `drug.category.includes(filter)`.
+
+Examples:
+- **Epinephrine:** `["Resuscitation", "Cardiovascular", "Airway & Respiratory"]`
+- **Amiodarone:** `["Cardiovascular", "Resuscitation"]`
+- **Magnesium Sulfate:** `["Cardiovascular", "OB/GYN", "Airway & Respiratory"]`
+- **Ketamine:** `["Analgesic", "Neurological"]`
+- **Naloxone:** `["Toxicology"]` — single-category drugs still use an array
+- **Ondansetron:** `["Neurological"]`
 
 ### `classes`
 Array of pharmacological class strings. These are the drug's formal classifications, not its use category.
@@ -547,7 +562,7 @@ precautions: [
   summary: "The first-line drug for anaphylaxis and cardiac arrest — a potent sympathomimetic that rapidly reverses bronchoconstriction, vasodilation, and cardiovascular collapse.",
   genericName: "Epinephrine",
   tradeNames: ["Adrenalin", "EpiPen"],
-  category: "Resuscitation",
+  category: ["Resuscitation", "Cardiovascular", "Airway & Respiratory"],
   classes: ["Sympathomimetic", "Catecholamine", "Vasopressor"],
   source: "NASEMSO 2022 v3.0",
   protocols: [
