@@ -3853,7 +3853,7 @@ const DRUGS = [
   },
   {
     id: "fentanyl",
-    summary: "A potent synthetic opioid analgesic used for rapid management of severe pain and procedural sedation; roughly 100x more potent than morphine by weight, with faster onset, shorter duration, and better hemodynamic stability due to no histamine release.",
+    summary: "A synthetic opioid analgesic used for severe pain and procedural sedation, roughly 100 times more potent than morphine by weight. Faster onset, shorter duration, and better hemodynamic stability than morphine due to no histamine release.",
     genericName: "Fentanyl",
     tradeNames: ["Sublimaze"],
     category: ["Analgesic"],
@@ -3965,7 +3965,7 @@ const DRUGS = [
   },
   {
     id: "flumazenil",
-    summary: "A benzodiazepine antagonist used to reverse benzo-induced sedation and respiratory depression; short duration means resedation is common - watch your patient. NASEMSO warns against use in suspected benzo overdose due to seizure risk.",
+    summary: "A benzodiazepine antagonist used to reverse benzo-induced sedation and respiratory depression. Short duration means resedation is common.",
     genericName: "Flumazenil",
     tradeNames: ["Romazicon"],
     category: ["Toxicology"],
@@ -4042,7 +4042,7 @@ const DRUGS = [
   },
   {
     id: "furosemide",
-    summary: "The most widely used loop diuretic for acute pulmonary edema and CHF - inhibits sodium reabsorption in the loop of Henle to produce rapid diuresis; however, current evidence and NASEMSO favor vasodilators (nitroglycerin, CPAP) over diuretics as first-line prehospital CHF treatment.",
+    summary: "The most widely used loop diuretic for acute pulmonary edema and CHF. Current evidence favors vasodilators over diuretics as first-line prehospital CHF treatment.",
     genericName: "Furosemide",
     tradeNames: ["Lasix"],
     category: ["Cardiovascular"],
@@ -4108,7 +4108,7 @@ const DRUGS = [
   },
   {
     id: "glucagon",
-    summary: "A hormone that rapidly raises blood glucose in hypoglycemia when IV access isn't available; also used as an antidote for beta-blocker and calcium channel blocker overdose by bypassing blocked receptors to increase cardiac output.",
+    summary: "A hormone that raises blood glucose in hypoglycemia when IV access is not available. Also used as an antidote for beta-blocker and calcium channel blocker overdose.",
     genericName: "Glucagon",
     tradeNames: ["GlucaGen", "Baqsimi"],
     category: ["Endocrine & Metabolic", "Toxicology", "Cardiovascular"],
@@ -4253,7 +4253,7 @@ const DRUGS = [
   },
   {
     id: "haloperidol",
-    summary: "A first-generation (typical) antipsychotic that blocks dopamine receptors to manage acute psychosis and severe agitation - effective but carries a black box warning for QT prolongation and torsades, especially with IV use.",
+    summary: "A first-generation antipsychotic used to manage acute psychosis and severe agitation. Carries a black box warning for QT prolongation and torsades, especially with IV use.",
     genericName: "Haloperidol",
     tradeNames: ["Haldol"],
     category: ["Neurological"],
@@ -4336,7 +4336,7 @@ const DRUGS = [
   },
   {
     id: "diltiazem",
-    summary: "A Class IV antiarrhythmic (non-dihydropyridine calcium channel blocker) used for rate control of SVT and rapid atrial fibrillation/flutter - slows AV node conduction without the bronchospasm risk of beta-blockers.",
+    summary: "A non-dihydropyridine calcium channel blocker used for rate control of SVT and rapid atrial fibrillation/flutter. Slows AV node conduction without the bronchospasm risk of beta-blockers.",
     genericName: "Diltiazem",
     tradeNames: ["Cardizem"],
     category: ["Cardiovascular"],
@@ -4416,7 +4416,7 @@ const DRUGS = [
   },
   {
     id: "diazepam",
-    summary: "A long-acting benzodiazepine for seizures and acute agitation - the rectal formulation (Diastat) makes it uniquely useful when IV/IM/IN routes are unavailable, but midazolam IM/IN has largely replaced it as first-line prehospital benzo due to better non-IV absorption.",
+    summary: "A long-acting benzodiazepine for seizures and acute agitation. The rectal formulation makes it useful when IV, IM, and IN routes are unavailable, though midazolam has largely replaced it as first-line prehospital benzodiazepine.",
     genericName: "Diazepam",
     tradeNames: ["Valium", "Diastat"],
     category: ["Neurological"],
@@ -4543,7 +4543,7 @@ const DRUGS = [
   },
   {
     id: "oxygen",
-    summary: "The most fundamental prehospital medication - a therapeutic gas titrated to SpO₂ 94-98% for most patients; 100% FiO₂ reserved for cardiac arrest, CO/cyanide poisoning, and severe shock. Both too little and too much cause harm.",
+    summary: "A therapeutic gas titrated to SpO2 94-98% for most patients, with 100% FiO2 reserved for cardiac arrest, CO and cyanide poisoning, and severe shock. Both hypoxia and hyperoxia cause harm.",
     genericName: "Oxygen",
     tradeNames: [],
     category: ["Airway & Respiratory", "Resuscitation"],
@@ -4704,7 +4704,7 @@ const DRUGS = [
   },
   {
     id: "oral-glucose",
-    summary: "The simplest and safest treatment for symptomatic hypoglycemia in conscious patients with a patent airway - available as glucose tablets, glucose gel, or tube of cake icing; requires no IV access and can be administered by BLS providers.",
+    summary: "The simplest treatment for symptomatic hypoglycemia in conscious patients with a patent airway. Requires no IV access and can be administered by BLS providers.",
     genericName: "Oral Glucose",
     tradeNames: ["Glutose", "Insta-Glucose"],
     category: ["Endocrine & Metabolic"],
@@ -4777,7 +4777,7 @@ const DRUGS = [
   },
   {
     id: "ondansetron",
-    summary: "A selective 5-HT3 antagonist and the preferred prehospital antiemetic - highly effective with no extrapyramidal side effects (unlike metoclopramide and prochlorperazine); carries dose-dependent QT prolongation risk.",
+    summary: "A selective 5-HT3 antagonist and the preferred prehospital antiemetic, with no extrapyramidal side effects. Carries dose-dependent QT prolongation risk.",
     genericName: "Ondansetron",
     tradeNames: ["Zofran", "Zofran ODT"],
     category: ["Neurological"],
