@@ -1034,7 +1034,7 @@ const DRUGS = [
   },
   {
     id: "vasopressin",
-    summary: "A non-catecholamine vasopressor that acts on V1 receptors to cause vasoconstriction - used as a second-line agent in vasodilatory shock and historically in cardiac arrest; works through a completely different pathway than epinephrine/norepinephrine.",
+    summary: "A non-catecholamine vasopressor that acts on V1 receptors in vascular smooth muscle to cause potent vasoconstriction, independent of the adrenergic pathway, making it useful in vasodilatory and septic shock as an adjunct to norepinephrine.",
     genericName: "Vasopressin (ADH)",
     tradeNames: ["Vasostrict", "Pitressin"],
     category: ["Cardiovascular", "Resuscitation"],
@@ -1123,7 +1123,7 @@ const DRUGS = [
   },
   {
     id: "vecuronium",
-    summary: "An intermediate-acting non-depolarizing paralytic with minimal hemodynamic effects - too slow for RSI but widely used for post-intubation paralysis maintenance during transport; must be reconstituted from powder before use.",
+    summary: "An intermediate-acting non-depolarizing paralytic with minimal hemodynamic effects, used for post-intubation paralysis maintenance rather than RSI due to slow onset. Must be reconstituted from powder before use.",
     genericName: "Vecuronium",
     tradeNames: ["Norcuron"],
     category: ["Airway & Respiratory"],
@@ -1196,7 +1196,7 @@ const DRUGS = [
   },
   {
     id: "verapamil",
-    summary: "A non-dihydropyridine calcium channel blocker that slows AV node conduction to terminate SVT - second-line to adenosine, with a long contraindication list including WPW with AF, wide-complex tachycardia, and use in infants.",
+    summary: "A non-dihydropyridine calcium channel blocker that slows AV node conduction to terminate SVT. Second-line to adenosine, with contraindications including WPW with atrial fibrillation, wide-complex tachycardia, and use in infants.",
     genericName: "Verapamil",
     tradeNames: ["Calan", "Isoptin", "Verelan"],
     category: ["Cardiovascular"],
@@ -1288,7 +1288,7 @@ const DRUGS = [
   },
   {
     id: "propofol",
-    summary: "A rapid-onset, ultra-short-acting IV sedative-hypnotic used for RSI induction and post-intubation sedation - provides amnesia and reduces ICP, but causes dose-dependent hypotension; the 'milk of amnesia.'",
+    summary: "A rapid-onset, ultra-short-acting IV sedative-hypnotic used for RSI induction and post-intubation sedation. Provides amnesia and reduces ICP but causes dose-dependent hypotension.",
     genericName: "Propofol",
     tradeNames: ["Diprivan"],
     category: ["Neurological"],
@@ -1390,7 +1390,7 @@ const DRUGS = [
   },
   {
     id: "procainamide",
-    summary: "A Class Ia antiarrhythmic that slows conduction through both normal and accessory pathways - the drug of choice for stable wide-complex tachycardia and pre-excited atrial fibrillation (WPW + AF); requires slow IV infusion with continuous monitoring.",
+    summary: "A Class Ia antiarrhythmic that slows conduction through both normal and accessory pathways. The drug of choice for stable wide-complex tachycardia and pre-excited atrial fibrillation, requiring slow IV infusion with continuous monitoring.",
     genericName: "Procainamide",
     tradeNames: ["Pronestyl", "Procanbid"],
     category: ["Cardiovascular"],
@@ -1506,7 +1506,7 @@ const DRUGS = [
   },
   {
     id: "promethazine",
-    summary: "A first-generation antihistamine and phenothiazine used as an antiemetic and sedative - effective but carries two FDA black box warnings (tissue necrosis from injection and fatal respiratory depression in children <2 yrs); being replaced by safer alternatives in many EMS systems.",
+    summary: "A first-generation antihistamine and phenothiazine used as an antiemetic, sedative, and antipruritic, often combined with opioids to potentiate analgesia and reduce nausea.",
     genericName: "Promethazine",
     tradeNames: ["Phenergan"],
     category: ["Neurological"],
@@ -1594,7 +1594,7 @@ const DRUGS = [
   },
   {
     id: "pralidoxime",
-    summary: "The antidote that reactivates acetylcholinesterase after organophosphate or nerve agent poisoning - reverses the nicotinic effects (paralysis, fasciculations) that atropine can't touch; must be given before the enzyme bond 'ages' and becomes irreversible.",
+    summary: "Reactivates acetylcholinesterase after organophosphate or nerve agent poisoning, reversing the nicotinic effects that atropine cannot. Must be given before the enzyme bond ages and becomes irreversible.",
     genericName: "Pralidoxime Chloride (2-PAM)",
     tradeNames: ["Protopam", "DuoDote", "Mark I Kit", "ATNAA"],
     category: ["Toxicology"],
@@ -1681,7 +1681,7 @@ const DRUGS = [
   },
   {
     id: "potassium-chloride",
-    summary: "The standard electrolyte replacement for hypokalemia - an ISMP high-alert medication where accidental rapid IV push is lethal; primarily a hospital drug but critical for CCT paramedics managing existing KCl drips and recognizing hypo/hyperkalemia on ECG.",
+    summary: "The standard electrolyte replacement for hypokalemia and an ISMP high-alert medication where accidental rapid IV push is lethal. Primarily a hospital drug but critical for CCT paramedics managing existing KCl drips.",
     genericName: "Potassium Chloride (KCl)",
     tradeNames: ["Klor-Con", "K-Dur", "Micro-K"],
     category: ["Electrolyte"],
@@ -1794,7 +1794,7 @@ const DRUGS = [
   },
   {
     id: "oxytocin",
-    summary: "A synthetic uterine stimulant given after delivery to prevent and treat postpartum hemorrhage - contracts the upper myometrium to compress spiral arteries and achieve hemostasis; NASEMSO recommends administration following ALL deliveries.",
+    summary: "A synthetic uterine stimulant given after delivery to prevent and treat postpartum hemorrhage.",
     genericName: "Oxytocin",
     tradeNames: ["Pitocin"],
     category: ["OB/GYN"],
@@ -1866,7 +1866,7 @@ const DRUGS = [
   },
   {
     id: "hydroxyzine",
-    summary: "A first-generation antihistamine with anxiolytic, antiemetic, and antipruritic properties - used in some EMS systems as a non-benzodiazepine option for anxiety and as an opioid adjunct; causes minimal respiratory depression but significant anticholinergic effects and QT prolongation.",
+    summary: "A first-generation antihistamine with anxiolytic, antiemetic, and antipruritic properties. Used in some EMS systems as a non-benzodiazepine option for anxiety and as an opioid adjunct.",
     genericName: "Hydroxyzine",
     tradeNames: ["Vistaril", "Atarax"],
     category: ["Neurological"],
