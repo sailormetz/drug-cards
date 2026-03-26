@@ -2890,7 +2890,7 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Activates <span class="hl hl--beta">A1 adenosine receptors</span> on AV nodal cells <span class="moa-arrow">→</span> opens IKAdo potassium channels <span class="moa-arrow">→</span> K⁺ efflux <span class="moa-arrow">→</span> hyperpolarization + inhibits Ca²⁺ influx <span class="moa-arrow">→</span> <strong>slows AV conduction and increases AV refractory period</strong> <span class="moa-arrow">→</span> interrupts AV nodal reentrant circuits <span class="moa-arrow">→</span> terminates SVT. Rapidly metabolized by RBC and endothelial cell uptake (half-life &lt;10 sec).',
+        brief: 'Slows AV conduction and increases the AV refractory period by opening potassium channels and inhibiting calcium influx, interrupting reentrant circuits and terminating SVT. Rapidly metabolized by red blood cells and endothelial cells with a half-life under 10 seconds.',
         target: { name: "A1 adenosine receptors (AV node)", action: "agonist", result: "Transient AV block, interrupts reentry, terminates SVT", system: "purinergic" }
       }
     ],
@@ -2991,7 +2991,7 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Primarily blocks <span class="hl hl--beta">delayed rectifier K⁺ channels</span> (IKr/IKs) <span class="moa-arrow">→</span> prolongs action potential duration and refractory period (Class III effect). Also blocks fast <span class="hl hl--beta">Na⁺ channels</span> (Class I), <span class="hl hl--beta">L-type Ca²⁺ channels</span> (Class IV), and has non-competitive <span class="hl hl--beta">anti-adrenergic</span> activity (Class II) <span class="moa-arrow">→</span> <strong>suppresses automaticity, slows conduction, and stabilizes all cardiac tissue</strong>.',
+        brief: 'Primarily prolongs action potential duration and the refractory period by blocking potassium channels. Also blocks sodium channels, calcium channels, and has non-competitive anti-adrenergic activity, suppressing automaticity, slowing conduction, and stabilizing all cardiac tissue.',
         target: { name: "K⁺/Na⁺/Ca²⁺ channels + β-adrenergic receptors (cardiac)", action: "blocker", result: "↑ Refractory period, ↓ conduction velocity, ↓ automaticity", system: "ion-channel" }
       }
     ],
@@ -3108,7 +3108,7 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Irreversibly acetylates <span class="hl hl--beta">cyclooxygenase-1 (COX-1)</span> in platelets <span class="moa-arrow">→</span> blocks thromboxane A₂ (TXA₂) synthesis <span class="moa-arrow">→</span> <strong>inhibits platelet aggregation</strong> for the life of the platelet (~10 days). A single dose disables every platelet it contacts - no reversal agent exists.',
+        brief: 'Irreversibly acetylates COX-1 in platelets, blocking thromboxane A₂ synthesis and inhibiting platelet aggregation for the life of the platelet (approximately 10 days). A single dose disables every platelet it contacts, and no reversal agent exists.',
         target: { name: "COX-1 (platelet)", action: "inhibitor", result: "Irreversible ↓ platelet aggregation", system: "enzymatic" }
       }
     ],
@@ -3167,11 +3167,11 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Competitively blocks <span class="hl hl--beta">muscarinic (M₂) receptors</span> at the SA and AV nodes <span class="moa-arrow">→</span> removes vagal tone <span class="moa-arrow">→</span> <strong>increases heart rate and AV conduction</strong>.',
+        brief: 'Removes vagal tone from the SA and AV nodes, increasing heart rate and AV conduction.',
         target: { name: "Muscarinic M₂ receptors (cardiac)", action: "antagonist", result: "↑ HR, ↑ AV conduction", system: "cholinergic" }
       },
       {
-        brief: 'Blocks <span class="hl hl--beta">muscarinic receptors</span> on smooth muscle and glands <span class="moa-arrow">→</span> <strong>dries secretions</strong> (salivary, bronchial, GI), relaxes bronchial smooth muscle, and reduces GI motility. Critical in organophosphate/nerve agent poisoning to reverse the cholinergic crisis.',
+        brief: 'Dries salivary, bronchial, and GI secretions, relaxes bronchial smooth muscle, and reduces GI motility. Critical in organophosphate and nerve agent poisoning to reverse the cholinergic crisis.',
         target: { name: "Muscarinic receptors (glandular/smooth muscle)", action: "antagonist", result: "↓ Secretions, bronchodilation", system: "cholinergic" }
       }
     ],
@@ -3281,7 +3281,7 @@ const DRUGS = [
     source: "StatPearls",
     moa: [
       {
-        brief: 'Inhibits the <span class="hl hl--beta">Na⁺/K⁺/2Cl⁻ cotransporter (NKCC2)</span> in the thick ascending limb of the loop of Henle <span class="moa-arrow">→</span> blocks sodium and chloride reabsorption <span class="moa-arrow">→</span> <strong>profound diuresis</strong> with loss of sodium, potassium, chloride, and water. Also causes venodilation that reduces preload before diuresis begins.',
+        brief: 'Blocks sodium and chloride reabsorption in the thick ascending limb of the loop of Henle, producing profound diuresis with loss of sodium, potassium, chloride, and water. Also causes venodilation that reduces preload before diuresis begins.',
         target: { name: "NKCC2 cotransporter (loop of Henle)", action: "blocker", result: "Profound diuresis, ↓ preload", system: "ion-channel" }
       }
     ],
@@ -3346,11 +3346,11 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Provides exogenous <span class="hl hl--beta">Ca²⁺ ions</span> that stabilize cardiac cell membranes <span class="moa-arrow">→</span> raises the threshold potential <span class="moa-arrow">→</span> <strong>reduces the risk of fatal dysrhythmias</strong> caused by hyperkalemia. Does NOT lower serum potassium - it buys time by protecting the heart while other treatments (bicarb, albuterol, insulin) work.',
+        brief: 'Stabilizes cardiac cell membranes by raising the threshold potential, reducing the risk of fatal dysrhythmias caused by hyperkalemia. Does not lower serum potassium; it buys time by protecting the heart while other treatments work.',
         target: { name: "Cardiac cell membranes", action: "stabilizer", result: "↑ Threshold potential, ↓ dysrhythmia risk", system: "ion-channel" }
       },
       {
-        brief: 'In CCB overdose, exogenous <span class="hl hl--beta">Ca²⁺</span> helps overcome competitive blockade of <span class="hl hl--beta">L-type calcium channels</span> <span class="moa-arrow">→</span> partially restores cardiac contractility and vascular tone.',
+        brief: 'Helps overcome competitive blockade of L-type calcium channels in CCB overdose, partially restoring cardiac contractility and vascular tone.',
         target: { name: "L-type calcium channels", action: "donor", result: "Partially restores contractility & vascular tone", system: "ion-channel" }
       }
     ],
@@ -3467,11 +3467,11 @@ const DRUGS = [
     source: "StatPearls",
     moa: [
       {
-        brief: 'Predominantly activates <span class="hl hl--beta">β-1 receptors</span> on the myocardium <span class="moa-arrow">→</span> <strong>increases contractility (inotropy) and cardiac output</strong>. Modest heart rate increase at therapeutic doses.',
+        brief: 'Increases contractility and cardiac output with modest heart rate increase at therapeutic doses.',
         target: { name: "β-1 receptors", action: "agonist", result: "↑ Contractility, ↑ cardiac output", system: "adrenergic" }
       },
       {
-        brief: 'Weak <span class="hl hl--beta">β-2 agonism</span> <span class="moa-arrow">→</span> mild peripheral vasodilation <span class="moa-arrow">→</span> reduces afterload. The α-1 effects of the two isomers cancel each other out, leaving a net "inodilator" profile: improved output with reduced SVR.',
+        brief: 'Produces mild peripheral vasodilation, reducing afterload. The alpha-1 effects of its two isomers cancel each other out, leaving a net inodilator profile: improved output with reduced SVR.',
         target: { name: "β-2 receptors", action: "agonist", result: "Mild vasodilation, ↓ SVR", system: "adrenergic" }
       }
     ],
@@ -3534,7 +3534,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Potent <span class="hl hl--beta">glucocorticoid</span> that binds intracellular receptors <span class="moa-arrow">→</span> alters gene transcription <span class="moa-arrow">→</span> suppresses inflammatory mediators (prostaglandins, leukotrienes, cytokines) <span class="moa-arrow">→</span> <strong>reduces airway edema, capillary permeability, and inflammatory cell migration</strong>. Minimal mineralocorticoid activity.',
+        brief: 'Suppresses inflammatory mediators including prostaglandins, leukotrienes, and cytokines by altering gene transcription. Reduces airway edema, capillary permeability, and inflammatory cell migration. Minimal mineralocorticoid activity.',
         target: { name: "Glucocorticoid receptors", action: "agonist", result: "Broad anti-inflammatory & immunosuppressive effect", system: "inflammatory" }
       }
     ],
@@ -3680,7 +3680,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Provides exogenous <span class="hl hl--beta">d-glucose</span> directly into the bloodstream <span class="moa-arrow">→</span> <strong>immediately raises blood glucose</strong> <span class="moa-arrow">→</span> restores substrate for cerebral and cellular metabolism. Glucose is oxidized to CO₂ and water, providing 3.4 kcal/g.',
+        brief: 'Provides glucose directly into the bloodstream, immediately raising blood glucose and restoring substrate for cerebral and cellular metabolism.',
         target: { name: "Cellular glucose uptake", action: "donor", result: "Immediate ↑ blood glucose", system: "metabolic" }
       }
     ],
@@ -3786,7 +3786,7 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Competitively blocks <span class="hl hl--beta">histamine H2 receptors</span> on vascular endothelium, gastric parietal cells, and cardiac tissue <span class="moa-arrow">→</span> <strong>reduces histamine-mediated vasodilation, capillary permeability, and gastric acid secretion</strong>. Complements H1 blockers (diphenhydramine) by covering the ~15% of histamine effects mediated through H2 receptors.',
+        brief: 'Reduces histamine-mediated vasodilation, capillary permeability, and gastric acid secretion. Complements H1 blockers like diphenhydramine by covering the approximately 15% of histamine effects mediated through H2 receptors.',
         target: { name: "Histamine H2 receptors", action: "antagonist", result: "↓ Vasodilation, ↓ capillary permeability, ↓ gastric acid", system: "histaminergic" }
       }
     ],
