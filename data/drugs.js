@@ -5862,7 +5862,7 @@ const DRUGS = [
     source: "StatPearls",
     moa: [
       {
-        brief: 'Agonist at <span class="hl hl--beta">μ-opioid receptors</span> <span class="moa-arrow">→</span> <strong>analgesia, sedation, respiratory depression</strong> (similar to morphine). Also stimulates <span class="hl hl--beta">κ-opioid receptors</span> <span class="moa-arrow">→</span> <strong>uniquely potent anti-shivering effect</strong> (lowers the shivering threshold more than any other opioid). Additionally has local anesthetic properties (sodium channel blockade) and inhibits dopamine/norepinephrine reuptake (DAT/NET).',
+        brief: 'Activates mu-opioid receptors for analgesia and sedation, with kappa-opioid activity that uniquely lowers the shivering threshold more than any other opioid. Also blocks sodium channels and inhibits dopamine and norepinephrine reuptake.',
         target: { name: "μ- and κ-opioid receptors", action: "agonist", result: "Analgesia, anti-shivering, sedation", system: "opioid" }
       }
     ],
@@ -5937,7 +5937,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Stabilizes excitable membranes by promoting movement of calcium, potassium, and sodium across cell membranes <span class="moa-arrow">→</span> <strong>suppresses triggered dysrhythmias</strong> (torsades). Depresses CNS and blocks peripheral neuromuscular transmission <span class="moa-arrow">→</span> <strong>anticonvulsant effect</strong> (eclampsia). Relaxes bronchial smooth muscle via calcium antagonism <span class="moa-arrow">→</span> <strong>bronchodilation</strong>.',
+        brief: 'Stabilizes excitable membranes by regulating calcium, potassium, and sodium movement across cell membranes, suppressing triggered dysrhythmias such as torsades. Depresses the CNS and blocks peripheral neuromuscular transmission, providing anticonvulsant effect in eclampsia. Relaxes bronchial smooth muscle via calcium antagonism.',
         target: { name: "Cell membrane ion channels (Ca²⁺/K⁺/Na⁺)", action: "stabilizer", result: "Antiarrhythmic, anticonvulsant, bronchodilation", system: "ion-channel" }
       }
     ],
@@ -6068,7 +6068,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Competitively blocks <span class="hl hl--beta">histamine H1 receptors</span> on effector cells in the respiratory tract, blood vessels, and GI smooth muscle <span class="moa-arrow">→</span> <strong>reduces urticaria, pruritus, vasodilation, and bronchoconstriction</strong>. Also has anticholinergic (muscarinic) properties <span class="moa-arrow">→</span> reverses drug-induced dystonia/akathisia (EPS) by restoring dopamine-acetylcholine balance in the basal ganglia.',
+        brief: 'Reduces urticaria, pruritus, vasodilation, and bronchoconstriction. Also has anticholinergic properties that reverse drug-induced dystonia and akathisia by restoring dopamine-acetylcholine balance in the basal ganglia.',
         target: { name: "Histamine H1 receptors", action: "antagonist", result: "↓ Urticaria, ↓ pruritus, ↓ EPS", system: "histaminergic" }
       }
     ],
@@ -6173,7 +6173,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Antagonizes <span class="hl hl--beta">muscarinic (M3) acetylcholine receptors</span> on bronchial smooth muscle <span class="moa-arrow">→</span> blocks vagally-mediated bronchoconstriction <span class="moa-arrow">→</span> <strong>bronchodilation</strong>. Works via a different pathway than β-2 agonists (albuterol), providing additive effect when combined. Also reduces mucus secretion from submucosal glands.',
+        brief: 'Blocks vagally-mediated bronchoconstriction, producing bronchodilation through a different pathway than beta-2 agonists like albuterol. Provides additive effect when combined. Also reduces mucus secretion from submucosal glands.',
         target: { name: "Muscarinic M3 receptors (bronchial)", action: "antagonist", result: "Bronchodilation, ↓ secretions", system: "cholinergic" }
       }
     ],
@@ -6248,11 +6248,11 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Blocks <span class="hl hl--beta">fast voltage-gated sodium channels</span> in cardiac myocytes <span class="moa-arrow">→</span> inhibits recovery after repolarization <span class="moa-arrow">→</span> <strong>decreases myocardial excitability and conduction velocity</strong> in ischemic tissue (preferentially binds inactivated channels). Shortens action potential duration and effective refractory period - suppresses ventricular ectopy without prolonging QT.',
+        brief: 'Inhibits recovery after repolarization in cardiac myocytes, decreasing myocardial excitability and conduction velocity in ischemic tissue. Shortens action potential duration and effective refractory period, suppressing ventricular ectopy without prolonging QT.',
         target: { name: "Voltage-gated Na⁺ channels (cardiac)", action: "blocker", result: "↓ Ventricular excitability, ↓ ectopy", system: "ion-channel" }
       },
       {
-        brief: 'Same sodium channel blockade in <span class="hl hl--beta">peripheral nerves</span> <span class="moa-arrow">→</span> blocks nerve impulse conduction <span class="moa-arrow">→</span> <strong>local anesthesia</strong>. Used through IO needle to reduce infusion pain in conscious patients.',
+        brief: 'Blocks nerve impulse conduction in peripheral nerves, producing local anesthesia. Used through IO needle to reduce infusion pain in conscious patients.',
         target: { name: "Voltage-gated Na⁺ channels (peripheral nerve)", action: "blocker", result: "Local anesthesia", system: "ion-channel" }
       }
     ],
@@ -6364,7 +6364,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Enhances the effect of <span class="hl hl--beta">GABA at GABA-A receptors</span> <span class="moa-arrow">→</span> increases chloride channel opening frequency <span class="moa-arrow">→</span> neuronal hyperpolarization <span class="moa-arrow">→</span> <strong>anticonvulsant, anxiolytic, sedative, and amnestic effects</strong>. Longer duration than midazolam provides sustained seizure suppression.',
+        brief: 'Enhances the effect of GABA at the GABA-A receptor, increasing chloride channel opening frequency and producing neuronal hyperpolarization. Provides anticonvulsant, anxiolytic, sedative, and amnestic effects. Longer duration than midazolam provides sustained seizure suppression.',
         target: { name: "GABA-A receptors", action: "enhancer", result: "Anticonvulsant, sedation, anxiolysis", system: "GABAergic" }
       }
     ],
@@ -6473,7 +6473,7 @@ const DRUGS = [
     source: "StatPearls",
     moa: [
       {
-        brief: 'Selectively stimulates <span class="hl hl--beta">β-2 adrenergic receptors</span> on bronchial smooth muscle <span class="moa-arrow">→</span> activates adenylyl cyclase <span class="moa-arrow">→</span> ↑ cAMP <span class="moa-arrow">→</span> <strong>bronchial smooth muscle relaxation and bronchodilation</strong>. Contains only the pharmacologically active R-enantiomer - eliminates the S-enantiomer (present in racemic albuterol) which may promote inflammation and paradoxical bronchoconstriction in vitro.',
+        brief: 'Relaxes bronchial smooth muscle by increasing intracellular cAMP, producing bronchodilation. Contains only the pharmacologically active R-enantiomer, eliminating the S-enantiomer present in racemic albuterol which may promote inflammation and paradoxical bronchoconstriction.',
         target: { name: "β-2 receptors (bronchial smooth muscle)", action: "agonist", result: "Bronchodilation", system: "adrenergic" }
       }
     ],
@@ -6551,7 +6551,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Balanced isotonic crystalloid (273 mOsm/L) containing Na⁺ 130, K⁺ 4, Ca²⁺ 3, Cl⁻ 109 mEq/L plus 28 mEq/L lactate (converted to bicarbonate in the liver) <span class="moa-arrow">→</span> <strong>expands intravascular volume</strong> while maintaining more physiologic electrolyte balance than NS. The lactate buffer helps prevent the hyperchloremic metabolic acidosis seen with large-volume NS resuscitation.',
+        brief: 'Balanced isotonic crystalloid that expands intravascular volume while maintaining more physiologic electrolyte balance than normal saline. Contains lactate that is converted to bicarbonate in the liver, helping prevent the hyperchloremic metabolic acidosis seen with large-volume normal saline resuscitation.',
         target: { name: "Extracellular fluid volume", action: "donor", result: "↑ Intravascular volume, ↑ preload, ↑ BP", system: "other" }
       }
     ],
@@ -6631,7 +6631,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Blocks <span class="hl hl--alpha">α-1 adrenergic receptors</span> on vascular smooth muscle <span class="moa-arrow">→</span> <strong>vasodilation and ↓ SVR</strong>. Simultaneously blocks <span class="hl hl--beta">β-1 and β-2 receptors</span> <span class="moa-arrow">→</span> <strong>prevents reflex tachycardia</strong> that would otherwise occur from vasodilation. The α:β blockade ratio is ~1:7 (IV), producing smooth, controlled BP reduction.',
+        brief: 'Causes vasodilation and reduces SVR through alpha-1 blockade. Simultaneously blocks beta-1 and beta-2 receptors, preventing the reflex tachycardia that would otherwise occur from vasodilation. The alpha-to-beta blockade ratio is approximately 1:7 IV, producing smooth, controlled blood pressure reduction.',
         target: { name: "α-1 + β-1/β-2 receptors", action: "antagonist", result: "↓ SVR, ↓ BP without reflex tachycardia", system: "adrenergic" }
       }
     ],
@@ -6701,7 +6701,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Inhibits <span class="hl hl--beta">cyclooxygenase (COX-1 and COX-2)</span> <span class="moa-arrow">→</span> blocks prostaglandin synthesis <span class="moa-arrow">→</span> <strong>analgesia, anti-inflammatory, and antipyretic effects</strong>. Also inhibits chemotaxis, alters lymphocyte activity, decreases proinflammatory cytokines, and inhibits neutrophil aggregation. Analgesic potency comparable to moderate-dose opioids without CNS depression.',
+        brief: 'Blocks prostaglandin synthesis by inhibiting COX-1 and COX-2, producing analgesia, anti-inflammatory, and antipyretic effects. Analgesic potency comparable to moderate-dose opioids without CNS depression.',
         target: { name: "COX-1 / COX-2 enzymes", action: "inhibitor", result: "↓ Prostaglandins → analgesia, ↓ inflammation, ↓ fever", system: "enzymatic" }
       }
     ],
@@ -6795,7 +6795,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Non-competitively blocks <span class="hl hl--beta">NMDA (N-methyl-D-aspartate) receptors</span> <span class="moa-arrow">→</span> produces a state of <strong>dissociative anesthesia</strong> - the patient is disconnected from their environment while maintaining airway reflexes and spontaneous breathing. At subdissociative doses, NMDA blockade modulates pain transmission <span class="moa-arrow">→</span> <strong>potent analgesia</strong> without respiratory depression.',
+        brief: 'Blocks NMDA receptors, functionally disconnecting thalamocortical and limbic systems while preserving airway reflexes and spontaneous breathing. At subdissociative doses, this same blockade modulates central pain transmission, providing potent analgesia without respiratory depression.',
         target: { name: "NMDA receptors", action: "antagonist", result: "Dissociative anesthesia, analgesia", system: "glutamatergic" }
       }
     ],
