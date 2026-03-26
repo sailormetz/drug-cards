@@ -3861,7 +3861,7 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Binds to <span class="hl hl--beta">μ-opioid receptors</span> in the CNS <span class="moa-arrow">→</span> increases K⁺ efflux and decreases Ca²⁺ influx <span class="moa-arrow">→</span> blocks neurotransmitter release (substance P) <span class="moa-arrow">→</span> <strong>potent analgesia and sedation</strong>. Does not cause histamine release, making it more hemodynamically stable than morphine.',
+        brief: 'Suppresses pain signal transmission in the CNS by blocking neurotransmitter release, producing potent analgesia and sedation. Does not cause histamine release, making it more hemodynamically stable than morphine.',
         target: { name: "μ-opioid receptors", action: "agonist", result: "Potent analgesia & sedation", system: "opioid" }
       }
     ],
@@ -3973,7 +3973,7 @@ const DRUGS = [
     source: "StatPearls",
     moa: [
       {
-        brief: 'Competitively binds to the <span class="hl hl--beta">benzodiazepine binding site on GABA-A receptors</span> <span class="moa-arrow">→</span> displaces bound benzodiazepines without activating the receptor <span class="moa-arrow">→</span> <strong>reverses sedation, respiratory depression, and amnesia</strong>. Has minimal intrinsic activity - it blocks, but does not stimulate.',
+        brief: 'Competitively displaces bound benzodiazepines from the GABA-A receptor without activating it, reversing sedation, respiratory depression, and amnesia. Has minimal intrinsic activity.',
         target: { name: "GABA-A receptor (benzodiazepine site)", action: "antagonist", result: "Reverses benzo-induced sedation & respiratory depression", system: "GABAergic" }
       }
     ],
@@ -4050,7 +4050,7 @@ const DRUGS = [
     source: "StatPearls",
     moa: [
       {
-        brief: 'Inhibits the <span class="hl hl--beta">Na⁺/K⁺/2Cl⁻ cotransporter (NKCC2)</span> in the thick ascending limb of the loop of Henle <span class="moa-arrow">→</span> blocks sodium and chloride reabsorption <span class="moa-arrow">→</span> <strong>rapid diuresis</strong> with loss of sodium, potassium, chloride, magnesium, and water. Also enhances prostaglandin production <span class="moa-arrow">→</span> venodilation that reduces preload before diuresis begins.',
+        brief: 'Blocks sodium and chloride reabsorption in the thick ascending limb of the loop of Henle, producing rapid diuresis with loss of sodium, potassium, chloride, magnesium, and water. Also enhances prostaglandin production, causing venodilation that reduces preload before diuresis begins.',
         target: { name: "NKCC2 cotransporter (loop of Henle)", action: "blocker", result: "Diuresis, ↓ preload", system: "ion-channel" }
       }
     ],
@@ -4116,15 +4116,15 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Stimulates <span class="hl hl--beta">glycogenolysis</span> in the liver <span class="moa-arrow">→</span> <strong>blood glucose rises within minutes</strong>. Requires adequate hepatic glycogen stores - ineffective in starved, chronically malnourished, or glycogen-depleted patients (alcoholics, adrenal insufficiency).',
+        brief: 'Triggers glycogen breakdown in the liver, raising blood glucose. Requires adequate hepatic glycogen stores and is ineffective in starved, chronically malnourished, or glycogen-depleted patients.',
         target: { name: "Hepatic glycogen stores", action: "stimulator", result: "Rapid ↑ blood glucose", system: "metabolic" }
       },
       {
-        brief: 'Directly activates <span class="hl hl--beta">adenylyl cyclase</span> on cardiac myocytes <span class="moa-arrow">→</span> increases cAMP <strong>bypassing the β-receptor entirely</strong> <span class="moa-arrow">→</span> positive inotropic and chronotropic effects. This is why it works in BB overdose - it does not need functional β-receptors.',
+        brief: 'Increases cardiac contractility and heart rate by bypassing the beta-receptor entirely. This is why it works in beta-blocker overdose; it does not need functional beta-receptors.',
         target: { name: "Adenylyl cyclase (cardiac)", action: "stimulator", result: "Positive inotropy & chronotropy", system: "adrenergic" }
       },
       {
-        brief: 'Relaxes <span class="hl hl--beta">GI smooth muscle</span> <span class="moa-arrow">→</span> reduces LES tone <span class="moa-arrow">→</span> <strong>can relieve esophageal foreign body obstruction</strong>.',
+        brief: 'Relaxes lower esophageal sphincter tone, which can relieve esophageal foreign body obstruction.',
         target: { name: "GI smooth muscle", action: "relaxant", result: "Relieves esophageal obstruction", system: "other" }
       }
     ],
@@ -4261,7 +4261,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Antagonizes <span class="hl hl--beta">dopamine D₂ receptors</span> in the mesolimbic pathway <span class="moa-arrow">→</span> reduces psychotic symptoms, agitation, and combative behavior. Also depresses the reticular activating system <span class="moa-arrow">→</span> <strong>sedation</strong>.',
+        brief: 'Reduces psychotic symptoms, agitation, and combative behavior through dopamine antagonism in the mesolimbic pathway. Also depresses the reticular activating system, producing sedation.',
         target: { name: "Dopamine D₂ receptors", action: "antagonist", result: "↓ Agitation, ↓ psychosis, sedation", system: "dopaminergic" }
       }
     ],
@@ -4344,11 +4344,11 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Inhibits <span class="hl hl--beta">L-type calcium channels</span> in cardiac conduction tissue, principally the AV node <span class="moa-arrow">→</span> slows AV conduction and prolongs AV node refractoriness <span class="moa-arrow">→</span> <strong>reduces ventricular rate</strong> in atrial fibrillation/flutter and terminates AV node-dependent reentrant tachycardias (PSVT).',
+        brief: 'Slows AV conduction and prolongs AV node refractoriness, reducing ventricular rate in atrial fibrillation and flutter and terminating AV node-dependent reentrant tachycardias.',
         target: { name: "L-type calcium channels (AV node)", action: "blocker", result: "↓ AV conduction, ↓ ventricular rate", system: "ion-channel" }
       },
       {
-        brief: 'Also blocks <span class="hl hl--beta">L-type calcium channels</span> in vascular smooth muscle <span class="moa-arrow">→</span> <strong>coronary and systemic vasodilation</strong>. Reduces afterload and myocardial oxygen demand.',
+        brief: 'Causes coronary and systemic vasodilation, reducing afterload and myocardial oxygen demand.',
         target: { name: "L-type calcium channels (vascular smooth muscle)", action: "blocker", result: "Vasodilation, ↓ afterload", system: "ion-channel" }
       }
     ],
@@ -4424,7 +4424,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Enhances the effect of <span class="hl hl--beta">GABA at GABA-A receptors</span> <span class="moa-arrow">→</span> increases chloride channel opening frequency <span class="moa-arrow">→</span> neuronal hyperpolarization <span class="moa-arrow">→</span> <strong>anticonvulsant, anxiolytic, sedative, and skeletal muscle relaxant effects</strong>.',
+        brief: 'Enhances the effect of GABA at the GABA-A receptor, increasing chloride channel opening frequency and producing neuronal hyperpolarization. Provides anticonvulsant, anxiolytic, sedative, and skeletal muscle relaxant effects.',
         target: { name: "GABA-A receptors", action: "enhancer", result: "Anticonvulsant, sedation, anxiolysis, muscle relaxation", system: "GABAergic" }
       }
     ],
@@ -4551,7 +4551,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Provides supplemental <span class="hl hl--beta">O₂</span> to increase alveolar oxygen tension <span class="moa-arrow">→</span> improves hemoglobin saturation and tissue oxygen delivery <span class="moa-arrow">→</span> <strong>reverses hypoxemia and supports aerobic cellular metabolism</strong>. In CO poisoning, high-flow O₂ competitively displaces carbon monoxide from hemoglobin (half-life of COHb drops from ~5 hrs on room air to ~90 min on 100% O₂).',
+        brief: 'Increases alveolar oxygen tension, improving hemoglobin saturation and tissue oxygen delivery. In CO poisoning, high-flow oxygen competitively displaces carbon monoxide from hemoglobin, reducing COHb half-life from approximately 5 hours on room air to 90 minutes on 100% oxygen.',
         target: { name: "Hemoglobin / alveolar-capillary membrane", action: "donor", result: "↑ SpO₂, ↑ tissue O₂ delivery", system: "other" }
       }
     ],
@@ -4712,7 +4712,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Provides <span class="hl hl--beta">exogenous glucose</span> absorbed through the GI mucosa <span class="moa-arrow">→</span> <strong>directly raises blood glucose</strong> <span class="moa-arrow">→</span> restores substrate for cerebral and cellular metabolism. Faster absorption than complex carbohydrates because it requires no enzymatic breakdown.',
+        brief: 'Provides exogenous glucose that is absorbed primarily in the small intestine, directly raising blood glucose and restoring substrate for cerebral and cellular metabolism. Requires no enzymatic breakdown, so absorption is faster than complex carbohydrates.',
         target: { name: "Cellular glucose uptake", action: "donor", result: "↑ Blood glucose", system: "metabolic" }
       }
     ],
@@ -4785,7 +4785,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Selectively blocks <span class="hl hl--beta">5-HT₃ (serotonin) receptors</span> in the chemoreceptor trigger zone (CTZ) and vagal afferents in the GI tract <span class="moa-arrow">→</span> <strong>suppresses nausea and vomiting</strong>. Has no effect on dopamine receptors and therefore does not cause extrapyramidal symptoms (dystonia, akathisia).',
+        brief: 'Selectively blocks serotonin receptors in the chemoreceptor trigger zone and vagal afferents in the GI tract, suppressing nausea and vomiting. Has no effect on dopamine receptors and therefore does not cause extrapyramidal symptoms.',
         target: { name: "5-HT₃ receptors", action: "antagonist", result: "Suppresses nausea & vomiting", system: "serotonergic" }
       }
     ],
