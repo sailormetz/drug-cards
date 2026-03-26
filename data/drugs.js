@@ -5854,7 +5854,7 @@ const DRUGS = [
   },
   {
     id: "meperidine",
-    summary: "A synthetic opioid historically used for acute pain but now largely abandoned in prehospital medicine due to its neurotoxic metabolite normeperidine (seizures) and serotonin syndrome risk with MAOIs. Its one remaining niche is anti-shivering, where it is uniquely effective via κ-opioid receptor stimulation.",
+    summary: "A synthetic opioid largely replaced for pain management due to its neurotoxic metabolite normeperidine. Retains a niche role in anti-shivering therapy, where it is uniquely effective through kappa-opioid receptor activity.",
     genericName: "Meperidine",
     tradeNames: ["Demerol"],
     category: ["Analgesic"],
@@ -5929,7 +5929,7 @@ const DRUGS = [
   },
   {
     id: "magnesium-sulfate",
-    summary: "A versatile electrolyte used for three distinct prehospital emergencies: torsades de pointes (stabilizes cardiac membranes), severe refractory bronchospasm (relaxes bronchial smooth muscle), and eclamptic seizures (the definitive anticonvulsant in pregnancy).",
+    summary: "An electrolyte used for torsades de pointes, severe refractory bronchospasm, and eclamptic seizures. The definitive anticonvulsant in pregnancy.",
     genericName: "Magnesium Sulfate",
     tradeNames: [],
     category: ["Cardiovascular", "Airway & Respiratory", "OB/GYN"],
@@ -6060,7 +6060,7 @@ const DRUGS = [
   },
   {
     id: "diphenhydramine",
-    summary: "A first-generation H1 antihistamine for allergic reactions (urticaria/pruritus) and the treatment of drug-induced dystonia/akathisia - also provides mild sedation, antiemetic, and anticholinergic effects. The go-to rescue drug for EPS reactions from haloperidol and other antipsychotics.",
+    summary: "A first-generation antihistamine used in EMS for allergic reactions, drug-induced dystonia, nausea, and sedation, and is the most commonly used IV antihistamine in prehospital care. Causes significant sedation and anticholinergic effects: dry mouth, urinary retention, confusion.",
     genericName: "Diphenhydramine",
     tradeNames: ["Benadryl"],
     category: ["Allergy & Immune", "Neurological"],
@@ -6165,7 +6165,7 @@ const DRUGS = [
   },
   {
     id: "ipratropium",
-    summary: "An inhaled anticholinergic bronchodilator given alongside albuterol for acute bronchospasm - blocks vagally-mediated bronchoconstriction via a different mechanism than beta-agonists, providing additive bronchodilation. NASEMSO recommends up to 3 doses in conjunction with albuterol.",
+    summary: "An inhaled anticholinergic bronchodilator given alongside albuterol for acute bronchospasm. Works through a different mechanism than beta-agonists, providing additive bronchodilation.",
     genericName: "Ipratropium Bromide",
     tradeNames: ["Atrovent"],
     category: ["Airway & Respiratory"],
@@ -6240,7 +6240,7 @@ const DRUGS = [
   },
   {
     id: "lidocaine",
-    summary: "A Class Ib antiarrhythmic and local anesthetic - alternative to amiodarone for refractory VF/pulseless VT; also used to mitigate IO insertion pain in conscious patients. Blocks fast sodium channels to suppress ventricular ectopy and reduce myocardial excitability.",
+    summary: "A Class Ib antiarrhythmic and local anesthetic, used as an alternative to amiodarone for refractory VF/pulseless VT. Also flushed through IO lines prior to fluid administration to reduce infusion pain in conscious patients.",
     genericName: "Lidocaine",
     tradeNames: ["Xylocaine"],
     category: ["Cardiovascular", "Analgesic"],
@@ -6356,7 +6356,7 @@ const DRUGS = [
   },
   {
     id: "lorazepam",
-    summary: "A benzodiazepine with longer duration than midazolam (6-8 hrs vs 30-60 min) - historically the IV gold standard for status epilepticus, but midazolam IM/IN has largely replaced it prehospitally because lorazepam requires IV access and refrigeration.",
+    summary: "A benzodiazepine with longer duration than midazolam, historically the IV standard for status epilepticus. Largely replaced prehospitally by midazolam because lorazepam requires IV access and refrigeration.",
     genericName: "Lorazepam",
     tradeNames: ["Ativan"],
     category: ["Neurological"],
@@ -6465,7 +6465,7 @@ const DRUGS = [
   },
   {
     id: "levalbuterol",
-    summary: "The pure R-enantiomer of racemic albuterol - same β-2 agonist bronchodilation without the theoretically pro-inflammatory S-enantiomer. Clinical evidence for superiority over albuterol is mixed; may offer benefit in severe asthma or patients with cardiac comorbidities where minimizing tachycardia matters.",
+    summary: "The pure R-enantiomer of racemic albuterol, providing beta-2 bronchodilation without the theoretically pro-inflammatory S-enantiomer. Clinical evidence for superiority over albuterol is mixed.",
     genericName: "Levalbuterol",
     tradeNames: ["Xopenex"],
     category: ["Airway & Respiratory"],
@@ -6543,7 +6543,7 @@ const DRUGS = [
   },
   {
     id: "lactated-ringers",
-    summary: "A balanced isotonic crystalloid that more closely mirrors plasma electrolyte composition than normal saline - causes less hyperchloremic acidosis in large-volume resuscitation; interchangeable with NS for most prehospital indications EXCEPT crush injury (contains potassium).",
+    summary: "A balanced isotonic crystalloid that more closely mirrors plasma electrolyte composition than normal saline, causing less hyperchloremic acidosis in large-volume resuscitation.",
     genericName: "Lactated Ringer's Solution",
     tradeNames: [],
     category: ["IV Fluids", "Resuscitation"],
@@ -6623,7 +6623,7 @@ const DRUGS = [
   },
   {
     id: "labetalol",
-    summary: "A combined α-1 and non-selective β blocker for hypertensive emergencies in pre-eclampsia/eclampsia - provides controlled BP reduction without the reflex tachycardia seen with pure vasodilators; maintains uteroplacental perfusion. NASEMSO reserves it specifically for severe hypertension with pre-eclampsia.",
+    summary: "A combined alpha-1 and non-selective beta blocker for hypertensive emergencies, particularly in preeclampsia and eclampsia. Provides controlled blood pressure reduction without reflex tachycardia while maintaining uteroplacental perfusion.",
     genericName: "Labetalol",
     tradeNames: ["Trandate"],
     category: ["Cardiovascular", "OB/GYN"],
@@ -6693,7 +6693,7 @@ const DRUGS = [
   },
   {
     id: "ketorolac",
-    summary: "The only injectable NSAID commonly carried in EMS - provides potent analgesia and anti-inflammatory effects without the respiratory depression, sedation, or abuse potential of opioids. Ideal for renal colic, musculoskeletal pain, and as an opioid-sparing adjunct.",
+    summary: "The only injectable NSAID commonly carried in EMS, providing analgesia and anti-inflammatory effects without respiratory depression, sedation, or abuse potential. Used for renal colic, musculoskeletal pain, and as an opioid-sparing adjunct.",
     genericName: "Ketorolac",
     tradeNames: ["Toradol"],
     category: ["Analgesic"],
@@ -6787,7 +6787,7 @@ const DRUGS = [
   },
   {
     id: "ketamine",
-    summary: "A dissociative anesthetic that blocks NMDA receptors - uniquely preserves airway reflexes, spontaneous respirations, and hemodynamic stability. Used prehospitally at full dissociative doses for severe agitation/excited delirium and at subdissociative doses for pain management. NASEMSO recommends it for high-violence-risk agitation.",
+    summary: "A dissociative anesthetic that preserves airway reflexes, spontaneous respirations, and hemodynamic stability. Used at full dissociative doses for severe agitation and at subdissociative doses for pain management.",
     genericName: "Ketamine",
     tradeNames: ["Ketalar"],
     category: ["Neurological", "Analgesic"],
