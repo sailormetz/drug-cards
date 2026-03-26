@@ -924,10 +924,10 @@ const DRUGS = [
       "Nausea (rare)"
     ],
     precautions: [
-      '<span class="hl hl--beta">Extremely safe drug</span> - adverse reactions are vanishingly rare. Do not withhold thiamine due to allergy concerns; the risk of untreated Wernicke's (20% mortality, 85% progress to Korsakoff's) far outweighs anaphylaxis risk.',
-      '<span class="hl hl--warn">Do NOT delay dextrose</span> to wait for thiamine - the evolution from glucose loading to acute Wernicke's takes hours to days, not minutes. If both are available, give thiamine first or concurrently. If only dextrose is available, give it.',
-      'The classic Wernicke's triad (<strong>confusion, ataxia, ophthalmoplegia</strong>) is present in only ~10% of cases - most present with isolated confusion. <span class="hl hl--warn">Treat empirically</span> in any AMS patient with suspected alcohol use or malnutrition.',
-      '100 mg is the <strong>standard prehospital dose</strong>. Hospital guidelines for confirmed Wernicke's use much higher doses (500 mg IV TID) - this is outside EMS Scope but important to know for continuity of care.',
+      '<span class="hl hl--beta">Extremely safe drug</span> - adverse reactions are vanishingly rare. Do not withhold thiamine due to allergy concerns; the risk of untreated Wernicke\'s (20% mortality, 85% progress to Korsakoff\'s) far outweighs anaphylaxis risk.',
+      '<span class="hl hl--warn">Do NOT delay dextrose</span> to wait for thiamine - the evolution from glucose loading to acute Wernicke\'s takes hours to days, not minutes. If both are available, give thiamine first or concurrently. If only dextrose is available, give it.',
+      'The classic Wernicke\'s triad (<strong>confusion, ataxia, ophthalmoplegia</strong>) is present in only ~10% of cases - most present with isolated confusion. <span class="hl hl--warn">Treat empirically</span> in any AMS patient with suspected alcohol use or malnutrition.',
+      '100 mg is the <strong>standard prehospital dose</strong>. Hospital guidelines for confirmed Wernicke\'s use much higher doses (500 mg IV TID) - this is outside EMS Scope but important to know for continuity of care.',
       'Oral thiamine has poor bioavailability (~5%) - parenteral administration is essential for acute treatment or prophylaxis.',
       '<span class="hl hl--warn">Magnesium deficiency</span> can make thiamine replacement ineffective - magnesium is a cofactor for converting thiamine to its active form (TPP). Chronic alcoholics are often deficient in both.'
     ]
@@ -1186,12 +1186,12 @@ const DRUGS = [
     precautions: [
       '<span class="hl hl--danger">Does NOT provide sedation, analgesia, or amnesia</span> - always ensure adequate sedation before and throughout paralysis. Awareness with paralysis is a preventable catastrophe.',
       '<span class="hl hl--warn">Requires reconstitution</span> - vecuronium is supplied as a lyophilized powder that must be mixed before administration. This adds preparation time vs. rocuronium (which is ready to use), making it a poor RSI choice even apart from its slow onset.',
-      '<span class="hl hl--warn">Hepatic metabolism</span> - duration is significantly prolonged in patients with liver disease or cholestasis. The active metabolite (3-desacetylvecuronium) has ~50% of the parent drug's potency and accumulates in renal failure.',
+      '<span class="hl hl--warn">Hepatic metabolism</span> - duration is significantly prolonged in patients with liver disease or cholestasis. The active metabolite (3-desacetylvecuronium) has ~50% of the parent drug\'s potency and accumulates in renal failure.',
       'Reversible with <strong>neostigmine + atropine</strong> (or glycopyrrolate) when train-of-four shows ≥2 twitches, or with <strong>sugammadex</strong> (4 mg/kg for moderate blockade) for more reliable reversal.',
-      '<span class="hl hl--beta">Minimal hemodynamic effects</span> - this is vecuronium's key advantage. Unlike pancuronium (tachycardia) or succinylcholine (bradycardia/hyperkalemia), vecuronium has essentially no cardiovascular impact, making it safe in hemodynamically unstable patients.',
+      '<span class="hl hl--beta">Minimal hemodynamic effects</span> - this is vecuronium\'s key advantage. Unlike pancuronium (tachycardia) or succinylcholine (bradycardia/hyperkalemia), vecuronium has essentially no cardiovascular impact, making it safe in hemodynamically unstable patients.',
       'Prolonged ICU use (days) increases risk of <span class="hl hl--warn">critical illness myopathy</span>, especially when combined with corticosteroids. Limit use to shortest duration necessary.',
       '<span class="hl hl--warn">Do not mix</span> with alkaline solutions (barbiturates, sodium bicarbonate) - precipitates in alkaline pH.',
-      'Compared to <strong>rocuronium</strong>: vecuronium has slower onset, requires reconstitution, and is hepatically metabolized (vs. rocuronium's mixed hepatic/renal clearance). Rocuronium has largely replaced vecuronium for both RSI and many maintenance scenarios.'
+      'Compared to <strong>rocuronium</strong>: vecuronium has slower onset, requires reconstitution, and is hepatically metabolized (vs. rocuronium\'s mixed hepatic/renal clearance). Rocuronium has largely replaced vecuronium for both RSI and many maintenance scenarios.'
     ]
   },
   {
@@ -1789,7 +1789,7 @@ const DRUGS = [
       'Use <strong>glucose-free fluids</strong> for dilution - dextrose solutions stimulate insulin release, which shifts potassium intracellularly and can paradoxically worsen hypokalemia.',
       '<span class="hl hl--warn">Always check magnesium</span> - hypomagnesemia makes hypokalemia refractory to potassium replacement. If K⁺ is not correcting despite adequate replacement, treat magnesium first (1-2 g MgSO₄ IV).',
       'Hypokalemia ECG changes to recognize: <strong>flattened T waves → U waves → ST depression → QT prolongation → arrhythmias</strong>. Hyperkalemia ECG changes (from overcorrection): <strong>peaked T waves → widened QRS → sine wave → asystole/VF</strong>.',
-      'Not a standard prehospital medication - primarily relevant for <strong>critical care transport</strong> paramedics inheriting patients on KCl drips and for recognizing hypokalemia as a reversible cause of cardiac arrest (the "H" in H's and T's).'
+      'Not a standard prehospital medication - primarily relevant for <strong>critical care transport</strong> paramedics inheriting patients on KCl drips and for recognizing hypokalemia as a reversible cause of cardiac arrest (the "H" in H\'s and T\'s).'
     ]
   },
   {
@@ -1860,7 +1860,7 @@ const DRUGS = [
       'Oxytocin receptor sensitivity varies significantly between patients - women who received <span class="hl hl--warn">prolonged oxytocin augmentation during labor</span> may have downregulated receptors and respond poorly to postpartum oxytocin. Consider second-line uterotonics early in these patients.',
       'If oxytocin fails to control bleeding, the <strong>second-line uterotonics</strong> are: methylergonovine (Methergine) 0.2 mg IM (avoid in hypertension), carboprost (Hemabate) 0.25 mg IM (avoid in asthma), or misoprostol (Cytotec) 600-1000 mcg PR/SL.',
       '<span class="hl hl--warn">PPH management triad</span>: fundal massage + oxytocin + TXA. NASEMSO also recommends considering tranexamic acid for postpartum hemorrhage.',
-      'The <strong>4 T's of PPH</strong> - Tone (uterine atony, 70-80%), Trauma (lacerations), Tissue (retained placenta), Thrombin (coagulopathy). Oxytocin only addresses Tone; if bleeding persists with a firm uterus, evaluate for the other causes.',
+      'The <strong>4 T\'s of PPH</strong> - Tone (uterine atony, 70-80%), Trauma (lacerations), Tissue (retained placenta), Thrombin (coagulopathy). Oxytocin only addresses Tone; if bleeding persists with a firm uterus, evaluate for the other causes.',
       'Available as 10 IU/mL vials - store at room temperature. Plasma half-life is only 1-6 minutes, which is why continuous infusion or IM depot is necessary for sustained effect.'
     ]
   },
@@ -1993,7 +1993,7 @@ const DRUGS = [
       '<span class="hl hl--beta">Key advantage: minimal respiratory depression</span> - unlike benzodiazepines, hydroxyzine at therapeutic doses does not significantly depress respiration. This makes it useful for anxiolysis in patients where respiratory depression is a concern.',
       'Metabolized hepatically to <strong>cetirizine</strong> (Zyrtec) - the active metabolite responsible for much of the antihistamine effect. Cetirizine has a half-life of ~20 hrs, meaning antihistamine effects persist long after sedation wears off.',
       '<span class="hl hl--warn">Potentiates CNS depressants</span> - when combined with opioids, sedation is additive. Reduce opioid doses if co-administering. A prehospital RCT found that adding hydroxyzine to IV morphine did not significantly improve pain or anxiety scores.',
-      'Not in NASEMSO's recommended formulary - included because some EMS systems still carry it as an <strong>anxiolytic adjunct</strong>, <strong>opioid potentiator</strong>, or <strong>antipruritic</strong> for allergic reactions.',
+      'Not in NASEMSO\'s recommended formulary - included because some EMS systems still carry it as an <strong>anxiolytic adjunct</strong>, <strong>opioid potentiator</strong>, or <strong>antipruritic</strong> for allergic reactions.',
       'Two formulations exist: <strong>HCl</strong> (Atarax - oral only) and <strong>pamoate</strong> (Vistaril - IM and oral). The pamoate salt is the injectable form used in EMS.'
     ]
   },
@@ -2007,7 +2007,7 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'The trivalent <span class="hl hl--beta">cobalt ion</span> in hydroxocobalamin binds cyanide in a 1:1 stoichiometric reaction <span class="moa-arrow">→</span> displaces the hydroxo ligand <span class="moa-arrow">→</span> forms <strong>cyanocobalamin (vitamin B12)</strong>, a nontoxic compound that is renally excreted. This directly removes cyanide from cytochrome oxidase, restoring aerobic cellular respiration.',
+        brief: 'Binds cyanide in a 1:1 stoichiometric reaction, forming cyanocobalamin (vitamin B12), a nontoxic compound that is renally excreted. This directly removes cyanide from cytochrome oxidase, restoring aerobic cellular respiration.',
         target: { name: "Free cyanide ions", action: "chelator", result: "Converts CN⁻ to cyanocobalamin → renal excretion", system: "other" }
       }
     ],
@@ -2089,7 +2089,7 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Competitively blocks <span class="hl hl--beta">H1 receptors</span> on effector cells in respiratory tract, blood vessels, and GI smooth muscle <span class="moa-arrow">→</span> <strong>inhibits histamine-mediated allergic responses</strong> (vasodilation, edema, pruritus, bronchospasm). Also blocks muscarinic acetylcholine receptors (anticholinergic) and sodium channels (local anesthetic). Crosses the blood-brain barrier readily <span class="moa-arrow">→</span> sedation.',
+        brief: 'Inhibits histamine-mediated allergic responses including vasodilation, edema, pruritus, and bronchospasm. Also has anticholinergic and sodium channel blocking activity. Crosses the blood-brain barrier readily, producing sedation.',
         target: { name: "H1 receptors / muscarinic receptors / Na⁺ channels", action: "antagonist", result: "Antihistamine, sedation, anticholinergic, local anesthetic", system: "histaminergic" }
       }
     ],
@@ -2222,11 +2222,11 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Stimulates <span class="hl hl--beta">beta-2 adrenergic receptors</span> on bronchial smooth muscle <span class="moa-arrow">→</span> activates Gs-adenylyl cyclase <span class="moa-arrow">→</span> ↑ cAMP <span class="moa-arrow">→</span> <strong>smooth muscle relaxation and bronchodilation</strong>. Also opens Ca²⁺-sensitive K⁺ channels, causing membrane hyperpolarization and further relaxation.',
+        brief: 'Relaxes bronchial smooth muscle by increasing intracellular cAMP, producing bronchodilation. Also opens calcium-sensitive potassium channels, causing membrane hyperpolarization and further relaxation.',
         target: { name: "Beta-2 adrenergic receptors (bronchial smooth muscle)", action: "agonist", result: "Bronchodilation", system: "adrenergic" }
       },
       {
-        brief: 'Stimulates <span class="hl hl--beta">Na⁺/K⁺-ATPase pump</span> on skeletal muscle cell membranes <span class="moa-arrow">→</span> drives potassium intracellularly <span class="moa-arrow">→</span> <strong>temporary reduction in extracellular K⁺</strong>. This is the mechanism exploited for hyperkalemia management.',
+        brief: 'Drives potassium intracellularly across skeletal muscle membranes, temporarily reducing serum potassium. This is the mechanism used for hyperkalemia management.',
         target: { name: "Na⁺/K⁺-ATPase (skeletal muscle)", action: "stimulator", result: "Intracellular K⁺ shift, ↓ serum K⁺", system: "adrenergic" }
       }
     ],
@@ -2342,7 +2342,7 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Inhibits <span class="hl hl--beta">inositol trisphosphate (IP3)-induced calcium release</span> from the sarcoplasmic reticulum in arteriolar smooth muscle <span class="moa-arrow">→</span> prevents myosin phosphorylation <span class="moa-arrow">→</span> <strong>direct arteriolar relaxation</strong> <span class="moa-arrow">→</span> ↓ SVR <span class="moa-arrow">→</span> ↓ BP. Has little to no effect on veins. Triggers compensatory baroreceptor-mediated reflex tachycardia and increased cardiac output.',
+        brief: 'Directly relaxes arteriolar smooth muscle by inhibiting calcium release from the sarcoplasmic reticulum, lowering SVR and blood pressure. Has little to no effect on veins. Triggers compensatory reflex tachycardia and increased cardiac output.',
         target: { name: "Arteriolar smooth muscle (IP3/Ca²⁺ pathway)", action: "inhibitor", result: "Arteriolar vasodilation, ↓ SVR, ↓ BP", system: "other" }
       }
     ],
@@ -2413,15 +2413,15 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: '<strong>Low dose (&lt;2 mcg/kg/min)</strong>: Stimulates <span class="hl hl--beta">D1 dopaminergic receptors</span> <span class="moa-arrow">→</span> renal and mesenteric vasodilation <span class="moa-arrow">→</span> ↑ renal blood flow and natriuresis. NOTE: "renal-dose" dopamine is debunked - no proven clinical benefit for renal protection.',
+        brief: 'Dilates renal and mesenteric vessels, increasing renal blood flow and natriuresis. "Renal-dose" dopamine is debunked and has no proven clinical benefit for renal protection.',
         target: { name: "D1 dopaminergic receptors", action: "agonist", result: "Renal/mesenteric vasodilation (no proven renal protection)", system: "dopaminergic" }
       },
       {
-        brief: '<strong>Moderate dose (2-10 mcg/kg/min)</strong>: Stimulates <span class="hl hl--alpha">beta-1 adrenergic receptors</span> <span class="moa-arrow">→</span> ↑ heart rate, contractility, and cardiac output. This is the primary inotropic range.',
+        brief: 'Increases heart rate, contractility, and cardiac output. This is the primary inotropic range.',
         target: { name: "Beta-1 adrenergic receptors", action: "agonist", result: "↑ HR, ↑ contractility, ↑ CO", system: "adrenergic" }
       },
       {
-        brief: '<strong>High dose (&gt;10 mcg/kg/min)</strong>: Stimulates <span class="hl hl--alpha">alpha-1 adrenergic receptors</span> <span class="moa-arrow">→</span> peripheral vasoconstriction <span class="moa-arrow">→</span> ↑ SVR <span class="moa-arrow">→</span> ↑ BP. At very high doses, alpha effects can override dopaminergic vasodilation, reducing renal and mesenteric perfusion.',
+        brief: 'Causes peripheral vasoconstriction, increasing SVR and blood pressure. At very high doses, alpha effects can override dopaminergic vasodilation, reducing renal and mesenteric perfusion.',
         target: { name: "Alpha-1 adrenergic receptors", action: "agonist", result: "Vasoconstriction, ↑ SVR, ↑ BP", system: "adrenergic" }
       }
     ],
@@ -2522,7 +2522,7 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Binds <span class="hl hl--beta">mu-opioid receptors</span> in the CNS (dorsal horn, periaqueductal gray, thalamus) <span class="moa-arrow">→</span> inhibits ascending pain pathways via presynaptic neurotransmitter release inhibition and postsynaptic neuronal hyperpolarization <span class="moa-arrow">→</span> <strong>analgesia, sedation, and euphoria</strong>. Also acts at the medullary respiratory center <span class="moa-arrow">→</span> respiratory depression and cough suppression.',
+        brief: 'Inhibits ascending pain pathways in the CNS through presynaptic neurotransmitter release inhibition and postsynaptic neuronal hyperpolarization. Produces analgesia, sedation, and euphoria. Also depresses the medullary respiratory center, causing respiratory depression and cough suppression.',
         target: { name: "Mu-opioid receptors (CNS)", action: "agonist", result: "Analgesia, sedation, respiratory depression", system: "opioid" }
       }
     ],
@@ -2597,7 +2597,7 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Potent <span class="hl hl--beta">D2 dopamine receptor antagonist</span> in the mesolimbic system (antipsychotic/sedative) and chemoreceptor trigger zone (antiemetic) <span class="moa-arrow">→</span> <strong>reduces motor activity, anxiety, agitation, and nausea</strong>. Also has antiserotonergic, alpha-adrenergic blocking, antihistaminic, and anticonvulsive properties.',
+        brief: 'Reduces motor activity, anxiety, agitation, and nausea through dopamine antagonism in the mesolimbic system and chemoreceptor trigger zone. Also has antiserotonergic, alpha-adrenergic blocking, antihistaminic, and anticonvulsive properties.',
         target: { name: "D2 dopamine receptors (mesolimbic / CTZ)", action: "antagonist", result: "Sedation, antiemesis, reduced agitation", system: "dopaminergic" }
       }
     ],
@@ -2675,7 +2675,7 @@ const DRUGS = [
     source: "StatPearls",
     moa: [
       {
-        brief: 'Positive allosteric modulator of <span class="hl hl--beta">GABA-A receptors</span> (β2 and β3 subunits) <span class="moa-arrow">→</span> enhances GABA-mediated chloride influx <span class="moa-arrow">→</span> neuronal hyperpolarization <span class="moa-arrow">→</span> <strong>rapid sedation and unconsciousness</strong>. Depresses the reticular activating system. Also inhibits adrenal <span class="hl hl--warn">11-β-hydroxylase</span> <span class="moa-arrow">→</span> blocks cortisol and aldosterone synthesis.',
+        brief: 'Enhances GABA-mediated chloride influx, producing rapid sedation and unconsciousness. Depresses the reticular activating system. Also inhibits adrenal 11-β-hydroxylase, blocking cortisol and aldosterone synthesis.',
         target: { name: "GABA-A receptors (CNS) / 11-β-hydroxylase (adrenal)", action: "enhancer / inhibitor", result: "Sedation, ↓ ICP, adrenal suppression", system: "GABAergic" }
       }
     ],
@@ -2749,7 +2749,7 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Mechanism not fully understood. Appears to inhibit <span class="hl hl--beta">COX pathways centrally</span> (not peripherally like NSAIDs) <span class="moa-arrow">→</span> reduces prostaglandin synthesis in the CNS <span class="moa-arrow">→</span> <strong>analgesia and antipyresis without peripheral anti-inflammatory effect</strong>. May also inhibit nitric oxide pathways, modulate serotonergic descending pain pathways, and activate the endocannabinoid system (via AM404 metabolite).',
+        brief: 'Mechanism not fully understood. Appears to inhibit COX pathways centrally (not peripherally like NSAIDs), reducing prostaglandin synthesis in the CNS and producing analgesia and antipyresis without peripheral anti-inflammatory effect. May also modulate serotonergic descending pain pathways and activate the endocannabinoid system.',
         target: { name: "Central COX / Nitric oxide / Serotonergic pathways", action: "inhibitor", result: "Central analgesia, antipyresis, no peripheral anti-inflammatory effect", system: "other" }
       }
     ],
@@ -2816,7 +2816,7 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: '<span class="hl hl--beta">Adsorbs</span> (physical surface binding, NOT absorption) drugs and toxins onto its massive pore structure (surface area up to 3,000 m²/g) via weak intermolecular forces <span class="moa-arrow">→</span> <strong>traps toxin in the GI lumen</strong> <span class="moa-arrow">→</span> prevents systemic absorption <span class="moa-arrow">→</span> toxin-charcoal complex excreted in stool. Optimal charcoal:toxin ratio is 10:1. Binds nonpolar organic compounds best; polar/ionized/inorganic substances bind poorly.',
+        brief: 'Physically adsorbs drugs and toxins onto its pore structure, trapping them in the GI lumen and preventing systemic absorption. Optimal charcoal-to-toxin ratio is 10:1. Binds nonpolar organic compounds best; polar, ionized, and inorganic substances bind poorly.',
         target: { name: "Ingested toxins (GI lumen)", action: "adsorbent", result: "Prevents GI absorption, fecal elimination of toxin", system: "other" }
       }
     ],
@@ -4535,7 +4535,7 @@ const DRUGS = [
       '<span class="hl hl--danger">Respiratory depression</span> is the primary risk - have bag-valve-mask and flumazenil available. Risk multiplies with concurrent opioids, alcohol, or other CNS depressants.',
       '<span class="hl hl--warn">IM absorption is erratic and painful</span> - diazepam is lipophilic and precipitates in muscle tissue. NASEMSO and evidence favor <strong>midazolam IM/IN as first-line</strong> when IV access is not available for both seizures and agitation.',
       '<span class="hl hl--warn">Slow IV push only</span> - administer no faster than 5 mg/min. Rapid IV push causes respiratory depression, hypotension, and apnea. The propylene glycol vehicle is irritating to veins.',
-      'The rectal route (Diastat) is diazepam's <strong>unique niche</strong> - it provides reliable absorption when IV/IM/IN are all unavailable. This is most commonly used in pediatric seizures by caregivers with prescribed Diastat.',
+      'The rectal route (Diastat) is diazepam\'s <strong>unique niche</strong> - it provides reliable absorption when IV/IM/IN are all unavailable. This is most commonly used in pediatric seizures by caregivers with prescribed Diastat.',
       '<span class="hl hl--warn">Very long half-life</span> (20-100 hrs including active metabolites) - the clinical sedation wears off in 30-90 min, but the drug and metabolites persist for days. This complicates repeated dosing and increases cumulative CNS depression risk.',
       'Paradoxical agitation can occur, particularly in <span class="hl hl--warn">elderly and pediatric</span> patients - if agitation worsens after diazepam, consider paradoxical reaction before redosing.',
       '<span class="hl hl--warn">Do NOT mix with other drugs in IV line</span> - diazepam is incompatible with most IV solutions and precipitates easily. Flush the line before and after administration.'
@@ -4949,8 +4949,8 @@ const DRUGS = [
       '<span class="hl hl--danger">Excessive crystalloid is harmful in hemorrhagic shock</span> - NASEMSO states crystalloid has "little to no value and may in fact be harmful" in hemorrhagic shock. Whole blood or balanced blood products are preferred when available. Crystalloid dilutes clotting factors and worsens coagulopathy.',
       '<span class="hl hl--warn">Reassess after every bolus</span> - fluid resuscitation is a titrated therapy, not a standing order. Stop boluses when MAP ≥65 mmHg (adult) or perfusion targets are met (peds). Do not blindly run 30 mL/kg without reassessing.',
       '<span class="hl hl--warn">Caution in pulmonary edema</span> - most acute pulmonary edema is volume redistribution, not true volume overload. NASEMSO recommends vasodilators (nitroglycerin, CPAP) as first-line. Small (250-500 mL) boluses only for hypotensive CHF patients.',
-      'For <span class="hl hl--warn">crush injury</span>, use normal saline specifically - NASEMSO warns to avoid lactated Ringer's because it contains potassium, which compounds the hyperkalemia released when the crushed limb is freed.',
-      '<span class="hl hl--warn">Large-volume NS causes hyperchloremic metabolic acidosis</span> - NS contains 154 mEq/L chloride (plasma is ~100 mEq/L). In massive resuscitation (>3-4 L), lactated Ringer's or other balanced crystalloids may be preferable to reduce acidosis.',
+      'For <span class="hl hl--warn">crush injury</span>, use normal saline specifically - NASEMSO warns to avoid lactated Ringer\'s because it contains potassium, which compounds the hyperkalemia released when the crushed limb is freed.',
+      '<span class="hl hl--warn">Large-volume NS causes hyperchloremic metabolic acidosis</span> - NS contains 154 mEq/L chloride (plasma is ~100 mEq/L). In massive resuscitation (>3-4 L), lactated Ringer\'s or other balanced crystalloids may be preferable to reduce acidosis.',
       'Warm fluids when possible - room temperature or cold fluids contribute to <strong>hypothermia</strong>, which worsens coagulopathy, acidosis, and cardiac irritability (the "lethal triad" of trauma).',
       'Only ~25% of infused NS remains intravascular after 1 hour - the rest distributes to the interstitial space. This is why crystalloid is a temporizing measure, not a definitive treatment for hemorrhagic shock.'
     ]
@@ -5296,7 +5296,7 @@ const DRUGS = [
       'Nicardipine <strong>crosses the blood-brain barrier</strong> and directly relaxes cerebrovascular smooth muscle → increases cerebral blood flow. This makes it particularly useful in hypertensive emergencies complicated by acute ischemic stroke.',
       '<span class="hl hl--warn">Reflex tachycardia</span> is common - if heart rate control is also needed, consider adding a short-acting beta-blocker (esmolol) rather than switching to a non-DHP CCB.',
       'Primarily a <strong>critical care transport and ED drug</strong> - not standard on most ground BLS/ALS units. Most commonly encountered in interfacility transports of patients on established nicardipine drips.',
-      '<span class="hl hl--warn">Incompatible with sodium bicarbonate and lactated Ringer's</span> - use NS or D5W for dilution. Change infusion site every 12 hours to minimize phlebitis.'
+      '<span class="hl hl--warn">Incompatible with sodium bicarbonate and lactated Ringer\'s</span> - use NS or D5W for dilution. Change infusion site every 12 hours to minimize phlebitis.'
     ]
   },
   {
@@ -5662,7 +5662,7 @@ const DRUGS = [
     precautions: [
       '<span class="hl hl--danger">Respiratory depression and apnea</span> are the primary risks - NASEMSO warns that midazolam may cause respiratory depression, arrest, or apnea. Have BVM and flumazenil immediately available. Risk greatly increases with concurrent opioids, alcohol, or other CNS depressants.',
       '<span class="hl hl--beta">Midazolam IM is the preferred prehospital anticonvulsant when IV is not established</span> - NASEMSO states "recent evidence supports the use of midazolam IM as an intervention that is at least as safe and effective as intravenous lorazepam for prehospital seizure cessation." Do NOT delay seizure treatment to start an IV.',
-      '<span class="hl hl--beta">Water-soluble formulation = reliable IM and IN absorption</span> - this is midazolam's key advantage over diazepam (which is lipophilic and precipitates in muscle tissue with erratic IM absorption). This makes midazolam the prehospital benzodiazepine of choice.',
+      '<span class="hl hl--beta">Water-soluble formulation = reliable IM and IN absorption</span> - this is midazolam\'s key advantage over diazepam (which is lipophilic and precipitates in muscle tissue with erratic IM absorption). This makes midazolam the prehospital benzodiazepine of choice.',
       '<span class="hl hl--warn">Reduce dose by 50% in elderly (≥69 yrs)</span> - NASEMSO specifically recommends this for toxicologic sedation dosing. Elderly patients are more sensitive to benzodiazepine effects due to decreased hepatic metabolism and increased CNS sensitivity.',
       '<span class="hl hl--warn">Use 5 mg/mL concentration for IN and IM routes</span> - NASEMSO notes this specifically. The more dilute 1 mg/mL IV concentration delivers too large a volume for reliable intranasal absorption (max ~1 mL per nostril).',
       'For IN administration, <strong>divide the dose between both nares</strong> - the nasal mucosa has limited absorptive surface area. Delivering the entire volume into one nostril causes runoff into the pharynx and reduced bioavailability.',
@@ -5733,7 +5733,7 @@ const DRUGS = [
     precautions: [
       '<span class="hl hl--danger">NASEMSO restricts use to SBP >120 mmHg</span> - metoprolol reduces heart rate, contractility, and blood pressure. In borderline-hypotensive patients, it can precipitate cardiovascular collapse.',
       '<span class="hl hl--warn">NASEMSO warns: worsening CHF, COPD, asthma, hypotension, and bradycardia can all occur</span> with metoprolol. Assess for these before every dose. Amiodarone or procainamide are alternatives for patients with CHF who cannot tolerate diltiazem or metoprolol.',
-      '<span class="hl hl--danger">Do NOT give in cocaine-induced chest pain / MI</span> - beta-blockade removes the β-2 vasodilatory counterbalance to cocaine's α-1 vasoconstriction → unopposed alpha stimulation → coronary vasospasm and hypertensive crisis. Use benzodiazepines and nitroglycerin instead.',
+      '<span class="hl hl--danger">Do NOT give in cocaine-induced chest pain / MI</span> - beta-blockade removes the β-2 vasodilatory counterbalance to cocaine\'s α-1 vasoconstriction → unopposed alpha stimulation → coronary vasospasm and hypertensive crisis. Use benzodiazepines and nitroglycerin instead.',
       '<span class="hl hl--warn">Avoid in WPW / pre-excited AFib</span> - NASEMSO warns that AV nodal blocking agents (including beta-blockers) in pre-excitation can force conduction down the accessory pathway → ventricular fibrillation.',
       'β-1 selectivity is <strong>dose-dependent and lost at higher doses</strong> - at cumulative doses approaching 15 mg IV, metoprolol begins to block β-2 receptors causing bronchospasm in susceptible patients (asthmatics, COPD).',
       'Not recommended for <strong>pediatric prehospital use</strong> - adenosine is the preferred agent for pediatric SVT per NASEMSO.',
@@ -5922,7 +5922,7 @@ const DRUGS = [
       '<span class="hl hl--danger">Normeperidine is neurotoxic</span> - meperidine is metabolized to normeperidine, which has a half-life of 14-48 hrs (vs 3-8 hrs for the parent drug). Normeperidine causes myoclonus, tremors, and seizures that are NOT reversed by naloxone (normeperidine is not an opioid agonist). Risk is highest with repeated doses, renal impairment, and elderly patients.',
       '<span class="hl hl--danger">Removed from WHO essential medicines list (2003)</span> - meperidine is no longer considered safer than other opioids. Its risk of addiction, biliary spasm, and renal colic are equal to other opioids, and it carries unique neurotoxic and serotonergic risks.',
       '<span class="hl hl--warn">Avoid in elderly</span> - AGS Beers Criteria lists meperidine as a drug to avoid in older adults due to ineffective analgesia at commonly used oral doses and higher risk of neurotoxicity/delirium compared to other opioids.',
-      'The anti-shivering effect is meperidine's <strong>one remaining clinical niche</strong> - it lowers the shivering threshold more potently than any other opioid via κ-opioid receptor stimulation. Used at low doses (25 mg IV) for post-intubation shivering, therapeutic hypothermia protocols, and transfusion-related rigors.',
+      'The anti-shivering effect is meperidine\'s <strong>one remaining clinical niche</strong> - it lowers the shivering threshold more potently than any other opioid via κ-opioid receptor stimulation. Used at low doses (25 mg IV) for post-intubation shivering, therapeutic hypothermia protocols, and transfusion-related rigors.',
       'For prehospital <strong>pain management, use fentanyl or morphine instead</strong> - they are safer, more effective, and lack the normeperidine/serotonin toxicity risks. Meperidine offers no analgesic advantage over other opioids.',
       '<span class="hl hl--warn">Naloxone does NOT reverse normeperidine seizures</span> - normeperidine-induced seizures require benzodiazepines. Naloxone only reverses μ-opioid effects (respiratory depression, sedation). This is a critical distinction.'
     ]
@@ -6458,7 +6458,7 @@ const DRUGS = [
       '<span class="hl hl--danger">Respiratory depression and apnea</span> - same risk as all benzodiazepines. Have BVM and flumazenil available. Risk multiplies with concurrent opioids, alcohol, or other CNS depressants.',
       '<span class="hl hl--warn">Requires refrigeration</span> - lorazepam degrades at room temperature, losing potency. This is a significant logistical disadvantage for EMS compared to midazolam (which is stable at room temperature). Many services have switched to midazolam for this reason.',
       'NASEMSO evidence supports <strong>midazolam IM as equivalent to IV lorazepam</strong> for prehospital seizures - since midazolam does not require IV access and is stable at room temperature, it has become the preferred prehospital benzodiazepine.',
-      '<span class="hl hl--warn">Longer duration (6-8 hrs)</span> is a double-edged sword - sustained seizure suppression is beneficial, but prolonged sedation complicates neurologic assessment and can mask deterioration. Midazolam's shorter duration (30-60 min) allows more frequent reassessment.',
+      '<span class="hl hl--warn">Longer duration (6-8 hrs)</span> is a double-edged sword - sustained seizure suppression is beneficial, but prolonged sedation complicates neurologic assessment and can mask deterioration. Midazolam\'s shorter duration (30-60 min) allows more frequent reassessment.',
       'Contains <strong>propylene glycol</strong> as a solvent - can cause injection site pain and, with large/repeated doses, propylene glycol toxicity (metabolic acidosis, renal dysfunction). Administer slowly.',
       '<span class="hl hl--warn">IM absorption is intermediate</span> - better than diazepam (which precipitates in muscle) but less reliable than midazolam (which is water-soluble). If IM is the only available route, midazolam is preferred.'
     ]
@@ -6613,8 +6613,8 @@ const DRUGS = [
       "Lactic acidosis (theoretical - in severe liver failure where lactate cannot be metabolized to bicarbonate)"
     ],
     precautions: [
-      '<span class="hl hl--danger">AVOID in crush injury</span> - NASEMSO specifically states: "Avoid lactated Ringer's solution as it contains potassium." Crushed muscle releases massive amounts of intracellular potassium; adding more potassium via LR compounds the hyperkalemia → cardiac arrest risk. Use NS for crush injury.',
-      '<span class="hl hl--beta">Less hyperchloremic acidosis than NS</span> - LR contains 109 mEq/L Cl⁻ (closer to plasma at ~100) vs NS at 154 mEq/L. In massive resuscitation (>3-4 L), this translates to less iatrogenic acidosis and potentially better renal outcomes. This is LR's primary advantage.',
+      '<span class="hl hl--danger">AVOID in crush injury</span> - NASEMSO specifically states: "Avoid lactated Ringer\'s solution as it contains potassium." Crushed muscle releases massive amounts of intracellular potassium; adding more potassium via LR compounds the hyperkalemia → cardiac arrest risk. Use NS for crush injury.',
+      '<span class="hl hl--beta">Less hyperchloremic acidosis than NS</span> - LR contains 109 mEq/L Cl⁻ (closer to plasma at ~100) vs NS at 154 mEq/L. In massive resuscitation (>3-4 L), this translates to less iatrogenic acidosis and potentially better renal outcomes. This is LR\'s primary advantage.',
       '<span class="hl hl--warn">Contains calcium</span> - do not infuse citrated blood products (packed RBCs, FFP) through the same IV line as LR. The calcium can bind citrate anticoagulant and cause micro-clotting. Use a separate line or NS for blood products.',
       'The lactate in LR is <strong>NOT lactic acid</strong> - it is sodium lactate, which the liver converts to bicarbonate (an alkalizing buffer). LR does not cause or worsen lactic acidosis in patients with normal hepatic function. However, it can confound point-of-care lactate measurements.',
       'NASEMSO treats LR and NS as <strong>interchangeable</strong> for most indications - anaphylaxis, shock, trauma, head injury, poisoning. The choice between them is often based on local protocol and availability.',
@@ -6686,7 +6686,7 @@ const DRUGS = [
       '<span class="hl hl--warn">Ensure HR >60 BPM before each dose</span> - NASEMSO specifically requires this check. The β-blockade component can cause significant bradycardia, especially with repeat dosing.',
       '<span class="hl hl--warn">Goal is 140/90, NOT normotensive</span> - in pre-eclampsia, aggressive BP lowering below 140/90 compromises uteroplacental perfusion and causes fetal distress. Reduce MAP by 20-25% initially, then reassess.',
       '<span class="hl hl--danger">Patients on beta-blockers may be resistant to epinephrine</span> - NASEMSO warns that patients taking beta-blockers who experience anaphylaxis may not respond to epinephrine, or epinephrine may cause unopposed α-stimulation (hypertension). Consider glucagon as an alternative in beta-blocker-resistant anaphylaxis.',
-      'The α-1 blockade prevents <strong>reflex tachycardia</strong> - this is labetalol's key advantage over pure vasodilators (hydralazine, nifedipine) which cause compensatory tachycardia that increases myocardial oxygen demand.',
+      'The α-1 blockade prevents <strong>reflex tachycardia</strong> - this is labetalol\'s key advantage over pure vasodilators (hydralazine, nifedipine) which cause compensatory tachycardia that increases myocardial oxygen demand.',
       'Do NOT confuse with metoprolol - both are beta-blockers in the EMS drug box, but labetalol is <strong>non-selective β + α-1 blocker</strong> (contraindicated in asthma) while metoprolol is <strong>β-1 selective</strong> (relatively safer in mild COPD). Different drugs, different indications, different contraindications.',
       '<span class="hl hl--warn">Use with caution alongside calcium channel blockers</span> - NASEMSO warns about concurrent use. Combined negative inotropic and chronotropic effects risk profound bradycardia, heart block, and heart failure.'
     ]
@@ -6917,7 +6917,7 @@ const DRUGS = [
       "Transient increase in ICP (controversial - may not be clinically significant)"
     ],
     precautions: [
-      '<span class="hl hl--beta">Preserves airway reflexes and spontaneous respirations</span> - this is ketamine's defining advantage over other sedatives. However, this is dose-dependent and NOT absolute. At high doses or with rapid IV push, apnea can occur. Always have BVM and suction ready.',
+      '<span class="hl hl--beta">Preserves airway reflexes and spontaneous respirations</span> - this is ketamine\'s defining advantage over other sedatives. However, this is dose-dependent and NOT absolute. At high doses or with rapid IV push, apnea can occur. Always have BVM and suction ready.',
       '<span class="hl hl--warn">Emergence reactions</span> occur in 10-30% of adults (less common in children) - vivid hallucinations, dysphoria, agitation upon waking. Risk factors: female sex, age >16, large doses, rapid IV administration. Pre-treatment with midazolam 0.05 mg/kg IV may reduce but does not eliminate emergence phenomena.',
       '<span class="hl hl--warn">Hypersalivation</span> - ketamine stimulates salivary secretions which can compromise the airway. Position patient on their side (recovery position). Some protocols recommend atropine 0.01 mg/kg or glycopyrrolate pretreatment.',
       '<span class="hl hl--danger">Sympathomimetic effects</span> - ketamine releases endogenous catecholamines → hypertension and tachycardia. NASEMSO lists hypertension, angina, and stroke as relative contraindications. Use with extreme caution in patients with aortic dissection, intracranial hemorrhage, or severe uncontrolled hypertension.',
