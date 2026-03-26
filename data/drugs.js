@@ -1999,7 +1999,7 @@ const DRUGS = [
   },
   {
     id: "hydroxocobalamin",
-    summary: "A vitamin B12a precursor whose cobalt ion directly chelates cyanide to form nontoxic cyanocobalamin - the preferred prehospital cyanide antidote because it doesn't cause methemoglobinemia, making it safe in mixed smoke inhalation where CO poisoning coexists.",
+    summary: "The preferred prehospital cyanide antidote. A vitamin B12a precursor that chelates cyanide to form nontoxic cyanocobalamin, safe in mixed smoke inhalation where CO poisoning coexists because it does not cause methemoglobinemia.",
     genericName: "Hydroxocobalamin",
     tradeNames: ["Cyanokit"],
     category: ["Toxicology"],
@@ -2081,7 +2081,7 @@ const DRUGS = [
   },
   {
     id: "diphenhydramine",
-    summary: "The workhorse first-generation antihistamine used prehospitally for allergic reactions, drug-induced dystonia, nausea, and agitation - the only first-gen antihistamine approved for IV use in the US; potent anticholinergic effects limit use in elderly patients.",
+    summary: "A first-generation antihistamine used in EMS for allergic reactions, drug-induced dystonia, nausea, and sedation, and is the most commonly used IV antihistamine in prehospital care. Causes significant sedation and anticholinergic effects: dry mouth, urinary retention, confusion.",
     genericName: "Diphenhydramine",
     tradeNames: ["Benadryl"],
     category: ["Allergy & Immunology"],
@@ -2214,7 +2214,7 @@ const DRUGS = [
   },
   {
     id: "albuterol",
-    summary: "The cornerstone short-acting beta-2 agonist bronchodilator used for acute bronchospasm - NASEMSO authorizes unlimited frequency dosing for ongoing respiratory distress; also shifts potassium intracellularly for hyperkalemia management.",
+    summary: "A short-acting beta-2 agonist bronchodilator used for acute bronchospasm. Also shifts potassium intracellularly for hyperkalemia management.",
     genericName: "Albuterol (Salbutamol)",
     tradeNames: ["Proventil", "Ventolin", "ProAir"],
     category: ["Airway & Respiratory"],
@@ -2334,7 +2334,7 @@ const DRUGS = [
   },
   {
     id: "hydralazine",
-    summary: "A direct arteriolar vasodilator used to treat severe hypertension in preeclampsia - lowers peripheral resistance without affecting veins, but causes reflex tachycardia; one of three NASEMSO-recommended agents alongside labetalol and nifedipine for pregnancy-related hypertensive emergencies.",
+    summary: "A direct arteriolar vasodilator used for severe hypertension in preeclampsia and hypertensive emergencies. Lowers peripheral resistance without affecting veins but causes reflex tachycardia.",
     genericName: "Hydralazine",
     tradeNames: ["Apresoline"],
     category: ["Cardiovascular"],
@@ -2405,7 +2405,7 @@ const DRUGS = [
   },
   {
     id: "dopamine",
-    summary: "An endogenous catecholamine with dose-dependent effects across dopaminergic, beta-1, and alpha-1 receptors - NASEMSO's third-line vasopressor behind norepinephrine and epinephrine; associated with more arrhythmias and higher mortality than norepinephrine in shock.",
+    summary: "An endogenous catecholamine with dose-dependent effects across dopaminergic, beta-1, and alpha-1 receptors. Third-line vasopressor behind norepinephrine and epinephrine, associated with more arrhythmias and higher mortality than norepinephrine in shock.",
     genericName: "Dopamine",
     tradeNames: ["Intropin"],
     category: ["Cardiovascular"],
@@ -2514,7 +2514,7 @@ const DRUGS = [
   },
   {
     id: "hydromorphone",
-    summary: "A semi-synthetic opioid 5-7x more potent than morphine per milligram - used for moderate-to-severe acute pain when morphine is ineffective or poorly tolerated; fewer histamine-related side effects but higher potency demands precise dosing to avoid respiratory depression.",
+    summary: "A semi-synthetic opioid 5 to 7 times more potent than morphine per milligram, used for moderate-to-severe acute pain when morphine is ineffective or poorly tolerated. Fewer histamine-related side effects than morphine.",
     genericName: "Hydromorphone",
     tradeNames: ["Dilaudid"],
     category: ["Analgesic"],
@@ -2589,7 +2589,7 @@ const DRUGS = [
   },
   {
     id: "droperidol",
-    summary: "A butyrophenone antipsychotic with potent D2 blockade used for acute agitation and nausea - faster onset and more effective than haloperidol, with an FDA black box for QT prolongation that is widely considered disproportionate to the actual risk at therapeutic doses; returned to the US market in 2019.",
+    summary: "A butyrophenone antipsychotic used for acute agitation and nausea, with faster onset than haloperidol. Carries an FDA black box warning for QT prolongation.",
     genericName: "Droperidol",
     tradeNames: ["Inapsine"],
     category: ["Neurological"],
@@ -2667,7 +2667,7 @@ const DRUGS = [
   },
   {
     id: "etomidate",
-    summary: "The most hemodynamically neutral RSI induction agent - maintains BP, HR, and cardiac output while reducing ICP; the go-to for hemodynamically unstable patients needing intubation, but causes transient adrenal suppression that remains controversial in sepsis.",
+    summary: "A hemodynamically neutral RSI induction agent that maintains blood pressure, heart rate, and cardiac output while reducing ICP. Used for hemodynamically unstable patients needing intubation.",
     genericName: "Etomidate",
     tradeNames: ["Amidate"],
     category: ["Neurological"],
@@ -2741,7 +2741,7 @@ const DRUGS = [
   },
   {
     id: "acetaminophen",
-    summary: "The most commonly used non-opioid analgesic and antipyretic - works centrally to reduce pain and fever without anti-inflammatory or antiplatelet effects; safe at therapeutic doses but the #1 cause of acute liver failure in the US through NAPQI-mediated hepatotoxicity in overdose.",
+    summary: "A non-opioid analgesic and antipyretic that reduces pain and fever without anti-inflammatory or antiplatelet effects. The leading cause of acute liver failure in the US through NAPQI-mediated hepatotoxicity in overdose.",
     genericName: "Acetaminophen (Paracetamol, APAP)",
     tradeNames: ["Tylenol", "Ofirmev"],
     category: ["Analgesic"],
@@ -2808,7 +2808,7 @@ const DRUGS = [
   },
   {
     id: "activated-charcoal",
-    summary: "A highly porous carbon adsorbent that physically binds drugs and toxins in the GI lumen to prevent systemic absorption - most effective within 1 hour of ingestion; does NOT bind metals, alcohols, acids/alkalis, or lithium; aspiration is the most dangerous complication.",
+    summary: "A porous carbon adsorbent that binds drugs and toxins in the GI lumen to prevent systemic absorption, most effective within one hour of ingestion. Does not bind metals, alcohols, acids, alkalis, or lithium.",
     genericName: "Activated Charcoal",
     tradeNames: ["Actidose-Aqua"],
     category: ["Toxicology"],
