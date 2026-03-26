@@ -590,7 +590,13 @@ The renderer checks `moa[0].tier` to decide layout:
 
 ```js
 {
-  brief: "",      // Required — HTML string for card display (rendered via innerHTML)
+  brief: "",      // Required — HTML string for card display (rendered via innerHTML).
+                  // Clinical and direct: states the mechanism plainly, then connects it to patient
+                  // outcome where it adds value without editorializing or over-explaining.
+                  // Written for someone who already knows the basics; does not define terms or
+                  // justify itself. Does not repeat the target name or restate the target fields.
+                  // One to three sentences, verbosity is fine when the mechanism warrants it.
+                  // No figurative language.
   tier: "",       // Optional — only for dose-dependent drugs (see TIER enum)
   label: "",      // Optional — pairs with tier, free text (e.g. "Renal", "Cardiac")
   target: {       // Required — queryable metadata
@@ -653,7 +659,7 @@ The renderer checks `moa[0].tier` to decide layout:
 ```js
 moa: [
   {
-    brief: 'Binds to <span class="hl hl--beta">μ-opioid receptors</span> in the CNS <span class="moa-arrow">→</span> increases K⁺ efflux and decreases Ca²⁺ influx <span class="moa-arrow">→</span> blocks neurotransmitter release (substance P) <span class="moa-arrow">→</span> <strong>potent analgesia and sedation</strong>.',
+    brief: 'Suppresses pain signal transmission in the CNS by inhibiting neurotransmitter release. Produces potent analgesia and sedation with a rapid onset.',
     target: {
       name: "μ-opioid receptors",
       action: "agonist",
@@ -668,15 +674,15 @@ moa: [
 ```js
 moa: [
   {
-    brief: '<span class="hl hl--alpha">α-1 receptors</span> on vascular smooth muscle <span class="moa-arrow">→</span> <strong>vasoconstriction</strong> and increased SVR.',
+    brief: 'Causes widespread vasoconstriction and a rapid rise in systemic vascular resistance. This is what restores blood pressure in anaphylaxis.',
     target: { name: "α-1 receptors", action: "agonist", result: "Vasoconstriction, ↑ SVR", system: "adrenergic" }
   },
   {
-    brief: '<span class="hl hl--beta">β-1 receptors</span> on the myocardium <span class="moa-arrow">→</span> <strong>increased heart rate and contractility</strong>.',
+    brief: 'Increases heart rate and myocardial contractility. In cardiac arrest, this raises coronary perfusion pressure between compressions and improves the likelihood of successful defibrillation.',
     target: { name: "β-1 receptors", action: "agonist", result: "↑ HR & contractility", system: "adrenergic" }
   },
   {
-    brief: '<span class="hl hl--beta">β-2 receptors</span> on bronchial smooth muscle <span class="moa-arrow">→</span> <strong>bronchodilation</strong>.',
+    brief: 'Relaxes bronchial smooth muscle, reversing bronchoconstriction. In anaphylaxis, this works faster and more reliably than any inhaled bronchodilator.',
     target: { name: "β-2 receptors", action: "agonist", result: "Bronchodilation", system: "adrenergic" }
   }
 ]
@@ -687,17 +693,17 @@ moa: [
 moa: [
   {
     tier: "Low", label: "Renal",
-    brief: '<span class="hl hl--beta">D1 receptors</span> <span class="moa-arrow">→</span> renal and splanchnic vasodilation <span class="moa-arrow">→</span> increases kidney blood flow',
+    brief: 'Dilates renal and splanchnic vessels, increasing blood flow to the kidneys.',
     target: { name: "D1 receptors", action: "agonist", result: "↑ renal blood flow", system: "dopaminergic", dose: "2–5 mcg/kg/min" }
   },
   {
     tier: "Mod", label: "Cardiac",
-    brief: '<span class="hl hl--beta">β-1 receptors</span> <span class="moa-arrow">→</span> increases heart contractility and heart rate. Cardiac output rises.',
+    brief: 'Increases heart rate and contractility, raising cardiac output.',
     target: { name: "β-1 receptors", action: "agonist", result: "↑ cardiac output", system: "adrenergic", dose: "5–10 mcg/kg/min" }
   },
   {
     tier: "High", label: "Vasopressor",
-    brief: '<span class="hl hl--alpha">α-1 receptors</span> <span class="moa-arrow">→</span> widespread vasoconstriction <span class="moa-arrow">→</span> SVR and blood pressure rise.',
+    brief: 'Causes widespread vasoconstriction, increasing systemic vascular resistance and blood pressure.',
     target: { name: "α-1 receptors", action: "agonist", result: "↑ SVR, ↑ BP", system: "adrenergic", dose: ">10 mcg/kg/min" }
   }
 ]
@@ -707,15 +713,15 @@ moa: [
 ```js
 moa: [
   {
-    brief: 'Stimulates <span class="hl hl--beta">glycogenolysis</span> in the liver <span class="moa-arrow">→</span> <strong>blood glucose rises within minutes</strong>. Requires adequate hepatic glycogen stores.',
+    brief: 'Triggers glycogen breakdown in the liver, releasing glucose into the bloodstream within minutes. Requires adequate hepatic glycogen stores to be effective.',
     target: { name: "Hepatic glycogen stores", action: "stimulator", result: "Rapid ↑ blood glucose", system: "metabolic" }
   },
   {
-    brief: 'Directly activates <span class="hl hl--beta">adenylyl cyclase</span> on cardiac myocytes <span class="moa-arrow">→</span> increases cAMP <strong>bypassing the β-receptor entirely</strong> <span class="moa-arrow">→</span> positive inotropic and chronotropic effects.',
+    brief: 'Increases cardiac contractility and heart rate by bypassing the beta-receptor entirely. This is what makes glucagon useful in beta-blocker overdose — the drug works even when those receptors are blocked.',
     target: { name: "Adenylyl cyclase (cardiac)", action: "stimulator", result: "Positive inotropy & chronotropy", system: "adrenergic" }
   },
   {
-    brief: 'Relaxes <span class="hl hl--beta">GI smooth muscle</span> <span class="moa-arrow">→</span> reduces LES tone <span class="moa-arrow">→</span> <strong>can relieve esophageal foreign body obstruction</strong>.',
+    brief: 'Relaxes lower esophageal sphincter tone, which can allow an impacted foreign body to pass. Effect is temporary and inconsistent.',
     target: { name: "GI smooth muscle", action: "relaxant", result: "Relieves esophageal obstruction", system: "other" }
   }
 ]
@@ -725,7 +731,7 @@ moa: [
 ```js
 moa: [
   {
-    brief: 'Highly porous charcoal <span class="moa-arrow">→</span> adsorbs toxins and drugs in the GI tract <span class="moa-arrow">→</span> <strong>prevents absorption into bloodstream</strong>. Does NOT bind iron, lithium, potassium, ethanol, caustics, or hydrocarbons.',
+    brief: 'Adsorbs toxins and drugs within the GI tract, preventing them from being absorbed into the bloodstream. Does not bind iron, lithium, potassium, ethanol, caustics, or hydrocarbons.',
     target: { name: "Toxins / drugs in GI lumen", action: "adsorbent", result: "Prevents systemic absorption", system: "other" }
   }
 ]
@@ -807,15 +813,15 @@ precautions: [
   source: "NASEMSO 2022 v3.0",
   moa: [
     {
-      brief: '<span class="hl hl--alpha">α-1 receptors</span> on vascular smooth muscle <span class="moa-arrow">→</span> <strong>vasoconstriction</strong> and increased SVR. Reverses vasodilation of anaphylaxis.',
+      brief: 'Causes widespread vasoconstriction and a rapid rise in systemic vascular resistance. This is what restores blood pressure in anaphylaxis.',
       target: { name: "α-1 receptors", action: "agonist", result: "Vasoconstriction, ↑ SVR", system: "adrenergic" }
     },
     {
-      brief: '<span class="hl hl--beta">β-1 receptors</span> on the myocardium <span class="moa-arrow">→</span> <strong>increased heart rate and contractility</strong>. Increases cardiac output.',
+      brief: 'Increases heart rate and myocardial contractility. In cardiac arrest, this raises coronary perfusion pressure between compressions and improves the likelihood of successful defibrillation.',
       target: { name: "β-1 receptors", action: "agonist", result: "↑ HR & contractility", system: "adrenergic" }
     },
     {
-      brief: '<span class="hl hl--beta">β-2 receptors</span> on bronchial smooth muscle <span class="moa-arrow">→</span> <strong>bronchodilation</strong>. Reverses bronchoconstriction in anaphylaxis.',
+      brief: 'Relaxes bronchial smooth muscle, reversing bronchoconstriction. In anaphylaxis, this works faster and more reliably than any inhaled bronchodilator.',
       target: { name: "β-2 receptors", action: "agonist", result: "Bronchodilation", system: "adrenergic" }
     }
   ],
