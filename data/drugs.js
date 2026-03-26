@@ -1,7 +1,7 @@
 const DRUGS = [
   {
      id: "epinephrine",
-     summary: "The first-line drug for anaphylaxis and cardiac arrest - a potent sympathomimetic that rapidly reverses bronchoconstriction, vasodilation, and cardiovascular collapse.",
+     summary: "The first-line drug for anaphylaxis and cardiac arrest. A sympathomimetic that reverses bronchoconstriction, vasodilation, and cardiovascular collapse.",
      genericName: "Epinephrine",
      tradeNames: ["Adrenalin", "EpiPen"],
      category: ["Resuscitation", "Cardiovascular", "Airway & Respiratory"],
@@ -168,7 +168,7 @@ const DRUGS = [
   },
   {
     id: "propranolol",
-    summary: "The prototype non-selective beta-blocker - blocks both β-1 and β-2 receptors to slow heart rate, reduce contractility, and lower blood pressure; IV form used for acute SVT and tachyarrhythmias.",
+    summary: "A non-selective beta-blocker that slows heart rate, reduces contractility, and lowers blood pressure. IV form used for acute SVT and tachyarrhythmias.",
     genericName: "Propranolol",
     tradeNames: ["Inderal", "Inderal LA", "InnoPran XL", "Hemangeol"],
     category: ["Cardiovascular"],
@@ -246,7 +246,7 @@ const DRUGS = [
   },
   {
     id: "protamine-sulfate",
-    summary: "The specific antidote for heparin - a strongly basic protein derived from fish sperm that binds and neutralizes heparin's anticoagulant effect; primarily used post-cardiac surgery and to reverse heparin overdose.",
+    summary: "The specific antidote for heparin. A strongly basic protein that binds and neutralizes heparin\\'s anticoagulant effect, primarily used post-cardiac surgery and to reverse heparin overdose.",
     genericName: "Protamine Sulfate",
     tradeNames: [],
     category: ["Toxicology"],
@@ -344,7 +344,7 @@ const DRUGS = [
   },
   {
     id: "racemic-epinephrine",
-    summary: "A 1:1 mixture of L- and D-epinephrine isomers delivered by nebulizer to rapidly shrink subglottic edema in croup - buys time while corticosteroids take effect.",
+    summary: "A 1:1 mixture of L- and D-epinephrine isomers delivered by nebulizer to reduce subglottic edema in croup. Provides temporary relief while corticosteroids take effect.",
     genericName: "Racemic Epinephrine",
     tradeNames: ["S2", "AsthmaNefrin", "Vaponefrin"],
     category: ["Airway & Respiratory"],
@@ -421,7 +421,7 @@ const DRUGS = [
   },
   {
     id: "rocuronium",
-    summary: "A fast-acting non-depolarizing neuromuscular blocker used for RSI paralysis - now preferred over succinylcholine in many EMS systems due to fewer contraindications, no fasciculations, and full reversibility with sugammadex.",
+    summary: "A fast-acting non-depolarizing neuromuscular blocker used for RSI paralysis. Preferred over succinylcholine in many EMS systems due to fewer contraindications, no fasciculations, and full reversibility with sugammadex.",
     genericName: "Rocuronium",
     tradeNames: ["Zemuron"],
     category: ["Airway & Respiratory"],
@@ -494,7 +494,7 @@ const DRUGS = [
   },
   {
     id: "sodium-bicarbonate",
-    summary: "An alkalizing agent used to buffer acidosis, reverse sodium channel blockade (widened QRS from TCA/cocaine), and treat hyperkalemia - a versatile prehospital antidote, not a routine cardiac arrest drug.",
+    summary: "An alkalizing agent used to buffer acidosis, reverse sodium channel blockade in TCA and cocaine toxicity, and treat hyperkalemia. Not a routine cardiac arrest drug.",
     genericName: "Sodium Bicarbonate",
     tradeNames: [],
     category: ["Toxicology", "Resuscitation", "Endocrine & Metabolic"],
@@ -680,7 +680,7 @@ const DRUGS = [
   },
   {
     id: "succinylcholine",
-    summary: "The classic depolarizing paralytic for RSI - fastest onset and shortest duration of any neuromuscular blocker, but carries a long list of contraindications including hyperkalemia risk, malignant hyperthermia, and burns/crush injuries >24 hrs old.",
+    summary: "A depolarizing neuromuscular blocker used for RSI with the fastest onset and shortest duration of any paralytic. Carries significant contraindications including hyperkalemia risk, malignant hyperthermia, and burns or crush injuries over 24 hours old.",
     genericName: "Succinylcholine",
     tradeNames: ["Anectine", "Quelicin"],
     category: ["Airway & Respiratory"],
@@ -768,7 +768,7 @@ const DRUGS = [
   },
   {
     id: "terbutaline",
-    summary: "A selective β-2 agonist given subcutaneously when inhaled bronchodilators fail in severe asthma - also used off-label as an acute tocolytic to suppress preterm contractions for up to 48-72 hours.",
+    summary: "A selective beta-2 agonist given subcutaneously when inhaled bronchodilators fail in severe asthma. Also used as an acute tocolytic to suppress preterm contractions.",
     genericName: "Terbutaline Sulfate",
     tradeNames: ["Brethine", "Bricanyl"],
     category: ["Airway & Respiratory", "OB/GYN"],
@@ -867,7 +867,7 @@ const DRUGS = [
   },
   {
     id: "thiamine",
-    summary: "Vitamin B1 - given IV/IM to prevent or treat Wernicke's encephalopathy in malnourished or alcoholic patients, classically administered before or alongside dextrose in hypoglycemic patients at risk of thiamine deficiency.",
+    summary: "Vitamin B1, given IV or IM to prevent or treat Wernicke\\'s encephalopathy in malnourished or alcoholic patients. Administered before or alongside dextrose in hypoglycemic patients at risk of thiamine deficiency.",
     genericName: "Thiamine (Vitamin B1)",
     tradeNames: [],
     category: ["Endocrine & Metabolic"],
@@ -934,7 +934,7 @@ const DRUGS = [
   },
   {
     id: "tranexamic-acid",
-    summary: "An antifibrinolytic that stabilizes blood clots by blocking plasmin - given early in major trauma and postpartum hemorrhage to reduce death from bleeding; time-critical, with benefit greatest within 1 hour of injury.",
+    summary: "An antifibrinolytic that stabilizes blood clots by blocking plasmin. Given early in major trauma and postpartum hemorrhage to reduce death from bleeding, with benefit greatest within one hour of injury.",
     genericName: "Tranexamic Acid",
     tradeNames: ["Cyklokapron", "Lysteda"],
     category: ["Cardiovascular"],
