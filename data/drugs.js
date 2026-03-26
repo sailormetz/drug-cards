@@ -4874,7 +4874,7 @@ const DRUGS = [
   },
   {
     id: "normal-saline",
-    summary: "The workhorse isotonic crystalloid of EMS - used for volume resuscitation in shock, medication dilution, and fluid replacement; NASEMSO cautions that excessive crystalloid is harmful in hemorrhagic shock and unnecessary in most pulmonary edema.",
+    summary: "An isotonic crystalloid used for volume resuscitation in shock, medication dilution, and fluid replacement. Excessive crystalloid is harmful in hemorrhagic shock and unnecessary in most pulmonary edema.",
     genericName: "Sodium Chloride 0.9%",
     tradeNames: [],
     category: ["IV Fluids", "Resuscitation"],
@@ -4957,7 +4957,7 @@ const DRUGS = [
   },
   {
     id: "norepinephrine",
-    summary: "The preferred first-line vasopressor for septic and neurogenic shock - a potent α-1 agonist that increases SVR and BP with modest β-1 inotropy, lower arrhythmia risk than dopamine, and lower mortality in septic shock.",
+    summary: "The preferred first-line vasopressor for septic and neurogenic shock. Increases SVR and blood pressure with modest beta-1 inotropy, with lower arrhythmia risk and mortality than dopamine in septic shock.",
     genericName: "Norepinephrine",
     tradeNames: ["Levophed"],
     category: ["Cardiovascular", "Resuscitation"],
@@ -5039,7 +5039,7 @@ const DRUGS = [
   },
   {
     id: "nitrous-oxide",
-    summary: "A self-administered inhaled analgesic (50% N₂O / 50% O₂) with rapid onset and offset - provides analgesia comparable to morphine 10 mg IM without requiring IV access; the built-in demand valve makes oversedation nearly impossible.",
+    summary: "A self-administered inhaled analgesic (50% N2O / 50% O2) with rapid onset and offset, providing mild to moderate analgesia. The built-in demand valve makes oversedation nearly impossible.",
     genericName: "Nitrous Oxide",
     tradeNames: ["Nitronox"],
     category: ["Analgesic"],
@@ -5125,7 +5125,7 @@ const DRUGS = [
   },
   {
     id: "nitroglycerin",
-    summary: "An organic nitrate that converts to nitric oxide → vasodilation; the first-line prehospital treatment for both anginal chest pain (reduces myocardial O₂ demand) and acute pulmonary edema (reduces preload and afterload). NASEMSO notes nitrates may decrease intubation rates, MIs, and mortality.",
+    summary: "An organic nitrate vasodilator used as first-line treatment for anginal chest pain and acute pulmonary edema. Reduces myocardial oxygen demand in ACS and reduces preload and afterload in CHF.",
     genericName: "Nitroglycerin",
     tradeNames: ["Nitrostat", "Nitrolingual Pumpspray"],
     category: ["Cardiovascular"],
@@ -5221,7 +5221,7 @@ const DRUGS = [
   },
   {
     id: "nicardipine",
-    summary: "A dihydropyridine calcium channel blocker given as an IV infusion for hypertensive emergencies - highly selective for vascular smooth muscle with no negative inotropy or bradycardia, making it safer than diltiazem/verapamil in acute BP management. Primarily a critical care transport drug.",
+    summary: "A dihydropyridine calcium channel blocker given as an IV infusion for hypertensive emergencies. Highly selective for vascular smooth muscle with no negative inotropy or bradycardia, primarily a critical care transport drug.",
     genericName: "Nicardipine",
     tradeNames: ["Cardene"],
     category: ["Cardiovascular"],
@@ -5301,7 +5301,7 @@ const DRUGS = [
   },
   {
     id: "naloxone",
-    summary: "A pure competitive opioid antagonist that reverses opioid-induced respiratory depression within minutes - the goal is to restore adequate ventilation, NOT full consciousness. Available IV/IM/IN/IO; intranasal Narcan has made it accessible to BLS providers and laypersons.",
+    summary: "A competitive opioid antagonist that reverses opioid-induced respiratory depression. The goal is to restore adequate ventilation, not full consciousness. Available IV, IM, IN, and IO.",
     genericName: "Naloxone",
     tradeNames: ["Narcan"],
     category: ["Toxicology"],
@@ -5410,7 +5410,7 @@ const DRUGS = [
   },
   {
     id: "morphine-sulfate",
-    summary: "The prototypical opioid analgesic and the standard against which all other opioids are measured - provides potent analgesia, anxiolysis, and mild preload reduction; slower onset than fentanyl but longer duration, making it useful when sustained analgesia is needed.",
+    summary: "The prototypical opioid analgesic, providing analgesia, anxiolysis, and mild preload reduction. Slower onset than fentanyl but longer duration, useful when sustained analgesia is needed.",
     genericName: "Morphine Sulfate",
     tradeNames: ["MS Contin", "Duramorph"],
     category: ["Analgesic"],
@@ -5512,7 +5512,7 @@ const DRUGS = [
   },
   {
     id: "midazolam",
-    summary: "The preferred prehospital benzodiazepine - water-soluble with reliable IM and IN absorption (unlike diazepam), fast onset, and multiple routes. First-line for prehospital seizures when IV is unavailable; also used for agitation, procedural sedation, and shivering control.",
+    summary: "The preferred prehospital benzodiazepine, with reliable IM and IN absorption, fast onset, and multiple routes. First-line for prehospital seizures when IV is unavailable, also used for agitation, procedural sedation, and shivering control.",
     genericName: "Midazolam",
     tradeNames: ["Versed"],
     category: ["Neurological"],
@@ -5671,7 +5671,7 @@ const DRUGS = [
   },
   {
     id: "metoprolol",
-    summary: "A β-1 selective blocker for rate control of narrow complex tachycardias (AFib/AFlutter/SVT) - preferred over diltiazem in patients with systolic heart failure (HFrEF) because it addresses the underlying sympathetic drive; NASEMSO restricts use to SBP >120 mmHg.",
+    summary: "A beta-1 selective blocker for rate control of atrial fibrillation, atrial flutter, and SVT. Preferred over diltiazem in patients with systolic heart failure because it addresses the underlying sympathetic drive.",
     genericName: "Metoprolol",
     tradeNames: ["Lopressor"],
     category: ["Cardiovascular"],
@@ -5742,7 +5742,7 @@ const DRUGS = [
   },
   {
     id: "methylprednisolone",
-    summary: "A potent systemic corticosteroid for acute bronchospasm and adrenal crisis - suppresses the inflammatory cascade but takes 4-6 hours to produce clinical improvement; always given alongside fast-acting bronchodilators, never as monotherapy. NASEMSO prefers dexamethasone PO for non-critical patients.",
+    summary: "A systemic corticosteroid for acute bronchospasm and adrenal crisis. Takes 4 to 6 hours to produce clinical improvement, so it is always given alongside fast-acting bronchodilators.",
     genericName: "Methylprednisolone",
     tradeNames: ["Solu-Medrol"],
     category: ["Airway & Respiratory", "Endocrine & Metabolic"],
