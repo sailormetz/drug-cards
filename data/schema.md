@@ -97,14 +97,14 @@ Lowercase, hyphenated generic name. Must be unique.
 - ✅ `"epinephrine"`, `"calcium-chloride"`, `"lactated-ringers"`
 
 ### `summary`
-One sentence. What it is + when a paramedic reaches for it. No HTML. Write like you're explaining it to a medic student — clinical but conversational.
+One to two sentences. What it is + when a paramedic reaches for it. No HTML. Clinical and direct: states what the drug is and why you reach for it without editorializing or overselling. No figurative language, no hype words.
 
-Examples from current data:
-- **Fentanyl:** `"A potent opioid analgesic used for rapid management of severe pain and procedural sedation; roughly 100x more potent than morphine by weight."`
-- **Flumazenil:** `"A benzodiazepine antagonist used to reverse benzo-induced sedation and respiratory depression; short duration means resedation is common — watch your patient."`
-- **Glucagon:** `"A hormone that rapidly raises blood glucose in hypoglycemia when IV access isn't available; also used as an antidote for beta-blocker and calcium channel blocker overdose."`
-- **Droperidol:** `"A powerful antipsychotic and antiemetic used to sedate agitated patients and stop nausea/vomiting; carries an FDA black box warning for fatal heart rhythm problems."`
-- **Hydralazine:** `"A direct arteriolar vasodilator used for hypertensive emergencies and acute heart failure; effective but unpredictable — causes reflex tachycardia, often paired with a beta-blocker."`
+Examples:
+- **Fentanyl:** `"A synthetic opioid analgesic used for severe pain and procedural sedation. Roughly 100 times more potent than morphine by weight."`
+- **Flumazenil:** `"A benzodiazepine antagonist used to reverse benzo-induced sedation and respiratory depression. Short duration means resedation is common."`
+- **Glucagon:** `"A hormone that raises blood glucose in hypoglycemia when IV access is not available. Also used as an antidote for beta-blocker and calcium channel blocker overdose."`
+- **Droperidol:** `"An antipsychotic and antiemetic used for acute agitation and nausea. Carries an FDA black box warning for QT prolongation and fatal dysrhythmias."`
+- **Hydralazine:** `"A direct arteriolar vasodilator used for hypertensive emergencies and acute heart failure. Causes reflex tachycardia, often paired with a beta-blocker."`
 
 ### `genericName`
 Proper-case generic name as it appears on the drug label.
@@ -807,7 +807,7 @@ precautions: [
 ```js
 {
   id: "epinephrine",
-  summary: "The first-line drug for anaphylaxis and cardiac arrest — a potent sympathomimetic that rapidly reverses bronchoconstriction, vasodilation, and cardiovascular collapse.",
+  summary: "The first-line drug for anaphylaxis and cardiac arrest. A sympathomimetic that reverses bronchoconstriction, vasodilation, and cardiovascular collapse.",
   genericName: "Epinephrine",
   tradeNames: ["Adrenalin", "EpiPen"],
   category: ["Resuscitation", "Cardiovascular", "Airway & Respiratory"],
