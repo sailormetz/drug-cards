@@ -2882,7 +2882,7 @@ const DRUGS = [
   },
   {
     id: "adenosine",
-    summary: "An endogenous purine nucleoside that transiently blocks AV node conduction to terminate SVT - NASEMSO's preferred first-line pharmacotherapy after vagal maneuvers fail; must be given as an ultra-rapid IV push with immediate flush due to a half-life of less than 10 seconds.",
+    summary: "An endogenous purine nucleoside that transiently blocks AV node conduction to terminate SVT. Must be given as an ultra-rapid IV push with immediate flush due to a half-life of less than 10 seconds.",
     genericName: "Adenosine",
     tradeNames: ["Adenocard"],
     category: ["Cardiovascular"],
@@ -2983,7 +2983,7 @@ const DRUGS = [
   },
   {
     id: "amiodarone",
-    summary: "A multichannel blocker (K⁺/Na⁺/Ca²⁺ + anti-adrenergic) classified as Class III but with properties of all four Vaughan-Williams classes - used for shock-refractory VF/pVT and stable wide-complex tachycardia; improves ROSC rates but has no proven long-term survival benefit; extremely long half-life (~40 days).",
+    summary: "A multichannel blocker classified as Class III but with properties of all four Vaughan-Williams classes. Used for shock-refractory VF/pVT and stable wide-complex tachycardia, with an extremely long half-life of approximately 40 days.",
     genericName: "Amiodarone",
     tradeNames: ["Pacerone", "Cordarone", "Nexterone"],
     category: ["Cardiovascular"],
@@ -3100,7 +3100,7 @@ const DRUGS = [
   },
   {
     id: "aspirin",
-    summary: "The original antiplatelet - irreversibly blocks COX-1 to stop platelet aggregation; first drug given for suspected acute coronary syndrome, chewed for rapid absorption.",
+    summary: "An antiplatelet that irreversibly blocks COX-1 to stop platelet aggregation. First drug given for suspected acute coronary syndrome, chewed for rapid absorption.",
     genericName: "Aspirin",
     tradeNames: ["Bayer", "Ecotrin", "St. Joseph"],
     category: ["Cardiovascular"],
@@ -3159,7 +3159,7 @@ const DRUGS = [
   },
   {
     id: "atropine",
-    summary: "A muscarinic antagonist that blocks acetylcholine to increase heart rate in symptomatic bradycardia and dry life-threatening secretions in organophosphate/nerve agent poisoning - the classic anticholinergic.",
+    summary: "A muscarinic antagonist used to increase heart rate in symptomatic bradycardia and to dry secretions in organophosphate and nerve agent poisoning.",
     genericName: "Atropine Sulfate",
     tradeNames: ["Atropen"],
     category: ["Cardiovascular", "Toxicology"],
@@ -3273,7 +3273,7 @@ const DRUGS = [
   },
   {
     id: "bumetanide",
-    summary: "A potent loop diuretic ~40x stronger than furosemide by weight; used for acute pulmonary edema when aggressive diuresis is needed - though current evidence favors vasodilators over diuretics as first-line prehospital CHF treatment.",
+    summary: "A loop diuretic approximately 40 times more potent than furosemide by weight, used for acute pulmonary edema when aggressive diuresis is needed. Current evidence favors vasodilators over diuretics as first-line prehospital CHF treatment.",
     genericName: "Bumetanide",
     tradeNames: ["Bumex"],
     category: ["Cardiovascular"],
@@ -3338,7 +3338,7 @@ const DRUGS = [
   },
   {
     id: "calcium-chloride",
-    summary: "Provides rapid elemental calcium to stabilize cardiac membranes in hyperkalemia and overcome calcium channel blockade in CCB overdose - 3x more elemental calcium per gram than calcium gluconate, but caustic to peripheral veins.",
+    summary: "Provides elemental calcium to stabilize cardiac membranes in hyperkalemia and overcome calcium channel blockade in CCB overdose. Contains three times more elemental calcium per gram than calcium gluconate but is caustic to peripheral veins.",
     genericName: "Calcium Chloride",
     tradeNames: [],
     category: ["Cardiovascular", "Toxicology", "Endocrine & Metabolic"],
@@ -3459,7 +3459,7 @@ const DRUGS = [
   },
   {
     id: "dobutamine",
-    summary: "A synthetic catecholamine and the go-to inotrope for cardiogenic shock - selectively stimulates β-1 receptors to increase cardiac contractility and output without the intense vasoconstriction of dopamine or norepinephrine.",
+    summary: "A synthetic catecholamine used as the primary inotrope for cardiogenic shock. Increases cardiac contractility and output without the vasoconstriction of dopamine or norepinephrine.",
     genericName: "Dobutamine",
     tradeNames: ["Dobutrex"],
     category: ["Cardiovascular"],
@@ -3526,7 +3526,7 @@ const DRUGS = [
   },
   {
     id: "dexamethasone",
-    summary: "A long-acting potent corticosteroid (~25x hydrocortisone) preferred in EMS for croup and bronchospasm because a single dose lasts 36-72 hours - equally effective as multi-day courses of other steroids.",
+    summary: "A long-acting corticosteroid approximately 25 times more potent than hydrocortisone, preferred in EMS for croup and bronchospasm. A single dose lasts 36 to 72 hours.",
     genericName: "Dexamethasone",
     tradeNames: ["Decadron", "Dexasone"],
     category: ["Airway & Respiratory", "Endocrine & Metabolic"],
@@ -3672,7 +3672,7 @@ const DRUGS = [
   },
   {
     id: "dextrose",
-    summary: "Intravenous glucose for rapid correction of symptomatic hypoglycemia - D10 is the preferred prehospital concentration because it is safer and equally effective as D50, with less risk of extravasation injury and overshoot hyperglycemia.",
+    summary: "Intravenous glucose for correction of symptomatic hypoglycemia. D10 is the preferred prehospital concentration, equally effective as D50 with less risk of extravasation injury and overshoot hyperglycemia.",
     genericName: "Dextrose",
     tradeNames: ["D50W", "D25W", "D10W"],
     category: ["Endocrine & Metabolic"],
@@ -3778,7 +3778,7 @@ const DRUGS = [
   },
   {
     id: "famotidine",
-    summary: "An H2 receptor antagonist used as an adjunct to diphenhydramine (H1 blocker) for allergic reactions and urticaria - blocks histamine at H2 receptors on vasculature and GI tract to reduce vasodilation and glandular secretion.",
+    summary: "An H2 receptor antagonist used as an adjunct to diphenhydramine for allergic reactions and urticaria. Blocks histamine at H2 receptors on vasculature and GI tract to reduce vasodilation and glandular secretion.",
     genericName: "Famotidine",
     tradeNames: ["Pepcid"],
     category: ["Toxicology"],
