@@ -4882,7 +4882,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Isotonic crystalloid (308 mOsm/L) that distributes across the extracellular fluid compartment <span class="moa-arrow">→</span> <strong>expands intravascular volume</strong> <span class="moa-arrow">→</span> increases preload, cardiac output, and blood pressure. Approximately 25% remains intravascular after 1 hour - the rest shifts to the interstitial space.',
+        brief: 'Isotonic crystalloid that expands intravascular volume, increasing preload, cardiac output, and blood pressure.',
         target: { name: "Extracellular fluid volume", action: "donor", result: "↑ Intravascular volume, ↑ preload, ↑ BP", system: "other" }
       }
     ],
@@ -4965,11 +4965,11 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Potent <span class="hl hl--alpha">α-1 agonist</span> on vascular smooth muscle <span class="moa-arrow">→</span> <strong>intense vasoconstriction</strong> <span class="moa-arrow">→</span> increases SVR and blood pressure. The dominant pharmacologic effect - this is primarily a vasopressor.',
+        brief: 'Causes intense vasoconstriction, increasing SVR and blood pressure. This is the dominant pharmacologic effect.',
         target: { name: "α-1 receptors", action: "agonist", result: "Vasoconstriction, ↑ SVR, ↑ BP", system: "adrenergic" }
       },
       {
-        brief: 'Moderate <span class="hl hl--beta">β-1 agonism</span> on the myocardium <span class="moa-arrow">→</span> <strong>increases contractility and cardiac output</strong>. Provides some inotropic support alongside the vasopressor effect.',
+        brief: 'Provides moderate inotropic support, increasing contractility and cardiac output alongside the vasopressor effect.',
         target: { name: "β-1 receptors", action: "agonist", result: "↑ Contractility, ↑ cardiac output", system: "adrenergic" }
       }
     ],
@@ -5047,7 +5047,7 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Activates endogenous <span class="hl hl--beta">opioid peptide release</span> and modulates descending pain pathways <span class="moa-arrow">→</span> <strong>potent analgesia</strong>. Simultaneously enhances <span class="hl hl--beta">GABA-A receptor</span> activity <span class="moa-arrow">→</span> <strong>anxiolysis</strong>, and antagonizes <span class="hl hl--beta">NMDA receptors</span> <span class="moa-arrow">→</span> <strong>dissociative/anesthetic properties</strong>. Effects cease as soon as inhalation stops, with no residual effect.',
+        brief: 'Activates endogenous opioid peptide release and modulates descending pain pathways for analgesia. Simultaneously enhances GABA-A receptor activity for anxiolysis and antagonizes NMDA receptors for dissociative properties. Effects cease as soon as inhalation stops, with no residual effect.',
         target: { name: "Opioid / GABA-A / NMDA receptors", action: "enhancer", result: "Analgesia, anxiolysis, mild sedation", system: "glutamatergic" }
       }
     ],
@@ -5133,7 +5133,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Enters vascular smooth muscle and is converted to <span class="hl hl--beta">nitric oxide (NO)</span> <span class="moa-arrow">→</span> activates guanylyl cyclase <span class="moa-arrow">→</span> increases cGMP <span class="moa-arrow">→</span> <strong>smooth muscle relaxation and vasodilation</strong>. At low doses, predominantly venodilation (↓ preload). At higher doses, also causes arteriolar dilation (↓ afterload) and improves coronary collateral circulation.',
+        brief: 'Converted to nitric oxide in vascular smooth muscle, activating guanylyl cyclase and increasing cGMP to produce vasodilation. At low doses, predominantly venodilation reduces preload. At higher doses, arteriolar dilation also reduces afterload and improves coronary collateral circulation.',
         target: { name: "Vascular smooth muscle (via NO/cGMP)", action: "relaxant", result: "Venodilation → ↓ preload; arteriolar dilation → ↓ afterload", system: "enzymatic" }
       }
     ],
@@ -5229,7 +5229,7 @@ const DRUGS = [
     source: "StatPearls",
     moa: [
       {
-        brief: 'Selectively blocks <span class="hl hl--beta">L-type calcium channels</span> in vascular smooth muscle (cerebral > coronary > peripheral) <span class="moa-arrow">→</span> <strong>arteriolar vasodilation</strong> <span class="moa-arrow">→</span> reduces SVR and blood pressure. Unlike non-DHP CCBs (diltiazem, verapamil), nicardipine has minimal effect on cardiac conduction, heart rate, or contractility.',
+        brief: 'Selectively causes arteriolar vasodilation with preferential effect on coronary and peripheral vascular smooth muscle, reducing SVR and blood pressure. Unlike diltiazem and verapamil, nicardipine has minimal effect on cardiac conduction, heart rate, or contractility.',
         target: { name: "L-type calcium channels (vascular smooth muscle)", action: "blocker", result: "Arteriolar vasodilation, ↓ SVR, ↓ BP", system: "ion-channel" }
       }
     ],
@@ -5309,7 +5309,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Competitive antagonist at <span class="hl hl--beta">μ-opioid receptors</span> <span class="moa-arrow">→</span> rapidly displaces opioids from receptor binding sites <span class="moa-arrow">→</span> <strong>reverses respiratory depression, sedation, and miosis</strong>. Has higher affinity for μ-receptors than most opioids but shorter duration of action than many opioids - renarcotization is a constant risk.',
+        brief: 'Rapidly displaces opioids from receptor binding sites, reversing respiratory depression, sedation, and miosis. Has higher receptor affinity than most opioids but shorter duration of action, so renarcotization is a constant risk.',
         target: { name: "μ-opioid receptors", action: "antagonist", result: "Reversal of respiratory depression, sedation, miosis", system: "opioid" }
       }
     ],
@@ -5418,7 +5418,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Binds <span class="hl hl--beta">μ-opioid receptors</span> in the CNS (brain and spinal cord) <span class="moa-arrow">→</span> inhibits ascending pain pathways <span class="moa-arrow">→</span> <strong>potent analgesia, sedation, and euphoria</strong>. Also causes histamine release <span class="moa-arrow">→</span> vasodilation and mild preload reduction.',
+        brief: 'Inhibits ascending pain pathways in the CNS, producing potent analgesia, sedation, and euphoria. Also causes histamine release, leading to vasodilation and mild preload reduction.',
         target: { name: "μ-opioid receptors", action: "agonist", result: "Analgesia, sedation, respiratory depression", system: "opioid" }
       }
     ],
@@ -5520,7 +5520,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Enhances the effect of <span class="hl hl--beta">GABA at GABA-A receptors</span> <span class="moa-arrow">→</span> increases chloride channel opening frequency <span class="moa-arrow">→</span> neuronal hyperpolarization <span class="moa-arrow">→</span> <strong>anticonvulsant, anxiolytic, sedative, amnestic, and skeletal muscle relaxant effects</strong>. Water-soluble at acidic pH (unlike diazepam) → reliable IM and IN absorption.',
+        brief: 'Enhances the effect of GABA at the GABA-A receptor, increasing chloride channel opening frequency and producing neuronal hyperpolarization. Provides anticonvulsant, anxiolytic, sedative, amnestic, and skeletal muscle relaxant effects. Water-soluble at acidic pH, allowing reliable IM and IN absorption.',
         target: { name: "GABA-A receptors", action: "enhancer", result: "Anticonvulsant, sedation, anxiolysis, amnesia", system: "GABAergic" }
       }
     ],
@@ -5679,7 +5679,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Selectively blocks <span class="hl hl--beta">β-1 adrenergic receptors</span> in the myocardium <span class="moa-arrow">→</span> decreases heart rate (negative chronotropy), slows AV node conduction (negative dromotropy), and reduces contractility (negative inotropy) <span class="moa-arrow">→</span> <strong>controls ventricular rate in atrial dysrhythmias and reduces myocardial oxygen demand</strong>. Cardioselective at low doses with little β-2 effect.',
+        brief: 'Selectively decreases heart rate, slows AV node conduction, and reduces contractility. Controls ventricular rate in atrial dysrhythmias and reduces myocardial oxygen demand. Cardioselective at low doses with little beta-2 effect.',
         target: { name: "β-1 receptors (cardiac)", action: "antagonist", result: "↓ HR, ↓ AV conduction, ↓ contractility, ↓ myocardial O₂ demand", system: "adrenergic" }
       }
     ],
@@ -5750,7 +5750,7 @@ const DRUGS = [
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
-        brief: 'Potent <span class="hl hl--beta">glucocorticoid</span> that suppresses the inflammatory cascade at multiple levels <span class="moa-arrow">→</span> inhibits phospholipase A₂ (blocking arachidonic acid release), suppresses PMN migration, reverses capillary permeability, and stabilizes lysosomal membranes <span class="moa-arrow">→</span> <strong>reduces airway inflammation, edema, and mucus production</strong>. Minimal mineralocorticoid activity.',
+        brief: 'Suppresses the inflammatory cascade at multiple levels, inhibiting arachidonic acid release, suppressing neutrophil migration, reversing capillary permeability, and stabilizing lysosomal membranes. Reduces airway inflammation, edema, and mucus production. Minimal mineralocorticoid activity.',
         target: { name: "Glucocorticoid receptors (intracellular)", action: "agonist", result: "↓ Inflammation, ↓ airway edema, ↓ immune response", system: "other" }
       }
     ],
