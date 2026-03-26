@@ -594,7 +594,9 @@ The renderer checks `moa[0].tier` to decide layout:
                   // Clinical and direct: states the mechanism plainly, then connects it to patient
                   // outcome where it adds value without editorializing or over-explaining.
                   // Written for someone who already knows the basics; does not define terms or
-                  // justify itself. Does not repeat the target name or restate the target fields.
+                  // justify itself. Target data (receptor names, actions) can appear when used
+                  // conversationally — e.g. "Potentiates and directly activates the GABA-A
+                  // receptor" — but should not mechanically restate the target object verbatim.
                   // One to three sentences, verbosity is fine when the mechanism warrants it.
                   // No figurative language.
   tier: "",       // Optional — only for dose-dependent drugs (see TIER enum)
