@@ -9,15 +9,15 @@ const DRUGS = [
      source: "NASEMSO 2022 v3.0",
      moa: [
        {
-         brief: '<span class="hl hl--alpha">α-1 receptors</span> on vascular smooth muscle <span class="moa-arrow">→</span> <strong>vasoconstriction</strong> and increased SVR. Reverses vasodilation of anaphylaxis.',
+         brief: 'Causes widespread vasoconstriction and a rapid rise in systemic vascular resistance. This is what restores blood pressure in anaphylaxis.',
          target: { name: "α-1 receptors", action: "agonist", result: "Vasoconstriction, ↑ SVR", system: "adrenergic" }
        },
        {
-         brief: '<span class="hl hl--beta">β-1 receptors</span> on the myocardium <span class="moa-arrow">→</span> <strong>increased heart rate and contractility</strong>. Increases cardiac output.',
+         brief: 'Increases heart rate and myocardial contractility. In cardiac arrest, this raises coronary perfusion pressure between compressions and improves the likelihood of successful defibrillation.',
          target: { name: "β-1 receptors", action: "agonist", result: "↑ HR & contractility", system: "adrenergic" }
        },
        {
-         brief: '<span class="hl hl--beta">β-2 receptors</span> on bronchial smooth muscle <span class="moa-arrow">→</span> <strong>bronchodilation</strong>. Reverses bronchoconstriction in anaphylaxis.',
+         brief: 'Relaxes bronchial smooth muscle, reversing bronchoconstriction. In anaphylaxis, this works faster and more reliably than any inhaled bronchodilator.',
          target: { name: "β-2 receptors", action: "agonist", result: "Bronchodilation", system: "adrenergic" }
        }
      ],
@@ -176,11 +176,11 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Competitively blocks <span class="hl hl--beta">β-1 receptors</span> on the myocardium <span class="moa-arrow">→</span> <strong>decreased heart rate, contractility, and conduction velocity</strong> through SA and AV nodes. Reduces myocardial oxygen demand.',
+        brief: 'Slows heart rate, reduces contractility, and decreases conduction velocity through the SA and AV nodes. Reduces myocardial oxygen demand.',
         target: { name: "β-1 receptors", action: "antagonist", result: "↓ HR, ↓ contractility, ↓ AV conduction", system: "adrenergic" }
       },
       {
-        brief: 'Blocks <span class="hl hl--beta">β-2 receptors</span> on bronchial and vascular smooth muscle <span class="moa-arrow">→</span> <span class="hl hl--danger">bronchoconstriction</span> and loss of vasodilation. This is the source of its major contraindications in asthma/COPD.',
+        brief: 'Causes bronchoconstriction and loss of peripheral vasodilation. This is the source of its major contraindications in asthma and COPD.',
         target: { name: "β-2 receptors", action: "antagonist", result: "Bronchoconstriction, ↓ vasodilation", system: "adrenergic" }
       }
     ],
@@ -254,7 +254,7 @@ const DRUGS = [
     source: "StatPearls",
     moa: [
       {
-        brief: 'Strongly cationic protein binds strongly anionic heparin <span class="moa-arrow">→</span> forms a stable, inactive salt complex <span class="moa-arrow">→</span> <strong>neutralizes anticoagulant activity</strong>. Complex is removed by the reticuloendothelial system.',
+        brief: 'Forms a stable, inactive salt complex with circulating heparin, neutralizing anticoagulation. The complex is cleared by the reticuloendothelial system.',
         target: { name: "Heparin (circulating)", action: "antagonist", result: "Neutralizes anticoagulation", system: "coagulation" }
       }
     ],
@@ -352,11 +352,11 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: '<span class="hl hl--alpha">α-1 receptors</span> on submucosal arterioles <span class="moa-arrow">→</span> <strong>vasoconstriction</strong> of the upper airway mucosa <span class="moa-arrow">→</span> reduces subglottic edema and capillary leakage. This is the primary therapeutic effect in croup.',
+        brief: 'Constricts submucosal arterioles in the upper airway, reducing subglottic edema and capillary leakage. This is the primary therapeutic effect in croup.',
         target: { name: "α-1 receptors", action: "agonist", result: "Mucosal vasoconstriction, ↓ subglottic edema", system: "adrenergic" }
       },
       {
-        brief: '<span class="hl hl--beta">β-2 receptors</span> on bronchial smooth muscle <span class="moa-arrow">→</span> <strong>bronchodilation</strong>. Secondary benefit in patients with concomitant bronchospasm.',
+        brief: 'Relaxes bronchial smooth muscle, providing bronchodilation. Secondary benefit in patients with concomitant bronchospasm.',
         target: { name: "β-2 receptors", action: "agonist", result: "Bronchodilation", system: "adrenergic" }
       }
     ],
@@ -429,7 +429,7 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Competitively blocks <span class="hl hl--beta">acetylcholine</span> at nicotinic receptors on the motor end plate <span class="moa-arrow">→</span> prevents depolarization of skeletal muscle <span class="moa-arrow">→</span> <strong>flaccid paralysis</strong>. Does not cause fasciculations (non-depolarizing).',
+        brief: 'Prevents skeletal muscle depolarization, producing flaccid paralysis. Does not cause fasciculations, which makes it preferable to succinylcholine when hyperkalemia is a concern.',
         target: { name: "Nicotinic acetylcholine receptors (NMJ)", action: "antagonist", result: "Skeletal muscle paralysis", system: "cholinergic" }
       }
     ],
@@ -502,7 +502,7 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Dissociates into Na⁺ and HCO₃⁻ <span class="moa-arrow">→</span> bicarbonate ion <strong>buffers excess hydrogen ions</strong> <span class="moa-arrow">→</span> raises blood pH. In sodium channel blocker toxicity, the sodium load + alkalinization both help <strong>overcome the channel blockade</strong> and narrow the QRS.',
+        brief: 'Provides bicarbonate that buffers excess acid, raising blood pH. In sodium channel blocker toxicity, the sodium load and alkalinization together help overcome channel blockade and narrow the QRS.',
         target: { name: "Hydrogen ions (systemic)", action: "antagonist", result: "↑ blood pH, reverses acidosis", system: "other" }
       }
     ],
@@ -688,7 +688,7 @@ const DRUGS = [
     source: "StatPearls",
     moa: [
       {
-        brief: 'Mimics acetylcholine at <span class="hl hl--beta">nicotinic receptors</span> on the motor end plate <span class="moa-arrow">→</span> <strong>depolarizes</strong> the muscle membrane <span class="moa-arrow">→</span> sustained depolarization prevents repolarization <span class="moa-arrow">→</span> <strong>flaccid paralysis</strong>. Initial depolarization causes visible fasciculations before paralysis onset.',
+        brief: 'Causes sustained depolarization of the motor end plate, preventing repolarization and producing rapid flaccid paralysis. Initial depolarization produces visible fasciculations before onset. Rapidly metabolized by plasma cholinesterase, giving it the shortest duration of any neuromuscular blocker.',
         target: { name: "Nicotinic acetylcholine receptors (NMJ)", action: "agonist", result: "Sustained depolarization → flaccid paralysis", system: "cholinergic" }
       }
     ],
@@ -776,7 +776,7 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Selectively stimulates <span class="hl hl--beta">β-2 receptors</span> on bronchial smooth muscle <span class="moa-arrow">→</span> increases cAMP <span class="moa-arrow">→</span> <strong>bronchodilation</strong>. Also relaxes uterine smooth muscle via the same β-2 mechanism, which is the basis for its tocolytic use.',
+        brief: 'Selectively causes bronchodilation by increasing intracellular cAMP in bronchial smooth muscle. Also relaxes uterine smooth muscle through the same mechanism, which is the basis for its tocolytic use in preterm labor.',
         target: { name: "β-2 receptors", action: "agonist", result: "Bronchodilation, uterine relaxation", system: "adrenergic" }
       }
     ],
@@ -875,7 +875,7 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Thiamine is phosphorylated to <span class="hl hl--beta">thiamine pyrophosphate (TPP)</span>, an essential cofactor for pyruvate dehydrogenase, α-ketoglutarate dehydrogenase, and transketolase <span class="moa-arrow">→</span> <strong>restores aerobic glucose metabolism in the brain</strong>. Without TPP, neurons in the mammillary bodies, thalamus, and cerebellum cannot produce ATP and die.',
+        brief: 'Converted to thiamine pyrophosphate, an essential cofactor for aerobic glucose metabolism in the brain. Without it, neurons in the mammillary bodies, thalamus, and cerebellum cannot produce ATP and die. This is why thiamine must be given before or with dextrose in malnourished patients.',
         target: { name: "Thiamine-dependent enzymes (CNS)", action: "donor", result: "Restores cerebral glucose metabolism", system: "metabolic" }
       }
     ],
@@ -942,7 +942,7 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Synthetic lysine analogue that binds to the <span class="hl hl--beta">lysine-binding sites on plasminogen</span> <span class="moa-arrow">→</span> blocks conversion to plasmin <span class="moa-arrow">→</span> <strong>prevents fibrin clot breakdown (fibrinolysis)</strong>. Stabilizes clots that have already formed rather than promoting new clot formation.',
+        brief: 'A synthetic lysine analogue that blocks the conversion of plasminogen to plasmin, preventing fibrin clot breakdown. Stabilizes clots that have already formed rather than promoting new clot formation.',
         target: { name: "Plasminogen (lysine-binding sites)", action: "inhibitor", result: "Prevents fibrinolysis, stabilizes clots", system: "coagulation" }
       }
     ],
