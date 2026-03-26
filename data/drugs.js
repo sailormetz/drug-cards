@@ -2080,139 +2080,6 @@ const DRUGS = [
     ]
   },
   {
-    id: "diphenhydramine",
-    summary: "A first-generation antihistamine used in EMS for allergic reactions, drug-induced dystonia, nausea, and sedation, and is the most commonly used IV antihistamine in prehospital care. Causes significant sedation and anticholinergic effects: dry mouth, urinary retention, confusion.",
-    genericName: "Diphenhydramine",
-    tradeNames: ["Benadryl"],
-    category: ["Allergy & Immunology"],
-    classes: ["Antihistamine", "Anticholinergic", "Antiemetic", "Sedative"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: 'Inhibits histamine-mediated allergic responses including vasodilation, edema, pruritus, and bronchospasm. Also has anticholinergic and sodium channel blocking activity. Crosses the blood-brain barrier readily, producing sedation.',
-        target: { name: "H1 receptors / muscarinic receptors / Na⁺ channels", action: "antagonist", result: "Antihistamine, sedation, anticholinergic, local anesthetic", system: "histaminergic" }
-      }
-    ],
-    indications: [
-      { name: "Allergic Reaction / Urticaria / Pruritus" },
-      { name: "Dystonia / Extrapyramidal Symptoms" },
-      { name: "Nausea & Vomiting" }
-    ],
-    contraindications: [
-      { text: "Hypersensitivity to diphenhydramine" },
-      { text: "Premature infants and neonates" },
-      { text: "Lower respiratory tract disease (use controversial in acute asthma)" }
-    ],
-    doses: [
-      // ── Allergic Reaction / Urticaria ─────────────────
-      {
-        population: "Adult",
-        indication: "Allergic Reaction / Urticaria / Pruritus",
-        onset: "15-30 min (all routes); faster IV",
-        duration: "4-6 hrs",
-        routes: [
-          {
-            via: ["IV", "IM", "PO"],
-            amount: "25-50 mg",
-            notes: [
-              "IV preferred for severe symptoms",
-              "Give IV dose slowly over 1-2 min"
-            ]
-          }
-        ],
-        notes: [
-          "NASEMSO: 1 mg/kg up to 50 mg for urticaria/pruritus",
-          "Can supplement with an H2 blocker (famotidine, cimetidine) IV or PO for enhanced antihistamine effect"
-        ]
-      },
-      {
-        population: "Pediatric",
-        indication: "Allergic Reaction / Urticaria / Pruritus",
-        onset: "15-30 min",
-        duration: "4-6 hrs",
-        routes: [
-          {
-            via: ["IV", "IM", "PO"],
-            amount: "1 mg/kg",
-            maxDose: "50 mg/dose",
-            notes: []
-          }
-        ],
-        notes: []
-      },
-
-      // ── Dystonia / EPS ────────────────────────────────
-      {
-        population: "Adult",
-        indication: "Dystonia / Extrapyramidal Symptoms",
-        onset: "15-30 min",
-        duration: "4-6 hrs",
-        routes: [
-          {
-            via: ["IV", "IM"],
-            amount: "25-50 mg",
-            notes: []
-          }
-        ],
-        notes: ["NASEMSO: consider for symptomatic dystonia, extrapyramidal signs, or akathisia - commonly drug-induced (antipsychotics, metoclopramide, prochlorperazine)"]
-      },
-      {
-        population: "Pediatric",
-        indication: "Dystonia / Extrapyramidal Symptoms",
-        onset: "15-30 min",
-        duration: "4-6 hrs",
-        routes: [
-          {
-            via: ["IV", "IO", "IM"],
-            amount: "1-1.25 mg/kg",
-            maxDose: "25 mg/dose",
-            notes: []
-          }
-        ],
-        notes: []
-      },
-
-      // ── Nausea in Pregnancy ───────────────────────────
-      {
-        population: "Adult",
-        indication: "Nausea & Vomiting",
-        qualifier: "First trimester of pregnancy",
-        onset: "15-30 min",
-        duration: "4-6 hrs",
-        routes: [
-          {
-            via: ["IV"],
-            amount: "25 mg",
-            notes: ["Give with metoclopramide 5-10 mg IV"]
-          }
-        ],
-        notes: ["NASEMSO: metoclopramide + diphenhydramine recommended over ondansetron in first trimester of pregnancy"]
-      }
-    ],
-    adverseEffects: [
-      "Sedation / Drowsiness (pronounced)",
-      "Dry mouth / Throat",
-      "Tachycardia",
-      "Urinary retention",
-      "Blurred vision / Mydriasis",
-      "Constipation",
-      "Dizziness / Ataxia",
-      "Paradoxical excitation (especially children)",
-      "QT/QRS prolongation (overdose)",
-      "Seizures (overdose)"
-    ],
-    precautions: [
-      '<span class="hl hl--beta">Can be given IV</span> - diphenhydramine is the ONLY first-generation antihistamine approved for IV use in the US. This distinguishes it from hydroxyzine (IM only) and promethazine (IM preferred, IV with extreme caution). Give IV slowly over 1-2 min.',
-      '<span class="hl hl--warn">Potent anticholinergic effects</span> - diphenhydramine has the highest anticholinergic activity among common antihistamines. The classic toxidrome mnemonic: "Red as a beet (flushing), dry as a bone (mucous membranes), hot as a hare (hyperthermia), blind as a bat (mydriasis), mad as a hatter (delirium), full as a flask (urinary retention)."',
-      '<span class="hl hl--warn">Beers Criteria - avoid in elderly</span> when possible. Strong anticholinergic properties increase risk of falls, confusion, cognitive impairment, and delirium. Use lowest effective dose if alternatives are unavailable.',
-      'In <span class="hl hl--warn">overdose</span>, diphenhydramine causes sodium channel blockade (QRS widening - treat with sodium bicarbonate) and potassium channel blockade (QT prolongation). Severe toxicity includes seizures, delirium, rhabdomyolysis, and cardiac arrest. Physostigmine may be used for pure anticholinergic toxicity under toxicology guidance.',
-      '<span class="hl hl--warn">Paradoxical excitation in children</span> - approximately 10-15% of pediatric patients experience restlessness and agitation rather than sedation. This is not an allergic reaction.',
-      'NASEMSO recommends supplementing with an <strong>H2 blocker</strong> (famotidine, cimetidine) for allergic reactions - combined H1 + H2 blockade provides broader histamine receptor coverage.',
-      'For <strong>dystonia</strong>, diphenhydramine is the first-line prehospital treatment. Drug-induced dystonia (torticollis, oculogyric crisis, trismus) from antipsychotics or antiemetics (metoclopramide, prochlorperazine) responds rapidly to IV diphenhydramine - often dramatic resolution.',
-      'Additive CNS depression with opioids, benzodiazepines, and alcohol. However, diphenhydramine may have a <span class="hl hl--beta">modest stimulatory effect on ventilation</span> and has been reported to partially counteract opioid-induced hypoventilation.'
-    ]
-  },
-  {
     id: "albuterol",
     summary: "A short-acting beta-2 agonist bronchodilator used for acute bronchospasm. Also shifts potassium intracellularly for hyperkalemia management.",
     genericName: "Albuterol (Salbutamol)",
@@ -6074,7 +5941,8 @@ const DRUGS = [
     ],
     indications: [
       { name: "Allergic Reaction / Urticaria" },
-      { name: "Dystonia / Akathisia (EPS)" }
+      { name: "Dystonia / Akathisia (EPS)" },
+      { name: "Nausea & Vomiting" }
     ],
     contraindications: [
       { text: "Documented hypersensitivity" },
@@ -6143,6 +6011,21 @@ const DRUGS = [
           }
         ],
         notes: []
+      },
+      {
+        population: "Adult",
+        indication: "Nausea & Vomiting",
+        qualifier: "First trimester of pregnancy",
+        onset: "15-30 min",
+        duration: "4-6 hrs",
+        routes: [
+          {
+            via: ["IV"],
+            amount: "25 mg",
+            notes: ["Give with metoclopramide 5-10 mg IV"]
+          }
+        ],
+        notes: ["Metoclopramide + diphenhydramine recommended over ondansetron in first trimester of pregnancy"]
       }
     ],
     adverseEffects: [
