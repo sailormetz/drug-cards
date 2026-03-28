@@ -145,16 +145,16 @@ Examples:
 - **Epinephrine:** `["Resuscitation", "Cardiovascular", "Airway & Respiratory"]`
 - **Amiodarone:** `["Cardiovascular", "Resuscitation"]`
 - **Magnesium Sulfate:** `["Cardiovascular", "OB/GYN", "Airway & Respiratory"]`
-- **Ketamine:** `["Analgesic", "Neurological"]`
+- **Ketamine:** `["Neurological", "Analgesic", "Sedation & Anesthesia"]`
 - **Naloxone:** `["Toxicology"]` — single-category drugs still use an array
-- **Ondansetron:** `["Neurological"]`
+- **Ondansetron:** `["Antiemetic"]`
 
 ### `classes`
 Array of pharmacological class strings. These are the drug's formal classifications, not its use category.
 
 Examples:
 - **Epinephrine:** `["Sympathomimetic", "Catecholamine", "Vasopressor"]`
-- **Diltiazem:** `["Class IV Antiarrhythmic", "Calcium Channel Blocker (Non-DHP)"]`
+- **Diltiazem:** `["Class IV Antiarrhythmic", "Calcium Channel Blocker"]`
 - **Naloxone:** `["Opioid Antagonist", "Antidote"]`
 - **Albuterol:** `["Bronchodilator", "Beta-2 Agonist", "Sympathomimetic"]`
 - **Magnesium Sulfate:** `["Electrolyte", "Anticonvulsant", "Antiarrhythmic", "Bronchodilator"]`
@@ -172,7 +172,8 @@ Antihistamine              Antihypertensive         Antiplatelet
 Antipsychotic              Benzodiazepine           Beta-2 Agonist
 Bronchodilator             Butyrophenone            Calcium Channel Blocker
 Carbohydrate               Catecholamine            Class Ia Antiarrhythmic
-Class Ib Antiarrhythmic    Class III Antiarrhythmic Class IV Antiarrhythmic
+Class Ib Antiarrhythmic    Class II Antiarrhythmic  Class III Antiarrhythmic
+Class IV Antiarrhythmic
 Corticosteroid             Cyanide Antagonist       Dissociative Anesthetic
 Electrolyte                Hormone                  Inotropic Agent
 Loop Diuretic              NSAID                    Opioid Analgesic
