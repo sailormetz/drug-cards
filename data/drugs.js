@@ -5930,7 +5930,7 @@ const DRUGS = [
     summary: "A first-generation antihistamine used in EMS for allergic reactions, drug-induced dystonia, nausea, and sedation, and is the most commonly used IV antihistamine in prehospital care. Causes significant sedation and anticholinergic effects: dry mouth, urinary retention, confusion.",
     genericName: "Diphenhydramine",
     tradeNames: ["Benadryl"],
-    category: ["Allergy & Immune", "Neurological"],
+    category: ["Allergic & Immune", "Neurological"],
     classes: ["Antihistamine (H1)", "Anticholinergic"],
     source: "NASEMSO 2022 v3.0",
     moa: [
@@ -6242,7 +6242,7 @@ const DRUGS = [
     summary: "A benzodiazepine with longer duration than midazolam, historically the IV standard for status epilepticus. Largely replaced prehospitally by midazolam because lorazepam requires IV access and refrigeration.",
     genericName: "Lorazepam",
     tradeNames: ["Ativan"],
-    category: ["Neurological"],
+    category: ["Neurological", "Sedation & Anesthesia"],
     classes: ["Benzodiazepine", "Anticonvulsant", "Sedative"],
     source: "NASEMSO 2022 v3.0",
     moa: [
@@ -6673,7 +6673,7 @@ const DRUGS = [
     summary: "A dissociative anesthetic that preserves airway reflexes, spontaneous respirations, and hemodynamic stability. Used at full dissociative doses for severe agitation and at subdissociative doses for pain management.",
     genericName: "Ketamine",
     tradeNames: ["Ketalar"],
-    category: ["Neurological", "Analgesic"],
+    category: ["Neurological", "Analgesic", "Sedation & Anesthesia"],
     classes: ["Dissociative Anesthetic", "NMDA Antagonist"],
     source: "NASEMSO 2022 v3.0",
     moa: [
