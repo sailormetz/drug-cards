@@ -172,7 +172,7 @@ const DRUGS = [
     genericName: "Propranolol",
     tradeNames: ["Inderal", "Inderal LA", "InnoPran XL", "Hemangeol"],
     category: ["Cardiovascular"],
-    classes: ["Class II Antiarrhythmic"],
+    classes: ["Class II Antiarrhythmic", "Beta Blocker"],
     source: "Mixed",
     moa: [
       {
@@ -425,7 +425,7 @@ const DRUGS = [
     genericName: "Rocuronium",
     tradeNames: ["Zemuron"],
     category: ["Airway & Respiratory", "Sedation & Anesthesia"],
-    classes: [],
+    classes: ["Paralytic"],
     source: "Mixed",
     moa: [
       {
@@ -684,7 +684,7 @@ const DRUGS = [
     genericName: "Succinylcholine",
     tradeNames: ["Anectine", "Quelicin"],
     category: ["Airway & Respiratory", "Sedation & Anesthesia"],
-    classes: [],
+    classes: ["Paralytic"],
     source: "StatPearls",
     moa: [
       {
@@ -1127,7 +1127,7 @@ const DRUGS = [
     genericName: "Vecuronium",
     tradeNames: ["Norcuron"],
     category: ["Airway & Respiratory", "Sedation & Anesthesia"],
-    classes: [],
+    classes: ["Paralytic"],
     source: "StatPearls",
     moa: [
       {
@@ -1200,7 +1200,7 @@ const DRUGS = [
     genericName: "Verapamil",
     tradeNames: ["Calan", "Isoptin", "Verelan"],
     category: ["Cardiovascular"],
-    classes: ["Class IV Antiarrhythmic"],
+    classes: ["Class IV Antiarrhythmic", "Calcium Channel Blocker"],
     source: "Mixed",
     moa: [
       {
