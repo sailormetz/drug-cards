@@ -779,12 +779,69 @@ Do not normalize these into a single shape. The different structures serve diffe
 ```js
 contraindications: [
   { text: "Hypersensitivity" },
-  { text: "Decompensated Heart Failure", relative: true }
+  { text: "Heart failure", relative: true }
 ]
 ```
 
 - `text` — the contraindication statement
 - `relative` — set to `true` for relative/controversial CIs. Omit (or `false`) for absolute CIs.
+
+### Style rules
+
+Contraindications should include only major, identifiable reasons to not give the drug. Written for a paramedic making quick decisions on a call.
+
+**Keep it short.** No clinical reasoning, mechanism explanations, or verbose notes.
+
+```
+✗  "Wolff-Parkinson-White syndrome (WPW) — AV nodal blockade can cause VF via unopposed accessory pathway conduction"
+✓  "Wolff-Parkinson-White syndrome (WPW)"
+```
+
+**Drop unnecessary qualifiers.** Don't prefix with "Known," "Documented," "Active," "Severe," or "Suspected" unless the qualifier changes the clinical meaning.
+
+```
+✗  "Known ventricular tachycardia"
+✓  "Ventricular tachycardia"
+
+✗  "Symptomatic severe hypotension (SBP <90 mmHg)"
+✓  "Hypotension"
+```
+
+**One concept per entry.** Split compound contraindications into separate items.
+
+```
+✗  { text: "Cardiogenic shock; decompensated heart failure" }
+✓  { text: "Cardiogenic shock" }
+✓  { text: "Decompensated heart failure" }
+```
+
+**Collapse redundant entries.** Don't list the same concept twice at different severity levels.
+
+```
+✗  { text: "Cardiogenic shock" }       // these are the same concept
+    { text: "Decompensated heart failure" }
+✓  { text: "Heart failure" }
+```
+
+**No circular entries.** Don't state that the drug has no contraindications in the conditions it's indicated for — that provides no new information.
+
+```
+✗  "No contraindications in anaphylaxis or cardiac arrest"  (on epinephrine)
+```
+
+**No route contraindications.** Route restrictions (e.g., "Do not give IV") belong in precautions or administration notes, not here.
+
+```
+✗  "IV administration"
+✗  "Subcutaneous or intra-arterial injection"
+```
+
+**Skip niche or non-field-assessable items.** If a paramedic can't identify the condition on a call, it doesn't belong here.
+
+```
+✗  "Glucose-galactose malabsorption syndrome"
+✗  "Paraquat poisoning (theoretical — high FiO₂ may worsen lung injury)"
+```
 
 ---
 
