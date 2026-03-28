@@ -29,10 +29,9 @@ const DRUGS = [
        { name: "Severe Allergic Reaction", sameDoseAs: "Anaphylaxis" }
      ],
      contraindications: [
-       { text: "Hypersensitivity" },
-       { text: "Coronary insufficiency", relative: true },
-       { text: "Uncontrolled hypertension", relative: true }
-     ],
+         { text: "Coronary insufficiency", relative: true },
+         { text: "Uncontrolled hypertension", relative: true }
+       ],
      doses: [
        {
          population: "Adult",
@@ -188,12 +187,14 @@ const DRUGS = [
       { name: "SVT / Tachyarrhythmia" }
     ],
     contraindications: [
-      { text: "Cardiogenic shock" },
-      { text: "Sinus bradycardia or greater than first-degree AV block" },
-      { text: "Bronchial asthma or COPD" },
-      { text: "Hypersensitivity" },
-      { text: "Decompensated heart failure" }
-    ],
+        { text: "Heart failure" },
+        { text: "Bradycardia" },
+        { text: "Heart block greater than first-degree" },
+        { text: "Asthma" },
+        { text: "Hypersensitivity" },
+        { text: "Cocaine toxicity", relative: true },
+        { text: "Severe COPD", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -263,9 +264,9 @@ const DRUGS = [
       { name: "LMWH Reversal (Partial)" }
     ],
     contraindications: [
-      { text: "Hypersensitivity or previous intolerance to protamine" },
-      { text: "No prior heparin use (do not administer for bleeding without heparin exposure)" }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "No prior heparin exposure" }
+      ],
     doses: [
       // ── Heparin Reversal (UFH) ────────────────────────
       {
@@ -364,9 +365,9 @@ const DRUGS = [
       { name: "Croup (Moderate-Severe)" }
     ],
     contraindications: [
-      { text: "Hypersensitivity" },
-      { text: "Epiglottitis (may provoke laryngospasm)", relative: true }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "Epiglottitis", relative: true }
+      ],
     doses: [
       {
         population: "Pediatric",
@@ -437,8 +438,8 @@ const DRUGS = [
       { name: "RSI / Emergency Intubation" }
     ],
     contraindications: [
-      { text: "History of anaphylaxis to rocuronium or other neuromuscular blocking agents" }
-    ],
+        { text: "Hypersensitivity to rocuronium or neuromuscular blocking agents" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -513,12 +514,11 @@ const DRUGS = [
       { name: "Crush Injury / Rhabdomyolysis" }
     ],
     contraindications: [
-      { text: "Hypersensitivity" },
-      { text: "Metabolic or respiratory alkalosis" },
-      { text: "Severe pulmonary edema" },
-      { text: "Hypernatremia" },
-      { text: "Hypocalcemia" }
-    ],
+        { text: "Metabolic or respiratory alkalosis" },
+        { text: "Hypernatremia" },
+        { text: "Pulmonary edema" },
+        { text: "Hypersensitivity" }
+      ],
     doses: [
       // ── Sodium Channel Blocker Toxicity ───────────────
       {
@@ -696,16 +696,15 @@ const DRUGS = [
       { name: "RSI / Emergency Intubation" }
     ],
     contraindications: [
-      { text: "Personal or family history of malignant hyperthermia" },
-      { text: "Known or suspected hyperkalemia" },
-      { text: "Burns >24 hrs old (receptor upregulation → fatal hyperkalemia)" },
-      { text: "Crush injuries >24 hrs old" },
-      { text: "Denervation injuries >72 hrs (stroke, spinal cord injury, prolonged immobilization)" },
-      { text: "Neuromuscular disease (muscular dystrophy, myopathy)" },
-      { text: "Known pseudocholinesterase deficiency" },
-      { text: "Penetrating eye injury (raises IOP)", relative: true },
-      { text: "Hypersensitivity" }
-    ],
+        { text: "Personal or family history of malignant hyperthermia" },
+        { text: "Hyperkalemia" },
+        { text: "Burns > 24 hours old" },
+        { text: "Crush injuries > 24 hours old" },
+        { text: "Denervation injury" },
+        { text: "Neuromuscular disease" },
+        { text: "Hypersensitivity" },
+        { text: "Penetrating eye injury", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -785,11 +784,10 @@ const DRUGS = [
       { name: "Preterm Labor (Acute Tocolysis)" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to sympathomimetic amines" },
-      { text: "Prolonged tocolysis beyond 48-72 hrs (FDA black box)" },
-      { text: "Tachyarrhythmias", relative: true },
-      { text: "Severe cardiac disease / Ischemic heart disease", relative: true }
-    ],
+        { text: "Hypersensitivity to sympathomimetic amines" },
+        { text: "Tachyarrhythmias", relative: true },
+        { text: "Severe cardiac disease", relative: true }
+      ],
     doses: [
       // ── Severe Bronchospasm ───────────────────────────
       {
@@ -883,8 +881,8 @@ const DRUGS = [
       { name: "Wernicke's Encephalopathy (Suspected/Prophylaxis)" }
     ],
     contraindications: [
-      { text: "Known hypersensitivity to thiamine (extremely rare)" }
-    ],
+        { text: "Hypersensitivity" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -951,11 +949,12 @@ const DRUGS = [
       { name: "Postpartum Hemorrhage" }
     ],
     contraindications: [
-      { text: "Active thromboembolic disease (DVT, PE, stroke)" },
-      { text: "Hypersensitivity" },
-      { text: "History of seizures (dose-dependent risk)", relative: true },
-      { text: "Subarachnoid hemorrhage", relative: true }
-    ],
+        { text: "Active thromboembolic disease" },
+        { text: "> 3 hours since injury" },
+        { text: "Subarachnoid hemorrhage" },
+        { text: "Hypersensitivity" },
+        { text: "History of seizures", relative: true }
+      ],
     doses: [
       // ── Traumatic Hemorrhage ──────────────────────────
       {
@@ -1055,8 +1054,8 @@ const DRUGS = [
       { name: "Cardiac Arrest" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to 8-L-arginine vasopressin" }
-    ],
+        { text: "Hypersensitivity" }
+      ],
     doses: [
       // ── Vasodilatory Shock ────────────────────────────
       {
@@ -1139,8 +1138,8 @@ const DRUGS = [
       { name: "Post-Intubation Paralysis Maintenance" }
     ],
     contraindications: [
-      { text: "History of anaphylaxis to vecuronium or other neuromuscular blocking agents" }
-    ],
+        { text: "Hypersensitivity to vecuronium or neuromuscular blocking agents" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -1216,16 +1215,16 @@ const DRUGS = [
       { name: "SVT (Paroxysmal Supraventricular Tachycardia)" }
     ],
     contraindications: [
-      { text: "Severe hypotension (SBP <90 mmHg) or cardiogenic shock" },
-      { text: "Severe LV dysfunction or decompensated heart failure" },
-      { text: "Sick sinus syndrome (without pacemaker)" },
-      { text: "Second- or third-degree AV block (without pacemaker)" },
-      { text: "Atrial flutter/fibrillation with accessory bypass tract (WPW, LGL)" },
-      { text: "Wide-complex tachycardia (QRS ≥0.12 sec)" },
-      { text: "Concurrent or recent IV beta-blocker therapy" },
-      { text: "Use in infants" },
-      { text: "Hypersensitivity" }
-    ],
+        { text: "Hypotension" },
+        { text: "Heart failure" },
+        { text: "Sick sinus syndrome (without pacemaker)" },
+        { text: "Second- or third-degree AV block (without pacemaker)" },
+        { text: "Atrial fibrillation or flutter with WPW" },
+        { text: "Wide-complex tachycardia" },
+        { text: "Concurrent IV beta-blocker use" },
+        { text: "Infants" },
+        { text: "Hypersensitivity" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -1305,9 +1304,10 @@ const DRUGS = [
       { name: "Post-Intubation Sedation" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to propofol or any emulsion component" },
-      { text: "Hemodynamic instability / Shock (use reduced dose or alternative agent)", relative: true }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "Allergy to eggs or soy" },
+        { text: "Shock", relative: true }
+      ],
     doses: [
       // ── RSI Induction ─────────────────────────────────
       {
@@ -1408,14 +1408,12 @@ const DRUGS = [
       { name: "Refractory SVT" }
     ],
     contraindications: [
-      { text: "Complete heart block" },
-      { text: "Second- or third-degree AV block" },
-      { text: "Systemic lupus erythematosus (SLE)" },
-      { text: "Torsades de pointes" },
-      { text: "QT prolongation", relative: true },
-      { text: "Decompensated heart failure", relative: true },
-      { text: "Hypersensitivity to procainamide" }
-    ],
+        { text: "Second- or third-degree AV block (without pacemaker)" },
+        { text: "Torsades de pointes" },
+        { text: "Hypersensitivity" },
+        { text: "QT prolongation", relative: true },
+        { text: "Decompensated heart failure", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -1522,12 +1520,12 @@ const DRUGS = [
       { name: "Nausea & Vomiting" }
     ],
     contraindications: [
-      { text: "Children < 2 years old (FDA black box - fatal respiratory depression)" },
-      { text: "Subcutaneous injection (causes tissue necrosis)" },
-      { text: "Hypersensitivity to promethazine or phenothiazines" },
-      { text: "Comatose patients or severe CNS depression" },
-      { text: "Concurrent use with haloperidol or droperidol (additive QT prolongation)", relative: true }
-    ],
+        { text: "Children < 2 years old" },
+        { text: "Lower respiratory tract disease" },
+        { text: "Asthma" },
+        { text: "Coma" },
+        { text: "Hypersensitivity to phenothiazines" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -1610,8 +1608,9 @@ const DRUGS = [
       { name: "Organophosphate / Nerve Agent Poisoning" }
     ],
     contraindications: [
-      { text: "Hypersensitivity (no absolute contraindications in confirmed OP/nerve agent poisoning - benefits always outweigh risks)" }
-    ],
+        { text: "Carbamate poisoning" },
+        { text: "Hypersensitivity" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -1697,12 +1696,10 @@ const DRUGS = [
       { name: "Hypokalemia" }
     ],
     contraindications: [
-      { text: "Hyperkalemia" },
-      { text: "Renal failure (inability to excrete potassium)" },
-      { text: "Concurrent potassium-sparing diuretics (spironolactone, triamterene)" },
-      { text: "Untreated Addison disease" },
-      { text: "Hypersensitivity to any component" }
-    ],
+        { text: "Hyperkalemia" },
+        { text: "Renal failure" },
+        { text: "Hypersensitivity" }
+      ],
     doses: [
       // ── Routine Repletion ─────────────────────────────
       {
@@ -1810,10 +1807,9 @@ const DRUGS = [
       { name: "Postpartum Hemorrhage Prevention & Treatment" }
     ],
     contraindications: [
-      { text: "Prior to delivery of the infant (prehospital context - risk of uterine rupture)" },
-      { text: "Hypersensitivity to oxytocin" },
-      { text: "Conditions where vaginal delivery is contraindicated (e.g., cord prolapse, transverse lie, total placenta previa)", relative: true }
-    ],
+        { text: "Prior to delivery of the infant" },
+        { text: "Hypersensitivity" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -1884,11 +1880,10 @@ const DRUGS = [
       { name: "Pruritus / Allergic Reactions" }
     ],
     contraindications: [
-      { text: "Prolonged QT interval" },
-      { text: "Hypersensitivity to hydroxyzine or cetirizine" },
-      { text: "Early pregnancy" },
-      { text: "IV administration (tissue necrosis, hemolysis, thrombosis)" }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "Prolonged QT interval" },
+        { text: "Early pregnancy" }
+      ],
     doses: [
       // ── Anxiety / Agitation ───────────────────────────
       {
@@ -2015,8 +2010,8 @@ const DRUGS = [
       { name: "Cyanide Poisoning" }
     ],
     contraindications: [
-      { text: "Documented hypersensitivity (do NOT withhold in suspected cyanide poisoning - benefits far outweigh risks)" }
-    ],
+        { text: "Hypersensitivity" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -2102,9 +2097,8 @@ const DRUGS = [
       { name: "Hyperkalemia" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to albuterol" },
-      { text: "Tachycardia secondary to cardiac disease (use with caution)" }
-    ],
+        { text: "Hypersensitivity" }
+      ],
     doses: [
       // ── Bronchospasm ──────────────────────────────────
       {
@@ -2217,12 +2211,11 @@ const DRUGS = [
       { name: "Severe Hypertension with Preeclampsia" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to hydralazine" },
-      { text: "Coronary artery disease (reflex tachycardia → demand ischemia)" },
-      { text: "Mitral valve rheumatic heart disease" },
-      { text: "Aortic dissection (reflex tachycardia increases shear stress)", relative: true },
-      { text: "Hypotension", relative: true }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "Coronary artery disease" },
+        { text: "Aortic dissection" },
+        { text: "Hypotension", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -2297,11 +2290,11 @@ const DRUGS = [
       { name: "Symptomatic Bradycardia" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to dopamine" },
-      { text: "Pheochromocytoma" },
-      { text: "Ventricular fibrillation" },
-      { text: "Uncorrected tachyarrhythmias" }
-    ],
+        { text: "Pheochromocytoma" },
+        { text: "Hypersensitivity" },
+        { text: "Uncorrected tachyarrhythmias", relative: true },
+        { text: "Uncorrected hypovolemia", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -2397,11 +2390,10 @@ const DRUGS = [
       { name: "Acute Pain (Moderate to Severe)" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to hydromorphone" },
-      { text: "Significant respiratory depression" },
-      { text: "Acute or severe bronchial asthma (unmonitored setting)" },
-      { text: "Known or suspected GI obstruction, including paralytic ileus" }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "Respiratory depression (without ventilatory support)" },
+        { text: "Severe asthma" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -2473,10 +2465,9 @@ const DRUGS = [
       { name: "Nausea & Vomiting" }
     ],
     contraindications: [
-      { text: "Known or suspected prolonged QT interval (QTc >440 ms males, >450 ms females)" },
-      { text: "Hypersensitivity to droperidol or butyrophenones" },
-      { text: "Concurrent use with promethazine (additive QT prolongation)" }
-    ],
+        { text: "QT prolongation" },
+        { text: "Hypersensitivity" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -2550,9 +2541,9 @@ const DRUGS = [
       { name: "RSI Induction" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to etomidate" },
-      { text: "Adrenal insufficiency (relative - weigh risk vs benefit)" }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "Adrenal insufficiency", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -2625,9 +2616,9 @@ const DRUGS = [
       { name: "Fever" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to acetaminophen" },
-      { text: "Severe acute liver disease" }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "Severe hepatic disease" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -2691,11 +2682,10 @@ const DRUGS = [
       { name: "Oral Poisoning / Overdose" }
     ],
     contraindications: [
-      { text: "Unprotected airway (altered mental status, risk of declining consciousness without intubation)" },
-      { text: "Caustic substance ingestion (acids, alkalis - charcoal obscures endoscopy and may worsen injury)" },
-      { text: "Intestinal obstruction or perforation" },
-      { text: "Substances not adsorbed by charcoal (see precautions)" }
-    ],
+        { text: "Unprotected airway" },
+        { text: "Caustic ingestion" },
+        { text: "Inability to swallow" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -2766,12 +2756,14 @@ const DRUGS = [
       { name: "Regular Monomorphic Wide-Complex Tachycardia (Diagnostic/Therapeutic)" }
     ],
     contraindications: [
-      { text: "Second- or third-degree AV block (without pacemaker)" },
-      { text: "Sick sinus syndrome (without pacemaker)" },
-      { text: "Atrial fibrillation or flutter (particularly with WPW - may precipitate VF)" },
-      { text: "Known ventricular tachycardia" },
-      { text: "Hypersensitivity" }
-    ],
+        { text: "Second- or third-degree AV block (without pacemaker)" },
+        { text: "Sick sinus syndrome (without pacemaker)" },
+        { text: "Atrial fibrillation or flutter with WPW" },
+        { text: "Ventricular tachycardia" },
+        { text: "Asthma" },
+        { text: "Bronchospasm" },
+        { text: "Hypersensitivity" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -2868,12 +2860,11 @@ const DRUGS = [
       { name: "Refractory SVT / Rate Control" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to amiodarone or iodine" },
-      { text: "Severe sinus node dysfunction (without pacemaker)" },
-      { text: "Second- or third-degree heart block (without pacemaker)" },
-      { text: "Bradycardia causing syncope (without pacemaker)" },
-      { text: "Cardiogenic shock" }
-    ],
+        { text: "Hypersensitivity to amiodarone or iodine" },
+        { text: "Sinus node dysfunction (without pacemaker)" },
+        { text: "Second- or third-degree heart block (without pacemaker)" },
+        { text: "Cardiogenic shock" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -2983,13 +2974,11 @@ const DRUGS = [
       { name: "Acute Coronary Syndrome" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to aspirin or NSAIDs" },
-      { text: "Active GI bleeding or bleeding GI ulcers" },
-      { text: "Known bleeding disorder (hemophilia, hemorrhagic diathesis)" },
-      { text: "Aspirin-intolerant asthma (aspirin-exacerbated respiratory disease)" },
-      { text: "Thrombocytopenia", relative: true },
-      { text: "G6PD deficiency with hemolytic anemia", relative: true }
-    ],
+        { text: "Hypersensitivity to aspirin or NSAIDs" },
+        { text: "Active GI bleeding" },
+        { text: "Bleeding disorder" },
+        { text: "Aspirin-exacerbated respiratory disease" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -3047,14 +3036,9 @@ const DRUGS = [
       { name: "Organophosphate / Nerve Agent Poisoning" }
     ],
     contraindications: [
-      { text: "No absolute contraindications in ACLS or nerve agent/OP poisoning" },
-      { text: "Documented hypersensitivity (non-emergency use only)" },
-      { text: "Narrow-angle glaucoma", relative: true },
-      { text: "GI obstruction / severe ulcerative colitis / toxic megacolon", relative: true },
-      { text: "Bladder outlet obstruction", relative: true },
-      { text: "Myasthenia gravis", relative: true },
-      { text: "Thyrotoxicosis", relative: true }
-    ],
+        { text: "Narrow-angle glaucoma", relative: true },
+        { text: "Myasthenia gravis", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -3156,13 +3140,13 @@ const DRUGS = [
       { name: "Acute Pulmonary Edema / CHF" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to bumetanide or sulfonamides" },
-      { text: "Anuria or severe renal failure" },
-      { text: "Severe electrolyte depletion (hypokalemia, hyponatremia)" },
-      { text: "Hepatic coma or severe hepatic impairment" },
-      { text: "Hypovolemia / dehydration" },
-      { text: "Hypotension (SBP <90 mmHg)", relative: true }
-    ],
+        { text: "Hypersensitivity to bumetanide or sulfonamides" },
+        { text: "Anuria" },
+        { text: "Electrolyte depletion" },
+        { text: "Hepatic coma" },
+        { text: "Hypovolemia" },
+        { text: "Hypotension", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -3227,11 +3211,10 @@ const DRUGS = [
       { name: "Hydrofluoric Acid Exposure (Systemic)", sameDoseAs: "Hyperkalemia" }
     ],
     contraindications: [
-      { text: "Hypercalcemia" },
-      { text: "Documented hypersensitivity" },
-      { text: "Severe hypokalemia (may precipitate fatal arrhythmias)" },
-      { text: "Digoxin toxicity (historically cited - NASEMSO states this concern is not supported and should not prevent use)", relative: true }
-    ],
+        { text: "Hypercalcemia" },
+        { text: "Hypersensitivity" },
+        { text: "Digoxin toxicity", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -3346,12 +3329,10 @@ const DRUGS = [
       { name: "Cardiogenic Shock" }
     ],
     contraindications: [
-      { text: "Idiopathic hypertrophic subaortic stenosis (IHSS/HOCM) - increases dynamic outflow obstruction" },
-      { text: "Hypersensitivity to dobutamine or sulfites" },
-      { text: "Uncorrected tachyarrhythmia", relative: true },
-      { text: "Severe uncorrected hypovolemia - will worsen hypotension", relative: true },
-      { text: "Use with halogenated anesthetics (halothane) - risk of fatal arrhythmia", relative: true }
-    ],
+        { text: "Hypertrophic cardiomyopathy (HOCM)" },
+        { text: "Hypersensitivity" },
+        { text: "Uncorrected hypovolemia", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -3412,10 +3393,9 @@ const DRUGS = [
       { name: "HACE" }
     ],
     contraindications: [
-      { text: "Documented hypersensitivity" },
-      { text: "Systemic fungal infection" },
-      { text: "Cerebral malaria" }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "Systemic fungal infection" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -3555,13 +3535,9 @@ const DRUGS = [
       { name: "Hypoglycemia" }
     ],
     contraindications: [
-      { text: "Hyperglycemia" },
-      { text: "Diabetic coma (hyperglycemic crisis / DKA)" },
-      { text: "Intracranial or intraspinal hemorrhage" },
-      { text: "Dehydrated patients with delirium" },
-      { text: "Glucose-galactose malabsorption syndrome" },
-      { text: "Documented hypersensitivity" }
-    ],
+        { text: "Hyperglycemia" },
+        { text: "Hypersensitivity" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -3661,8 +3637,8 @@ const DRUGS = [
       { name: "Allergic Reaction / Urticaria" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to famotidine or other H2-receptor antagonists" }
-    ],
+        { text: "Hypersensitivity" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -3736,11 +3712,10 @@ const DRUGS = [
       { name: "Acute Pain" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to fentanyl" },
-      { text: "Respiratory depression without ventilatory support" },
-      { text: "Known or suspected paralytic ileus", relative: true },
-      { text: "Concurrent MAO inhibitor use (within 14 days)", relative: true }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "Respiratory depression (without ventilatory support)" },
+        { text: "MAO inhibitor use within 14 days", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -3848,14 +3823,12 @@ const DRUGS = [
       { name: "Benzodiazepine Reversal" }
     ],
     contraindications: [
-      { text: "Known chronic benzodiazepine dependence (precipitates withdrawal seizures)" },
-      { text: "Co-ingestion of tricyclic antidepressants or other pro-convulsants" },
-      { text: "Unknown or mixed drug overdose" },
-      { text: "Patients receiving benzodiazepines for seizure control" },
-      { text: "Patients with signs of serious cyclic antidepressant overdose (widened QRS, anticholinergic signs)" },
-      { text: "Hypersensitivity to flumazenil or benzodiazepines" },
-      { text: "Elevated intracranial pressure controlled by benzodiazepines", relative: true }
-    ],
+        { text: "Benzodiazepine dependence" },
+        { text: "Tricyclic antidepressant ingestion" },
+        { text: "Unknown overdose" },
+        { text: "Seizure control with benzodiazepines" },
+        { text: "Hypersensitivity" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -3925,13 +3898,13 @@ const DRUGS = [
       { name: "Acute Pulmonary Edema / CHF" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to furosemide or sulfonamides" },
-      { text: "Anuria" },
-      { text: "Severe electrolyte depletion (hypokalemia, hyponatremia)" },
-      { text: "Hepatic coma or severe hepatic impairment" },
-      { text: "Hypovolemia / dehydration" },
-      { text: "Hypotension (SBP <90 mmHg)", relative: true }
-    ],
+        { text: "Hypersensitivity to furosemide or sulfonamides" },
+        { text: "Anuria" },
+        { text: "Electrolyte depletion" },
+        { text: "Hepatic coma" },
+        { text: "Hypovolemia" },
+        { text: "Hypotension", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -4000,10 +3973,10 @@ const DRUGS = [
       { name: "CCB/BB Overdose" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to glucagon" },
-      { text: "Pheochromocytoma (can trigger catecholamine surge → hypertensive crisis)" },
-      { text: "Insulinoma (transient glucose rise triggers rebound insulin release → worsens hypoglycemia)" }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "Pheochromocytoma" },
+        { text: "Insulinoma" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -4136,13 +4109,11 @@ const DRUGS = [
       { name: "Acute Agitation / Psychosis" }
     ],
     contraindications: [
-      { text: "Documented hypersensitivity" },
-      { text: "Severe CNS depression (including coma)" },
-      { text: "Neuroleptic malignant syndrome (history of or active)" },
-      { text: "Poorly controlled seizure disorder" },
-      { text: "Parkinson's disease (blocks dopamine → worsens symptoms)" },
-      { text: "Known prolonged QT interval or concurrent QT-prolonging drugs", relative: true }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "Coma" },
+        { text: "Parkinson's disease" },
+        { text: "Prolonged QT interval", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -4223,16 +4194,14 @@ const DRUGS = [
       { name: "Narrow Complex Tachycardia (SVT / AFib / AFlutter)" }
     ],
     contraindications: [
-      { text: "Wolff-Parkinson-White syndrome (WPW) or Lown-Ganong-Levine syndrome - AV nodal blockade can cause VF via unopposed accessory pathway conduction" },
-      { text: "Symptomatic severe hypotension (SBP <90 mmHg)" },
-      { text: "Sick sinus syndrome (without pacemaker)" },
-      { text: "Second- or third-degree heart block (without pacemaker)" },
-      { text: "Ventricular tachycardia - must confirm rhythm is supraventricular in origin" },
-      { text: "Concurrent IV beta-blocker therapy - combined AV nodal blockade risks profound bradycardia/asystole" },
-      { text: "Cardiogenic shock" },
-      { text: "Documented hypersensitivity" },
-      { text: "Decompensated CHF", relative: true }
-    ],
+        { text: "Wolff-Parkinson-White syndrome (WPW)" },
+        { text: "Hypotension" },
+        { text: "Sick sinus syndrome (without pacemaker)" },
+        { text: "Second- or third-degree heart block (without pacemaker)" },
+        { text: "Wide-complex tachycardia" },
+        { text: "Heart failure" },
+        { text: "Hypersensitivity" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -4300,11 +4269,10 @@ const DRUGS = [
       { name: "Agitation" }
     ],
     contraindications: [
-      { text: "Documented hypersensitivity to diazepam or benzodiazepines" },
-      { text: "Severe respiratory depression (without ventilatory support)" },
-      { text: "Acute narrow-angle glaucoma", relative: true },
-      { text: "Concurrent use with opioids (increased respiratory depression risk)", relative: true }
-    ],
+        { text: "Hypersensitivity to benzodiazepines" },
+        { text: "Respiratory depression (without ventilatory support)" },
+        { text: "Acute narrow-angle glaucoma" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -4428,9 +4396,8 @@ const DRUGS = [
       { name: "Cardiac Arrest" }
     ],
     contraindications: [
-      { text: "No absolute contraindications in the emergency setting" },
-      { text: "Paraquat poisoning (theoretical - high FiO₂ may worsen lung injury)", relative: true }
-    ],
+        { text: "COPD with chronic CO2 retention", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -4587,10 +4554,9 @@ const DRUGS = [
       { name: "Hypoglycemia" }
     ],
     contraindications: [
-      { text: "Altered mental status / inability to protect airway (aspiration risk)" },
-      { text: "Inability to swallow" },
-      { text: "Unconscious patient" }
-    ],
+        { text: "Altered mental status" },
+        { text: "Inability to swallow" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -4660,11 +4626,9 @@ const DRUGS = [
       { name: "Nausea & Vomiting" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to ondansetron" },
-      { text: "Congenital long QT syndrome" },
-      { text: "Coadministration with apomorphine (risk of profound hypotension and loss of consciousness)" },
-      { text: "Known significant QT prolongation or concurrent QT-prolonging drugs", relative: true }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "QT prolongation" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -4757,10 +4721,8 @@ const DRUGS = [
       { name: "Volume Resuscitation / Fluid Replacement" }
     ],
     contraindications: [
-      { text: "Fluid overload / decompensated CHF (without hypotension)" },
-      { text: "Hypernatremia", relative: true },
-      { text: "Hyperchloremia / hyperchloremic metabolic acidosis", relative: true }
-    ],
+        { text: "Fluid overload" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -4844,11 +4806,9 @@ const DRUGS = [
       { name: "Shock (Fluid-Refractory)" }
     ],
     contraindications: [
-      { text: "Hypersensitivity" },
-      { text: "Hypotension due to uncorrected blood volume deficit (correct hypovolemia first)" },
-      { text: "Peripheral vascular thrombosis (except in lifesaving situations)" },
-      { text: "Use with halogenated anesthetics (halothane, cyclopropane) - risk of fatal arrhythmia", relative: true }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "Uncorrected hypovolemia", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -4922,16 +4882,16 @@ const DRUGS = [
       { name: "Acute Pain" }
     ],
     contraindications: [
-      { text: "Significant respiratory compromise" },
-      { text: "Suspected pneumothorax or chest trauma" },
-      { text: "Bowel obstruction or suspected trapped gas in abdomen" },
-      { text: "Air embolism / decompression sickness" },
-      { text: "Inability to self-administer (altered mental status, inability to hold mask)" },
-      { text: "Head injury with suspected increased ICP (N₂O increases cerebral blood flow)" },
-      { text: "Pregnancy", relative: true },
-      { text: "Known vitamin B12 deficiency", relative: true },
-      { text: "Known cardiac conditions / hypotension", relative: true }
-    ],
+        { text: "Pneumothorax" },
+        { text: "Chest trauma" },
+        { text: "Bowel obstruction" },
+        { text: "Air embolism" },
+        { text: "Decompression sickness" },
+        { text: "Head injury with increased ICP" },
+        { text: "Significant facial trauma" },
+        { text: "Inability to self-administer" },
+        { text: "Pregnancy", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -5009,15 +4969,14 @@ const DRUGS = [
       { name: "Acute Pulmonary Edema" }
     ],
     contraindications: [
-      { text: "Hypotension (SBP <90 mmHg or ≥30 mmHg below baseline)" },
-      { text: "Recent PDE-5 inhibitor use: sildenafil/Viagra within 24 hrs; tadalafil/Cialis or vardenafil/Levitra within 48 hrs" },
-      { text: "Right ventricular infarction (preload-dependent - NTG will cause cardiovascular collapse)" },
-      { text: "Extreme bradycardia (<50 BPM)" },
-      { text: "Tachycardia (>100 BPM) in the absence of heart failure" },
-      { text: "Hypersensitivity to nitrates" },
-      { text: "Severe anemia" },
-      { text: "Narrow-angle glaucoma (controversial - may not be clinically significant)", relative: true }
-    ],
+        { text: "Hypotension" },
+        { text: "Recent PDE-5 inhibitor use (sildenafil 24 hrs, tadalafil 48 hrs)" },
+        { text: "Right ventricular infarction" },
+        { text: "Increased intracranial pressure" },
+        { text: "Hypersensitivity to nitrates" },
+        { text: "Severe bradycardia", relative: true },
+        { text: "Tachycardia", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -5104,10 +5063,10 @@ const DRUGS = [
       { name: "Hypertensive Emergency" }
     ],
     contraindications: [
-      { text: "Advanced aortic stenosis (vasodilation without compensatory cardiac output increase → cardiovascular collapse)" },
-      { text: "Hypersensitivity to nicardipine or dihydropyridines" },
-      { text: "Hypotension (SBP <90 mmHg)", relative: true }
-    ],
+        { text: "Advanced aortic stenosis" },
+        { text: "Hypersensitivity" },
+        { text: "Hypotension", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -5184,8 +5143,8 @@ const DRUGS = [
       { name: "Opioid Overdose / Reversal" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to naloxone" }
-    ],
+        { text: "Hypersensitivity" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -5293,16 +5252,12 @@ const DRUGS = [
       { name: "Acute Pain" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to morphine" },
-      { text: "Respiratory depression (without ventilatory support)" },
-      { text: "Acute or severe bronchial asthma (without monitoring/resuscitation equipment)" },
-      { text: "Upper airway obstruction" },
-      { text: "Paralytic ileus / GI obstruction" },
-      { text: "Hypercarbia" },
-      { text: "Head injury with increased ICP (opioids raise ICP)", relative: true },
-      { text: "Hypotension (SBP <90 mmHg - morphine causes histamine release and vasodilation)", relative: true },
-      { text: "Acute alcoholism / delirium tremens", relative: true }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "Respiratory depression (without ventilatory support)" },
+        { text: "Severe asthma" },
+        { text: "Head injury with increased ICP", relative: true },
+        { text: "Hypotension", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -5396,12 +5351,11 @@ const DRUGS = [
       { name: "Agitation" }
     ],
     contraindications: [
-      { text: "Documented hypersensitivity to midazolam or benzodiazepines" },
-      { text: "Severe respiratory depression (without ventilatory support)" },
-      { text: "Sleep apnea (unmonitored setting)" },
-      { text: "Acute narrow-angle glaucoma", relative: true },
-      { text: "Concurrent use with opioids (increased respiratory depression risk)", relative: true }
-    ],
+        { text: "Hypersensitivity to benzodiazepines" },
+        { text: "Respiratory depression (without ventilatory support)" },
+        { text: "Acute narrow-angle glaucoma" },
+        { text: "Shock" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -5554,18 +5508,14 @@ const DRUGS = [
       { name: "Narrow Complex Tachycardia (SVT / AFib / AFlutter)" }
     ],
     contraindications: [
-      { text: "Sinus bradycardia (HR <45)" },
-      { text: "Second- or third-degree AV block (without pacemaker)" },
-      { text: "Sick sinus syndrome (without pacemaker)" },
-      { text: "Cardiogenic shock" },
-      { text: "Hypotension (SBP <100 mmHg)" },
-      { text: "Decompensated heart failure (acute pulmonary edema)" },
-      { text: "Severe peripheral vascular disease" },
-      { text: "Pheochromocytoma (without prior alpha-blockade)" },
-      { text: "Significant first-degree AV block (PR ≥0.24 sec)", relative: true },
-      { text: "Asthma / severe COPD (β-2 blockade at higher doses → bronchospasm)", relative: true },
-      { text: "Cocaine-induced MI (unopposed alpha stimulation → hypertensive crisis)", relative: true }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "Bradycardia" },
+        { text: "Second- or third-degree AV block (without pacemaker)" },
+        { text: "Heart failure" },
+        { text: "Hypotension" },
+        { text: "Cocaine use", relative: true },
+        { text: "Asthma or severe COPD", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -5626,11 +5576,9 @@ const DRUGS = [
       { name: "Adrenal Crisis / Shock" }
     ],
     contraindications: [
-      { text: "Untreated serious infections (systemic fungal)" },
-      { text: "Documented hypersensitivity" },
-      { text: "IM route contraindicated in idiopathic thrombocytopenic purpura" },
-      { text: "High doses contraindicated in traumatic brain injury" }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "Systemic fungal infection" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -5737,14 +5685,12 @@ const DRUGS = [
       { name: "Acute Pain / Shivering" }
     ],
     contraindications: [
-      { text: "Concurrent or recent MAOI use (within 14 days) - risk of fatal serotonin syndrome" },
-      { text: "Renal impairment (normeperidine accumulates → seizures)" },
-      { text: "Seizure disorder" },
-      { text: "Hypersensitivity to meperidine" },
-      { text: "Respiratory depression (without ventilatory support)" },
-      { text: "Elderly patients (AGS Beers Criteria - increased neurotoxicity and delirium risk)", relative: true },
-      { text: "Concurrent serotonergic drugs (SSRIs, SNRIs, tramadol, triptans)", relative: true }
-    ],
+        { text: "MAO inhibitor use within 14 days" },
+        { text: "Seizure disorder" },
+        { text: "Renal impairment" },
+        { text: "Hypersensitivity" },
+        { text: "Respiratory depression (without ventilatory support)" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -5814,13 +5760,11 @@ const DRUGS = [
       { name: "Eclampsia / Pre-eclampsia" }
     ],
     contraindications: [
-      { text: "Hypermagnesemia" },
-      { text: "Heart block" },
-      { text: "Hypercalcemia" },
-      { text: "Myocardial damage" },
-      { text: "Hypersensitivity" },
-      { text: "Renal failure (magnesium is renally excreted - accumulation risk)", relative: true }
-    ],
+        { text: "Hypermagnesemia" },
+        { text: "Heart block" },
+        { text: "Hypersensitivity" },
+        { text: "Renal failure", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -5945,10 +5889,10 @@ const DRUGS = [
       { name: "Nausea & Vomiting" }
     ],
     contraindications: [
-      { text: "Documented hypersensitivity" },
-      { text: "Premature infants and neonates" },
-      { text: "Lower respiratory tract disease (e.g., acute asthma) - controversial due to anticholinergic drying effect on secretions", relative: true }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "Neonates" },
+        { text: "Acute asthma", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -6064,9 +6008,9 @@ const DRUGS = [
       { name: "Acute Bronchospasm (Asthma / COPD)" }
     ],
     contraindications: [
-      { text: "Documented hypersensitivity to ipratropium, atropine, or atropine derivatives" },
-      { text: "Hypersensitivity to soy lecithin or related food products (MDI formulation contains soy)", relative: true }
-    ],
+        { text: "Hypersensitivity to ipratropium or atropine derivatives" },
+        { text: "Soy or peanut allergy (MDI formulation only)", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -6144,13 +6088,11 @@ const DRUGS = [
       { name: "IO Pain Mitigation" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to lidocaine or amide-type local anesthetics" },
-      { text: "Adams-Stokes syndrome" },
-      { text: "SA, AV, or intraventricular heart block (without pacemaker)" },
-      { text: "Wolff-Parkinson-White syndrome" },
-      { text: "Cardiogenic shock" },
-      { text: "Severe heart failure", relative: true }
-    ],
+        { text: "Hypersensitivity to amide-type local anesthetics" },
+        { text: "Heart block (without pacemaker)" },
+        { text: "Wolff-Parkinson-White syndrome" },
+        { text: "Heart failure" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -6256,12 +6198,10 @@ const DRUGS = [
       { name: "Agitation" }
     ],
     contraindications: [
-      { text: "Documented hypersensitivity" },
-      { text: "Acute narrow-angle glaucoma" },
-      { text: "Severe respiratory depression (without ventilatory support)" },
-      { text: "Sleep apnea (unmonitored setting)" },
-      { text: "Concurrent use with opioids (increased respiratory depression risk)", relative: true }
-    ],
+        { text: "Hypersensitivity to benzodiazepines" },
+        { text: "Acute narrow-angle glaucoma" },
+        { text: "Respiratory depression (without ventilatory support)" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -6364,10 +6304,9 @@ const DRUGS = [
       { name: "Acute Bronchospasm (Asthma / COPD)" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to levalbuterol or racemic albuterol" },
-      { text: "Tachyarrhythmias", relative: true },
-      { text: "Severe cardiovascular disease", relative: true }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "Tachyarrhythmias", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -6442,11 +6381,11 @@ const DRUGS = [
       { name: "Volume Resuscitation / Fluid Replacement" }
     ],
     contraindications: [
-      { text: "Fluid overload / decompensated CHF (without hypotension)" },
-      { text: "Hyperkalemia or crush injury (LR contains 4 mEq/L potassium - NASEMSO specifically warns to avoid LR in crush injury)" },
-      { text: "Severe hepatic failure (impaired lactate metabolism → lactic acidosis)", relative: true },
-      { text: "Concurrent citrated blood products in same IV line (calcium in LR can cause clotting)", relative: true }
-    ],
+        { text: "Fluid overload" },
+        { text: "Hyperkalemia" },
+        { text: "Crush injury" },
+        { text: "Hepatic failure", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
@@ -6522,16 +6461,13 @@ const DRUGS = [
       { name: "Severe Hypertension with Pre-eclampsia" }
     ],
     contraindications: [
-      { text: "Asthma or obstructive airway disease (non-selective β-blockade → bronchospasm)" },
-      { text: "Severe bradycardia (HR <60)" },
-      { text: "Second- or third-degree heart block (without pacemaker)" },
-      { text: "Cardiogenic shock" },
-      { text: "Uncompensated cardiac failure" },
-      { text: "Sick sinus syndrome (without pacemaker)" },
-      { text: "Hypersensitivity" },
-      { text: "Conditions associated with prolonged or severe hypotension" },
-      { text: "Concurrent calcium channel blocker use (combined negative inotropy/chronotropy)", relative: true }
-    ],
+        { text: "Asthma or obstructive airway disease" },
+        { text: "Bradycardia" },
+        { text: "Second- or third-degree heart block (without pacemaker)" },
+        { text: "Heart failure" },
+        { text: "Hypotension" },
+        { text: "Hypersensitivity" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -6592,15 +6528,14 @@ const DRUGS = [
       { name: "Acute Pain" }
     ],
     contraindications: [
-      { text: "Allergy to aspirin, ketorolac, or other NSAIDs" },
-      { text: "Active or history of GI bleeding / peptic ulcer disease" },
-      { text: "Intracranial bleeding or high risk of bleeding" },
-      { text: "Coagulation defects / concurrent anticoagulant therapy" },
-      { text: "Significant renal impairment (especially with volume depletion)" },
-      { text: "Active labor or breastfeeding" },
-      { text: "Infants <6 months of age (for antipyretic use)" },
-      { text: "Third trimester pregnancy (risk of premature ductus arteriosus closure)", relative: true }
-    ],
+        { text: "Hypersensitivity to NSAIDs" },
+        { text: "Active GI bleeding" },
+        { text: "Peptic ulcer disease" },
+        { text: "Bleeding disorder" },
+        { text: "Anticoagulant use" },
+        { text: "Renal impairment" },
+        { text: "Third trimester pregnancy" }
+      ],
     doses: [
       {
         population: "Adult",
@@ -6687,12 +6622,11 @@ const DRUGS = [
       { name: "Acute Pain (Subdissociative)" }
     ],
     contraindications: [
-      { text: "Hypersensitivity to ketamine" },
-      { text: "Head trauma / intracranial mass / intracranial hemorrhage (may increase ICP - relative/controversial per NASEMSO)", relative: true },
-      { text: "Hypertension / angina / stroke (sympathomimetic effects)", relative: true },
-      { text: "Underlying psychiatric disorder (emergence reactions)", relative: true },
-      { text: "Age <3 months (immature airway reflexes)", relative: true }
-    ],
+        { text: "Hypersensitivity" },
+        { text: "Age < 3 months", relative: true },
+        { text: "Conditions where hypertension is hazardous", relative: true },
+        { text: "Active psychosis", relative: true }
+      ],
     doses: [
       {
         population: "Adult",
