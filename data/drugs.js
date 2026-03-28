@@ -1798,7 +1798,7 @@ const DRUGS = [
     genericName: "Oxytocin",
     tradeNames: ["Pitocin"],
     category: ["OB/GYN"],
-    classes: ["Hormone"],
+    classes: ["Hormone", "Uterotonic"],
     source: "Mixed",
     moa: [
       {
@@ -1870,7 +1870,7 @@ const DRUGS = [
     genericName: "Hydroxyzine",
     tradeNames: ["Vistaril", "Atarax"],
     category: ["Nausea & Vomiting", "Allergic & Immune"],
-    classes: ["Antihistamine", "Antiemetic"],
+    classes: ["Antihistamine", "Antiemetic", "Sedative"],
     source: "StatPearls",
     moa: [
       {
@@ -2385,7 +2385,7 @@ const DRUGS = [
     genericName: "Hydromorphone",
     tradeNames: ["Dilaudid"],
     category: ["Pain Management"],
-    classes: ["Opioid Analgesic"],
+    classes: ["Opioid Analgesic", "Analgesic", "Sedative"],
     source: "Mixed",
     moa: [
       {
@@ -2679,7 +2679,7 @@ const DRUGS = [
     genericName: "Activated Charcoal",
     tradeNames: ["Actidose-Aqua"],
     category: ["Toxicology"],
-    classes: ["Antidote"],
+    classes: ["Antidote", "Adsorbent"],
     source: "Mixed",
     moa: [
       {
