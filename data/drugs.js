@@ -3281,7 +3281,7 @@ const DRUGS = [
             amount: "20 mg/kg (0.2 mL/kg of 10%)",
             maxDose: "1 g or 10 mL",
             notes: [
-              "Administer slowly over 10 minutes (50 mg/mL)",
+              "Administer slowly over 10 minutes (50 mg/min)",
               "Calcium gluconate is preferred in pediatrics - CaCl has increased risk of tissue damage"
             ]
           }
