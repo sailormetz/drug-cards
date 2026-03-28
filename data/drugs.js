@@ -5,7 +5,7 @@ const DRUGS = [
      genericName: "Epinephrine",
      tradeNames: ["Adrenalin", "EpiPen"],
      category: ["Resuscitation", "Cardiovascular", "Airway & Respiratory"],
-     classes: ["Sympathomimetic", "Catecholamine", "Vasopressor"],
+     classes: ["Sympathomimetic", "Catecholamine", "Vasopressor", "Inotrope", "Chronotrope", "Bronchodilator"],
      source: "NASEMSO 2022 v3.0",
      moa: [
        {
@@ -348,7 +348,7 @@ const DRUGS = [
     genericName: "Racemic Epinephrine",
     tradeNames: ["S2", "AsthmaNefrin", "Vaponefrin"],
     category: ["Airway & Respiratory"],
-    classes: ["Sympathomimetic", "Bronchodilator"],
+    classes: ["Sympathomimetic", "Bronchodilator", "Catecholamine"],
     source: "Mixed",
     moa: [
       {
@@ -1510,7 +1510,7 @@ const DRUGS = [
     genericName: "Promethazine",
     tradeNames: ["Phenergan"],
     category: ["Nausea & Vomiting", "Allergic & Immune"],
-    classes: ["Antihistamine", "Antiemetic", "Phenothiazine", "Sedative"],
+    classes: ["Antihistamine", "Antiemetic", "Phenothiazine", "Sedative", "Anticholinergic"],
     source: "Mixed",
     moa: [
       {
@@ -1870,7 +1870,7 @@ const DRUGS = [
     genericName: "Hydroxyzine",
     tradeNames: ["Vistaril", "Atarax"],
     category: ["Nausea & Vomiting", "Allergic & Immune"],
-    classes: ["Antihistamine", "Antiemetic", "Sedative"],
+    classes: ["Antihistamine", "Antiemetic", "Sedative", "Anticholinergic"],
     source: "StatPearls",
     moa: [
       {
@@ -2385,7 +2385,7 @@ const DRUGS = [
     genericName: "Hydromorphone",
     tradeNames: ["Dilaudid"],
     category: ["Pain Management"],
-    classes: ["Opioid Analgesic", "Analgesic", "Sedative"],
+    classes: ["Opioid Analgesic", "Analgesic"],
     source: "Mixed",
     moa: [
       {
@@ -2854,7 +2854,7 @@ const DRUGS = [
     genericName: "Amiodarone",
     tradeNames: ["Pacerone", "Cordarone", "Nexterone"],
     category: ["Cardiovascular", "Resuscitation"],
-    classes: ["Class III Antiarrhythmic", "Sodium Channel Blocker", "Potassium Channel Blocker"],
+    classes: ["Class III Antiarrhythmic", "Sodium Channel Blocker", "Potassium Channel Blocker", "Beta Blocker", "Calcium Channel Blocker"],
     source: "Mixed",
     moa: [
       {
@@ -2971,7 +2971,7 @@ const DRUGS = [
     genericName: "Aspirin",
     tradeNames: ["Bayer", "Ecotrin", "St. Joseph"],
     category: ["Cardiovascular"],
-    classes: ["NSAID", "Antiplatelet", "Antipyretic"],
+    classes: ["NSAID", "Antiplatelet", "Analgesic", "Antipyretic"],
     source: "Mixed",
     moa: [
       {
@@ -3330,7 +3330,7 @@ const DRUGS = [
     genericName: "Dobutamine",
     tradeNames: ["Dobutrex"],
     category: ["Cardiovascular"],
-    classes: ["Sympathomimetic", "Catecholamine", "Beta-1 Agonist", "Inotrope"],
+    classes: ["Sympathomimetic", "Catecholamine", "Beta-1 Agonist", "Inotrope", "Chronotrope"],
     source: "StatPearls",
     moa: [
       {
@@ -3649,7 +3649,7 @@ const DRUGS = [
     genericName: "Famotidine",
     tradeNames: ["Pepcid"],
     category: ["Toxicology", "Allergic & Immune"],
-    classes: ["Antihistamine"],
+    classes: ["H2 Blocker"],
     source: "Mixed",
     moa: [
       {
@@ -3724,7 +3724,7 @@ const DRUGS = [
     genericName: "Fentanyl",
     tradeNames: ["Sublimaze"],
     category: ["Pain Management", "Sedation & Anesthesia"],
-    classes: ["Opioid Analgesic", "Sedative", "Analgesic"],
+    classes: ["Opioid Analgesic", "Analgesic"],
     source: "Mixed",
     moa: [
       {
@@ -3979,7 +3979,7 @@ const DRUGS = [
     genericName: "Glucagon",
     tradeNames: ["GlucaGen", "Baqsimi"],
     category: ["Endocrine & Metabolic", "Toxicology", "Cardiovascular"],
-    classes: ["Hormone", "Antidote"],
+    classes: ["Hormone", "Antidote", "Inotrope", "Chronotrope"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -4124,7 +4124,7 @@ const DRUGS = [
     genericName: "Haloperidol",
     tradeNames: ["Haldol"],
     category: ["Neurological", "Sedation & Anesthesia"],
-    classes: ["Antipsychotic", "Butyrophenone"],
+    classes: ["Antipsychotic", "Butyrophenone", "Antiemetic"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -5281,7 +5281,7 @@ const DRUGS = [
     genericName: "Morphine Sulfate",
     tradeNames: ["MS Contin", "Duramorph"],
     category: ["Pain Management"],
-    classes: ["Opioid Analgesic", "Analgesic", "Sedative"],
+    classes: ["Opioid Analgesic", "Analgesic"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -5931,7 +5931,7 @@ const DRUGS = [
     genericName: "Diphenhydramine",
     tradeNames: ["Benadryl"],
     category: ["Allergic & Immune", "Neurological"],
-    classes: ["Anticholinergic", "Antihistamine", "Sedative"],
+    classes: ["Anticholinergic", "Antihistamine", "Sedative", "Antiemetic"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -6510,7 +6510,7 @@ const DRUGS = [
     genericName: "Labetalol",
     tradeNames: ["Trandate"],
     category: ["Cardiovascular", "OB/GYN"],
-    classes: ["Antihypertensive", "Beta Blocker", "Class II Antiarrhythmic", "Alpha-1 Antagonist"],
+    classes: ["Antihypertensive", "Beta Blocker", "Alpha-1 Antagonist"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -6674,7 +6674,7 @@ const DRUGS = [
     genericName: "Ketamine",
     tradeNames: ["Ketalar"],
     category: ["Neurological", "Pain Management", "Sedation & Anesthesia"],
-    classes: ["Dissociative Anesthetic", "Analgesic", "Sedative"],
+    classes: ["Dissociative Anesthetic", "Analgesic", "Sedative", "Bronchodilator", "Sympathomimetic"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
