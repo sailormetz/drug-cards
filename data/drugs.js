@@ -3396,7 +3396,7 @@ const DRUGS = [
     summary: "A long-acting corticosteroid approximately 25 times more potent than hydrocortisone, preferred in EMS for croup and bronchospasm. A single dose lasts 36 to 72 hours.",
     genericName: "Dexamethasone",
     tradeNames: ["Decadron", "Dexasone"],
-    category: ["Airway & Respiratory", "Endocrine & Metabolic", "Allergic & Immune"],
+    category: ["Airway & Respiratory", "Allergic & Immune"],
     classes: ["Corticosteroid"],
     source: "NASEMSO 2022 v3.0",
     moa: [
