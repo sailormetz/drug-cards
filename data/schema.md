@@ -170,21 +170,26 @@ Examples:
 **Not an enum** — add new values when none of the existing ones fit. But use these preferred spellings for consistency across the dataset:
 
 ```
-Alpha-1 Agonist            Analgesic                Anticholinergic
-Anticoagulant              Anticonvulsant           Antidote
-Antiemetic                 Antihistamine            Antihypertensive
-Antiplatelet               Antipsychotic            Benzodiazepine
-Beta-1 Agonist             Beta-2 Agonist           Bronchodilator
-Butyrophenone              Calcium Channel Blocker  Carbohydrate
-Catecholamine              Chronotrope              Class Ia Antiarrhythmic
-Class Ib Antiarrhythmic    Class II Antiarrhythmic  Class III Antiarrhythmic
-Class IV Antiarrhythmic    Corticosteroid           Cyanide Antagonist
-Dissociative Anesthetic    Electrolyte              Hemostatic
-Hormone                    Hypnotic                 Inotrope
-Loop Diuretic              NSAID                    Opioid Analgesic
-Opioid Antagonist          Osmotic Diuretic         Sedative
-Sympathomimetic            Vagolytic                Vasodilator
-Vasopressor
+Alkalizing Agent           Alpha-1 Agonist          Analgesic
+Anticholinergic            Anticoagulant            Anticonvulsant
+Antidiuretic               Antidote                 Antiemetic
+Antifibrinolytic           Antihistamine            Antihypertensive
+Antiplatelet               Antipsychotic            Antipyretic
+Benzodiazepine             Beta-1 Agonist           Beta-2 Agonist
+Beta Blocker               Bronchodilator           Butyrophenone
+Calcium Channel Blocker    Carbohydrate             Catecholamine
+Chronotrope                Class Ia Antiarrhythmic  Class Ib Antiarrhythmic
+Class II Antiarrhythmic    Class III Antiarrhythmic Class IV Antiarrhythmic
+Class V Antiarrhythmic     Corticosteroid           Crystalloid
+Cyanide Antagonist         Dissociative Anesthetic  Dromotrope
+Electrolyte                Hemostatic               Hormone
+Hypnotic                   Induction Agent          Inotrope
+Local Anesthetic           Loop Diuretic            Nitrate
+NSAID                      Opioid Analgesic         Opioid Antagonist
+Osmotic Diuretic           Paralytic                Phenothiazine
+Potassium Channel Blocker  Sedative                 Sodium Channel Blocker
+Sympathomimetic            Tocolytic                Vagolytic
+Vasodilator                Vasopressor              Vitamin
 ```
 
 ### `source`
