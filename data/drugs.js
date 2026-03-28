@@ -1685,7 +1685,7 @@ const DRUGS = [
     genericName: "Potassium Chloride (KCl)",
     tradeNames: ["Klor-Con", "K-Dur", "Micro-K"],
     category: ["Endocrine & Metabolic"],
-    classes: [],
+    classes: ["Electrolyte"],
     source: "StatPearls",
     moa: [
       {
@@ -2003,7 +2003,7 @@ const DRUGS = [
     genericName: "Hydroxocobalamin",
     tradeNames: ["Cyanokit"],
     category: ["Toxicology"],
-    classes: ["Antidote"],
+    classes: ["Antidote", "Cyanide Antagonist"],
     source: "Mixed",
     moa: [
       {
@@ -2085,7 +2085,7 @@ const DRUGS = [
     genericName: "Albuterol (Salbutamol)",
     tradeNames: ["Proventil", "Ventolin", "ProAir"],
     category: ["Airway & Respiratory"],
-    classes: ["Bronchodilator"],
+    classes: ["Bronchodilator", "Beta-2 Agonist", "Sympathomimetic"],
     source: "Mixed",
     moa: [
       {
@@ -2276,7 +2276,7 @@ const DRUGS = [
     genericName: "Dopamine",
     tradeNames: ["Intropin"],
     category: ["Cardiovascular", "Resuscitation"],
-    classes: ["Vasopressor", "Inotrope", "Catecholamine"],
+    classes: ["Vasopressor", "Inotrope", "Chronotrope", "Catecholamine", "Sympathomimetic"],
     source: "Mixed",
     moa: [
       {
@@ -2538,7 +2538,7 @@ const DRUGS = [
     genericName: "Etomidate",
     tradeNames: ["Amidate"],
     category: ["Sedation & Anesthesia"],
-    classes: ["Induction Agent"],
+    classes: ["Sedative", "Hypnotic", "Induction Agent"],
     source: "StatPearls",
     moa: [
       {
@@ -2612,7 +2612,7 @@ const DRUGS = [
     genericName: "Acetaminophen (Paracetamol, APAP)",
     tradeNames: ["Tylenol", "Ofirmev"],
     category: ["Pain Management"],
-    classes: ["Antipyretic"],
+    classes: ["Analgesic", "Antipyretic"],
     source: "Mixed",
     moa: [
       {
@@ -2753,7 +2753,7 @@ const DRUGS = [
     genericName: "Adenosine",
     tradeNames: ["Adenocard"],
     category: ["Cardiovascular"],
-    classes: [],
+    classes: ["Class V Antiarrhythmic"],
     source: "Mixed",
     moa: [
       {
