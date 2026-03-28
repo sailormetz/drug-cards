@@ -2607,12 +2607,12 @@ const DRUGS = [
     source: "Mixed",
     moa: [
       {
-        brief: 'Mechanism not fully understood. Appears to inhibit COX pathways centrally (not peripherally like NSAIDs), reducing prostaglandin synthesis in the CNS and producing analgesia and antipyresis without peripheral anti-inflammatory effect. May also modulate serotonergic descending pain pathways and activate the endocannabinoid system.',
+        brief: 'Ihibits COX pathways centrally (not peripherally like NSAIDs), reducing prostaglandin synthesis in the CNS and producing analgesia and antipyresis without peripheral anti-inflammatory effect. May also modulate serotonergic descending pain pathways and activate the endocannabinoid system.',
         target: { name: "Central COX / Nitric oxide / Serotonergic pathways", action: "inhibitor", result: "Central analgesia, antipyresis, no peripheral anti-inflammatory effect", system: "other" }
       }
     ],
     indications: [
-      { name: "Acute Pain (Mild to Moderate)" },
+      { name: "Acute Pain" },
       { name: "Fever" }
     ],
     contraindications: [
@@ -2622,7 +2622,7 @@ const DRUGS = [
     doses: [
       {
         population: "Adult",
-        indication: "Acute Pain (Mild to Moderate)",
+        indication: "Acute Pain",
         onset: "30-60 min (PO); 5-10 min (IV); 2-3 hrs (PR)",
         duration: "4-6 hrs",
         routes: [
