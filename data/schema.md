@@ -170,16 +170,17 @@ Examples:
 **Not an enum** — add new values when none of the existing ones fit. But use these preferred spellings for consistency across the dataset:
 
 ```
-Analgesic                  Anticholinergic          Anticoagulant
-Anticonvulsant             Antidote                 Antiemetic
-Antihistamine              Antihypertensive         Antiplatelet
-Antipsychotic              Benzodiazepine           Beta-2 Agonist
-Bronchodilator             Butyrophenone            Calcium Channel Blocker
-Carbohydrate               Catecholamine            Class Ia Antiarrhythmic
+Alpha-1 Agonist            Analgesic                Anticholinergic
+Anticoagulant              Anticonvulsant           Antidote
+Antiemetic                 Antihistamine            Antihypertensive
+Antiplatelet               Antipsychotic            Benzodiazepine
+Beta-1 Agonist             Beta-2 Agonist           Bronchodilator
+Butyrophenone              Calcium Channel Blocker  Carbohydrate
+Catecholamine              Chronotrope              Class Ia Antiarrhythmic
 Class Ib Antiarrhythmic    Class II Antiarrhythmic  Class III Antiarrhythmic
-Class IV Antiarrhythmic
-Corticosteroid             Cyanide Antagonist       Dissociative Anesthetic
-Electrolyte                Hormone                  Inotropic Agent
+Class IV Antiarrhythmic    Corticosteroid           Cyanide Antagonist
+Dissociative Anesthetic    Electrolyte              Hemostatic
+Hormone                    Hypnotic                 Inotrope
 Loop Diuretic              NSAID                    Opioid Analgesic
 Opioid Antagonist          Osmotic Diuretic         Sedative
 Sympathomimetic            Vagolytic                Vasodilator
