@@ -2853,7 +2853,7 @@ const DRUGS = [
     summary: "A multichannel blocker classified as Class III but with properties of all four Vaughan-Williams classes. Used for shock-refractory VF/pVT and stable wide-complex tachycardia, with an extremely long half-life of approximately 40 days.",
     genericName: "Amiodarone",
     tradeNames: ["Pacerone", "Cordarone", "Nexterone"],
-    category: ["Cardiovascular"],
+    category: ["Cardiovascular", "Resuscitation"],
     classes: ["Class III Antiarrhythmic", "Multichannel Blocker"],
     source: "Mixed",
     moa: [
@@ -3396,7 +3396,7 @@ const DRUGS = [
     summary: "A long-acting corticosteroid approximately 25 times more potent than hydrocortisone, preferred in EMS for croup and bronchospasm. A single dose lasts 36 to 72 hours.",
     genericName: "Dexamethasone",
     tradeNames: ["Decadron", "Dexasone"],
-    category: ["Airway & Respiratory", "Endocrine & Metabolic"],
+    category: ["Airway & Respiratory", "Endocrine & Metabolic", "Allergic & Immune"],
     classes: ["Corticosteroid"],
     source: "NASEMSO 2022 v3.0",
     moa: [
@@ -3648,7 +3648,7 @@ const DRUGS = [
     summary: "An H2 receptor antagonist used as an adjunct to diphenhydramine for allergic reactions and urticaria. Blocks histamine at H2 receptors on vasculature and GI tract to reduce vasodilation and glandular secretion.",
     genericName: "Famotidine",
     tradeNames: ["Pepcid"],
-    category: ["Toxicology"],
+    category: ["Toxicology", "Allergic & Immune"],
     classes: ["Antihistamine", "H2 Receptor Antagonist"],
     source: "Mixed",
     moa: [
@@ -3723,7 +3723,7 @@ const DRUGS = [
     summary: "A synthetic opioid analgesic used for severe pain and procedural sedation, roughly 100 times more potent than morphine by weight. Faster onset, shorter duration, and better hemodynamic stability than morphine due to no histamine release.",
     genericName: "Fentanyl",
     tradeNames: ["Sublimaze"],
-    category: ["Analgesic"],
+    category: ["Analgesic", "Sedation & Anesthesia"],
     classes: ["Opioid Analgesic", "Sedative"],
     source: "Mixed",
     moa: [
@@ -4123,7 +4123,7 @@ const DRUGS = [
     summary: "A first-generation antipsychotic used to manage acute psychosis and severe agitation. Carries a black box warning for QT prolongation and torsades, especially with IV use.",
     genericName: "Haloperidol",
     tradeNames: ["Haldol"],
-    category: ["Neurological"],
+    category: ["Neurological", "Sedation & Anesthesia"],
     classes: ["Antipsychotic"],
     source: "NASEMSO 2022 v3.0",
     moa: [
