@@ -123,14 +123,14 @@ Array of clinical groupings for front-end filtering. A drug appears under every 
 
 | Value | Covers |
 |-------|--------|
-| `"Airway & Respiratory"` | Bronchodilators, oxygen, airway adjuncts |
+| `"Airway & Respiratory"` | Bronchodilators, nebulized and inhaled drugs, oxygen, and airway management agents |
 | `"Allergic & Immune"` | Antihistamines, corticosteroids for allergic/immune response |
 | `"Analgesic"` | Opioid and non-opioid pain management |
-| `"Antiemetic"` | Drugs used primarily to treat nausea and vomiting |
-| `"Cardiovascular"` | Antiarrhythmics, vasopressors, antihypertensives, nitrates, antiplatelet |
-| `"Endocrine & Metabolic"` | Glucose management, steroids, electrolytes |
+| `"Antiemetic"` | Drugs used to treat nausea and vomiting |
+| `"Cardiovascular"` | Antiarrhythmics, vasopressors, inotropes, antihypertensives, diuretics, nitrates, antiplatelet |
+| `"Endocrine & Metabolic"` | Glucose management, electrolytes, and corticosteroids used for metabolic or endocrine indications (e.g. stress-dose hydrocortisone) |
 | `"Hemostatic"` | Agents that promote clotting or control hemorrhage |
-| `"Neurological"` | Anticonvulsants, antipsychotics |
+| `"Neurological"` | Anticonvulsants, antipsychotics, and drugs used for neurological or psychiatric emergencies |
 | `"OB/GYN"` | Drugs primarily used in obstetric emergencies |
 | `"Resuscitation"` | Cardiac arrest drugs, post-ROSC agents |
 | `"Sedation & Anesthesia"` | Induction agents, sedatives, paralytics, dissociatives |
