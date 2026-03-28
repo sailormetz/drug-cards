@@ -1509,7 +1509,7 @@ const DRUGS = [
     summary: "A first-generation antihistamine and phenothiazine used as an antiemetic, sedative, and antipruritic, often combined with opioids to potentiate analgesia and reduce nausea.",
     genericName: "Promethazine",
     tradeNames: ["Phenergan"],
-    category: ["Neurological"],
+    category: ["Antiemetic", "Allergic & Immune"],
     classes: ["Antihistamine", "Antiemetic", "Phenothiazine", "Sedative"],
     source: "Mixed",
     moa: [
@@ -1684,7 +1684,7 @@ const DRUGS = [
     summary: "The standard electrolyte replacement for hypokalemia and an ISMP high-alert medication where accidental rapid IV push is lethal. Primarily a hospital drug but critical for CCT paramedics managing existing KCl drips.",
     genericName: "Potassium Chloride (KCl)",
     tradeNames: ["Klor-Con", "K-Dur", "Micro-K"],
-    category: ["Electrolyte"],
+    category: ["Endocrine & Metabolic"],
     classes: ["Electrolyte Supplement", "Potassium Salt"],
     source: "StatPearls",
     moa: [
@@ -1869,7 +1869,7 @@ const DRUGS = [
     summary: "A first-generation antihistamine with anxiolytic, antiemetic, and antipruritic properties. Used in some EMS systems as a non-benzodiazepine option for anxiety and as an opioid adjunct.",
     genericName: "Hydroxyzine",
     tradeNames: ["Vistaril", "Atarax"],
-    category: ["Neurological"],
+    category: ["Antiemetic", "Allergic & Immune"],
     classes: ["Antihistamine", "Anxiolytic", "Antiemetic", "Antipruritic"],
     source: "StatPearls",
     moa: [
@@ -2275,7 +2275,7 @@ const DRUGS = [
     summary: "An endogenous catecholamine with dose-dependent effects across dopaminergic, beta-1, and alpha-1 receptors. Third-line vasopressor behind norepinephrine and epinephrine, associated with more arrhythmias and higher mortality than norepinephrine in shock.",
     genericName: "Dopamine",
     tradeNames: ["Intropin"],
-    category: ["Cardiovascular"],
+    category: ["Cardiovascular", "Resuscitation"],
     classes: ["Vasopressor", "Inotrope", "Catecholamine"],
     source: "Mixed",
     moa: [
@@ -2459,7 +2459,7 @@ const DRUGS = [
     summary: "A butyrophenone antipsychotic used for acute agitation and nausea, with faster onset than haloperidol. Carries an FDA black box warning for QT prolongation.",
     genericName: "Droperidol",
     tradeNames: ["Inapsine"],
-    category: ["Neurological"],
+    category: ["Neurological", "Antiemetic", "Sedation & Anesthesia"],
     classes: ["Antipsychotic", "Antiemetic", "Butyrophenone"],
     source: "Mixed",
     moa: [
@@ -2537,7 +2537,7 @@ const DRUGS = [
     summary: "A hemodynamically neutral RSI induction agent that maintains blood pressure, heart rate, and cardiac output while reducing ICP. Used for hemodynamically unstable patients needing intubation.",
     genericName: "Etomidate",
     tradeNames: ["Amidate"],
-    category: ["Neurological"],
+    category: ["Sedation & Anesthesia"],
     classes: ["Sedative-Hypnotic", "Induction Agent", "Non-Barbiturate"],
     source: "StatPearls",
     moa: [
