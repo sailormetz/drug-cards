@@ -124,12 +124,16 @@ Array of clinical groupings for front-end filtering. A drug appears under every 
 | Value | Covers |
 |-------|--------|
 | `"Airway & Respiratory"` | Bronchodilators, oxygen, airway adjuncts |
+| `"Allergic & Immune"` | Antihistamines, corticosteroids for allergic/immune response |
 | `"Analgesic"` | Opioid and non-opioid pain management |
+| `"Antiemetic"` | Drugs used primarily to treat nausea and vomiting |
 | `"Cardiovascular"` | Antiarrhythmics, vasopressors, antihypertensives, nitrates, antiplatelet |
 | `"Endocrine & Metabolic"` | Glucose management, steroids, electrolytes |
-| `"Neurological"` | Anticonvulsants, sedatives, antipsychotics |
+| `"Hemostatic"` | Agents that promote clotting or control hemorrhage |
+| `"Neurological"` | Anticonvulsants, antipsychotics |
 | `"OB/GYN"` | Drugs primarily used in obstetric emergencies |
 | `"Resuscitation"` | Cardiac arrest drugs, post-ROSC agents |
+| `"Sedation & Anesthesia"` | Induction agents, sedatives, paralytics, dissociatives |
 | `"Toxicology"` | Antidotes, reversal agents, poisoning management |
 | `"IV Fluids"` | Crystalloids, colloids |
 
