@@ -172,7 +172,7 @@ const DRUGS = [
     genericName: "Propranolol",
     tradeNames: ["Inderal", "Inderal LA", "InnoPran XL", "Hemangeol"],
     category: ["Cardiovascular"],
-    classes: ["Class II Antiarrhythmic", "Non-Selective Beta-Blocker"],
+    classes: ["Class II Antiarrhythmic"],
     source: "Mixed",
     moa: [
       {
@@ -250,7 +250,7 @@ const DRUGS = [
     genericName: "Protamine Sulfate",
     tradeNames: [],
     category: ["Toxicology", "Trauma & Hemorrhage"],
-    classes: ["Antidote", "Heparin Antagonist"],
+    classes: ["Antidote"],
     source: "StatPearls",
     moa: [
       {
@@ -425,7 +425,7 @@ const DRUGS = [
     genericName: "Rocuronium",
     tradeNames: ["Zemuron"],
     category: ["Airway & Respiratory", "Sedation & Anesthesia"],
-    classes: ["Non-Depolarizing Neuromuscular Blocker", "Aminosteroid"],
+    classes: [],
     source: "Mixed",
     moa: [
       {
@@ -684,7 +684,7 @@ const DRUGS = [
     genericName: "Succinylcholine",
     tradeNames: ["Anectine", "Quelicin"],
     category: ["Airway & Respiratory", "Sedation & Anesthesia"],
-    classes: ["Depolarizing Neuromuscular Blocker"],
+    classes: [],
     source: "StatPearls",
     moa: [
       {
@@ -871,7 +871,7 @@ const DRUGS = [
     genericName: "Thiamine (Vitamin B1)",
     tradeNames: [],
     category: ["Endocrine & Metabolic"],
-    classes: ["Vitamin", "Nutritional Supplement"],
+    classes: ["Vitamin"],
     source: "Mixed",
     moa: [
       {
@@ -938,7 +938,7 @@ const DRUGS = [
     genericName: "Tranexamic Acid",
     tradeNames: ["Cyklokapron", "Lysteda"],
     category: ["Trauma & Hemorrhage"],
-    classes: ["Antifibrinolytic", "Hemostatic Agent"],
+    classes: ["Antifibrinolytic"],
     source: "Mixed",
     moa: [
       {
@@ -1127,7 +1127,7 @@ const DRUGS = [
     genericName: "Vecuronium",
     tradeNames: ["Norcuron"],
     category: ["Airway & Respiratory", "Sedation & Anesthesia"],
-    classes: ["Non-Depolarizing Neuromuscular Blocker", "Aminosteroid"],
+    classes: [],
     source: "StatPearls",
     moa: [
       {
@@ -1200,7 +1200,7 @@ const DRUGS = [
     genericName: "Verapamil",
     tradeNames: ["Calan", "Isoptin", "Verelan"],
     category: ["Cardiovascular"],
-    classes: ["Class IV Antiarrhythmic", "Calcium Channel Blocker (Non-DHP)"],
+    classes: ["Class IV Antiarrhythmic"],
     source: "Mixed",
     moa: [
       {
@@ -1598,7 +1598,7 @@ const DRUGS = [
     genericName: "Pralidoxime Chloride (2-PAM)",
     tradeNames: ["Protopam", "DuoDote", "Mark I Kit", "ATNAA"],
     category: ["Toxicology"],
-    classes: ["Antidote", "Cholinesterase Reactivator", "Oxime"],
+    classes: ["Antidote"],
     source: "Mixed",
     moa: [
       {
@@ -1685,7 +1685,7 @@ const DRUGS = [
     genericName: "Potassium Chloride (KCl)",
     tradeNames: ["Klor-Con", "K-Dur", "Micro-K"],
     category: ["Endocrine & Metabolic"],
-    classes: ["Electrolyte Supplement", "Potassium Salt"],
+    classes: [],
     source: "StatPearls",
     moa: [
       {
@@ -1798,7 +1798,7 @@ const DRUGS = [
     genericName: "Oxytocin",
     tradeNames: ["Pitocin"],
     category: ["OB/GYN"],
-    classes: ["Uterotonic", "Hormone"],
+    classes: ["Hormone"],
     source: "Mixed",
     moa: [
       {
@@ -1870,7 +1870,7 @@ const DRUGS = [
     genericName: "Hydroxyzine",
     tradeNames: ["Vistaril", "Atarax"],
     category: ["Nausea & Vomiting", "Allergic & Immune"],
-    classes: ["Antihistamine", "Anxiolytic", "Antiemetic", "Antipruritic"],
+    classes: ["Antihistamine", "Antiemetic"],
     source: "StatPearls",
     moa: [
       {
@@ -2003,7 +2003,7 @@ const DRUGS = [
     genericName: "Hydroxocobalamin",
     tradeNames: ["Cyanokit"],
     category: ["Toxicology"],
-    classes: ["Antidote", "Cyanide Chelator", "Vitamin B12a"],
+    classes: ["Antidote"],
     source: "Mixed",
     moa: [
       {
@@ -2085,7 +2085,7 @@ const DRUGS = [
     genericName: "Albuterol (Salbutamol)",
     tradeNames: ["Proventil", "Ventolin", "ProAir"],
     category: ["Airway & Respiratory"],
-    classes: ["Short-Acting Beta-2 Agonist (SABA)", "Bronchodilator"],
+    classes: ["Bronchodilator"],
     source: "Mixed",
     moa: [
       {
@@ -2385,7 +2385,7 @@ const DRUGS = [
     genericName: "Hydromorphone",
     tradeNames: ["Dilaudid"],
     category: ["Pain Management"],
-    classes: ["Opioid Analgesic", "Mu-Opioid Receptor Agonist"],
+    classes: ["Opioid Analgesic"],
     source: "Mixed",
     moa: [
       {
@@ -2538,7 +2538,7 @@ const DRUGS = [
     genericName: "Etomidate",
     tradeNames: ["Amidate"],
     category: ["Sedation & Anesthesia"],
-    classes: ["Sedative-Hypnotic", "Induction Agent", "Non-Barbiturate"],
+    classes: ["Induction Agent"],
     source: "StatPearls",
     moa: [
       {
@@ -2612,7 +2612,7 @@ const DRUGS = [
     genericName: "Acetaminophen (Paracetamol, APAP)",
     tradeNames: ["Tylenol", "Ofirmev"],
     category: ["Pain Management"],
-    classes: ["Non-Opioid Analgesic", "Antipyretic"],
+    classes: ["Antipyretic"],
     source: "Mixed",
     moa: [
       {
@@ -2679,7 +2679,7 @@ const DRUGS = [
     genericName: "Activated Charcoal",
     tradeNames: ["Actidose-Aqua"],
     category: ["Toxicology"],
-    classes: ["Antidote", "GI Decontaminant", "Adsorbent"],
+    classes: ["Antidote"],
     source: "Mixed",
     moa: [
       {
@@ -2753,7 +2753,7 @@ const DRUGS = [
     genericName: "Adenosine",
     tradeNames: ["Adenocard"],
     category: ["Cardiovascular"],
-    classes: ["Antiarrhythmic", "Purine Nucleoside"],
+    classes: [],
     source: "Mixed",
     moa: [
       {
@@ -2854,7 +2854,7 @@ const DRUGS = [
     genericName: "Amiodarone",
     tradeNames: ["Pacerone", "Cordarone", "Nexterone"],
     category: ["Cardiovascular", "Resuscitation"],
-    classes: ["Class III Antiarrhythmic", "Multichannel Blocker"],
+    classes: ["Class III Antiarrhythmic"],
     source: "Mixed",
     moa: [
       {
@@ -3330,7 +3330,7 @@ const DRUGS = [
     genericName: "Dobutamine",
     tradeNames: ["Dobutrex"],
     category: ["Cardiovascular"],
-    classes: ["Sympathomimetic", "Inotropic Agent", "Catecholamine"],
+    classes: ["Sympathomimetic", "Catecholamine"],
     source: "StatPearls",
     moa: [
       {
@@ -3649,7 +3649,7 @@ const DRUGS = [
     genericName: "Famotidine",
     tradeNames: ["Pepcid"],
     category: ["Toxicology", "Allergic & Immune"],
-    classes: ["Antihistamine", "H2 Receptor Antagonist"],
+    classes: ["Antihistamine"],
     source: "Mixed",
     moa: [
       {
@@ -3836,7 +3836,7 @@ const DRUGS = [
     genericName: "Flumazenil",
     tradeNames: ["Romazicon"],
     category: ["Toxicology"],
-    classes: ["Benzodiazepine Antagonist", "Antidote"],
+    classes: ["Antidote"],
     source: "StatPearls",
     moa: [
       {
@@ -4207,7 +4207,7 @@ const DRUGS = [
     genericName: "Diltiazem",
     tradeNames: ["Cardizem"],
     category: ["Cardiovascular"],
-    classes: ["Class IV Antiarrhythmic", "Calcium Channel Blocker (Non-DHP)"],
+    classes: ["Class IV Antiarrhythmic"],
     source: "Mixed",
     moa: [
       {
@@ -4414,7 +4414,7 @@ const DRUGS = [
     genericName: "Oxygen",
     tradeNames: [],
     category: ["Airway & Respiratory", "Resuscitation"],
-    classes: ["Therapeutic Gas"],
+    classes: [],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -4648,7 +4648,7 @@ const DRUGS = [
     genericName: "Ondansetron",
     tradeNames: ["Zofran", "Zofran ODT"],
     category: ["Nausea & Vomiting"],
-    classes: ["Antiemetic", "5-HT3 Antagonist"],
+    classes: ["Antiemetic"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -5092,7 +5092,7 @@ const DRUGS = [
     genericName: "Nicardipine",
     tradeNames: ["Cardene"],
     category: ["Cardiovascular"],
-    classes: ["Calcium Channel Blocker (DHP)", "Antihypertensive"],
+    classes: ["Antihypertensive"],
     source: "StatPearls",
     moa: [
       {
@@ -5542,7 +5542,7 @@ const DRUGS = [
     genericName: "Metoprolol",
     tradeNames: ["Lopressor"],
     category: ["Cardiovascular"],
-    classes: ["Beta Blocker (β-1 Selective)"],
+    classes: [],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -5613,7 +5613,7 @@ const DRUGS = [
     genericName: "Methylprednisolone",
     tradeNames: ["Solu-Medrol"],
     category: ["Airway & Respiratory", "Allergic & Immune"],
-    classes: ["Corticosteroid", "Anti-inflammatory"],
+    classes: ["Corticosteroid"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -5931,7 +5931,7 @@ const DRUGS = [
     genericName: "Diphenhydramine",
     tradeNames: ["Benadryl"],
     category: ["Allergic & Immune", "Neurological"],
-    classes: ["Antihistamine (H1)", "Anticholinergic"],
+    classes: ["Anticholinergic"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -6052,7 +6052,7 @@ const DRUGS = [
     genericName: "Ipratropium Bromide",
     tradeNames: ["Atrovent"],
     category: ["Airway & Respiratory"],
-    classes: ["Anticholinergic Bronchodilator"],
+    classes: [],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -6352,7 +6352,7 @@ const DRUGS = [
     genericName: "Levalbuterol",
     tradeNames: ["Xopenex"],
     category: ["Airway & Respiratory"],
-    classes: ["Beta-2 Agonist Bronchodilator"],
+    classes: [],
     source: "StatPearls",
     moa: [
       {
@@ -6510,7 +6510,7 @@ const DRUGS = [
     genericName: "Labetalol",
     tradeNames: ["Trandate"],
     category: ["Cardiovascular", "OB/GYN"],
-    classes: ["Alpha/Beta Blocker", "Antihypertensive"],
+    classes: ["Antihypertensive"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -6674,7 +6674,7 @@ const DRUGS = [
     genericName: "Ketamine",
     tradeNames: ["Ketalar"],
     category: ["Neurological", "Pain Management", "Sedation & Anesthesia"],
-    classes: ["Dissociative Anesthetic", "NMDA Antagonist"],
+    classes: ["Dissociative Anesthetic"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
