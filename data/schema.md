@@ -175,7 +175,8 @@ Anticholinergic            Anticoagulant            Anticonvulsant
 Antidiuretic               Antidote                 Antiemetic
 Antifibrinolytic           Antihistamine            Antihypertensive
 Antiplatelet               Antipsychotic            Antipyretic
-Benzodiazepine             Beta-1 Agonist           Beta-2 Agonist
+Benzodiazepine             Benzodiazepine Antagonist  Beta-1 Agonist
+Beta-2 Agonist
 Beta Blocker               Bronchodilator           Butyrophenone
 Calcium Channel Blocker    Carbohydrate             Catecholamine
 Chronotrope                Class Ia Antiarrhythmic  Class Ib Antiarrhythmic

@@ -2854,7 +2854,7 @@ const DRUGS = [
     genericName: "Amiodarone",
     tradeNames: ["Pacerone", "Cordarone", "Nexterone"],
     category: ["Cardiovascular", "Resuscitation"],
-    classes: ["Class III Antiarrhythmic"],
+    classes: ["Class III Antiarrhythmic", "Sodium Channel Blocker", "Potassium Channel Blocker"],
     source: "Mixed",
     moa: [
       {
@@ -2971,7 +2971,7 @@ const DRUGS = [
     genericName: "Aspirin",
     tradeNames: ["Bayer", "Ecotrin", "St. Joseph"],
     category: ["Cardiovascular"],
-    classes: ["NSAID", "Antiplatelet"],
+    classes: ["NSAID", "Antiplatelet", "Antipyretic"],
     source: "Mixed",
     moa: [
       {
@@ -3330,7 +3330,7 @@ const DRUGS = [
     genericName: "Dobutamine",
     tradeNames: ["Dobutrex"],
     category: ["Cardiovascular"],
-    classes: ["Sympathomimetic", "Catecholamine"],
+    classes: ["Sympathomimetic", "Catecholamine", "Beta-1 Agonist", "Inotrope"],
     source: "StatPearls",
     moa: [
       {
@@ -3724,7 +3724,7 @@ const DRUGS = [
     genericName: "Fentanyl",
     tradeNames: ["Sublimaze"],
     category: ["Pain Management", "Sedation & Anesthesia"],
-    classes: ["Opioid Analgesic", "Sedative"],
+    classes: ["Opioid Analgesic", "Sedative", "Analgesic"],
     source: "Mixed",
     moa: [
       {
@@ -3836,7 +3836,7 @@ const DRUGS = [
     genericName: "Flumazenil",
     tradeNames: ["Romazicon"],
     category: ["Toxicology"],
-    classes: ["Antidote"],
+    classes: ["Antidote", "Benzodiazepine Antagonist"],
     source: "StatPearls",
     moa: [
       {
@@ -4124,7 +4124,7 @@ const DRUGS = [
     genericName: "Haloperidol",
     tradeNames: ["Haldol"],
     category: ["Neurological", "Sedation & Anesthesia"],
-    classes: ["Antipsychotic"],
+    classes: ["Antipsychotic", "Butyrophenone"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -4207,7 +4207,7 @@ const DRUGS = [
     genericName: "Diltiazem",
     tradeNames: ["Cardizem"],
     category: ["Cardiovascular"],
-    classes: ["Class IV Antiarrhythmic"],
+    classes: ["Class IV Antiarrhythmic", "Calcium Channel Blocker"],
     source: "Mixed",
     moa: [
       {
