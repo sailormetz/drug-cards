@@ -171,7 +171,7 @@ Examples:
 
 ```
 Adsorbent                    Alkalinizing Agent       Alpha-1 Agonist
-Analgesic
+Alpha-1 Antagonist           Analgesic
 Anticholinergic            Anticoagulant            Anticonvulsant
 Antidiuretic               Antidote                 Antiemetic
 Antifibrinolytic           Antihistamine            Antihypertensive

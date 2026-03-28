@@ -5800,7 +5800,7 @@ const DRUGS = [
     genericName: "Magnesium Sulfate",
     tradeNames: [],
     category: ["Cardiovascular", "Airway & Respiratory", "OB/GYN"],
-    classes: ["Electrolyte", "Class V Antiarrhythmic", "Anticonvulsant"],
+    classes: ["Electrolyte", "Class V Antiarrhythmic", "Anticonvulsant", "Bronchodilator", "Tocolytic"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -5931,7 +5931,7 @@ const DRUGS = [
     genericName: "Diphenhydramine",
     tradeNames: ["Benadryl"],
     category: ["Allergic & Immune", "Neurological"],
-    classes: ["Anticholinergic"],
+    classes: ["Anticholinergic", "Antihistamine", "Sedative"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -6052,7 +6052,7 @@ const DRUGS = [
     genericName: "Ipratropium Bromide",
     tradeNames: ["Atrovent"],
     category: ["Airway & Respiratory"],
-    classes: [],
+    classes: ["Anticholinergic", "Bronchodilator"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -6127,7 +6127,7 @@ const DRUGS = [
     genericName: "Lidocaine",
     tradeNames: ["Xylocaine"],
     category: ["Cardiovascular", "Pain Management"],
-    classes: ["Class Ib Antiarrhythmic", "Local Anesthetic"],
+    classes: ["Class Ib Antiarrhythmic", "Local Anesthetic", "Sodium Channel Blocker"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -6352,7 +6352,7 @@ const DRUGS = [
     genericName: "Levalbuterol",
     tradeNames: ["Xopenex"],
     category: ["Airway & Respiratory"],
-    classes: [],
+    classes: ["Bronchodilator", "Beta-2 Agonist", "Sympathomimetic"],
     source: "StatPearls",
     moa: [
       {
@@ -6510,7 +6510,7 @@ const DRUGS = [
     genericName: "Labetalol",
     tradeNames: ["Trandate"],
     category: ["Cardiovascular", "OB/GYN"],
-    classes: ["Antihypertensive"],
+    classes: ["Antihypertensive", "Beta Blocker", "Class II Antiarrhythmic", "Alpha-1 Antagonist"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -6580,7 +6580,7 @@ const DRUGS = [
     genericName: "Ketorolac",
     tradeNames: ["Toradol"],
     category: ["Pain Management"],
-    classes: ["NSAID"],
+    classes: ["NSAID", "Analgesic", "Antipyretic"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -6674,7 +6674,7 @@ const DRUGS = [
     genericName: "Ketamine",
     tradeNames: ["Ketalar"],
     category: ["Neurological", "Pain Management", "Sedation & Anesthesia"],
-    classes: ["Dissociative Anesthetic"],
+    classes: ["Dissociative Anesthetic", "Analgesic", "Sedative"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
