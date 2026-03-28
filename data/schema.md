@@ -186,7 +186,8 @@ Class V Antiarrhythmic     Corticosteroid           Crystalloid
 Cyanide Antagonist         Dissociative Anesthetic  Dromotrope
 Electrolyte                Hemostatic               Hormone
 Hypnotic                   Induction Agent          Inotrope
-Local Anesthetic           Loop Diuretic            Nitrate
+Local Anesthetic           Loop Diuretic            Medical Gas
+Nitrate
 NSAID                      Opioid Analgesic         Opioid Antagonist
 Osmotic Diuretic           Paralytic                Phenothiazine
 Potassium Channel Blocker  Sedative                 Sodium Channel Blocker

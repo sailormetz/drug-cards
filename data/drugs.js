@@ -4414,7 +4414,7 @@ const DRUGS = [
     genericName: "Oxygen",
     tradeNames: [],
     category: ["Airway & Respiratory", "Resuscitation"],
-    classes: [],
+    classes: ["Medical Gas"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -4648,7 +4648,7 @@ const DRUGS = [
     genericName: "Ondansetron",
     tradeNames: ["Zofran", "Zofran ODT"],
     category: ["Nausea & Vomiting"],
-    classes: ["Antiemetic"],
+    classes: ["Antiemetic", "5-HT3 Antagonist"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -4828,7 +4828,7 @@ const DRUGS = [
     genericName: "Norepinephrine",
     tradeNames: ["Levophed"],
     category: ["Cardiovascular", "Resuscitation"],
-    classes: ["Sympathomimetic", "Catecholamine", "Vasopressor"],
+    classes: ["Sympathomimetic", "Catecholamine", "Vasopressor", "Alpha-1 Agonist", "Beta-1 Agonist"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -4910,7 +4910,7 @@ const DRUGS = [
     genericName: "Nitrous Oxide",
     tradeNames: ["Nitronox"],
     category: ["Pain Management", "Sedation & Anesthesia"],
-    classes: ["Analgesic", "Sedative"],
+    classes: ["Analgesic", "Sedative", "Dissociative Anesthetic"],
     source: "Mixed",
     moa: [
       {
@@ -5092,7 +5092,7 @@ const DRUGS = [
     genericName: "Nicardipine",
     tradeNames: ["Cardene"],
     category: ["Cardiovascular"],
-    classes: ["Antihypertensive"],
+    classes: ["Antihypertensive", "Calcium Channel Blocker"],
     source: "StatPearls",
     moa: [
       {
@@ -5281,7 +5281,7 @@ const DRUGS = [
     genericName: "Morphine Sulfate",
     tradeNames: ["MS Contin", "Duramorph"],
     category: ["Pain Management"],
-    classes: ["Opioid Analgesic"],
+    classes: ["Opioid Analgesic", "Analgesic", "Sedative"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -5542,7 +5542,7 @@ const DRUGS = [
     genericName: "Metoprolol",
     tradeNames: ["Lopressor"],
     category: ["Cardiovascular"],
-    classes: [],
+    classes: ["Beta Blocker", "Class II Antiarrhythmic"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -5725,7 +5725,7 @@ const DRUGS = [
     genericName: "Meperidine",
     tradeNames: ["Demerol"],
     category: ["Pain Management"],
-    classes: ["Opioid Analgesic"],
+    classes: ["Opioid Analgesic", "Analgesic"],
     source: "StatPearls",
     moa: [
       {
