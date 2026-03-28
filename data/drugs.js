@@ -249,7 +249,7 @@ const DRUGS = [
     summary: "The specific antidote for heparin. A strongly basic protein that binds and neutralizes heparin\\'s anticoagulant effect, primarily used post-cardiac surgery and to reverse heparin overdose.",
     genericName: "Protamine Sulfate",
     tradeNames: [],
-    category: ["Toxicology"],
+    category: ["Toxicology", "Hemostatic"],
     classes: ["Antidote", "Heparin Antagonist"],
     source: "StatPearls",
     moa: [
@@ -424,7 +424,7 @@ const DRUGS = [
     summary: "A fast-acting non-depolarizing neuromuscular blocker used for RSI paralysis. Preferred over succinylcholine in many EMS systems due to fewer contraindications, no fasciculations, and full reversibility with sugammadex.",
     genericName: "Rocuronium",
     tradeNames: ["Zemuron"],
-    category: ["Airway & Respiratory"],
+    category: ["Airway & Respiratory", "Sedation & Anesthesia"],
     classes: ["Non-Depolarizing Neuromuscular Blocker", "Aminosteroid"],
     source: "Mixed",
     moa: [
@@ -683,7 +683,7 @@ const DRUGS = [
     summary: "A depolarizing neuromuscular blocker used for RSI with the fastest onset and shortest duration of any paralytic. Carries significant contraindications including hyperkalemia risk, malignant hyperthermia, and burns or crush injuries over 24 hours old.",
     genericName: "Succinylcholine",
     tradeNames: ["Anectine", "Quelicin"],
-    category: ["Airway & Respiratory"],
+    category: ["Airway & Respiratory", "Sedation & Anesthesia"],
     classes: ["Depolarizing Neuromuscular Blocker"],
     source: "StatPearls",
     moa: [
@@ -937,7 +937,7 @@ const DRUGS = [
     summary: "An antifibrinolytic that stabilizes blood clots by blocking plasmin. Given early in major trauma and postpartum hemorrhage to reduce death from bleeding, with benefit greatest within one hour of injury.",
     genericName: "Tranexamic Acid",
     tradeNames: ["Cyklokapron", "Lysteda"],
-    category: ["Cardiovascular"],
+    category: ["Hemostatic"],
     classes: ["Antifibrinolytic", "Hemostatic Agent"],
     source: "Mixed",
     moa: [
@@ -1126,7 +1126,7 @@ const DRUGS = [
     summary: "An intermediate-acting non-depolarizing paralytic with minimal hemodynamic effects, used for post-intubation paralysis maintenance rather than RSI due to slow onset. Must be reconstituted from powder before use.",
     genericName: "Vecuronium",
     tradeNames: ["Norcuron"],
-    category: ["Airway & Respiratory"],
+    category: ["Airway & Respiratory", "Sedation & Anesthesia"],
     classes: ["Non-Depolarizing Neuromuscular Blocker", "Aminosteroid"],
     source: "StatPearls",
     moa: [
@@ -1291,7 +1291,7 @@ const DRUGS = [
     summary: "A rapid-onset, ultra-short-acting IV sedative-hypnotic used for RSI induction and post-intubation sedation. Provides amnesia and reduces ICP but causes dose-dependent hypotension.",
     genericName: "Propofol",
     tradeNames: ["Diprivan"],
-    category: ["Neurological"],
+    category: ["Sedation & Anesthesia"],
     classes: ["Sedative", "Hypnotic", "Induction Agent"],
     source: "StatPearls",
     moa: [
