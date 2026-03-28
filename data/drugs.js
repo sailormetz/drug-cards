@@ -4286,7 +4286,7 @@ const DRUGS = [
     summary: "A long-acting benzodiazepine for seizures and acute agitation. The rectal formulation makes it useful when IV, IM, and IN routes are unavailable, though midazolam has largely replaced it as first-line prehospital benzodiazepine.",
     genericName: "Diazepam",
     tradeNames: ["Valium", "Diastat"],
-    category: ["Neurological"],
+    category: ["Neurological", "Sedation & Anesthesia"],
     classes: ["Benzodiazepine", "Anticonvulsant", "Sedative"],
     source: "NASEMSO 2022 v3.0",
     moa: [
@@ -4647,7 +4647,7 @@ const DRUGS = [
     summary: "A selective 5-HT3 antagonist and the preferred prehospital antiemetic, with no extrapyramidal side effects. Carries dose-dependent QT prolongation risk.",
     genericName: "Ondansetron",
     tradeNames: ["Zofran", "Zofran ODT"],
-    category: ["Neurological"],
+    category: ["Antiemetic"],
     classes: ["Antiemetic", "5-HT3 Antagonist"],
     source: "NASEMSO 2022 v3.0",
     moa: [
@@ -4909,7 +4909,7 @@ const DRUGS = [
     summary: "A self-administered inhaled analgesic (50% N2O / 50% O2) with rapid onset and offset, providing mild to moderate analgesia. The built-in demand valve makes oversedation nearly impossible.",
     genericName: "Nitrous Oxide",
     tradeNames: ["Nitronox"],
-    category: ["Analgesic"],
+    category: ["Analgesic", "Sedation & Anesthesia"],
     classes: ["Analgesic", "Sedative"],
     source: "Mixed",
     moa: [
@@ -5382,7 +5382,7 @@ const DRUGS = [
     summary: "The preferred prehospital benzodiazepine, with reliable IM and IN absorption, fast onset, and multiple routes. First-line for prehospital seizures when IV is unavailable, also used for agitation, procedural sedation, and shivering control.",
     genericName: "Midazolam",
     tradeNames: ["Versed"],
-    category: ["Neurological"],
+    category: ["Neurological", "Sedation & Anesthesia"],
     classes: ["Benzodiazepine", "Anticonvulsant", "Sedative"],
     source: "NASEMSO 2022 v3.0",
     moa: [
@@ -5612,7 +5612,7 @@ const DRUGS = [
     summary: "A systemic corticosteroid for acute bronchospasm and adrenal crisis. Takes 4 to 6 hours to produce clinical improvement, so it is always given alongside fast-acting bronchodilators.",
     genericName: "Methylprednisolone",
     tradeNames: ["Solu-Medrol"],
-    category: ["Airway & Respiratory", "Endocrine & Metabolic"],
+    category: ["Airway & Respiratory", "Allergic & Immune"],
     classes: ["Corticosteroid", "Anti-inflammatory"],
     source: "NASEMSO 2022 v3.0",
     moa: [
