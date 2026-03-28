@@ -184,8 +184,8 @@ Chronotrope                Class Ia Antiarrhythmic  Class Ib Antiarrhythmic
 Class II Antiarrhythmic    Class III Antiarrhythmic Class IV Antiarrhythmic
 Class V Antiarrhythmic     Corticosteroid           Crystalloid
 Cyanide Antagonist         Dissociative Anesthetic  Dromotrope
-Electrolyte                Hemostatic               Hormone
-Hypnotic                   Induction Agent          Inotrope
+Electrolyte                H2 Blocker               Hemostatic
+Hormone                    Hypnotic                 Induction Agent          Inotrope
 Local Anesthetic           Loop Diuretic            Medical Gas
 Nitrate
 NSAID                      Opioid Analgesic         Opioid Antagonist
