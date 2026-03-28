@@ -249,7 +249,7 @@ const DRUGS = [
     summary: "The specific antidote for heparin. A strongly basic protein that binds and neutralizes heparin\\'s anticoagulant effect, primarily used post-cardiac surgery and to reverse heparin overdose.",
     genericName: "Protamine Sulfate",
     tradeNames: [],
-    category: ["Toxicology", "Hemostatic"],
+    category: ["Toxicology", "Trauma & Hemorrhage"],
     classes: ["Antidote", "Heparin Antagonist"],
     source: "StatPearls",
     moa: [
@@ -937,7 +937,7 @@ const DRUGS = [
     summary: "An antifibrinolytic that stabilizes blood clots by blocking plasmin. Given early in major trauma and postpartum hemorrhage to reduce death from bleeding, with benefit greatest within one hour of injury.",
     genericName: "Tranexamic Acid",
     tradeNames: ["Cyklokapron", "Lysteda"],
-    category: ["Hemostatic"],
+    category: ["Trauma & Hemorrhage"],
     classes: ["Antifibrinolytic", "Hemostatic Agent"],
     source: "Mixed",
     moa: [
@@ -1509,8 +1509,8 @@ const DRUGS = [
     summary: "A first-generation antihistamine and phenothiazine used as an antiemetic, sedative, and antipruritic, often combined with opioids to potentiate analgesia and reduce nausea.",
     genericName: "Promethazine",
     tradeNames: ["Phenergan"],
-    category: ["Antiemetic", "Allergic & Immune"],
-    classes: ["Antihistamine", "Antiemetic", "Phenothiazine", "Sedative"],
+    category: ["Nausea & Vomiting", "Allergic & Immune"],
+    classes: ["Antihistamine", "Nausea & Vomiting", "Phenothiazine", "Sedative"],
     source: "Mixed",
     moa: [
       {
@@ -1869,8 +1869,8 @@ const DRUGS = [
     summary: "A first-generation antihistamine with anxiolytic, antiemetic, and antipruritic properties. Used in some EMS systems as a non-benzodiazepine option for anxiety and as an opioid adjunct.",
     genericName: "Hydroxyzine",
     tradeNames: ["Vistaril", "Atarax"],
-    category: ["Antiemetic", "Allergic & Immune"],
-    classes: ["Antihistamine", "Anxiolytic", "Antiemetic", "Antipruritic"],
+    category: ["Nausea & Vomiting", "Allergic & Immune"],
+    classes: ["Antihistamine", "Anxiolytic", "Nausea & Vomiting", "Antipruritic"],
     source: "StatPearls",
     moa: [
       {
@@ -2384,7 +2384,7 @@ const DRUGS = [
     summary: "A semi-synthetic opioid 5 to 7 times more potent than morphine per milligram, used for moderate-to-severe acute pain when morphine is ineffective or poorly tolerated. Fewer histamine-related side effects than morphine.",
     genericName: "Hydromorphone",
     tradeNames: ["Dilaudid"],
-    category: ["Analgesic"],
+    category: ["Pain Management"],
     classes: ["Opioid Analgesic", "Mu-Opioid Receptor Agonist"],
     source: "Mixed",
     moa: [
@@ -2459,8 +2459,8 @@ const DRUGS = [
     summary: "A butyrophenone antipsychotic used for acute agitation and nausea, with faster onset than haloperidol. Carries an FDA black box warning for QT prolongation.",
     genericName: "Droperidol",
     tradeNames: ["Inapsine"],
-    category: ["Neurological", "Antiemetic", "Sedation & Anesthesia"],
-    classes: ["Antipsychotic", "Antiemetic", "Butyrophenone"],
+    category: ["Neurological", "Nausea & Vomiting", "Sedation & Anesthesia"],
+    classes: ["Antipsychotic", "Nausea & Vomiting", "Butyrophenone"],
     source: "Mixed",
     moa: [
       {
@@ -2611,7 +2611,7 @@ const DRUGS = [
     summary: "A non-opioid analgesic and antipyretic that reduces pain and fever without anti-inflammatory or antiplatelet effects. The leading cause of acute liver failure in the US through NAPQI-mediated hepatotoxicity in overdose.",
     genericName: "Acetaminophen (Paracetamol, APAP)",
     tradeNames: ["Tylenol", "Ofirmev"],
-    category: ["Analgesic"],
+    category: ["Pain Management"],
     classes: ["Non-Opioid Analgesic", "Antipyretic"],
     source: "Mixed",
     moa: [
@@ -3723,7 +3723,7 @@ const DRUGS = [
     summary: "A synthetic opioid analgesic used for severe pain and procedural sedation, roughly 100 times more potent than morphine by weight. Faster onset, shorter duration, and better hemodynamic stability than morphine due to no histamine release.",
     genericName: "Fentanyl",
     tradeNames: ["Sublimaze"],
-    category: ["Analgesic", "Sedation & Anesthesia"],
+    category: ["Pain Management", "Sedation & Anesthesia"],
     classes: ["Opioid Analgesic", "Sedative"],
     source: "Mixed",
     moa: [
@@ -4647,8 +4647,8 @@ const DRUGS = [
     summary: "A selective 5-HT3 antagonist and the preferred prehospital antiemetic, with no extrapyramidal side effects. Carries dose-dependent QT prolongation risk.",
     genericName: "Ondansetron",
     tradeNames: ["Zofran", "Zofran ODT"],
-    category: ["Antiemetic"],
-    classes: ["Antiemetic", "5-HT3 Antagonist"],
+    category: ["Nausea & Vomiting"],
+    classes: ["Nausea & Vomiting", "5-HT3 Antagonist"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -4909,8 +4909,8 @@ const DRUGS = [
     summary: "A self-administered inhaled analgesic (50% N2O / 50% O2) with rapid onset and offset, providing mild to moderate analgesia. The built-in demand valve makes oversedation nearly impossible.",
     genericName: "Nitrous Oxide",
     tradeNames: ["Nitronox"],
-    category: ["Analgesic", "Sedation & Anesthesia"],
-    classes: ["Analgesic", "Sedative"],
+    category: ["Pain Management", "Sedation & Anesthesia"],
+    classes: ["Pain Management", "Sedative"],
     source: "Mixed",
     moa: [
       {
@@ -5280,7 +5280,7 @@ const DRUGS = [
     summary: "The prototypical opioid analgesic, providing analgesia, anxiolysis, and mild preload reduction. Slower onset than fentanyl but longer duration, useful when sustained analgesia is needed.",
     genericName: "Morphine Sulfate",
     tradeNames: ["MS Contin", "Duramorph"],
-    category: ["Analgesic"],
+    category: ["Pain Management"],
     classes: ["Opioid Analgesic"],
     source: "NASEMSO 2022 v3.0",
     moa: [
@@ -5724,7 +5724,7 @@ const DRUGS = [
     summary: "A synthetic opioid largely replaced for pain management due to its neurotoxic metabolite normeperidine. Retains a niche role in anti-shivering therapy, where it is uniquely effective through kappa-opioid receptor activity.",
     genericName: "Meperidine",
     tradeNames: ["Demerol"],
-    category: ["Analgesic"],
+    category: ["Pain Management"],
     classes: ["Opioid Analgesic"],
     source: "StatPearls",
     moa: [
@@ -6126,7 +6126,7 @@ const DRUGS = [
     summary: "A Class Ib antiarrhythmic and local anesthetic, used as an alternative to amiodarone for refractory VF/pulseless VT. Also flushed through IO lines prior to fluid administration to reduce infusion pain in conscious patients.",
     genericName: "Lidocaine",
     tradeNames: ["Xylocaine"],
-    category: ["Cardiovascular", "Analgesic"],
+    category: ["Cardiovascular", "Pain Management"],
     classes: ["Class Ib Antiarrhythmic", "Local Anesthetic"],
     source: "NASEMSO 2022 v3.0",
     moa: [
@@ -6579,7 +6579,7 @@ const DRUGS = [
     summary: "The only injectable NSAID commonly carried in EMS, providing analgesia and anti-inflammatory effects without respiratory depression, sedation, or abuse potential. Used for renal colic, musculoskeletal pain, and as an opioid-sparing adjunct.",
     genericName: "Ketorolac",
     tradeNames: ["Toradol"],
-    category: ["Analgesic"],
+    category: ["Pain Management"],
     classes: ["NSAID"],
     source: "NASEMSO 2022 v3.0",
     moa: [
@@ -6673,7 +6673,7 @@ const DRUGS = [
     summary: "A dissociative anesthetic that preserves airway reflexes, spontaneous respirations, and hemodynamic stability. Used at full dissociative doses for severe agitation and at subdissociative doses for pain management.",
     genericName: "Ketamine",
     tradeNames: ["Ketalar"],
-    category: ["Neurological", "Analgesic", "Sedation & Anesthesia"],
+    category: ["Neurological", "Pain Management", "Sedation & Anesthesia"],
     classes: ["Dissociative Anesthetic", "NMDA Antagonist"],
     source: "NASEMSO 2022 v3.0",
     moa: [

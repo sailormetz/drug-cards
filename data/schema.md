@@ -119,35 +119,39 @@ Array of trade name strings. One entry per distinct brand.
 ### `category`
 Array of clinical groupings for front-end filtering. A drug appears under every category it belongs to.
 
+Design rule: Categories describe *clinical scenarios on a call* — not pharmacological classes. If a category name also appears in classes, it belongs in classes only.
+
 #### Category Enums
 
-| Value | Covers |
-|-------|--------|
-| `"Airway & Respiratory"` | Bronchodilators, nebulized and inhaled drugs, oxygen, and airway management agents |
-| `"Allergic & Immune"` | Antihistamines, corticosteroids for allergic/immune response |
-| `"Analgesic"` | Opioid and non-opioid pain management |
-| `"Antiemetic"` | Drugs used to treat nausea and vomiting |
-| `"Cardiovascular"` | Antiarrhythmics, vasopressors, inotropes, antihypertensives, diuretics, nitrates, antiplatelet |
-| `"Endocrine & Metabolic"` | Glucose management, electrolytes, and corticosteroids used for metabolic or endocrine indications (e.g. stress-dose hydrocortisone) |
-| `"Hemostatic"` | Agents that promote clotting or control hemorrhage |
-| `"Neurological"` | Anticonvulsants, antipsychotics, and drugs used for neurological or psychiatric emergencies |
-| `"OB/GYN"` | Drugs primarily used in obstetric emergencies |
-| `"Resuscitation"` | Cardiac arrest drugs, post-ROSC agents |
-| `"Sedation & Anesthesia"` | Induction agents, sedatives, paralytics, dissociatives |
-| `"Toxicology"` | Antidotes, reversal agents, poisoning management |
-| `"IV Fluids"` | Crystalloids, colloids |
+| Value | Definition |
+|-------|------------|
+| `"Airway & Respiratory"` | Drugs used to open, maintain, or protect the airway, or treat respiratory distress. Includes bronchodilators, supplemental oxygen, nebulized agents, and neuromuscular blockers used for intubation. |
+| `"Allergic & Immune"` | Drugs used to treat allergic reactions and immune-mediated responses short of anaphylaxis. Includes H1 and H2 blockers and corticosteroids given for allergic indications. Does not include epinephrine for anaphylaxis (that's Resuscitation). |
+| `"Cardiovascular"` | Drugs used to manage heart rate, rhythm, blood pressure, or cardiac output in patients with a pulse. Includes antiarrhythmics, rate controllers, vasopressors outside of arrest, antihypertensives, nitrates, antiplatelet agents, inotropes, and diuretics. |
+| `"Endocrine & Metabolic"` | Drugs that correct metabolic derangements in the field. Includes glucose replacement, electrolyte correction, cofactors like thiamine, and acid-base agents like sodium bicarbonate when given for a metabolic indication. |
+| `"IV Fluids"` | Crystalloid and colloid solutions administered for volume resuscitation, medication dilution, or maintenance access. |
+| `"Nausea & Vomiting"` | Drugs given primarily to treat or prevent nausea and vomiting in the field. A drug belongs here when nausea/vomiting is the clinical reason it's being administered — not when antiemesis is a secondary pharmacological property. |
+| `"Neurological"` | Drugs used to manage seizures, acute psychosis, or behavioral emergencies. Includes anticonvulsants and antipsychotics when used for a neurological or behavioral indication. Does not include the same drugs when used purely for procedural sedation (that's Sedation & Anesthesia). |
+| `"OB/GYN"` | Drugs used in obstetric and gynecological emergencies. Includes tocolytics, uterotonics, and eclampsia management. A drug belongs here when the clinical indication is pregnancy- or delivery-specific. |
+| `"Pain Management"` | Drugs administered to treat pain in the prehospital setting. Includes opioids, non-opioids, dissociatives, and local anesthetics when the clinical reason is analgesia. |
+| `"Resuscitation"` | Drugs used during cardiac arrest or in the immediate post-ROSC period. A drug belongs here when it's being given as part of ACLS/PALS arrest algorithms or post-arrest stabilization — not simply because it can support blood pressure. |
+| `"Sedation & Anesthesia"` | Drugs used for procedural sedation, RSI induction, or neuromuscular blockade. Includes induction agents, dissociatives, benzodiazepines, and paralytics when the clinical reason is facilitating a procedure — not seizure control or behavioral management. |
+| `"Toxicology"` | Drugs used to treat poisoning, overdose, or toxic exposure. Includes specific antidotes, reversal agents, and decontamination agents. A drug belongs here when the indication is reversing or counteracting a toxin. |
+| `"Trauma & Hemorrhage"` | Drugs used to control bleeding or support hemostasis in trauma. Includes antifibrinolytics, procoagulant reversal agents, and topical/nasal vasoconstrictors given for hemorrhage control. |
 
 **Rule:** Include every category that applies. List the primary use first. Front-end filters with `drug.category.includes(filter)`.
 
-**Note:** `category` is a coarse filter maintained by the author — it is NOT derived from `indications[].name`. Categories group drugs by clinical domain (e.g. "Cardiovascular"), while indications list specific conditions (e.g. "Cardiac Arrest"). They will overlap conceptually but are maintained independently.
+**Note:** `category` is a coarse clinical filter maintained by the author — it is NOT derived from `indications[].name`. Categories group drugs by *call type* (e.g. "Cardiovascular"), while indications list specific conditions (e.g. "Cardiac Arrest"). They will overlap conceptually but are maintained independently.
 
 Examples:
 - **Epinephrine:** `["Resuscitation", "Cardiovascular", "Airway & Respiratory"]`
 - **Amiodarone:** `["Cardiovascular", "Resuscitation"]`
 - **Magnesium Sulfate:** `["Cardiovascular", "OB/GYN", "Airway & Respiratory"]`
-- **Ketamine:** `["Neurological", "Analgesic", "Sedation & Anesthesia"]`
+- **Ketamine:** `["Pain Management", "Neurological", "Sedation & Anesthesia"]`
 - **Naloxone:** `["Toxicology"]` — single-category drugs still use an array
-- **Ondansetron:** `["Antiemetic"]`
+- **Ondansetron:** `["Nausea & Vomiting"]`
+- **Tranexamic Acid:** `["Trauma & Hemorrhage"]`
+- **Droperidol:** `["Neurological", "Nausea & Vomiting", "Sedation & Anesthesia"]`
 
 ### `classes`
 Array of pharmacological class strings. These are the drug's formal classifications, not its use category.
