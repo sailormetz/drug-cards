@@ -1510,7 +1510,7 @@ const DRUGS = [
     genericName: "Promethazine",
     tradeNames: ["Phenergan"],
     category: ["Nausea & Vomiting", "Allergic & Immune"],
-    classes: ["Antihistamine", "Nausea & Vomiting", "Phenothiazine", "Sedative"],
+    classes: ["Antihistamine", "Antiemetic", "Phenothiazine", "Sedative"],
     source: "Mixed",
     moa: [
       {
@@ -1870,7 +1870,7 @@ const DRUGS = [
     genericName: "Hydroxyzine",
     tradeNames: ["Vistaril", "Atarax"],
     category: ["Nausea & Vomiting", "Allergic & Immune"],
-    classes: ["Antihistamine", "Anxiolytic", "Nausea & Vomiting", "Antipruritic"],
+    classes: ["Antihistamine", "Anxiolytic", "Antiemetic", "Antipruritic"],
     source: "StatPearls",
     moa: [
       {
@@ -2460,7 +2460,7 @@ const DRUGS = [
     genericName: "Droperidol",
     tradeNames: ["Inapsine"],
     category: ["Neurological", "Nausea & Vomiting", "Sedation & Anesthesia"],
-    classes: ["Antipsychotic", "Nausea & Vomiting", "Butyrophenone"],
+    classes: ["Antipsychotic", "Antiemetic", "Butyrophenone"],
     source: "Mixed",
     moa: [
       {
@@ -4648,7 +4648,7 @@ const DRUGS = [
     genericName: "Ondansetron",
     tradeNames: ["Zofran", "Zofran ODT"],
     category: ["Nausea & Vomiting"],
-    classes: ["Nausea & Vomiting", "5-HT3 Antagonist"],
+    classes: ["Antiemetic", "5-HT3 Antagonist"],
     source: "NASEMSO 2022 v3.0",
     moa: [
       {
@@ -4910,7 +4910,7 @@ const DRUGS = [
     genericName: "Nitrous Oxide",
     tradeNames: ["Nitronox"],
     category: ["Pain Management", "Sedation & Anesthesia"],
-    classes: ["Pain Management", "Sedative"],
+    classes: ["Analgesic", "Sedative"],
     source: "Mixed",
     moa: [
       {
