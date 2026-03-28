@@ -170,7 +170,7 @@ Examples:
 **Not an enum** — add new values when none of the existing ones fit. But use these preferred spellings for consistency across the dataset:
 
 ```
-Alkalizing Agent           Alpha-1 Agonist          Analgesic
+Alkalinizing Agent           Alpha-1 Agonist          Analgesic
 Anticholinergic            Anticoagulant            Anticonvulsant
 Antidiuretic               Antidote                 Antiemetic
 Antifibrinolytic           Antihistamine            Antihypertensive
