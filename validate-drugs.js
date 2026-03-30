@@ -3,241 +3,321 @@
  * Drug Data Validator
  * Validates drugs.js against schema.md rules.
  * Run: node validate-drugs.js [path-to-drugs-file]
+ *
+ * Updated for schema v2:
+ *   - Doses are nested inside indications[].doses[] (no flat drug.doses[])
+ *   - onset/duration live at route level (not dose level)
+ *   - sameDoseAs pointer indications have no doses
+ *   - Expanded category enums
  */
 
 const fs = require('fs');
 const path = require('path');
 
 // ─── Enums from schema.md ──────────────────────────────────────────
+
 const CATEGORY_ENUMS = [
-  "Airway & Respiratory", "Analgesic", "Cardiovascular",
-  "Endocrine & Metabolic", "Neurological", "OB/GYN",
-  "Resuscitation", "Toxicology", "IV Fluids",
-  "Allergy & Immunology", "Electrolyte" // found in data but not in schema — flag separately
+  "Airway & Respiratory",
+  "Allergic & Immune",
+  "Cardiovascular",
+  "Endocrine & Metabolic",
+  "IV Fluids",
+  "Nausea & Vomiting",
+  "Neurological",
+  "OB/GYN",
+  "Pain Management",
+  "Resuscitation",
+  "Sedation & Anesthesia",
+  "Toxicology",
+  "Trauma & Hemorrhage",
+  // Legacy / found in data before enum update — flag separately
+  "Analgesic",
+  "Allergy & Immunology",
+  "Electrolyte",
 ];
 
-const POPULATION_ENUMS = ["Adult", "Pediatric", "Geriatric", "Neonatal"];
+// Categories that are in schema (not legacy)
+const SCHEMA_CATEGORIES = new Set([
+  "Airway & Respiratory",
+  "Allergic & Immune",
+  "Cardiovascular",
+  "Endocrine & Metabolic",
+  "IV Fluids",
+  "Nausea & Vomiting",
+  "Neurological",
+  "OB/GYN",
+  "Pain Management",
+  "Resuscitation",
+  "Sedation & Anesthesia",
+  "Toxicology",
+  "Trauma & Hemorrhage",
+]);
 
-const ROUTE_ENUMS = [
+const POPULATION_ENUMS = new Set(["Adult", "Pediatric", "Geriatric", "Neonatal"]);
+
+const ROUTE_ENUMS = new Set([
   "IV", "IO", "IM", "IN", "SQ", "SL", "PO", "PR", "BUC", "ET",
-  "NEB", "NGT", "IV drip", "Inhaled", "Topical",
-  "MDI", "Nebulizer" // found in data
-];
+  "NEB", "NGT", "IV drip", "Inhaled", "Topical", "MDI", "Nebulizer",
+]);
 
-const SOURCE_ENUMS = [
-  "NASEMSO 2022 v3.0", "AHA 2020/2023", "StatPearls",
-  "DailyMed", "NAEMSP", "Mixed"
-];
+const SOURCE_ENUMS = new Set([
+  "NASEMSO 2022 v3.0",
+  "AHA 2020/2023",
+  "StatPearls",
+  "DailyMed",
+  "NAEMSP",
+  "Mixed",
+]);
 
-const MOA_ACTION_ENUMS = [
+const MOA_ACTION_ENUMS = new Set([
   "agonist", "antagonist", "blocker", "enhancer", "inhibitor",
   "stimulator", "relaxant", "adsorbent", "donor", "stabilizer",
-  "restorer", "chelator" // found in data
-];
+  "restorer", "chelator",
+]);
 
-const MOA_SYSTEM_ENUMS = [
+const MOA_SYSTEM_ENUMS = new Set([
   "adrenergic", "cholinergic", "opioid", "GABAergic", "serotonergic",
   "dopaminergic", "glutamatergic", "ion-channel", "enzymatic",
   "metabolic", "inflammatory", "coagulation", "histaminergic",
-  "purinergic", "other"
-];
+  "purinergic", "other",
+]);
 
-const MOA_TIER_ENUMS = ["Low", "Mod", "High"];
+const MOA_TIER_ENUMS = new Set(["Low", "Mod", "High"]);
 
 // ─── Helpers ───────────────────────────────────────────────────────
+
 const errors = [];
 const warnings = [];
 
 function error(drugId, msg) {
-  errors.push({ drug: drugId, message: msg, severity: 'ERROR' });
+  errors.push({ drug: drugId, message: msg });
 }
 
 function warn(drugId, msg) {
-  warnings.push({ drug: drugId, message: msg, severity: 'WARN' });
+  warnings.push({ drug: drugId, message: msg });
 }
 
-function isNonEmptyString(val) {
+function isStr(val) {
   return typeof val === 'string' && val.trim().length > 0;
 }
 
-function isArray(val) {
+function isArr(val) {
   return Array.isArray(val);
 }
 
-// ─── Validators ────────────────────────────────────────────────────
+// ─── Field validators ──────────────────────────────────────────────
 
 function validateId(drug, seenIds) {
   const id = drug.id;
-  if (!isNonEmptyString(id)) {
-    error('(unknown)', 'Missing or empty id');
-    return;
-  }
-  if (id !== id.toLowerCase()) {
-    error(id, `id "${id}" must be lowercase`);
-  }
-  if (/\s/.test(id)) {
-    error(id, `id "${id}" contains whitespace`);
-  }
-  if (seenIds.has(id)) {
-    error(id, `Duplicate id "${id}"`);
-  }
+  if (!isStr(id)) { error('(unknown)', 'Missing or empty id'); return; }
+  if (id !== id.toLowerCase()) error(id, `id must be lowercase`);
+  if (/\s/.test(id)) error(id, `id contains whitespace`);
+  if (seenIds.has(id)) error(id, `Duplicate id`);
   seenIds.add(id);
 }
 
-function validateTopLevelStrings(drug) {
+function validateTopLevel(drug) {
   const id = drug.id || '(unknown)';
-
-  if (!isNonEmptyString(drug.summary)) {
-    error(id, 'Missing summary');
-  }
-  if (!isNonEmptyString(drug.genericName)) {
-    error(id, 'Missing genericName');
-  }
-  if (!isNonEmptyString(drug.source)) {
+  if (!isStr(drug.summary)) error(id, 'Missing summary');
+  if (!isStr(drug.genericName)) error(id, 'Missing genericName');
+  if (!isStr(drug.source)) {
     error(id, 'Missing source');
-  } else if (!SOURCE_ENUMS.includes(drug.source)) {
-    warn(id, `source "${drug.source}" not in schema enum list`);
+  } else if (!SOURCE_ENUMS.has(drug.source)) {
+    warn(id, `source "${drug.source}" not in schema enum`);
   }
 }
 
 function validateTradeNames(drug) {
   const id = drug.id || '(unknown)';
-  if (!isArray(drug.tradeNames)) {
-    error(id, 'tradeNames must be an array');
-  }
+  if (!isArr(drug.tradeNames)) error(id, 'tradeNames must be an array');
 }
 
 function validateCategory(drug) {
   const id = drug.id || '(unknown)';
-  if (!isArray(drug.category) || drug.category.length === 0) {
+  if (!isArr(drug.category) || drug.category.length === 0) {
     error(id, 'category must be a non-empty array');
     return;
   }
-  const schemaCategories = [
-    "Airway & Respiratory", "Analgesic", "Cardiovascular",
-    "Endocrine & Metabolic", "Neurological", "OB/GYN",
-    "Resuscitation", "Toxicology", "IV Fluids"
-  ];
   drug.category.forEach(cat => {
-    if (!schemaCategories.includes(cat)) {
-      warn(id, `category "${cat}" not in schema enum — may need to add to schema`);
+    if (!SCHEMA_CATEGORIES.has(cat)) {
+      warn(id, `category "${cat}" not in schema enum — may be legacy or needs update`);
     }
   });
 }
 
 function validateClasses(drug) {
   const id = drug.id || '(unknown)';
-  if (!isArray(drug.classes) || drug.classes.length === 0) {
+  if (!isArr(drug.classes) || drug.classes.length === 0) {
     error(id, 'classes must be a non-empty array');
   }
 }
 
 function validateMoa(drug) {
   const id = drug.id || '(unknown)';
-  if (!isArray(drug.moa) || drug.moa.length === 0) {
+  if (!isArr(drug.moa) || drug.moa.length === 0) {
     error(id, 'moa must be a non-empty array');
     return;
   }
 
   drug.moa.forEach((entry, i) => {
-    const prefix = `moa[${i}]`;
-
-    if (!isNonEmptyString(entry.brief)) {
-      error(id, `${prefix}.brief is missing or empty`);
-    }
+    const pfx = `moa[${i}]`;
+    if (!isStr(entry.brief)) error(id, `${pfx}.brief is missing or empty`);
 
     if (!entry.target || typeof entry.target !== 'object') {
-      error(id, `${prefix}.target is missing or not an object`);
+      error(id, `${pfx}.target is missing or not an object`);
       return;
     }
-
     const t = entry.target;
-    if (!isNonEmptyString(t.name)) error(id, `${prefix}.target.name is missing`);
-    if (!isNonEmptyString(t.action)) {
-      error(id, `${prefix}.target.action is missing`);
-    } else if (!MOA_ACTION_ENUMS.includes(t.action)) {
-      warn(id, `${prefix}.target.action "${t.action}" not in schema enum`);
+    if (!isStr(t.name))   error(id, `${pfx}.target.name is missing`);
+    if (!isStr(t.action)) {
+      error(id, `${pfx}.target.action is missing`);
+    } else if (!MOA_ACTION_ENUMS.has(t.action)) {
+      warn(id, `${pfx}.target.action "${t.action}" not in schema enum`);
     }
-    if (!isNonEmptyString(t.result)) error(id, `${prefix}.target.result is missing`);
-    if (!isNonEmptyString(t.system)) {
-      error(id, `${prefix}.target.system is missing`);
-    } else if (!MOA_SYSTEM_ENUMS.includes(t.system)) {
-      warn(id, `${prefix}.target.system "${t.system}" not in schema enum`);
+    if (!isStr(t.result)) error(id, `${pfx}.target.result is missing`);
+    if (!isStr(t.system)) {
+      error(id, `${pfx}.target.system is missing`);
+    } else if (!MOA_SYSTEM_ENUMS.has(t.system)) {
+      warn(id, `${pfx}.target.system "${t.system}" not in schema enum`);
     }
-
-    // Tier validation
-    if (entry.tier !== undefined) {
-      if (!MOA_TIER_ENUMS.includes(entry.tier)) {
-        error(id, `${prefix}.tier "${entry.tier}" not in enum [Low, Mod, High]`);
-      }
+    if (entry.tier !== undefined && !MOA_TIER_ENUMS.has(entry.tier)) {
+      error(id, `${pfx}.tier "${entry.tier}" not in enum [Low, Mod, High]`);
     }
   });
 }
 
+function validateRoute(id, pfx, route) {
+  // via[]
+  if (!isArr(route.via) || route.via.length === 0) {
+    error(id, `${pfx}.via must be a non-empty array`);
+  } else {
+    route.via.forEach(v => {
+      if (!ROUTE_ENUMS.has(v)) error(id, `${pfx}.via "${v}" not in route enum`);
+    });
+  }
+
+  // amount
+  if (!isStr(route.amount)) error(id, `${pfx}.amount is missing`);
+
+  // onset & duration — required at route level in v2 schema
+  if (!isStr(route.onset))    error(id, `${pfx}.onset is missing`);
+  if (!isStr(route.duration)) error(id, `${pfx}.duration is missing`);
+
+  // optional strings
+  if (route.repeat   !== undefined && !isStr(route.repeat))   warn(id, `${pfx}.repeat is present but empty`);
+  if (route.maxDose  !== undefined && !isStr(route.maxDose))  warn(id, `${pfx}.maxDose is present but empty`);
+
+  // notes must be array
+  if (!isArr(route.notes)) error(id, `${pfx}.notes must be an array (use [] if empty)`);
+}
+
+function validateDose(id, pfx, dose) {
+  // population
+  if (!isStr(dose.population)) {
+    error(id, `${pfx}.population is missing`);
+  } else if (!POPULATION_ENUMS.has(dose.population)) {
+    error(id, `${pfx}.population "${dose.population}" not in enum [Adult, Pediatric, Geriatric, Neonatal]`);
+  }
+
+  // routes[]
+  if (!isArr(dose.routes) || dose.routes.length === 0) {
+    if (!isArr(dose.notes) || dose.notes.length === 0) {
+      error(id, `${pfx}.routes is missing/empty and no notes present`);
+    } else {
+      warn(id, `${pfx} has no routes — notes-only entry`);
+    }
+  } else {
+    dose.routes.forEach((route, j) => {
+      validateRoute(id, `${pfx}.routes[${j}]`, route);
+    });
+  }
+
+  // dose-level notes
+  if (dose.notes !== undefined && !isArr(dose.notes)) {
+    error(id, `${pfx}.notes must be an array`);
+  }
+
+  // Old schema fields that should NOT appear in v2
+  if (dose.onset    !== undefined) warn(id, `${pfx}.onset is at dose level — should be inside each route`);
+  if (dose.duration !== undefined) warn(id, `${pfx}.duration is at dose level — should be inside each route`);
+  if (dose.indication !== undefined) warn(id, `${pfx}.indication is a v1 field — doses now nested under indications[]`);
+}
+
 function validateIndications(drug) {
   const id = drug.id || '(unknown)';
-  if (!isArray(drug.indications) || drug.indications.length === 0) {
+
+  if (!isArr(drug.indications) || drug.indications.length === 0) {
     error(id, 'indications must be a non-empty array');
     return;
   }
 
-  const names = drug.indications.map(i => i.name);
-  const doseInds = new Set(drug.doses.map(d => d.indication).filter(Boolean));
+  // Check for flat drug.doses — v1 artifact
+  if (drug.doses !== undefined) {
+    warn(id, 'drug.doses is a v1 field — doses should be nested inside indications[].doses[]');
+  }
 
-  // Each indication must have a name
+  const indicationNames = new Set();
+  const doseOwningNames = new Set();
+
+  // First pass: collect names and identify dose-owning vs pointer
   drug.indications.forEach((ind, i) => {
-    if (!isNonEmptyString(ind.name)) {
-      error(id, `indications[${i}].name is missing`);
+    const pfx = `indications[${i}]`;
+
+    if (!isStr(ind.name)) {
+      error(id, `${pfx}.name is missing`);
+      return;
     }
-  });
 
-  // Rule 0: multi-indication drugs must use indication field on doses
-  if (drug.indications.length > 1 && doseInds.size === 0) {
-    error(id, `Has ${drug.indications.length} indications but no dose entries use the indication field`);
-  }
-
-  // Rule 1: every dose indication must match an indications[].name
-  drug.doses.forEach((d, i) => {
-    if (d.indication && !names.includes(d.indication)) {
-      error(id, `doses[${i}].indication "${d.indication}" not found in indications[].name`);
+    if (indicationNames.has(ind.name)) {
+      error(id, `Duplicate indication name "${ind.name}"`);
     }
-  });
+    indicationNames.add(ind.name);
 
-  // Rule 2: every sameDoseAs must point to a name with dose entries
-  drug.indications.forEach(ind => {
-    if (ind.sameDoseAs && !doseInds.has(ind.sameDoseAs)) {
-      error(id, `${ind.name}: sameDoseAs "${ind.sameDoseAs}" has no matching dose entry`);
+    const hasDoses     = isArr(ind.doses);
+    const hasSameDoseAs = isStr(ind.sameDoseAs);
+
+    if (hasDoses && hasSameDoseAs) {
+      error(id, `${pfx} "${ind.name}" has both doses and sameDoseAs — pick one`);
+    } else if (!hasDoses && !hasSameDoseAs) {
+      error(id, `${pfx} "${ind.name}" has neither doses nor sameDoseAs — every indication must have one`);
     }
-  });
 
-  // Rule 3: every indication must be accounted for (has doses or sameDoseAs)
-  if (doseInds.size > 0) {
-    drug.indications.forEach(ind => {
-      if (!ind.sameDoseAs && !doseInds.has(ind.name)) {
-        error(id, `"${ind.name}" has no dose entries and no sameDoseAs — data incomplete`);
+    if (hasDoses) {
+      doseOwningNames.add(ind.name);
+
+      if (ind.doses.length === 0) {
+        warn(id, `${pfx} "${ind.name}" has an empty doses array`);
       }
-    });
-  }
 
-  // Rule 4: sameDoseAs must not coexist with own dose entries
-  drug.indications.forEach(ind => {
-    if (ind.sameDoseAs && doseInds.has(ind.name)) {
-      error(id, `"${ind.name}" has both dose entries AND sameDoseAs — pick one`);
+      // Validate indication-level notes
+      if (ind.notes !== undefined && !isArr(ind.notes)) {
+        error(id, `${pfx}.notes must be an array`);
+      }
+
+      // Validate each dose
+      ind.doses.forEach((dose, j) => {
+        validateDose(id, `${pfx}.doses[${j}]`, dose);
+      });
     }
   });
 
-  // Consistency: if ANY dose has indication, ALL should
-  const dosesWithInd = drug.doses.filter(d => d.indication);
-  const dosesWithoutInd = drug.doses.filter(d => !d.indication);
-  if (dosesWithInd.length > 0 && dosesWithoutInd.length > 0) {
-    // Check if the ones without indication also lack population-only entries for single-indication drugs
-    warn(id, `Mixed: ${dosesWithInd.length} dose entries have indication, ${dosesWithoutInd.length} do not — orphaned entries won't appear under any tab`);
+  // Second pass: validate sameDoseAs references
+  drug.indications.forEach((ind, i) => {
+    if (!isStr(ind.sameDoseAs)) return;
+    if (!doseOwningNames.has(ind.sameDoseAs)) {
+      error(id, `indications[${i}] "${ind.name}": sameDoseAs "${ind.sameDoseAs}" does not match any dose-owning indication name`);
+    }
+  });
+
+  // At least one dose-owning indication required
+  if (doseOwningNames.size === 0) {
+    error(id, 'No dose-owning indications found — every drug must have at least one indication with doses[]');
   }
 }
 
 function validateContraindications(drug) {
   const id = drug.id || '(unknown)';
-  if (!isArray(drug.contraindications)) {
+  if (!isArr(drug.contraindications)) {
     error(id, 'contraindications must be an array');
     return;
   }
@@ -246,128 +326,34 @@ function validateContraindications(drug) {
       error(id, `contraindications[${i}] must be an object`);
       return;
     }
-    if (!isNonEmptyString(ci.text)) {
-      error(id, `contraindications[${i}].text is missing`);
-    }
+    if (!isStr(ci.text)) error(id, `contraindications[${i}].text is missing`);
     if (ci.relative !== undefined && typeof ci.relative !== 'boolean') {
-      warn(id, `contraindications[${i}].relative should be boolean, got ${typeof ci.relative}`);
-    }
-  });
-}
-
-function validateDoses(drug) {
-  const id = drug.id || '(unknown)';
-  if (!isArray(drug.doses)) {
-    error(id, 'doses must be an array');
-    return;
-  }
-  if (drug.doses.length === 0) {
-    warn(id, 'doses array is empty');
-    return;
-  }
-
-  drug.doses.forEach((dose, i) => {
-    const prefix = `doses[${i}]`;
-
-    // Population
-    if (!isNonEmptyString(dose.population)) {
-      error(id, `${prefix}.population is missing`);
-    } else if (!POPULATION_ENUMS.includes(dose.population)) {
-      error(id, `${prefix}.population "${dose.population}" not in enum [Adult, Pediatric, Geriatric, Neonatal]`);
-    }
-
-    // Onset & Duration — required
-    if (!isNonEmptyString(dose.onset)) {
-      error(id, `${prefix}.onset is missing`);
-    }
-    if (!isNonEmptyString(dose.duration)) {
-      error(id, `${prefix}.duration is missing`);
-    }
-
-    // Routes
-    if (!isArray(dose.routes) || dose.routes.length === 0) {
-      // Some dose entries (like pediatric droperidol) have no routes, just notes
-      if (!dose.notes || dose.notes.length === 0) {
-        error(id, `${prefix}.routes is missing or empty and no notes present`);
-      } else {
-        warn(id, `${prefix} has no routes — notes-only entry`);
-      }
-      return;
-    }
-
-    dose.routes.forEach((route, j) => {
-      const rPrefix = `${prefix}.routes[${j}]`;
-
-      // via
-      if (!isArray(route.via) || route.via.length === 0) {
-        error(id, `${rPrefix}.via must be a non-empty array`);
-      } else {
-        const validRoutes = [
-          "IV", "IO", "IM", "IN", "SQ", "SL", "PO", "PR", "BUC", "ET",
-          "NEB", "NGT", "IV drip", "Inhaled", "Topical", "MDI", "Nebulizer"
-        ];
-        route.via.forEach(v => {
-          if (!validRoutes.includes(v)) {
-            error(id, `${rPrefix}.via "${v}" not in route enum`);
-          }
-        });
-      }
-
-      // amount
-      if (!isNonEmptyString(route.amount)) {
-        error(id, `${rPrefix}.amount is missing`);
-      }
-
-      // notes must be array
-      if (!isArray(route.notes)) {
-        error(id, `${rPrefix}.notes must be an array (use [] if empty)`);
-      }
-
-      // repeat and maxDose should be strings if present
-      if (route.repeat !== undefined && !isNonEmptyString(route.repeat)) {
-        warn(id, `${rPrefix}.repeat is present but empty`);
-      }
-      if (route.maxDose !== undefined && !isNonEmptyString(route.maxDose)) {
-        warn(id, `${rPrefix}.maxDose is present but empty`);
-      }
-    });
-
-    // Dose-level notes
-    if (dose.notes !== undefined && !isArray(dose.notes)) {
-      error(id, `${prefix}.notes must be an array`);
+      warn(id, `contraindications[${i}].relative should be boolean`);
     }
   });
 }
 
 function validateAdverseEffects(drug) {
   const id = drug.id || '(unknown)';
-  if (!isArray(drug.adverseEffects)) {
+  if (!isArr(drug.adverseEffects)) {
     error(id, 'adverseEffects must be an array');
     return;
   }
-  if (drug.adverseEffects.length === 0) {
-    warn(id, 'adverseEffects is empty');
-  }
+  if (drug.adverseEffects.length === 0) warn(id, 'adverseEffects is empty');
   drug.adverseEffects.forEach((ae, i) => {
-    if (typeof ae !== 'string') {
-      error(id, `adverseEffects[${i}] must be a string`);
-    }
+    if (typeof ae !== 'string') error(id, `adverseEffects[${i}] must be a string`);
   });
 }
 
 function validatePrecautions(drug) {
   const id = drug.id || '(unknown)';
-  if (!isArray(drug.precautions)) {
+  if (!isArr(drug.precautions)) {
     error(id, 'precautions must be an array');
     return;
   }
-  if (drug.precautions.length === 0) {
-    warn(id, 'precautions is empty');
-  }
+  if (drug.precautions.length === 0) warn(id, 'precautions is empty');
   drug.precautions.forEach((p, i) => {
-    if (typeof p !== 'string') {
-      error(id, `precautions[${i}] must be a string`);
-    }
+    if (typeof p !== 'string') error(id, `precautions[${i}] must be a string`);
   });
 }
 
@@ -376,18 +362,17 @@ function validatePrecautions(drug) {
 function validate(drugs) {
   const seenIds = new Set();
 
-  console.log(`\n🔍 Validating ${drugs.length} drug entries against schema.md...\n`);
+  console.log(`\n🔍 Validating ${drugs.length} drug entries against schema v2...\n`);
 
   drugs.forEach(drug => {
     validateId(drug, seenIds);
-    validateTopLevelStrings(drug);
+    validateTopLevel(drug);
     validateTradeNames(drug);
     validateCategory(drug);
     validateClasses(drug);
     validateMoa(drug);
-    validateContraindications(drug);
-    validateDoses(drug);
     validateIndications(drug);
+    validateContraindications(drug);
     validateAdverseEffects(drug);
     validatePrecautions(drug);
   });
@@ -402,7 +387,6 @@ function validate(drugs) {
 
   if (errors.length > 0) {
     console.log(`\n❌ ERRORS (${errors.length}):\n`);
-    // Group by drug
     const byDrug = {};
     errors.forEach(e => {
       if (!byDrug[e.drug]) byDrug[e.drug] = [];
@@ -445,13 +429,11 @@ if (!fs.existsSync(filePath)) {
 
 let fileContent = fs.readFileSync(filePath, 'utf-8');
 
-// Strip export/const wrapper to get the array
-// Handle: const DRUGS = [...]; / module.exports = [...]; / export default [...];
+// Strip export/const wrapper to get the raw array
 fileContent = fileContent
   .replace(/^(?:const\s+\w+\s*=\s*|module\.exports\s*=\s*|export\s+default\s+)/m, '')
   .replace(/;\s*$/, '');
 
-// Use Function constructor to eval safely-ish (it's our own data)
 let drugs;
 try {
   drugs = new Function(`return ${fileContent}`)();

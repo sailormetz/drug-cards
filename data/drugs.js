@@ -2577,7 +2577,7 @@ const DRUGS = [
         brief: 'Enhances GABA-mediated chloride influx, producing rapid sedation and unconsciousness. Depresses the reticular activating system. Also inhibits adrenal 11-β-hydroxylase, blocking cortisol and aldosterone synthesis.',
         target: {
           name: 'GABA-A receptors (CNS) / 11-β-hydroxylase (adrenal)',
-          action: 'enhancer / inhibitor',
+          action: 'enhancer',
           result: 'Sedation, ↓ ICP, adrenal suppression',
           system: 'GABAergic'
         }
