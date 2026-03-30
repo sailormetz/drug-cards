@@ -1337,12 +1337,9 @@ precautions: [
     { text: "Uncontrolled hypertension", relative: true }
   ],
   adverseEffects: [
-    "Tachycardia",
-    "Hypertension",
+    "Tachycardia / hypertension",
     "Dysrhythmias",
-    "Anxiety / Tremor",
-    "Pallor / Headache",
-    "Angina"
+    "Angina / myocardial ischemia"
   ],
   precautions: [
     'Use caution in <span class="hl hl--warn">elderly</span>, known <span class="hl hl--warn">cardiac disease</span>, <span class="hl hl--warn">hypertension</span>, and <span class="hl hl--warn">diabetes</span>.',
