@@ -1141,22 +1141,58 @@ Before adding an entry: *Can a paramedic observe or measure this, and does it re
 
 ## Precautions
 
-Array of HTML strings. Each string = one discrete precaution, rendered as a list item.
+Array of HTML strings. Each string is one discrete precaution, rendered as a list item. Use `hl--danger`, `hl--warn`, and `<strong>` for emphasis — see [HTML Span Classes](#html-span-classes).
 
 ```js
 precautions: [
-  'Use caution in <span class="hl hl--warn">elderly</span> - increased sensitivity to hypotension.',
-  '<span class="hl hl--danger">Do not mix with sodium bicarbonate</span> — forms insoluble precipitate.',
-  'Have <strong>naloxone</strong> immediately available when administering opioids.',
-  'Masks hypoglycemia symptoms (tachycardia, tremor) in diabetic patients — monitor BGL.'
+  '<span class="hl hl--danger">No reversal agent.</span> Maintain BVM until drug metabolizes.',
+  'Use caution in <span class="hl hl--warn">renal failure</span> — prolonged duration.',
+  'Masks hypoglycemia signs in diabetic patients. Monitor blood glucose.'
 ]
 ```
 
-- One concern per string. Don't combine multiple warnings
-- Use HTML spans for emphasis (same classes as MOA)
-- Order by severity: critical warnings first, clinical pearls last
-- Keep each string concise. Aim for 1–2 sentences max
-- Precautions should be scoped to what's relevant to paramedics in the prehospital setting.
+### What belongs here
+
+An entry earns its place if it answers one of:
+
+- Does this patient population change how or whether you give it?
+- Is there a compatibility, timing, or administration rule that matters in the field?
+- Is there a risk specific to this drug not captured in contraindications or adverse effects?
+
+### Style rules
+
+- One concern per string — don't combine multiple warnings
+- Plain sentences. Use a period between related thoughts, not an em dash chain
+- No mechanism explanations — state what to do or watch for, not why
+- No doses — dosing belongs in the doses section
+- About this drug only — if the concern is really about another drug, a procedure, or a general EMS principle, cut it
+- Order by severity: `hl--danger` first, `hl--warn` next, plain last
+
+**Don't:**
+```js
+precautions: [
+  'Does not provide sedation — always give an induction agent before the paralytic.',
+  // procedural concern, not about this drug
+
+  'Give dextrose before thiamine in hypoglycemia.',
+  // about dextrose, not thiamine
+
+  'Magnesium deficiency can reduce efficacy — it is a required cofactor, and chronic alcoholics are often deficient in both.',
+  // mechanism lecture; too long
+
+  'Does not alter the natural course — always pair with dexamethasone (0.6 mg/kg) for inflammation control.'
+  // dose in precautions; about another drug
+]
+```
+
+**Do:**
+```js
+precautions: [
+  '<span class="hl hl--danger">No reversal agent.</span> Maintain BVM until drug metabolizes.',
+  'Use caution in <span class="hl hl--warn">hepatic impairment</span> — prolonged sedation.',
+  'Masks hypoglycemia signs in diabetic patients. Monitor blood glucose.'
+]
+```
 
 ---
 
