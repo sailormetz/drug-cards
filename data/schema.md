@@ -1380,7 +1380,6 @@ precautions: [
   precautions: [
     'Use caution in <span class="hl hl--warn">elderly</span>, known <span class="hl hl--warn">cardiac disease</span>, <span class="hl hl--warn">hypertension</span>, and <span class="hl hl--warn">diabetes</span>.',
     'May precipitate angina or MI in susceptible patients.',
-    '<span class="hl hl--danger">No contraindications in anaphylaxis or cardiac arrest</span> — benefits always outweigh risks.',
     'IM is the correct route for anaphylaxis — IV push epinephrine in a patient with a pulse risks fatal arrhythmia.'
   ]
 }
