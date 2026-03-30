@@ -1101,17 +1101,18 @@ Array of HTML strings. Each string = one discrete precaution, rendered as a list
 
 ```js
 precautions: [
-  'Use caution in <span class="hl hl--warn">elderly</span> — increased sensitivity to hypotension.',
+  'Use caution in <span class="hl hl--warn">elderly</span> - increased sensitivity to hypotension.',
   '<span class="hl hl--danger">Do not mix with sodium bicarbonate</span> — forms insoluble precipitate.',
   'Have <strong>naloxone</strong> immediately available when administering opioids.',
   'Masks hypoglycemia symptoms (tachycardia, tremor) in diabetic patients — monitor BGL.'
 ]
 ```
 
-- One concern per string — don't combine multiple warnings
+- One concern per string. Don't combine multiple warnings
 - Use HTML spans for emphasis (same classes as MOA)
 - Order by severity: critical warnings first, clinical pearls last
-- Keep each string concise — aim for 1–2 sentences max
+- Keep each string concise. Aim for 1–2 sentences max
+- Precautions should be scoped to what's relevant to paramedics in the prehospital setting.
 
 ---
 
