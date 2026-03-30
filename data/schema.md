@@ -1095,6 +1095,50 @@ Contraindications should include only major, identifiable reasons to not give th
 
 ---
 
+## Adverse Effects
+
+Array of plain text strings. Each string is one adverse effect, rendered as a flat list on the card.
+
+```js
+adverseEffects: [
+  "Hypotension",
+  "Respiratory depression",
+  "Bradycardia",
+  "Nausea / vomiting"
+]
+```
+
+**2–5 entries max.** These are not a package insert — cut to the effects a paramedic actually needs to anticipate. If an effect is benign or self-limiting, leave it out.
+
+**6 words or fewer. No parentheses. No HTML.** If an effect needs context, it belongs in `precautions`.
+
+### Style rules
+- Title case, no trailing punctuation
+- Use `/` for closely related effects: `"Nausea / vomiting"`, `"Tachycardia / palpitations"`
+- No parentheses — ever
+
+### Do
+```js
+adverseEffects: ["Hypotension", "Bradycardia", "Respiratory depression", "QT prolongation"]
+```
+
+### Don't
+```js
+adverseEffects: [
+  "Hypotension (especially in volume-depleted patients)",  // no parentheses
+  "May cause nausea, vomiting, or GI upset",              // sentence, not a label
+  "Bradycardia, heart block, and asystole",               // split these out
+  "Headache",                                             // benign, not actionable
+  "Agranulocytosis"                                       // not observable in the field
+]
+```
+
+### The filter question
+
+Before adding an entry: *Can a paramedic observe or measure this, and does it require a clinical response?* Benign or self-limiting effects don't make the cut — only what changes how you manage the patient.
+
+---
+
 ## Precautions
 
 Array of HTML strings. Each string = one discrete precaution, rendered as a list item.
