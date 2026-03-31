@@ -1,20 +1,16 @@
 (function () {
   var activeDrugId = DRUGS[0].id;
-  var activeCategoryId = 'all';
+  var activeCategory = null;
+  var activeClass = null;
+  var filterTab = 'category';
   var sortAsc = true;
 
-  var CATEGORIES = [
-    { id: 'all',          label: 'All',          classes: null },
-    { id: 'vasopressors', label: 'Vasopressors',  classes: ['Vasopressor', 'Inotropic Agent'] },
-    { id: 'opioids',      label: 'Opioids',       classes: ['Opioid Analgesic'] },
-    { id: 'cardiac',      label: 'Cardiac Meds',  classes: ['Antiarrhythmic', 'Antiarrhythmic (Class III)', 'Anticoagulant', 'Antiplatelet', 'Anticholinergic', 'Vagolytic', 'Vasodilator', 'Antihypertensive'] },
-    { id: 'respiratory',  label: 'Respiratory',   classes: ['Bronchodilator', 'Beta-2 Agonist', 'Corticosteroid', 'Anti-inflammatory'] },
-    { id: 'sedation',     label: 'Sedation',      classes: ['Anesthetic', 'Sedative', 'Antipsychotic', 'Butyrophenone'] },
-    { id: 'antidotes',    label: 'Antidotes',     classes: ['Antidote', 'Adsorbent', 'Benzodiazepine Antagonist'] },
-    { id: 'analgesics',   label: 'Pain Relief',   classes: ['Analgesic', 'Antipyretic', 'NSAID'] },
-    { id: 'diuretics',    label: 'Diuretics',     classes: ['Loop Diuretic'] },
-    { id: 'metabolic',    label: 'Metabolic',     classes: ['Carbohydrate', 'Hyperglycemic', 'Hormone', 'Antihypoglycemic', 'Electrolyte', 'Hypertonic Solution'] },
-  ];
+  var allCategories = Array.from(new Set(DRUGS.reduce(function (acc, d) {
+    return acc.concat(d.category || []);
+  }, []))).sort();
+  var allClasses = Array.from(new Set(DRUGS.reduce(function (acc, d) {
+    return acc.concat(d.classes || []);
+  }, []))).sort();
 
   function getTargetHlClass(target) {
     var name = target.name.toLowerCase();
@@ -224,23 +220,108 @@
       '</article>';
   }
 
-  function buildFilters() {
+  function buildFilterBtn() {
+    var count = (activeCategory ? 1 : 0) + (activeClass ? 1 : 0);
+    var badge = count > 0 ? '<span class="filter-badge">' + count + '</span>' : '';
+    var active = count > 0 ? ' filter-open-btn--active' : '';
+    var clearBtn = count > 0
+      ? '<button class="filter-clear-inline" id="filter-clear-inline" aria-label="Clear filters">&#x2715;</button>'
+      : '';
+    // Replace only the filter button elements, keeping the sort button (first child)
     var container = document.getElementById('filter-chips');
-    container.innerHTML = CATEGORIES.map(function (cat) {
-      var active = cat.id === activeCategoryId ? ' filter-chip--active' : '';
-      return '<button class="filter-chip' + active + '" data-cat="' + cat.id + '">' + cat.label + '</button>';
-    }).join('');
+    var sortBtn = document.getElementById('sort-btn');
+    container.innerHTML =
+      '<button class="filter-open-btn' + active + '" id="filter-open-btn">Filter' + badge + '</button>' + clearBtn;
+    container.insertBefore(sortBtn, container.firstChild);
+    document.getElementById('filter-open-btn').addEventListener('click', openFilterModal);
+    if (count > 0) {
+      document.getElementById('filter-clear-inline').addEventListener('click', function () {
+        activeCategory = null;
+        activeClass = null;
+        buildFilterBtn();
+        buildList(search ? search.value : '');
+      });
+    }
+  }
+
+  function renderModalResultCount() {
+    var count = DRUGS.filter(function (d) {
+      if (activeCategory && (d.category || []).indexOf(activeCategory) === -1) return false;
+      if (activeClass    && (d.classes   || []).indexOf(activeClass)    === -1) return false;
+      return true;
+    }).length;
+    var el = document.getElementById('filter-result-count');
+    el.textContent = count + ' of ' + DRUGS.length + ' drugs';
+  }
+
+  function renderModalActiveChips() {
+    var chipsEl = document.getElementById('filter-active-chips');
+    var html = '';
+    if (activeCategory) {
+      html += '<span class="active-filter-chip" data-type="category">' + activeCategory +
+        '<button class="active-filter-chip-x" aria-label="Remove">&#x2715;</button></span>';
+    }
+    if (activeClass) {
+      html += '<span class="active-filter-chip" data-type="class">' + activeClass +
+        '<button class="active-filter-chip-x" aria-label="Remove">&#x2715;</button></span>';
+    }
+    chipsEl.innerHTML = html;
+    chipsEl.style.display = html ? '' : 'none';
+    renderModalResultCount();
+  }
+
+  function renderModalTabContent() {
+    var el = document.getElementById('filter-tab-content');
+    if (filterTab === 'category') {
+      var items = ['All'].concat(allCategories).map(function (cat) {
+        var isActive = cat === 'All' ? !activeCategory : activeCategory === cat;
+        return '<button class="filter-list-item' + (isActive ? ' filter-list-item--active' : '') +
+          '" data-value="' + cat + '">' + cat + '</button>';
+      }).join('');
+      el.innerHTML = items;
+    } else {
+      var searchVal = el.querySelector('.filter-class-search') ?
+        el.querySelector('.filter-class-search').value : '';
+      var filtered = searchVal
+        ? allClasses.filter(function (c) { return c.toLowerCase().indexOf(searchVal.toLowerCase()) !== -1; })
+        : allClasses;
+      var classItems = ['All'].concat(filtered).map(function (cls) {
+        var isActive = cls === 'All' ? !activeClass : activeClass === cls;
+        return '<button class="filter-list-item' + (isActive ? ' filter-list-item--active' : '') +
+          '" data-value="' + cls + '">' + cls + '</button>';
+      }).join('');
+      el.innerHTML =
+        '<input class="filter-class-search" type="search" placeholder="Search classes..." value="' +
+          (searchVal || '') + '" autocomplete="off">' +
+        classItems;
+      el.querySelector('.filter-class-search').addEventListener('input', renderModalTabContent);
+      el.querySelector('.filter-class-search').focus();
+    }
+  }
+
+  function openFilterModal() {
+    var modal = document.getElementById('filter-modal');
+    modal.removeAttribute('hidden');
+    renderModalActiveChips();
+    renderModalResultCount();
+    renderModalTabContent();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeFilterModal() {
+    var modal = document.getElementById('filter-modal');
+    modal.setAttribute('hidden', '');
+    document.body.style.overflow = '';
+    buildFilterBtn();
+    buildList(search ? search.value : '');
   }
 
   function buildList(query) {
     var list = document.getElementById('drug-list');
     var q = (query || '').trim().toLowerCase();
-    var cat = CATEGORIES.find(function (c) { return c.id === activeCategoryId; });
     var filtered = DRUGS.filter(function (d) {
-      if (cat && cat.classes) {
-        var hasClass = cat.classes.some(function (cls) { return d.classes.indexOf(cls) !== -1; });
-        if (!hasClass) return false;
-      }
+      if (activeCategory && (d.category || []).indexOf(activeCategory) === -1) return false;
+      if (activeClass    && (d.classes   || []).indexOf(activeClass)    === -1) return false;
       var trade = d.tradeNames.join(', ');
       return fuzzyMatch(q, d.genericName) || fuzzyMatch(q, trade);
     }).slice().sort(function (a, b) {
@@ -297,12 +378,7 @@
     var toggle = document.getElementById('picker-toggle');
 
     toggle.addEventListener('click', function () {
-      var isOpen = sidebar.classList.toggle('picker-sidebar--open');
-      if (!isOpen) {
-        activeCategoryId = 'all';
-        buildFilters();
-        buildList(search.value);
-      }
+      sidebar.classList.toggle('picker-sidebar--open');
     });
 
     list.addEventListener('click', function (e) {
@@ -327,13 +403,81 @@
       buildList(search.value);
     });
 
-    var filterChips = document.getElementById('filter-chips');
-    filterChips.addEventListener('click', function (e) {
-      var chip = e.target.closest('.filter-chip');
-      if (!chip) return;
-      activeCategoryId = chip.dataset.cat;
-      buildFilters();
-      buildList(search.value);
+    // Inject filter modal into body
+    var modalEl = document.createElement('div');
+    modalEl.id = 'filter-modal';
+    modalEl.className = 'filter-modal';
+    modalEl.setAttribute('hidden', '');
+    modalEl.innerHTML =
+      '<div class="filter-modal-inner">' +
+        '<div class="filter-modal-header">' +
+          '<span class="filter-modal-title">Filter Drugs</span>' +
+          '<button class="filter-modal-close" id="filter-modal-close">&#x2715;</button>' +
+        '</div>' +
+        '<div class="filter-active-chips" id="filter-active-chips" style="display:none"></div>' +
+        '<div class="filter-result-count" id="filter-result-count"></div>' +
+        '<div class="filter-tab-bar" id="filter-tab-bar">' +
+          '<button class="filter-tab filter-tab--active" data-tab="category">Category</button>' +
+          '<button class="filter-tab" data-tab="class">Class</button>' +
+        '</div>' +
+        '<div class="filter-tab-content" id="filter-tab-content"></div>' +
+        '<div class="filter-modal-footer">' +
+          '<button class="filter-clear-btn" id="filter-clear-btn">Clear All</button>' +
+          '<button class="filter-apply-btn" id="filter-apply-btn">Apply</button>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(modalEl);
+
+    // Modal: close / apply
+    document.getElementById('filter-modal-close').addEventListener('click', closeFilterModal);
+    document.getElementById('filter-apply-btn').addEventListener('click', closeFilterModal);
+
+    // Modal: clear all
+    document.getElementById('filter-clear-btn').addEventListener('click', function () {
+      activeCategory = null;
+      activeClass = null;
+      renderModalActiveChips();
+      renderModalTabContent();
+    });
+
+    // Modal: click outside inner panel closes
+    modalEl.addEventListener('click', function (e) {
+      if (e.target === modalEl) closeFilterModal();
+    });
+
+    // Modal: tab switching
+    document.getElementById('filter-tab-bar').addEventListener('click', function (e) {
+      var tab = e.target.closest('.filter-tab');
+      if (!tab) return;
+      filterTab = tab.dataset.tab;
+      document.querySelectorAll('.filter-tab').forEach(function (t) {
+        t.classList.toggle('filter-tab--active', t === tab);
+      });
+      renderModalTabContent();
+    });
+
+    // Modal: item selection and active-chip removal
+    modalEl.addEventListener('click', function (e) {
+      var item = e.target.closest('.filter-list-item');
+      if (item) {
+        var val = item.dataset.value;
+        if (filterTab === 'category') {
+          activeCategory = (val === 'All' || activeCategory === val) ? null : val;
+        } else {
+          activeClass = (val === 'All' || activeClass === val) ? null : val;
+        }
+        renderModalActiveChips();
+        renderModalTabContent();
+        return;
+      }
+      var chipX = e.target.closest('.active-filter-chip-x');
+      if (chipX) {
+        var chip = chipX.closest('.active-filter-chip');
+        if (chip.dataset.type === 'category') activeCategory = null;
+        else activeClass = null;
+        renderModalActiveChips();
+        renderModalTabContent();
+      }
     });
 
     document.getElementById('btn-prev').addEventListener('click', function () {
@@ -348,7 +492,7 @@
 
     document.getElementById('sort-btn').addEventListener('click', function () {
       sortAsc = !sortAsc;
-      document.getElementById('sort-label').textContent = sortAsc ? 'A–Z' : 'Z–A';
+      document.getElementById('sort-label').textContent = sortAsc ? 'Z–A' : 'A–Z';
       buildList(search.value);
     });
 
@@ -385,7 +529,7 @@
       }
     });
 
-    buildFilters();
+    buildFilterBtn();
     buildList('');
     renderCard(DRUGS[0]);
     setToggleLabel(DRUGS[0]);
