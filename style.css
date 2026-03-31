@@ -473,31 +473,57 @@ body {
   line-height: 1.6;
 }
 
-/* ===== MOA GRID ===== */
-.moa-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+/* ===== MOA ENTRIES ===== */
+.moa-entry {
+  padding-bottom: 12px;
 }
-.moa-item {
-  font-size: 12px;
-  color: var(--text);
+.moa-entry:last-child {
+  padding-bottom: 0;
+}
+.moa-entry--divider {
+  border-top: 1px dashed var(--border);
+  padding-top: 12px;
+}
+.moa-target-row {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
 }
-.moa-item .hl {
+.moa-target-row .hl {
   font-family: var(--font-mono);
   font-size: 11px;
   white-space: nowrap;
   flex-shrink: 0;
+}
+.moa-action-badge {
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-mut);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+.moa-result {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.moa-separator {
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 8px;
 }
 .moa-arrow {
   color: var(--text-mut);
   font-size: 10px;
   flex-shrink: 0;
 }
-
 .moa-brief {
   font-size: 12px;
   line-height: 1.5;
@@ -507,20 +533,7 @@ body {
   color: var(--white);
 }
 
-/* ===== MOA TIERED ===== */
-.moa-tier {
-  padding-bottom: 12px;
-}
-.moa-tier--divider {
-  border-top: 1px solid var(--border);
-  padding-top: 12px;
-}
-.moa-tier-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 6px;
-}
+/* MOA tier labels (dose-dependent drugs) */
 .moa-tier-label {
   font-size: 10px;
   font-weight: 700;
@@ -540,11 +553,6 @@ body {
   font-size: 12px;
   color: var(--text);
 }
-.moa-tier-brief {
-  font-size: 12px;
-  color: var(--text);
-  line-height: 1.5;
-}
 
 /* ===== HIGHLIGHTS ===== */
 .hl {
@@ -552,8 +560,9 @@ body {
   padding: 0 4px;
   border-radius: 3px;
 }
-.hl--alpha { color: var(--alpha); background: rgba(240, 136, 62, 0.1); }
-.hl--beta  { color: var(--beta);  background: rgba(88, 166, 255, 0.1); }
+.hl--alpha   { color: var(--alpha); background: rgba(240, 136, 62, 0.1); }
+.hl--beta    { color: var(--beta);  background: rgba(88, 166, 255, 0.1); }
+.hl--neutral { color: var(--text);  background: var(--surface-2); }
 .hl--warn  { color: var(--orange);background: var(--orange-bg); }
 .hl--danger{ color: var(--red);   background: var(--red-bg); font-weight: 700; }
 
@@ -628,16 +637,50 @@ body {
   padding: 12px 14px;
 }
 
+/* ===== DOSE CHIPS ===== */
+.dose-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.dose-chip {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-mut);
+  background: transparent;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  white-space: nowrap;
+  transition: color 0.15s, background 0.15s, border-color 0.15s, border-style 0.15s;
+}
+.dose-chip:hover {
+  color: var(--text);
+  border-color: var(--text-mut);
+  border-style: solid;
+  background: var(--surface-2);
+}
+.dose-chip--active {
+  color: var(--white);
+  background: rgba(88, 166, 255, 0.15);
+  border: 1px solid var(--blue);
+  border-style: solid;
+  box-shadow: 0 0 0 1px rgba(88, 166, 255, 0.2);
+}
+
 /* ===== DOSE BLOCKS ===== */
 .dose-block {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding-bottom: 12px;
+  gap: 8px;
+  padding-bottom: 16px;
 }
-.dose-block--divider {
+.dose-block + .dose-block {
   border-top: 1px solid var(--border);
-  padding-top: 12px;
+  padding-top: 16px;
 }
 .dose-header {
   display: flex;
@@ -645,7 +688,7 @@ body {
   gap: 1px;
 }
 .dose-pop {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -661,7 +704,7 @@ body {
 .dose-routes {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
 }
 .dose-route {
   display: flex;
@@ -670,14 +713,14 @@ body {
   gap: 8px;
 }
 .dose-via {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.06em;
   color: var(--blue);
   background: rgba(88, 166, 255, 0.08);
   border: 1px solid rgba(88, 166, 255, 0.3);
   border-radius: 4px;
-  padding: 2px 6px;
+  padding: 3px 8px;
   white-space: nowrap;
   flex-shrink: 0;
   margin-top: 1px;
@@ -685,33 +728,78 @@ body {
 .dose-route-body {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
   min-width: 0;
 }
 .dose-amt {
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 700;
   font-family: var(--font-mono);
   color: var(--white);
   overflow-wrap: break-word;
 }
 .dose-freq {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-mut);
   line-height: 1.4;
 }
 .dose-note {
-  font-size: 11px;
+  font-size: 13px;
+  color: var(--text-mut);
+  line-height: 1.4;
+}
+.indication-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 10px;
+  border-left: 2px solid var(--blue);
+  background: rgba(88, 166, 255, 0.04);
+  border-radius: 0 4px 4px 0;
+  margin-bottom: 8px;
+}
+.indication-note {
+  font-size: 13px;
   color: var(--text-mut);
   line-height: 1.4;
 }
 .dose-gen-notes {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  padding-left: 2px;
-  border-left: 2px solid var(--border);
-  margin-left: 2px;
+  gap: 4px;
+  padding: 8px 10px;
+  border-left: 2px solid var(--orange-bdr);
+  background: rgba(240, 136, 62, 0.04);
+  border-radius: 0 4px 4px 0;
+  margin-top: 4px;
+}
+.dose-qualifier {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-mut);
+  text-transform: none;
+  letter-spacing: normal;
+}
+.dose-formulation {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-mut);
+}
+.dose-repeat {
+  font-size: 13px;
+  color: var(--text-mut);
+  line-height: 1.4;
+}
+.dose-max {
+  font-size: 12px;
+  color: var(--orange);
+  font-weight: 600;
+}
+.dose-sameas-note {
+  font-size: 11px;
+  color: var(--text-faint);
+  font-style: italic;
+  padding: 4px 0;
 }
 
 /* ===== PHARMA INLINE ===== */
@@ -721,13 +809,15 @@ body {
   gap: 8px;
   font-size: 12px;
   color: var(--text);
-  border-top: 1px solid var(--border);
-  margin-top: 6px;
-  padding-top: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  margin-top: 4px;
+  padding: 4px 8px;
 }
 .pharma-inline strong {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--white);
   font-weight: 700;
 }
@@ -753,11 +843,22 @@ body {
   white-space: nowrap;
 }
 
-/* ===== PRECAUTION TEXT ===== */
-.precaution-text {
+/* ===== PRECAUTION LIST ===== */
+.precaution-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.precaution-item {
   font-size: 12px;
   color: var(--text);
   line-height: 1.5;
+  padding-left: 10px;
+  border-left: 2px solid var(--orange-bdr);
+}
+.precaution-item strong {
+  color: var(--white);
 }
 .precaution-text strong { color: var(--white); }
 
