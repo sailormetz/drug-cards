@@ -16,78 +16,158 @@
     { id: 'metabolic',    label: 'Metabolic',     classes: ['Carbohydrate', 'Hyperglycemic', 'Hormone', 'Antihypoglycemic', 'Electrolyte', 'Hypertonic Solution'] },
   ];
 
-  function renderCard(drug) {
-    var moaHTML;
-    if (drug.moaTiered) {
-      var tiers = drug.moaTiered.map(function (t, i) {
-        var dividerClass = i > 0 ? ' moa-tier--divider' : '';
-        return '<div class="moa-tier' + dividerClass + '">' +
-          '<div class="moa-tier-header">' +
-            '<span class="moa-tier-label">' + t.tier + '</span>' +
-            '<span class="moa-tier-range">' + t.range + '</span>' +
-            (t.label ? '<span class="moa-tier-category">' + t.label + '</span>' : '') +
-          '</div>' +
-          '<p class="moa-tier-brief">' + t.brief + '</p>' +
-        '</div>';
-      }).join('');
-      moaHTML = tiers;
-    } else if (drug.moa) {
-      var items = drug.moa.map(function (m) {
-        var hlClass = m.type === 'alpha' ? 'hl--alpha' : 'hl--beta';
-        return '<div class="moa-item"><span class="hl ' + hlClass + '">' + m.receptor + '</span><span class="moa-arrow">→</span>' + m.effect + '</div>';
-      }).join('');
-      moaHTML = '<div class="moa-grid">' + items + '</div>';
-    } else {
-      moaHTML = '<p class="moa-brief">' + drug.moaBrief + '</p>';
-    }
+  function getTargetHlClass(target) {
+    var name = target.name.toLowerCase();
+    if (/α|alpha/i.test(name)) return 'hl--alpha';
+    if (/β|beta/i.test(name)) return 'hl--beta';
+    return 'hl--neutral';
+  }
 
-    var indicationsHTML = drug.indications.map(function (i) {
-      return '<li>' + i + '</li>';
+  function renderCard(drug) {
+    // --- MOA ---
+    var moaHTML = drug.moa.map(function (m, i) {
+      var divider = i > 0 ? ' moa-entry--divider' : '';
+      var hlClass = getTargetHlClass(m.target);
+      var tierHTML = '';
+      if (m.tier) {
+        tierHTML = '<span class="moa-tier-label">' + m.tier + '</span>' +
+          (m.label ? '<span class="moa-tier-category">' + m.label + '</span>' : '') +
+          (m.target.dose ? '<span class="moa-tier-range">' + m.target.dose + '</span>' : '');
+      }
+      return '<div class="moa-entry' + divider + '">' +
+        '<div class="moa-target-row">' +
+          '<span class="hl ' + hlClass + '">' + m.target.name + '</span>' +
+          '<span class="moa-action-badge">' + m.target.action + '</span>' +
+          tierHTML +
+        '</div>' +
+        '<div class="moa-result">' + m.target.result + '</div>' +
+        '<div class="moa-separator"></div>' +
+        '<p class="moa-brief">' + m.brief + '</p>' +
+      '</div>';
     }).join('');
 
+    // --- Indications ---
+    var indicationsHTML = drug.indications.map(function (ind) {
+      return '<li>' + ind.name + '</li>';
+    }).join('');
+
+    // --- Contraindications ---
     var contraindicationsHTML = drug.contraindications.map(function (c) {
       return '<li>' + c.text + (c.relative ? ' <span class="tag">relative</span>' : '') + '</li>';
     }).join('');
 
-    var doseRowsHTML = drug.doses.map(function (d, i) {
-      var divider = i > 0 ? ' dose-block--divider' : '';
-      var indicationHTML = d.indication
-        ? '<span class="dose-ind">' + d.indication + '</span>'
-        : '';
-      var routesHTML = (d.routes || []).map(function (r) {
-        var viaLabel = (r.via || []).join(' / ');
-        var freqHTML = r.frequency
-          ? '<span class="dose-freq">' + r.frequency + '</span>'
-          : '';
-        var routeNotesHTML = (r.notes || []).map(function (n) {
+    // --- Doses (tabbed) ---
+    var doseIndications = [];
+    drug.indications.forEach(function (ind) {
+      if (ind.doses && !ind.sameDoseAs) {
+        doseIndications.push(ind.name);
+      }
+    });
+    var needsTabs = doseIndications.length > 1;
+    var firstInd = doseIndications[0] || '';
+
+    var sameDoseMap = {};
+    drug.indications.forEach(function (ind) {
+      if (ind.sameDoseAs) sameDoseMap[ind.name] = ind.sameDoseAs;
+    });
+
+    var tabsHTML = '';
+    if (needsTabs) {
+      tabsHTML = '<div class="dose-chips">' +
+        doseIndications.map(function (ind, i) {
+          var active = i === 0 ? ' dose-chip--active' : '';
+          return '<button class="dose-chip' + active + '" data-indication="' + ind + '">' + ind + '</button>';
+        }).join('') +
+      '</div>';
+    }
+
+    // sameDoseAs note for first active tab
+    var sameDoseNotes = {};
+    Object.keys(sameDoseMap).forEach(function (alias) {
+      var target = sameDoseMap[alias];
+      if (!sameDoseNotes[target]) sameDoseNotes[target] = [];
+      sameDoseNotes[target].push(alias);
+    });
+
+    var doseBlocksHTML = '';
+    drug.indications.forEach(function (ind) {
+      if (!ind.doses) return;
+
+      var dataAttr = needsTabs ? ' data-dose-indication="' + ind.name + '"' : '';
+      var hidden = needsTabs && ind.name !== firstInd ? ' style="display:none"' : '';
+
+      // Indication-level notes
+      if (ind.notes && ind.notes.length > 0) {
+        doseBlocksHTML += '<div class="indication-notes"' + dataAttr + hidden + '>' +
+          ind.notes.map(function (n) {
+            return '<span class="indication-note">' + n + '</span>';
+          }).join('') +
+        '</div>';
+      }
+
+      ind.doses.forEach(function (d) {
+        var qualifierHTML = d.qualifier ? ' <span class="dose-qualifier">' + d.qualifier + '</span>' : '';
+        var formulationHTML = d.formulation ? '<span class="dose-formulation">' + d.formulation + '</span>' : '';
+
+        var routesHTML = (d.routes || []).map(function (r) {
+          var viaLabel = (r.via || []).join(' / ');
+          var repeatHTML = r.repeat ? '<span class="dose-repeat">' + r.repeat + '</span>' : '';
+          var maxDoseHTML = r.maxDose ? '<span class="dose-max">Max: ' + r.maxDose + '</span>' : '';
+          var routeNotesHTML = (r.notes || []).map(function (n) {
+            return '<span class="dose-note">' + n + '</span>';
+          }).join('');
+
+          var pharmaHTML = '';
+          if (r.onset || r.duration) {
+            pharmaHTML = '<div class="pharma-inline">' +
+              (r.onset ? '<span>Onset <strong>' + r.onset + '</strong></span>' : '') +
+              (r.onset && r.duration ? '<span class="pharma-sep">&middot;</span>' : '') +
+              (r.duration ? '<span>Duration <strong>' + r.duration + '</strong></span>' : '') +
+            '</div>';
+          }
+
+          return '<div class="dose-route">' +
+            '<span class="dose-via">' + viaLabel + '</span>' +
+            '<div class="dose-route-body">' +
+              '<span class="dose-amt">' + r.amount + '</span>' +
+              repeatHTML + maxDoseHTML + routeNotesHTML +
+              pharmaHTML +
+            '</div>' +
+          '</div>';
+        }).join('');
+
+        var genNotesHTML = (d.notes || []).filter(Boolean).map(function (n) {
           return '<span class="dose-note">' + n + '</span>';
         }).join('');
-        return '<div class="dose-route">' +
-          '<span class="dose-via">' + viaLabel + '</span>' +
-          '<div class="dose-route-body">' +
-            '<span class="dose-amt">' + r.amount + '</span>' +
-            freqHTML +
-            routeNotesHTML +
-          '</div>' +
-        '</div>';
-      }).join('');
-      var genNotesHTML = (d.notes || []).map(function (n) {
-        return '<span class="dose-note">' + n + '</span>';
-      }).join('');
-      return '<div class="dose-block' + divider + '">' +
-        '<div class="dose-header">' +
-          '<span class="dose-pop">' + d.population + '</span>' +
-          indicationHTML +
-        '</div>' +
-        '<div class="dose-routes">' + routesHTML + '</div>' +
-        (genNotesHTML ? '<div class="dose-gen-notes">' + genNotesHTML + '</div>' : '') +
-      '</div>';
-    }).join('');
 
+        doseBlocksHTML += '<div class="dose-block"' + dataAttr + hidden + '>' +
+          '<div class="dose-header">' +
+            '<span class="dose-pop">' + d.population + qualifierHTML + '</span>' +
+            (formulationHTML ? '<div>' + formulationHTML + '</div>' : '') +
+          '</div>' +
+          '<div class="dose-routes">' + routesHTML + '</div>' +
+          (genNotesHTML ? '<div class="dose-gen-notes">' + genNotesHTML + '</div>' : '') +
+        '</div>';
+      });
+    });
+
+    // sameDoseAs note for the first visible indication
+    var sameDoseHTML = '';
+    if (needsTabs && sameDoseNotes[firstInd]) {
+      sameDoseHTML = '<div class="dose-sameas-note" data-sameas-for="' + firstInd + '">Also applies to: ' + sameDoseNotes[firstInd].join(', ') + '</div>';
+    }
+
+    // --- Adverse Effects ---
     var adverseHTML = drug.adverseEffects.map(function (e) {
       return '<li>' + e + '</li>';
     }).join('');
 
+    // --- Precautions ---
+    var precautionsHTML = drug.precautions.map(function (p) {
+      return '<li class="precaution-item">' + p + '</li>';
+    }).join('');
+
+    // --- Classes ---
     var classesHTML = drug.classes.map(function (c) {
       return '<span class="drug-class-pill">' + c + '</span>';
     }).join('');
@@ -96,7 +176,7 @@
       '<article class="card">' +
         '<header class="card-header">' +
           '<h1 class="drug-name">' + drug.genericName + '</h1>' +
-          '<p class="drug-trade-name">' + drug.tradeName + '</p>' +
+          '<p class="drug-trade-name">' + drug.tradeNames.join(', ') + '</p>' +
           '<div class="drug-class-row">' + classesHTML + '</div>' +
         '</header>' +
 
@@ -106,7 +186,7 @@
         '</section>' +
 
         '<section class="section">' +
-          '<h2 class="section-label section-label--blue">' + (drug.moaTiered ? 'Mechanism of Action<span class="tag tag--blue">Dose-Dependent</span>' : 'Mechanism of Action') + '</h2>' +
+          '<h2 class="section-label section-label--blue">Mechanism of Action</h2>' +
           moaHTML +
         '</section>' +
 
@@ -123,12 +203,9 @@
 
         '<section class="section section--dose">' +
           '<h2 class="section-label section-label--blue">Dose &amp; Route</h2>' +
-          doseRowsHTML +
-          '<div class="pharma-inline">' +
-            '<span>Onset <strong>' + drug.onset + '</strong></span>' +
-            '<span class="pharma-sep">·</span>' +
-            '<span>Duration <strong>' + drug.duration + '</strong></span>' +
-          '</div>' +
+          tabsHTML +
+          doseBlocksHTML +
+          sameDoseHTML +
         '</section>' +
 
         '<section class="section">' +
@@ -138,7 +215,7 @@
 
         '<section class="section">' +
           '<h2 class="section-label section-label--orange">Precautions</h2>' +
-          '<p class="precaution-text">' + drug.precautions + '</p>' +
+          '<ul class="precaution-list">' + precautionsHTML + '</ul>' +
         '</section>' +
 
         '<footer class="card-footer">' +
@@ -164,7 +241,8 @@
         var hasClass = cat.classes.some(function (cls) { return d.classes.indexOf(cls) !== -1; });
         if (!hasClass) return false;
       }
-      return fuzzyMatch(q, d.genericName) || fuzzyMatch(q, d.tradeName);
+      var trade = d.tradeNames.join(', ');
+      return fuzzyMatch(q, d.genericName) || fuzzyMatch(q, trade);
     }).slice().sort(function (a, b) {
       var cmp = a.genericName.localeCompare(b.genericName);
       return sortAsc ? cmp : -cmp;
@@ -173,7 +251,7 @@
       var active = d.id === activeDrugId ? ' picker-item--active' : '';
       return '<li class="picker-item' + active + '" data-id="' + d.id + '">' +
         d.genericName +
-        '<span class="picker-trade"> ' + d.tradeName + '</span>' +
+        '<span class="picker-trade"> ' + d.tradeNames.join(', ') + '</span>' +
         '</li>';
     }).join('');
   }
@@ -272,6 +350,39 @@
       sortAsc = !sortAsc;
       document.getElementById('sort-label').textContent = sortAsc ? 'A–Z' : 'Z–A';
       buildList(search.value);
+    });
+
+    // Dose chip delegation
+    document.getElementById('card-container').addEventListener('click', function (e) {
+      var tab = e.target.closest('.dose-chip');
+      if (!tab) return;
+      var indication = tab.dataset.indication;
+      var section = tab.closest('.section--dose');
+
+      section.querySelectorAll('.dose-chip').forEach(function (t) {
+        t.classList.toggle('dose-chip--active', t === tab);
+      });
+      section.querySelectorAll('[data-dose-indication]').forEach(function (block) {
+        block.style.display = block.dataset.doseIndication === indication ? '' : 'none';
+      });
+
+      // Update sameDoseAs note
+      var drug = DRUGS.find(function (d) { return d.id === activeDrugId; });
+      var sameDoseNotes = {};
+      drug.indications.forEach(function (ind) {
+        if (ind.sameDoseAs) {
+          if (!sameDoseNotes[ind.sameDoseAs]) sameDoseNotes[ind.sameDoseAs] = [];
+          sameDoseNotes[ind.sameDoseAs].push(ind.name);
+        }
+      });
+      var noteEl = section.querySelector('.dose-sameas-note');
+      if (noteEl) noteEl.remove();
+      if (sameDoseNotes[indication]) {
+        var note = document.createElement('div');
+        note.className = 'dose-sameas-note';
+        note.textContent = 'Also applies to: ' + sameDoseNotes[indication].join(', ');
+        section.appendChild(note);
+      }
     });
 
     buildFilters();
