@@ -1060,7 +1060,7 @@ body {
   flex-direction: column;
   gap: 2px;
   padding: 6px 8px;
-  background: var(--border);
+  background: var(--surface-2);
 }
 .dose-meta-cell--empty .dose-meta-value {
   color: var(--text-faint);
