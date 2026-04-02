@@ -28,10 +28,18 @@
 
 <div class="app-layout">
   <aside class="picker-sidebar" id="picker-sidebar">
-    <button class="picker-toggle" id="picker-toggle">
-      <span id="picker-toggle-label">Select Drug</span>
-      <svg class="picker-chevron" viewBox="0 0 16 16" fill="currentColor"><path d="M4 6l4 4 4-4"/></svg>
-    </button>
+    <div class="picker-toggle-row">
+      <button class="picker-nav-btn" id="btn-prev" aria-label="Previous drug">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="picker-toggle" id="picker-toggle">
+        <span id="picker-toggle-label">Select Drug</span>
+        <svg class="picker-chevron" viewBox="0 0 16 16" fill="currentColor"><path d="M4 6l4 4 4-4"/></svg>
+      </button>
+      <button class="picker-nav-btn" id="btn-next" aria-label="Next drug">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+      </button>
+    </div>
     <div class="picker-body" id="picker-body">
       <div class="picker-search-wrap">
         <input class="picker-search" type="search" id="drug-search" placeholder="Search drugs..." autocomplete="off" spellcheck="false">
@@ -43,14 +51,6 @@
       </div>
       <ul class="picker-list" id="drug-list"></ul>
     </div>
-    <nav class="card-nav">
-      <button class="card-nav-btn" id="btn-prev" aria-label="Previous drug">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-      <button class="card-nav-btn" id="btn-next" aria-label="Next drug">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
-      </button>
-    </nav>
   </aside>
 
   <div class="card-area">

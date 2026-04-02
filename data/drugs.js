@@ -849,7 +849,7 @@ const DRUGS = [
   {
     id: 'thiamine',
     summary: "Vitamin B1, given IV or IM to prevent or treat Wernicke\\'s encephalopathy in malnourished or alcoholic patients. Administered before or alongside dextrose in hypoglycemic patients at risk of thiamine deficiency.",
-    genericName: 'Thiamine (Vitamin B1)',
+    genericName: 'Thiamine',
     tradeNames: [],
     category: ['Endocrine & Metabolic'],
     classes: ['Vitamin'],
@@ -991,7 +991,7 @@ const DRUGS = [
   {
     id: 'vasopressin',
     summary: 'A non-catecholamine vasopressor that acts on V1 receptors in vascular smooth muscle to cause potent vasoconstriction, independent of the adrenergic pathway, making it useful in vasodilatory and septic shock as an adjunct to norepinephrine.',
-    genericName: 'Vasopressin (ADH)',
+    genericName: 'Vasopressin',
     tradeNames: ['Vasostrict', 'Pitressin'],
     category: ['Cardiovascular', 'Resuscitation'],
     classes: ['Vasopressor', 'Hormone', 'Antidiuretic'],
@@ -1494,7 +1494,7 @@ const DRUGS = [
   {
     id: 'pralidoxime',
     summary: 'Reactivates acetylcholinesterase after organophosphate or nerve agent poisoning, reversing the nicotinic effects that atropine cannot. Must be given before the enzyme bond ages and becomes irreversible.',
-    genericName: 'Pralidoxime Chloride (2-PAM)',
+    genericName: 'Pralidoxime Chloride',
     tradeNames: ['Protopam', 'DuoDote', 'Mark I Kit', 'ATNAA'],
     category: ['Toxicology'],
     classes: ['Antidote'],
@@ -1573,7 +1573,7 @@ const DRUGS = [
   {
     id: 'potassium-chloride',
     summary: 'The standard electrolyte replacement for hypokalemia and an ISMP high-alert medication where accidental rapid IV push is lethal. Primarily a hospital drug but critical for CCT paramedics managing existing KCl drips.',
-    genericName: 'Potassium Chloride (KCl)',
+    genericName: 'Potassium Chloride',
     tradeNames: ['Klor-Con', 'K-Dur', 'Micro-K'],
     category: ['Endocrine & Metabolic'],
     classes: ['Electrolyte'],
@@ -1859,7 +1859,7 @@ const DRUGS = [
   {
     id: 'albuterol',
     summary: 'A short-acting beta-2 agonist bronchodilator used for acute bronchospasm. Also shifts potassium intracellularly for hyperkalemia management.',
-    genericName: 'Albuterol (Salbutamol)',
+    genericName: 'Albuterol',
     tradeNames: ['Proventil', 'Ventolin', 'ProAir'],
     category: ['Airway & Respiratory'],
     classes: ['Bronchodilator', 'Beta-2 Agonist', 'Sympathomimetic'],
@@ -2375,7 +2375,7 @@ const DRUGS = [
   {
     id: 'acetaminophen',
     summary: 'A non-opioid analgesic and antipyretic that reduces pain and fever without anti-inflammatory or antiplatelet effects. The leading cause of acute liver failure in the US through NAPQI-mediated hepatotoxicity in overdose.',
-    genericName: 'Acetaminophen (Paracetamol, APAP)',
+    genericName: 'Acetaminophen',
     tradeNames: ['Tylenol', 'Ofirmev'],
     category: ['Pain Management'],
     classes: ['Analgesic', 'Antipyretic'],
@@ -2809,14 +2809,14 @@ const DRUGS = [
                 via: ['PO'],
                 amount: '324 mg',
                 onset: '15–20 min',
-                duration: '7–10 days (irreversible platelet inhibition)',
+                duration: '7–10 days',
                 notes: ['Chew thoroughly, do not swallow whole']
               },
               {
                 via: ['PR'],
                 amount: '300 mg',
                 onset: '30–60 min',
-                duration: '7–10 days (irreversible platelet inhibition)',
+                duration: '7–10 days',
                 notes: ['Use if patient unable to take PO']
               }
             ],

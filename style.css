@@ -1132,7 +1132,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--text-faint);
+  color: var(--text-mut);
 }
 .dose-meta-value {
   font-family: var(--font-mono);
