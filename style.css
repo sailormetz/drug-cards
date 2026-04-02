@@ -1002,13 +1002,9 @@ body {
   flex-direction: column;
   gap: 14px;
 }
-.pop-tabs + .indication-notes,
-.pop-tabs + .dose-block {
+.dose-divider {
   border-top: 1px solid var(--border);
-  padding-top: 18px;
-}
-.indication-notes + .dose-block {
-  padding-top: 14px;
+  margin-bottom: 18px;
 }
 .dose-header {
   display: flex;
@@ -1040,20 +1036,42 @@ body {
   margin-top: 18px;
 }
 .dose-route {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 20px;
+  row-gap: 10px;
 }
-.dose-route-top {
+.dose-route-left {
+  grid-column: 1;
+  grid-row: 1;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
+}
+.dose-route-right {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-self: center;
+}
+.dose-route-notes {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.dose-route-note {
+  font-size: 12px;
+  color: var(--text-mut);
+  line-height: 1.4;
 }
 .dose-via-list {
   display: flex;
-  flex-direction: row;
-  gap: 6px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 4px;
 }
 .dose-via {
   font-size: 14px;
@@ -1099,17 +1117,7 @@ body {
 .dose-route .dose-note {
   color: magenta;
 }
-.route-notes,
-.dose-meta {
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 8px 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.dose-meta-item {
+.dose-meta-row {
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -1120,30 +1128,14 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--text-mut);
+  color: var(--text-faint);
   flex-shrink: 0;
-  min-width: 44px;
+  min-width: 54px;
 }
 .dose-meta-value {
   font-family: var(--font-mono);
   font-size: 13px;
   color: var(--text);
-}
-.route-note-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-}
-.route-note-num {
-  font-size: 6px;
-  color: var(--text-mut);
-  flex-shrink: 0;
-}
-.route-note-text {
-  font-size: 13px;
-  color: var(--text);
-  line-height: 1.4;
 }
 .indication-notes {
   display: flex;
@@ -1208,35 +1200,6 @@ body {
   padding: 4px 0;
 }
 
-/* ===== PHARMA INLINE ===== */
-.pharma-inline {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-}
-.pharma-item {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 8px 12px;
-  flex: 1;
-}
-.pharma-label {
-  font-size: 11px;
-  color: var(--text-mut);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 600;
-}
-.pharma-inline strong {
-  font-family: var(--font-mono);
-  font-size: 15px;
-  color: var(--white);
-  font-weight: 700;
-}
 
 /* ===== PILL LIST ===== */
 .pill-list {

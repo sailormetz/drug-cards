@@ -108,7 +108,10 @@
         '</div>';
       }
 
-      // Indication-level notes (below pop tabs)
+      // Divider below pop tabs
+      doseBlocksHTML += '<div class="dose-divider"' + dataAttr + hidden + '></div>';
+
+      // Indication-level notes (below divider)
       if (ind.notes && ind.notes.length > 0) {
         doseBlocksHTML += '<div class="indication-notes"' + dataAttr + hidden + '>' +
           ind.notes.map(function (n) {
@@ -130,47 +133,38 @@
 
         var routesHTML = (d.routes || []).map(function (r) {
           var viaLabel = (r.via || []).map(function (v) { return '<span class="dose-via">' + v + '</span>'; }).join('');
-          var doseMeta = [];
-          if (r.repeat) doseMeta.push({ label: 'Repeat', value: r.repeat });
-          if (r.maxDose) doseMeta.push({ label: 'Max', value: r.maxDose });
-          var repeatHTML = '';
-          var maxDoseHTML = doseMeta.length > 0
-            ? '<div class="dose-meta">' +
-                doseMeta.map(function (m) {
-                  return '<div class="dose-meta-item">' +
+
+          var leftHTML = '<div class="dose-route-left">' +
+            '<div class="dose-via-list">' + viaLabel + formulationBadge + '</div>' +
+            '<span class="dose-amt' + (r.amount.length <= 13 ? '' : r.amount.length <= 20 ? ' dose-amt--md' : ' dose-amt--lg') + '">' + r.amount + '</span>' +
+          '</div>';
+
+          var metaRows = [];
+          if (r.repeat) metaRows.push({ label: 'Repeat', value: r.repeat });
+          if (r.maxDose) metaRows.push({ label: 'Max', value: r.maxDose });
+          if (r.onset) metaRows.push({ label: 'Onset', value: r.onset });
+          if (r.duration) metaRows.push({ label: 'Duration', value: r.duration });
+
+          var rightHTML = metaRows.length > 0
+            ? '<div class="dose-route-right">' +
+                metaRows.map(function (m) {
+                  return '<div class="dose-meta-row">' +
                     '<span class="dose-meta-label">' + m.label + '</span>' +
                     '<span class="dose-meta-value">' + m.value + '</span>' +
                   '</div>';
                 }).join('') +
               '</div>'
             : '';
-          var routeNotesHTML = (r.notes || []).length > 0
-            ? '<div class="route-notes">' +
-                (r.notes || []).map(function (n, i) {
-                  return '<div class="route-note-item">' +
-                    '<span class="route-note-num">&#x25CF;</span>' +
-                    '<span class="route-note-text">' + n + '</span>' +
-                  '</div>';
+
+          var notesHTML = (r.notes || []).length > 0
+            ? '<div class="dose-route-notes">' +
+                (r.notes || []).map(function (n) {
+                  return '<span class="dose-route-note">&#x21B3; ' + n + '</span>';
                 }).join('') +
               '</div>'
             : '';
 
-          var pharmaHTML = '';
-          if (r.onset || r.duration) {
-            pharmaHTML = '<div class="pharma-inline">' +
-              (r.onset ? '<div class="pharma-item"><span class="pharma-label">Onset</span><strong>' + r.onset + '</strong></div>' : '') +
-              (r.duration ? '<div class="pharma-item"><span class="pharma-label">Duration</span><strong>' + r.duration + '</strong></div>' : '') +
-            '</div>';
-          }
-
-          return '<div class="dose-route">' +
-            '<div class="dose-route-top">' +
-              '<div class="dose-via-list">' + viaLabel + formulationBadge + '</div>' +
-              '<span class="dose-amt' + (r.amount.length <= 13 ? '' : r.amount.length <= 20 ? ' dose-amt--md' : ' dose-amt--lg') + '">' + r.amount + '</span>' +
-            '</div>' +
-            repeatHTML + maxDoseHTML + routeNotesHTML +
-            pharmaHTML +
-          '</div>';
+          return '<div class="dose-route">' + leftHTML + rightHTML + notesHTML + '</div>';
         }).join('');
 
         var genNotesHTML = (d.notes || []).filter(Boolean).map(function (n) {
