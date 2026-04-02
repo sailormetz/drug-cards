@@ -1051,8 +1051,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1px;
-  background: var(--surface-2);
-  border: 1px solid var(--surface-2);
+  background: var(--surface);
   border-radius: 8px;
   overflow: hidden;
 }
@@ -1061,7 +1060,7 @@ body {
   flex-direction: column;
   gap: 2px;
   padding: 6px 8px;
-  background: var(--surface-2);
+  background: var(--border);
 }
 .dose-meta-cell--empty .dose-meta-value {
   color: var(--text-faint);
