@@ -1051,8 +1051,8 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
+  background: var(--surface-2);
+  border: 1px solid var(--surface-2);
   border-radius: 8px;
   overflow: hidden;
 }
