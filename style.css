@@ -1080,6 +1080,8 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 4px;
+  justify-content: space-between;
+  align-items: center;
 }
 .dose-via {
   font-size: 14px;
@@ -1174,14 +1176,12 @@ body {
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 500;
-  color: var(--text-mut);
+  color: var(--text);
   background: transparent;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 3px 7px;
+  border: none;
+  padding: 0;
   white-space: nowrap;
-  align-self: center;
-  width: fit-content;
+  margin-left: auto;
 }
 .dose-repeat {
   font-family: var(--font-mono);
