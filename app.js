@@ -1,7 +1,7 @@
 (function () {
   var activeDrugId = DRUGS[0].id;
-  var activeCategory = null;
-  var activeClass = null;
+  var activeCategories = [];
+  var activeClasses = [];
   var filterTab = 'category';
   var sortAsc = true;
 
@@ -69,7 +69,8 @@
 
     var tabsHTML = '';
     if (needsTabs) {
-      tabsHTML = '<div class="dose-chips">' +
+      tabsHTML = '<span class="dose-tab-label">Indication</span>' +
+        '<div class="dose-chips">' +
         doseIndications.map(function (ind, i) {
           var active = i === 0 ? ' dose-chip--active' : '';
           return '<button class="dose-chip' + active + '" data-indication="' + ind + '">' + ind + '</button>';
@@ -90,9 +91,24 @@
       if (!ind.doses) return;
 
       var dataAttr = needsTabs ? ' data-dose-indication="' + ind.name + '"' : '';
-      var hidden = needsTabs && ind.name !== firstInd ? ' style="display:none"' : '';
+      var indHidden = needsTabs && ind.name !== firstInd;
+      var hidden = indHidden ? ' style="display:none"' : '';
 
-      // Indication-level notes
+      var populations = ind.doses.map(function (d) { return d.population; });
+      var needsPopTabs = populations.length >= 1;
+
+      // Population tabs
+      if (needsPopTabs) {
+        doseBlocksHTML += '<span class="dose-tab-label"' + dataAttr + hidden + '>Population</span>' +
+          '<div class="pop-tabs"' + dataAttr + hidden + '>' +
+          populations.map(function (pop, i) {
+            return '<button class="pop-tab' + (i === 0 ? ' pop-tab--active' : '') +
+              '" data-pop="' + pop + '">' + pop + '</button>';
+          }).join('') +
+        '</div>';
+      }
+
+      // Indication-level notes (below pop tabs)
       if (ind.notes && ind.notes.length > 0) {
         doseBlocksHTML += '<div class="indication-notes"' + dataAttr + hidden + '>' +
           ind.notes.map(function (n) {
@@ -101,34 +117,59 @@
         '</div>';
       }
 
-      ind.doses.forEach(function (d) {
+      ind.doses.forEach(function (d, di) {
         var qualifierHTML = d.qualifier ? ' <span class="dose-qualifier">' + d.qualifier + '</span>' : '';
         var formulationHTML = d.formulation ? '<span class="dose-formulation">' + d.formulation + '</span>' : '';
+        var popAttr = needsPopTabs ? ' data-dose-pop="' + d.population + '"' : '';
+        var blockHidden = indHidden || (needsPopTabs && di > 0);
+        var blockHiddenAttr = blockHidden ? ' style="display:none"' : '';
+
+        var formulationBadge = d.formulation
+          ? '<span class="dose-formulation-badge">' + d.formulation + '</span>'
+          : '';
 
         var routesHTML = (d.routes || []).map(function (r) {
-          var viaLabel = (r.via || []).join(' / ');
-          var repeatHTML = r.repeat ? '<span class="dose-repeat">' + r.repeat + '</span>' : '';
-          var maxDoseHTML = r.maxDose ? '<span class="dose-max">Max: ' + r.maxDose + '</span>' : '';
-          var routeNotesHTML = (r.notes || []).map(function (n) {
-            return '<span class="dose-note">' + n + '</span>';
-          }).join('');
+          var viaLabel = (r.via || []).map(function (v) { return '<span class="dose-via">' + v + '</span>'; }).join('');
+          var doseMeta = [];
+          if (r.repeat) doseMeta.push({ label: 'Repeat', value: r.repeat });
+          if (r.maxDose) doseMeta.push({ label: 'Max', value: r.maxDose });
+          var repeatHTML = '';
+          var maxDoseHTML = doseMeta.length > 0
+            ? '<div class="dose-meta">' +
+                doseMeta.map(function (m) {
+                  return '<div class="dose-meta-item">' +
+                    '<span class="dose-meta-label">' + m.label + '</span>' +
+                    '<span class="dose-meta-value">' + m.value + '</span>' +
+                  '</div>';
+                }).join('') +
+              '</div>'
+            : '';
+          var routeNotesHTML = (r.notes || []).length > 0
+            ? '<div class="route-notes">' +
+                (r.notes || []).map(function (n, i) {
+                  return '<div class="route-note-item">' +
+                    '<span class="route-note-num">&#x25CF;</span>' +
+                    '<span class="route-note-text">' + n + '</span>' +
+                  '</div>';
+                }).join('') +
+              '</div>'
+            : '';
 
           var pharmaHTML = '';
           if (r.onset || r.duration) {
             pharmaHTML = '<div class="pharma-inline">' +
-              (r.onset ? '<span>Onset <strong>' + r.onset + '</strong></span>' : '') +
-              (r.onset && r.duration ? '<span class="pharma-sep">&middot;</span>' : '') +
-              (r.duration ? '<span>Duration <strong>' + r.duration + '</strong></span>' : '') +
+              (r.onset ? '<div class="pharma-item"><span class="pharma-label">Onset</span><strong>' + r.onset + '</strong></div>' : '') +
+              (r.duration ? '<div class="pharma-item"><span class="pharma-label">Duration</span><strong>' + r.duration + '</strong></div>' : '') +
             '</div>';
           }
 
           return '<div class="dose-route">' +
-            '<span class="dose-via">' + viaLabel + '</span>' +
-            '<div class="dose-route-body">' +
-              '<span class="dose-amt">' + r.amount + '</span>' +
-              repeatHTML + maxDoseHTML + routeNotesHTML +
-              pharmaHTML +
+            '<div class="dose-route-top">' +
+              '<div class="dose-via-list">' + viaLabel + formulationBadge + '</div>' +
+              '<span class="dose-amt' + (r.amount.length <= 13 ? '' : r.amount.length <= 20 ? ' dose-amt--md' : ' dose-amt--lg') + '">' + r.amount + '</span>' +
             '</div>' +
+            repeatHTML + maxDoseHTML + routeNotesHTML +
+            pharmaHTML +
           '</div>';
         }).join('');
 
@@ -136,11 +177,8 @@
           return '<span class="dose-note">' + n + '</span>';
         }).join('');
 
-        doseBlocksHTML += '<div class="dose-block"' + dataAttr + hidden + '>' +
-          '<div class="dose-header">' +
-            '<span class="dose-pop">' + d.population + qualifierHTML + '</span>' +
-            (formulationHTML ? '<div>' + formulationHTML + '</div>' : '') +
-          '</div>' +
+        doseBlocksHTML += '<div class="dose-block"' + dataAttr + popAttr + blockHiddenAttr + '>' +
+          (!needsPopTabs ? '<div class="dose-header"><span class="dose-pop">' + d.population + qualifierHTML + '</span></div>' : '') +
           '<div class="dose-routes">' + routesHTML + '</div>' +
           (genNotesHTML ? '<div class="dose-gen-notes">' + genNotesHTML + '</div>' : '') +
         '</div>';
@@ -221,7 +259,7 @@
   }
 
   function buildFilterBtn() {
-    var count = (activeCategory ? 1 : 0) + (activeClass ? 1 : 0);
+    var count = activeCategories.length + activeClasses.length;
     var badge = count > 0 ? '<span class="filter-badge">' + count + '</span>' : '';
     var active = count > 0 ? ' filter-open-btn--active' : '';
     var clearBtn = count > 0
@@ -236,8 +274,8 @@
     document.getElementById('filter-open-btn').addEventListener('click', openFilterModal);
     if (count > 0) {
       document.getElementById('filter-clear-inline').addEventListener('click', function () {
-        activeCategory = null;
-        activeClass = null;
+        activeCategories = [];
+        activeClasses = [];
         buildFilterBtn();
         buildList(search ? search.value : '');
       });
@@ -246,8 +284,8 @@
 
   function renderModalResultCount() {
     var count = DRUGS.filter(function (d) {
-      if (activeCategory && (d.category || []).indexOf(activeCategory) === -1) return false;
-      if (activeClass    && (d.classes   || []).indexOf(activeClass)    === -1) return false;
+      if (activeCategories.length && !activeCategories.every(function (c) { return (d.category || []).indexOf(c) !== -1; })) return false;
+      if (activeClasses.length    && !activeClasses.every(function (c) { return (d.classes   || []).indexOf(c) !== -1; })) return false;
       return true;
     }).length;
     var el = document.getElementById('filter-result-count');
@@ -257,14 +295,14 @@
   function renderModalActiveChips() {
     var chipsEl = document.getElementById('filter-active-chips');
     var html = '';
-    if (activeCategory) {
-      html += '<span class="active-filter-chip" data-type="category">' + activeCategory +
+    activeCategories.forEach(function (cat) {
+      html += '<span class="active-filter-chip" data-type="category" data-value="' + cat + '">' + cat +
         '<button class="active-filter-chip-x" aria-label="Remove">&#x2715;</button></span>';
-    }
-    if (activeClass) {
-      html += '<span class="active-filter-chip" data-type="class">' + activeClass +
+    });
+    activeClasses.forEach(function (cls) {
+      html += '<span class="active-filter-chip" data-type="class" data-value="' + cls + '">' + cls +
         '<button class="active-filter-chip-x" aria-label="Remove">&#x2715;</button></span>';
-    }
+    });
     chipsEl.innerHTML = html;
     chipsEl.style.display = html ? '' : 'none';
     renderModalResultCount();
@@ -272,9 +310,10 @@
 
   function renderModalTabContent() {
     var el = document.getElementById('filter-tab-content');
+    var scrollTop = el.scrollTop;
     if (filterTab === 'category') {
       var items = ['All'].concat(allCategories).map(function (cat) {
-        var isActive = cat === 'All' ? !activeCategory : activeCategory === cat;
+        var isActive = cat === 'All' ? activeCategories.length === 0 : activeCategories.indexOf(cat) !== -1;
         return '<button class="filter-list-item' + (isActive ? ' filter-list-item--active' : '') +
           '" data-value="' + cat + '">' + cat + '</button>';
       }).join('');
@@ -286,7 +325,7 @@
         ? allClasses.filter(function (c) { return c.toLowerCase().indexOf(searchVal.toLowerCase()) !== -1; })
         : allClasses;
       var classItems = ['All'].concat(filtered).map(function (cls) {
-        var isActive = cls === 'All' ? !activeClass : activeClass === cls;
+        var isActive = cls === 'All' ? activeClasses.length === 0 : activeClasses.indexOf(cls) !== -1;
         return '<button class="filter-list-item' + (isActive ? ' filter-list-item--active' : '') +
           '" data-value="' + cls + '">' + cls + '</button>';
       }).join('');
@@ -295,8 +334,8 @@
           (searchVal || '') + '" autocomplete="off">' +
         classItems;
       el.querySelector('.filter-class-search').addEventListener('input', renderModalTabContent);
-      el.querySelector('.filter-class-search').focus();
     }
+    el.scrollTop = scrollTop;
   }
 
   function openFilterModal() {
@@ -320,8 +359,8 @@
     var list = document.getElementById('drug-list');
     var q = (query || '').trim().toLowerCase();
     var filtered = DRUGS.filter(function (d) {
-      if (activeCategory && (d.category || []).indexOf(activeCategory) === -1) return false;
-      if (activeClass    && (d.classes   || []).indexOf(activeClass)    === -1) return false;
+      if (activeCategories.length && !activeCategories.every(function (c) { return (d.category || []).indexOf(c) !== -1; })) return false;
+      if (activeClasses.length    && !activeClasses.every(function (c) { return (d.classes   || []).indexOf(c) !== -1; })) return false;
       var trade = d.tradeNames.join(', ');
       return fuzzyMatch(q, d.genericName) || fuzzyMatch(q, trade);
     }).slice().sort(function (a, b) {
@@ -434,8 +473,8 @@
 
     // Modal: clear all
     document.getElementById('filter-clear-btn').addEventListener('click', function () {
-      activeCategory = null;
-      activeClass = null;
+      activeCategories = [];
+      activeClasses = [];
       renderModalActiveChips();
       renderModalTabContent();
     });
@@ -462,9 +501,21 @@
       if (item) {
         var val = item.dataset.value;
         if (filterTab === 'category') {
-          activeCategory = (val === 'All' || activeCategory === val) ? null : val;
+          if (val === 'All') {
+            activeCategories = [];
+          } else {
+            var idx = activeCategories.indexOf(val);
+            if (idx === -1) activeCategories.push(val);
+            else activeCategories.splice(idx, 1);
+          }
         } else {
-          activeClass = (val === 'All' || activeClass === val) ? null : val;
+          if (val === 'All') {
+            activeClasses = [];
+          } else {
+            var idx = activeClasses.indexOf(val);
+            if (idx === -1) activeClasses.push(val);
+            else activeClasses.splice(idx, 1);
+          }
         }
         renderModalActiveChips();
         renderModalTabContent();
@@ -473,19 +524,25 @@
       var chipX = e.target.closest('.active-filter-chip-x');
       if (chipX) {
         var chip = chipX.closest('.active-filter-chip');
-        if (chip.dataset.type === 'category') activeCategory = null;
-        else activeClass = null;
+        var chipVal = chip.dataset.value;
+        if (chip.dataset.type === 'category') {
+          activeCategories = activeCategories.filter(function (c) { return c !== chipVal; });
+        } else {
+          activeClasses = activeClasses.filter(function (c) { return c !== chipVal; });
+        }
         renderModalActiveChips();
         renderModalTabContent();
       }
     });
 
-    document.getElementById('btn-prev').addEventListener('click', function () {
+    document.getElementById('btn-prev').addEventListener('click', function (e) {
+      e.stopPropagation();
       var idx = DRUGS.findIndex(function (d) { return d.id === activeDrugId; });
       navigateTo(DRUGS[(idx - 1 + DRUGS.length) % DRUGS.length]);
     });
 
-    document.getElementById('btn-next').addEventListener('click', function () {
+    document.getElementById('btn-next').addEventListener('click', function (e) {
+      e.stopPropagation();
       var idx = DRUGS.findIndex(function (d) { return d.id === activeDrugId; });
       navigateTo(DRUGS[(idx + 1) % DRUGS.length]);
     });
@@ -510,6 +567,18 @@
         block.style.display = block.dataset.doseIndication === indication ? '' : 'none';
       });
 
+      // Reset pop tabs for newly active indication to first population
+      var popTabsEl = section.querySelector('.pop-tabs[data-dose-indication="' + indication + '"]');
+      if (popTabsEl) {
+        popTabsEl.querySelectorAll('.pop-tab').forEach(function (t, i) {
+          t.classList.toggle('pop-tab--active', i === 0);
+        });
+        var firstPop = popTabsEl.querySelector('.pop-tab').dataset.pop;
+        section.querySelectorAll('.dose-block[data-dose-indication="' + indication + '"]').forEach(function (block) {
+          block.style.display = block.dataset.dosePop === firstPop ? '' : 'none';
+        });
+      }
+
       // Update sameDoseAs note
       var drug = DRUGS.find(function (d) { return d.id === activeDrugId; });
       var sameDoseNotes = {};
@@ -527,6 +596,23 @@
         note.textContent = 'Also applies to: ' + sameDoseNotes[indication].join(', ');
         section.appendChild(note);
       }
+    });
+
+    // Pop tab delegation
+    document.getElementById('card-container').addEventListener('click', function (e) {
+      var popTab = e.target.closest('.pop-tab');
+      if (!popTab) return;
+      var pop = popTab.dataset.pop;
+      var popTabsEl = popTab.closest('.pop-tabs');
+      var indication = popTabsEl.dataset.doseIndication;
+      var section = popTab.closest('.section--dose');
+
+      popTabsEl.querySelectorAll('.pop-tab').forEach(function (t) {
+        t.classList.toggle('pop-tab--active', t === popTab);
+      });
+      section.querySelectorAll('.dose-block[data-dose-indication="' + indication + '"]').forEach(function (block) {
+        block.style.display = block.dataset.dosePop === pop ? '' : 'none';
+      });
     });
 
     buildFilterBtn();

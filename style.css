@@ -50,11 +50,11 @@ body {
 
 /* ===== PICKER SIDEBAR ===== */
 .picker-sidebar {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
+  background: #080b0f;
   position: sticky;
   top: 0;
   z-index: 10;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
 }
 
 .picker-toggle {
@@ -62,14 +62,14 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 17px 16px;
+  padding: 12px 18px;
   background: var(--surface-2);
-  border: none;
-  border-bottom: 1px solid var(--border);
-  color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-mut);
   font-family: var(--font-body);
-  font-size: 17px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
   text-align: left;
   letter-spacing: -0.01em;
@@ -96,7 +96,6 @@ body {
 .picker-body {
   overflow: hidden;
   max-height: 0;
-  border-top: 1px solid var(--border);
   transition: max-height 0.18s ease;
 }
 
@@ -203,10 +202,10 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
+  width: 28px;
+  height: 28px;
   border-radius: 999px;
-  font-size: 11px;
+  font-size: 14px;
   font-family: var(--font-body);
   color: var(--text-mut);
   background: var(--surface-2);
@@ -424,7 +423,7 @@ body {
   border: none;
   border-bottom: 1px solid var(--border);
   color: var(--text);
-  font-size: 13px;
+  font-size: 16px;
   font-family: var(--font-body);
   outline: none;
   box-sizing: border-box;
@@ -514,7 +513,7 @@ body {
 
 .picker-item {
   padding: 8px 14px;
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text-mut);
   cursor: pointer;
   border-left: 2px solid transparent;
@@ -539,53 +538,56 @@ body {
   color: var(--text-faint);
 }
 
-/* ===== CARD AREA + NAV ===== */
+/* ===== CARD AREA ===== */
 .card-area {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-.card-nav {
+/* ===== PICKER TOGGLE ROW (drug name + prev/next) ===== */
+.picker-toggle-row {
   display: flex;
+  align-items: center;
   gap: 8px;
-  padding: 6px 12px 8px;
-  border-top: 1px solid var(--border);
+  padding: 8px 12px;
 }
 
-.picker-sidebar--open .card-nav {
-  display: none;
-}
-
-.card-nav-btn {
+.picker-toggle {
   flex: 1;
+  min-width: 0;
+}
+
+.picker-nav-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
   background: var(--surface-2);
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 8px;
   color: var(--text-mut);
   cursor: pointer;
-  transition: background 0.12s, color 0.12s;
+  transition: color 0.12s, background 0.12s;
 }
 
-.card-nav-btn:hover {
-  background: var(--border);
+.picker-nav-btn:hover {
   color: var(--text);
+  background: var(--border);
 }
 
-.card-nav-btn svg {
-  width: 20px;
-  height: 20px;
+.picker-nav-btn svg {
+  width: 18px;
+  height: 18px;
 }
 
 /* ===== CARD CONTAINER ===== */
 #card-container {
   display: flex;
   justify-content: center;
-  padding: 8px 4px;
+  padding: 0 4px;
   flex: 1;
 }
 
@@ -767,7 +769,7 @@ body {
   padding-bottom: 0;
 }
 .moa-entry--divider {
-  border-top: 1px dashed var(--border);
+  border-top: 1px solid var(--border);
   padding-top: 12px;
 }
 .moa-target-row {
@@ -779,31 +781,31 @@ body {
 }
 .moa-target-row .hl {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
+  padding: 2px 6px;
   white-space: nowrap;
   flex-shrink: 0;
 }
 .moa-action-badge {
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--text-mut);
   background: var(--surface-2);
   border: 1px solid var(--border);
-  padding: 1px 6px;
+  padding: 2px 7px;
   border-radius: 3px;
 }
 .moa-result {
   font-size: 13px;
   font-weight: 700;
   color: var(--white);
-  margin-bottom: 6px;
+  margin-top: 8px;
+  margin-bottom: 10px;
 }
 .moa-separator {
-  height: 1px;
-  background: var(--border);
-  margin-bottom: 8px;
+  display: none;
 }
 .moa-arrow {
   color: var(--text-mut);
@@ -923,19 +925,30 @@ body {
   padding: 12px 14px;
 }
 
+/* ===== DOSE TAB LABEL ===== */
+.dose-tab-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+  margin-bottom: 6px;
+}
+
 /* ===== DOSE CHIPS ===== */
 .dose-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-bottom: 14px;
+  margin-bottom: 20px;
 }
 .dose-chip {
   font-size: 12px;
   font-weight: 600;
   color: var(--text-mut);
   background: transparent;
-  border: 2px dashed var(--border);
+  border: 2px solid var(--border);
   border-radius: 6px;
   padding: 6px 14px;
   cursor: pointer;
@@ -956,16 +969,46 @@ body {
   border: 2px solid var(--blue);
 }
 
+/* ===== POP TABS ===== */
+.pop-tabs {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.pop-tab {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-mut);
+  background: transparent;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  white-space: nowrap;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+.pop-tab--active,
+.pop-tab--active:hover {
+  color: var(--white);
+  background: rgba(86, 212, 221, 0.18);
+  border-color: var(--cyan);
+}
+
 /* ===== DOSE BLOCKS ===== */
 .dose-block {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding-bottom: 16px;
+  gap: 14px;
 }
-.dose-block + .dose-block {
+.pop-tabs + .indication-notes,
+.pop-tabs + .dose-block {
   border-top: 1px solid var(--border);
-  padding-top: 16px;
+  padding-top: 18px;
+}
+.indication-notes + .dose-block {
+  padding-top: 14px;
 }
 .dose-header {
   display: flex;
@@ -973,7 +1016,7 @@ body {
   gap: 1px;
 }
 .dose-pop {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -989,39 +1032,59 @@ body {
 .dose-routes {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0;
+}
+.dose-route + .dose-route {
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+  margin-top: 18px;
 }
 .dose-route {
   display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dose-route-top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dose-via-list {
+  display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  gap: 8px;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 .dose-via {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.06em;
   color: var(--blue);
   background: rgba(88, 166, 255, 0.08);
   border: 1px solid rgba(88, 166, 255, 0.3);
-  border-radius: 4px;
-  padding: 3px 8px;
+  border-radius: 6px;
+  padding: 3px 7px;
   white-space: nowrap;
   flex-shrink: 0;
-  margin-top: 1px;
-}
-.dose-route-body {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  min-width: 0;
 }
 .dose-amt {
-  font-size: 17px;
+  font-size: 28px;
   font-weight: 700;
   font-family: var(--font-mono);
   color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1;
   overflow-wrap: break-word;
+}
+.dose-amt--md {
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.dose-amt--lg {
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 .dose-freq {
   font-size: 13px;
@@ -1030,7 +1093,56 @@ body {
 }
 .dose-note {
   font-size: 13px;
+  color: yellow;
+  line-height: 1.4;
+}
+.dose-route .dose-note {
+  color: magenta;
+}
+.route-notes,
+.dose-meta {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.dose-meta-item {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 8px;
+}
+.dose-meta-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: var(--text-mut);
+  flex-shrink: 0;
+  min-width: 44px;
+}
+.dose-meta-value {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text);
+}
+.route-note-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.route-note-num {
+  font-size: 6px;
+  color: var(--text-mut);
+  flex-shrink: 0;
+}
+.route-note-text {
+  font-size: 13px;
+  color: var(--text);
   line-height: 1.4;
 }
 .indication-notes {
@@ -1045,7 +1157,7 @@ body {
 }
 .indication-note {
   font-size: 13px;
-  color: var(--text-mut);
+  color: cyan;
   line-height: 1.4;
 }
 .dose-gen-notes {
@@ -1056,7 +1168,7 @@ body {
   border-left: 2px solid var(--orange-bdr);
   background: rgba(240, 136, 62, 0.04);
   border-radius: 0 4px 4px 0;
-  margin-top: 4px;
+  margin-top: 10px;
 }
 .dose-qualifier {
   font-size: 12px;
@@ -1065,12 +1177,21 @@ body {
   text-transform: none;
   letter-spacing: normal;
 }
-.dose-formulation {
+.dose-formulation-badge {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 500;
   color: var(--text-mut);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 3px 7px;
+  white-space: nowrap;
+  align-self: center;
+  width: fit-content;
 }
 .dose-repeat {
+  font-family: var(--font-mono);
   font-size: 13px;
   color: var(--text-mut);
   line-height: 1.4;
@@ -1090,24 +1211,31 @@ body {
 /* ===== PHARMA INLINE ===== */
 .pharma-inline {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   gap: 8px;
-  font-size: 12px;
-  color: var(--text);
+}
+.pharma-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   background: var(--surface-2);
   border: 1px solid var(--border);
-  border-radius: 4px;
-  margin-top: 4px;
-  padding: 4px 8px;
+  border-radius: 8px;
+  padding: 8px 12px;
+  flex: 1;
+}
+.pharma-label {
+  font-size: 11px;
+  color: var(--text-mut);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
 }
 .pharma-inline strong {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 15px;
   color: var(--white);
   font-weight: 700;
-}
-.pharma-sep {
-  color: var(--text-faint);
 }
 
 /* ===== PILL LIST ===== */
