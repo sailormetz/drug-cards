@@ -992,8 +992,8 @@ body {
 .pop-tab--active,
 .pop-tab--active:hover {
   color: var(--white);
-  background: rgba(86, 212, 221, 0.18);
-  border-color: var(--cyan);
+  background: rgba(88, 166, 255, 0.18);
+  border-color: var(--blue);
 }
 
 /* ===== DOSE BLOCKS ===== */
@@ -1002,9 +1002,14 @@ body {
   flex-direction: column;
   gap: 14px;
 }
-.dose-divider {
-  border-top: 1px solid var(--border);
-  margin-bottom: 18px;
+.dose-context-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-mut);
+  text-transform: uppercase;
+  font-variant: small-caps;
+  margin-bottom: 10px;
 }
 .dose-header {
   display: flex;
@@ -1043,10 +1048,18 @@ body {
 .dose-amt-row {
   display: flex;
   flex-direction: row;
-  align-items: baseline;
-  gap: 10px;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   margin: 6px 0;
+}
+.dose-amt-row .dose-amt {
+  flex: 1;
+  min-width: 0;
+}
+.dose-amt-row .dose-via-list {
+  flex-shrink: 0;
+  justify-content: flex-end;
 }
 .dose-meta-grid {
   display: grid;
@@ -1084,7 +1097,7 @@ body {
   align-items: center;
 }
 .dose-via {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.06em;
   color: var(--blue);
@@ -1136,10 +1149,11 @@ body {
 }
 .dose-meta-value {
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--text);
 }
+.dose-meta-value--sm { font-size: 14px; }
 .indication-notes {
   display: flex;
   flex-direction: column;
@@ -1172,9 +1186,12 @@ body {
   text-transform: none;
   letter-spacing: normal;
 }
+.dose-formulation-row {
+  margin-top: 2px;
+}
 .dose-formulation-badge {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--text);
   background: transparent;

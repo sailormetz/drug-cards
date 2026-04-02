@@ -108,8 +108,17 @@
         '</div>';
       }
 
-      // Divider below pop tabs
-      doseBlocksHTML += '<div class="dose-divider"' + dataAttr + hidden + '></div>';
+      // Context title below tabs (replaces divider)
+      var firstPopLabel = populations[0] || '';
+      var titleParts = [];
+      if (needsTabs) titleParts.push(ind.name);
+      if (populations.length > 1) titleParts.push(firstPopLabel);
+      if (titleParts.length > 0) {
+        doseBlocksHTML += '<div class="dose-context-title"' + dataAttr + hidden +
+          ' data-indication-label="' + (needsTabs ? ind.name : '') + '"' +
+          (populations.length > 1 ? ' data-has-pop="1"' : '') + '>' +
+          titleParts.join(', ') + '</div>';
+      }
 
       // Indication-level notes (below divider)
       if (ind.notes && ind.notes.length > 0) {
@@ -136,6 +145,7 @@
 
           var amtRowHTML = '<div class="dose-amt-row">' +
             '<span class="dose-amt' + (r.amount.length <= 13 ? '' : r.amount.length <= 20 ? ' dose-amt--md' : ' dose-amt--lg') + '">' + r.amount + '</span>' +
+            '<div class="dose-via-list">' + viaLabel + '</div>' +
           '</div>';
 
           var metaCells = [
@@ -149,7 +159,7 @@
             metaCells.map(function (m) {
               return '<div class="dose-meta-cell' + (m.value === '—' ? ' dose-meta-cell--empty' : '') + '">' +
                 '<span class="dose-meta-label">' + m.label + '</span>' +
-                '<span class="dose-meta-value">' + m.value + '</span>' +
+                '<span class="dose-meta-value' + (m.value.length > 12 ? ' dose-meta-value--sm' : '') + '">' + m.value + '</span>' +
               '</div>';
             }).join('') +
           '</div>';
@@ -163,8 +173,8 @@
             : '';
 
           return '<div class="dose-route">' +
-            '<div class="dose-via-list">' + viaLabel + formulationBadge + '</div>' +
             amtRowHTML +
+            (formulationBadge ? '<div class="dose-formulation-row">' + formulationBadge + '</div>' : '') +
             metaGridHTML +
             notesHTML +
           '</div>';
@@ -574,6 +584,12 @@
         section.querySelectorAll('.dose-block[data-dose-indication="' + indication + '"]').forEach(function (block) {
           block.style.display = block.dataset.dosePop === firstPop ? '' : 'none';
         });
+        var titleEl = section.querySelector('.dose-context-title[data-dose-indication="' + indication + '"]');
+        if (titleEl) {
+          var parts = [titleEl.dataset.indicationLabel];
+          if (titleEl.dataset.hasPop) parts.push(firstPop);
+          titleEl.textContent = parts.filter(Boolean).join(', ');
+        }
       }
 
       // Update sameDoseAs note
@@ -610,6 +626,13 @@
       section.querySelectorAll('.dose-block[data-dose-indication="' + indication + '"]').forEach(function (block) {
         block.style.display = block.dataset.dosePop === pop ? '' : 'none';
       });
+      var titleEl = indication
+        ? section.querySelector('.dose-context-title[data-dose-indication="' + indication + '"]')
+        : section.querySelector('.dose-context-title');
+      if (titleEl) {
+        var indLabel = titleEl.dataset.indicationLabel;
+        titleEl.textContent = [indLabel, pop].filter(Boolean).join(', ');
+      }
     });
 
     buildFilterBtn();

@@ -56,7 +56,7 @@ const DRUGS = [
                 amount: '1 mg',
                 onset: 'Immediate',
                 duration: '5–10 min',
-                repeat: 'q3–5 min',
+                repeat: '3–5 min',
                 notes: ['Rapid push followed by 20 mL NS flush']
               }
             ],
@@ -72,7 +72,7 @@ const DRUGS = [
                 onset: 'Immediate',
                 duration: '5–10 min',
                 maxDose: '1 mg/dose',
-                repeat: 'q3–5 min',
+                repeat: '3–5 min',
                 notes: []
               }
             ],
@@ -93,7 +93,7 @@ const DRUGS = [
                 amount: '0.3 mg',
                 onset: '3–5 min',
                 duration: '5–15 min',
-                repeat: 'q5–15 min PRN',
+                repeat: '5–15 min PRN',
                 notes: ['Anterolateral thigh']
               }
             ],
@@ -109,7 +109,7 @@ const DRUGS = [
                 amount: '0.15 mg',
                 onset: '3–5 min',
                 duration: '5–15 min',
-                repeat: 'q5–15 min PRN',
+                repeat: '5–15 min PRN',
                 notes: ['Anterolateral thigh']
               }
             ],
@@ -208,7 +208,7 @@ const DRUGS = [
                 amount: '0.01 mg/kg',
                 onset: 'Immediate',
                 duration: '5–10 min',
-                repeat: 'q3–5 min',
+                repeat: '3–5 min',
                 notes: ['Preferred route if access obtained']
               },
               {
@@ -216,7 +216,7 @@ const DRUGS = [
                 amount: '0.1 mg/kg',
                 onset: 'Immediate',
                 duration: '5–10 min',
-                repeat: 'q3–5 min',
+                repeat: '3–5 min',
                 notes: ['Use only if IV/IO access cannot be obtained']
               }
             ],
@@ -2180,7 +2180,7 @@ const DRUGS = [
                 amount: '0.5–1 mg',
                 onset: '5 min',
                 duration: '3–4 hr',
-                repeat: 'q10–15 min PRN',
+                repeat: '10–15 min PRN',
                 maxDose: '2 mg',
                 notes: ['Slow push over 2–3 min']
               },
@@ -2891,7 +2891,7 @@ const DRUGS = [
                 amount: '1 mg',
                 onset: '1–2 min',
                 duration: '2–6 hr',
-                repeat: 'q3–5 min',
+                repeat: '3–5 min',
                 maxDose: '3 mg',
                 notes: []
               }
@@ -2935,7 +2935,7 @@ const DRUGS = [
                 amount: '2 mg',
                 onset: '3–5 min',
                 duration: '2–6 hr',
-                repeat: 'q5–10 min as needed',
+                repeat: '5–10 min as needed',
                 notes: ['Mark I kit or DuoDote autoinjector']
               }
             ],
@@ -2949,7 +2949,7 @@ const DRUGS = [
                 amount: '0.02–0.05 mg/kg',
                 onset: '1–2 min',
                 duration: '2–6 hr',
-                repeat: 'q5 min until secretions dry',
+                repeat: '5 min until secretions dry',
                 notes: ['Minimum dose 0.1 mg']
               }
             ],
@@ -3297,7 +3297,7 @@ const DRUGS = [
                 amount: '4 mg',
                 onset: '1–2 hr',
                 duration: '36–72 hr',
-                repeat: 'q6 hr until symptoms resolve',
+                repeat: '6 hr until symptoms resolve',
                 notes: []
               }
             ],
@@ -3311,7 +3311,7 @@ const DRUGS = [
                 amount: '0.15 mg/kg',
                 onset: '1–2 hr',
                 duration: '36–72 hr',
-                repeat: 'q6 hr',
+                repeat: '6 hr',
                 maxDose: '4 mg/dose',
                 notes: []
               }
@@ -3346,7 +3346,7 @@ const DRUGS = [
                 amount: '0.15 mg/kg',
                 onset: '1–2 hr',
                 duration: '36–72 hr',
-                repeat: 'q6 hr',
+                repeat: '6 hr',
                 notes: []
               }
             ],
@@ -3548,7 +3548,7 @@ const DRUGS = [
                 amount: '1 mcg/kg',
                 onset: '1–2 min',
                 duration: '30–60 min',
-                repeat: 'q5–10 min PRN',
+                repeat: '5–10 min PRN',
                 maxDose: '200 mcg',
                 notes: ['Administer slowly over 1–2 min']
               },
@@ -3557,7 +3557,7 @@ const DRUGS = [
                 amount: '1–2 mcg/kg',
                 onset: '5–10 min',
                 duration: '30–60 min',
-                repeat: 'q15 min PRN',
+                repeat: '15 min PRN',
                 maxDose: '200 mcg',
                 notes: ['Split dose between nares if volume >1 mL per nare']
               },
@@ -3566,7 +3566,7 @@ const DRUGS = [
                 amount: '1 mcg/kg',
                 onset: '7–15 min',
                 duration: '1–2 hr',
-                repeat: 'q15 min PRN',
+                repeat: '15 min PRN',
                 maxDose: '200 mcg',
                 notes: []
               }
@@ -3582,7 +3582,7 @@ const DRUGS = [
                 amount: '1–2 mcg/kg',
                 onset: '5–10 min',
                 duration: '30–60 min',
-                repeat: 'q15 min PRN',
+                repeat: '15 min PRN',
                 maxDose: '100 mcg',
                 notes: ['Split dose between nares if volume >1 mL per nare']
               },
@@ -3591,7 +3591,7 @@ const DRUGS = [
                 amount: '1 mcg/kg',
                 onset: '1–2 min',
                 duration: '30–60 min',
-                repeat: 'q15 min PRN',
+                repeat: '15 min PRN',
                 maxDose: '100 mcg',
                 notes: ['Administer slowly over 1–2 min']
               }
@@ -3895,7 +3895,7 @@ const DRUGS = [
                 amount: '1 mg',
                 onset: '1–3 min',
                 duration: '5–15 min',
-                repeat: 'q5 min as necessary',
+                repeat: '5 min as necessary',
                 notes: []
               }
             ],
@@ -3910,7 +3910,7 @@ const DRUGS = [
                 amount: '0.5 mg',
                 onset: '1–3 min',
                 duration: '5–15 min',
-                repeat: 'q5 min as necessary',
+                repeat: '5 min as necessary',
                 notes: []
               }
             ],
@@ -4776,7 +4776,7 @@ const DRUGS = [
                 amount: '0.4 mg',
                 onset: '1–3 min',
                 duration: '25–30 min',
-                repeat: 'q3–5 min if SBP >100',
+                repeat: '3–5 min if SBP >100',
                 notes: ['Tablet or metered spray']
               }
             ],
@@ -4796,7 +4796,7 @@ const DRUGS = [
                 amount: '0.4–0.8 mg',
                 onset: '1–3 min',
                 duration: '25–30 min',
-                repeat: 'q5 min if SBP >100 (0.8 mg if SBP ≥160)',
+                repeat: '5 min if SBP >100 (0.8 mg if SBP ≥160)',
                 notes: []
               },
               {
@@ -4940,7 +4940,7 @@ const DRUGS = [
                 amount: '0.4–2 mg',
                 onset: '1–2 min',
                 duration: '30–90 min',
-                repeat: 'q2–3 min PRN',
+                repeat: '2–3 min PRN',
                 notes: ['Titrate in 0.4 mg increments to respiratory effort']
               },
               {
@@ -4956,7 +4956,7 @@ const DRUGS = [
                 amount: '0.4–2 mg',
                 onset: '3–5 min',
                 duration: '30–90 min',
-                repeat: 'q3–5 min PRN',
+                repeat: '3–5 min PRN',
                 notes: []
               }
             ],
@@ -4971,7 +4971,7 @@ const DRUGS = [
                 onset: '1–2 min',
                 duration: '30–90 min',
                 maxDose: '2 mg',
-                repeat: 'q2–3 min PRN',
+                repeat: '2–3 min PRN',
                 notes: []
               },
               {
@@ -5054,7 +5054,7 @@ const DRUGS = [
                 amount: '0.1 mg/kg',
                 onset: '3–5 min',
                 duration: '3–4 hr',
-                repeat: 'q5–10 min PRN',
+                repeat: '5–10 min PRN',
                 maxDose: '20 mg',
                 notes: ['Administer slowly over 1–2 min']
               },
@@ -5077,7 +5077,7 @@ const DRUGS = [
                 amount: '0.1 mg/kg',
                 onset: '3–5 min',
                 duration: '3–4 hr',
-                repeat: 'q5–10 min PRN',
+                repeat: '5–10 min PRN',
                 maxDose: '5 mg',
                 notes: ['Administer slowly over 1–2 min']
               }
@@ -5317,7 +5317,7 @@ const DRUGS = [
                 amount: '5 mg',
                 onset: '2–5 min',
                 duration: '3–6 hr',
-                repeat: 'q5 min, max 15 mg total',
+                repeat: '5 min, max 15 mg total',
                 notes: ['Administer slow IV push over 2–5 min']
               }
             ],
@@ -6126,7 +6126,7 @@ const DRUGS = [
                 amount: '1.25 mg',
                 onset: '5–15 min',
                 duration: '3–6 hr',
-                repeat: 'q15–20 min PRN',
+                repeat: '15–20 min PRN',
                 notes: []
               }
             ],
@@ -6140,7 +6140,7 @@ const DRUGS = [
                 amount: '0.63–1.25 mg',
                 onset: '5–15 min',
                 duration: '3–6 hr',
-                repeat: 'q15–20 min PRN',
+                repeat: '15–20 min PRN',
                 notes: []
               }
             ],
@@ -6279,7 +6279,7 @@ const DRUGS = [
                 amount: '20 mg',
                 onset: '2–5 min',
                 duration: '2–6 hr',
-                repeat: 'q10 min x2 for persistent hypertension',
+                repeat: '10 min x2 for persistent hypertension',
                 notes: ['Administer over 2 min']
               }
             ],
@@ -6500,7 +6500,7 @@ const DRUGS = [
                 amount: '0.1–0.3 mg/kg',
                 onset: '1–2 min',
                 duration: '15–30 min',
-                repeat: 'q15 min PRN',
+                repeat: '15 min PRN',
                 notes: ['Administer slow IV over 5 min or as infusion in 100 mL NS']
               },
               {
@@ -6508,7 +6508,7 @@ const DRUGS = [
                 amount: '0.5–1 mg/kg',
                 onset: '5–10 min',
                 duration: '15–30 min',
-                repeat: 'q15 min PRN',
+                repeat: '15 min PRN',
                 notes: ['Split dose between nares']
               },
               {
