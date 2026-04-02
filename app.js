@@ -108,26 +108,6 @@
         '</div>';
       }
 
-      // Context title below tabs (replaces divider)
-      var firstPopLabel = populations[0] || '';
-      var titleParts = [];
-      if (needsTabs) titleParts.push(ind.name);
-      if (populations.length > 1) titleParts.push(firstPopLabel);
-      if (titleParts.length > 0) {
-        doseBlocksHTML += '<div class="dose-context-title"' + dataAttr + hidden +
-          ' data-indication-label="' + (needsTabs ? ind.name : '') + '"' +
-          (populations.length > 1 ? ' data-has-pop="1"' : '') + '>' +
-          titleParts.join(', ') + '</div>';
-      }
-
-      // Indication-level notes (below divider)
-      if (ind.notes && ind.notes.length > 0) {
-        doseBlocksHTML += '<div class="indication-notes"' + dataAttr + hidden + '>' +
-          ind.notes.map(function (n) {
-            return '<span class="indication-note">' + n + '</span>';
-          }).join('') +
-        '</div>';
-      }
 
       ind.doses.forEach(function (d, di) {
         var qualifierHTML = d.qualifier ? ' <span class="dose-qualifier">' + d.qualifier + '</span>' : '';
@@ -156,6 +136,12 @@
           ];
 
           var metaGridHTML = '<div class="dose-meta-grid">' +
+            (formulationBadge
+              ? '<div class="dose-meta-cell dose-meta-cell--formulation">' +
+                  '<span class="dose-meta-label">Formulation</span>' +
+                  formulationBadge +
+                '</div>'
+              : '') +
             metaCells.map(function (m) {
               return '<div class="dose-meta-cell' + (m.value === '—' ? ' dose-meta-cell--empty' : '') + '">' +
                 '<span class="dose-meta-label">' + m.label + '</span>' +
@@ -167,14 +153,13 @@
           var notesHTML = (r.notes || []).length > 0
             ? '<div class="dose-route-notes">' +
                 (r.notes || []).map(function (n) {
-                  return '<span class="dose-route-note">&#x21B3; ' + n + '</span>';
+                  return '<span class="dose-route-note"><span class="dose-route-note-arrow">&#x2192;</span> ' + n + '</span>';
                 }).join('') +
               '</div>'
             : '';
 
           return '<div class="dose-route">' +
             amtRowHTML +
-            (formulationBadge ? '<div class="dose-formulation-row">' + formulationBadge + '</div>' : '') +
             metaGridHTML +
             notesHTML +
           '</div>';
@@ -190,6 +175,15 @@
           (genNotesHTML ? '<div class="dose-gen-notes">' + genNotesHTML + '</div>' : '') +
         '</div>';
       });
+
+      // Indication-level notes (below all dose-blocks for this indication)
+      if (ind.notes && ind.notes.length > 0) {
+        doseBlocksHTML += '<div class="indication-notes"' + dataAttr + hidden + '>' +
+          ind.notes.map(function (n) {
+            return '<span class="indication-note">' + n + '</span>';
+          }).join('') +
+        '</div>';
+      }
     });
 
     // sameDoseAs note for the first visible indication
@@ -584,12 +578,6 @@
         section.querySelectorAll('.dose-block[data-dose-indication="' + indication + '"]').forEach(function (block) {
           block.style.display = block.dataset.dosePop === firstPop ? '' : 'none';
         });
-        var titleEl = section.querySelector('.dose-context-title[data-dose-indication="' + indication + '"]');
-        if (titleEl) {
-          var parts = [titleEl.dataset.indicationLabel];
-          if (titleEl.dataset.hasPop) parts.push(firstPop);
-          titleEl.textContent = parts.filter(Boolean).join(', ');
-        }
       }
 
       // Update sameDoseAs note
@@ -626,13 +614,6 @@
       section.querySelectorAll('.dose-block[data-dose-indication="' + indication + '"]').forEach(function (block) {
         block.style.display = block.dataset.dosePop === pop ? '' : 'none';
       });
-      var titleEl = indication
-        ? section.querySelector('.dose-context-title[data-dose-indication="' + indication + '"]')
-        : section.querySelector('.dose-context-title');
-      if (titleEl) {
-        var indLabel = titleEl.dataset.indicationLabel;
-        titleEl.textContent = [indLabel, pop].filter(Boolean).join(', ');
-      }
     });
 
     buildFilterBtn();

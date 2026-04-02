@@ -995,21 +995,22 @@ body {
   background: rgba(88, 166, 255, 0.18);
   border-color: var(--blue);
 }
+.pop-tab--active[data-pop="Pediatric"],
+.pop-tab--active:hover[data-pop="Pediatric"] {
+  background: rgba(236, 72, 153, 0.18);
+  border-color: #ec4899;
+}
+.pop-tab--active[data-pop="Neonatal"],
+.pop-tab--active:hover[data-pop="Neonatal"] {
+  background: rgba(210, 153, 34, 0.18);
+  border-color: var(--orange);
+}
 
 /* ===== DOSE BLOCKS ===== */
 .dose-block {
   display: flex;
   flex-direction: column;
   gap: 14px;
-}
-.dose-context-title {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--text-mut);
-  text-transform: uppercase;
-  font-variant: small-caps;
-  margin-bottom: 10px;
 }
 .dose-header {
   display: flex;
@@ -1085,9 +1086,12 @@ body {
   gap: 3px;
 }
 .dose-route-note {
-  font-size: 12px;
+  font-size: 15px;
   color: var(--text-mut);
   line-height: 1.4;
+}
+.dose-route-note-arrow {
+  font-weight: 900;
 }
 .dose-via-list {
   display: flex;
@@ -1141,14 +1145,14 @@ body {
   color: magenta;
 }
 .dose-meta-label {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-mut);
 }
 .dose-meta-value {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 17px;
   font-weight: 600;
   color: var(--text);
@@ -1186,19 +1190,21 @@ body {
   text-transform: none;
   letter-spacing: normal;
 }
-.dose-formulation-row {
-  margin-top: 2px;
+.dose-meta-cell--formulation {
+  grid-column: 1 / -1;
+  align-items: flex-start;
 }
 .dose-formulation-badge {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 600;
   color: var(--text);
   background: transparent;
   border: none;
   padding: 0;
   white-space: nowrap;
-  margin-left: auto;
+  text-align: left;
+  align-self: flex-start;
 }
 .dose-repeat {
   font-family: var(--font-mono);

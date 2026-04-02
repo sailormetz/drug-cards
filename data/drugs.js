@@ -240,7 +240,7 @@ const DRUGS = [
         relative: true
       }
     ],
-    adverseEffects: ['Tachycardia / hypertension', 'Dysrhythmias', 'Angina / myocardial ischemia'],
+    adverseEffects: ['Tachycardia', 'Hypertension', 'Dysrhythmias', 'Angina / myocardial ischemia'],
     precautions: [
       'IM is the correct route for anaphylaxis. IV push epinephrine in a patient with a pulse risks fatal arrhythmia.',
       "Use caution in <span class=\"hl hl--warn\">elderly</span>, known <span class=\"hl hl--warn\">cardiac disease</span>, <span class=\"hl hl--warn\">hypertension</span>, and <span class=\"hl hl--warn\">diabetes</span>.",
