@@ -134,21 +134,21 @@
         var routesHTML = (d.routes || []).map(function (r) {
           var viaLabel = (r.via || []).map(function (v) { return '<span class="dose-via">' + v + '</span>'; }).join('');
 
-          var leftHTML = '<div class="dose-route-left">' +
-            '<div class="dose-via-list">' + viaLabel + formulationBadge + '</div>' +
+          var amtRowHTML = '<div class="dose-amt-row">' +
             '<span class="dose-amt' + (r.amount.length <= 13 ? '' : r.amount.length <= 20 ? ' dose-amt--md' : ' dose-amt--lg') + '">' + r.amount + '</span>' +
+            formulationBadge +
           '</div>';
 
-          var metaRows = [];
-          if (r.repeat) metaRows.push({ label: 'Repeat', value: r.repeat });
-          if (r.maxDose) metaRows.push({ label: 'Max', value: r.maxDose });
-          if (r.onset) metaRows.push({ label: 'Onset', value: r.onset });
-          if (r.duration) metaRows.push({ label: 'Duration', value: r.duration });
+          var metaCells = [];
+          if (r.maxDose) metaCells.push({ label: 'Max', value: r.maxDose });
+          if (r.repeat) metaCells.push({ label: 'Repeat', value: r.repeat });
+          if (r.onset) metaCells.push({ label: 'Onset', value: r.onset });
+          if (r.duration) metaCells.push({ label: 'Duration', value: r.duration });
 
-          var rightHTML = metaRows.length > 0
-            ? '<div class="dose-route-right">' +
-                metaRows.map(function (m) {
-                  return '<div class="dose-meta-row">' +
+          var metaGridHTML = metaCells.length > 0
+            ? '<div class="dose-meta-grid">' +
+                metaCells.map(function (m) {
+                  return '<div class="dose-meta-cell">' +
                     '<span class="dose-meta-label">' + m.label + '</span>' +
                     '<span class="dose-meta-value">' + m.value + '</span>' +
                   '</div>';
@@ -164,7 +164,12 @@
               '</div>'
             : '';
 
-          return '<div class="dose-route">' + leftHTML + rightHTML + notesHTML + '</div>';
+          return '<div class="dose-route">' +
+            '<div class="dose-via-list">' + viaLabel + '</div>' +
+            amtRowHTML +
+            metaGridHTML +
+            notesHTML +
+          '</div>';
         }).join('');
 
         var genNotesHTML = (d.notes || []).filter(Boolean).map(function (n) {
