@@ -136,7 +136,6 @@
 
           var amtRowHTML = '<div class="dose-amt-row">' +
             '<span class="dose-amt' + (r.amount.length <= 13 ? '' : r.amount.length <= 20 ? ' dose-amt--md' : ' dose-amt--lg') + '">' + r.amount + '</span>' +
-            formulationBadge +
           '</div>';
 
           var metaCells = [
@@ -164,7 +163,7 @@
             : '';
 
           return '<div class="dose-route">' +
-            '<div class="dose-via-list">' + viaLabel + '</div>' +
+            '<div class="dose-via-list">' + viaLabel + formulationBadge + '</div>' +
             amtRowHTML +
             metaGridHTML +
             notesHTML +

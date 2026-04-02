@@ -1080,7 +1080,6 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 4px;
-  justify-content: space-between;
   align-items: center;
 }
 .dose-via {
