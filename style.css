@@ -1046,6 +1046,7 @@ body {
   align-items: baseline;
   gap: 10px;
   flex-wrap: wrap;
+  margin: 6px 0;
 }
 .dose-meta-grid {
   display: grid;
