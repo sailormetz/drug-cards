@@ -1070,7 +1070,8 @@ body {
 }
 .dose-via-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 4px;
 }
 .dose-via {
