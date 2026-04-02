@@ -1059,9 +1059,12 @@ body {
 .dose-meta-cell {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  padding: 8px 10px;
+  gap: 2px;
+  padding: 6px 8px;
   background: var(--surface-2);
+}
+.dose-meta-cell--empty .dose-meta-value {
+  color: var(--text-faint);
 }
 .dose-route-notes {
   display: flex;

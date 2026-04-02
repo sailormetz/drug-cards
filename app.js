@@ -139,22 +139,21 @@
             formulationBadge +
           '</div>';
 
-          var metaCells = [];
-          if (r.maxDose) metaCells.push({ label: 'Max', value: r.maxDose });
-          if (r.repeat) metaCells.push({ label: 'Repeat', value: r.repeat });
-          if (r.onset) metaCells.push({ label: 'Onset', value: r.onset });
-          if (r.duration) metaCells.push({ label: 'Duration', value: r.duration });
+          var metaCells = [
+            { label: 'Max', value: r.maxDose || '—' },
+            { label: 'Repeat', value: r.repeat || '—' },
+            { label: 'Onset', value: r.onset || '—' },
+            { label: 'Duration', value: r.duration || '—' }
+          ];
 
-          var metaGridHTML = metaCells.length > 0
-            ? '<div class="dose-meta-grid">' +
-                metaCells.map(function (m) {
-                  return '<div class="dose-meta-cell">' +
-                    '<span class="dose-meta-label">' + m.label + '</span>' +
-                    '<span class="dose-meta-value">' + m.value + '</span>' +
-                  '</div>';
-                }).join('') +
-              '</div>'
-            : '';
+          var metaGridHTML = '<div class="dose-meta-grid">' +
+            metaCells.map(function (m) {
+              return '<div class="dose-meta-cell' + (m.value === '—' ? ' dose-meta-cell--empty' : '') + '">' +
+                '<span class="dose-meta-label">' + m.label + '</span>' +
+                '<span class="dose-meta-value">' + m.value + '</span>' +
+              '</div>';
+            }).join('') +
+          '</div>';
 
           var notesHTML = (r.notes || []).length > 0
             ? '<div class="dose-route-notes">' +
