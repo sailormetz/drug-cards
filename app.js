@@ -12,6 +12,12 @@
     return acc.concat(d.classes || []);
   }, []))).sort();
 
+  function matchesFilters(d) {
+    if (activeCategories.length && !activeCategories.every(function (c) { return (d.category || []).indexOf(c) !== -1; })) return false;
+    if (activeClasses.length    && !activeClasses.every(function (c) { return (d.classes   || []).indexOf(c) !== -1; })) return false;
+    return true;
+  }
+
   function getTargetHlClass(target) {
     var name = target.name.toLowerCase();
     if (/α|alpha/i.test(name)) return 'hl--alpha';
@@ -245,7 +251,8 @@
         '</section>' +
 
         '<footer class="card-footer">' +
-          '<p>Always follow your local protocol · For educational use only</p>' +
+          '<p>Always follow your local protocol</p>' +
+          '<p>For educational use only</p>' +
         '</footer>' +
       '</article>';
   }
@@ -309,11 +316,7 @@
   }
 
   function renderModalResultCount() {
-    var count = DRUGS.filter(function (d) {
-      if (activeCategories.length && !activeCategories.every(function (c) { return (d.category || []).indexOf(c) !== -1; })) return false;
-      if (activeClasses.length    && !activeClasses.every(function (c) { return (d.classes   || []).indexOf(c) !== -1; })) return false;
-      return true;
-    }).length;
+    var count = DRUGS.filter(matchesFilters).length;
     var el = document.getElementById('filter-result-count');
     el.textContent = count + ' of ' + DRUGS.length + ' drugs';
   }
@@ -345,8 +348,8 @@
       }).join('');
       el.innerHTML = items;
     } else {
-      var searchVal = el.querySelector('.filter-class-search') ?
-        el.querySelector('.filter-class-search').value : '';
+      var searchEl = el.querySelector('.filter-class-search');
+      var searchVal = searchEl ? searchEl.value : '';
       var filtered = searchVal
         ? allClasses.filter(function (c) { return c.toLowerCase().indexOf(searchVal.toLowerCase()) !== -1; })
         : allClasses;
@@ -385,8 +388,7 @@
     var list = document.getElementById('drug-list');
     var q = (query || '').trim().toLowerCase();
     var filtered = DRUGS.filter(function (d) {
-      if (activeCategories.length && !activeCategories.every(function (c) { return (d.category || []).indexOf(c) !== -1; })) return false;
-      if (activeClasses.length    && !activeClasses.every(function (c) { return (d.classes   || []).indexOf(c) !== -1; })) return false;
+      if (!matchesFilters(d)) return false;
       var trade = d.tradeNames.join(', ');
       return fuzzyMatch(q, d.genericName) || fuzzyMatch(q, trade);
     }).slice().sort(function (a, b) {
