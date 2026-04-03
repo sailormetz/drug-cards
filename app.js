@@ -136,32 +136,23 @@
           ];
 
           var metaGridHTML = '<div class="dose-meta-grid">' +
-            (formulationBadge
-              ? '<div class="dose-meta-cell dose-meta-cell--formulation">' +
-                  '<span class="dose-meta-label">Formulation</span>' +
-                  formulationBadge +
-                '</div>'
-              : '') +
             metaCells.map(function (m) {
               return '<div class="dose-meta-cell' + (m.value === '—' ? ' dose-meta-cell--empty' : '') + '">' +
                 '<span class="dose-meta-label">' + m.label + '</span>' +
                 '<span class="dose-meta-value' + (m.value.length > 12 ? ' dose-meta-value--sm' : '') + '">' + m.value + '</span>' +
               '</div>';
             }).join('') +
+            (r.notes || []).map(function (n) {
+              return '<div class="dose-meta-cell dose-meta-cell--note">' +
+                '<span class="dose-route-note"><span class="dose-route-note-arrow">&#x2192;</span> ' + n + '</span>' +
+              '</div>';
+            }).join('') +
           '</div>';
-
-          var notesHTML = (r.notes || []).length > 0
-            ? '<div class="dose-route-notes">' +
-                (r.notes || []).map(function (n) {
-                  return '<span class="dose-route-note"><span class="dose-route-note-arrow">&#x2192;</span> ' + n + '</span>';
-                }).join('') +
-              '</div>'
-            : '';
 
           return '<div class="dose-route">' +
             amtRowHTML +
+            (formulationBadge ? '<div class="dose-formulation-row">' + formulationBadge + '</div>' : '') +
             metaGridHTML +
-            notesHTML +
           '</div>';
         }).join('');
 
@@ -169,16 +160,20 @@
           return '<span class="dose-note">' + n + '</span>';
         }).join('');
 
+        var popSlug = d.population.toLowerCase().replace(/\s+/g, '-');
         doseBlocksHTML += '<div class="dose-block"' + dataAttr + popAttr + blockHiddenAttr + '>' +
           (!needsPopTabs ? '<div class="dose-header"><span class="dose-pop">' + d.population + qualifierHTML + '</span></div>' : '') +
           '<div class="dose-routes">' + routesHTML + '</div>' +
-          (genNotesHTML ? '<div class="dose-gen-notes">' + genNotesHTML + '</div>' : '') +
+          (genNotesHTML ? '<div class="dose-gen-notes dose-gen-notes--' + popSlug + '">' +
+            '<span class="note-section-label note-section-label--' + popSlug + '">' + d.population + '</span>' +
+            genNotesHTML + '</div>' : '') +
         '</div>';
       });
 
       // Indication-level notes (below all dose-blocks for this indication)
       if (ind.notes && ind.notes.length > 0) {
         doseBlocksHTML += '<div class="indication-notes"' + dataAttr + hidden + '>' +
+          '<span class="note-section-label note-section-label--indication">' + ind.name + '</span>' +
           ind.notes.map(function (n) {
             return '<span class="indication-note">' + n + '</span>';
           }).join('') +

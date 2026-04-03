@@ -21,7 +21,7 @@
   --red-bdr:   rgba(248, 81, 73, 0.25);
   --orange-bg: rgba(210, 153, 34, 0.06);
   --orange-bdr:rgba(210, 153, 34, 0.3);
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
@@ -928,8 +928,8 @@ body {
 /* ===== DOSE TAB LABEL ===== */
 .dose-tab-label {
   display: block;
-  font-size: 10px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-faint);
@@ -1066,16 +1066,22 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1px;
-  background: var(--surface);
-  border-radius: 8px;
-  overflow: hidden;
+  background: var(--border);
+  margin: 0 -14px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 .dose-meta-cell {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  padding: 6px 8px;
+  padding: 8px 14px;
   background: var(--surface-2);
+}
+.dose-meta-cell--note {
+  grid-column: 1 / -1;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 .dose-meta-cell--empty .dose-meta-value {
   color: var(--text-faint);
@@ -1087,11 +1093,12 @@ body {
 }
 .dose-route-note {
   font-size: 15px;
-  color: var(--text-mut);
+  color: var(--text);
   line-height: 1.4;
 }
 .dose-route-note-arrow {
-  font-weight: 900;
+  font-weight: 400;
+  margin-right: 6px;
 }
 .dose-via-list {
   display: flex;
@@ -1115,7 +1122,7 @@ body {
 .dose-amt {
   font-size: 28px;
   font-weight: 700;
-  font-family: var(--font-mono);
+  font-family: 'Barlow', sans-serif;
   color: var(--white);
   letter-spacing: -0.02em;
   line-height: 1;
@@ -1137,52 +1144,66 @@ body {
   line-height: 1.4;
 }
 .dose-note {
-  font-size: 13px;
-  color: yellow;
+  font-size: 15px;
+  color: var(--text-mut);
   line-height: 1.4;
 }
-.dose-route .dose-note {
-  color: magenta;
-}
 .dose-meta-label {
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--text-mut);
+  color: var(--text-faint);
 }
 .dose-meta-value {
   font-family: var(--font-body);
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--text);
 }
 .dose-meta-value--sm { font-size: 14px; }
-.indication-notes {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 8px 10px;
-  border-left: 2px solid var(--blue);
-  background: rgba(88, 166, 255, 0.04);
-  border-radius: 0 4px 4px 0;
-  margin-bottom: 8px;
-}
-.indication-note {
-  font-size: 13px;
-  color: cyan;
-  line-height: 1.4;
-}
+.indication-notes,
 .dose-gen-notes {
   display: flex;
   flex-direction: column;
   gap: 4px;
   padding: 8px 10px;
-  border-left: 2px solid var(--orange-bdr);
-  background: rgba(240, 136, 62, 0.04);
+  border-left: 3px solid;
   border-radius: 0 4px 4px 0;
   margin-top: 10px;
 }
+.indication-notes {
+  border-color: var(--blue);
+  background: rgba(88, 166, 255, 0.05);
+}
+.dose-gen-notes--adult {
+  border-color: var(--blue);
+  background: rgba(88, 166, 255, 0.05);
+}
+.dose-gen-notes--pediatric {
+  border-color: #ec4899;
+  background: rgba(236, 72, 153, 0.05);
+}
+.dose-gen-notes--neonatal {
+  border-color: var(--orange);
+  background: rgba(210, 153, 34, 0.05);
+}
+.indication-note {
+  font-size: 15px;
+  color: var(--text-mut);
+  line-height: 1.4;
+}
+.note-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 2px;
+}
+.note-section-label--indication { color: var(--blue); }
+.note-section-label--adult      { color: var(--blue); }
+.note-section-label--pediatric  { color: #ec4899; }
+.note-section-label--neonatal   { color: var(--orange); }
 .dose-qualifier {
   font-size: 12px;
   font-weight: 400;
@@ -1190,14 +1211,13 @@ body {
   text-transform: none;
   letter-spacing: normal;
 }
-.dose-meta-cell--formulation {
-  grid-column: 1 / -1;
-  align-items: flex-start;
+.dose-formulation-row {
+  margin-bottom: 4px;
 }
 .dose-formulation-badge {
   font-family: var(--font-body);
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--text);
   background: transparent;
   border: none;
