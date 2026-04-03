@@ -57,43 +57,6 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
 }
 
-.picker-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 12px 18px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  color: var(--text-mut);
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  text-align: left;
-  letter-spacing: -0.01em;
-  transition: background 0.12s, color 0.12s;
-}
-
-.picker-toggle:hover {
-  background: var(--border);
-}
-
-.picker-chevron {
-  width: 20px;
-  height: 20px;
-  stroke: currentColor;
-  stroke-width: 1.5;
-  fill: none;
-  flex-shrink: 0;
-  transition: transform 0.2s ease;
-}
-
-.picker-sidebar--open .picker-chevron {
-  transform: rotate(180deg);
-}
-
 .btn-next-x { display: none; font-size: 16px; }
 .btn-next-arrow { display: flex; }
 .picker-sidebar--open .btn-next-x { display: flex; }
@@ -629,11 +592,6 @@ body {
 #btn-next { margin-left: 8px; }
 .picker-sidebar--open #btn-prev { margin-right: 0; }
 
-.picker-toggle {
-  flex: 1;
-  min-width: 0;
-}
-
 .picker-nav-btn {
   display: flex;
   align-items: center;
@@ -713,10 +671,6 @@ body {
     overflow: hidden;
   }
 
-  .picker-toggle {
-    display: none;
-  }
-
   .picker-body {
     display: flex !important;
     flex-direction: column;
@@ -736,10 +690,6 @@ body {
   .card-area {
     flex: 1;
     overflow: hidden;
-  }
-
-  .card-nav {
-    display: none;
   }
 
   #card-container {
@@ -806,13 +756,6 @@ body {
   border: 1px solid rgba(88, 166, 255, 0.25);
   padding: 3px 12px;
   border-radius: 999px;
-}
-
-.concentration-detail {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-mut);
 }
 
 /* ===== SECTIONS ===== */
@@ -892,14 +835,6 @@ body {
   margin-top: 8px;
   margin-bottom: 10px;
 }
-.moa-separator {
-  display: none;
-}
-.moa-arrow {
-  color: var(--text-mut);
-  font-size: 10px;
-  flex-shrink: 0;
-}
 .moa-brief {
   font-size: 14px;
   line-height: 1.5;
@@ -941,13 +876,6 @@ body {
 .hl--neutral { color: var(--text);  background: var(--surface-2); }
 .hl--warn  { color: var(--orange);background: var(--orange-bg); }
 .hl--danger{ color: var(--red);   background: var(--red-bg); font-weight: 700; }
-
-/* ===== TWO COLUMN ===== */
-.two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
 
 
 .tag {
@@ -1129,11 +1057,6 @@ body {
 .dose-meta-cell--empty .dose-meta-value {
   color: var(--text-faint);
 }
-.dose-route-notes {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
 .dose-route-note {
   font-size: 15px;
   color: var(--text);
@@ -1180,16 +1103,6 @@ body {
 .dose-amt--lg {
   font-size: 20px;
   line-height: 1.2;
-}
-.dose-freq {
-  font-size: 15px;
-  color: var(--text-mut);
-  line-height: 1.4;
-}
-.dose-note {
-  font-size: 15px;
-  color: var(--text-mut);
-  line-height: 1.4;
 }
 .dose-meta-label {
   font-size: 12px;
@@ -1247,13 +1160,6 @@ body {
 .note-section-label--adult      { color: var(--green); }
 .note-section-label--pediatric  { color: #ec4899; }
 .note-section-label--neonatal   { color: var(--orange); }
-.dose-qualifier {
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--text-mut);
-  text-transform: none;
-  letter-spacing: normal;
-}
 .dose-formulation-row {
   margin-bottom: 4px;
 }
@@ -1268,17 +1174,6 @@ body {
   white-space: nowrap;
   text-align: left;
   align-self: flex-start;
-}
-.dose-repeat {
-  font-family: var(--font-mono);
-  font-size: 15px;
-  color: var(--text-mut);
-  line-height: 1.4;
-}
-.dose-max {
-  font-size: 14px;
-  color: var(--orange);
-  font-weight: 600;
 }
 .dose-sameas-note {
   font-size: 15px;
@@ -1323,58 +1218,6 @@ body {
 .precaution-item strong {
   color: var(--white);
 }
-.precaution-text strong { color: var(--white); }
-
-/* ===== CALLOUT ===== */
-.callout {
-  display: flex;
-  gap: 10px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: 1px solid;
-  position: relative;
-}
-.callout::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 4px;
-  bottom: 4px;
-  width: 3px;
-  border-radius: 2px;
-}
-.callout--danger {
-  background: var(--red-bg);
-  border-color: var(--red-bdr);
-}
-.callout--danger::before { background: var(--red); }
-
-.callout-icon {
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  margin-top: 1px;
-}
-.callout--danger .callout-icon { color: var(--red); }
-
-.callout-body { min-width: 0; }
-
-.callout-title {
-  font-size: 9.5px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.callout--danger .callout-title { color: var(--red); }
-
-.callout p {
-  font-size: 10.5px;
-  color: var(--text);
-  line-height: 1.45;
-}
-.callout p strong { color: var(--white); }
-
 /* ===== FOOTER ===== */
 .card-footer {
   text-align: center;
