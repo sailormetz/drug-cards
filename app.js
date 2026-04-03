@@ -96,36 +96,49 @@
       var hidden = indHidden ? ' style="display:none"' : '';
 
       var populations = ind.doses.map(function (d) { return d.population; });
-      var needsPopTabs = populations.length >= 1;
 
       // Population tabs
-      if (needsPopTabs) {
-        doseBlocksHTML += '<span class="dose-tab-label"' + dataAttr + hidden + '>Population</span>' +
-          '<div class="pop-tabs"' + dataAttr + hidden + '>' +
-          populations.map(function (pop, i) {
-            return '<button class="pop-tab' + (i === 0 ? ' pop-tab--active' : '') +
-              '" data-pop="' + pop + '">' + pop + '</button>';
-          }).join('') +
-        '</div>';
-      }
+      doseBlocksHTML += '<span class="dose-tab-label"' + dataAttr + hidden + '>Population</span>' +
+        '<div class="pop-tabs"' + dataAttr + hidden + '>' +
+        populations.map(function (pop, i) {
+          return '<button class="pop-tab' + (i === 0 ? ' pop-tab--active' : '') +
+            '" data-pop="' + pop + '">' + pop + '</button>';
+        }).join('') +
+      '</div>';
 
+
+      var indNotesHTML = (ind.notes && ind.notes.length)
+        ? '<div class="indication-notes">' +
+            '<span class="note-section-label note-section-label--indication">' + ind.name + '</span>' +
+            ind.notes.map(function (n) { return '<span class="indication-note">' + n + '</span>'; }).join('') +
+          '</div>'
+        : '';
 
       ind.doses.forEach(function (d, di) {
-        var qualifierHTML = d.qualifier ? ' <span class="dose-qualifier">' + d.qualifier + '</span>' : '';
-        var formulationHTML = d.formulation ? '<span class="dose-formulation">' + d.formulation + '</span>' : '';
-        var popAttr = needsPopTabs ? ' data-dose-pop="' + d.population + '"' : '';
-        var blockHidden = indHidden || (needsPopTabs && di > 0);
+        var popAttr = ' data-dose-pop="' + d.population + '"';
+        var blockHidden = indHidden || di > 0;
         var blockHiddenAttr = blockHidden ? ' style="display:none"' : '';
 
         var formulationBadge = d.formulation
           ? '<span class="dose-formulation-badge">' + d.formulation + '</span>'
           : '';
 
-        var routesHTML = (d.routes || []).map(function (r) {
+        var popSlug = d.population.toLowerCase().replace(/\s+/g, '-');
+        var genNotesHTML = (d.notes || []).filter(Boolean).length
+          ? '<div class="dose-gen-notes dose-gen-notes--' + popSlug + '">' +
+              '<span class="note-section-label note-section-label--' + popSlug + '">' + d.population + '</span>' +
+              (d.notes || []).filter(Boolean).map(function (n) {
+                return '<span class="dose-note">' + n + '</span>';
+              }).join('') +
+            '</div>'
+          : '';
+
+        var routes = d.routes || [];
+        var routesHTML = routes.map(function (r) {
           var viaLabel = (r.via || []).map(function (v) { return '<span class="dose-via">' + v + '</span>'; }).join('');
 
           var amtRowHTML = '<div class="dose-amt-row">' +
-            '<span class="dose-amt' + (r.amount.length <= 13 ? '' : r.amount.length <= 20 ? ' dose-amt--md' : ' dose-amt--lg') + '">' + r.amount + '</span>' +
+            '<span class="dose-amt' + (r.amount.length <= 13 ? '' : r.amount.length <= 28 ? ' dose-amt--md' : ' dose-amt--lg') + '">' + r.amount + '</span>' +
             '<div class="dose-via-list">' + viaLabel + '</div>' +
           '</div>';
 
@@ -143,11 +156,11 @@
                 '<span class="dose-meta-value' + (m.value.length > 12 ? ' dose-meta-value--sm' : '') + '">' + m.value + '</span>' +
               '</div>';
             }).join('') +
-            (r.notes || []).map(function (n) {
-              return '<div class="dose-meta-cell dose-meta-cell--note">' +
-                '<span class="dose-route-note"><span class="dose-route-note-arrow">&#x2192;</span> ' + n + '</span>' +
-              '</div>';
-            }).join('') +
+            ((r.notes || []).length ? '<div class="dose-meta-cell dose-meta-cell--note">' +
+              (r.notes).map(function (n) {
+                return '<span class="dose-route-note"><span class="dose-route-note-arrow">&#x2192;</span>' + n + '</span>';
+              }).join('') +
+            '</div>' : '') +
           '</div>';
 
           return '<div class="dose-route">' +
@@ -157,36 +170,21 @@
           '</div>';
         }).join('');
 
-        var genNotesHTML = (d.notes || []).filter(Boolean).map(function (n) {
-          return '<span class="dose-note">' + n + '</span>';
-        }).join('');
-
-        var popSlug = d.population.toLowerCase().replace(/\s+/g, '-');
+        var isLastDose = di === ind.doses.length - 1;
+        var sameDoseForInd = (needsTabs && di === 0 && sameDoseNotes[ind.name])
+          ? '<div class="dose-sameas-note" data-sameas-for="' + ind.name + '">Also applies to: ' + sameDoseNotes[ind.name].join(', ') + '</div>'
+          : '';
         doseBlocksHTML += '<div class="dose-block"' + dataAttr + popAttr + blockHiddenAttr + '>' +
-          (!needsPopTabs ? '<div class="dose-header"><span class="dose-pop">' + d.population + qualifierHTML + '</span></div>' : '') +
-          '<div class="dose-routes">' + routesHTML + '</div>' +
-          (genNotesHTML ? '<div class="dose-gen-notes dose-gen-notes--' + popSlug + '">' +
-            '<span class="note-section-label note-section-label--' + popSlug + '">' + d.population + '</span>' +
-            genNotesHTML + '</div>' : '') +
+          (sameDoseForInd
+            ? '<div class="dose-routes-wrap">' + sameDoseForInd + '<div class="dose-routes">' + routesHTML + '</div></div>'
+            : '<div class="dose-routes">' + routesHTML + '</div>') +
+          genNotesHTML +
+          (isLastDose ? indNotesHTML : '') +
         '</div>';
       });
 
-      // Indication-level notes (below all dose-blocks for this indication)
-      if (ind.notes && ind.notes.length > 0) {
-        doseBlocksHTML += '<div class="indication-notes"' + dataAttr + hidden + '>' +
-          '<span class="note-section-label note-section-label--indication">' + ind.name + '</span>' +
-          ind.notes.map(function (n) {
-            return '<span class="indication-note">' + n + '</span>';
-          }).join('') +
-        '</div>';
-      }
     });
 
-    // sameDoseAs note for the first visible indication
-    var sameDoseHTML = '';
-    if (needsTabs && sameDoseNotes[firstInd]) {
-      sameDoseHTML = '<div class="dose-sameas-note" data-sameas-for="' + firstInd + '">Also applies to: ' + sameDoseNotes[firstInd].join(', ') + '</div>';
-    }
 
     // --- Adverse Effects ---
     var adverseHTML = drug.adverseEffects.map(function (e) {
@@ -217,11 +215,6 @@
         '</section>' +
 
         '<section class="section">' +
-          '<h2 class="section-label section-label--blue">Mechanism of Action</h2>' +
-          moaHTML +
-        '</section>' +
-
-        '<section class="section">' +
           '<h2 class="section-label section-label--green">Indications</h2>' +
           '<ul class="pill-list">' + indicationsHTML + '</ul>' +
         '</section>' +
@@ -235,7 +228,11 @@
           '<h2 class="section-label section-label--blue">Dose &amp; Route</h2>' +
           tabsHTML +
           doseBlocksHTML +
-          sameDoseHTML +
+        '</section>' +
+
+        '<section class="section">' +
+          '<h2 class="section-label section-label--blue">Mechanism of Action</h2>' +
+          moaHTML +
         '</section>' +
 
         '<section class="section">' +
@@ -252,6 +249,39 @@
           '<p>Always follow your local protocol · For educational use only</p>' +
         '</footer>' +
       '</article>';
+  }
+
+  function renderActivePills() {
+    var el = document.getElementById('active-filter-pills');
+    if (!el) return;
+    var html = '';
+    if (activeCategories.length) {
+      html += '<div class="active-pills-row active-pills-row--category">' +
+        activeCategories.map(function (cat) {
+          return '<span class="active-pill active-pill--category" data-type="category" data-value="' + cat + '">' +
+            cat + '<button class="active-pill-x" aria-label="Remove">&#x2715;</button></span>';
+        }).join('') + '</div>';
+    }
+    if (activeClasses.length) {
+      html += '<div class="active-pills-row active-pills-row--class">' +
+        activeClasses.map(function (cls) {
+          return '<span class="active-pill active-pill--class" data-type="class" data-value="' + cls + '">' +
+            cls + '<button class="active-pill-x" aria-label="Remove">&#x2715;</button></span>';
+        }).join('') + '</div>';
+    }
+    el.innerHTML = html;
+    el.style.display = html ? '' : 'none';
+    el.querySelectorAll('.active-pill-x').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var pill = btn.closest('.active-pill');
+        var type = pill.dataset.type;
+        var value = pill.dataset.value;
+        if (type === 'category') activeCategories = activeCategories.filter(function (c) { return c !== value; });
+        else activeClasses = activeClasses.filter(function (c) { return c !== value; });
+        buildFilterBtn();
+        buildList(search ? search.value : '');
+      });
+    });
   }
 
   function buildFilterBtn() {
@@ -276,6 +306,7 @@
         buildList(search ? search.value : '');
       });
     }
+    renderActivePills();
   }
 
   function renderModalResultCount() {
@@ -366,8 +397,8 @@
     list.innerHTML = filtered.map(function (d) {
       var active = d.id === activeDrugId ? ' picker-item--active' : '';
       return '<li class="picker-item' + active + '" data-id="' + d.id + '">' +
-        d.genericName +
-        '<span class="picker-trade"> ' + d.tradeNames.join(', ') + '</span>' +
+        '<span class="picker-generic">' + d.genericName + '</span>' +
+        '<span class="picker-trade">' + d.tradeNames.join(', ') + '</span>' +
         '</li>';
     }).join('');
   }
@@ -402,6 +433,7 @@
     renderCard(drug);
     buildList(search.value);
     setToggleLabel(drug);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   var search;
@@ -410,11 +442,18 @@
     var list = document.getElementById('drug-list');
     search = document.getElementById('drug-search');
     var sidebar = document.getElementById('picker-sidebar');
-    var toggle = document.getElementById('picker-toggle');
 
-    toggle.addEventListener('click', function () {
-      sidebar.classList.toggle('picker-sidebar--open');
-    });
+    function openPicker() {
+      sidebar.classList.add('picker-sidebar--open');
+    }
+    function closePicker() {
+      sidebar.classList.remove('picker-sidebar--open');
+      search.value = '';
+      buildList('');
+      search.blur();
+    }
+
+    search.addEventListener('focus', openPicker);
 
     list.addEventListener('click', function (e) {
       var item = e.target.closest('.picker-item');
@@ -422,9 +461,10 @@
       activeDrugId = item.dataset.id;
       var drug = DRUGS.find(function (d) { return d.id === activeDrugId; });
       renderCard(drug);
-      buildList(search.value);
-      setToggleLabel(drug);
+      search.value = '';
+      buildList('');
       sidebar.classList.remove('picker-sidebar--open');
+      search.blur();
 
       // On mobile, scroll card into view below sticky header
       if (window.innerWidth < 768) {
@@ -539,8 +579,12 @@
 
     document.getElementById('btn-next').addEventListener('click', function (e) {
       e.stopPropagation();
-      var idx = DRUGS.findIndex(function (d) { return d.id === activeDrugId; });
-      navigateTo(DRUGS[(idx + 1) % DRUGS.length]);
+      if (sidebar.classList.contains('picker-sidebar--open')) {
+        closePicker();
+      } else {
+        var idx = DRUGS.findIndex(function (d) { return d.id === activeDrugId; });
+        navigateTo(DRUGS[(idx + 1) % DRUGS.length]);
+      }
     });
 
     document.getElementById('sort-btn').addEventListener('click', function () {
@@ -585,12 +629,30 @@
         }
       });
       var noteEl = section.querySelector('.dose-sameas-note');
-      if (noteEl) noteEl.remove();
+      if (noteEl) {
+        var oldWrap = noteEl.closest('.dose-routes-wrap');
+        if (oldWrap) {
+          var orphanRoutes = oldWrap.querySelector('.dose-routes');
+          oldWrap.parentNode.insertBefore(orphanRoutes, oldWrap);
+          oldWrap.remove();
+        } else {
+          noteEl.remove();
+        }
+      }
       if (sameDoseNotes[indication]) {
         var note = document.createElement('div');
         note.className = 'dose-sameas-note';
+        note.setAttribute('data-sameas-for', indication);
         note.textContent = 'Also applies to: ' + sameDoseNotes[indication].join(', ');
-        section.appendChild(note);
+        var doseBlock = section.querySelector('.dose-block[data-dose-indication="' + indication + '"]');
+        if (doseBlock) {
+          var wrap = document.createElement('div');
+          wrap.className = 'dose-routes-wrap';
+          var existingRoutes = doseBlock.querySelector('.dose-routes');
+          doseBlock.insertBefore(wrap, existingRoutes);
+          wrap.appendChild(note);
+          wrap.appendChild(existingRoutes);
+        }
       }
     });
 
