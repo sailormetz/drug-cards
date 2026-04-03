@@ -52,6 +52,7 @@
       return '<li>' + c.text + (c.relative ? ' <span class="tag">relative</span>' : '') + '</li>';
     }).join('');
 
+
     // --- Doses (tabbed) ---
     var doseIndications = [];
     drug.indications.forEach(function (ind) {
@@ -220,16 +221,15 @@
           moaHTML +
         '</section>' +
 
-        '<div class="two-col">' +
-          '<section class="section">' +
-            '<h2 class="section-label section-label--green">Indications</h2>' +
-            '<ul class="checklist">' + indicationsHTML + '</ul>' +
-          '</section>' +
-          '<section class="section">' +
-            '<h2 class="section-label section-label--red">Contraindications</h2>' +
-            '<ul class="checklist checklist--x">' + contraindicationsHTML + '</ul>' +
-          '</section>' +
-        '</div>' +
+        '<section class="section">' +
+          '<h2 class="section-label section-label--green">Indications</h2>' +
+          '<ul class="pill-list">' + indicationsHTML + '</ul>' +
+        '</section>' +
+
+        '<section class="section">' +
+          '<h2 class="section-label section-label--red">Contraindications</h2>' +
+          '<ul class="pill-list">' + contraindicationsHTML + '</ul>' +
+        '</section>' +
 
         '<section class="section section--dose">' +
           '<h2 class="section-label section-label--blue">Dose &amp; Route</h2>' +

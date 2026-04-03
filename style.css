@@ -4,7 +4,7 @@
 :root {
   --bg:        #0d1117;
   --surface:   #151b23;
-  --surface-2: #1c2333;
+  --surface-2: #191f2d;
   --border:    #2a3444;
   --text:      #e6edf3;
   --text-mut:  #8b949e;
@@ -50,7 +50,7 @@ body {
 
 /* ===== PICKER SIDEBAR ===== */
 .picker-sidebar {
-  background: #080b0f;
+  background: var(--surface);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -127,7 +127,6 @@ body {
   align-items: center;
   gap: 6px;
   padding: 10px 12px;
-  border-bottom: 1px solid var(--border);
 }
 
 .picker-search-wrap::before {
@@ -176,7 +175,7 @@ body {
   border-radius: 6px;
   color: var(--text-mut);
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.04em;
   cursor: pointer;
@@ -226,7 +225,7 @@ body {
   gap: 6px;
   padding: 9px 16px;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.04em;
   font-family: var(--font-body);
@@ -312,7 +311,7 @@ body {
 }
 
 .filter-modal-title {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 700;
   color: var(--white);
   letter-spacing: -0.01em;
@@ -350,7 +349,7 @@ body {
   gap: 5px;
   padding: 4px 8px 4px 10px;
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--blue);
   background: rgba(88, 166, 255, 0.12);
@@ -375,7 +374,7 @@ body {
 
 .filter-result-count {
   padding: 8px 16px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--text-mut);
   border-bottom: 1px solid var(--border);
@@ -393,7 +392,7 @@ body {
 .filter-tab {
   flex: 1;
   padding: 10px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   font-family: var(--font-body);
   color: var(--text-mut);
@@ -416,6 +415,9 @@ body {
 }
 
 .filter-class-search {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   display: block;
   width: 100%;
   padding: 10px 14px;
@@ -438,7 +440,7 @@ body {
   width: 100%;
   padding: 11px 16px;
   text-align: left;
-  font-size: 13px;
+  font-size: 16px;
   font-family: var(--font-body);
   font-weight: 400;
   color: var(--text-mut);
@@ -472,7 +474,7 @@ body {
   flex: 1;
   padding: 10px;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   font-family: var(--font-body);
   color: var(--text-mut);
@@ -491,7 +493,7 @@ body {
   flex: 2;
   padding: 10px;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   font-family: var(--font-body);
   color: #000;
@@ -513,7 +515,7 @@ body {
 
 .picker-item {
   padding: 8px 14px;
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text-mut);
   cursor: pointer;
   border-left: 2px solid transparent;
@@ -533,7 +535,7 @@ body {
 }
 
 .picker-trade {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 400;
   color: var(--text-faint);
 }
@@ -723,7 +725,7 @@ body {
 
 .concentration-detail {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--text-mut);
 }
@@ -738,7 +740,7 @@ body {
 }
 
 .section-label {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -756,7 +758,7 @@ body {
 .section-label--muted  { color: var(--text-mut); }
 
 .summary-text {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text);
   line-height: 1.6;
 }
@@ -781,7 +783,7 @@ body {
 }
 .moa-target-row .hl {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 15px;
   padding: 2px 6px;
   white-space: nowrap;
   flex-shrink: 0;
@@ -798,7 +800,7 @@ body {
   border-radius: 3px;
 }
 .moa-result {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--white);
   margin-top: 8px;
@@ -813,7 +815,7 @@ body {
   flex-shrink: 0;
 }
 .moa-brief {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--text);
 }
@@ -838,7 +840,7 @@ body {
 }
 .moa-tier-range {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text);
 }
 
@@ -869,7 +871,7 @@ body {
   gap: 6px;
 }
 .checklist li {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text);
   padding-left: 16px;
   position: relative;
@@ -928,7 +930,7 @@ body {
 /* ===== DOSE TAB LABEL ===== */
 .dose-tab-label {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -944,7 +946,7 @@ body {
   margin-bottom: 20px;
 }
 .dose-chip {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--text-mut);
   background: transparent;
@@ -977,7 +979,7 @@ body {
   margin-bottom: 20px;
 }
 .pop-tab {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--text-mut);
   background: transparent;
@@ -1108,12 +1110,12 @@ body {
   align-items: center;
 }
 .dose-via {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: var(--blue);
-  background: rgba(88, 166, 255, 0.08);
-  border: 1px solid rgba(88, 166, 255, 0.3);
+  color: var(--alpha);
+  background: rgba(240, 136, 62, 0.08);
+  border: 1px solid rgba(240, 136, 62, 0.3);
   border-radius: 6px;
   padding: 3px 7px;
   white-space: nowrap;
@@ -1139,7 +1141,7 @@ body {
   line-height: 1.2;
 }
 .dose-freq {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text-mut);
   line-height: 1.4;
 }
@@ -1205,7 +1207,7 @@ body {
 .note-section-label--pediatric  { color: #ec4899; }
 .note-section-label--neonatal   { color: var(--orange); }
 .dose-qualifier {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   color: var(--text-mut);
   text-transform: none;
@@ -1228,17 +1230,17 @@ body {
 }
 .dose-repeat {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text-mut);
   line-height: 1.4;
 }
 .dose-max {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--orange);
   font-weight: 600;
 }
 .dose-sameas-note {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-faint);
   font-style: italic;
   padding: 4px 0;
@@ -1253,12 +1255,12 @@ body {
   gap: 5px;
 }
 .pill-list li {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
-  color: var(--text);
+  color: var(--text-mut);
   background: var(--surface-2);
   border: 1px solid var(--border);
-  padding: 2px 8px;
+  padding: 4px 12px;
   border-radius: 999px;
   white-space: nowrap;
 }
@@ -1271,7 +1273,7 @@ body {
   gap: 8px;
 }
 .precaution-item {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text);
   line-height: 1.5;
   padding-left: 10px;
