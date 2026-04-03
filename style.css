@@ -3,25 +3,26 @@
 button, input, select, textarea { font: inherit; }
 
 :root {
-  --bg:        #0d1117;
-  --surface:   #151b23;
-  --surface-2: #191f2d;
-  --border:    #2a3444;
+  --bg:        #111214;
+  --surface:   #1a1b1e;
+  --surface-2: #202124;
+  --border:    #333538;
   --text:      #e6edf3;
   --text-mut:  #8b949e;
   --text-faint:#484f58;
   --white:     #ffffff;
-  --green:     #3fb950;
-  --red:       #f85149;
-  --blue:      #58a6ff;
-  --orange:    #d29922;
-  --cyan:      #56d4dd;
-  --alpha:     #f0883e;
-  --beta:      #58a6ff;
-  --red-bg:    rgba(248, 81, 73, 0.06);
-  --red-bdr:   rgba(248, 81, 73, 0.25);
-  --orange-bg: rgba(210, 153, 34, 0.06);
-  --orange-bdr:rgba(210, 153, 34, 0.3);
+  --green:     #52d693;
+  --red:       #e86363;
+  --blue:      #5e9be8;
+  --orange:    #daa040;
+  --cyan:      #4dc4b0;
+  --alpha:     #daa040;
+  --beta:      #5e9be8;
+  --pink:      #da7da0;
+  --red-bg:    rgba(224, 114, 114, 0.06);
+  --red-bdr:   rgba(224, 114, 114, 0.25);
+  --orange-bg: rgba(212, 169, 78, 0.06);
+  --orange-bdr:rgba(212, 169, 78, 0.3);
   --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
@@ -214,7 +215,7 @@ body {
 }
 
 .filter-open-btn--active {
-  background: rgba(88, 166, 255, 0.08);
+  background: rgba(106, 159, 223, 0.08);
   border-color: var(--blue);
   color: var(--blue);
 }
@@ -323,8 +324,8 @@ body {
   font-size: 13px;
   font-weight: 500;
   color: var(--blue);
-  background: rgba(88, 166, 255, 0.12);
-  border: 1px solid rgba(88, 166, 255, 0.3);
+  background: rgba(106, 159, 223, 0.12);
+  border: 1px solid rgba(106, 159, 223, 0.3);
 }
 
 .active-filter-chip-x {
@@ -426,7 +427,7 @@ body {
 
 .filter-list-item--active {
   color: var(--blue);
-  background: rgba(88, 166, 255, 0.08);
+  background: rgba(106, 159, 223, 0.08);
   font-weight: 500;
 }
 
@@ -500,13 +501,13 @@ body {
 }
 .active-pill--category {
   color: var(--blue);
-  background: rgba(88, 166, 255, 0.12);
-  border: 1px solid rgba(88, 166, 255, 0.3);
+  background: rgba(106, 159, 223, 0.12);
+  border: 1px solid rgba(106, 159, 223, 0.3);
 }
 .active-pill--class {
   color: var(--green);
-  background: rgba(63, 185, 80, 0.12);
-  border: 1px solid rgba(63, 185, 80, 0.3);
+  background: rgba(107, 201, 159, 0.12);
+  border: 1px solid rgba(107, 201, 159, 0.3);
 }
 .active-pill-x {
   background: none;
@@ -536,20 +537,20 @@ body {
   color: var(--text-mut);
   cursor: pointer;
   border-left: 2px solid transparent;
-  border-bottom: 1px solid rgba(42, 52, 68, 0.5);
+  border-bottom: 1px solid rgba(51, 53, 56, 0.5);
   user-select: none;
 }
 
 .picker-item:hover {
   background: var(--surface-2);
-  border-left-color: rgba(88, 166, 255, 0.3);
+  border-left-color: rgba(106, 159, 223, 0.3);
 }
 .picker-item:hover .picker-generic {
   color: var(--white);
 }
 
 .picker-item--active {
-  background: linear-gradient(90deg, rgba(88, 166, 255, 0.14) 0%, rgba(88, 166, 255, 0.04) 100%);
+  background: linear-gradient(90deg, rgba(106, 159, 223, 0.14) 0%, rgba(106, 159, 223, 0.04) 100%);
   border-left-color: var(--blue);
 }
 .picker-item--active .picker-generic {
@@ -716,7 +717,7 @@ body {
   background: var(--surface);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  background-image: linear-gradient(180deg, rgba(88, 166, 255, 0.05) 0%, transparent 100%);
+  background-image: linear-gradient(180deg, rgba(106, 159, 223, 0.05) 0%, transparent 100%);
 }
 
 .drug-name {
@@ -749,8 +750,8 @@ body {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text);
-  background: rgba(88, 166, 255, 0.1);
-  border: 1px solid rgba(88, 166, 255, 0.25);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   padding: 3px 12px;
   border-radius: 999px;
 }
@@ -868,8 +869,8 @@ body {
   padding: 0 4px;
   border-radius: 3px;
 }
-.hl--alpha   { color: var(--alpha); background: rgba(240, 136, 62, 0.1); }
-.hl--beta    { color: var(--beta);  background: rgba(88, 166, 255, 0.1); }
+.hl--alpha   { color: var(--red); background: rgba(232, 99, 99, 0.1); }
+.hl--beta    { color: var(--beta);  background: rgba(106, 159, 223, 0.1); }
 .hl--neutral { color: var(--text);  background: var(--surface-2); }
 .hl--warn  { color: var(--orange);background: var(--orange-bg); }
 .hl--danger{ color: var(--red);   background: var(--red-bg); font-weight: 700; }
@@ -943,7 +944,7 @@ body {
 .dose-chip--active,
 .dose-chip--active:hover {
   color: var(--white);
-  background: rgba(88, 166, 255, 0.18);
+  background: rgba(106, 159, 223, 0.18);
   border: 2px solid var(--blue);
 }
 
@@ -970,17 +971,17 @@ body {
 .pop-tab--active,
 .pop-tab--active:hover {
   color: var(--white);
-  background: rgba(63, 185, 80, 0.18);
+  background: rgba(107, 201, 159, 0.18);
   border-color: var(--green);
 }
 .pop-tab--active[data-pop="Pediatric"],
 .pop-tab--active:hover[data-pop="Pediatric"] {
-  background: rgba(236, 72, 153, 0.18);
-  border-color: #ec4899;
+  background: rgba(214, 135, 168, 0.18);
+  border-color: var(--pink);
 }
 .pop-tab--active[data-pop="Neonatal"],
 .pop-tab--active:hover[data-pop="Neonatal"] {
-  background: rgba(210, 153, 34, 0.18);
+  background: rgba(212, 169, 78, 0.18);
   border-color: var(--orange);
 }
 
@@ -1077,8 +1078,8 @@ body {
   font-weight: 700;
   letter-spacing: 0.06em;
   color: var(--alpha);
-  background: rgba(240, 136, 62, 0.08);
-  border: 1px solid rgba(240, 136, 62, 0.3);
+  background: rgba(212, 169, 78, 0.08);
+  border: 1px solid rgba(212, 169, 78, 0.3);
   border-radius: 999px;
   padding: 3px 7px;
   white-space: nowrap;
@@ -1127,19 +1128,19 @@ body {
 }
 .indication-notes {
   border-color: var(--blue);
-  background: rgba(88, 166, 255, 0.05);
+  background: rgba(106, 159, 223, 0.05);
 }
 .dose-gen-notes--adult {
   border-color: var(--green);
-  background: rgba(63, 185, 80, 0.05);
+  background: rgba(107, 201, 159, 0.05);
 }
 .dose-gen-notes--pediatric {
-  border-color: #ec4899;
-  background: rgba(236, 72, 153, 0.05);
+  border-color: var(--pink);
+  background: rgba(214, 135, 168, 0.05);
 }
 .dose-gen-notes--neonatal {
   border-color: var(--orange);
-  background: rgba(210, 153, 34, 0.05);
+  background: rgba(212, 169, 78, 0.05);
 }
 .indication-note,
 .dose-note {
@@ -1152,7 +1153,7 @@ body {
 }
 .note-section-label--indication { color: var(--blue); }
 .note-section-label--adult      { color: var(--green); }
-.note-section-label--pediatric  { color: #ec4899; }
+.note-section-label--pediatric  { color: var(--pink); }
 .note-section-label--neonatal   { color: var(--orange); }
 .dose-formulation-row {
   margin-bottom: 4px;
