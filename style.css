@@ -25,13 +25,13 @@ button, input, select, textarea { font: inherit; }
   --orange-bg: rgba(212, 169, 78, 0.06);
   --orange-bdr:rgba(212, 169, 78, 0.3);
   /* Pill colors: fill (bg) / text */
-  --pill-green-fill:  hsl(145, 35%, 21%);
+  --pill-green-fill:  hsl(145, 35%, 15%);
   --pill-green-text:  hsl(145, 35%, 80%);
-  --pill-coral-fill:  hsl(4, 50%, 26%);
+  --pill-coral-fill:  hsl(4, 50%, 20%);
   --pill-coral-text:  hsl(4, 55%, 80%);
-  --pill-amber-fill:  hsl(48, 90%, 21%);
+  --pill-amber-fill:  hsl(48, 90%, 15%);
   --pill-amber-text:  hsl(48, 75%, 80%);
-  --pill-lilac-fill:  hsl(275, 25%, 29%);
+  --pill-lilac-fill:  hsl(275, 25%, 23%);
   --pill-lilac-text:  hsl(275, 25%, 80%);
   --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
