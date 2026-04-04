@@ -236,7 +236,7 @@
         '</section>' +
 
         '<section class="section">' +
-          '<h2 class="section-label section-label--blue">Mechanism of Action</h2>' +
+          '<h2 class="section-label section-label--muted">Mechanism of Action</h2>' +
           moaHTML +
         '</section>' +
 
