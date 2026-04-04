@@ -962,8 +962,8 @@ body {
 .dose-chip--active,
 .dose-chip--active:hover {
   color: var(--white);
-  background: rgba(106, 159, 223, 0.18);
-  border: 1px solid var(--blue);
+  background: var(--pill-green-fill);
+  border: 1px solid hsl(145, 35%, 60%);
 }
 
 /* ===== POP TABS ===== */
@@ -989,8 +989,8 @@ body {
 .pop-tab--active,
 .pop-tab--active:hover {
   color: var(--white);
-  background: rgba(107, 201, 159, 0.18);
-  border-color: var(--green);
+  background: hsl(214, 50%, 21%);
+  border-color: hsl(214, 55%, 60%);
 }
 .pop-tab--active[data-pop="Pediatric"],
 .pop-tab--active:hover[data-pop="Pediatric"] {

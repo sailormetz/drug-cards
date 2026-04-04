@@ -218,7 +218,7 @@
         '</header>' +
 
         '<section class="section">' +
-          '<h2 class="section-label section-label--muted">Summary</h2>' +
+          '<h2 class="section-label">Summary</h2>' +
           '<p class="summary-text">' + drug.summary + '</p>' +
         '</section>' +
 
@@ -237,23 +237,23 @@
         '</section>' +
 
         '<section class="section section--dose">' +
-          '<h2 class="section-label section-label--blue">Dose &amp; Route</h2>' +
+          '<h2 class="section-label">Dose &amp; Route</h2>' +
           tabsHTML +
           doseBlocksHTML +
         '</section>' +
 
         '<section class="section">' +
-          '<h2 class="section-label section-label--muted">Mechanism of Action</h2>' +
+          '<h2 class="section-label">Mechanism of Action</h2>' +
           moaHTML +
         '</section>' +
 
         '<section class="section">' +
-          '<h2 class="section-label section-label--orange">Adverse Effects</h2>' +
+          '<h2 class="section-label">Adverse Effects</h2>' +
           '<ul class="pill-list pill-list--adverse">' + adverseHTML + '</ul>' +
         '</section>' +
 
         '<section class="section">' +
-          '<h2 class="section-label section-label--orange">Precautions</h2>' +
+          '<h2 class="section-label">Precautions</h2>' +
           '<ul class="precaution-list">' + precautionsHTML + '</ul>' +
         '</section>' +
 
