@@ -3,13 +3,13 @@
 button, input, select, textarea { font: inherit; }
 
 :root {
-  --bg:        #111214;
-  --surface:   #1a1b1e;
-  --surface-2: #202124;
-  --border:    #333538;
-  --text:      #e6edf3;
-  --text-mut:  #8b949e;
-  --text-faint:#484f58;
+  --bg:        hsl(45, 2%, 5%);
+  --surface:   hsl(45, 2%, 12%);
+  --surface-2: hsl(45, 2%, 16%);
+  --border:    hsl(45, 2%, 24%);
+  --text:      hsl(45, 4%, 93%);
+  --text-mut:  hsl(45, 2%, 60%);
+  --text-faint:hsl(45, 2%, 36%);
   --white:     #ffffff;
   --green:     #52d693;
   --red:       #e86363;
@@ -285,7 +285,7 @@ body {
 .filter-modal-title {
   font-size: 17px;
   font-weight: 700;
-  color: var(--white);
+  color: var(--text);
   letter-spacing: -0.01em;
 }
 
@@ -546,7 +546,7 @@ body {
   border-left-color: rgba(106, 159, 223, 0.3);
 }
 .picker-item:hover .picker-generic {
-  color: var(--white);
+  color: var(--text);
 }
 
 .picker-item--active {
@@ -554,7 +554,7 @@ body {
   border-left-color: var(--blue);
 }
 .picker-item--active .picker-generic {
-  color: var(--white);
+  color: var(--text);
 }
 .picker-item--active .picker-trade {
   color: var(--text-mut);
@@ -562,7 +562,7 @@ body {
 
 .picker-generic {
   font-size: 19px;
-  color: var(--white);
+  color: var(--text);
 }
 .picker-trade {
   font-size: 15px;
@@ -725,7 +725,7 @@ body {
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1;
-  color: var(--white);
+  color: var(--text);
   margin-bottom: 6px;
 }
 
@@ -829,7 +829,7 @@ body {
 .moa-result {
   font-size: 15px;
   font-weight: 700;
-  color: var(--white);
+  color: var(--text);
   margin-top: 8px;
   margin-bottom: 10px;
 }
@@ -839,7 +839,7 @@ body {
   color: var(--text);
 }
 .moa-brief strong {
-  color: var(--white);
+  color: var(--text);
 }
 
 /* MOA tier labels (dose-dependent drugs) */
@@ -1089,7 +1089,7 @@ body {
   font-size: 32px;
   font-weight: 700;
   font-family: 'Barlow Semi Condensed', sans-serif;
-  color: var(--white);
+  color: var(--text);
   line-height: 1;
   overflow-wrap: break-word;
 }
@@ -1187,7 +1187,7 @@ body {
 .pill-list li {
   font-size: 14px;
   font-weight: 500;
-  color: var(--white);
+  color: var(--text);
   background: var(--surface-2);
   border: 1px solid var(--border);
   padding: 4px 12px;
@@ -1209,7 +1209,7 @@ body {
   border-left: 2px solid var(--orange-bdr);
 }
 .precaution-item strong {
-  color: var(--white);
+  color: var(--text);
 }
 /* ===== FOOTER ===== */
 .card-footer {
