@@ -53,9 +53,12 @@
     }).join('');
 
     // --- Contraindications ---
-    var contraindicationsHTML = drug.contraindications.map(function (c) {
-      return '<li>' + c.text + (c.relative ? ' <span class="tag">relative</span>' : '') + '</li>';
-    }).join('');
+    var contraindicationsHTML =
+      '<ul class="pill-list">' +
+        drug.contraindications.map(function(c) {
+          return '<li class="' + (c.relative ? 'pill--relative' : 'pill--absolute') + '">' + c.text + '</li>';
+        }).join('') +
+      '</ul>';
 
 
     // --- Doses (tabbed) ---
@@ -220,13 +223,17 @@
         '</section>' +
 
         '<section class="section">' +
-          '<h2 class="section-label section-label--green">Indications</h2>' +
-          '<ul class="pill-list">' + indicationsHTML + '</ul>' +
+          '<h2 class="section-label">Indications</h2>' +
+          '<ul class="pill-list pill-list--indications">' + indicationsHTML + '</ul>' +
         '</section>' +
 
         '<section class="section">' +
-          '<h2 class="section-label section-label--red">Contraindications</h2>' +
-          '<ul class="pill-list">' + contraindicationsHTML + '</ul>' +
+          '<h2 class="section-label">Contraindications</h2>' +
+          '<div class="contra-key">' +
+            '<span class="contra-key-pill contra-key-pill--red">Absolute</span>' +
+            '<span class="contra-key-pill contra-key-pill--amber">Use clinical judgment</span>' +
+          '</div>' +
+          contraindicationsHTML +
         '</section>' +
 
         '<section class="section section--dose">' +
@@ -242,7 +249,7 @@
 
         '<section class="section">' +
           '<h2 class="section-label section-label--orange">Adverse Effects</h2>' +
-          '<ul class="pill-list">' + adverseHTML + '</ul>' +
+          '<ul class="pill-list pill-list--adverse">' + adverseHTML + '</ul>' +
         '</section>' +
 
         '<section class="section">' +
@@ -300,9 +307,11 @@
     // Replace only the filter button elements, keeping the sort button (first child)
     var container = document.getElementById('filter-chips');
     var sortBtn = document.getElementById('sort-btn');
+    var countEl = document.getElementById('drug-count');
     container.innerHTML =
       '<button class="filter-open-btn' + active + '" id="filter-open-btn">Filter' + badge + '</button>' + clearBtn;
     container.insertBefore(sortBtn, container.firstChild);
+    if (countEl) container.appendChild(countEl);
     document.getElementById('filter-open-btn').addEventListener('click', openFilterModal);
     if (count > 0) {
       document.getElementById('filter-clear-inline').addEventListener('click', function () {
@@ -318,7 +327,7 @@
   function renderModalResultCount() {
     var count = DRUGS.filter(matchesFilters).length;
     var el = document.getElementById('filter-result-count');
-    el.textContent = count + ' of ' + DRUGS.length + ' drugs';
+    el.textContent = count + '/' + DRUGS.length + ' drugs';
   }
 
   function renderModalActiveChips() {
@@ -395,6 +404,8 @@
       var cmp = a.genericName.localeCompare(b.genericName);
       return sortAsc ? cmp : -cmp;
     });
+    var countEl = document.getElementById('drug-count');
+    if (countEl) countEl.textContent = filtered.length + '/' + DRUGS.length + ' drugs';
     list.innerHTML = filtered.map(function (d) {
       var active = d.id === activeDrugId ? ' picker-item--active' : '';
       return '<li class="picker-item' + active + '" data-id="' + d.id + '">' +
@@ -448,7 +459,10 @@
       search.blur();
     }
 
-    search.addEventListener('focus', openPicker);
+    var desktopMQ = window.matchMedia('(min-width: 768px)');
+    search.addEventListener('focus', function() {
+      if (!desktopMQ.matches) openPicker();
+    });
 
     list.addEventListener('click', function (e) {
       var item = e.target.closest('.picker-item');
