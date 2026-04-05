@@ -217,43 +217,57 @@
           '<div class="drug-class-row">' + classesHTML + '</div>' +
         '</header>' +
 
-        '<section class="section">' +
+        '<div class="section-wrap">' +
           '<h2 class="section-label">Summary</h2>' +
-          '<p class="summary-text">' + drug.summary + '</p>' +
-        '</section>' +
+          '<section class="section">' +
+            '<p class="summary-text">' + drug.summary + '</p>' +
+          '</section>' +
+        '</div>' +
 
-        '<section class="section">' +
+        '<div class="section-wrap">' +
           '<h2 class="section-label">Indications</h2>' +
-          '<ul class="pill-list pill-list--indications">' + indicationsHTML + '</ul>' +
-        '</section>' +
+          '<section class="section">' +
+            '<ul class="pill-list pill-list--indications">' + indicationsHTML + '</ul>' +
+          '</section>' +
+        '</div>' +
 
-        '<section class="section">' +
+        '<div class="section-wrap">' +
           '<h2 class="section-label">Contraindications' +
             (drug.contraindications.some(function(c) { return c.relative; }) ? '<span class="contra-key-pill contra-key-pill--amber">Use clinical judgment</span>' : '') +
           '</h2>' +
-          contraindicationsHTML +
-        '</section>' +
+          '<section class="section">' +
+            contraindicationsHTML +
+          '</section>' +
+        '</div>' +
 
-        '<section class="section section--dose">' +
+        '<div class="section-wrap">' +
           '<h2 class="section-label">Dose &amp; Route</h2>' +
-          tabsHTML +
-          doseBlocksHTML +
-        '</section>' +
+          '<section class="section section--dose">' +
+            tabsHTML +
+            doseBlocksHTML +
+          '</section>' +
+        '</div>' +
 
-        '<section class="section">' +
+        '<div class="section-wrap">' +
           '<h2 class="section-label">Mechanism of Action</h2>' +
-          moaHTML +
-        '</section>' +
+          '<section class="section">' +
+            moaHTML +
+          '</section>' +
+        '</div>' +
 
-        '<section class="section">' +
+        '<div class="section-wrap">' +
           '<h2 class="section-label">Adverse Effects</h2>' +
-          '<ul class="pill-list pill-list--adverse">' + adverseHTML + '</ul>' +
-        '</section>' +
+          '<section class="section">' +
+            '<ul class="pill-list pill-list--adverse">' + adverseHTML + '</ul>' +
+          '</section>' +
+        '</div>' +
 
-        '<section class="section">' +
+        '<div class="section-wrap">' +
           '<h2 class="section-label">Precautions</h2>' +
-          '<ul class="precaution-list">' + precautionsHTML + '</ul>' +
-        '</section>' +
+          '<section class="section">' +
+            '<ul class="precaution-list">' + precautionsHTML + '</ul>' +
+          '</section>' +
+        '</div>' +
 
         '<footer class="card-footer">' +
           '<p>Always follow your local protocol</p>' +
