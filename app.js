@@ -228,11 +228,9 @@
         '</section>' +
 
         '<section class="section">' +
-          '<h2 class="section-label">Contraindications</h2>' +
-          '<div class="contra-key">' +
-            '<span class="contra-key-pill contra-key-pill--red">Absolute</span>' +
-            '<span class="contra-key-pill contra-key-pill--amber">Use clinical judgment</span>' +
-          '</div>' +
+          '<h2 class="section-label">Contraindications' +
+            (drug.contraindications.some(function(c) { return c.relative; }) ? '<span class="contra-key-pill contra-key-pill--amber">Use clinical judgment</span>' : '') +
+          '</h2>' +
           contraindicationsHTML +
         '</section>' +
 
@@ -677,7 +675,10 @@
       popTabsEl.querySelectorAll('.pop-tab').forEach(function (t) {
         t.classList.toggle('pop-tab--active', t === popTab);
       });
-      section.querySelectorAll('.dose-block[data-dose-indication="' + indication + '"]').forEach(function (block) {
+      var selector = indication
+        ? '.dose-block[data-dose-indication="' + indication + '"]'
+        : '.dose-block';
+      section.querySelectorAll(selector).forEach(function (block) {
         block.style.display = block.dataset.dosePop === pop ? '' : 'none';
       });
     });

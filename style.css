@@ -25,14 +25,25 @@ button, input, select, textarea { font: inherit; }
   --orange-bg: rgba(212, 169, 78, 0.06);
   --orange-bdr:rgba(212, 169, 78, 0.3);
   /* Pill colors: fill (bg) / text */
-  --pill-green-fill:  hsl(145, 35%, 15%);
-  --pill-green-text:  hsl(145, 35%, 80%);
-  --pill-coral-fill:  hsl(4, 50%, 20%);
-  --pill-coral-text:  hsl(4, 55%, 80%);
-  --pill-amber-fill:  hsl(48, 90%, 15%);
-  --pill-amber-text:  hsl(48, 75%, 80%);
-  --pill-lilac-fill:  hsl(275, 25%, 23%);
-  --pill-lilac-text:  hsl(275, 25%, 80%);
+  --pill-green-fill:   rgba(25,  52, 36, 0.4);
+  --pill-green-text:   hsl(145, 35%, 80%);
+  --pill-green-border: hsl(145, 35%, 25%);
+  --pill-coral-fill:   rgba(77,  27, 24, 0.4);
+  --pill-coral-text:   hsl(4, 55%, 80%);
+  --pill-coral-border: hsl(4, 55%, 25%);
+  --pill-amber-fill:   rgba(72,  58,  8, 0.4);
+  --pill-amber-text:   hsl(48, 75%, 75%);
+  --pill-amber-border: hsl(48, 75%, 25%);
+  --pill-lilac-fill:   rgba(51,  44, 73, 0.4);
+  --pill-lilac-text:   hsl(275, 25%, 80%);
+  --pill-lilac-border: hsl(275, 25%, 25%);
+  /* Population colors: fill (tab bg) / border */
+  --pop-adult-fill:      hsl(214, 50%, 21%);
+  --pop-adult-border:    hsl(214, 55%, 60%);
+  --pop-pediatric-fill:  hsl(340, 40%, 21%);
+  --pop-pediatric-border:hsl(340, 45%, 60%);
+  --pop-neonatal-fill:   hsl(41, 60%, 21%);
+  --pop-neonatal-border: hsl(41, 55%, 60%);
   --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
@@ -115,7 +126,7 @@ body {
   position: absolute;
   left: 12px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-25%);
   width: 14px;
   height: 14px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%238b949e'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zm-5.242 1.656a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z'/%3E%3C/svg%3E");
@@ -564,7 +575,7 @@ body {
   color: var(--text-mut);
   cursor: pointer;
   border-left: 2px solid transparent;
-  border-bottom: 1px solid rgba(51, 53, 56, 0.5);
+  border-bottom: 1px solid rgba(51, 53, 56, 0.4);
   user-select: none;
 }
 
@@ -847,7 +858,7 @@ body {
 .moa-result {
   font-size: 15px;
   font-weight: 700;
-  color: var(--text);
+  color: #6bc99f;
   margin-top: 8px;
   margin-bottom: 10px;
 }
@@ -938,7 +949,8 @@ body {
 .dose-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  column-gap: 6px;
+  row-gap: 7px;
   margin-bottom: 20px;
 }
 .dose-chip {
@@ -947,7 +959,7 @@ body {
   background: transparent;
   border: 1px solid var(--border);
   border-radius: 999px;
-  padding: 6px 14px;
+  padding: 4px 12px;
   cursor: pointer;
   font-weight: 500;
   white-space: nowrap;
@@ -970,7 +982,8 @@ body {
 .pop-tabs {
   display: flex;
   flex-direction: row;
-  gap: 6px;
+  column-gap: 6px;
+  row-gap: 7px;
   margin-bottom: 20px;
 }
 .pop-tab {
@@ -980,7 +993,7 @@ body {
   background: transparent;
   border: 1px solid var(--border);
   border-radius: 999px;
-  padding: 6px 14px;
+  padding: 4px 12px;
   cursor: pointer;
 
   white-space: nowrap;
@@ -989,18 +1002,18 @@ body {
 .pop-tab--active,
 .pop-tab--active:hover {
   color: var(--white);
-  background: hsl(214, 50%, 21%);
-  border-color: hsl(214, 55%, 60%);
+  background: var(--pop-adult-fill);
+  border-color: var(--pop-adult-border);
 }
 .pop-tab--active[data-pop="Pediatric"],
 .pop-tab--active:hover[data-pop="Pediatric"] {
-  background: rgba(214, 135, 168, 0.18);
-  border-color: var(--pink);
+  background: var(--pop-pediatric-fill);
+  border-color: var(--pop-pediatric-border);
 }
 .pop-tab--active[data-pop="Neonatal"],
 .pop-tab--active:hover[data-pop="Neonatal"] {
-  background: rgba(212, 169, 78, 0.18);
-  border-color: var(--orange);
+  background: var(--pop-neonatal-fill);
+  border-color: var(--pop-neonatal-border);
 }
 
 /* ===== DOSE BLOCKS ===== */
@@ -1050,9 +1063,9 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 1px;
   background: var(--border);
-  margin: 0 -14px;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
 }
 .dose-meta-cell {
   display: flex;
@@ -1149,16 +1162,16 @@ body {
   background: rgba(106, 159, 223, 0.05);
 }
 .dose-gen-notes--adult {
-  border-color: var(--green);
-  background: rgba(107, 201, 159, 0.05);
+  border-color: var(--pop-adult-border);
+  background: color-mix(in srgb, var(--pop-adult-fill) 30%, transparent);
 }
 .dose-gen-notes--pediatric {
-  border-color: var(--pink);
-  background: rgba(214, 135, 168, 0.05);
+  border-color: var(--pop-pediatric-border);
+  background: color-mix(in srgb, var(--pop-pediatric-fill) 30%, transparent);
 }
 .dose-gen-notes--neonatal {
-  border-color: var(--orange);
-  background: rgba(212, 169, 78, 0.05);
+  border-color: var(--pop-neonatal-border);
+  background: color-mix(in srgb, var(--pop-neonatal-fill) 30%, transparent);
 }
 .indication-note,
 .dose-note {
@@ -1170,9 +1183,9 @@ body {
   margin-bottom: 2px;
 }
 .note-section-label--indication { color: var(--blue); }
-.note-section-label--adult      { color: var(--green); }
-.note-section-label--pediatric  { color: var(--pink); }
-.note-section-label--neonatal   { color: var(--orange); }
+.note-section-label--adult      { color: var(--pop-adult-border); }
+.note-section-label--pediatric  { color: var(--pop-pediatric-border); }
+.note-section-label--neonatal   { color: var(--pop-neonatal-border); }
 .dose-formulation-row {
   margin-bottom: 4px;
 }
@@ -1195,15 +1208,8 @@ body {
 }
 
 /* ===== CONTRAINDICATIONS ===== */
-.contra-key {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 6px;
-  margin-top: 16px;
-  margin-bottom: 16px;
-}
 .contra-key-pill {
+  margin-left: auto;
   font-size: 9px;
   font-weight: 400;
   letter-spacing: 0.04em;
@@ -1212,8 +1218,7 @@ body {
   border-radius: 999px;
   color: var(--text);
 }
-.contra-key-pill--red   { background: var(--pill-coral-fill); color: var(--pill-coral-text); }
-.contra-key-pill--amber { background: var(--pill-amber-fill); color: var(--pill-amber-text); }
+.contra-key-pill--amber { background: var(--pill-amber-fill); color: var(--pill-amber-text); border: 1px solid var(--pill-amber-border); }
 
 
 /* ===== PILL LIST ===== */
@@ -1229,24 +1234,29 @@ body {
   font-weight: 500;
   color: var(--text);
   background: var(--surface-2);
+  border: 1px solid transparent;
   padding: 4px 12px;
   border-radius: 999px;
 }
 .pill-list--indications li {
   background: var(--pill-green-fill);
   color: var(--pill-green-text);
+  border-color: var(--pill-green-border);
 }
 .pill-list--adverse li {
   background: var(--pill-lilac-fill);
   color: var(--pill-lilac-text);
+  border-color: var(--pill-lilac-border);
 }
 .pill-list li.pill--absolute {
   background: var(--pill-coral-fill);
   color: var(--pill-coral-text);
+  border-color: var(--pill-coral-border);
 }
 .pill-list li.pill--relative {
   background: var(--pill-amber-fill);
   color: var(--pill-amber-text);
+  border-color: var(--pill-amber-border);
 }
 
 /* ===== PRECAUTION LIST ===== */
