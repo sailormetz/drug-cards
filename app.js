@@ -151,12 +151,25 @@
           : '';
 
         var routes = d.routes || [];
-        var routesHTML = routes.map(function (r) {
-          var viaLabel = (r.via || []).map(function (v) { return '<span class="dose-via">' + v + '</span>'; }).join('');
+        var needsRouteTabs = routes.length > 1;
+
+        // Route tabs (always shown)
+        var routeTabsHTML = '<div class="route-tab-wrap">' +
+          '<span class="dose-tab-label">Route</span>' +
+          '<div class="route-tabs">' +
+          routes.map(function (r, ri) {
+            var viaKey = (r.via || []).join(' / ');
+            return '<button class="route-tab' + (ri === 0 ? ' route-tab--active' : '') +
+              '" data-route="' + viaKey + '">' + viaKey + '</button>';
+          }).join('') +
+        '</div></div>';
+
+        var routesHTML = routes.map(function (r, ri) {
+          var viaKey = (r.via || []).join(' / ');
+          var routeHidden = needsRouteTabs && ri > 0 ? ' style="display:none"' : '';
 
           var amtRowHTML = '<div class="dose-amt-row">' +
             '<span class="dose-amt' + (r.amount.length <= 13 ? '' : r.amount.length <= 28 ? ' dose-amt--md' : ' dose-amt--lg') + '">' + r.amount + '</span>' +
-            '<div class="dose-via-list">' + viaLabel + '</div>' +
           '</div>';
 
           var metaCells = [
@@ -180,7 +193,7 @@
             '</div>' : '') +
           '</div>';
 
-          return '<div class="dose-route">' +
+          return '<div class="dose-route" data-route="' + viaKey + '"' + routeHidden + '>' +
             amtRowHTML +
             (formulationBadge ? '<div class="dose-formulation-row">' + formulationBadge + '</div>' : '') +
             metaGridHTML +
@@ -191,6 +204,7 @@
           ? '<div class="dose-sameas-note" data-sameas-for="' + ind.name + '">Also applies to: ' + sameDoseNotes[ind.name].join(', ') + '</div>'
           : '';
         doseBlocksHTML += '<div class="dose-block"' + dataAttr + popAttr + blockHiddenAttr + '>' +
+          routeTabsHTML +
           (sameDoseForInd
             ? '<div class="dose-routes-wrap">' + sameDoseForInd + '<div class="dose-routes">' + routesHTML + '</div></div>'
             : '<div class="dose-routes">' + routesHTML + '</div>') +
@@ -652,7 +666,21 @@
         });
         var firstPop = popTabsEl.querySelector('.pop-tab').dataset.pop;
         section.querySelectorAll('.dose-block[data-dose-indication="' + indication + '"]').forEach(function (block) {
-          block.style.display = block.dataset.dosePop === firstPop ? '' : 'none';
+          var show = block.dataset.dosePop === firstPop;
+          block.style.display = show ? '' : 'none';
+          // Reset route tabs when switching indications
+          if (show) {
+            var routeTabsEl = block.querySelector('.route-tabs');
+            if (routeTabsEl) {
+              routeTabsEl.querySelectorAll('.route-tab').forEach(function (t, i) {
+                t.classList.toggle('route-tab--active', i === 0);
+              });
+              var firstRoute = routeTabsEl.querySelector('.route-tab').dataset.route;
+              block.querySelectorAll('.dose-route[data-route]').forEach(function (r) {
+                r.style.display = r.dataset.route === firstRoute ? '' : 'none';
+              });
+            }
+          }
         });
       }
 
@@ -709,7 +737,36 @@
         ? '.dose-block[data-dose-indication="' + indication + '"]'
         : '.dose-block';
       section.querySelectorAll(selector).forEach(function (block) {
-        block.style.display = block.dataset.dosePop === pop ? '' : 'none';
+        var show = block.dataset.dosePop === pop;
+        block.style.display = show ? '' : 'none';
+        // Reset route tabs to first active when switching populations
+        if (show) {
+          var routeTabsEl = block.querySelector('.route-tabs');
+          if (routeTabsEl) {
+            routeTabsEl.querySelectorAll('.route-tab').forEach(function (t, i) {
+              t.classList.toggle('route-tab--active', i === 0);
+            });
+            var firstRoute = routeTabsEl.querySelector('.route-tab').dataset.route;
+            block.querySelectorAll('.dose-route[data-route]').forEach(function (r) {
+              r.style.display = r.dataset.route === firstRoute ? '' : 'none';
+            });
+          }
+        }
+      });
+    });
+
+    // Route tab delegation
+    document.getElementById('card-container').addEventListener('click', function (e) {
+      var routeTab = e.target.closest('.route-tab');
+      if (!routeTab) return;
+      var route = routeTab.dataset.route;
+      var block = routeTab.closest('.dose-block');
+
+      routeTab.closest('.route-tabs').querySelectorAll('.route-tab').forEach(function (t) {
+        t.classList.toggle('route-tab--active', t === routeTab);
+      });
+      block.querySelectorAll('.dose-route[data-route]').forEach(function (r) {
+        r.style.display = r.dataset.route === route ? '' : 'none';
       });
     });
 
