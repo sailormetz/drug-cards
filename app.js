@@ -53,12 +53,21 @@
     }).join('');
 
     // --- Contraindications ---
-    var contraindicationsHTML =
-      '<ul class="pill-list">' +
-        drug.contraindications.map(function(c) {
-          return '<li class="' + (c.relative ? 'pill--relative' : 'pill--absolute') + '">' + c.text + '</li>';
-        }).join('') +
-      '</ul>';
+    var contraItems = drug.contraindications.map(function(c, i) {
+      var num = (i + 1 < 10 ? '0' : '') + (i + 1);
+      return '<li class="' + (c.relative ? 'contra-item--relative' : 'contra-item--absolute') + '" data-num="' + num + '">' + c.text + '</li>';
+    });
+    var contraindicationsHTML;
+    if (contraItems.length >= 4) {
+      var mid = Math.ceil(contraItems.length / 2);
+      contraindicationsHTML =
+        '<div class="contra-cols">' +
+          '<ul class="contra-list">' + contraItems.slice(0, mid).join('') + '</ul>' +
+          '<ul class="contra-list">' + contraItems.slice(mid).join('') + '</ul>' +
+        '</div>';
+    } else {
+      contraindicationsHTML = '<ul class="contra-list">' + contraItems.join('') + '</ul>';
+    }
 
 
     // --- Doses (tabbed) ---
@@ -178,7 +187,6 @@
           '</div>';
         }).join('');
 
-        var isLastDose = di === ind.doses.length - 1;
         var sameDoseForInd = (needsTabs && di === 0 && sameDoseNotes[ind.name])
           ? '<div class="dose-sameas-note" data-sameas-for="' + ind.name + '">Also applies to: ' + sameDoseNotes[ind.name].join(', ') + '</div>'
           : '';
@@ -187,9 +195,13 @@
             ? '<div class="dose-routes-wrap">' + sameDoseForInd + '<div class="dose-routes">' + routesHTML + '</div></div>'
             : '<div class="dose-routes">' + routesHTML + '</div>') +
           genNotesHTML +
-          (isLastDose ? indNotesHTML : '') +
         '</div>';
       });
+
+      // Indication notes — outside dose blocks so visible for all populations
+      if (indNotesHTML) {
+        doseBlocksHTML += '<div class="indication-notes-wrap"' + dataAttr + hidden + '>' + indNotesHTML + '</div>';
+      }
 
     });
 
@@ -232,11 +244,15 @@
         '</div>' +
 
         '<div class="section-wrap">' +
-          '<h2 class="section-label">Contraindications' +
-            (drug.contraindications.some(function(c) { return c.relative; }) ? '<span class="contra-key-pill contra-key-pill--amber">Use clinical judgment</span>' : '') +
-          '</h2>' +
+          '<h2 class="section-label">Contraindications</h2>' +
           '<section class="section">' +
             contraindicationsHTML +
+            '<div class="contra-key">' +
+              '<span class="contra-key-label contra-key-label--coral">Absolute</span>' +
+              (drug.contraindications.some(function(c) { return c.relative; })
+                ? '<span class="contra-key-label contra-key-label--amber">Use Caution</span>'
+                : '') +
+            '</div>' +
           '</section>' +
         '</div>' +
 
