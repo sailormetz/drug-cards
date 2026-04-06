@@ -3536,7 +3536,6 @@ const DRUGS = [
       {
         name: 'Acute Pain',
         notes: [
-          'IN route preferred in pediatrics and when IV not indicated',
           'Administer slowly IV to prevent chest wall rigidity'
         ],
         doses: [
@@ -3596,7 +3595,7 @@ const DRUGS = [
                 notes: ['Administer slowly over 1–2 min']
               }
             ],
-            notes: []
+            notes: ['IN route preferred in pediatrics and when IV not indicated']
           }
         ]
       }
