@@ -439,17 +439,22 @@
   function buildList(query) {
     var list = document.getElementById('drug-list');
     var q = (query || '').trim().toLowerCase();
-    var filtered = DRUGS.filter(function (d) {
-      if (!matchesFilters(d)) return false;
-      var trade = d.tradeNames.join(', ');
-      return fuzzyMatch(q, d.genericName) || fuzzyMatch(q, trade);
-    }).sort(function (a, b) {
-      var cmp = a.genericName.localeCompare(b.genericName);
+    var scored = [];
+    DRUGS.forEach(function (d) {
+      if (!matchesFilters(d)) return;
+      var score = matchScore(q, d.genericName, d.tradeNames);
+      if (score === -1) return;
+      scored.push({ drug: d, score: score });
+    });
+    scored.sort(function (a, b) {
+      if (a.score !== b.score) return a.score - b.score;
+      var cmp = a.drug.genericName.localeCompare(b.drug.genericName);
       return sortAsc ? cmp : -cmp;
     });
     var countEl = document.getElementById('drug-count');
-    if (countEl) countEl.textContent = filtered.length + '/' + DRUGS.length + ' drugs';
-    list.innerHTML = filtered.map(function (d) {
+    if (countEl) countEl.textContent = scored.length + '/' + DRUGS.length + ' drugs';
+    list.innerHTML = scored.map(function (x) {
+      var d = x.drug;
       var active = d.id === activeDrugId ? ' picker-item--active' : '';
       return '<li class="picker-item' + active + '" data-id="' + d.id + '">' +
         '<span class="picker-generic">' + d.genericName + '</span>' +
@@ -458,24 +463,37 @@
     }).join('');
   }
 
-  function fuzzyMatch(q, str) {
-    if (!q) return true;
-    var s = str.toLowerCase();
-    if (s.indexOf(q) !== -1) return true;
-    // subsequence match
+  function isSubsequence(q, s) {
     var qi = 0;
     for (var i = 0; i < s.length && qi < q.length; i++) {
       if (s[i] === q[qi]) qi++;
     }
-    if (qi === q.length) return true;
-    // 1-char typo tolerance for queries >= 4 chars
+    return qi === q.length;
+  }
+
+  // Lower score = better match. -1 = no match.
+  function matchScore(q, generic, tradeNames) {
+    if (!q) return 0;
+    var g = generic.toLowerCase();
+    var trades = tradeNames.map(function (t) { return t.toLowerCase(); });
+    var tradeJoined = trades.join(', ');
+
+    if (g === q) return 0;
+    if (g.indexOf(q) === 0) return 1;
+    for (var i = 0; i < trades.length; i++) {
+      if (trades[i].indexOf(q) === 0) return 2;
+    }
+    if (g.indexOf(q) !== -1) return 3;
+    if (tradeJoined.indexOf(q) !== -1) return 4;
+    if (isSubsequence(q, g)) return 5;
+    if (isSubsequence(q, tradeJoined)) return 6;
     if (q.length >= 4) {
       for (var j = 0; j < q.length; j++) {
         var variant = q.slice(0, j) + q.slice(j + 1);
-        if (s.indexOf(variant) !== -1) return true;
+        if (g.indexOf(variant) !== -1 || tradeJoined.indexOf(variant) !== -1) return 7;
       }
     }
-    return false;
+    return -1;
   }
 
   function navigateTo(drug) {
