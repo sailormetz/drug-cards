@@ -1949,9 +1949,8 @@ const DRUGS = [
       }
     ],
     contraindications: [
-      {
-        text: 'Hypersensitivity', 'Tachydysrhythmias'
-      }
+      { text: 'Hypersensitivity' },
+      { text: 'Tachydysrhythmias' }
     ],
     adverseEffects: ['Tachycardia / palpitations', 'Tremor', 'Hypokalemia'],
     precautions: [
