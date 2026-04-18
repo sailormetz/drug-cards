@@ -16,11 +16,8 @@ button, input, select, textarea { font: inherit; }
   --blue:      #5e9be8;
   --orange:    #daa040;
   --cyan:      #4dc4b0;
-  --alpha:     #daa040;
   --beta:      #5e9be8;
-  --lilac:     #7c6ddd;
   --red-bg:    rgba(224, 114, 114, 0.06);
-  --red-bdr:   rgba(224, 114, 114, 0.25);
   --orange-bg: rgba(212, 169, 78, 0.06);
   --orange-bdr:rgba(212, 169, 78, 0.3);
   /* Pill colors: fill (bg) / text */
@@ -387,7 +384,6 @@ body {
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
   letter-spacing: 0.02em;
-  text-transform: uppercase;
 }
 
 .filter-tab-bar {
@@ -804,12 +800,6 @@ body {
   align-items: center;
   gap: 8px;
 }
-.section-label--blue   { color: var(--blue); }
-.section-label--green  { color: var(--green); }
-.section-label--red    { color: var(--red); }
-.section-label--orange { color: var(--orange); }
-.section-label--muted  { color: var(--text-mut); }
-
 .summary-text {
   font-size: 14px;
   color: var(--text);
@@ -901,31 +891,6 @@ body {
 .hl--neutral { color: var(--text);  background: var(--surface-2); }
 .hl--warn  { color: var(--orange);background: var(--orange-bg); }
 .hl--danger{ color: var(--red);   background: var(--red-bg); font-weight: 700; }
-
-.tag {
-  display: inline-block;
-  font-size: 7px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--orange);
-  background: var(--orange-bg);
-  border: 1px solid var(--orange-bdr);
-  padding: 0 4px;
-  border-radius: 3px;
-  vertical-align: middle;
-  margin-left: 2px;
-  line-height: 1.6;
-}
-.tag--blue {
-  color: var(--cyan);
-  background: none;
-  border: none;
-  padding: 0;
-  border-radius: 0;
-  font-size: 9px;
-  letter-spacing: 0.08em;
-}
 
 /* ===== DOSE SECTION ===== */
 .section--dose {
