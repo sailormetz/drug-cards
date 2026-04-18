@@ -4,6 +4,18 @@
   var activeClasses = [];
   var filterTab = 'category';
   var sortAsc = true;
+  var cardContainer;
+
+  function buildSameDoseNotes(drug) {
+    var notes = {};
+    drug.indications.forEach(function (ind) {
+      if (ind.sameDoseAs) {
+        if (!notes[ind.sameDoseAs]) notes[ind.sameDoseAs] = [];
+        notes[ind.sameDoseAs].push(ind.name);
+      }
+    });
+    return notes;
+  }
 
   var allCategories = Array.from(new Set(DRUGS.reduce(function (acc, d) {
     return acc.concat(d.category || []);
@@ -80,11 +92,6 @@
     var needsTabs = doseIndications.length > 1;
     var firstInd = doseIndications[0] || '';
 
-    var sameDoseMap = {};
-    drug.indications.forEach(function (ind) {
-      if (ind.sameDoseAs) sameDoseMap[ind.name] = ind.sameDoseAs;
-    });
-
     var tabsHTML = '';
     if (needsTabs) {
       tabsHTML = '<span class="dose-tab-label">Indication</span>' +
@@ -96,13 +103,7 @@
       '</div>';
     }
 
-    // sameDoseAs note for first active tab
-    var sameDoseNotes = {};
-    Object.keys(sameDoseMap).forEach(function (alias) {
-      var target = sameDoseMap[alias];
-      if (!sameDoseNotes[target]) sameDoseNotes[target] = [];
-      sameDoseNotes[target].push(alias);
-    });
+    var sameDoseNotes = buildSameDoseNotes(drug);
 
     var doseBlocksHTML = '';
     drug.indications.forEach(function (ind) {
@@ -235,7 +236,7 @@
       return '<span class="drug-class-pill">' + c + '</span>';
     }).join('');
 
-    document.getElementById('card-container').innerHTML =
+    cardContainer.innerHTML =
       '<article class="card">' +
         '<header class="card-header">' +
           '<h1 class="drug-name">' + drug.genericName + '</h1>' +
@@ -442,7 +443,7 @@
       if (!matchesFilters(d)) return false;
       var trade = d.tradeNames.join(', ');
       return fuzzyMatch(q, d.genericName) || fuzzyMatch(q, trade);
-    }).slice().sort(function (a, b) {
+    }).sort(function (a, b) {
       var cmp = a.genericName.localeCompare(b.genericName);
       return sortAsc ? cmp : -cmp;
     });
@@ -490,6 +491,7 @@
     var list = document.getElementById('drug-list');
     search = document.getElementById('drug-search');
     var sidebar = document.getElementById('picker-sidebar');
+    cardContainer = document.getElementById('card-container');
 
     function openPicker() {
       sidebar.classList.add('picker-sidebar--open');
@@ -520,7 +522,7 @@
       // On mobile, scroll card into view below sticky header
       if (window.innerWidth < 768) {
         var headerH = sidebar.getBoundingClientRect().height;
-        var cardTop = document.getElementById('card-container').getBoundingClientRect().top + window.scrollY;
+        var cardTop = cardContainer.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({ top: cardTop - headerH, behavior: 'smooth' });
       }
     });
@@ -644,55 +646,29 @@
       buildList(search.value);
     });
 
-    // Dose chip delegation
-    document.getElementById('card-container').addEventListener('click', function (e) {
-      var tab = e.target.closest('.dose-chip');
-      if (!tab) return;
-      var indication = tab.dataset.indication;
-      var section = tab.closest('.section--dose');
-
-      section.querySelectorAll('.dose-chip').forEach(function (t) {
-        t.classList.toggle('dose-chip--active', t === tab);
+    function resetRouteTabs(block) {
+      var routeTabsEl = block.querySelector('.route-tabs');
+      if (!routeTabsEl) return;
+      routeTabsEl.querySelectorAll('.route-tab').forEach(function (t, i) {
+        t.classList.toggle('route-tab--active', i === 0);
       });
-      section.querySelectorAll('[data-dose-indication]').forEach(function (block) {
-        block.style.display = block.dataset.doseIndication === indication ? '' : 'none';
+      var firstRoute = routeTabsEl.querySelector('.route-tab').dataset.route;
+      block.querySelectorAll('.dose-route[data-route]').forEach(function (r) {
+        r.style.display = r.dataset.route === firstRoute ? '' : 'none';
       });
+    }
 
-      // Reset pop tabs for newly active indication to first population
-      var popTabsEl = section.querySelector('.pop-tabs[data-dose-indication="' + indication + '"]');
-      if (popTabsEl) {
-        popTabsEl.querySelectorAll('.pop-tab').forEach(function (t, i) {
-          t.classList.toggle('pop-tab--active', i === 0);
-        });
-        var firstPop = popTabsEl.querySelector('.pop-tab').dataset.pop;
-        section.querySelectorAll('.dose-block[data-dose-indication="' + indication + '"]').forEach(function (block) {
-          var show = block.dataset.dosePop === firstPop;
-          block.style.display = show ? '' : 'none';
-          // Reset route tabs when switching indications
-          if (show) {
-            var routeTabsEl = block.querySelector('.route-tabs');
-            if (routeTabsEl) {
-              routeTabsEl.querySelectorAll('.route-tab').forEach(function (t, i) {
-                t.classList.toggle('route-tab--active', i === 0);
-              });
-              var firstRoute = routeTabsEl.querySelector('.route-tab').dataset.route;
-              block.querySelectorAll('.dose-route[data-route]').forEach(function (r) {
-                r.style.display = r.dataset.route === firstRoute ? '' : 'none';
-              });
-            }
-          }
-        });
-      }
+    function showDoseBlocksForPop(blocks, pop) {
+      blocks.forEach(function (block) {
+        var show = block.dataset.dosePop === pop;
+        block.style.display = show ? '' : 'none';
+        if (show) resetRouteTabs(block);
+      });
+    }
 
-      // Update sameDoseAs note
+    function updateSameDoseNote(section, indication) {
       var drug = DRUGS.find(function (d) { return d.id === activeDrugId; });
-      var sameDoseNotes = {};
-      drug.indications.forEach(function (ind) {
-        if (ind.sameDoseAs) {
-          if (!sameDoseNotes[ind.sameDoseAs]) sameDoseNotes[ind.sameDoseAs] = [];
-          sameDoseNotes[ind.sameDoseAs].push(ind.name);
-        }
-      });
+      var sameDoseNotes = buildSameDoseNotes(drug);
       var noteEl = section.querySelector('.dose-sameas-note');
       if (noteEl) {
         var oldWrap = noteEl.closest('.dose-routes-wrap');
@@ -704,70 +680,78 @@
           noteEl.remove();
         }
       }
-      if (sameDoseNotes[indication]) {
-        var note = document.createElement('div');
-        note.className = 'dose-sameas-note';
-        note.setAttribute('data-sameas-for', indication);
-        note.textContent = 'Also applies to: ' + sameDoseNotes[indication].join(', ');
-        var doseBlock = section.querySelector('.dose-block[data-dose-indication="' + indication + '"]');
-        if (doseBlock) {
-          var wrap = document.createElement('div');
-          wrap.className = 'dose-routes-wrap';
-          var existingRoutes = doseBlock.querySelector('.dose-routes');
-          doseBlock.insertBefore(wrap, existingRoutes);
-          wrap.appendChild(note);
-          wrap.appendChild(existingRoutes);
+      if (!sameDoseNotes[indication]) return;
+      var doseBlock = section.querySelector('.dose-block[data-dose-indication="' + indication + '"]');
+      if (!doseBlock) return;
+      var note = document.createElement('div');
+      note.className = 'dose-sameas-note';
+      note.setAttribute('data-sameas-for', indication);
+      note.textContent = 'Also applies to: ' + sameDoseNotes[indication].join(', ');
+      var wrap = document.createElement('div');
+      wrap.className = 'dose-routes-wrap';
+      var existingRoutes = doseBlock.querySelector('.dose-routes');
+      doseBlock.insertBefore(wrap, existingRoutes);
+      wrap.appendChild(note);
+      wrap.appendChild(existingRoutes);
+    }
+
+    cardContainer.addEventListener('click', function (e) {
+      var doseChip = e.target.closest('.dose-chip');
+      if (doseChip) {
+        var indication = doseChip.dataset.indication;
+        var section = doseChip.closest('.section--dose');
+
+        section.querySelectorAll('.dose-chip').forEach(function (t) {
+          t.classList.toggle('dose-chip--active', t === doseChip);
+        });
+        section.querySelectorAll('[data-dose-indication]').forEach(function (block) {
+          block.style.display = block.dataset.doseIndication === indication ? '' : 'none';
+        });
+
+        var popTabsEl = section.querySelector('.pop-tabs[data-dose-indication="' + indication + '"]');
+        if (popTabsEl) {
+          popTabsEl.querySelectorAll('.pop-tab').forEach(function (t, i) {
+            t.classList.toggle('pop-tab--active', i === 0);
+          });
+          var firstPop = popTabsEl.querySelector('.pop-tab').dataset.pop;
+          showDoseBlocksForPop(
+            section.querySelectorAll('.dose-block[data-dose-indication="' + indication + '"]'),
+            firstPop
+          );
         }
+
+        updateSameDoseNote(section, indication);
+        return;
       }
-    });
 
-    // Pop tab delegation
-    document.getElementById('card-container').addEventListener('click', function (e) {
       var popTab = e.target.closest('.pop-tab');
-      if (!popTab) return;
-      var pop = popTab.dataset.pop;
-      var popTabsEl = popTab.closest('.pop-tabs');
-      var indication = popTabsEl.dataset.doseIndication;
-      var section = popTab.closest('.section--dose');
+      if (popTab) {
+        var pop = popTab.dataset.pop;
+        var popTabsEl2 = popTab.closest('.pop-tabs');
+        var popIndication = popTabsEl2.dataset.doseIndication;
+        var popSection = popTab.closest('.section--dose');
 
-      popTabsEl.querySelectorAll('.pop-tab').forEach(function (t) {
-        t.classList.toggle('pop-tab--active', t === popTab);
-      });
-      var selector = indication
-        ? '.dose-block[data-dose-indication="' + indication + '"]'
-        : '.dose-block';
-      section.querySelectorAll(selector).forEach(function (block) {
-        var show = block.dataset.dosePop === pop;
-        block.style.display = show ? '' : 'none';
-        // Reset route tabs to first active when switching populations
-        if (show) {
-          var routeTabsEl = block.querySelector('.route-tabs');
-          if (routeTabsEl) {
-            routeTabsEl.querySelectorAll('.route-tab').forEach(function (t, i) {
-              t.classList.toggle('route-tab--active', i === 0);
-            });
-            var firstRoute = routeTabsEl.querySelector('.route-tab').dataset.route;
-            block.querySelectorAll('.dose-route[data-route]').forEach(function (r) {
-              r.style.display = r.dataset.route === firstRoute ? '' : 'none';
-            });
-          }
-        }
-      });
-    });
+        popTabsEl2.querySelectorAll('.pop-tab').forEach(function (t) {
+          t.classList.toggle('pop-tab--active', t === popTab);
+        });
+        var selector = popIndication
+          ? '.dose-block[data-dose-indication="' + popIndication + '"]'
+          : '.dose-block';
+        showDoseBlocksForPop(popSection.querySelectorAll(selector), pop);
+        return;
+      }
 
-    // Route tab delegation
-    document.getElementById('card-container').addEventListener('click', function (e) {
       var routeTab = e.target.closest('.route-tab');
-      if (!routeTab) return;
-      var route = routeTab.dataset.route;
-      var block = routeTab.closest('.dose-block');
-
-      routeTab.closest('.route-tabs').querySelectorAll('.route-tab').forEach(function (t) {
-        t.classList.toggle('route-tab--active', t === routeTab);
-      });
-      block.querySelectorAll('.dose-route[data-route]').forEach(function (r) {
-        r.style.display = r.dataset.route === route ? '' : 'none';
-      });
+      if (routeTab) {
+        var route = routeTab.dataset.route;
+        var block = routeTab.closest('.dose-block');
+        routeTab.closest('.route-tabs').querySelectorAll('.route-tab').forEach(function (t) {
+          t.classList.toggle('route-tab--active', t === routeTab);
+        });
+        block.querySelectorAll('.dose-route[data-route]').forEach(function (r) {
+          r.style.display = r.dataset.route === route ? '' : 'none';
+        });
+      }
     });
 
     buildFilterBtn();

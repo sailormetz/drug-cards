@@ -28,11 +28,9 @@ Cards are currently sized with iPhone 14 Pro (390×844 px) as the primary refere
 
 ## CSS conventions
 
-- Section header colors are controlled by modifier classes: `section-label--blue`, `--green`, `--red`, `--orange`
-- Inline highlights use `.hl` + modifier: `hl--alpha` (orange), `hl--beta` (blue), `hl--warn` (orange bg), `hl--danger` (red)
-- Indications use `.checklist` (green dots); contraindications use `.checklist.checklist--x` (red squares)
-- Adverse effects use `.pill-list` (chip/badge style)
-- The `.callout.callout--danger` pattern exists in CSS but is not yet used in any card
+- Inline highlights use `.hl` + modifier: `hl--alpha` (red), `hl--beta` (blue), `hl--neutral` (muted), `hl--warn` (orange bg), `hl--danger` (red bg, bold). Precaution/note HTML in `data/drugs.js` uses these directly.
+- Indications and adverse effects both render as `.pill-list` with variants `pill-list--indications` / `pill-list--adverse`.
+- Contraindications use `.contra-list`; each item gets `.contra-item--absolute` or `.contra-item--relative` and a `data-num` prefix for numbering.
 
 ## The inline script
 
