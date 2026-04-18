@@ -1950,7 +1950,7 @@ const DRUGS = [
     ],
     contraindications: [
       {
-        text: 'Hypersensitivity'
+        text: 'Hypersensitivity', 'Tachydysrhythmias'
       }
     ],
     adverseEffects: ['Tachycardia / palpitations', 'Tremor', 'Hypokalemia'],
