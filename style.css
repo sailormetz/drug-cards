@@ -611,7 +611,7 @@ body {
 /* ===== MODE TOGGLE (Field Drugs / Home Meds) ===== */
 .mode-toggle {
   display: flex;
-  gap: 4px;
+  gap: 8px;
   padding: 8px 12px 0;
   background: var(--bg);
 }
@@ -633,9 +633,9 @@ body {
   color: var(--text);
 }
 .mode-toggle-btn--active {
-  background: var(--surface-2);
-  color: var(--text);
-  border-color: var(--text-mut);
+  background: rgba(94, 155, 232, 0.08);
+  color: var(--beta);
+  border-color: var(--beta);
 }
 
 /* ===== PICKER TOGGLE ROW (drug name + prev/next) ===== */
