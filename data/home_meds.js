@@ -9,7 +9,13 @@ const home_meds = [
     source: "Mixed",
     moa: [
       {
-        brief: "Selectively blocks beta-1 adrenergic receptors in cardiac tissue, reducing heart rate, contractility, AV conduction, and renin release — lowering heart rate, blood pressure, and myocardial oxygen demand."
+        brief: "Selectively blocks beta-1 adrenergic receptors in cardiac tissue, reducing the effects of catecholamines on heart rate, contractility, and blood pressure.",
+        target: {
+          name: "Beta-1 adrenergic receptors",
+          action: "antagonist",
+          result: "↓ HR, ↓ contractility, ↓ AV conduction, ↓ renin release",
+          system: "adrenergic"
+        }
       }
     ],
     patientIndications: ["Hypertension", "Angina", "Heart Failure", "Atrial Fibrillation", "Post-MI", "SVT", "Migraine Prophylaxis"],
