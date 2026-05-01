@@ -336,7 +336,20 @@
 
     var moaHTML = (med.moa || []).map(function (m, i) {
       var divider = i > 0 ? ' moa-entry--divider' : '';
+      var hlClass = getTargetHlClass(m.target);
+      var tierHTML = '';
+      if (m.tier) {
+        tierHTML = '<span class="moa-tier-label">' + m.tier + '</span>' +
+          (m.label ? '<span class="moa-tier-category">' + m.label + '</span>' : '') +
+          (m.target.dose ? '<span class="moa-tier-range">' + m.target.dose + '</span>' : '');
+      }
       return '<div class="moa-entry' + divider + '">' +
+        '<div class="moa-target-row">' +
+          '<span class="hl ' + hlClass + '">' + m.target.name + '</span>' +
+          '<span class="moa-action-badge">' + m.target.action + '</span>' +
+          tierHTML +
+        '</div>' +
+        '<div class="moa-result">' + m.target.result + '</div>' +
         '<p class="moa-brief">' + m.brief + '</p>' +
       '</div>';
     }).join('');
