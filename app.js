@@ -1,14 +1,26 @@
 (function () {
-  var activeDrugId = DRUGS[0].id;
-  var activeCategories = [];
-  var activeClasses = [];
+  var HOME_MEDS = (typeof home_meds !== 'undefined') ? home_meds : [];
+
+  var activeMode = localStorage.getItem('drugCards.mode') || 'drugs';
+  if (activeMode === 'home' && !HOME_MEDS.length) activeMode = 'drugs';
+
+  var modeState = {
+    drugs: { activeId: DRUGS[0].id,                              activeCategories: [], activeClasses: [], sortAsc: true, searchQuery: '' },
+    home:  { activeId: (HOME_MEDS[0] && HOME_MEDS[0].id) || null, activeCategories: [], activeClasses: [], sortAsc: true, searchQuery: '' }
+  };
   var filterTab = 'category';
-  var sortAsc = true;
   var cardContainer;
+
+  function getDataset() { return activeMode === 'home' ? HOME_MEDS : DRUGS; }
+  function getState()   { return modeState[activeMode]; }
+  function modeNoun(plural) {
+    if (activeMode === 'home') return plural ? 'meds' : 'med';
+    return plural ? 'drugs' : 'drug';
+  }
 
   function buildSameDoseNotes(drug) {
     var notes = {};
-    drug.indications.forEach(function (ind) {
+    (drug.indications || []).forEach(function (ind) {
       if (ind.sameDoseAs) {
         if (!notes[ind.sameDoseAs]) notes[ind.sameDoseAs] = [];
         notes[ind.sameDoseAs].push(ind.name);
@@ -17,16 +29,21 @@
     return notes;
   }
 
-  var allCategories = Array.from(new Set(DRUGS.reduce(function (acc, d) {
-    return acc.concat(d.category || []);
-  }, []))).sort();
-  var allClasses = Array.from(new Set(DRUGS.reduce(function (acc, d) {
-    return acc.concat(d.classes || []);
-  }, []))).sort();
+  function getAllCategories() {
+    return Array.from(new Set(getDataset().reduce(function (acc, d) {
+      return acc.concat(d.category || []);
+    }, []))).sort();
+  }
+  function getAllClasses() {
+    return Array.from(new Set(getDataset().reduce(function (acc, d) {
+      return acc.concat(d.classes || []);
+    }, []))).sort();
+  }
 
   function matchesFilters(d) {
-    if (activeCategories.length && !activeCategories.every(function (c) { return (d.category || []).indexOf(c) !== -1; })) return false;
-    if (activeClasses.length    && !activeClasses.every(function (c) { return (d.classes   || []).indexOf(c) !== -1; })) return false;
+    var st = getState();
+    if (st.activeCategories.length && !st.activeCategories.every(function (c) { return (d.category || []).indexOf(c) !== -1; })) return false;
+    if (st.activeClasses.length    && !st.activeClasses.every(function (c) { return (d.classes   || []).indexOf(c) !== -1; })) return false;
     return true;
   }
 
@@ -307,20 +324,103 @@
       '</article>';
   }
 
+  function renderHomeMedCard(med) {
+    var classesHTML = (med.classes || []).map(function (c) {
+      return '<span class="drug-class-pill">' + c + '</span>';
+    }).join('');
+
+    var indications = med.patientIndications || [];
+    var indicationsHTML = indications.map(function (i) {
+      return '<li>' + i + '</li>';
+    }).join('');
+
+    var moaHTML = (med.moa || []).map(function (m, i) {
+      var divider = i > 0 ? ' moa-entry--divider' : '';
+      return '<div class="moa-entry' + divider + '">' +
+        '<p class="moa-brief">' + m.brief + '</p>' +
+      '</div>';
+    }).join('');
+
+    var considerationsHTML = (med.considerations || []).map(function (c) {
+      return '<li class="precaution-item">' + c + '</li>';
+    }).join('');
+
+    var summarySection = med.summary
+      ? '<div class="section-wrap">' +
+          '<h2 class="section-label">Summary</h2>' +
+          '<section class="section">' +
+            '<p class="summary-text">' + med.summary + '</p>' +
+          '</section>' +
+        '</div>'
+      : '';
+
+    var indicationsSection = indications.length
+      ? '<div class="section-wrap">' +
+          '<h2 class="section-label">Patient Indications</h2>' +
+          '<section class="section">' +
+            '<ul class="pill-list pill-list--indications">' + indicationsHTML + '</ul>' +
+          '</section>' +
+        '</div>'
+      : '';
+
+    var moaSection = (med.moa && med.moa.length)
+      ? '<div class="section-wrap">' +
+          '<h2 class="section-label">Mechanism of Action</h2>' +
+          '<section class="section">' +
+            moaHTML +
+          '</section>' +
+        '</div>'
+      : '';
+
+    var considerationsSection = (med.considerations && med.considerations.length)
+      ? '<div class="section-wrap">' +
+          '<h2 class="section-label">Considerations</h2>' +
+          '<section class="section">' +
+            '<ul class="precaution-list">' + considerationsHTML + '</ul>' +
+          '</section>' +
+        '</div>'
+      : '';
+
+    var sourceLine = med.source
+      ? '<p class="card-source">Source: ' + med.source + '</p>'
+      : '';
+
+    cardContainer.innerHTML =
+      '<article class="card card--home-med">' +
+        '<header class="card-header">' +
+          '<h1 class="drug-name">' + med.genericName + '</h1>' +
+          '<p class="drug-trade-name">' + (med.tradeNames || []).join(', ') + '</p>' +
+          '<div class="drug-class-row">' + classesHTML + '</div>' +
+        '</header>' +
+
+        summarySection +
+        indicationsSection +
+        moaSection +
+        considerationsSection +
+
+        '<footer class="card-footer">' +
+          sourceLine +
+          '<p>Reference only — encounter aid</p>' +
+          '<p>For educational use only</p>' +
+        '</footer>' +
+      '</article>';
+  }
+
   function renderActivePills() {
     var el = document.getElementById('active-filter-pills');
     if (!el) return;
+    var st = getState();
     var html = '';
-    if (activeCategories.length) {
+    if (st.activeCategories.length) {
       html += '<div class="active-pills-row active-pills-row--category">' +
-        activeCategories.map(function (cat) {
+        st.activeCategories.map(function (cat) {
           return '<span class="active-pill active-pill--category" data-type="category" data-value="' + cat + '">' +
             cat + '<button class="active-pill-x" aria-label="Remove">&#x2715;</button></span>';
         }).join('') + '</div>';
     }
-    if (activeClasses.length) {
+    if (st.activeClasses.length) {
       html += '<div class="active-pills-row active-pills-row--class">' +
-        activeClasses.map(function (cls) {
+        st.activeClasses.map(function (cls) {
           return '<span class="active-pill active-pill--class" data-type="class" data-value="' + cls + '">' +
             cls + '<button class="active-pill-x" aria-label="Remove">&#x2715;</button></span>';
         }).join('') + '</div>';
@@ -332,8 +432,9 @@
         var pill = btn.closest('.active-pill');
         var type = pill.dataset.type;
         var value = pill.dataset.value;
-        if (type === 'category') activeCategories = activeCategories.filter(function (c) { return c !== value; });
-        else activeClasses = activeClasses.filter(function (c) { return c !== value; });
+        var s = getState();
+        if (type === 'category') s.activeCategories = s.activeCategories.filter(function (c) { return c !== value; });
+        else s.activeClasses = s.activeClasses.filter(function (c) { return c !== value; });
         buildFilterBtn();
         buildList(search ? search.value : '');
       });
@@ -341,7 +442,8 @@
   }
 
   function buildFilterBtn() {
-    var count = activeCategories.length + activeClasses.length;
+    var st = getState();
+    var count = st.activeCategories.length + st.activeClasses.length;
     var badge = count > 0 ? '<span class="filter-badge">' + count + '</span>' : '';
     var active = count > 0 ? ' filter-open-btn--active' : '';
     var clearBtn = count > 0
@@ -358,8 +460,9 @@
     document.getElementById('filter-open-btn').addEventListener('click', openFilterModal);
     if (count > 0) {
       document.getElementById('filter-clear-inline').addEventListener('click', function () {
-        activeCategories = [];
-        activeClasses = [];
+        var s = getState();
+        s.activeCategories = [];
+        s.activeClasses = [];
         buildFilterBtn();
         buildList(search ? search.value : '');
       });
@@ -368,19 +471,21 @@
   }
 
   function renderModalResultCount() {
-    var count = DRUGS.filter(matchesFilters).length;
+    var ds = getDataset();
+    var count = ds.filter(matchesFilters).length;
     var el = document.getElementById('filter-result-count');
-    el.textContent = count + '/' + DRUGS.length + ' drugs';
+    el.textContent = count + '/' + ds.length + ' ' + modeNoun(true);
   }
 
   function renderModalActiveChips() {
     var chipsEl = document.getElementById('filter-active-chips');
+    var st = getState();
     var html = '';
-    activeCategories.forEach(function (cat) {
+    st.activeCategories.forEach(function (cat) {
       html += '<span class="active-filter-chip" data-type="category" data-value="' + cat + '">' + cat +
         '<button class="active-filter-chip-x" aria-label="Remove">&#x2715;</button></span>';
     });
-    activeClasses.forEach(function (cls) {
+    st.activeClasses.forEach(function (cls) {
       html += '<span class="active-filter-chip" data-type="class" data-value="' + cls + '">' + cls +
         '<button class="active-filter-chip-x" aria-label="Remove">&#x2715;</button></span>';
     });
@@ -392,9 +497,10 @@
   function renderModalTabContent() {
     var el = document.getElementById('filter-tab-content');
     var scrollTop = el.scrollTop;
+    var st = getState();
     if (filterTab === 'category') {
-      var items = ['All'].concat(allCategories).map(function (cat) {
-        var isActive = cat === 'All' ? activeCategories.length === 0 : activeCategories.indexOf(cat) !== -1;
+      var items = ['All'].concat(getAllCategories()).map(function (cat) {
+        var isActive = cat === 'All' ? st.activeCategories.length === 0 : st.activeCategories.indexOf(cat) !== -1;
         return '<button class="filter-list-item' + (isActive ? ' filter-list-item--active' : '') +
           '" data-value="' + cat + '">' + cat + '</button>';
       }).join('');
@@ -402,11 +508,12 @@
     } else {
       var searchEl = el.querySelector('.filter-class-search');
       var searchVal = searchEl ? searchEl.value : '';
+      var allCls = getAllClasses();
       var filtered = searchVal
-        ? allClasses.filter(function (c) { return c.toLowerCase().indexOf(searchVal.toLowerCase()) !== -1; })
-        : allClasses;
+        ? allCls.filter(function (c) { return c.toLowerCase().indexOf(searchVal.toLowerCase()) !== -1; })
+        : allCls;
       var classItems = ['All'].concat(filtered).map(function (cls) {
-        var isActive = cls === 'All' ? activeClasses.length === 0 : activeClasses.indexOf(cls) !== -1;
+        var isActive = cls === 'All' ? st.activeClasses.length === 0 : st.activeClasses.indexOf(cls) !== -1;
         return '<button class="filter-list-item' + (isActive ? ' filter-list-item--active' : '') +
           '" data-value="' + cls + '">' + cls + '</button>';
       }).join('');
@@ -422,6 +529,8 @@
   function openFilterModal() {
     var modal = document.getElementById('filter-modal');
     modal.removeAttribute('hidden');
+    var titleEl = modal.querySelector('.filter-modal-title');
+    if (titleEl) titleEl.textContent = activeMode === 'home' ? 'Filter Home Meds' : 'Filter Drugs';
     renderModalActiveChips();
     renderModalResultCount();
     renderModalTabContent();
@@ -439,8 +548,10 @@
   function buildList(query) {
     var list = document.getElementById('drug-list');
     var q = (query || '').trim().toLowerCase();
+    var ds = getDataset();
+    var st = getState();
     var scored = [];
-    DRUGS.forEach(function (d) {
+    ds.forEach(function (d) {
       if (!matchesFilters(d)) return;
       var score = matchScore(q, d.genericName, d.tradeNames);
       if (score === -1) return;
@@ -449,13 +560,13 @@
     scored.sort(function (a, b) {
       if (a.score !== b.score) return a.score - b.score;
       var cmp = a.drug.genericName.localeCompare(b.drug.genericName);
-      return sortAsc ? cmp : -cmp;
+      return st.sortAsc ? cmp : -cmp;
     });
     var countEl = document.getElementById('drug-count');
-    if (countEl) countEl.textContent = scored.length + '/' + DRUGS.length + ' drugs';
+    if (countEl) countEl.textContent = scored.length + '/' + ds.length + ' ' + modeNoun(true);
     list.innerHTML = scored.map(function (x) {
       var d = x.drug;
-      var active = d.id === activeDrugId ? ' picker-item--active' : '';
+      var active = d.id === st.activeId ? ' picker-item--active' : '';
       return '<li class="picker-item' + active + '" data-id="' + d.id + '">' +
         '<span class="picker-generic">' + d.genericName + '</span>' +
         '<span class="picker-trade">' + d.tradeNames.join(', ') + '</span>' +
@@ -497,10 +608,23 @@
   }
 
   function navigateTo(drug) {
-    activeDrugId = drug.id;
-    renderCard(drug);
+    getState().activeId = drug.id;
+    renderActiveCard();
     buildList(search.value);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function renderActiveCard() {
+    var ds = getDataset();
+    var id = getState().activeId;
+    var rec = ds.find(function (r) { return r.id === id; }) || ds[0];
+    if (!rec) {
+      cardContainer.innerHTML = '<article class="card card--empty"><p class="summary-text">No entries available.</p></article>';
+      return;
+    }
+    getState().activeId = rec.id;
+    if (activeMode === 'home') renderHomeMedCard(rec);
+    else renderCard(rec);
   }
 
   var search;
@@ -529,9 +653,10 @@
     list.addEventListener('click', function (e) {
       var item = e.target.closest('.picker-item');
       if (!item) return;
-      activeDrugId = item.dataset.id;
-      var drug = DRUGS.find(function (d) { return d.id === activeDrugId; });
-      renderCard(drug);
+      var st = getState();
+      st.activeId = item.dataset.id;
+      st.searchQuery = '';
+      renderActiveCard();
       search.value = '';
       buildList('');
       sidebar.classList.remove('picker-sidebar--open');
@@ -546,7 +671,39 @@
     });
 
     search.addEventListener('input', function () {
+      getState().searchQuery = search.value;
       buildList(search.value);
+    });
+
+    // Mode toggle wiring
+    function applyModeUI() {
+      var st = getState();
+      document.querySelectorAll('.mode-toggle-btn').forEach(function (b) {
+        var on = b.dataset.mode === activeMode;
+        b.classList.toggle('mode-toggle-btn--active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      search.placeholder = activeMode === 'home' ? 'Search home meds...' : 'Search drugs...';
+      search.value = st.searchQuery || '';
+      var sortLabel = document.getElementById('sort-label');
+      if (sortLabel) sortLabel.textContent = st.sortAsc ? 'Z–A' : 'A–Z';
+    }
+    function setMode(mode) {
+      if (mode === activeMode) return;
+      if (mode === 'home' && !HOME_MEDS.length) return;
+      // persist outgoing search
+      getState().searchQuery = search.value;
+      activeMode = mode;
+      try { localStorage.setItem('drugCards.mode', mode); } catch (_) {}
+      applyModeUI();
+      buildFilterBtn();
+      buildList(search.value);
+      renderActiveCard();
+      window.scrollTo({ top: 0 });
+    }
+    document.getElementById('mode-toggle').addEventListener('click', function (e) {
+      var btn = e.target.closest('.mode-toggle-btn');
+      if (btn) setMode(btn.dataset.mode);
     });
 
     // Inject filter modal into body
@@ -580,8 +737,9 @@
 
     // Modal: clear all
     document.getElementById('filter-clear-btn').addEventListener('click', function () {
-      activeCategories = [];
-      activeClasses = [];
+      var s = getState();
+      s.activeCategories = [];
+      s.activeClasses = [];
       renderModalActiveChips();
       renderModalTabContent();
     });
@@ -607,21 +765,22 @@
       var item = e.target.closest('.filter-list-item');
       if (item) {
         var val = item.dataset.value;
+        var s = getState();
         if (filterTab === 'category') {
           if (val === 'All') {
-            activeCategories = [];
+            s.activeCategories = [];
           } else {
-            var idx = activeCategories.indexOf(val);
-            if (idx === -1) activeCategories.push(val);
-            else activeCategories.splice(idx, 1);
+            var idx = s.activeCategories.indexOf(val);
+            if (idx === -1) s.activeCategories.push(val);
+            else s.activeCategories.splice(idx, 1);
           }
         } else {
           if (val === 'All') {
-            activeClasses = [];
+            s.activeClasses = [];
           } else {
-            var idx = activeClasses.indexOf(val);
-            if (idx === -1) activeClasses.push(val);
-            else activeClasses.splice(idx, 1);
+            var idx = s.activeClasses.indexOf(val);
+            if (idx === -1) s.activeClasses.push(val);
+            else s.activeClasses.splice(idx, 1);
           }
         }
         renderModalActiveChips();
@@ -632,10 +791,11 @@
       if (chipX) {
         var chip = chipX.closest('.active-filter-chip');
         var chipVal = chip.dataset.value;
+        var s2 = getState();
         if (chip.dataset.type === 'category') {
-          activeCategories = activeCategories.filter(function (c) { return c !== chipVal; });
+          s2.activeCategories = s2.activeCategories.filter(function (c) { return c !== chipVal; });
         } else {
-          activeClasses = activeClasses.filter(function (c) { return c !== chipVal; });
+          s2.activeClasses = s2.activeClasses.filter(function (c) { return c !== chipVal; });
         }
         renderModalActiveChips();
         renderModalTabContent();
@@ -644,8 +804,10 @@
 
     document.getElementById('btn-prev').addEventListener('click', function (e) {
       e.stopPropagation();
-      var idx = DRUGS.findIndex(function (d) { return d.id === activeDrugId; });
-      navigateTo(DRUGS[(idx - 1 + DRUGS.length) % DRUGS.length]);
+      var ds = getDataset();
+      if (!ds.length) return;
+      var idx = ds.findIndex(function (d) { return d.id === getState().activeId; });
+      navigateTo(ds[(idx - 1 + ds.length) % ds.length]);
     });
 
     document.getElementById('btn-next').addEventListener('click', function (e) {
@@ -653,14 +815,17 @@
       if (sidebar.classList.contains('picker-sidebar--open')) {
         closePicker();
       } else {
-        var idx = DRUGS.findIndex(function (d) { return d.id === activeDrugId; });
-        navigateTo(DRUGS[(idx + 1) % DRUGS.length]);
+        var ds = getDataset();
+        if (!ds.length) return;
+        var idx = ds.findIndex(function (d) { return d.id === getState().activeId; });
+        navigateTo(ds[(idx + 1) % ds.length]);
       }
     });
 
     document.getElementById('sort-btn').addEventListener('click', function () {
-      sortAsc = !sortAsc;
-      document.getElementById('sort-label').textContent = sortAsc ? 'Z–A' : 'A–Z';
+      var s = getState();
+      s.sortAsc = !s.sortAsc;
+      document.getElementById('sort-label').textContent = s.sortAsc ? 'Z–A' : 'A–Z';
       buildList(search.value);
     });
 
@@ -685,7 +850,7 @@
     }
 
     function updateSameDoseNote(section, indication) {
-      var drug = DRUGS.find(function (d) { return d.id === activeDrugId; });
+      var drug = DRUGS.find(function (d) { return d.id === getState().activeId; });
       var sameDoseNotes = buildSameDoseNotes(drug);
       var noteEl = section.querySelector('.dose-sameas-note');
       if (noteEl) {
@@ -772,9 +937,10 @@
       }
     });
 
+    applyModeUI();
     buildFilterBtn();
-    buildList('');
-    renderCard(DRUGS[0]);
+    buildList(search.value);
+    renderActiveCard();
   }
 
   if (document.readyState === 'loading') {

@@ -28,6 +28,10 @@
 
 <div class="app-layout">
   <aside class="picker-sidebar" id="picker-sidebar">
+    <div class="mode-toggle" id="mode-toggle" role="tablist">
+      <button class="mode-toggle-btn mode-toggle-btn--active" data-mode="drugs" role="tab" aria-selected="true">Field Drugs</button>
+      <button class="mode-toggle-btn" data-mode="home" role="tab" aria-selected="false">Home Meds</button>
+    </div>
     <div class="picker-toggle-row">
       <button class="picker-nav-btn" id="btn-prev" aria-label="Previous drug">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
@@ -58,6 +62,7 @@
 </div>
 
 <script src="data/drugs.js"></script>
+<script src="data/home_meds.js"></script>
 <script src="app.js"></script>
 <script data-pplx-inline-edit>
 (function(){
