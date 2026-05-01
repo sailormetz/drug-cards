@@ -608,6 +608,36 @@ body {
   flex: 1;
 }
 
+/* ===== MODE TOGGLE (Field Drugs / Home Meds) ===== */
+.mode-toggle {
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px 0;
+  background: var(--bg);
+}
+.mode-toggle-btn {
+  flex: 1;
+  padding: 8px 12px;
+  background: var(--surface);
+  color: var(--text-mut);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 120ms, color 120ms, border-color 120ms;
+}
+.mode-toggle-btn:hover {
+  color: var(--text);
+}
+.mode-toggle-btn--active {
+  background: rgba(94, 155, 232, 0.08);
+  color: var(--beta);
+  border-color: var(--beta);
+}
+
 /* ===== PICKER TOGGLE ROW (drug name + prev/next) ===== */
 .picker-toggle-row {
   display: flex;
@@ -891,6 +921,7 @@ body {
 .hl--neutral { color: var(--text);  background: var(--surface-2); }
 .hl--warn  { color: var(--orange);background: var(--orange-bg); }
 .hl--danger{ color: var(--red);   background: var(--red-bg); font-weight: 700; }
+.hl--ci    { color: var(--red);   background: var(--red-bg); font-weight: 700; }
 
 /* ===== DOSE SECTION ===== */
 .section--dose {
@@ -1306,4 +1337,7 @@ body {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-faint);
+}
+.card-source {
+  color: var(--text-mut) !important;
 }
