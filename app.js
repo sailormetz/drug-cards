@@ -956,9 +956,23 @@
     renderActiveCard();
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
+  var booted = false;
+  function bootIfUnlocked() {
+    if (booted) return;
+    var s = window.AUTH && window.AUTH.state;
+    if (!s || !s.ready || !s.user || !s.hasPaid) return;
+    booted = true;
     init();
+  }
+
+  if (window.AUTH) {
+    window.AUTH.onChange(bootIfUnlocked);
+  } else {
+    // Fallback: auth.js failed to load — render the app anyway so the site isn't broken.
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
   }
 })();

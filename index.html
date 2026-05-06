@@ -23,8 +23,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  // Public client config — safe to expose. Override per-environment by replacing this block.
+  window.SUPABASE_URL = window.SUPABASE_URL || 'https://YOUR-PROJECT.supabase.co';
+  window.SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || 'YOUR-ANON-KEY';
+</script>
 </head>
 <body>
+
+<div id="auth-gate" class="auth-gate" style="display:none"></div>
 
 <div class="app-layout">
   <aside class="picker-sidebar" id="picker-sidebar">
@@ -63,6 +71,7 @@
 
 <script src="data/drugs.js"></script>
 <script src="data/home_meds.js"></script>
+<script src="auth.js"></script>
 <script src="app.js"></script>
 <script data-pplx-inline-edit>
 (function(){

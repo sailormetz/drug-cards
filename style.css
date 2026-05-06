@@ -1341,3 +1341,99 @@ body {
 .card-source {
   color: var(--text-mut) !important;
 }
+
+/* ===== AUTH GATE ===== */
+.auth-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--bg);
+  background-image: radial-gradient(ellipse at 50% 30%, hsla(45, 4%, 16%, 0.9), var(--bg) 70%);
+}
+.auth-card {
+  width: 100%;
+  max-width: 380px;
+  padding: 28px 24px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.auth-title {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  line-height: 1.3;
+}
+.auth-sub {
+  font-size: 13px;
+  color: var(--text-mut);
+  line-height: 1.5;
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+.auth-input {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+.auth-input:focus {
+  border-color: var(--blue);
+}
+.auth-btn {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  background: var(--green);
+  color: hsl(45, 2%, 8%);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.15s ease, opacity 0.15s ease;
+}
+.auth-btn:hover { filter: brightness(1.05); }
+.auth-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.auth-link {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 4px 0;
+  background: none;
+  border: none;
+  color: var(--text-mut);
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.auth-link:hover { color: var(--text); }
+.auth-msg {
+  min-height: 18px;
+  font-size: 12px;
+  color: var(--text-mut);
+}
+.auth-msg--ok { color: var(--green); }
+.auth-msg--err { color: var(--red); }
+.auth-status {
+  font-size: 13px;
+  color: var(--text-mut);
+  text-align: center;
+}
