@@ -21,13 +21,13 @@
 <title>Paramedic Pharmacology Study Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;900&family=Barlow+Semi+Condensed:wght@700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   // Public client config — safe to expose. Override per-environment by replacing this block.
-  window.SUPABASE_URL = window.SUPABASE_URL || 'https://YOUR-PROJECT.supabase.co';
-  window.SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || 'YOUR-ANON-KEY';
+  window.SUPABASE_URL = window.SUPABASE_URL || 'https://hxrpcodojmltjsjzlxdh.supabase.co';
+  window.SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || 'sb_publishable_eilVAejyEZPRSkx2MbkvqQ_56GSI764';
 </script>
 </head>
 <body>
@@ -61,6 +61,10 @@
       </div>
       <div class="active-filter-pills" id="active-filter-pills" style="display:none"></div>
       <ul class="picker-list" id="drug-list"></ul>
+      <div class="auth-chip" id="auth-chip" hidden>
+        <span class="auth-chip__email" id="auth-chip-email"></span>
+        <button class="auth-chip__btn" id="auth-chip-signout" type="button">Sign out</button>
+      </div>
     </div>
   </aside>
 
