@@ -1496,7 +1496,7 @@ body {
 }
 .auth-gate.signed-out .stat-row {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 16px;
   width: 100%;
   justify-content: center;
@@ -1513,6 +1513,9 @@ body {
 .auth-gate.signed-out .stat-num.mint { color: var(--mint); text-shadow: 0 0 40px rgba(94,155,232,0.3); }
 .auth-gate.signed-out .stat-num.blue { color: var(--blue); text-shadow: 0 0 40px rgba(77,196,176,0.3); }
 .auth-gate.signed-out .stat-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   font-family: 'Barlow', sans-serif;
   font-weight: 700;
   font-size: 28px;
