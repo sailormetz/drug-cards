@@ -160,8 +160,8 @@
     var stats = el('div', { class: 'stats' });
 
     [
-      ['mint', '70', '<span>Prehospital</span>EMS Drugs'],
-      ['blue', '86', '<span>Most Common</span>Home Meds'],
+      ['mint', '70', 'Prehospital', 'EMS Drugs'],
+      ['blue', '86', 'Most Common', 'Home Meds'],
     ].forEach(function (s, i) {
       if (i === 1) {
         var sDiv = el('div', { class: 'stat-divider' });
@@ -172,7 +172,10 @@
       }
       var row = el('div', { class: 'stat-row' });
       row.appendChild(el('div', { class: 'stat-num ' + s[0] }, [s[1]]));
-      row.appendChild(el('div', { class: 'stat-label', html: s[2] }));
+      var label = el('div', { class: 'stat-label' });
+      label.appendChild(el('span', { class: 'stat-label__sub' }, [s[2]]));
+      label.appendChild(el('span', { class: 'stat-label__main' }, [s[3]]));
+      row.appendChild(label);
       stats.appendChild(row);
     });
 

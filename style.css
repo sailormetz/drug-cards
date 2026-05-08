@@ -1514,14 +1514,9 @@ body {
 .auth-gate.signed-out .stat-num.blue { color: var(--blue); text-shadow: 0 0 40px rgba(77,196,176,0.3); }
 .auth-gate.signed-out .stat-label {
   font-family: 'Barlow', sans-serif;
-  font-weight: 700;
-  font-size: 28px;
-  letter-spacing: -0.01em;
-  color: var(--text);
   text-align: left;
-  line-height: 1.1;
 }
-.auth-gate.signed-out .stat-label span {
+.auth-gate.signed-out .stat-label__sub {
   display: block;
   font-weight: 300;
   font-size: 14px;
@@ -1529,6 +1524,15 @@ body {
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 3px;
+  line-height: 1;
+}
+.auth-gate.signed-out .stat-label__main {
+  display: block;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  line-height: 1.1;
 }
 .auth-gate.signed-out .stat-divider {
   display: flex;
@@ -2427,8 +2431,8 @@ body {
   /* Stats — no margin-top: pills-label.margin-bottom provides the gap */
   .auth-gate.signed-out .stats { margin-bottom: 24px; }
   .auth-gate.signed-out .stat-num { font-size: 100px; min-width: 130px; }
-  .auth-gate.signed-out .stat-label { font-size: 36px; }
-  .auth-gate.signed-out .stat-label span { font-size: 15px; }
+  .auth-gate.signed-out .stat-label__main { font-size: 36px; }
+  .auth-gate.signed-out .stat-label__sub { font-size: 15px; }
 
   /* Pills */
   .auth-gate.signed-out .pills-label { font-size: 18px; margin-top: 48px; margin-bottom: 18px; }
