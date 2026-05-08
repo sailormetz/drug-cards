@@ -1496,7 +1496,7 @@ body {
 }
 .auth-gate.signed-out .stat-row {
   display: flex;
-  align-items: stretch;
+  align-items: center;
   gap: 16px;
   width: 100%;
   justify-content: center;
@@ -1504,18 +1504,15 @@ body {
 .auth-gate.signed-out .stat-num {
   font-family: 'Barlow', sans-serif;
   font-weight: 900;
-  font-size: 60px;
+  font-size: 80px;
   line-height: 1;
   letter-spacing: -0.03em;
-  min-width: 88px;
+  min-width: 100px;
   text-align: right;
 }
 .auth-gate.signed-out .stat-num.mint { color: var(--mint); text-shadow: 0 0 40px rgba(94,155,232,0.3); }
 .auth-gate.signed-out .stat-num.blue { color: var(--blue); text-shadow: 0 0 40px rgba(77,196,176,0.3); }
 .auth-gate.signed-out .stat-label {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   font-family: 'Barlow', sans-serif;
   font-weight: 700;
   font-size: 28px;
@@ -2429,7 +2426,7 @@ body {
 
   /* Stats — no margin-top: pills-label.margin-bottom provides the gap */
   .auth-gate.signed-out .stats { margin-bottom: 24px; }
-  .auth-gate.signed-out .stat-num { font-size: 88px; min-width: 120px; }
+  .auth-gate.signed-out .stat-num { font-size: 100px; min-width: 130px; }
   .auth-gate.signed-out .stat-label { font-size: 36px; }
   .auth-gate.signed-out .stat-label span { font-size: 15px; }
 
