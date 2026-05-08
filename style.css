@@ -1372,17 +1372,19 @@ body {
 
 /* ===== AUTH GATE — SIGNED-OUT LANDING (allemsdrugs-landing.html) ===== */
 .auth-gate.signed-out {
-  --mint:    #5DCAA5;
+  /* --mint and --blue retain their variable names; values now pull from the
+     app's :root palette (--blue and --cyan) so the landing matches the app. */
+  --mint:    #5e9be8;
   --coral:   #D56A6A;
-  --blue:    #6B9FE8;
+  --blue:    #4dc4b0;
   --amber:   #D9A54F;
   --purple:  #9B7FD4;
-  --navy:    #14181F;
-  --navy2:   #1C2230;
-  --navy3:   #232B3A;
-  --text:    #E8EDF5;
-  --muted:   #6B7A94;
-  --border:  rgba(107,154,232,0.12);
+  --navy:    hsl(45, 2%, 5%);
+  --navy2:   hsl(45, 2%, 12%);
+  --navy3:   hsl(45, 2%, 16%);
+  --text:    hsl(45, 4%, 93%);
+  --muted:   hsl(45, 2%, 60%);
+  --border:  hsl(45, 2%, 22%);
 
   display: block;
   padding: 0;
@@ -1396,8 +1398,8 @@ body {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 50% at 50% -10%, rgba(93,202,165,0.07) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 30% at 80% 80%, rgba(107,159,232,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 50% -10%, rgba(94,155,232,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 80% 80%, rgba(77,196,176,0.06) 0%, transparent 60%),
     radial-gradient(ellipse 30% 20% at 10% 90%, rgba(213,106,106,0.05) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
@@ -1421,8 +1423,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(93,202,165,0.08);
-  border: 1px solid rgba(93,202,165,0.22);
+  background: rgba(94,155,232,0.08);
+  border: 1px solid rgba(94,155,232,0.22);
   border-radius: 100px;
   padding: 6px 14px;
   margin-bottom: 28px;
@@ -1465,7 +1467,8 @@ body {
   vertical-align: baseline;
 }
 .auth-gate.signed-out .headline-ems {
-  background: linear-gradient(135deg, var(--coral) 0%, #C97AAF 30%, var(--blue) 70%);
+  /* Logo gradient locked to original colors regardless of variable remap. */
+  background: linear-gradient(135deg, #D56A6A 0%, #C97AAF 30%, #6B9FE8 70%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1507,8 +1510,8 @@ body {
   min-width: 88px;
   text-align: right;
 }
-.auth-gate.signed-out .stat-num.mint { color: var(--mint); text-shadow: 0 0 40px rgba(93,202,165,0.3); }
-.auth-gate.signed-out .stat-num.blue { color: var(--blue); text-shadow: 0 0 40px rgba(107,159,232,0.3); }
+.auth-gate.signed-out .stat-num.mint { color: var(--mint); text-shadow: 0 0 40px rgba(94,155,232,0.3); }
+.auth-gate.signed-out .stat-num.blue { color: var(--blue); text-shadow: 0 0 40px rgba(77,196,176,0.3); }
 .auth-gate.signed-out .stat-label {
   font-family: 'Barlow', sans-serif;
   font-weight: 700;
@@ -1591,18 +1594,18 @@ body {
   border-radius: 50%;
   flex-shrink: 0;
 }
-.auth-gate.signed-out .pill-mint   { color: var(--mint);   border-color: rgba(93,202,165,0.3);  background: rgba(93,202,165,0.07); }
+.auth-gate.signed-out .pill-mint   { color: var(--mint);   border-color: rgba(94,155,232,0.3);  background: rgba(94,155,232,0.07); }
 .auth-gate.signed-out .pill-mint   .pill-dot { background: var(--mint); }
-.auth-gate.signed-out .pill-mint:hover { background: rgba(93,202,165,0.14); box-shadow: 0 4px 20px rgba(93,202,165,0.15); }
+.auth-gate.signed-out .pill-mint:hover { background: rgba(94,155,232,0.14); box-shadow: 0 4px 20px rgba(94,155,232,0.15); }
 .auth-gate.signed-out .pill-coral  { color: var(--coral);  border-color: rgba(213,106,106,0.3); background: rgba(213,106,106,0.07); }
 .auth-gate.signed-out .pill-coral  .pill-dot { background: var(--coral); }
 .auth-gate.signed-out .pill-coral:hover { background: rgba(213,106,106,0.14); box-shadow: 0 4px 20px rgba(213,106,106,0.15); }
 .auth-gate.signed-out .pill-amber  { color: var(--amber);  border-color: rgba(217,165,79,0.3);  background: rgba(217,165,79,0.07); }
 .auth-gate.signed-out .pill-amber  .pill-dot { background: var(--amber); }
 .auth-gate.signed-out .pill-amber:hover { background: rgba(217,165,79,0.14); box-shadow: 0 4px 20px rgba(217,165,79,0.15); }
-.auth-gate.signed-out .pill-blue   { color: var(--blue);   border-color: rgba(107,159,232,0.3); background: rgba(107,159,232,0.07); }
+.auth-gate.signed-out .pill-blue   { color: var(--blue);   border-color: rgba(77,196,176,0.3); background: rgba(77,196,176,0.07); }
 .auth-gate.signed-out .pill-blue   .pill-dot { background: var(--blue); }
-.auth-gate.signed-out .pill-blue:hover { background: rgba(107,159,232,0.14); box-shadow: 0 4px 20px rgba(107,159,232,0.15); }
+.auth-gate.signed-out .pill-blue:hover { background: rgba(77,196,176,0.14); box-shadow: 0 4px 20px rgba(77,196,176,0.15); }
 .auth-gate.signed-out .pill-purple { color: var(--purple); border-color: rgba(155,127,212,0.3); background: rgba(155,127,212,0.07); }
 .auth-gate.signed-out .pill-purple .pill-dot { background: var(--purple); }
 .auth-gate.signed-out .pill-purple:hover { background: rgba(155,127,212,0.14); box-shadow: 0 4px 20px rgba(155,127,212,0.15); }
@@ -1631,7 +1634,7 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(93,202,165,0.4), transparent);
+  background: linear-gradient(90deg, transparent, rgba(94,155,232,0.4), transparent);
 }
 .auth-gate.signed-out .auth-title {
   font-family: 'IBM Plex Mono', monospace;
@@ -1673,7 +1676,7 @@ body {
 .auth-gate.signed-out .email-input {
   width: 100%;
   background: var(--navy3);
-  border: 1px solid rgba(107,154,232,0.15);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 14px 16px 14px 44px;
   color: var(--text);
@@ -1684,13 +1687,13 @@ body {
 }
 .auth-gate.signed-out .email-input::placeholder { color: var(--muted); }
 .auth-gate.signed-out .email-input:focus {
-  border-color: rgba(93,202,165,0.4);
-  box-shadow: 0 0 0 3px rgba(93,202,165,0.08);
+  border-color: rgba(94,155,232,0.4);
+  box-shadow: 0 0 0 3px rgba(94,155,232,0.08);
 }
 .auth-gate.signed-out .btn-magic {
   width: 100%;
   padding: 15px 24px;
-  background: linear-gradient(135deg, var(--mint) 0%, #4BBDA0 100%);
+  background: linear-gradient(135deg, var(--mint) 0%, #4683C5 100%);
   color: #0D1A14;
   font-family: 'Barlow', sans-serif;
   font-weight: 700;
@@ -1700,7 +1703,7 @@ body {
   border-radius: 12px;
   cursor: pointer;
   transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
-  box-shadow: 0 4px 24px rgba(93,202,165,0.25);
+  box-shadow: 0 4px 24px rgba(94,155,232,0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1709,7 +1712,7 @@ body {
 .auth-gate.signed-out .btn-magic:hover {
   opacity: 0.92;
   transform: translateY(-1px);
-  box-shadow: 0 8px 32px rgba(93,202,165,0.35);
+  box-shadow: 0 8px 32px rgba(94,155,232,0.35);
 }
 .auth-gate.signed-out .btn-magic:active { transform: translateY(0); }
 .auth-gate.signed-out .btn-magic:disabled {
@@ -1730,15 +1733,16 @@ body {
 
 /* ===== AUTH GATE — SIGNED-IN UNPAID (modal over the app) ===== */
 .auth-gate.signed-in-unpaid {
-  --mint:    #5DCAA5;
+  /* Mirrors .signed-out — see comment there for variable rename intent. */
+  --mint:    #5e9be8;
   --coral:   #D56A6A;
-  --blue:    #6B9FE8;
-  --navy:    #14181F;
-  --navy2:   #1C2230;
-  --navy3:   #232B3A;
-  --text:    #E8EDF5;
-  --muted:   #6B7A94;
-  --border:  rgba(107,154,232,0.14);
+  --blue:    #4dc4b0;
+  --navy:    hsl(45, 2%, 5%);
+  --navy2:   hsl(45, 2%, 12%);
+  --navy3:   hsl(45, 2%, 16%);
+  --text:    hsl(45, 4%, 93%);
+  --muted:   hsl(45, 2%, 60%);
+  --border:  hsl(45, 2%, 22%);
 
   position: fixed;
   inset: 0;
@@ -1747,7 +1751,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 16px;
-  background: rgba(10, 13, 18, 0.32);
+  background: hsla(45, 2%, 5%, 0.32);
   backdrop-filter: blur(4px) saturate(110%);
   -webkit-backdrop-filter: blur(4px) saturate(110%);
   color: var(--text);
@@ -1771,7 +1775,7 @@ body {
 .auth-gate.signed-in-unpaid .checkout-modal {
   position: relative;
   width: 100%;
-  background: linear-gradient(180deg, rgba(28, 34, 48, 0.96) 0%, rgba(20, 24, 31, 0.96) 100%);
+  background: linear-gradient(180deg, hsla(45, 2%, 14%, 0.96) 0%, hsla(45, 2%, 8%, 0.96) 100%);
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 22px 22px 18px;
@@ -1789,7 +1793,7 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(93,202,165,0.55), transparent);
+  background: linear-gradient(90deg, transparent, rgba(94,155,232,0.55), transparent);
   border-radius: 20px 20px 0 0;
 }
 
@@ -1806,8 +1810,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(93,202,165,0.1);
-  border: 1px solid rgba(93,202,165,0.24);
+  background: rgba(94,155,232,0.1);
+  border: 1px solid rgba(94,155,232,0.24);
   border-radius: 100px;
   padding: 5px 12px;
   margin: 0;
@@ -1867,7 +1871,7 @@ body {
 }
 .auth-gate.signed-in-unpaid .checkout-feature__check {
   color: var(--mint);
-  filter: drop-shadow(0 0 4px rgba(93,202,165,0.5));
+  filter: drop-shadow(0 0 4px rgba(94,155,232,0.5));
   margin-top: 2px;
 }
 .auth-gate.signed-in-unpaid .checkout-feature__label {
@@ -1893,7 +1897,7 @@ body {
   line-height: 1;
   letter-spacing: -0.035em;
   color: var(--mint);
-  text-shadow: 0 0 28px rgba(93,202,165,0.3);
+  text-shadow: 0 0 28px rgba(94,155,232,0.3);
 }
 .auth-gate.signed-in-unpaid .checkout-price__heading {
   font-family: 'Barlow', sans-serif;
@@ -1911,7 +1915,7 @@ body {
   justify-content: center;
   gap: 10px;
   padding: 15px 24px;
-  background: linear-gradient(135deg, var(--mint) 0%, #4BBDA0 100%);
+  background: linear-gradient(135deg, var(--mint) 0%, #4683C5 100%);
   color: #0D1A14;
   font-family: 'Barlow', sans-serif;
   font-weight: 700;
@@ -1920,14 +1924,14 @@ body {
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 6px 24px rgba(93,202,165,0.32), 0 0 0 1px rgba(93,202,165,0.18);
+  box-shadow: 0 6px 24px rgba(94,155,232,0.32), 0 0 0 1px rgba(94,155,232,0.18);
   transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
   margin-top: 4px;
 }
 .auth-gate.signed-in-unpaid .checkout-cta:hover {
   opacity: 0.94;
   transform: translateY(-1px);
-  box-shadow: 0 10px 32px rgba(93,202,165,0.4), 0 0 0 1px rgba(93,202,165,0.22);
+  box-shadow: 0 10px 32px rgba(94,155,232,0.4), 0 0 0 1px rgba(94,155,232,0.22);
 }
 .auth-gate.signed-in-unpaid .checkout-cta:active { transform: translateY(0); }
 .auth-gate.signed-in-unpaid .checkout-cta:disabled {
@@ -2012,7 +2016,7 @@ body {
   height: 12px;
   border-radius: 50%;
   background: var(--mint);
-  box-shadow: 0 0 16px var(--mint), 0 0 32px rgba(93,202,165,0.4);
+  box-shadow: 0 0 16px var(--mint), 0 0 32px rgba(94,155,232,0.4);
   animation: auth-pulse 1.6s ease infinite;
 }
 .auth-gate.signed-in-unpaid .checkout-success__text {
@@ -2058,7 +2062,7 @@ body {
   font-size: 18px;
   line-height: 1;
   color: var(--mint);
-  text-shadow: 0 0 10px rgba(93,202,165,0.4);
+  text-shadow: 0 0 10px rgba(94,155,232,0.4);
   animation: lp-bounce 1.6s ease-in-out infinite;
 }
 @keyframes lp-bounce {
@@ -2132,8 +2136,8 @@ body {
   line-height: 1.05;
   text-align: center;
 }
-.auth-gate.signed-out .lp-bullet--mint  .lp-bullet__mark { color: var(--mint);  text-shadow: 0 0 12px rgba(93,202,165,0.45); }
-.auth-gate.signed-out .lp-bullet--blue  .lp-bullet__mark { color: var(--blue);  text-shadow: 0 0 12px rgba(107,159,232,0.45); }
+.auth-gate.signed-out .lp-bullet--mint  .lp-bullet__mark { color: var(--mint);  text-shadow: 0 0 12px rgba(94,155,232,0.45); }
+.auth-gate.signed-out .lp-bullet--blue  .lp-bullet__mark { color: var(--blue);  text-shadow: 0 0 12px rgba(77,196,176,0.45); }
 .auth-gate.signed-out .lp-bullet--amber .lp-bullet__mark { color: var(--amber); text-shadow: 0 0 12px rgba(217,165,79,0.45); }
 .auth-gate.signed-out .lp-bullet__text { color: var(--text); }
 .auth-gate.signed-out .lp-bullet__text strong { color: var(--text); font-weight: 600; }
@@ -2152,10 +2156,10 @@ body {
   padding: 0 1px;
   border-radius: 3px;
 }
-.auth-gate.signed-out .lp-hl--mint   { color: var(--mint);   background: rgba(93,202,165,0.10); }
+.auth-gate.signed-out .lp-hl--mint   { color: var(--mint);   background: rgba(94,155,232,0.10); }
 .auth-gate.signed-out .lp-hl--coral  { color: var(--coral);  background: rgba(213,106,106,0.10); }
 .auth-gate.signed-out .lp-hl--amber  { color: var(--amber);  background: rgba(217,165,79,0.10); }
-.auth-gate.signed-out .lp-hl--blue   { color: var(--blue);   background: rgba(107,159,232,0.10); }
+.auth-gate.signed-out .lp-hl--blue   { color: var(--blue);   background: rgba(77,196,176,0.10); }
 .auth-gate.signed-out .lp-hl--purple { color: var(--purple); background: rgba(155,127,212,0.10); }
 
 /* Pull-quote — Why we made this */
@@ -2216,7 +2220,7 @@ body {
   overflow: hidden;
   box-shadow:
     0 30px 60px -20px rgba(0,0,0,0.6),
-    0 0 60px -20px rgba(93,202,165,0.18);
+    0 0 60px -20px rgba(94,155,232,0.18);
 }
 .auth-gate.signed-out .lp-device::before { display: none; }
 .auth-gate.signed-out .lp-device__bar {
@@ -2316,22 +2320,22 @@ body {
   font-size: 17px;
   letter-spacing: 0.02em;
   color: #0D1A14;
-  background: linear-gradient(135deg, var(--mint) 0%, #4BBDA0 100%);
+  background: linear-gradient(135deg, var(--mint) 0%, #4683C5 100%);
   border: none;
   border-radius: 14px;
   padding: 16px 28px;
   cursor: pointer;
   transition: opacity 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
   box-shadow:
-    0 8px 28px rgba(93,202,165,0.3),
-    0 0 0 1px rgba(93,202,165,0.15);
+    0 8px 28px rgba(94,155,232,0.3),
+    0 0 0 1px rgba(94,155,232,0.15);
 }
 .auth-gate.signed-out .lp-final__btn:hover {
   opacity: 0.94;
   transform: translateY(-1px);
   box-shadow:
-    0 12px 36px rgba(93,202,165,0.4),
-    0 0 0 1px rgba(93,202,165,0.2);
+    0 12px 36px rgba(94,155,232,0.4),
+    0 0 0 1px rgba(94,155,232,0.2);
 }
 .auth-gate.signed-out .lp-final__btn:active { transform: translateY(0); }
 
@@ -2346,11 +2350,11 @@ body {
   align-items: center;
   gap: 14px;
   padding: 12px 12px 12px 18px;
-  background: linear-gradient(135deg, var(--mint) 0%, #4BBDA0 100%);
+  background: linear-gradient(135deg, var(--mint) 0%, #4683C5 100%);
   border-radius: 18px;
   box-shadow:
     0 16px 40px -10px rgba(0,0,0,0.55),
-    0 4px 24px -8px rgba(93,202,165,0.55);
+    0 4px 24px -8px rgba(94,155,232,0.55);
   color: #0D1A14;
   transform: translateY(calc(-100% - 24px));
   opacity: 0;
