@@ -439,17 +439,14 @@
     headline.innerHTML = 'Unlock everything.';
     modal.appendChild(headline);
 
-    modal.appendChild(el('p', { class: 'checkout-email' }, [
-      'Signed in as ' + state.user.email,
-    ]));
+    modal.appendChild(el('p', { class: 'checkout-email' }, [state.user.email]));
 
     var features = el('ul', { class: 'checkout-features' });
     [
-      ['70',  'Prehospital EMS drugs'],
-      ['86',  'Common home medications'],
-      ['—',   'Indications · doses · MOA'],
-      ['—',   'All future updates included'],
-    ].forEach(function (row) {
+      'Full guides for 70 EMS drugs + 86 home meds',
+      'All future updates included (new features coming soon)',
+      'Lifetime access, forever',
+    ].forEach(function (label) {
       var li = el('li', { class: 'checkout-feature' });
       var check = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       check.setAttribute('class', 'checkout-feature__check');
@@ -466,18 +463,14 @@
       path.setAttribute('stroke-linejoin', 'round');
       check.appendChild(path);
       li.appendChild(check);
-      li.appendChild(el('span', { class: 'checkout-feature__num' }, [row[0]]));
-      li.appendChild(el('span', { class: 'checkout-feature__label' }, [row[1]]));
+      li.appendChild(el('span', { class: 'checkout-feature__label' }, [label]));
       features.appendChild(li);
     });
     modal.appendChild(features);
 
     var price = el('div', { class: 'checkout-price' });
-    price.appendChild(el('div', { class: 'checkout-price__heading' }, ['Lifetime Access']));
-    var priceRow = el('div', { class: 'checkout-price__row' });
-    priceRow.appendChild(el('span', { class: 'checkout-price__amount' }, ['$19']));
-    priceRow.appendChild(el('span', { class: 'checkout-price__suffix' }, ['one-time · no subscription']));
-    price.appendChild(priceRow);
+    price.appendChild(el('span', { class: 'checkout-price__amount' }, ['$19']));
+    price.appendChild(el('span', { class: 'checkout-price__heading' }, ['Lifetime Access']));
     modal.appendChild(price);
 
     var msg = el('p', { class: 'checkout-msg' });

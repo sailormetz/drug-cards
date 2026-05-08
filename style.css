@@ -1747,9 +1747,9 @@ body {
   align-items: center;
   justify-content: center;
   padding: 16px;
-  background: rgba(10, 13, 18, 0.72);
-  backdrop-filter: blur(14px) saturate(120%);
-  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  background: rgba(10, 13, 18, 0.32);
+  backdrop-filter: blur(4px) saturate(110%);
+  -webkit-backdrop-filter: blur(4px) saturate(110%);
   color: var(--text);
   font-family: 'IBM Plex Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -1800,9 +1800,9 @@ body {
 
 .auth-gate.signed-in-unpaid .checkout-modal > * { flex-shrink: 0; }
 
-/* Badge — top-aligned */
+/* Badge — centered above headline */
 .auth-gate.signed-in-unpaid .badge {
-  align-self: flex-start;
+  align-self: center;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1835,14 +1835,16 @@ body {
   letter-spacing: -0.03em;
   margin: 0;
   color: var(--text);
+  text-align: center;
 }
 
 .auth-gate.signed-in-unpaid .checkout-email {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  color: var(--muted);
-  margin: -8px 0 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin: -6px 0 0;
+  text-align: center;
   word-break: break-all;
 }
 
@@ -1859,65 +1861,46 @@ body {
 }
 .auth-gate.signed-in-unpaid .checkout-feature {
   display: grid;
-  grid-template-columns: 20px 36px 1fr;
-  align-items: center;
+  grid-template-columns: 20px 1fr;
+  align-items: start;
   gap: 12px;
 }
 .auth-gate.signed-in-unpaid .checkout-feature__check {
   color: var(--mint);
   filter: drop-shadow(0 0 4px rgba(93,202,165,0.5));
-}
-.auth-gate.signed-in-unpaid .checkout-feature__num {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  text-align: right;
-  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
 }
 .auth-gate.signed-in-unpaid .checkout-feature__label {
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   color: var(--text);
-  line-height: 1.3;
+  line-height: 1.4;
 }
 
-/* Price block — Lifetime Access prominent */
+/* Price line — inline "$19  Lifetime Access" */
 .auth-gate.signed-in-unpaid .checkout-price {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin: 2px 0 4px;
+  align-items: baseline;
+  gap: 10px;
+  margin: 2px 0;
+  flex-wrap: wrap;
+}
+.auth-gate.signed-in-unpaid .checkout-price__amount {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--mint);
+  text-shadow: 0 0 28px rgba(93,202,165,0.3);
 }
 .auth-gate.signed-in-unpaid .checkout-price__heading {
   font-family: 'Barlow', sans-serif;
   font-weight: 700;
   font-size: 20px;
   letter-spacing: -0.01em;
-  color: var(--mint);
-  text-shadow: 0 0 24px rgba(93,202,165,0.25);
-}
-.auth-gate.signed-in-unpaid .checkout-price__row {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.auth-gate.signed-in-unpaid .checkout-price__amount {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 900;
-  font-size: 44px;
-  line-height: 1;
-  letter-spacing: -0.035em;
   color: var(--text);
-}
-.auth-gate.signed-in-unpaid .checkout-price__suffix {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 12px;
-  color: var(--muted);
-  letter-spacing: 0.02em;
 }
 
 /* CTA — same gradient as landing */
