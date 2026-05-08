@@ -1487,8 +1487,9 @@ body {
 /* Stats */
 .auth-gate.signed-out .stats {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 0;
   margin-bottom: 18px;
   animation: auth-fadeUp 0.7s 0.3s ease both;
@@ -1497,9 +1498,14 @@ body {
 .auth-gate.signed-out .stat-row {
   display: flex;
   align-items: center;
-  gap: 16px;
-  width: 100%;
-  justify-content: center;
+  gap: 14px;
+  flex: 1;
+}
+.auth-gate.signed-out .stat-row:first-child {
+  justify-content: flex-end;
+}
+.auth-gate.signed-out .stat-row:last-child {
+  justify-content: flex-start;
 }
 .auth-gate.signed-out .stat-num {
   font-family: 'Barlow', sans-serif;
@@ -1533,20 +1539,16 @@ body {
 .auth-gate.signed-out .stat-divider {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin: 6px 0;
-  width: 100%;
   justify-content: center;
+  flex: none;
+  margin: 0 20px;
 }
 .auth-gate.signed-out .stat-divider-line {
-  flex: 1;
-  max-width: 60px;
-  height: 1px;
-  background: var(--border);
+  display: none;
 }
 .auth-gate.signed-out .stat-divider-plus {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 18px;
+  font-size: 22px;
   color: var(--muted);
 }
 
