@@ -1459,7 +1459,7 @@ body {
 .auth-gate.signed-out .headline-tld {
   font-size: 0.5em;
   font-weight: 700;
-  color: var(--muted);
+  color: var(--text);
   letter-spacing: 0;
   margin-left: 2px;
   vertical-align: baseline;
