@@ -14,8 +14,9 @@
   function getDataset() { return activeMode === 'home' ? HOME_MEDS : DRUGS; }
   function getState()   { return modeState[activeMode]; }
   function modeNoun(plural) {
-    if (activeMode === 'home') return plural ? 'meds' : 'med';
-    return plural ? 'drugs' : 'drug';
+    return activeMode === 'home'
+      ? (plural ? 'meds' : 'med')
+      : (plural ? 'drugs' : 'drug');
   }
 
   function buildSameDoseNotes(drug) {
