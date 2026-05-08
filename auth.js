@@ -403,13 +403,15 @@
     var page = el('div', { class: 'checkout-page' });
 
     if (justSucceeded) {
+      var successModal = el('div', { class: 'checkout-modal checkout-modal--success' });
+
       var successBadge = el('div', { class: 'badge' });
       successBadge.appendChild(el('span', { class: 'badge-dot' }));
       successBadge.appendChild(el('span', { class: 'badge-text' }, ['Payment received']));
-      page.appendChild(successBadge);
+      successModal.appendChild(successBadge);
 
-      page.appendChild(el('h1', { class: 'checkout-headline' }, ["You're in."]));
-      page.appendChild(el('p', { class: 'checkout-email' }, [
+      successModal.appendChild(el('h1', { class: 'checkout-headline' }, ["You're in."]));
+      successModal.appendChild(el('p', { class: 'checkout-email' }, [
         'Finalizing access for ' + state.user.email + '…',
       ]));
 
@@ -418,31 +420,28 @@
       spinner.appendChild(el('span', { class: 'checkout-success__text' }, [
         'This usually takes a few seconds.',
       ]));
-      page.appendChild(spinner);
+      successModal.appendChild(spinner);
 
+      page.appendChild(successModal);
       gate.appendChild(page);
       pollEntitlement(8);
       return;
     }
 
+    var modal = el('div', { class: 'checkout-modal' });
+
     var badge = el('div', { class: 'badge' });
     badge.appendChild(el('span', { class: 'badge-dot' }));
     badge.appendChild(el('span', { class: 'badge-text' }, ['Almost done']));
-    page.appendChild(badge);
+    modal.appendChild(badge);
 
     var headline = el('h1', { class: 'checkout-headline' });
-    headline.innerHTML = 'Unlock<br>everything.';
-    page.appendChild(headline);
+    headline.innerHTML = 'Unlock everything.';
+    modal.appendChild(headline);
 
-    page.appendChild(el('p', { class: 'checkout-email' }, [
+    modal.appendChild(el('p', { class: 'checkout-email' }, [
       'Signed in as ' + state.user.email,
     ]));
-
-    var stub = el('div', { class: 'checkout-stub' });
-
-    var stubTitle = el('div', { class: 'checkout-stub__title' });
-    stubTitle.appendChild(el('span', { class: 'checkout-stub__title-text' }, ['Rx · Lifetime Access']));
-    stub.appendChild(stubTitle);
 
     var features = el('ul', { class: 'checkout-features' });
     [
@@ -455,8 +454,8 @@
       var check = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       check.setAttribute('class', 'checkout-feature__check');
       check.setAttribute('viewBox', '0 0 16 16');
-      check.setAttribute('width', '16');
-      check.setAttribute('height', '16');
+      check.setAttribute('width', '18');
+      check.setAttribute('height', '18');
       check.setAttribute('aria-hidden', 'true');
       var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       path.setAttribute('d', 'M3 8.5l3.2 3.2L13 5');
@@ -471,19 +470,15 @@
       li.appendChild(el('span', { class: 'checkout-feature__label' }, [row[1]]));
       features.appendChild(li);
     });
-    stub.appendChild(features);
+    modal.appendChild(features);
 
-    stub.appendChild(el('div', { class: 'checkout-stub__perforation', 'aria-hidden': 'true' }));
-
-    var total = el('div', { class: 'checkout-total' });
-    total.appendChild(el('span', { class: 'checkout-total__label' }, ['Total']));
-    var totalRow = el('div', { class: 'checkout-total__row' });
-    totalRow.appendChild(el('span', { class: 'checkout-total__amount' }, ['$19']));
-    totalRow.appendChild(el('span', { class: 'checkout-total__suffix' }, ['Lifetime · one-time']));
-    total.appendChild(totalRow);
-    stub.appendChild(total);
-
-    page.appendChild(stub);
+    var price = el('div', { class: 'checkout-price' });
+    price.appendChild(el('div', { class: 'checkout-price__heading' }, ['Lifetime Access']));
+    var priceRow = el('div', { class: 'checkout-price__row' });
+    priceRow.appendChild(el('span', { class: 'checkout-price__amount' }, ['$19']));
+    priceRow.appendChild(el('span', { class: 'checkout-price__suffix' }, ['one-time · no subscription']));
+    price.appendChild(priceRow);
+    modal.appendChild(price);
 
     var msg = el('p', { class: 'checkout-msg' });
     if (justCanceled) {
@@ -510,23 +505,26 @@
         });
       },
     });
-    page.appendChild(cta);
-    page.appendChild(msg);
+    modal.appendChild(cta);
+    modal.appendChild(msg);
 
+    var footer = el('div', { class: 'checkout-footer' });
     var trust = el('div', { class: 'checkout-trust' });
     var lock = '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">'
       + '<rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>'
       + '<path d="M5 7V5a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>'
       + '</svg>';
-    trust.innerHTML = lock + '<span>Secure checkout · Stripe</span>';
-    page.appendChild(trust);
-
-    page.appendChild(el('button', {
+    trust.innerHTML = lock + '<span>Secure · Stripe</span>';
+    footer.appendChild(trust);
+    footer.appendChild(el('span', { class: 'checkout-footer__sep' }, ['·']));
+    footer.appendChild(el('button', {
       type: 'button',
       class: 'checkout-signout',
       onclick: function () { signOut(); },
     }, ['Sign out']));
+    modal.appendChild(footer);
 
+    page.appendChild(modal);
     gate.appendChild(page);
   }
 

@@ -982,7 +982,10 @@
   function bootIfUnlocked() {
     if (booted) return;
     var s = window.AUTH && window.AUTH.state;
-    if (!s || !s.ready || !s.user || !s.hasPaid) return;
+    // Boot the app as soon as the user is signed in, paid or not, so the
+    // drug cards render behind the unpaid checkout modal. The auth-gate
+    // overlay is what actually blocks unpaid users from interacting.
+    if (!s || !s.ready || !s.user) return;
     booted = true;
     init();
   }
