@@ -1751,7 +1751,6 @@ body {
   justify-content: center;
   gap: 8px;
 }
-.auth-gate.signed-out .lp-cue__line { display: none; }
 .auth-gate.signed-out .lp-cue__text {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 16px;
@@ -1787,34 +1786,6 @@ body {
 .auth-gate.signed-out .lp-section--demo { margin-top: 32px; }
 .auth-gate.signed-out .lp-section--why  { margin-top: 48px; }
 
-/* Numbered eyebrow with colored dot */
-.auth-gate.signed-out .lp-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  align-self: center;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-.auth-gate.signed-out .lp-eyebrow__dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  display: inline-block;
-  flex-shrink: 0;
-}
-.auth-gate.signed-out .lp-eyebrow__num {
-  font-weight: 600;
-  color: var(--text);
-  letter-spacing: 0.05em;
-}
-.auth-gate.signed-out .lp-eyebrow__sep { color: var(--muted); opacity: 0.5; }
-.auth-gate.signed-out .lp-eyebrow__label { color: var(--muted); }
-.auth-gate.signed-out .lp-eyebrow--mint  .lp-eyebrow__dot { background: var(--mint);  box-shadow: 0 0 12px rgba(93,202,165,0.6); }
-.auth-gate.signed-out .lp-eyebrow--blue  .lp-eyebrow__dot { background: var(--blue);  box-shadow: 0 0 12px rgba(107,159,232,0.6); }
-.auth-gate.signed-out .lp-eyebrow--coral .lp-eyebrow__dot { background: var(--coral); box-shadow: 0 0 12px rgba(213,106,106,0.6); }
-
 .auth-gate.signed-out .lp-h2 {
   font-family: 'Barlow', sans-serif;
   font-weight: 700;
@@ -1839,15 +1810,6 @@ body {
   color: var(--text);
   font-weight: 500;
 }
-.auth-gate.signed-out .lp-dropcap,
-.auth-gate.signed-out .lp-dropcap-tail {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 900;
-  color: var(--mint);
-}
-.auth-gate.signed-out .lp-dropcap { font-size: 1.4em; line-height: 0.8; }
-.auth-gate.signed-out .lp-dropcap-tail { font-size: 1.4em; }
-
 /* Colorful bullet list */
 .auth-gate.signed-out .lp-bullets {
   list-style: none;
@@ -1900,36 +1862,6 @@ body {
 .auth-gate.signed-out .lp-hl--amber  { color: var(--amber);  background: rgba(217,165,79,0.10); }
 .auth-gate.signed-out .lp-hl--blue   { color: var(--blue);   background: rgba(107,159,232,0.10); }
 .auth-gate.signed-out .lp-hl--purple { color: var(--purple); background: rgba(155,127,212,0.10); }
-
-/* Feature grid under "What it is" */
-.auth-gate.signed-out .lp-feature-grid {
-  list-style: none;
-  margin: 24px 0 0;
-  padding: 16px 0 0;
-  border-top: 1px solid var(--border);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px 24px;
-}
-.auth-gate.signed-out .lp-feature {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  text-align: left;
-}
-.auth-gate.signed-out .lp-feature__head {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10.5px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--mint);
-}
-.auth-gate.signed-out .lp-feature__body {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--muted);
-}
 
 /* Pull-quote — Why we made this */
 .auth-gate.signed-out .lp-quote {
@@ -2312,25 +2244,6 @@ body {
   line-height: 1.5;
 }
 
-.auth-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.auth-input {
-  width: 100%;
-  padding: 11px 12px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface-2);
-  color: var(--text);
-  font-size: 14px;
-  outline: none;
-  transition: border-color 0.15s ease;
-}
-.auth-input:focus {
-  border-color: var(--blue);
-}
 .auth-btn {
   width: 100%;
   padding: 11px 14px;

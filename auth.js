@@ -159,29 +159,22 @@
     // Build stats + pills now, append later (after the sign-in card)
     var stats = el('div', { class: 'stats' });
 
-    var sRow1 = el('div', { class: 'stat-row' });
-    sRow1.appendChild(el('div', { class: 'stat-num mint' }, ['70']));
-    var sLabel1 = el('div', {
-      class: 'stat-label',
-      html: '<span>Prehospital</span>EMS Drugs',
+    [
+      ['mint', '70', '<span>Prehospital</span>EMS Drugs'],
+      ['blue', '86', '<span>Most Common</span>Home Meds'],
+    ].forEach(function (s, i) {
+      if (i === 1) {
+        var sDiv = el('div', { class: 'stat-divider' });
+        sDiv.appendChild(el('div', { class: 'stat-divider-line' }));
+        sDiv.appendChild(el('div', { class: 'stat-divider-plus' }, ['+']));
+        sDiv.appendChild(el('div', { class: 'stat-divider-line' }));
+        stats.appendChild(sDiv);
+      }
+      var row = el('div', { class: 'stat-row' });
+      row.appendChild(el('div', { class: 'stat-num ' + s[0] }, [s[1]]));
+      row.appendChild(el('div', { class: 'stat-label', html: s[2] }));
+      stats.appendChild(row);
     });
-    sRow1.appendChild(sLabel1);
-    stats.appendChild(sRow1);
-
-    var sDiv = el('div', { class: 'stat-divider' });
-    sDiv.appendChild(el('div', { class: 'stat-divider-line' }));
-    sDiv.appendChild(el('div', { class: 'stat-divider-plus' }, ['+']));
-    sDiv.appendChild(el('div', { class: 'stat-divider-line' }));
-    stats.appendChild(sDiv);
-
-    var sRow2 = el('div', { class: 'stat-row' });
-    sRow2.appendChild(el('div', { class: 'stat-num blue' }, ['86']));
-    var sLabel2 = el('div', {
-      class: 'stat-label',
-      html: '<span>Most Common</span>Home Meds',
-    });
-    sRow2.appendChild(sLabel2);
-    stats.appendChild(sRow2);
 
     var pillsLabel = el('p', { class: 'pills-label' }, ["What's covered"]);
     var pillsSection = el('div', { class: 'pills-section' });
@@ -333,20 +326,23 @@
     whySection.appendChild(quote);
     page.appendChild(whySection);
 
+    function scrollToSignIn() {
+      banner.classList.remove('is-visible');
+      var input = page.querySelector('.email-input');
+      if (!input) return;
+      input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(function () {
+        try { input.focus({ preventScroll: true }); } catch (_) { input.focus(); }
+      }, 350);
+    }
+
     // FINAL CTA
     var finalSection = el('section', { class: 'lp-section lp-section--final' });
     finalSection.appendChild(el('h2', { class: 'lp-final__title' }, ['Master EMS Pharmacology']));
     finalSection.appendChild(el('button', {
       type: 'button',
       class: 'lp-final__btn',
-      onclick: function () {
-        banner.classList.remove('is-visible');
-        var input = page.querySelector('.email-input');
-        if (input) {
-          input.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          setTimeout(function () { try { input.focus({ preventScroll: true }); } catch (_) { input.focus(); } }, 350);
-        }
-      },
+      onclick: scrollToSignIn,
     }, ['Get Access Now →']));
     page.appendChild(finalSection);
 
@@ -361,14 +357,7 @@
     banner.appendChild(el('button', {
       type: 'button',
       class: 'lp-price-banner__cta',
-      onclick: function () {
-        banner.classList.remove('is-visible');
-        var input = page.querySelector('.email-input');
-        if (input) {
-          input.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          setTimeout(function () { try { input.focus({ preventScroll: true }); } catch (_) { input.focus(); } }, 350);
-        }
-      },
+      onclick: scrollToSignIn,
     }, ['Sign up']));
     gate.appendChild(banner);
 
