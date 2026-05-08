@@ -1499,13 +1499,6 @@ body {
   display: flex;
   align-items: center;
   gap: 14px;
-  flex: 1;
-}
-.auth-gate.signed-out .stat-row:first-child {
-  justify-content: flex-end;
-}
-.auth-gate.signed-out .stat-row:last-child {
-  justify-content: flex-start;
 }
 .auth-gate.signed-out .stat-num {
   font-family: 'Barlow', sans-serif;
@@ -1541,14 +1534,15 @@ body {
   align-items: center;
   justify-content: center;
   flex: none;
-  margin: 0 20px;
+  padding: 0 28px;
 }
 .auth-gate.signed-out .stat-divider-line {
   display: none;
 }
 .auth-gate.signed-out .stat-divider-plus {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 22px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
   color: var(--muted);
 }
 
