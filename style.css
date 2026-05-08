@@ -1512,22 +1512,29 @@ body {
 }
 .auth-gate.signed-out .stat-num.mint { color: var(--mint); text-shadow: 0 0 40px rgba(94,155,232,0.3); }
 .auth-gate.signed-out .stat-num.blue { color: var(--blue); text-shadow: 0 0 40px rgba(77,196,176,0.3); }
+.auth-gate.signed-out .stat-row__divider {
+  width: 1px;
+  height: 60px;
+  background: var(--border);
+  flex-shrink: 0;
+}
 .auth-gate.signed-out .stat-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
   font-family: 'Barlow', sans-serif;
   text-align: left;
 }
 .auth-gate.signed-out .stat-label__sub {
-  display: block;
   font-weight: 300;
   font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 3px;
   line-height: 1;
 }
 .auth-gate.signed-out .stat-label__main {
-  display: block;
   font-weight: 700;
   font-size: 28px;
   letter-spacing: -0.01em;
@@ -2431,6 +2438,7 @@ body {
   /* Stats — no margin-top: pills-label.margin-bottom provides the gap */
   .auth-gate.signed-out .stats { margin-bottom: 24px; }
   .auth-gate.signed-out .stat-num { font-size: 100px; min-width: 130px; }
+  .auth-gate.signed-out .stat-row__divider { height: 76px; }
   .auth-gate.signed-out .stat-label__main { font-size: 36px; }
   .auth-gate.signed-out .stat-label__sub { font-size: 15px; }
 

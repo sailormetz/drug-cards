@@ -172,6 +172,7 @@
       }
       var row = el('div', { class: 'stat-row' });
       row.appendChild(el('div', { class: 'stat-num ' + s[0] }, [s[1]]));
+      row.appendChild(el('div', { class: 'stat-row__divider' }));
       var label = el('div', { class: 'stat-label' });
       label.appendChild(el('span', { class: 'stat-label__sub' }, [s[2]]));
       label.appendChild(el('span', { class: 'stat-label__main' }, [s[3]]));
