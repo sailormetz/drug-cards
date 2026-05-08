@@ -1496,7 +1496,7 @@ body {
 }
 .auth-gate.signed-out .stat-row {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 16px;
   width: 100%;
   justify-content: center;
@@ -1513,22 +1513,25 @@ body {
 .auth-gate.signed-out .stat-num.mint { color: var(--mint); text-shadow: 0 0 40px rgba(94,155,232,0.3); }
 .auth-gate.signed-out .stat-num.blue { color: var(--blue); text-shadow: 0 0 40px rgba(77,196,176,0.3); }
 .auth-gate.signed-out .stat-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   font-family: 'Barlow', sans-serif;
   font-weight: 700;
-  font-size: 22px;
+  font-size: 28px;
   letter-spacing: -0.01em;
   color: var(--text);
   text-align: left;
-  line-height: 1.15;
+  line-height: 1.1;
 }
 .auth-gate.signed-out .stat-label span {
   display: block;
   font-weight: 300;
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 2px;
+  margin-bottom: 3px;
 }
 .auth-gate.signed-out .stat-divider {
   display: flex;
@@ -2427,8 +2430,8 @@ body {
   /* Stats — no margin-top: pills-label.margin-bottom provides the gap */
   .auth-gate.signed-out .stats { margin-bottom: 24px; }
   .auth-gate.signed-out .stat-num { font-size: 88px; min-width: 120px; }
-  .auth-gate.signed-out .stat-label { font-size: 30px; }
-  .auth-gate.signed-out .stat-label span { font-size: 14px; }
+  .auth-gate.signed-out .stat-label { font-size: 36px; }
+  .auth-gate.signed-out .stat-label span { font-size: 15px; }
 
   /* Pills */
   .auth-gate.signed-out .pills-label { font-size: 18px; margin-top: 48px; margin-bottom: 18px; }
