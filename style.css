@@ -1728,6 +1728,301 @@ body {
 .auth-gate.signed-out .auth-note.auth-msg--ok  { color: var(--mint); }
 .auth-gate.signed-out .auth-note.auth-msg--err { color: var(--coral); }
 
+/* ===== AUTH GATE — SIGNED-IN UNPAID (modal over the app) ===== */
+.auth-gate.signed-in-unpaid {
+  --mint:    #5DCAA5;
+  --coral:   #D56A6A;
+  --blue:    #6B9FE8;
+  --navy:    #14181F;
+  --navy2:   #1C2230;
+  --navy3:   #232B3A;
+  --text:    #E8EDF5;
+  --muted:   #6B7A94;
+  --border:  rgba(107,154,232,0.14);
+
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(10, 13, 18, 0.32);
+  backdrop-filter: blur(4px) saturate(110%);
+  -webkit-backdrop-filter: blur(4px) saturate(110%);
+  color: var(--text);
+  font-family: 'IBM Plex Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  animation: auth-backdropFade 0.35s ease both;
+  overflow-y: auto;
+}
+
+@keyframes auth-backdropFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.auth-gate.signed-in-unpaid .checkout-page {
+  width: 100%;
+  max-width: 380px;
+  margin: auto;
+}
+
+.auth-gate.signed-in-unpaid .checkout-modal {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(28, 34, 48, 0.96) 0%, rgba(20, 24, 31, 0.96) 100%);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 22px 22px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+  animation: auth-modalIn 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.auth-gate.signed-in-unpaid .checkout-modal::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(93,202,165,0.55), transparent);
+  border-radius: 20px 20px 0 0;
+}
+
+@keyframes auth-modalIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.985); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+.auth-gate.signed-in-unpaid .checkout-modal > * { flex-shrink: 0; }
+
+/* Badge — centered above headline */
+.auth-gate.signed-in-unpaid .badge {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(93,202,165,0.1);
+  border: 1px solid rgba(93,202,165,0.24);
+  border-radius: 100px;
+  padding: 5px 12px;
+  margin: 0;
+}
+.auth-gate.signed-in-unpaid .badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 8px var(--mint);
+  animation: auth-pulse 2.4s ease infinite;
+}
+.auth-gate.signed-in-unpaid .badge-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: var(--mint);
+  text-transform: uppercase;
+}
+
+.auth-gate.signed-in-unpaid .checkout-headline {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 900;
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin: 0;
+  color: var(--text);
+  text-align: center;
+}
+
+.auth-gate.signed-in-unpaid .checkout-email {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin: -6px 0 0;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Feature bullets */
+.auth-gate.signed-in-unpaid .checkout-features {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.auth-gate.signed-in-unpaid .checkout-feature {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  align-items: start;
+  gap: 12px;
+}
+.auth-gate.signed-in-unpaid .checkout-feature__check {
+  color: var(--mint);
+  filter: drop-shadow(0 0 4px rgba(93,202,165,0.5));
+  margin-top: 2px;
+}
+.auth-gate.signed-in-unpaid .checkout-feature__label {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* Price line — inline "$19  Lifetime Access" */
+.auth-gate.signed-in-unpaid .checkout-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 2px 0;
+  flex-wrap: wrap;
+}
+.auth-gate.signed-in-unpaid .checkout-price__amount {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--mint);
+  text-shadow: 0 0 28px rgba(93,202,165,0.3);
+}
+.auth-gate.signed-in-unpaid .checkout-price__heading {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+/* CTA — same gradient as landing */
+.auth-gate.signed-in-unpaid .checkout-cta {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 24px;
+  background: linear-gradient(135deg, var(--mint) 0%, #4BBDA0 100%);
+  color: #0D1A14;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(93,202,165,0.32), 0 0 0 1px rgba(93,202,165,0.18);
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+  margin-top: 4px;
+}
+.auth-gate.signed-in-unpaid .checkout-cta:hover {
+  opacity: 0.94;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 32px rgba(93,202,165,0.4), 0 0 0 1px rgba(93,202,165,0.22);
+}
+.auth-gate.signed-in-unpaid .checkout-cta:active { transform: translateY(0); }
+.auth-gate.signed-in-unpaid .checkout-cta:disabled {
+  opacity: 0.65;
+  cursor: wait;
+  transform: none;
+}
+.auth-gate.signed-in-unpaid .checkout-cta__arrow { transition: transform 0.2s; }
+.auth-gate.signed-in-unpaid .checkout-cta:hover .checkout-cta__arrow {
+  transform: translateX(2px);
+}
+
+.auth-gate.signed-in-unpaid .checkout-msg {
+  margin: 0;
+  min-height: 0;
+  font-size: 12.5px;
+  text-align: center;
+  color: var(--muted);
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+.auth-gate.signed-in-unpaid .checkout-msg:empty { display: none; }
+.auth-gate.signed-in-unpaid .checkout-msg--err { color: var(--coral); }
+.auth-gate.signed-in-unpaid .checkout-msg--ok  { color: var(--mint); }
+
+/* Footer row: Stripe trust · Sign out */
+.auth-gate.signed-in-unpaid .checkout-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+  margin-top: 2px;
+}
+.auth-gate.signed-in-unpaid .checkout-trust {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.auth-gate.signed-in-unpaid .checkout-trust svg { color: var(--mint); }
+.auth-gate.signed-in-unpaid .checkout-footer__sep {
+  color: var(--muted);
+  opacity: 0.5;
+  font-size: 11px;
+}
+.auth-gate.signed-in-unpaid .checkout-signout {
+  padding: 6px 0;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.auth-gate.signed-in-unpaid .checkout-signout:hover { color: var(--text); }
+
+/* Success state */
+.auth-gate.signed-in-unpaid .checkout-modal--success {
+  align-items: center;
+  text-align: center;
+  padding: 28px 22px;
+  gap: 16px;
+}
+.auth-gate.signed-in-unpaid .checkout-modal--success .checkout-headline {
+  font-size: 36px;
+}
+.auth-gate.signed-in-unpaid .checkout-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 0 4px;
+}
+.auth-gate.signed-in-unpaid .checkout-success__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 16px var(--mint), 0 0 32px rgba(93,202,165,0.4);
+  animation: auth-pulse 1.6s ease infinite;
+}
+.auth-gate.signed-in-unpaid .checkout-success__text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-align: center;
+}
+
 @keyframes auth-fadeUp {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }

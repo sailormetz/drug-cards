@@ -394,52 +394,131 @@
   }
 
   function buildSignedInUnpaid(gate) {
-    var card = el('div', { class: 'auth-card' });
-    card.appendChild(el('h1', { class: 'auth-title' }, ['Paramedic Pharmacology Study Guide']));
+    gate.classList.add('signed-in-unpaid');
 
     var params = new URLSearchParams(window.location.search);
     var justCanceled = params.get('checkout') === 'cancel';
     var justSucceeded = params.get('checkout') === 'success';
 
-    card.appendChild(el('p', { class: 'auth-sub' }, [
-      'Signed in as ' + state.user.email + '.',
-    ]));
+    var page = el('div', { class: 'checkout-page' });
 
     if (justSucceeded) {
-      card.appendChild(el('p', { class: 'auth-msg auth-msg--ok' }, [
-        'Payment received — finalizing your access…',
+      var successModal = el('div', { class: 'checkout-modal checkout-modal--success' });
+
+      var successBadge = el('div', { class: 'badge' });
+      successBadge.appendChild(el('span', { class: 'badge-dot' }));
+      successBadge.appendChild(el('span', { class: 'badge-text' }, ['Payment received']));
+      successModal.appendChild(successBadge);
+
+      successModal.appendChild(el('h1', { class: 'checkout-headline' }, ["You're in."]));
+      successModal.appendChild(el('p', { class: 'checkout-email' }, [
+        'Finalizing access for ' + state.user.email + '…',
       ]));
+
+      var spinner = el('div', { class: 'checkout-success' });
+      spinner.appendChild(el('span', { class: 'checkout-success__dot' }));
+      spinner.appendChild(el('span', { class: 'checkout-success__text' }, [
+        'This usually takes a few seconds.',
+      ]));
+      successModal.appendChild(spinner);
+
+      page.appendChild(successModal);
+      gate.appendChild(page);
       pollEntitlement(8);
-    } else {
-      card.appendChild(el('p', { class: 'auth-sub' }, [
-        'Unlock lifetime access — $19, one-time.',
-      ]));
-      var unlock = el('button', { class: 'auth-btn', onclick: function () {
-        unlock.disabled = true;
-        unlock.textContent = 'Redirecting…';
-        startCheckout().catch(function (err) {
-          unlock.disabled = false;
-          unlock.textContent = 'Unlock';
-          var msg = card.querySelector('.auth-msg');
-          if (msg) {
-            msg.textContent = err.message || 'Could not start checkout.';
-            msg.className = 'auth-msg auth-msg--err';
-          }
-        });
-      }}, ['Unlock']);
-      card.appendChild(unlock);
-      if (justCanceled) {
-        card.appendChild(el('p', { class: 'auth-msg auth-msg--err' }, ['Checkout canceled.']));
-      } else {
-        card.appendChild(el('p', { class: 'auth-msg' }));
-      }
+      return;
     }
 
-    card.appendChild(el('button', {
-      class: 'auth-link', onclick: function () { signOut(); },
-    }, ['Sign out']));
+    var modal = el('div', { class: 'checkout-modal' });
 
-    gate.appendChild(card);
+    var badge = el('div', { class: 'badge' });
+    badge.appendChild(el('span', { class: 'badge-dot' }));
+    badge.appendChild(el('span', { class: 'badge-text' }, ['Almost done']));
+    modal.appendChild(badge);
+
+    var headline = el('h1', { class: 'checkout-headline' });
+    headline.innerHTML = 'Unlock everything.';
+    modal.appendChild(headline);
+
+    modal.appendChild(el('p', { class: 'checkout-email' }, [state.user.email]));
+
+    var features = el('ul', { class: 'checkout-features' });
+    [
+      'Full guides for 70 EMS drugs + 86 home meds',
+      'All future updates included (new features coming soon)',
+      'Lifetime access, forever',
+    ].forEach(function (label) {
+      var li = el('li', { class: 'checkout-feature' });
+      var check = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      check.setAttribute('class', 'checkout-feature__check');
+      check.setAttribute('viewBox', '0 0 16 16');
+      check.setAttribute('width', '18');
+      check.setAttribute('height', '18');
+      check.setAttribute('aria-hidden', 'true');
+      var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', 'M3 8.5l3.2 3.2L13 5');
+      path.setAttribute('fill', 'none');
+      path.setAttribute('stroke', 'currentColor');
+      path.setAttribute('stroke-width', '2');
+      path.setAttribute('stroke-linecap', 'round');
+      path.setAttribute('stroke-linejoin', 'round');
+      check.appendChild(path);
+      li.appendChild(check);
+      li.appendChild(el('span', { class: 'checkout-feature__label' }, [label]));
+      features.appendChild(li);
+    });
+    modal.appendChild(features);
+
+    var price = el('div', { class: 'checkout-price' });
+    price.appendChild(el('span', { class: 'checkout-price__amount' }, ['$19']));
+    price.appendChild(el('span', { class: 'checkout-price__heading' }, ['Lifetime Access']));
+    modal.appendChild(price);
+
+    var msg = el('p', { class: 'checkout-msg' });
+    if (justCanceled) {
+      msg.textContent = 'Checkout canceled. No charge.';
+      msg.className = 'checkout-msg checkout-msg--err';
+    }
+
+    var ctaArrow = '<span class="checkout-cta__label">Continue to checkout</span>'
+      + '<svg class="checkout-cta__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">'
+      + '<path d="M2 8h12M9 4l5 4-5 4" stroke="currentColor" stroke-width="2" '
+      + 'stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var cta = el('button', {
+      type: 'button',
+      class: 'checkout-cta',
+      html: ctaArrow,
+      onclick: function () {
+        cta.disabled = true;
+        cta.innerHTML = '<span class="checkout-cta__label">Redirecting…</span>';
+        startCheckout().catch(function (err) {
+          cta.disabled = false;
+          cta.innerHTML = ctaArrow;
+          msg.textContent = err.message || 'Could not start checkout.';
+          msg.className = 'checkout-msg checkout-msg--err';
+        });
+      },
+    });
+    modal.appendChild(cta);
+    modal.appendChild(msg);
+
+    var footer = el('div', { class: 'checkout-footer' });
+    var trust = el('div', { class: 'checkout-trust' });
+    var lock = '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">'
+      + '<rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>'
+      + '<path d="M5 7V5a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>'
+      + '</svg>';
+    trust.innerHTML = lock + '<span>Secure · Stripe</span>';
+    footer.appendChild(trust);
+    footer.appendChild(el('span', { class: 'checkout-footer__sep' }, ['·']));
+    footer.appendChild(el('button', {
+      type: 'button',
+      class: 'checkout-signout',
+      onclick: function () { signOut(); },
+    }, ['Sign out']));
+    modal.appendChild(footer);
+
+    page.appendChild(modal);
+    gate.appendChild(page);
   }
 
   function renderChip() {
