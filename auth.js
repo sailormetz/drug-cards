@@ -575,6 +575,55 @@
     startCheckout: startCheckout,
   };
 
+  // ── Post-checkout welcome modal ──
+  // Shows once when the user returns from a successful Stripe checkout.
+  var welcomeShown = false;
+  function showWelcomeModal() {
+    var overlay = el('div', { class: 'welcome-overlay', role: 'dialog', 'aria-labelledby': 'welcome-title' });
+    var modal = el('div', { class: 'welcome-modal' });
+
+    modal.appendChild(el('h1', { id: 'welcome-title', class: 'welcome-headline' }, ["You're in."]));
+    modal.appendChild(el('p', { class: 'welcome-sub' }, ['Thanks for your support.']));
+
+    var list = el('ul', { class: 'welcome-list' });
+    [
+      'Use the <strong>tabs at the top</strong> to switch between field and home meds.',
+      'Tap the <strong>search bar</strong> to search and filter for drugs.',
+      'Now go <strong>master EMS pharmacology!</strong>',
+    ].forEach(function (html, i) {
+      var item = el('li', { class: 'welcome-list__item' });
+      item.appendChild(el('span', { class: 'welcome-list__mark', 'aria-hidden': 'true' }, [String(i + 1)]));
+      item.appendChild(el('span', { class: 'welcome-list__text', html: html }));
+      list.appendChild(item);
+    });
+    modal.appendChild(list);
+
+    var cta = el('button', {
+      type: 'button',
+      class: 'welcome-cta',
+      onclick: function () { overlay.remove(); },
+    });
+    cta.appendChild(el('span', {}, ["Let's go"]));
+    cta.insertAdjacentHTML('beforeend',
+      '<svg class="welcome-cta__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">' +
+      '<path d="M2 8h12M9 4l5 4-5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '</svg>');
+    modal.appendChild(cta);
+
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+  }
+
+  document.addEventListener('auth:unlocked', function () {
+    if (welcomeShown) return;
+    if (!/[?&]checkout=success\b/.test(window.location.search)) return;
+    welcomeShown = true;
+    showWelcomeModal();
+    // Strip the param so refresh doesn't re-show the modal
+    var clean = window.location.pathname + window.location.hash;
+    history.replaceState(null, '', clean);
+  });
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', refresh);
   } else {
