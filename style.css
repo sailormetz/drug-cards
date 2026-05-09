@@ -2588,24 +2588,54 @@ body {
   text-align: center;
 }
 
-/* Sidebar footer chip shown to signed-in users */
-.auth-chip {
+/* User menu icon + popover (signed-in users) */
+.user-menu-btn {
   flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  margin-left: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text-mut);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  align-self: center;
+  padding: 0;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+.user-menu-btn:hover {
+  color: var(--text);
+  background: var(--surface-2);
+  border-color: var(--text-mut);
+}
+.user-menu {
+  position: fixed;
+  top: 56px;
+  right: 12px;
+  z-index: 200;
+  min-width: 220px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.45);
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 10px 14px 12px;
-  border-top: 1px solid var(--border);
-  background: var(--surface);
+  gap: 8px;
+  font-family: 'IBM Plex Sans', -apple-system, sans-serif;
 }
-.auth-chip__email {
-  font-size: 11px;
+.user-menu[hidden] { display: none; }
+.user-menu__email {
+  font-size: 12px;
   color: var(--text-mut);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.auth-chip__btn {
+.user-menu__signout {
   align-self: flex-start;
   padding: 0;
   background: none;
@@ -2615,7 +2645,7 @@ body {
   text-decoration: underline;
   cursor: pointer;
 }
-.auth-chip__btn:hover { color: var(--text); }
+.user-menu__signout:hover { color: var(--text); }
 
 /* ===== POST-CHECKOUT WELCOME MODAL ===== */
 .welcome-overlay {
