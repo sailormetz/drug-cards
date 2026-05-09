@@ -295,7 +295,7 @@
       ],
       [
         'blue',
-        'Instant access to <span class="lp-hl lp-hl--mint">indications</span>, <span class="lp-hl lp-hl--coral">contraindications</span>, <span class="lp-hl lp-hl--amber">mechanisms</span>, <span class="lp-hl lp-hl--blue">doses by population</span>, <span class="lp-hl lp-hl--blue">routes</span>, and <span class="lp-hl lp-hl--purple">adverse effects</span>.',
+        'Complete drug info for <span class="lp-hl lp-hl--mint">indications</span>, <span class="lp-hl lp-hl--coral">contraindications</span>, <span class="lp-hl lp-hl--amber">mechanisms</span>, <span class="lp-hl lp-hl--blue">doses by population</span>, <span class="lp-hl lp-hl--blue">routes</span>, <span class="lp-hl lp-hl--purple">adverse effects</span>, and <span class="lp-hl lp-hl--amber">precautions</span>.',
       ],
       [
         'amber',
