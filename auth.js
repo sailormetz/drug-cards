@@ -127,14 +127,14 @@
     if (state.user && state.hasPaid) {
       gate.style.display = 'none';
       gate.innerHTML = '';
-      renderChip();
+      renderUserMenu();
       document.dispatchEvent(new CustomEvent('auth:unlocked'));
       return;
     }
 
     gate.style.display = '';
     gate.innerHTML = '';
-    renderChip();
+    renderUserMenu();
 
     if (!state.user) {
       buildSignedOut(gate);
@@ -525,22 +525,42 @@
     gate.appendChild(page);
   }
 
-  function renderChip() {
-    var chip = document.getElementById('auth-chip');
-    if (!chip) return;
+  function renderUserMenu() {
+    var btn   = document.getElementById('user-menu-btn');
+    var menu  = document.getElementById('user-menu');
+    var email = document.getElementById('user-menu-email');
+    var out   = document.getElementById('user-menu-signout');
+    if (!btn || !menu) return;
+
     var unlocked = !!(state.user && state.hasPaid);
+    btn.hidden = !unlocked;
     if (!unlocked) {
-      chip.hidden = true;
+      menu.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
       return;
     }
-    var emailEl = document.getElementById('auth-chip-email');
-    var btn = document.getElementById('auth-chip-signout');
-    if (emailEl) emailEl.textContent = state.user.email || '';
-    if (btn && !btn.dataset.bound) {
-      btn.addEventListener('click', function () { signOut(); });
+
+    if (email) email.textContent = state.user.email || '';
+
+    if (!btn.dataset.bound) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = menu.hidden;
+        menu.hidden = !open;
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      document.addEventListener('click', function (e) {
+        if (menu.hidden) return;
+        if (menu.contains(e.target) || btn.contains(e.target)) return;
+        menu.hidden = true;
+        btn.setAttribute('aria-expanded', 'false');
+      });
       btn.dataset.bound = '1';
     }
-    chip.hidden = false;
+    if (out && !out.dataset.bound) {
+      out.addEventListener('click', function () { signOut(); });
+      out.dataset.bound = '1';
+    }
   }
 
   function pollEntitlement(remaining) {
