@@ -61,6 +61,7 @@
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + state.session.access_token,
       },
+      body: JSON.stringify({ origin: window.location.origin }),
     });
     if (!resp.ok) {
       var err = await resp.json().catch(function () { return {}; });

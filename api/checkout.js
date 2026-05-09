@@ -22,7 +22,15 @@ module.exports = async function handler(req, res) {
   if (userErr || !userData?.user) return res.status(401).json({ error: 'Invalid session' });
 
   const user = userData.user;
-  const siteUrl = process.env.PUBLIC_SITE_URL;
+
+  // Prefer the client's current origin so the user returns to the same domain
+  // they signed in on (their localStorage Supabase session lives per-origin).
+  // Falls back to PUBLIC_SITE_URL if origin is missing or not http(s).
+  let returnOrigin = process.env.PUBLIC_SITE_URL;
+  const clientOrigin = (req.body && req.body.origin) || '';
+  if (/^https?:\/\/[^\s/]+$/.test(clientOrigin)) {
+    returnOrigin = clientOrigin;
+  }
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -32,8 +40,8 @@ module.exports = async function handler(req, res) {
       customer_email: user.email,
       client_reference_id: user.id,
       metadata: { user_id: user.id },
-      success_url: `${siteUrl}/?checkout=success`,
-      cancel_url: `${siteUrl}/?checkout=cancel`,
+      success_url: `${returnOrigin}/?checkout=success`,
+      cancel_url: `${returnOrigin}/?checkout=cancel`,
     });
 
     return res.status(200).json({ url: session.url });
