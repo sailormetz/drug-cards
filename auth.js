@@ -160,8 +160,8 @@
     var stats = el('div', { class: 'stats' });
 
     [
-      ['mint', '70', 'Prehospital', 'EMS Drugs'],
-      ['blue', '86', 'Most Common', 'Home Meds'],
+      ['blue', '70', 'Prehospital', 'EMS Drugs'],
+      ['cyan', '86', 'Most Common', 'Home Meds'],
     ].forEach(function (s, i) {
       if (i === 1) {
         var sDiv = el('div', { class: 'stat-divider' });
@@ -183,10 +183,10 @@
     var pillsSection = el('div', { class: 'pills-section' });
     var pills = el('div', { class: 'pills' });
     [
-      ['mint',   'Indications'],
+      ['blue',   'Indications'],
       ['coral',  'Contraindications'],
       ['amber',  'Mechanisms'],
-      ['blue',   'Doses'],
+      ['cyan',   'Doses'],
       ['purple', 'Adverse Effects'],
       ['muted',  '+ More'],
     ].forEach(function (p) {
@@ -264,7 +264,7 @@
     var device = el('div', { class: 'lp-device' });
     var deviceBar = el('div', { class: 'lp-device__bar' });
     var dots = el('div', { class: 'lp-device__dots' });
-    ['coral', 'amber', 'mint'].forEach(function (c) {
+    ['coral', 'amber', 'blue'].forEach(function (c) {
       dots.appendChild(el('span', { class: 'lp-device__dot lp-device__dot--' + c }));
     });
     deviceBar.appendChild(dots);
@@ -290,12 +290,12 @@
     var bullets = el('ul', { class: 'lp-bullets' });
     [
       [
-        'mint',
+        'blue',
         'Search and filter over <strong>156 medications</strong> by category and class.',
       ],
       [
-        'blue',
-        'Complete drug info for <span class="lp-hl lp-hl--mint">indications</span>, <span class="lp-hl lp-hl--coral">contraindications</span>, <span class="lp-hl lp-hl--amber">mechanisms</span>, <span class="lp-hl lp-hl--blue">doses by population</span>, <span class="lp-hl lp-hl--mint">routes</span>, <span class="lp-hl lp-hl--purple">adverse effects</span>, and <span class="lp-hl lp-hl--amber">precautions</span>.',
+        'cyan',
+        'Complete drug info for <span class="lp-hl lp-hl--blue">indications</span>, <span class="lp-hl lp-hl--coral">contraindications</span>, <span class="lp-hl lp-hl--amber">mechanisms</span>, <span class="lp-hl lp-hl--cyan">doses by population</span>, <span class="lp-hl lp-hl--blue">routes</span>, <span class="lp-hl lp-hl--purple">adverse effects</span>, and <span class="lp-hl lp-hl--amber">precautions</span>.',
       ],
       [
         'amber',
