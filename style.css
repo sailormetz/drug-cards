@@ -1505,7 +1505,7 @@ body {
   font-family: 'Barlow', sans-serif;
   font-weight: 900;
   font-size: 80px;
-  line-height: 1;
+  line-height: 0.85;
   letter-spacing: -0.03em;
   min-width: 100px;
   text-align: right;
