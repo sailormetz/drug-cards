@@ -108,23 +108,6 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-@media (max-width: 767px) {
-  /* Sticky auth chip pinned to bottom of viewport when picker is open */
-  .picker-sidebar--open .auth-chip {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 101;
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-  }
-  /* Make room so the last drug isn't hidden behind the sticky chip */
-  .picker-sidebar--open .picker-list {
-    padding-bottom: 64px;
-  }
-}
-
 .picker-search-wrap {
   position: relative;
   display: flex;
