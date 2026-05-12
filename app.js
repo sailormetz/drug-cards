@@ -331,34 +331,29 @@
       return '<span class="drug-class-pill">' + c + '</span>';
     }).join('');
 
-    var indications = med.patientIndications || [];
-    var indicationsHTML = indications.map(function (i) {
-      return '<li>' + i + '</li>';
-    }).join('');
-
-    var moaHTML = (med.moa || []).map(function (m, i) {
-      var divider = i > 0 ? ' moa-entry--divider' : '';
-      var hlClass = getTargetHlClass(m.target);
-      var tierHTML = '';
-      if (m.tier) {
-        tierHTML = '<span class="moa-tier-label">' + m.tier + '</span>' +
-          (m.label ? '<span class="moa-tier-category">' + m.label + '</span>' : '') +
-          (m.target.dose ? '<span class="moa-tier-range">' + m.target.dose + '</span>' : '');
-      }
-      return '<div class="moa-entry' + divider + '">' +
-        '<div class="moa-target-row">' +
-          '<span class="hl ' + hlClass + '">' + m.target.name + '</span>' +
-          '<span class="moa-action-badge">' + m.target.action + '</span>' +
-          tierHTML +
-        '</div>' +
-        '<div class="moa-result">' + m.target.result + '</div>' +
-        '<p class="moa-brief">' + m.brief + '</p>' +
+    function pillSection(label, items, variant) {
+      if (!items || !items.length) return '';
+      var lis = items.map(function (x) { return '<li>' + x + '</li>'; }).join('');
+      return '<div class="section-wrap">' +
+        '<h2 class="section-label">' + label + '</h2>' +
+        '<section class="section">' +
+          '<ul class="pill-list ' + variant + '">' + lis + '</ul>' +
+        '</section>' +
       '</div>';
-    }).join('');
+    }
 
-    var considerationsHTML = (med.considerations || []).map(function (c) {
-      return '<li class="precaution-item">' + c + '</li>';
-    }).join('');
+    function precautionSection(label, items) {
+      if (!items || !items.length) return '';
+      var lis = items.map(function (x) {
+        return '<li class="precaution-item">' + x + '</li>';
+      }).join('');
+      return '<div class="section-wrap">' +
+        '<h2 class="section-label">' + label + '</h2>' +
+        '<section class="section">' +
+          '<ul class="precaution-list">' + lis + '</ul>' +
+        '</section>' +
+      '</div>';
+    }
 
     var summarySection = med.summary
       ? '<div class="section-wrap">' +
@@ -369,35 +364,8 @@
         '</div>'
       : '';
 
-    var indicationsSection = indications.length
-      ? '<div class="section-wrap">' +
-          '<h2 class="section-label">Patient Indications</h2>' +
-          '<section class="section">' +
-            '<ul class="pill-list pill-list--indications">' + indicationsHTML + '</ul>' +
-          '</section>' +
-        '</div>'
-      : '';
-
-    var moaSection = (med.moa && med.moa.length)
-      ? '<div class="section-wrap">' +
-          '<h2 class="section-label">Mechanism of Action</h2>' +
-          '<section class="section">' +
-            moaHTML +
-          '</section>' +
-        '</div>'
-      : '';
-
-    var considerationsSection = (med.considerations && med.considerations.length)
-      ? '<div class="section-wrap">' +
-          '<h2 class="section-label">Considerations</h2>' +
-          '<section class="section">' +
-            '<ul class="precaution-list">' + considerationsHTML + '</ul>' +
-          '</section>' +
-        '</div>'
-      : '';
-
-    var sourceLine = med.source
-      ? '<p class="card-source">Source: ' + med.source + '</p>'
+    var sourcesLine = (med.sources && med.sources.length)
+      ? '<p class="card-source">Sources: ' + med.sources.join(', ') + '</p>'
       : '';
 
     return (
@@ -409,12 +377,14 @@
         '</header>' +
 
         summarySection +
-        indicationsSection +
-        moaSection +
-        considerationsSection +
+        pillSection('Indications',   med.indications,   'pill-list--indications') +
+        pillSection('Comorbidities', med.comorbidities, 'pill-list--comorbidities') +
+        pillSection('Polypharmacy',  med.polypharmacy,  'pill-list--polypharmacy') +
+        precautionSection('Overdose & Toxicity', med.overdoseToxicity) +
+        precautionSection('Precautions',         med.precautions) +
 
         '<footer class="card-footer">' +
-          sourceLine +
+          sourcesLine +
           '<p>Reference only — encounter aid</p>' +
           '<p>For educational use only</p>' +
         '</footer>' +
