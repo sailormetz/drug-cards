@@ -39,7 +39,7 @@ button, input, select, textarea { font: inherit; }
   --pill-amber-text:   hsl(41, 50%, 70%);
   --pill-amber-border: hsl(41, 45%, 38%);
   --pill-gray-fill:    hsla(45, 4%, 22%, 0.4);
-  --pill-gray-text:    hsl(45, 4%, 74%);
+  --pill-gray-text:    hsl(45, 4%, 84%);
   --pill-gray-border:  hsl(45, 4%, 42%);
   /* Population colors: fill (tab bg) / border */
   --pop-adult-fill:      hsl(214, 50%, 21%);
