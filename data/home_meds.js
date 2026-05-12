@@ -1453,4 +1453,355 @@ const home_meds = [
     ],
     summary: "Cyclobenzaprine is a centrally acting muscle relaxant structurally related to tricyclic antidepressants, prescribed short-term for acute musculoskeletal spasm. Its presence on a med list flags a patient likely taking multiple analgesics and CNS depressants — particularly opioids and benzodiazepines — raising the risk of compounded sedation and respiratory depression. In overdose, it produces an anticholinergic toxidrome with the added threat of TCA-like cardiotoxicity including QRS widening. Any altered patient on cyclobenzaprine warrants a 12-lead ECG and close monitoring for rapid deterioration."
   },
+  {
+    id: "amphetamine-salts",
+    genericName: "Amphetamine Salts",
+    tradeNames: ["Adderall", "Adderall XR"],
+    category: ["Psychiatric", "Neurological"],
+    classes: ["CNS Stimulant"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["ADHD", "Narcolepsy"],
+    comorbidities: ["Anxiety disorders", "Depression", "Substance use disorder", "Insomnia", "Hypertension"],
+    polypharmacy: ["SSRIs (sertraline, escitalopram)", "SNRIs (venlafaxine, duloxetine)", "Bupropion", "Benzodiazepines (alprazolam, clonazepam)", "Antihypertensives (lisinopril, amlodipine)"],
+    overdoseToxicity: ["Sympathomimetic toxidrome — tachycardia, hypertension, hyperthermia, mydriasis, diaphoresis", "Severe agitation, psychosis, and hallucinations", "Seizures", "Rhabdomyolysis", "Cardiac dysrhythmias, including acute coronary syndrome and aortic dissection"],
+    precautions: [
+      'Produces a <span class="hl hl--ci">sympathomimetic surge</span> — expect elevated HR and BP at baseline; hypertension and tachycardia may be drug-related rather than pathological.',
+      'Combined with SSRIs, SNRIs, or <span class="hl hl--drug">fentanyl</span>, risk of <span class="hl hl--ci">serotonin syndrome</span> — agitation, clonus, hyperthermia.',
+      'Contraindicated within 14 days of <span class="hl hl--drug">MAOIs</span> — risk of <span class="hl hl--ci">hypertensive crisis</span>.',
+      '<span class="hl hl--warn">Beta-blockers are contraindicated</span> in acute amphetamine toxicity — risk of unopposed alpha-adrenergic stimulation worsening hypertension.',
+      'Schedule II controlled substance with high abuse potential — <span class="hl hl--warn">consider misuse or diversion</span> in overdose presentations.'
+    ],
+    summary: "Amphetamine salts are a mixed-isomer CNS stimulant prescribed for ADHD and narcolepsy. Patients on this medication often have baseline elevations in heart rate and blood pressure that complicate assessment. In overdose or misuse, the drug produces a classic sympathomimetic toxidrome — tachycardia, hypertension, hyperthermia, agitation, and psychosis — with life-threatening complications including seizures, rhabdomyolysis, and acute coronary syndrome. Beta-blockers are avoided in acute toxicity due to the risk of unopposed alpha stimulation."
+  },
+  {
+    id: "methylphenidate",
+    genericName: "Methylphenidate",
+    tradeNames: ["Ritalin", "Ritalin LA", "Concerta", "Daytrana", "Metadate CD", "Methylin"],
+    category: ["Psychiatric", "Neurological"],
+    classes: ["CNS Stimulant"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["ADHD", "Narcolepsy"],
+    comorbidities: ["Anxiety disorders", "Depression", "Insomnia", "Tic disorders", "Substance use disorder"],
+    polypharmacy: ["SSRIs (sertraline, escitalopram)", "SNRIs (venlafaxine, duloxetine)", "Bupropion", "Alpha-2 agonists (clonidine, guanfacine)", "Benzodiazepines (alprazolam, clonazepam)"],
+    overdoseToxicity: ["Sympathomimetic toxidrome — tachycardia, hypertension, mydriasis, diaphoresis", "Agitation, hallucinations, and psychosis", "Seizures", "Hyperthermia", "Cardiac dysrhythmias"],
+    precautions: [
+      'Contraindicated within 14 days of <span class="hl hl--drug">MAOIs</span> — risk of <span class="hl hl--ci">hypertensive crisis</span>.',
+      'Produces baseline <span class="hl hl--warn">elevated HR and BP</span> — tachycardia and hypertension may be drug-related rather than pathological.',
+      'Combined with SSRIs, SNRIs, or <span class="hl hl--drug">fentanyl</span>, risk of <span class="hl hl--ci">serotonin syndrome</span> — agitation, clonus, hyperthermia.',
+      '<span class="hl hl--warn">Beta-blockers are contraindicated</span> in acute stimulant toxicity — risk of unopposed alpha stimulation worsening hypertension.',
+      'Reduces effectiveness of <span class="hl hl--drug">antihypertensives</span> — patient may have poorly controlled blood pressure despite being prescribed BP meds.'
+    ],
+    summary: "Methylphenidate is a CNS stimulant prescribed for ADHD and narcolepsy that blocks dopamine and norepinephrine reuptake. Patients taking it have baseline elevations in heart rate and blood pressure, complicating hemodynamic assessment. Overdose produces a sympathomimetic toxidrome — tachycardia, hypertension, agitation, hyperthermia, and seizures. Extended-release formulations can delay toxicity onset and prolong symptoms, so asymptomatic patients with recent ER ingestion still warrant monitoring."
+  },
+  {
+    id: "diphenhydramine",
+    genericName: "Diphenhydramine",
+    tradeNames: ["Benadryl", "ZzzQuil", "Sominex", "Unisom SleepGels"],
+    category: ["Psychiatric"],
+    classes: ["Antihistamine"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Allergic rhinitis", "Urticaria", "Insomnia (short-term)", "Motion sickness", "Drug-induced parkinsonism"],
+    comorbidities: ["Seasonal allergies", "Chronic insomnia", "Anxiety", "Eczema / dermatitis", "GERD"],
+    polypharmacy: ["SSRIs (sertraline, escitalopram)", "Benzodiazepines (alprazolam, lorazepam)", "Proton pump inhibitors (omeprazole)", "Cetirizine", "Melatonin"],
+    overdoseToxicity: [
+      "Anticholinergic toxidrome — tachycardia, mydriasis, dry skin, hyperthermia, delirium",
+      "Seizures, particularly at ingestions exceeding 1 gram",
+      "QRS widening and QT prolongation with risk of torsades de pointes",
+      "Agitated delirium with hallucinations and combativeness",
+      "Rhabdomyolysis from prolonged agitation or seizures"
+    ],
+    precautions: [
+      'Produces <span class="hl hl--ci">anticholinergic toxidrome</span> in overdose — dry skin, mydriasis, delirium, tachycardia, and hyperthermia.',
+      'Sodium channel blockade causes <span class="hl hl--ci">QRS widening</span> similar to TCA overdose — cardiac arrest risk in large ingestions.',
+      'Additive CNS and respiratory depression when combined with <span class="hl hl--drug">opioids</span>, benzodiazepines, or alcohol.',
+      'Anticholinergic effects stack with other anticholinergic drugs — <span class="hl hl--warn">polypharmacy risk in elderly patients</span> taking multiple anticholinergics.',
+      'OTC availability and "Benadryl challenge" trends make <span class="hl hl--warn">intentional overdose</span> a frequent prehospital encounter.'
+    ],
+    summary: "Diphenhydramine is a first-generation antihistamine with strong anticholinergic and sedative properties, found in countless OTC allergy and sleep products. Its ubiquity makes it one of the most frequently encountered overdose agents in the field. Toxicity produces a classic anticholinergic toxidrome — hot, dry, flushed, tachycardic, and delirious — but also causes sodium channel blockade with QRS widening and arrhythmia risk that mirrors TCA overdose. Any altered patient with tachycardia, dry skin, and mydriasis should prompt consideration of diphenhydramine ingestion."
+  },
+  {
+    id: "cetirizine",
+    genericName: "Cetirizine",
+    tradeNames: ["Zyrtec", "Zyrtec-D"],
+    category: ["Pulmonary"],
+    classes: ["Antihistamine"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Allergic rhinitis", "Chronic urticaria", "Allergic conjunctivitis"],
+    comorbidities: ["Asthma", "Eczema / atopic dermatitis", "Chronic sinusitis", "Food allergies"],
+    polypharmacy: ["Inhaled corticosteroids (fluticasone, budesonide)", "Montelukast", "Albuterol", "Nasal corticosteroids (fluticasone, mometasone)", "Epinephrine auto-injector"],
+    overdoseToxicity: null,
+    precautions: [
+      'Additive <span class="hl hl--ci">CNS depression</span> when combined with opioids, benzodiazepines, or alcohol.',
+      'Dose-dependent <span class="hl hl--warn">somnolence</span> — more sedating than loratadine or fexofenadine among second-generation antihistamines.',
+      'Primarily renally excreted — toxicity risk increases in <span class="hl hl--warn">renal impairment</span>.',
+      'Used as an adjunct to <span class="hl hl--drug">epinephrine</span> in anaphylaxis — its presence on a med list may signal a history of severe allergic reactions.'
+    ],
+    summary: "Cetirizine is a second-generation H1 antihistamine used for allergic rhinitis and chronic hives. Its presence on a med list often signals an atopic patient who may also have asthma, eczema, or anaphylaxis history — check for an epinephrine auto-injector. Cetirizine is less sedating than diphenhydramine but more sedating than other second-generation antihistamines, and combined CNS depressant use can amplify drowsiness. Overdose is generally benign with supportive care, but large ingestions warrant cardiac monitoring."
+  },
+  {
+    id: "loratadine",
+    genericName: "Loratadine",
+    tradeNames: ["Claritin", "Claritin-D", "Alavert"],
+    category: ["Pulmonary"],
+    classes: ["Antihistamine"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Allergic rhinitis", "Urticaria (chronic)", "Atopic dermatitis (adjunct)"],
+    comorbidities: ["Asthma", "Eczema / atopic dermatitis", "Chronic sinusitis", "Food or drug allergies"],
+    polypharmacy: ["Inhaled corticosteroids (fluticasone, budesonide)", "Albuterol", "Montelukast", "Nasal corticosteroids (fluticasone nasal)", "Epinephrine auto-injector"],
+    overdoseToxicity: ["Tachycardia", "QT prolongation (supratherapeutic doses)", "Anticholinergic symptoms (mydriasis, urinary retention, flushing)", "Agitation or drowsiness"],
+    precautions: [
+      'Supratherapeutic doses can cause <span class="hl hl--ci">QT prolongation</span> and cardiac arrhythmias — especially in elderly patients.',
+      'Metabolized by <span class="hl hl--warn">CYP3A4 and CYP2D6</span> — hepatic or renal impairment increases drug levels and toxicity risk.',
+      'Minimal anticholinergic effects at therapeutic doses, but overdose produces a full <span class="hl hl--ci">anticholinergic toxidrome</span>.',
+      'Combined use with other CNS depressants (including <span class="hl hl--drug">diphenhydramine</span>) can cause additive sedation.',
+      'Used as an adjunct to <span class="hl hl--drug">epinephrine</span> in anaphylaxis — its presence on a med list may signal a history of severe allergic reactions.'
+    ],
+    summary: "Loratadine is a second-generation H1 antihistamine used for allergic rhinitis and chronic urticaria. It is largely nonsedating at therapeutic doses and has minimal anticholinergic effects, making it lower-risk than first-generation antihistamines like diphenhydramine. Its presence on a med list signals an atopic patient who may also carry an epinephrine auto-injector and have comorbid asthma. Overdose is generally mild, but large ingestions can produce anticholinergic symptoms and QT prolongation warranting cardiac monitoring."
+  },
+  {
+    id: "hydroxychloroquine",
+    genericName: "Hydroxychloroquine",
+    tradeNames: ["Plaquenil"],
+    category: ["Pain & Anti-inflammatory"],
+    classes: ["Antirheumatic", "Antimalarial"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Rheumatoid arthritis", "Systemic lupus erythematosus", "Discoid lupus erythematosus", "Malaria prophylaxis"],
+    comorbidities: ["Systemic lupus erythematosus", "Rheumatoid arthritis", "Chronic kidney disease", "Interstitial lung disease", "Antiphospholipid syndrome"],
+    polypharmacy: ["Corticosteroids (prednisone, methylprednisolone)", "Methotrexate", "NSAIDs (ibuprofen, naproxen)", "Immunosuppressants (azathioprine, mycophenolate)", "Anticoagulants (warfarin, apixaban)"],
+    overdoseToxicity: ["QRS and QTc prolongation with ventricular arrhythmias", "Life-threatening hypotension", "Severe hypokalemia from intracellular shift", "Seizures and CNS depression", "Hypoglycemia"],
+    precautions: [
+      'Overdose toxicity onset is rapid — an ambulatory patient can progress to <span class="hl hl--ci">cardiac arrest</span> within minutes.',
+      'Sodium and potassium channel blockade causes <span class="hl hl--ci">QRS and QTc prolongation</span> — monitor for wide-complex arrhythmias.',
+      'Co-administration with other <span class="hl hl--warn">QTc-prolonging agents</span> (e.g., amiodarone, ondansetron) compounds arrhythmia risk.',
+      'Can cause severe <span class="hl hl--ci">hypoglycemia</span> even without concurrent diabetic medications — check glucose.',
+      'Causes <span class="hl hl--ci">hemolysis</span> in patients with G6PD deficiency.'
+    ],
+    summary: "Hydroxychloroquine is a disease-modifying antirheumatic drug used primarily in lupus and rheumatoid arthritis. Its presence on a med list flags an autoimmune patient likely on multiple immunosuppressants and potentially anticoagulated. In overdose, it is a lethal sodium and potassium channel blocker that produces rapid cardiovascular collapse — QRS widening, QTc prolongation, refractory hypotension, and hypokalemia can progress to cardiac arrest within 1–3 hours of ingestion. Epinephrine is the vasopressor of choice in toxicity."
+  },
+  {
+    id: "methotrexate",
+    genericName: "Methotrexate",
+    tradeNames: ["Trexall", "Otrexup", "Rasuvo", "Xatmep"],
+    category: ["Pain & Anti-inflammatory"],
+    classes: ["Antimetabolite", "DMARD"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Rheumatoid arthritis", "Psoriasis", "Acute lymphoblastic leukemia", "Non-Hodgkin lymphoma", "Juvenile idiopathic arthritis"],
+    comorbidities: ["Rheumatoid arthritis", "Psoriasis", "Chronic kidney disease", "Hepatic fibrosis", "Interstitial lung disease"],
+    polypharmacy: ["Folic acid", "NSAIDs (ibuprofen, naproxen)", "Corticosteroids (prednisone)", "DMARDs (hydroxychloroquine, sulfasalazine)", "Proton pump inhibitors (omeprazole)"],
+    overdoseToxicity: ["Pancytopenia and severe myelosuppression", "Hemorrhagic oral ulcers and diffuse mucositis", "Acute renal failure", "Interstitial pneumonitis and respiratory failure", "Hepatotoxicity with elevated transaminases"],
+    precautions: [
+      'Patient is <span class="hl hl--warn">immunosuppressed</span> — fever or signs of infection may indicate sepsis.',
+      '<span class="hl hl--ci">Pancytopenia</span> risk increases with renal impairment — dehydration accelerates toxicity.',
+      'Concurrent <span class="hl hl--drug">NSAIDs</span> reduce methotrexate clearance and can precipitate fatal toxicity.',
+      'Oral ulcers and mucosal bleeding are early warning signs of <span class="hl hl--ci">systemic toxicity</span>.',
+      'Dosed weekly for autoimmune conditions — accidental daily dosing has caused <span class="hl hl--ci">fatal overdose</span>.'
+    ],
+    summary: "Methotrexate is a folate antimetabolite used as a disease-modifying agent in rheumatoid arthritis and psoriasis, and as chemotherapy in certain malignancies. Its presence on a med list identifies an immunosuppressed patient at risk for opportunistic infections and impaired wound healing. Toxicity targets rapidly dividing cells — oral mucositis, GI hemorrhage, and pancytopenia are hallmarks. NSAIDs and dehydration impair renal clearance and can push therapeutic doses into toxic range."
+  },
+  {
+    id: "colchicine",
+    genericName: "Colchicine",
+    tradeNames: ["Colcrys", "Mitigare"],
+    category: ["Pain & Anti-inflammatory"],
+    classes: ["Antigout"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Gout flares", "Gout prophylaxis", "Familial Mediterranean fever", "Pericarditis"],
+    comorbidities: ["Chronic kidney disease", "Hypertension", "Coronary artery disease", "Metabolic syndrome", "Hyperuricemia"],
+    polypharmacy: ["Allopurinol", "NSAIDs (ibuprofen, naproxen)", "Statins (atorvastatin, rosuvastatin)", "Diuretics (hydrochlorothiazide, furosemide)", "ACE Inhibitors (lisinopril)"],
+    overdoseToxicity: [
+      "Profuse vomiting and diarrhea progressing to hypovolemic shock",
+      "Pancytopenia and bone marrow suppression (onset 2–7 days)",
+      "Multi-organ failure with cardiovascular collapse",
+      "Rhabdomyolysis",
+      "Metabolic acidosis with renal failure"
+    ],
+    precautions: [
+      'Extremely <span class="hl hl--ci">narrow therapeutic index</span> — toxicity can occur at doses only slightly above therapeutic range.',
+      'No specific antidote exists and <span class="hl hl--warn">colchicine is not removed by dialysis</span>.',
+      'Concurrent <span class="hl hl--drug">statin</span> use increases risk of <span class="hl hl--ci">rhabdomyolysis</span> and neuromuscular toxicity.',
+      'CYP3A4 and P-glycoprotein inhibitors can cause fatal toxicity even at <span class="hl hl--warn">therapeutic doses</span> in renal/hepatic impairment.',
+      'Toxicity onset may be <span class="hl hl--warn">delayed up to 24 hours</span> — GI symptoms are the earliest marker.'
+    ],
+    summary: "Colchicine is an antigout alkaloid prescribed for gout flares, gout prophylaxis, FMF, and pericarditis. On a med list, it flags a patient with inflammatory or crystal arthropathy and possible renal impairment. Overdose is rare but carries near-100% mortality at high doses, progressing from severe GI fluid loss to multi-organ failure over days. There is no antidote and no effective method of extracorporeal removal — any suspected overdose is a critical toxicology emergency."
+  },
+  {
+    id: "allopurinol",
+    genericName: "Allopurinol",
+    tradeNames: ["Zyloprim", "Aloprim"],
+    category: ["Pain & Anti-inflammatory"],
+    classes: ["Xanthine Oxidase Inhibitor"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Gout (chronic)", "Hyperuricemia (secondary)", "Tumor lysis syndrome prevention", "Recurrent uric acid nephrolithiasis"],
+    comorbidities: ["Chronic kidney disease", "Hypertension", "Type 2 diabetes", "Coronary artery disease", "Nephrolithiasis"],
+    polypharmacy: ["Colchicine", "NSAIDs (naproxen, indomethacin)", "Thiazide diuretics (hydrochlorothiazide)", "Warfarin", "ACE Inhibitors (lisinopril, enalapril)"],
+    overdoseToxicity: null,
+    precautions: [
+      'Potentiates <span class="hl hl--drug">warfarin</span> — may enhance anticoagulant effect and increase <span class="hl hl--ci">bleeding risk</span>.',
+      'Allopurinol hypersensitivity syndrome (AHS) causes <span class="hl hl--ci">Stevens-Johnson syndrome, toxic epidermal necrolysis, and DRESS</span> — mortality 20–25%.',
+      'Concurrent <span class="hl hl--warn">thiazide diuretics and renal impairment</span> significantly increase the risk of hypersensitivity reactions.',
+      'Concurrent <span class="hl hl--drug">ACE inhibitors</span> may increase the risk of <span class="hl hl--ci">allergic reactions</span>.',
+      'No significant interactions with standard prehospital medications.'
+    ],
+    summary: "Allopurinol is a xanthine oxidase inhibitor used for chronic gout, hyperuricemia, and tumor lysis syndrome prevention. Its presence on a med list signals a patient with uric acid metabolism problems, often alongside chronic kidney disease, hypertension, and cardiovascular disease. The primary prehospital concern is recognizing allopurinol hypersensitivity syndrome — a rare but frequently fatal reaction presenting as severe rash, fever, hepatitis, and renal failure. Acute overdose is essentially a non-issue; the drug has low acute toxicity."
+  },
+  {
+    id: "alendronate",
+    genericName: "Alendronate",
+    tradeNames: ["Fosamax", "Binosto"],
+    category: ["Endocrine"],
+    classes: ["Bisphosphonate"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Postmenopausal osteoporosis", "Male osteoporosis", "Glucocorticoid-induced osteoporosis", "Paget disease of bone"],
+    comorbidities: ["Osteoporosis", "Vertebral compression fractures", "Chronic kidney disease", "Rheumatoid arthritis (steroid use)", "Vitamin D deficiency"],
+    polypharmacy: ["Calcium supplements", "Vitamin D", "Corticosteroids (prednisone)", "Proton pump inhibitors (omeprazole, pantoprazole)", "Levothyroxine"],
+    overdoseToxicity: ["Hypocalcemia", "Esophageal ulceration or perforation", "Gastric erosion"],
+    precautions: [
+      'Concomitant <span class="hl hl--drug">aspirin</span> or NSAIDs increases risk of <span class="hl hl--ci">upper GI ulceration and bleeding</span>.',
+      'Can cause <span class="hl hl--ci">symptomatic hypocalcemia</span> — consider in patients presenting with tetany, seizures, or QT prolongation.',
+      'Long-term use associated with <span class="hl hl--warn">atypical femoral fractures</span> — hip or thigh pain may indicate an incomplete fracture.',
+      '<span class="hl hl--warn">Osteonecrosis of the jaw</span> is a rare but serious complication, especially after dental procedures.',
+      'Esophageal irritation and <span class="hl hl--ci">esophageal perforation</span> reported — relevant if patient is supine or has dysphagia.'
+    ],
+    summary: "Alendronate is a bisphosphonate prescribed for osteoporosis and Paget disease. Its presence on a med list identifies a patient with fragile bones who is at elevated fracture risk from falls or minor trauma. The primary prehospital concerns are recognizing atypical femoral fractures (thigh or groin pain with minimal mechanism) and understanding that concurrent NSAID or aspirin use increases GI bleeding risk. Symptomatic hypocalcemia is rare but possible, particularly in patients with vitamin D deficiency."
+  },
+  {
+    id: "tamsulosin",
+    genericName: "Tamsulosin",
+    tradeNames: ["Flomax"],
+    category: ["Cardiovascular"],
+    classes: ["Alpha-1 Antagonist"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Benign prostatic hyperplasia (BPH)"],
+    comorbidities: ["Hypertension", "Urinary retention", "Coronary artery disease", "Type 2 diabetes", "Chronic kidney disease"],
+    polypharmacy: ["Finasteride", "Antihypertensives (amlodipine, lisinopril)", "PDE5 Inhibitors (sildenafil, tadalafil)", "Statins (atorvastatin)", "Diuretics (furosemide, hydrochlorothiazide)"],
+    overdoseToxicity: ["Acute hypotension with systolic BP as low as 70 mmHg", "Reflex tachycardia", "Syncope", "Dizziness and altered mental status"],
+    precautions: [
+      'Causes <span class="hl hl--ci">orthostatic hypotension</span> and syncope — risk is highest after the first dose or dose increase.',
+      'Concurrent <span class="hl hl--drug">PDE5 inhibitors</span> (sildenafil, tadalafil) cause additive <span class="hl hl--ci">hypotension</span>.',
+      '<span class="hl hl--drug">Nitroglycerin</span> combined with tamsulosin increases risk of severe hypotension — assess BP carefully before administration.',
+      'Elderly patients on concurrent <span class="hl hl--warn">antihypertensives or diuretics</span> are at elevated fall risk.',
+      'Intraoperative Floppy Iris Syndrome (<span class="hl hl--warn">IFIS</span>) — relevant if patient reports recent eye surgery complications.'
+    ],
+    summary: "Tamsulosin is a selective alpha-1A blocker prescribed for urinary symptoms of BPH. Its presence on a med list identifies an older male patient who may be prone to orthostatic hypotension and syncope, especially when combined with antihypertensives, diuretics, or PDE5 inhibitors. Prehospital providers should assess positional blood pressure before administering nitroglycerin or other vasodilators, as tamsulosin reduces vascular tone and can contribute to refractory hypotension."
+  },
+  {
+    id: "sildenafil",
+    genericName: "Sildenafil",
+    tradeNames: ["Viagra", "Revatio"],
+    category: ["Cardiovascular"],
+    classes: ["Vasodilator"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Erectile dysfunction", "Pulmonary arterial hypertension"],
+    comorbidities: ["Coronary artery disease", "Hypertension", "Pulmonary arterial hypertension", "Heart failure", "Benign prostatic hyperplasia"],
+    polypharmacy: ["Antihypertensives (amlodipine, lisinopril)", "Nitrates (nitroglycerin, isosorbide)", "Alpha-1 blockers (tamsulosin, doxazosin)", "Anticoagulants (warfarin, apixaban)", "Statins (atorvastatin)"],
+    overdoseToxicity: ["Hypotension", "Visual disturbances (blue-tinted vision, light sensitivity)", "Flushing and headache", "Priapism"],
+    precautions: [
+      '<span class="hl hl--drug">Nitroglycerin</span> is absolutely contraindicated within 24 hours of sildenafil use — combination causes <span class="hl hl--ci">severe, refractory hypotension</span>.',
+      'Systemic <span class="hl hl--ci">vasodilation</span> lowers baseline blood pressure — assess hemodynamic status before administering any vasodilator.',
+      'Patients may not volunteer PDE5 inhibitor use — <span class="hl hl--warn">actively screen</span> before nitrate administration in chest pain calls.',
+      'Additive hypotension with <span class="hl hl--drug">alpha-blockers</span> (tamsulosin, doxazosin) and other antihypertensives.',
+      'Prescribed as Revatio (20 mg TID) for <span class="hl hl--warn">pulmonary arterial hypertension</span> — same drug, different indication and dosing schedule.'
+    ],
+    summary: "Sildenafil is a PDE5 inhibitor encountered in two distinct patient populations: men using it for erectile dysfunction and patients with pulmonary arterial hypertension. The critical prehospital concern is its absolute contraindication with nitrates — administering nitroglycerin within 24 hours of sildenafil use can cause severe, potentially fatal hypotension. Patients often will not disclose PDE5 inhibitor use unprompted, making active screening essential on any chest pain or ACS call."
+  },
+  {
+    id: "tadalafil",
+    genericName: "Tadalafil",
+    tradeNames: ["Cialis", "Adcirca"],
+    category: ["Cardiovascular"],
+    classes: ["Vasodilator"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Erectile dysfunction", "Benign prostatic hyperplasia", "Pulmonary arterial hypertension"],
+    comorbidities: ["Coronary artery disease", "Hypertension", "Type 2 diabetes", "Hyperlipidemia", "BPH / lower urinary tract symptoms"],
+    polypharmacy: ["Antihypertensives (amlodipine, lisinopril)", "Statins (atorvastatin, rosuvastatin)", "Alpha-1 blockers (tamsulosin)", "Aspirin", "Metformin"],
+    overdoseToxicity: ["Hypotension", "Headache and dizziness", "Priapism"],
+    precautions: [
+      '<span class="hl hl--drug">Nitroglycerin</span> is absolutely contraindicated within <span class="hl hl--ci">48 hours</span> of tadalafil use — risk of severe, refractory hypotension.',
+      'Longer half-life (~17.5 h) than sildenafil — the nitrate-free window extends to <span class="hl hl--warn">48 hours</span>, not 24.',
+      'Additive <span class="hl hl--ci">hypotension</span> with alpha-blockers, antihypertensives, and alcohol.',
+      'Patients on daily tadalafil (5 mg for BPH) have <span class="hl hl--warn">continuous plasma levels</span> — the nitrate contraindication is effectively permanent while on therapy.',
+      'Prescribed as Adcirca (40 mg daily) for <span class="hl hl--warn">pulmonary arterial hypertension</span> — same drug, different indication and dosing schedule.'
+    ],
+    summary: "Tadalafil is a PDE5 inhibitor used for erectile dysfunction, BPH, and pulmonary arterial hypertension. Its long half-life is the key differentiator from sildenafil: nitrates must be withheld for at least 48 hours after the last dose, and patients taking daily tadalafil for BPH effectively have a permanent nitrate contraindication. On any chest pain or ACS call, screen for tadalafil use — patients frequently take it daily and may not think to mention it."
+  },
+  {
+    id: "testosterone",
+    genericName: "Testosterone",
+    tradeNames: ["AndroGel", "Testim", "Depo-Testosterone", "Aveed", "Natesto", "Axiron"],
+    category: ["Endocrine"],
+    classes: ["Hormone"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Male hypogonadism", "Delayed puberty", "Transgender hormone therapy"],
+    comorbidities: ["Obesity", "Type 2 diabetes", "Depression", "Osteoporosis", "Obstructive sleep apnea"],
+    polypharmacy: ["PDE5 inhibitors (sildenafil, tadalafil)", "Anastrozole", "HCG (human chorionic gonadotropin)", "Statins (atorvastatin, rosuvastatin)", "Metformin"],
+    overdoseToxicity: null,
+    precautions: [
+      '<span class="hl hl--ci">Polycythemia</span> — increases hematocrit and blood viscosity, raising risk of MI, stroke, and VTE.',
+      'Exacerbates <span class="hl hl--ci">heart failure</span> through fluid retention and edema.',
+      'Increases <span class="hl hl--warn">blood pressure</span> — may present with hypertensive crisis in unmonitored use.',
+      'Behavioral changes including <span class="hl hl--warn">aggression, mania, and psychosis</span> with supratherapeutic use.',
+      'Secondary exposure risk — <span class="hl hl--warn">transdermal gel transfers</span> to household contacts including children and pregnant women on skin contact.'
+    ],
+    summary: "Testosterone replacement signals a patient with hypogonadism and frequently co-occurring metabolic disease — obesity, diabetes, and cardiovascular risk factors. The primary prehospital concern is polycythemia: elevated hematocrit increases blood viscosity and thrombotic risk, making these patients more susceptible to MI, stroke, and PE. Fluid retention can worsen heart failure, and supratherapeutic or illicit use may produce hypertension, aggression, or acute psychiatric symptoms."
+  },
+  {
+    id: "oral-contraceptives",
+    genericName: "Oral Contraceptives",
+    tradeNames: ["Loestrin", "Ortho-Novum", "Necon", "Junel", "Microgestin", "Lo Loestrin Fe", "Minastrin"],
+    category: ["Endocrine"],
+    classes: ["Hormone"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Contraception", "Dysmenorrhea", "Endometriosis", "Acne", "Menstrual irregularity"],
+    comorbidities: ["Migraines", "Polycystic ovary syndrome", "Endometriosis", "Iron-deficiency anemia", "Anxiety or depression"],
+    polypharmacy: ["SSRIs (sertraline, escitalopram)", "NSAIDs (ibuprofen, naproxen)", "Spironolactone", "Levothyroxine", "Iron supplements"],
+    overdoseToxicity: null,
+    precautions: [
+      'Estrogen component increases risk of <span class="hl hl--ci">venous thromboembolism</span> — DVT and pulmonary embolism, especially in the first year of use.',
+      'Risk of <span class="hl hl--ci">stroke and MI</span> is significantly elevated in smokers over age 35.',
+      'Dyspnea, unilateral leg swelling, or pleuritic chest pain in a woman of reproductive age should raise suspicion for <span class="hl hl--warn">OCP-related PE</span>.',
+      'May cause <span class="hl hl--warn">hypertension</span> — baseline elevated BP in a young woman may be OCP-related.',
+      '<span class="hl hl--drug">Anticonvulsants</span> (phenytoin, carbamazepine) reduce OCP efficacy — unplanned pregnancy is possible despite reported contraceptive use.'
+    ],
+    summary: "Combined oral contraceptives contain estrogen and progestin and are prescribed for contraception and menstrual disorders. The primary prehospital significance is thromboembolic risk: these patients have a 3- to 11-fold increased risk of DVT and PE compared to non-users, with the highest risk in the first year of use. Any young woman on OCPs presenting with dyspnea, tachycardia, or unilateral leg pain warrants a high index of suspicion for VTE. Smoking, obesity, and recent immobilization compound the risk substantially."
+  },
+  {
+    id: "azithromycin",
+    genericName: "Azithromycin",
+    tradeNames: ["Zithromax", "Z-Pack"],
+    category: ["Pulmonary"],
+    classes: ["Macrolide Antibiotic"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Community-acquired pneumonia", "COPD exacerbation", "Acute sinusitis", "Chlamydial infection", "Otitis media"],
+    comorbidities: ["COPD", "Asthma", "Heart failure", "Immunocompromised states", "Recurrent respiratory infections"],
+    polypharmacy: ["Inhaled bronchodilators (albuterol, ipratropium)", "Inhaled corticosteroids (fluticasone)", "Prednisone", "Anticoagulants (warfarin, apixaban)", "Amoxicillin"],
+    overdoseToxicity: null,
+    precautions: [
+      'Causes <span class="hl hl--ci">QTc prolongation</span> — risk of torsades de pointes, especially in patients with baseline cardiac disease or electrolyte abnormalities.',
+      'Concurrent use with <span class="hl hl--drug">amiodarone</span> markedly increases QT prolongation and arrhythmia risk.',
+      'Potentiates <span class="hl hl--drug">warfarin</span> — patients on concurrent therapy may have <span class="hl hl--warn">elevated INR and increased bleeding risk</span>.',
+      'Patients with <span class="hl hl--warn">hypokalemia or hypomagnesemia</span> are at significantly higher risk for azithromycin-induced arrhythmias.',
+      'Small but significant increase in <span class="hl hl--ci">cardiovascular death</span> during the 5-day treatment course in patients with high baseline cardiac risk.'
+    ],
+    summary: "Azithromycin is a macrolide antibiotic prescribed for respiratory infections, COPD exacerbations, and STIs. Its primary prehospital relevance is QTc prolongation, which can precipitate torsades de pointes — particularly dangerous in patients already taking QT-prolonging drugs like amiodarone or those with hypokalemia. Finding azithromycin on a med list alongside cardiac medications should raise suspicion for additive arrhythmia risk. The drug also potentiates warfarin, increasing bleeding risk in anticoagulated patients."
+  },
+  {
+    id: "amoxicillin",
+    genericName: "Amoxicillin",
+    tradeNames: ["Amoxil", "Trimox", "Moxatag"],
+    category: ["GI"],
+    classes: ["Antibiotic"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Upper respiratory infections", "Urinary tract infections", "Skin infections", "H. pylori eradication", "Lower respiratory infections"],
+    comorbidities: ["Recurrent otitis media", "Chronic sinusitis", "COPD (acute exacerbation)", "Peptic ulcer disease"],
+    polypharmacy: ["Proton pump inhibitors (omeprazole, lansoprazole)", "Clarithromycin", "NSAIDs (ibuprofen, naproxen)", "Oral contraceptives"],
+    overdoseToxicity: null,
+    precautions: [
+      'Risk of <span class="hl hl--ci">anaphylaxis</span> — penicillin allergy affects 1–10% of patients and can be life-threatening on first or repeat exposure.',
+      'Cross-reactivity with <span class="hl hl--drug">cephalosporins</span> and carbapenems in patients with documented penicillin allergy.',
+      'Potentiates <span class="hl hl--drug">warfarin</span> — can cause <span class="hl hl--ci">elevated INR</span> and increased bleeding risk in anticoagulated patients.',
+      'Maculopapular rash in patients with <span class="hl hl--warn">infectious mononucleosis</span> — not a true allergy but commonly mistaken for one.',
+      'High doses in patients with <span class="hl hl--warn">renal failure</span> can provoke seizures.'
+    ],
+    summary: "Amoxicillin is a penicillin-class antibiotic prescribed for a wide range of bacterial infections — ear, sinus, throat, respiratory, urinary, and skin. Its primary prehospital significance is the risk of allergic reaction, ranging from mild rash to full anaphylaxis. Always confirm penicillin allergy status before administering any beta-lactam in the field. In anticoagulated patients, amoxicillin can elevate INR and increase bleeding risk."
+  },
 ];
