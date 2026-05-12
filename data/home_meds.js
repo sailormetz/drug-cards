@@ -1,2482 +1,1456 @@
 const home_meds = [
   {
     id: "metoprolol",
-    summary: "A cardioselective beta-1 blocker used for hypertension, angina, heart failure, and rate control in atrial fibrillation.",
-    genericName: "Metoprolol",
-    tradeNames: ["Lopressor", "Toprol-XL"],
+    drugName: "Metoprolol",
+    tradeName: ["Lopressor", "Toprol-XL"],
     category: ["Cardiovascular"],
     classes: ["Beta Blocker", "Antihypertensive", "Antiarrhythmic"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Selectively blocks beta-1 adrenergic receptors in cardiac tissue, reducing the effects of catecholamines on heart rate, contractility, and blood pressure.",
-        target: {
-          name: "Beta-1 adrenergic receptors",
-          action: "antagonist",
-          result: "↓ HR, ↓ contractility, ↓ AV conduction, ↓ renin release",
-          system: "adrenergic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Hypertension", "Heart failure (HFrEF)", "Angina pectoris", "Atrial fibrillation", "Post-MI"],
+    comorbidities: ["Coronary artery disease", "Type 2 diabetes", "Chronic kidney disease", "Hyperlipidemia", "Atrial fibrillation"],
+    polypharmacy: ["ACE Inhibitors (lisinopril, enalapril)", "Statins (atorvastatin, rosuvastatin)", "Loop diuretics (furosemide)", "Aspirin", "Anticoagulants (apixaban, warfarin)"],
+    overdoseToxicity: ["Severe bradycardia, including high-degree AV block", "Hypotension, often refractory to fluids", "Hypoglycemia with masked symptoms", "Bronchospasm", "Altered mental status progressing to seizures"],
+    precautions: [
+      '<span class="hl hl--drug">Epinephrine</span> response is diminished — standard doses may not restore BP or HR in <span class="hl hl--ci">anaphylaxis</span>.',
+      'Compensatory <span class="hl hl--warn">tachycardia is blunted</span> — a normal HR does not rule out hypovolemia, hypoglycemia, or shock.',
+      '<span class="hl hl--drug">Atropine</span> has reduced efficacy for beta blocker-induced <span class="hl hl--ci">bradycardia</span>.',
+      'Masks <span class="hl hl--warn">hypoglycemia symptoms</span> — tachycardia and tremor are suppressed, leaving only diaphoresis and altered mentation as clues.',
+      'Abrupt discontinuation causes <span class="hl hl--ci">rebound hypertension</span>, tachycardia, and can precipitate angina or MI.'
     ],
-    patientIndications: ["Hypertension", "Angina", "Heart Failure", "Atrial Fibrillation", "Post-MI", "SVT", "Migraine Prophylaxis"],
-    considerations: [
-      'Causes <span class="hl hl--ci">bradycardia</span> and <span class="hl hl--ci">hypotension</span> — worsened by calcium channel blockers, digoxin, or clonidine.',
-      'Masks <span class="hl hl--warn">tachycardia</span> in hypoglycemia, hypovolemia, and anaphylaxis — a normal heart rate does not mean stable.',
-      'Patients may be <span class="hl hl--warn">unresponsive to standard epi doses</span> during anaphylaxis.',
-      'Abrupt discontinuation causes <span class="hl hl--ci">rebound hypertension</span> and can precipitate angina or MI.',
-      '<span class="hl hl--ci">Overdose</span>: severe bradycardia, hypotension, heart block. Prehospital: atropine, glucagon, calcium, transcutaneous pacing.'
-    ]
+    summary: "Metoprolol is a cardioselective beta-1 blocker used in patients with significant cardiovascular disease — hypertension, heart failure, post-MI, and atrial fibrillation. Its presence signals a patient with limited cardiac reserve who cannot mount a normal compensatory response to hemodynamic stress. Expect blunted heart rate responses across the board: shock, hypoglycemia, and anaphylaxis will all present atypically. Standard prehospital interventions (atropine, epinephrine) have reduced efficacy in these patients."
   },
   {
     id: "atenolol",
-    summary: "A cardioselective beta-1 blocker used for hypertension, angina, and acute MI. Similar to metoprolol but with lower lipid solubility, resulting in fewer CNS side effects.",
-    genericName: "Atenolol",
-    tradeNames: ["Tenormin"],
+    drugName: "Atenolol",
+    tradeName: ["Tenormin"],
     category: ["Cardiovascular"],
     classes: ["Beta Blocker", "Antihypertensive"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Selectively blocks beta-1 adrenergic receptors in the heart, reducing heart rate, contractility, and blood pressure. At higher doses, loses selectivity and also blocks beta-2 receptors in bronchial and vascular smooth muscle.",
-        target: {
-          name: "Beta-1 adrenergic receptors",
-          action: "antagonist",
-          result: "↓ HR, ↓ contractility, ↓ BP, ↓ AV conduction",
-          system: "adrenergic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Hypertension", "Angina pectoris", "Acute MI (secondary prevention)", "SVT (off-label)", "Migraine prophylaxis (off-label)"],
+    comorbidities: ["Coronary artery disease", "Hyperlipidemia", "Type 2 diabetes", "Chronic kidney disease", "Atrial fibrillation"],
+    polypharmacy: ["Thiazide diuretics (hydrochlorothiazide)", "ACE Inhibitors (lisinopril, ramipril)", "Statins (atorvastatin, rosuvastatin)", "Aspirin", "Calcium Channel Blockers (amlodipine)"],
+    overdoseToxicity: ["Severe bradycardia with AV block", "Hypotension progressing to cardiogenic shock", "Hypoglycemia", "Lethargy progressing to coma", "Seizures"],
+    precautions: [
+      '<span class="hl hl--drug">Epinephrine</span> response is diminished — standard doses may fail to restore HR and BP in <span class="hl hl--ci">anaphylaxis</span>.',
+      'Compensatory <span class="hl hl--warn">tachycardia is blunted</span> — a normal HR does not rule out shock or hypovolemia.',
+      'Masks <span class="hl hl--warn">hypoglycemia symptoms</span> — tachycardia is suppressed, leaving diaphoresis and altered mentation as the primary clues.',
+      'Beta-1 selectivity is dose-dependent — at higher doses, <span class="hl hl--ci">bronchospasm</span> can occur in COPD/asthma patients.',
+      'Abrupt discontinuation risks <span class="hl hl--ci">rebound angina</span>, hypertension, and acute coronary syndrome.'
     ],
-    patientIndications: ["Hypertension", "Angina", "Acute MI", "SVT", "Migraine Prophylaxis"],
-    considerations: [
-      'Causes <span class="hl hl--ci">bradycardia</span> and <span class="hl hl--ci">hypotension</span> — compounded by concurrent use of calcium channel blockers, digoxin, or amiodarone.',
-      'Masks <span class="hl hl--warn">tachycardia</span> in hypoglycemia, hypovolemia, thyrotoxicosis, and anaphylaxis — do not rely on heart rate alone to gauge hemodynamic status.',
-      'Patients on atenolol may have a <span class="hl hl--warn">blunted response to epinephrine</span> during anaphylaxis — larger doses may be needed, risking unopposed alpha stimulation.',
-      'Abrupt discontinuation can cause <span class="hl hl--ci">rebound hypertension</span>, worsening angina, or acute MI — never assume a missed dose is benign.',
-      '<span class="hl hl--ci">Overdose</span>: lethargy, severe bradycardia, hypotension, bronchospasm, hypoglycemia. Prehospital: atropine, glucagon, vasopressors, transcutaneous pacing. Hemodialysis effective for removal.'
-    ]
+    summary: "Atenolol is a cardioselective beta-1 blocker prescribed for hypertension, angina, and post-MI secondary prevention. Its presence on a med list points to a patient with cardiovascular disease and limited ability to compensate for hemodynamic stress. Heart rate responses to shock, hypoglycemia, and anaphylaxis will be blunted, making these conditions harder to recognize. Water-soluble and renally excreted, atenolol accumulates in renal impairment — expect exaggerated effects in patients with kidney disease."
   },
   {
     id: "carvedilol",
-    summary: "A nonselective beta blocker with alpha-1 blocking activity used for heart failure, post-MI left ventricular dysfunction, and hypertension. One of only three beta blockers recommended for heart failure with reduced ejection fraction.",
-    genericName: "Carvedilol",
-    tradeNames: ["Coreg", "Coreg CR"],
+    drugName: "Carvedilol",
+    tradeName: ["Coreg", "Coreg CR"],
     category: ["Cardiovascular"],
-    classes: ["Beta Blocker", "Antihypertensive", "Vasodilator"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Blocks alpha-1 adrenergic receptors in peripheral vasculature, causing vasodilation and reducing systemic vascular resistance. This alpha blockade is what distinguishes carvedilol from selective beta blockers.",
-        target: {
-          name: "Alpha-1 adrenergic receptors",
-          action: "antagonist",
-          result: "Vasodilation, ↓ SVR, ↓ afterload",
-          system: "adrenergic"
-        }
-      },
-      {
-        brief: "Non-selectively blocks beta-1 and beta-2 adrenergic receptors, reducing heart rate, contractility, and renin release. The combined alpha and beta blockade lowers blood pressure while maintaining cardiac output better than pure beta blockers.",
-        target: {
-          name: "Beta-1 & Beta-2 adrenergic receptors",
-          action: "antagonist",
-          result: "↓ HR, ↓ contractility, ↓ BP",
-          system: "adrenergic"
-        }
-      }
+    classes: ["Beta Blocker", "Alpha-1 Antagonist", "Antihypertensive"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Heart failure (HFrEF)", "Hypertension", "Post-MI LV dysfunction", "Atrial fibrillation (off-label)", "Esophageal variceal prophylaxis (off-label)"],
+    comorbidities: ["Coronary artery disease", "Type 2 diabetes", "Chronic kidney disease", "Atrial fibrillation", "Cirrhosis with portal hypertension"],
+    polypharmacy: ["ACE Inhibitors (lisinopril, enalapril)", "Loop diuretics (furosemide)", "Statins (atorvastatin)", "Aspirin", "Digoxin"],
+    overdoseToxicity: ["Severe bradycardia, including high-degree AV block", "Hypotension, often refractory due to combined alpha and beta blockade", "Bronchospasm", "Hypoglycemia with masked symptoms", "QRS widening from sodium channel blockade"],
+    precautions: [
+      '<span class="hl hl--drug">Atropine</span> is largely ineffective for carvedilol-induced <span class="hl hl--ci">bradycardia</span>.',
+      'Compensatory <span class="hl hl--warn">tachycardia is blunted</span> — a normal HR does not rule out shock.',
+      '<span class="hl hl--drug">Epinephrine</span> response is diminished — standard doses may not restore BP or HR in <span class="hl hl--ci">anaphylaxis</span>.',
+      'Non-selective beta blockade can trigger <span class="hl hl--ci">bronchospasm</span> in COPD/asthma patients.',
+      'Abrupt discontinuation risks <span class="hl hl--ci">rebound hypertension</span> and acute coronary syndrome.'
     ],
-    patientIndications: ["Heart Failure", "Hypertension", "Post-MI Left Ventricular Dysfunction", "Atrial Fibrillation", "Angina"],
-    considerations: [
-      'Causes <span class="hl hl--ci">hypotension</span> and <span class="hl hl--ci">orthostatic syncope</span> more than selective beta blockers due to alpha-1 blockade — especially during initial dosing and in volume-depleted patients.',
-      'Masks <span class="hl hl--warn">tachycardia</span> in hypoglycemia, hypovolemia, and anaphylaxis. Also blunts the autonomic warning signs of hypoglycemia in diabetics.',
-      'Non-selective beta blockade means it can cause <span class="hl hl--ci">bronchospasm</span> — a risk in patients with COPD or asthma that selective beta blockers largely avoid.',
-      'Patients may be <span class="hl hl--warn">resistant to epinephrine</span> during anaphylaxis due to beta-2 blockade. Consider higher epi doses and glucagon.',
-      '<span class="hl hl--ci">Overdose</span>: severe bradycardia, hypotension, heart block, bronchospasm, seizures. Long half-life (7–10 hrs) means prolonged toxicity. Prehospital: atropine, glucagon, vasopressors, transcutaneous pacing.'
-    ]
+    summary: "Carvedilol is a combined alpha-beta blocker used in patients with significant cardiac disease — heart failure, post-MI, and hypertension. Its dual blockade causes more pronounced hypotension than selective beta blockers, making these patients particularly vulnerable to hemodynamic collapse. Expect blunted heart rate responses across the board: shock, hypoglycemia, and anaphylaxis will all present atypically. Standard prehospital interventions (atropine, epinephrine) have reduced efficacy, and sodium channel blockade in overdose can widen the QRS."
   },
   {
     id: "labetalol",
-    summary: "A combined alpha-1 and nonselective beta blocker used for hypertension, particularly hypertensive emergencies. Commonly used IV in the ED and prehospitally for acute blood pressure control, including in pregnancy.",
-    genericName: "Labetalol",
-    tradeNames: ["Trandate", "Normodyne"],
+    drugName: "Labetalol",
+    tradeName: ["Trandate"],
     category: ["Cardiovascular"],
-    classes: ["Beta Blocker", "Antihypertensive", "Vasodilator"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Selectively blocks alpha-1 adrenergic receptors, causing vasodilation and reducing peripheral vascular resistance. The alpha-to-beta blockade ratio is approximately 1:3 orally and 1:7 intravenously.",
-        target: {
-          name: "Alpha-1 adrenergic receptors",
-          action: "antagonist",
-          result: "Vasodilation, ↓ SVR",
-          system: "adrenergic"
-        }
-      },
-      {
-        brief: "Non-selectively blocks beta-1 and beta-2 adrenergic receptors, reducing heart rate and contractility. The combined alpha and beta blockade lowers blood pressure without reflex tachycardia.",
-        target: {
-          name: "Beta-1 & Beta-2 adrenergic receptors",
-          action: "antagonist",
-          result: "↓ HR, ↓ contractility, ↓ BP without reflex tachycardia",
-          system: "adrenergic"
-        }
-      }
+    classes: ["Beta Blocker", "Alpha-1 Antagonist", "Antihypertensive"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Hypertension", "Hypertensive crisis", "Gestational hypertension", "Preeclampsia"],
+    comorbidities: ["Coronary artery disease", "Chronic kidney disease", "Type 2 diabetes", "Preeclampsia or eclampsia", "Stroke history"],
+    polypharmacy: ["Thiazide diuretics (hydrochlorothiazide)", "Loop diuretics (furosemide)", "ACE Inhibitors (lisinopril, enalapril)", "Statins (atorvastatin)", "Aspirin"],
+    overdoseToxicity: ["Severe hypotension, worsened by standing", "Bradycardia, including high-degree AV block", "Bronchospasm", "Hypoglycemia (masked symptoms)", "Altered mental status progressing to seizures"],
+    precautions: [
+      '<span class="hl hl--drug">Epinephrine</span> response is diminished — both alpha and beta blockade reduce effectiveness in <span class="hl hl--ci">anaphylaxis</span>.',
+      'Compensatory <span class="hl hl--warn">tachycardia is blunted</span> — a normal HR does not rule out shock or hypovolemia.',
+      'Non-selective beta blockade can trigger <span class="hl hl--ci">bronchospasm</span> in COPD/asthma patients.',
+      'Masks <span class="hl hl--warn">hypoglycemia symptoms</span> — tachycardia and tremor may be absent in diabetic patients.',
+      'Abrupt discontinuation risks <span class="hl hl--ci">rebound hypertension</span> and catecholamine hypersensitivity.'
     ],
-    patientIndications: ["Hypertension", "Hypertensive Emergency", "Hypertension in Pregnancy", "Preeclampsia", "Aortic Dissection"],
-    considerations: [
-      'Causes <span class="hl hl--ci">orthostatic hypotension</span> due to alpha-1 blockade — blood pressure drops more in the standing position. Keep patients supine after administration.',
-      'Non-selective beta blockade can cause <span class="hl hl--ci">bronchospasm</span> — contraindicated in asthma and use with caution in COPD. May blunt the effects of beta-agonist bronchodilators.',
-      'Masks <span class="hl hl--warn">tachycardia</span> in hypoglycemia, hypovolemia, and anaphylaxis. Patients may require higher epinephrine doses due to beta-2 blockade.',
-      'Abrupt discontinuation can cause <span class="hl hl--ci">rebound hypertension</span>, tachyarrhythmias, and worsening angina from catecholamine upregulation.',
-      '<span class="hl hl--ci">Overdose</span>: severe bradycardia, hypotension, heart block, bronchospasm. Prehospital: atropine, glucagon, vasopressors, transcutaneous pacing.'
-    ]
+    summary: "Labetalol is a combined alpha-beta blocker primarily used for hypertension and hypertensive emergencies, including in pregnancy. Its dual blockade produces pronounced vasodilation and hypotension — particularly positional — beyond what selective beta blockers cause. Expect blunted compensatory tachycardia in shock, hemorrhage, and anaphylaxis. Epinephrine and atropine have reduced efficacy in these patients."
   },
   {
     id: "lisinopril",
-    summary: "An ACE inhibitor used for hypertension, heart failure, and diabetic nephropathy.",
-    genericName: "Lisinopril",
-    tradeNames: ["Zestril", "Prinivil"],
+    drugName: "Lisinopril",
+    tradeName: ["Zestril", "Prinivil", "Qbrelis"],
     category: ["Cardiovascular"],
     classes: ["ACE Inhibitor", "Antihypertensive"],
-    source: "DailyMed",
-    moa: [
-      {
-        brief: "Inhibits ACE, blocking the conversion of angiotensin I to angiotensin II — reducing vasoconstriction and aldosterone release, which lowers blood pressure and decreases cardiac preload and afterload.",
-        target: {
-          name: "Angiotensin-converting enzyme (ACE)",
-          action: "inhibitor",
-          result: "↓ Vasoconstriction, ↓ aldosterone, ↓ preload/afterload",
-          system: "enzymatic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Hypertension", "Heart failure (HFrEF)", "Post-MI mortality reduction"],
+    comorbidities: ["Coronary artery disease", "Type 2 diabetes", "Chronic kidney disease", "Heart failure", "Cerebrovascular disease"],
+    polypharmacy: ["Beta blockers (metoprolol, carvedilol)", "Diuretics (furosemide, hydrochlorothiazide)", "Statins (atorvastatin)", "Aspirin", "Potassium chloride"],
+    overdoseToxicity: ["Hypotension, often refractory to standard vasopressors", "Hyperkalemia with cardiac dysrhythmia risk", "Acute renal failure", "Angioedema with airway compromise"],
+    precautions: [
+      'Can cause <span class="hl hl--ci">angioedema</span> at any point during therapy — tongue, glottis, and laryngeal swelling may require emergent airway management.',
+      '<span class="hl hl--ci">Hyperkalemia</span> risk increases with renal impairment and concurrent potassium-sparing diuretics.',
+      'Hypotension may be severe in volume-depleted patients — concurrent <span class="hl hl--drug">diuretic</span> use amplifies this risk.',
+      'Increases <span class="hl hl--drug">lithium</span> levels — patients on both drugs are at higher risk for <span class="hl hl--ci">lithium toxicity</span>.',
+      '<span class="hl hl--drug">NSAIDs</span> reduce antihypertensive effect and worsen <span class="hl hl--warn">renal function</span> when combined with ACE inhibitors.'
     ],
-    patientIndications: ["Hypertension", "Heart Failure", "Diabetic Nephropathy", "Post-MI"],
-    considerations: [
-      'Can cause significant <span class="hl hl--ci">hypotension</span>, especially in volume-depleted patients or those on multiple antihypertensives.',
-      '<span class="hl hl--ci">Angioedema</span> is a rare but life-threatening adverse effect — rapid swelling of the lips, tongue, or airway. Manage as an airway emergency.',
-      'A persistent dry cough is the most common adverse effect — not dangerous, but useful for history-taking.',
-      'Does not cause reflex tachycardia — heart rate will not reliably compensate for hypotension.',
-      'Hyperkalemia risk, especially in renal impairment or when combined with potassium-sparing diuretics.'
-    ]
+    summary: "Lisinopril is an ACE inhibitor prescribed for hypertension, heart failure, and post-MI survival. Its presence signals a patient with cardiovascular disease and possible renal compromise. The highest-stakes prehospital concern is angioedema — asymmetric face and airway swelling that can occur at any time during therapy and may require aggressive airway intervention. Expect hypotension in volume-depleted patients and be aware of hyperkalemia risk, especially when the patient is also taking potassium-sparing diuretics."
   },
   {
     id: "losartan",
-    summary: "An angiotensin II receptor blocker (ARB) used for hypertension, diabetic nephropathy, and stroke prevention in patients with left ventricular hypertrophy.",
-    genericName: "Losartan",
-    tradeNames: ["Cozaar", "Hyzaar"],
+    drugName: "Losartan",
+    tradeName: ["Cozaar", "Hyzaar"],
     category: ["Cardiovascular"],
     classes: ["ARB", "Antihypertensive"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Selectively blocks angiotensin II at the AT1 receptor, preventing vasoconstriction and aldosterone secretion. Unlike ACE inhibitors, does not affect bradykinin metabolism, which is why cough and angioedema are less common.",
-        target: {
-          name: "Angiotensin II type 1 (AT1) receptor",
-          action: "antagonist",
-          result: "↓ Vasoconstriction, ↓ aldosterone, ↓ BP",
-          system: "enzymatic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Hypertension", "Diabetic nephropathy", "Stroke risk reduction (with LVH)", "Heart failure"],
+    comorbidities: ["Type 2 diabetes", "Chronic kidney disease", "Left ventricular hypertrophy", "Coronary artery disease", "Gout"],
+    polypharmacy: ["Thiazide diuretics (hydrochlorothiazide)", "Statins (atorvastatin, rosuvastatin)", "Oral hypoglycemics (metformin)", "Calcium channel blockers (amlodipine)", "Aspirin"],
+    overdoseToxicity: ["Hypotension, potentially refractory to catecholamines", "Hyperkalemia with cardiac dysrhythmia risk", "Acute kidney injury", "Dizziness and syncope"],
+    precautions: [
+      'ARB blockade of the RAAS can cause <span class="hl hl--ci">hypotension</span> refractory to standard vasopressors — vasopressin may be required in overdose.',
+      '<span class="hl hl--ci">Hyperkalemia</span> risk is significant, especially with concurrent potassium-sparing diuretics or renal impairment.',
+      'Can cause <span class="hl hl--ci">angioedema</span> — less common than with ACE inhibitors but still possible, including in patients switched from an ACEi for this reason.',
+      'Increases <span class="hl hl--drug">lithium</span> serum concentrations, raising risk of <span class="hl hl--ci">lithium toxicity</span>.',
+      '<span class="hl hl--drug">NSAIDs</span> reduce antihypertensive effect and compound <span class="hl hl--warn">renal impairment</span> when used with ARBs.'
     ],
-    patientIndications: ["Hypertension", "Diabetic Nephropathy", "Stroke Prevention with LVH", "Heart Failure"],
-    considerations: [
-      'Can cause <span class="hl hl--ci">hypotension</span>, especially in volume-depleted patients or those on diuretics — assess volume status before attributing low BP to other causes.',
-      '<span class="hl hl--ci">Angioedema</span> is less common than with ACE inhibitors but still occurs. Patients with prior ACE inhibitor angioedema have increased risk on ARBs.',
-      '<span class="hl hl--warn">Hyperkalemia</span> risk, particularly in renal impairment or with concurrent potassium-sparing diuretics, NSAIDs, or potassium supplements.',
-      'Does not cause the dry cough associated with ACE inhibitors — if a patient switched from an ACE inhibitor to losartan, this is likely why.',
-      'NSAIDs can blunt the antihypertensive effect and worsen renal function — relevant when assessing a hypertensive patient who also takes ibuprofen or naproxen.'
-    ]
+    summary: "Losartan is an ARB used for hypertension, diabetic nephropathy, and stroke risk reduction in patients with LVH. Its presence on a med list signals a patient with hypertensive end-organ disease, frequently including diabetes and chronic kidney disease. In overdose, hypotension may be refractory to catecholamines because the RAAS is blocked. Angioedema is less frequent than with ACE inhibitors but remains a risk, and hyperkalemia should be anticipated in any critically ill patient taking this drug."
   },
   {
     id: "amlodipine",
-    summary: "A dihydropyridine calcium channel blocker used for hypertension and angina.",
-    genericName: "Amlodipine",
-    tradeNames: ["Norvasc"],
+    drugName: "Amlodipine",
+    tradeName: ["Norvasc"],
     category: ["Cardiovascular"],
-    classes: ["Calcium Channel Blocker", "Antihypertensive"],
-    source: "DailyMed",
-    moa: [
-      {
-        brief: "Inhibits L-type calcium channels in vascular smooth muscle, preventing calcium influx and reducing smooth muscle contraction. This produces peripheral arterial vasodilation and lowers blood pressure without significantly affecting heart rate at therapeutic doses.",
-        target: {
-          name: "L-type calcium channels (vascular smooth muscle)",
-          action: "blocker",
-          result: "Vasodilation, ↓ PVR, ↓ BP",
-          system: "ion-channel"
-        }
-      }
+    classes: ["Calcium Channel Blocker", "Antihypertensive", "Vasodilator"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Hypertension", "Chronic stable angina", "Vasospastic angina (Prinzmetal)", "Coronary artery disease"],
+    comorbidities: ["Coronary artery disease", "Type 2 diabetes", "Hyperlipidemia", "Chronic kidney disease", "Peripheral vascular disease"],
+    polypharmacy: ["ACE Inhibitors (lisinopril, enalapril)", "ARBs (losartan, valsartan)", "Statins (atorvastatin, rosuvastatin)", "Beta blockers (metoprolol, atenolol)", "Aspirin"],
+    overdoseToxicity: ["Profound refractory hypotension from vasodilation", "Reflex tachycardia progressing to bradycardia in severe overdose", "Hyperglycemia from impaired insulin release", "Metabolic acidosis from tissue hypoperfusion", "Non-cardiogenic pulmonary edema"],
+    precautions: [
+      '<span class="hl hl--drug">Nitroglycerin</span> has additive hypotensive effect — monitor BP closely before and after administration in patients on <span class="hl hl--ci">amlodipine</span>.',
+      'Dihydropyridine CCBs cause peripheral <span class="hl hl--ci">vasodilation</span> without significant cardiac conduction effects at therapeutic doses — distinct from verapamil/diltiazem.',
+      'Long half-life (30–50 hours) means <span class="hl hl--warn">toxicity is prolonged</span> — hemodynamic instability can persist for days after overdose.',
+      '<span class="hl hl--drug">Atropine</span> is ineffective in severe CCB toxicity — bradycardia and hypotension do not respond to standard ACLS doses.',
+      'Peripheral <span class="hl hl--warn">edema</span> is dose-dependent and common — do not confuse with heart failure exacerbation.'
     ],
-    patientIndications: ["Hypertension", "Chronic Stable Angina", "Vasospastic Angina", "Coronary Artery Disease"],
-    considerations: [
-      'Causes <span class="hl hl--ci">peripheral edema</span> in up to 10% of patients — dose-related and more common in women. Not a sign of heart failure.',
-      'Can cause <span class="hl hl--ci">hypotension</span>, especially in volume-depleted patients or those on multiple antihypertensives. Gradual onset makes acute hypotension unlikely.',
-      'Long half-life (30–50 hours) means effects persist well after a missed dose — and overdose toxicity is prolonged.',
-      'Unlike non-dihydropyridine CCBs (diltiazem, verapamil), amlodipine does not significantly slow heart rate or AV conduction at therapeutic doses.',
-      '<span class="hl hl--ci">Overdose</span>: severe hypotension, reflex tachycardia, shock. Prehospital: IV calcium, vasopressors, IV fluids. Effects are prolonged — expect extended resuscitation.'
-    ]
+    summary: "Amlodipine is a dihydropyridine calcium channel blocker used for hypertension, angina, and CAD. It lowers blood pressure through peripheral vasodilation without significant negative chronotropic or inotropic effects at therapeutic doses. In overdose, profound hypotension is the primary threat — refractory to fluids and vasopressors, with a prolonged course due to the drug's 30–50 hour half-life. Prehospital nitroglycerin should be used cautiously in these patients due to additive hypotension."
   },
   {
     id: "diltiazem",
-    summary: "A non-dihydropyridine calcium channel blocker used for hypertension, angina, and rate control in atrial fibrillation and flutter. Unlike dihydropyridine CCBs such as amlodipine, diltiazem slows AV conduction and heart rate.",
-    genericName: "Diltiazem",
-    tradeNames: ["Cardizem", "Tiazac", "Cartia XT", "Dilacor XR"],
+    drugName: "Diltiazem",
+    tradeName: ["Cardizem", "Tiazac", "Cartia XT", "Dilacor XR"],
     category: ["Cardiovascular"],
-    classes: ["Calcium Channel Blocker", "Antihypertensive", "Antiarrhythmic"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Inhibits L-type calcium channels in cardiac and vascular smooth muscle, reducing intracellular calcium during depolarization. This slows SA and AV node conduction, decreases heart rate, and relaxes vascular smooth muscle to lower blood pressure and peripheral vascular resistance.",
-        target: {
-          name: "L-type calcium channels (cardiac & vascular smooth muscle)",
-          action: "blocker",
-          result: "↓ HR, ↓ AV conduction, vasodilation, ↓ BP",
-          system: "ion-channel"
-        }
-      }
+    classes: ["Calcium Channel Blocker", "Antiarrhythmic", "Antihypertensive"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Hypertension", "Chronic stable angina", "Atrial fibrillation (rate control)", "PSVT", "Vasospastic angina"],
+    comorbidities: ["Coronary artery disease", "Atrial fibrillation", "Heart failure (HFpEF)", "Hypertensive heart disease", "Type 2 diabetes"],
+    polypharmacy: ["Beta blockers (metoprolol, atenolol)", "ACE Inhibitors (lisinopril, enalapril)", "Statins (atorvastatin, simvastatin)", "Anticoagulants (apixaban, warfarin)", "Digoxin"],
+    overdoseToxicity: ["Profound bradycardia with high-degree AV block", "Hypotension progressing to cardiovascular collapse", "Hyperglycemia from impaired insulin release", "Lactic acidosis from end-organ hypoperfusion", "Cardiac arrest"],
+    precautions: [
+      'Concurrent <span class="hl hl--drug">IV beta blockers</span> with diltiazem is <span class="hl hl--ci">contraindicated</span> — combined negative chronotropy and inotropy risks cardiovascular collapse.',
+      '<span class="hl hl--drug">Digoxin</span> levels increase with concurrent diltiazem use — raises risk of <span class="hl hl--ci">digoxin toxicity</span>.',
+      'Non-dihydropyridine CCB — causes significant <span class="hl hl--ci">bradycardia and AV block</span> at therapeutic and toxic doses, unlike amlodipine or nifedipine.',
+      '<span class="hl hl--warn">Contraindicated in WPW</span> with atrial fibrillation — may accelerate conduction through the accessory pathway and trigger ventricular fibrillation.',
+      'Extended-release formulations delay <span class="hl hl--warn">toxicity onset up to 12 hours</span> — asymptomatic patients after acute ingestion can deteriorate late.'
     ],
-    patientIndications: ["Hypertension", "Chronic Stable Angina", "Vasospastic Angina", "Atrial Fibrillation", "Atrial Flutter", "Supraventricular Tachycardia"],
-    considerations: [
-      'Causes <span class="hl hl--ci">bradycardia</span> and <span class="hl hl--ci">hypotension</span> — risk increases with concurrent beta blockers, digoxin, or other AV-nodal blocking agents.',
-      'Contraindicated in <span class="hl hl--warn">WPW syndrome</span> with atrial fibrillation — blocking the AV node can force conduction down the accessory pathway, causing ventricular fibrillation.',
-      'Avoid in <span class="hl hl--warn">wide-complex tachycardia</span> — if the rhythm is actually VT, diltiazem can cause cardiovascular collapse.',
-      'Patients on chronic diltiazem who present hypotensive or bradycardic should be treated as possible <span class="hl hl--ci">calcium channel blocker toxicity</span> — IV calcium, atropine, vasopressors, and consider high-dose insulin therapy.',
-      '<span class="hl hl--ci">Overdose</span>: profound bradycardia, hypotension, heart block, cardiogenic shock. Prehospital: IV calcium, atropine, glucagon, vasopressors, transcutaneous pacing. Refractory cases may need ECMO.'
-    ]
+    summary: "Diltiazem is a non-dihydropyridine calcium channel blocker prescribed for hypertension, angina, and atrial fibrillation rate control. Its presence signals a patient with cardiac conduction dependence — expect baseline bradycardia and hypotension risk, especially if combined with beta blockers or digoxin. In overdose, diltiazem produces severe bradycardia, AV block, and refractory hypotension that can progress to cardiac arrest; extended-release formulations can delay symptom onset for hours. Avoid IV beta blockers in the field and use caution with nitroglycerin due to additive hypotension."
   },
   {
     id: "nifedipine",
-    summary: "A dihydropyridine calcium channel blocker used for hypertension and angina. Unlike diltiazem and verapamil, nifedipine acts almost exclusively on vascular smooth muscle with minimal cardiac conduction effects.",
-    genericName: "Nifedipine",
-    tradeNames: ["Procardia", "Adalat"],
+    drugName: "Nifedipine",
+    tradeName: ["Procardia", "Procardia XL", "Adalat", "Adalat CC"],
     category: ["Cardiovascular"],
     classes: ["Calcium Channel Blocker", "Antihypertensive"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Blocks voltage-dependent L-type calcium channels in vascular smooth muscle, reducing calcium influx and causing arterial vasodilation. This lowers peripheral vascular resistance and blood pressure. Also dilates coronary arteries, relieving vasospasm and increasing myocardial oxygen delivery.",
-        target: {
-          name: "L-type calcium channels (vascular smooth muscle)",
-          action: "blocker",
-          result: "Arterial vasodilation, ↓ SVR, ↓ BP, coronary dilation",
-          system: "ion-channel"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Hypertension", "Chronic stable angina", "Vasospastic angina (Prinzmetal)", "Raynaud phenomenon"],
+    comorbidities: ["Coronary artery disease", "Peripheral vascular disease", "Chronic kidney disease", "Type 2 diabetes", "Left ventricular hypertrophy"],
+    polypharmacy: ["ACE Inhibitors (lisinopril, enalapril)", "Beta blockers (metoprolol, atenolol)", "Statins (atorvastatin)", "Thiazide diuretics (hydrochlorothiazide)", "Aspirin"],
+    overdoseToxicity: ["Severe hypotension progressing to distributive shock", "Reflex sinus tachycardia", "Hyperglycemia", "Metabolic acidosis from prolonged hypoperfusion", "Altered mental status progressing to coma"],
+    precautions: [
+      'Causes significant <span class="hl hl--ci">hypotension</span> — additive with <span class="hl hl--drug">nitroglycerin</span>, fentanyl, and other vasodilators.',
+      'Reflex <span class="hl hl--warn">tachycardia</span> can mimic or mask other causes of elevated heart rate.',
+      '<span class="hl hl--drug">Epinephrine</span> and <span class="hl hl--drug">calcium gluconate</span> are prehospital treatments for CCB-induced hemodynamic collapse.',
+      'Extended-release formulations delay <span class="hl hl--warn">toxicity onset up to 16 hours</span> — asymptomatic patients after ingestion can deteriorate late.',
+      'Abrupt discontinuation risks <span class="hl hl--ci">rebound hypertension</span> and worsening angina.'
     ],
-    patientIndications: ["Hypertension", "Chronic Stable Angina", "Vasospastic Angina", "Raynaud Phenomenon"],
-    considerations: [
-      'Causes <span class="hl hl--ci">hypotension</span> and <span class="hl hl--warn">reflex tachycardia</span> — especially the immediate-release formulation. Volume-depleted patients and those on other antihypertensives are at highest risk.',
-      'Immediate-release nifedipine should <span class="hl hl--ci">never be used sublingually</span> for hypertensive emergencies — associated with uncontrolled BP drops, MI, and stroke.',
-      'Common adverse effects include <span class="hl hl--warn">peripheral edema</span>, flushing, headache, and dizziness. The edema is from arteriolar vasodilation, not heart failure.',
-      'Unlike diltiazem and verapamil, nifedipine does not slow heart rate or AV conduction — tachycardia is the expected reflex response to vasodilation.',
-      '<span class="hl hl--ci">Overdose</span>: severe hypotension, reflex tachycardia, shock. Prehospital: IV calcium, vasopressors (norepinephrine), glucagon, high-dose insulin. Extended-release forms may cause prolonged toxicity.'
-    ]
+    summary: "Nifedipine is a dihydropyridine calcium channel blocker used for hypertension and angina. Unlike diltiazem and verapamil, it acts primarily on vascular smooth muscle rather than cardiac conduction, so expect vasodilation-related findings — hypotension, flushing, peripheral edema, and reflex tachycardia — rather than bradycardia. In overdose, profound hypotension and shock are the primary threats; hyperglycemia is a useful clinical marker of poisoning severity. Nitroglycerin and other vasodilators will compound the hypotension."
   },
   {
     id: "clonidine",
-    summary: "A centrally acting alpha-2 adrenergic agonist used for hypertension, ADHD, and off-label for opioid withdrawal, anxiety, and insomnia. Frequently encountered on home med lists across multiple patient populations.",
-    genericName: "Clonidine",
-    tradeNames: ["Catapres", "Kapvay", "Duraclon"],
+    drugName: "Clonidine",
+    tradeName: ["Catapres", "Catapres-TTS", "Kapvay", "Duraclon"],
     category: ["Cardiovascular"],
     classes: ["Antihypertensive"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Stimulates alpha-2 adrenergic receptors in the brainstem (nucleus tractus solitarii and locus coeruleus), reducing sympathetic outflow from the CNS. This decreases peripheral vascular resistance, heart rate, and blood pressure.",
-        target: {
-          name: "Central alpha-2 adrenergic receptors",
-          action: "agonist",
-          result: "↓ Sympathetic outflow, ↓ HR, ↓ BP, ↓ SVR",
-          system: "adrenergic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Hypertension", "ADHD", "Opioid withdrawal", "Anxiety"],
+    comorbidities: ["Chronic kidney disease", "Type 2 diabetes", "Anxiety disorders", "Substance use disorder", "ADHD"],
+    polypharmacy: ["Beta blockers (metoprolol, atenolol)", "Diuretics (hydrochlorothiazide, furosemide)", "ACE Inhibitors (lisinopril, enalapril)", "Benzodiazepines (alprazolam, clonazepam)", "Stimulants (amphetamine salts, methylphenidate)"],
+    overdoseToxicity: ["Bradycardia, often severe and prolonged", "Hypotension preceded by transient early hypertension", "CNS depression with somnolence and miosis", "Respiratory depression and apnea", "Hypothermia"],
+    precautions: [
+      'Toxidrome mimics opioid overdose — <span class="hl hl--warn">hypothermia</span> is a key differentiator (absent in opioid OD).',
+      'Abrupt discontinuation causes <span class="hl hl--ci">severe rebound hypertension</span> that can progress to hypertensive encephalopathy or stroke.',
+      'Concurrent <span class="hl hl--drug">beta blockers</span> amplify bradycardia and block the compensatory response to rebound hypertension if clonidine is stopped.',
+      '<span class="hl hl--drug">Epinephrine</span> may paradoxically <span class="hl hl--ci">worsen hypotension</span> in clonidine toxicity.',
+      '<span class="hl hl--drug">Naloxone</span> may transiently improve CNS and respiratory depression but results are inconsistent and higher doses (up to 10 mg) may be needed.'
     ],
-    patientIndications: ["Hypertension", "ADHD", "Tourette Syndrome", "Opioid Withdrawal", "Anxiety", "Insomnia"],
-    considerations: [
-      'Causes <span class="hl hl--ci">bradycardia</span> and <span class="hl hl--ci">hypotension</span> — worsened significantly when combined with beta blockers, calcium channel blockers, or digoxin.',
-      'Abrupt discontinuation causes <span class="hl hl--ci">rebound hypertension</span> with agitation, headache, and tremor — rare cases of hypertensive encephalopathy, stroke, and death have been reported.',
-      'Significant <span class="hl hl--warn">sedation</span> is common even at therapeutic doses — compounded by alcohol, benzodiazepines, and other CNS depressants.',
-      '<span class="hl hl--ci">Overdose</span> mimics opioid toxicity: bradycardia, hypotension, respiratory depression, miosis, and altered consciousness. Hypothermia helps differentiate from opioids. Naloxone may improve CNS depression.',
-      'Available as a <span class="hl hl--warn">transdermal patch</span> — patches contain up to 9 mg and can cause prolonged toxicity if chewed or ingested, especially in pediatric patients.'
-    ]
+    summary: "Clonidine is a central alpha-2 agonist that reduces sympathetic outflow, used for hypertension, ADHD, and withdrawal syndromes. Its presence signals a patient whose sympathetic tone is pharmacologically suppressed — expect baseline low-normal HR and BP with limited compensatory reserve. Overdose produces a triad of somnolence, miosis, and bradycardia that closely mimics opioid toxicity; hypothermia helps distinguish clonidine poisoning. Abrupt discontinuation is a prehospital emergency in its own right, causing dangerous rebound hypertension."
   },
   {
     id: "hydrochlorothiazide",
-    summary: "A thiazide diuretic used for hypertension and peripheral edema. Often listed as 'HCTZ' on med lists.",
-    genericName: "Hydrochlorothiazide",
-    tradeNames: ["Microzide", "HydroDIURIL"],
+    drugName: "Hydrochlorothiazide",
+    tradeName: ["Microzide", "HydroDIURIL", "Oretic"],
     category: ["Cardiovascular"],
     classes: ["Thiazide Diuretic", "Antihypertensive"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Inhibits the sodium-chloride cotransporter in the distal convoluted tubule, blocking sodium and chloride reabsorption. This promotes natriuresis and diuresis, reducing intravascular volume and lowering blood pressure.",
-        target: {
-          name: "Na⁺/Cl⁻ cotransporter (NCC) in distal convoluted tubule",
-          action: "inhibitor",
-          result: "↓ Na⁺ reabsorption, ↓ intravascular volume, ↓ BP",
-          system: "enzymatic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Hypertension", "Peripheral edema (CHF)", "Calcium nephrolithiasis", "Nephrogenic diabetes insipidus"],
+    comorbidities: ["Coronary artery disease", "Type 2 diabetes", "Chronic kidney disease", "Heart failure", "Gout"],
+    polypharmacy: ["ACE Inhibitors (lisinopril, enalapril)", "ARBs (losartan, valsartan)", "Beta blockers (metoprolol, atenolol)", "Statins (atorvastatin, rosuvastatin)", "Potassium supplements (potassium chloride)"],
+    overdoseToxicity: ["Severe hypokalemia with cardiac dysrhythmias", "Hyponatremia with altered mental status and seizures", "Dehydration and hypotension", "Acute kidney injury"],
+    precautions: [
+      'Chronic <span class="hl hl--ci">hypokalemia</span> increases sensitivity to <span class="hl hl--drug">digoxin</span> — risk of lethal dysrhythmias even at therapeutic digoxin levels.',
+      'Causes <span class="hl hl--ci">orthostatic hypotension</span> — a common contributor to syncopal falls in elderly patients.',
+      'Reduces renal <span class="hl hl--drug">lithium</span> clearance, significantly increasing risk of <span class="hl hl--ci">lithium toxicity</span>.',
+      '<span class="hl hl--warn">Hypokalemia may cause ECG changes</span> (flattened T waves, U waves, ST depression) that mimic or mask ischemia.',
+      'Contains a sulfonamide group — potential for <span class="hl hl--ci">allergic cross-reactivity</span> in patients with sulfa allergy.'
     ],
-    patientIndications: ["Hypertension", "Peripheral edema", "Heart failure", "Nephrotic syndrome", "Calcium nephrolithiasis"],
-    considerations: [
-      '<span class="hl hl--ci">Hypokalemia</span> is the most common adverse effect — can cause cardiac arrhythmias and potentiate digitalis toxicity. Patients are often co-prescribed potassium supplements.',
-      'Causes <span class="hl hl--ci">orthostatic hypotension</span> and volume depletion, especially in elderly or volume-depleted patients and those on multiple antihypertensives.',
-      '<span class="hl hl--warn">Hyponatremia</span> can develop, particularly in elderly patients — presents with confusion, weakness, lethargy, and seizures. A common cause of EMS calls in older adults on thiazides.',
-      'Can elevate <span class="hl hl--warn">blood glucose</span> levels — diabetic patients on HCTZ may present with worsened glycemic control.',
-      'Contains a sulfonamide moiety — use caution in patients reporting <span class="hl hl--warn">sulfa allergy</span>, though cross-reactivity is rare.'
-    ]
+    summary: "Hydrochlorothiazide is the most widely prescribed thiazide diuretic, used primarily for hypertension and edema. Its presence on a med list flags a patient at risk for electrolyte derangements — hypokalemia, hyponatremia, and hypomagnesemia — any of which can produce dysrhythmias, altered mental status, or seizures. In patients co-prescribed digoxin, even mild hypokalemia can trigger life-threatening arrhythmias. Assess for volume depletion and orthostatic hypotension, especially in elderly patients and those on multiple antihypertensives."
   },
   {
     id: "furosemide",
-    summary: "A loop diuretic used for edema from heart failure, liver disease, and kidney disease. Seeing Lasix on a med list strongly suggests the patient has a volume-management problem.",
-    genericName: "Furosemide",
-    tradeNames: ["Lasix"],
+    drugName: "Furosemide",
+    tradeName: ["Lasix"],
     category: ["Cardiovascular"],
-    classes: ["Loop Diuretic", "Antihypertensive"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Inhibits the sodium-potassium-chloride cotransporter (NKCC2) in the thick ascending loop of Henle, blocking reabsorption of sodium, chloride, potassium, and water. This produces rapid, high-volume diuresis and reduces intravascular volume and preload.",
-        target: {
-          name: "Na⁺/K⁺/2Cl⁻ cotransporter (NKCC2) — loop of Henle",
-          action: "inhibitor",
-          result: "Rapid diuresis, ↓ intravascular volume, ↓ preload",
-          system: "enzymatic"
-        }
-      }
+    classes: ["Loop Diuretic"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Heart failure (edema)", "Hepatic cirrhosis (ascites)", "Renal disease (edema)", "Hypertension (second-line)"],
+    comorbidities: ["Congestive heart failure", "Chronic kidney disease", "Hepatic cirrhosis", "Hypertension", "Type 2 diabetes"],
+    polypharmacy: ["ACE Inhibitors (lisinopril, enalapril)", "Beta blockers (metoprolol, carvedilol)", "Potassium chloride", "Digoxin", "Spironolactone"],
+    overdoseToxicity: ["Profound dehydration and circulatory collapse", "Severe hypokalemia with dysrhythmias", "Hypotension", "Hypochloremic metabolic alkalosis", "Altered mental status and muscle cramping"],
+    precautions: [
+      'Furosemide-induced <span class="hl hl--ci">hypokalemia</span> potentiates <span class="hl hl--drug">digoxin</span> toxicity — expect dysrhythmias at otherwise therapeutic digoxin levels.',
+      'Chronic use causes volume depletion — patients are prone to <span class="hl hl--ci">orthostatic hypotension</span> and may be significantly dehydrated despite appearing euvolemic.',
+      '<span class="hl hl--drug">Nitroglycerin</span> combined with loop diuretic-induced volume depletion increases risk of <span class="hl hl--ci">severe hypotension</span>.',
+      'Contains a sulfonamide group — potential for <span class="hl hl--ci">allergic cross-reactivity</span> in patients with sulfa allergy.',
+      'Electrolyte depletion (K⁺, Mg²⁺, Ca²⁺) can produce <span class="hl hl--warn">dysrhythmias, seizures, or muscle tetany</span> without obvious clinical warning.'
     ],
-    patientIndications: ["Heart Failure", "Peripheral Edema", "Pulmonary Edema", "Cirrhosis With Ascites", "Renal Disease", "Hypertension"],
-    considerations: [
-      'Causes <span class="hl hl--ci">hypotension</span> and <span class="hl hl--ci">orthostatic hypotension</span> — volume-depleted patients on furosemide are at high risk for hemodynamic instability.',
-      'Depletes <span class="hl hl--ci">potassium</span> and magnesium — hypokalemia can cause cardiac dysrhythmias, muscle weakness, and cramping. Often co-prescribed with potassium supplements.',
-      'Patients on furosemide who present with <span class="hl hl--warn">weakness, fatigue, or altered mental status</span> should be evaluated for dehydration and electrolyte imbalance before assuming other causes.',
-      'May reduce arterial responsiveness to <span class="hl hl--drug">norepinephrine</span> — vasopressors can still be used but may require higher doses.',
-      'Contains a sulfonamide moiety — ask about <span class="hl hl--warn">sulfa allergy</span>, though cross-reactivity is uncommon.'
-    ]
+    summary: "Furosemide is the most commonly prescribed loop diuretic, indicating a patient with significant fluid management needs — typically heart failure, renal disease, or hepatic cirrhosis. Its presence signals a patient at risk for dehydration, electrolyte derangements, and hypotension, particularly when acutely ill or non-compliant with fluid intake. Hypokalemia is the highest-stakes concern: it widens the QT interval, potentiates digoxin toxicity, and can produce refractory dysrhythmias. Assess volume status carefully — these patients may be profoundly dry despite peripheral edema."
   },
   {
     id: "spironolactone",
-    summary: "A potassium-sparing diuretic and aldosterone antagonist used for heart failure, resistant hypertension, and edema from cirrhosis. Commonly paired with loop diuretics like furosemide.",
-    genericName: "Spironolactone",
-    tradeNames: ["Aldactone"],
+    drugName: "Spironolactone",
+    tradeName: ["Aldactone", "CaroSpir"],
     category: ["Cardiovascular"],
     classes: ["Potassium-Sparing Diuretic", "Antihypertensive"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Competitively blocks aldosterone at mineralocorticoid receptors in the distal convoluted tubule and collecting duct, preventing sodium reabsorption and potassium secretion. Also reduces cardiac fibrosis and remodeling in heart failure.",
-        target: {
-          name: "Mineralocorticoid (aldosterone) receptors",
-          action: "antagonist",
-          result: "↑ Na⁺/H₂O excretion, ↑ K⁺ retention, ↓ cardiac remodeling",
-          system: "enzymatic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Heart failure (HFrEF)", "Resistant hypertension", "Edema (cirrhosis/nephrotic)", "Primary hyperaldosteronism", "Hypokalemia prevention"],
+    comorbidities: ["Coronary artery disease", "Chronic kidney disease", "Hepatic cirrhosis", "Type 2 diabetes", "Atrial fibrillation"],
+    polypharmacy: ["ACE Inhibitors (lisinopril, enalapril)", "Loop diuretics (furosemide)", "Beta blockers (metoprolol, carvedilol)", "Digoxin", "Statins (atorvastatin)"],
+    overdoseToxicity: ["Hyperkalemia with dysrhythmias", "Drowsiness and mental confusion", "Hypotension", "Hyponatremia", "Nausea, vomiting, diarrhea"],
+    precautions: [
+      'Concurrent <span class="hl hl--drug">ACE inhibitors</span> or <span class="hl hl--drug">ARBs</span> significantly increase the risk of <span class="hl hl--ci">severe hyperkalemia</span>.',
+      'Increases <span class="hl hl--drug">digoxin</span> half-life — patients on both drugs are at higher risk of <span class="hl hl--ci">digitalis toxicity</span>.',
+      'Reduces renal clearance of <span class="hl hl--drug">lithium</span>, increasing the risk of <span class="hl hl--ci">lithium toxicity</span>.',
+      '<span class="hl hl--warn">Hyperkalemia may present as weakness, paresthesias, or cardiac conduction abnormalities</span> without prior warning.',
+      'Patients with renal impairment or diabetes are at <span class="hl hl--warn">substantially higher risk</span> of potassium-related complications.'
     ],
-    patientIndications: ["Heart failure", "Resistant hypertension", "Cirrhosis with ascites", "Edema", "Primary hyperaldosteronism", "Hypokalemia prevention"],
-    considerations: [
-      '<span class="hl hl--ci">Hyperkalemia</span> is the most dangerous adverse effect — risk increases significantly when combined with ACE inhibitors, ARBs, or beta blockers.',
-      'Causes <span class="hl hl--ci">hypotension</span> and <span class="hl hl--warn">dehydration</span> through diuresis — assess volume status carefully in patients on spironolactone plus other diuretics.',
-      'Increases the half-life of <span class="hl hl--drug">digoxin</span> — patients on both drugs are at higher risk for digitalis toxicity.',
-      'Often seen alongside <span class="hl hl--drug">furosemide</span> in heart failure and cirrhosis patients — the combination indicates significant fluid management issues.',
-      'Can cause <span class="hl hl--warn">hyponatremia</span> with lethargy, confusion, and drowsiness — especially in hot weather or when combined with other diuretics.'
-    ]
+    summary: "Spironolactone is an aldosterone antagonist used primarily in heart failure and resistant hypertension, signaling a patient with advanced cardiovascular or hepatic disease. The defining prehospital concern is hyperkalemia — risk multiplies when combined with ACE inhibitors, ARBs, or renal impairment, and can produce life-threatening dysrhythmias without obvious warning signs. It also increases digoxin levels, so patients on both drugs carry dual risk for toxicity. Expect these patients to be on complex cardiac regimens with narrow margins for hemodynamic instability."
   },
   {
     id: "atorvastatin",
-    summary: "An HMG-CoA reductase inhibitor (statin) used to lower cholesterol and reduce cardiovascular event risk.",
-    genericName: "Atorvastatin",
-    tradeNames: ["Lipitor"],
+    drugName: "Atorvastatin",
+    tradeName: ["Lipitor"],
     category: ["Cardiovascular"],
     classes: ["Statin"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Competitively inhibits HMG-CoA reductase, the rate-limiting enzyme in hepatic cholesterol synthesis. Reduced intracellular cholesterol upregulates LDL receptor expression on hepatocytes, increasing clearance of LDL from the blood.",
-        target: {
-          name: "HMG-CoA reductase",
-          action: "inhibitor",
-          result: "↓ Hepatic cholesterol synthesis, ↑ LDL receptor expression, ↓ LDL-C",
-          system: "enzymatic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Hyperlipidemia", "ASCVD risk reduction", "Post-MI secondary prevention", "Stroke prevention", "Hypertriglyceridemia"],
+    comorbidities: ["Coronary artery disease", "Type 2 diabetes", "Hypertension", "Peripheral artery disease", "Chronic kidney disease"],
+    polypharmacy: ["ACE Inhibitors (lisinopril, enalapril)", "Beta blockers (metoprolol, carvedilol)", "Aspirin", "Clopidogrel", "Oral hypoglycemics (metformin, glipizide)"],
+    overdoseToxicity: null,
+    precautions: [
+      'Patients on <span class="hl hl--drug">atorvastatin</span> with <span class="hl hl--drug">diltiazem</span> are at increased risk of <span class="hl hl--ci">rhabdomyolysis</span>.',
+      'High-intensity therapy increases the risk of <span class="hl hl--ci">digoxin toxicity</span> in patients taking <span class="hl hl--drug">digoxin</span>.',
+      'Myopathy presenting as <span class="hl hl--warn">unexplained muscle pain, tenderness, or weakness</span> can progress to rhabdomyolysis with renal failure.',
+      'High-dose atorvastatin is associated with increased incidence of <span class="hl hl--ci">hemorrhagic stroke</span> in patients with prior stroke history.',
+      'Statin therapy should <span class="hl hl--warn">not be abruptly discontinued</span> perioperatively — rebound cardiovascular risk is documented.'
     ],
-    patientIndications: ["Hyperlipidemia", "Coronary Artery Disease", "Stroke Prevention", "Familial Hypercholesterolemia", "Type 2 Diabetes Cardiovascular Risk Reduction"],
-    considerations: [
-      'Statins themselves rarely cause acute prehospital emergencies — their presence on a med list indicates <span class="hl hl--indication">established cardiovascular disease risk</span> or known CAD.',
-      '<span class="hl hl--ci">Rhabdomyolysis</span> is rare but serious — patient may present with diffuse muscle pain, weakness, and dark urine. Risk increases with CYP3A4 inhibitors and renal impairment.',
-      'Myalgias (muscle aches without CK elevation) are the most common complaint — reported in up to 10% of patients and may be the reason a patient stopped taking the drug.',
-      'Statin use signals the patient likely also takes <span class="hl hl--drug">aspirin</span>, antihypertensives, or anticoagulants — build a complete med picture on scene.',
-      'High-dose atorvastatin is associated with a slightly increased risk of <span class="hl hl--warn">hemorrhagic stroke</span>, particularly in patients with recent stroke or TIA history.'
-    ]
+    summary: "Atorvastatin is the most widely prescribed statin, indicating a patient with significant cardiovascular risk — coronary artery disease, prior MI, diabetes, or stroke history. Its presence on a med list is a flag for underlying atherosclerotic disease and a complex cardiac medication regimen. The primary prehospital concern is drug interactions: it increases digoxin toxicity risk and can cause rhabdomyolysis when combined with certain calcium channel blockers. Myopathy complaints in a statin patient warrant serious consideration, as progression to rhabdomyolysis can cause acute kidney injury."
   },
   {
     id: "rosuvastatin",
-    summary: "A high-intensity statin used for hyperlipidemia and cardiovascular disease prevention.",
-    genericName: "Rosuvastatin",
-    tradeNames: ["Crestor", "Ezallor"],
+    drugName: "Rosuvastatin",
+    tradeName: ["Crestor", "Ezallor"],
     category: ["Cardiovascular"],
-    classes: ["Statin", "Antihypertensive"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Inhibits HMG-CoA reductase, the rate-limiting enzyme in hepatic cholesterol synthesis. Reduced intracellular cholesterol upregulates LDL receptors on hepatocytes, increasing clearance of circulating LDL.",
-        target: {
-          name: "HMG-CoA reductase",
-          action: "inhibitor",
-          result: "↓ Hepatic cholesterol synthesis, ↑ LDL receptor expression, ↓ circulating LDL-C",
-          system: "enzymatic"
-        }
-      }
+    classes: ["Statin"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Hyperlipidemia", "ASCVD primary prevention", "Hypertriglyceridemia", "Familial hypercholesterolemia", "Atherosclerosis progression"],
+    comorbidities: ["Coronary artery disease", "Type 2 diabetes", "Hypertension", "Chronic kidney disease", "Metabolic syndrome"],
+    polypharmacy: ["ACE Inhibitors (lisinopril, enalapril)", "Beta blockers (metoprolol, carvedilol)", "Aspirin", "Anticoagulants (warfarin, apixaban)", "Oral hypoglycemics (metformin, glipizide)"],
+    overdoseToxicity: null,
+    precautions: [
+      'Rosuvastatin carries a higher signal for <span class="hl hl--ci">rhabdomyolysis</span> than most other statins — complaints of muscle pain or weakness in these patients warrant serious consideration.',
+      'Dose-dependent <span class="hl hl--ci">proteinuria and hematuria</span> occur with rosuvastatin, unique among statins.',
+      'Patients on <span class="hl hl--drug">warfarin</span> with rosuvastatin may have <span class="hl hl--warn">elevated INR</span> and increased bleeding risk.',
+      'Concurrent <span class="hl hl--drug">colchicine</span> increases the risk of <span class="hl hl--ci">myopathy and rhabdomyolysis</span>.',
+      'Acute renal failure accelerates rosuvastatin toxicity — a previously tolerated dose becomes <span class="hl hl--warn">dangerous in dehydrated or septic patients</span>.'
     ],
-    patientIndications: ["Hyperlipidemia", "Hypertriglyceridemia", "Atherosclerotic cardiovascular disease prevention", "Familial hypercholesterolemia"],
-    considerations: [
-      '<span class="hl hl--ci">Rhabdomyolysis</span> is rare but the most dangerous adverse effect — presents with diffuse muscle pain, weakness, and dark urine. Can progress to acute renal failure.',
-      'Myalgia is the most common complaint — patients frequently report muscle aches and weakness. Important for history-taking on any musculoskeletal complaint.',
-      'Statin use signals the patient is being treated for <span class="hl hl--warn">cardiovascular risk factors</span> — expect concurrent use of antihypertensives, antiplatelets, or anticoagulants.',
-      'May increase fasting glucose and <span class="hl hl--warn">HbA1c</span> — slightly elevated risk of new-onset diabetes, though cardiovascular benefits outweigh this risk.',
-      'Rosuvastatin has a <span class="hl hl--general">longer half-life</span> than most statins and higher potency — considered high-intensity at standard doses, making it one of the most effective LDL-lowering agents.'
-    ]
+    summary: "Rosuvastatin is the highest-potency statin available, signaling a patient with significant cardiovascular risk or aggressive lipid-lowering goals. Its presence on a med list points to atherosclerotic disease, diabetes, or elevated inflammatory markers. The key prehospital concern is rhabdomyolysis — rosuvastatin has a stronger association with muscle toxicity than other statins, especially in patients with renal impairment, dehydration, or sepsis. Muscle pain, dark urine, or generalized weakness in a rosuvastatin patient should raise suspicion for rhabdomyolysis with secondary acute kidney injury."
   },
   {
     id: "nitroglycerin",
-    summary: "An organic nitrate vasodilator used for acute relief and prevention of angina pectoris. Patients carry sublingual tablets or spray for chest pain episodes.",
-    genericName: "Nitroglycerin",
-    tradeNames: ["Nitrostat", "Nitrolingual", "NitroMist", "Nitro-Bid", "Nitro-Dur"],
+    drugName: "Nitroglycerin",
+    tradeName: ["Nitrostat", "Nitrolingual", "Nitro-Dur", "Nitro-Bid"],
     category: ["Cardiovascular"],
     classes: ["Nitrate", "Vasodilator"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Releases nitric oxide (NO), which activates guanylate cyclase and increases cyclic GMP in vascular smooth muscle, causing relaxation. At lower doses, venodilation predominates, reducing preload. At higher doses, arterial dilation also occurs, reducing afterload.",
-        target: {
-          name: "Vascular smooth muscle (via nitric oxide / cGMP pathway)",
-          action: "donor",
-          result: "Venodilation, ↓ preload, ↓ afterload, ↓ myocardial O₂ demand",
-          system: "enzymatic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Angina pectoris", "Acute coronary syndrome", "Hypertensive heart failure", "Pulmonary edema"],
+    comorbidities: ["Coronary artery disease", "Heart failure (HFrEF)", "Hypertension", "Prior myocardial infarction", "Peripheral vascular disease"],
+    polypharmacy: ["Beta blockers (metoprolol, atenolol)", "Aspirin", "Statins (atorvastatin, rosuvastatin)", "ACE Inhibitors (lisinopril, enalapril)", "Clopidogrel"],
+    overdoseToxicity: ["Profound hypotension with syncope", "Reflex tachycardia progressing to bradycardia", "Persistent throbbing headache with confusion", "Methemoglobinemia (cyanosis despite normal PaO2)", "Seizures and cardiovascular collapse"],
+    precautions: [
+      'Concurrent <span class="hl hl--drug">PDE-5 inhibitor</span> use (sildenafil, tadalafil) causes <span class="hl hl--ci">severe refractory hypotension</span> — always ask about erectile dysfunction medications.',
+      'In <span class="hl hl--warn">inferior MI with RV involvement</span>, nitroglycerin can cause hemodynamic collapse by reducing preload.',
+      'Patients on chronic nitrates develop tolerance — lack of chest pain relief does not rule out <span class="hl hl--ci">acute coronary syndrome</span>.',
+      'Nitroglycerin patches or ointment on the skin can cause <span class="hl hl--warn">inadvertent provider exposure</span> — remove and wipe the site before handling.',
+      '<span class="hl hl--drug">Epinephrine</span> is not recommended for nitrate-induced hypotension — IV fluid bolus and Trendelenburg positioning are first-line.'
     ],
-    patientIndications: ["Angina Pectoris", "Coronary Artery Disease", "Acute Coronary Syndrome", "Heart Failure"],
-    considerations: [
-      'Causes <span class="hl hl--ci">hypotension</span> through venodilation — patients should be seated or supine during use. Volume-depleted patients are at highest risk for hemodynamic collapse.',
-      '<span class="hl hl--ci">Absolutely contraindicated</span> with PDE-5 inhibitors (<span class="hl hl--drug">sildenafil</span>, <span class="hl hl--drug">tadalafil</span>) taken within 24–48 hours — combination causes severe, refractory hypotension.',
-      'Use extreme caution with suspected <span class="hl hl--warn">right ventricular infarction</span> (inferior STEMI) — these patients are preload-dependent and NTG can cause precipitous hemodynamic collapse.',
-      'Relief of chest pain by NTG is not diagnostic — esophageal spasm, biliary colic, and other non-cardiac conditions also respond to nitroglycerin.',
-      'Contraindicated with <span class="hl hl--ci">increased intracranial pressure</span> — vasodilation increases cerebral blood volume and can worsen ICP in head injuries or hemorrhagic stroke.'
-    ]
+    summary: "Nitroglycerin on a med list identifies a patient with active coronary artery disease or heart failure who experiences anginal episodes. The critical prehospital concern is the PDE-5 inhibitor interaction — always ask about sildenafil/tadalafil use before administering additional nitrates, as the combination causes profound hypotension that does not respond well to vasopressors. In chest pain patients, assess for inferior MI and right ventricular involvement before giving NTG, since preload reduction in an RV-dependent patient can precipitate cardiogenic shock."
   },
   {
     id: "digoxin",
-    summary: "A cardiac glycoside used for heart failure and ventricular rate control in atrial fibrillation. Has an extremely narrow therapeutic index — toxicity is a well-known prehospital emergency.",
-    genericName: "Digoxin",
-    tradeNames: ["Lanoxin"],
+    drugName: "Digoxin",
+    tradeName: ["Lanoxin"],
     category: ["Cardiovascular"],
-    classes: ["Cardiac Glycoside", "Antiarrhythmic"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Inhibits the Na⁺/K⁺-ATPase pump in cardiac myocytes, increasing intracellular sodium and subsequently intracellular calcium via the Na⁺/Ca²⁺ exchanger. The increased calcium enhances contractility and slows conduction through the AV node.",
-        target: {
-          name: "Na⁺/K⁺-ATPase",
-          action: "inhibitor",
-          result: "↑ Contractility, ↓ AV conduction, ↓ ventricular rate",
-          system: "ion-channel"
-        }
-      }
+    classes: ["Cardiac Glycoside"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Heart failure (HFrEF)", "Atrial fibrillation (rate control)"],
+    comorbidities: ["Coronary artery disease", "Atrial fibrillation", "Chronic kidney disease", "Valvular heart disease", "Type 2 diabetes"],
+    polypharmacy: ["Beta blockers (metoprolol, carvedilol)", "ACE Inhibitors (lisinopril, enalapril)", "Loop diuretics (furosemide)", "Warfarin", "Potassium supplements (potassium chloride)"],
+    overdoseToxicity: [
+      "Bradycardia and high-degree AV block, including complete heart block",
+      "Ventricular dysrhythmias, including bidirectional VT (pathognomonic)",
+      "Hyperkalemia — severity correlates with mortality",
+      "GI distress: nausea, vomiting, anorexia",
+      "Visual disturbances: xanthopsia (yellow-tinted vision), halos, blurred vision"
     ],
-    patientIndications: ["Heart Failure", "Atrial Fibrillation", "Atrial Flutter"],
-    considerations: [
-      'Has a <span class="hl hl--warn">very narrow therapeutic index</span> — the difference between therapeutic and toxic levels is small. Toxicity risk increases with renal impairment, hypokalemia, hypomagnesemia, and hypercalcemia.',
-      'Causes <span class="hl hl--ci">bradycardia</span> and can produce any dysrhythmia, including AV block, PVCs, ventricular tachycardia, and ventricular fibrillation. <span class="hl hl--ci">Bidirectional ventricular tachycardia</span> is pathognomonic for digoxin toxicity.',
-      'Toxicity presents with GI symptoms (nausea, vomiting, anorexia), neurological changes (confusion, weakness), and classic <span class="hl hl--warn">yellow-tinted vision</span> (xanthopsia).',
-      '<span class="hl hl--ci">Hyperkalemia</span> in acute toxicity is a marker of severity and a predictor of mortality. Avoid IV calcium in digoxin toxicity due to risk of fatal cardiac arrest ("stone heart").',
-      '<span class="hl hl--ci">Overdose</span>: life-threatening dysrhythmias and hyperkalemia. Prehospital: atropine for bradycardia, avoid cardioversion (can trigger V-fib). Definitive treatment is digoxin immune Fab (Digibind/DigiFab).'
-    ]
+    precautions: [
+      'Extremely <span class="hl hl--warn">narrow therapeutic index</span> — toxicity can occur at levels near the therapeutic range, especially with renal impairment or hypokalemia.',
+      '<span class="hl hl--ci">Hyperkalemia</span> in acute digoxin toxicity is a critical prognostic marker — K+ above 5.5 mEq/L carries near-100% mortality without antidotal therapy.',
+      '<span class="hl hl--drug">Amiodarone</span>, <span class="hl hl--drug">diltiazem</span>, and <span class="hl hl--drug">verapamil</span> all raise digoxin levels and compound AV nodal blockade.',
+      'Concurrent <span class="hl hl--drug">furosemide</span> use causes hypokalemia, which increases myocardial sensitivity to digoxin and can precipitate <span class="hl hl--ci">toxicity at therapeutic levels</span>.',
+      'Any dysrhythmia combining <span class="hl hl--ci">increased automaticity with AV block</span> (e.g., atrial tachycardia with block, regularized AF) should raise suspicion for digoxin toxicity.'
+    ],
+    summary: "Digoxin is a cardiac glycoside prescribed for heart failure and atrial fibrillation rate control, signaling a patient with significant structural heart disease. Its narrow therapeutic index makes toxicity a constant risk — declining renal function, dehydration, electrolyte shifts, or drug interactions can push levels into the toxic range without a dose change. On scene, suspect digoxin toxicity in any patient on digoxin presenting with new dysrhythmias (especially bradycardia with ectopy), GI symptoms, or altered mental status. Hyperkalemia in the setting of digoxin use is an ominous sign requiring emergent intervention."
   },
   {
     id: "amiodarone",
-    summary: "A class III antiarrhythmic used for life-threatening ventricular arrhythmias and off-label for atrial fibrillation rate/rhythm control.",
-    genericName: "Amiodarone",
-    tradeNames: ["Cordarone", "Pacerone"],
+    drugName: "Amiodarone",
+    tradeName: ["Cordarone", "Pacerone"],
     category: ["Cardiovascular"],
     classes: ["Antiarrhythmic"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Primarily blocks potassium rectifier currents during phase 3 of the cardiac action potential, prolonging action potential duration and the effective refractory period. Also exhibits sodium channel, calcium channel, and beta-adrenergic blocking properties, contributing to slowed conduction and suppression of re-entrant arrhythmias.",
-        target: {
-          name: "Potassium channels (+ Na⁺, Ca²⁺, β-adrenergic)",
-          action: "blocker",
-          result: "↑ Refractory period, ↓ conduction velocity, ↓ HR",
-          system: "ion-channel"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Ventricular fibrillation (refractory)", "Ventricular tachycardia (recurrent)", "Atrial fibrillation (off-label)"],
+    comorbidities: ["Coronary artery disease", "Heart failure (HFrEF)", "Prior cardiac arrest", "Atrial fibrillation", "Cardiomyopathy"],
+    polypharmacy: ["Warfarin", "Digoxin", "Beta blockers (metoprolol, carvedilol)", "ACE Inhibitors (lisinopril, enalapril)", "Loop diuretics (furosemide)"],
+    overdoseToxicity: ["Hypotension, often refractory", "Severe bradycardia and high-degree AV block", "Torsades de pointes", "Delayed toxicity onset (up to 2–3 days post-ingestion)"],
+    precautions: [
+      'Inhibits CYP450 metabolism — doubles <span class="hl hl--drug">digoxin</span> levels and potentiates <span class="hl hl--drug">warfarin</span> (elevated INR and bleeding risk).',
+      'Concurrent use with <span class="hl hl--drug">beta blockers</span> or <span class="hl hl--drug">diltiazem</span> increases risk of <span class="hl hl--ci">severe bradycardia and AV block</span>.',
+      'Chronic use causes <span class="hl hl--ci">QT prolongation</span> — additive risk with other QT-prolonging agents including IV <span class="hl hl--drug">amiodarone</span> administered prehospitally.',
+      'Pulmonary toxicity may present as <span class="hl hl--ci">progressive dyspnea</span> mimicking CHF or pneumonia — high-flow O₂ may worsen lung injury.',
+      'Blue-gray skin discoloration is a visual clue to <span class="hl hl--warn">chronic amiodarone use</span> — confirms the drug even without a med list.'
     ],
-    patientIndications: ["Ventricular Fibrillation", "Ventricular Tachycardia", "Atrial Fibrillation", "Atrial Flutter", "Supraventricular Tachycardia"],
-    considerations: [
-      'Causes <span class="hl hl--ci">bradycardia</span> and <span class="hl hl--ci">hypotension</span> — do not administer to patients who are already bradycardic or hypotensive.',
-      'Has an extremely long half-life (40–55 days). Adverse effects persist long after discontinuation, and drug interactions may linger for weeks.',
-      'Chronic use causes <span class="hl hl--warn">thyroid dysfunction</span> (both hypo- and hyperthyroidism) in up to 10% of patients. Thyroid storm from amiodarone-induced hyperthyroidism is a rare but critical presentation.',
-      '<span class="hl hl--ci">Pulmonary toxicity</span> resembling interstitial lung disease can develop — presents with progressive dyspnea and cough. Carries ~10% mortality.',
-      'Prolongs <span class="hl hl--warn">QTc</span> and can cause torsades de pointes, especially with concurrent beta-blockers, digoxin, or electrolyte imbalances. Also increases serum <span class="hl hl--drug">digoxin</span> levels by ~70%.'
-    ]
+    summary: "Amiodarone is a class III antiarrhythmic reserved for serious ventricular and atrial dysrhythmias, signaling a patient with significant cardiac disease and arrhythmia history. Its extremely long half-life (40–55 days) means drug effects and interactions persist weeks after discontinuation. On scene, the key concerns are additive bradycardia and hypotension with other cardiac drugs, markedly elevated bleeding risk from warfarin potentiation, and the possibility that respiratory distress represents amiodarone pulmonary toxicity rather than heart failure."
   },
   {
     id: "aspirin",
-    summary: "An NSAID and antiplatelet agent used at low doses for cardiovascular prevention and at higher doses for pain, fever, and inflammation.",
-    genericName: "Aspirin",
-    tradeNames: ["Bayer", "Ecotrin", "Bufferin"],
+    drugName: "Aspirin",
+    tradeName: ["Bayer", "Ecotrin"],
     category: ["Anticoagulation", "Cardiovascular", "Pain & Anti-inflammatory"],
     classes: ["Antiplatelet", "NSAID", "Antipyretic"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Irreversibly inhibits COX-1, blocking the synthesis of thromboxane A2 — a lipid that drives platelet aggregation. Because the inhibition is irreversible and platelets cannot synthesize new COX, the antiplatelet effect lasts the entire 7–10 day lifespan of the platelet.",
-        target: {
-          name: "Cyclooxygenase-1 (COX-1)",
-          action: "inhibitor",
-          result: "↓ Thromboxane A2, ↓ platelet aggregation",
-          system: "enzymatic"
-        }
-      },
-      {
-        brief: "At higher doses, inhibits both COX-1 and COX-2, reducing prostaglandin synthesis. This decreases inflammation, lowers fever via hypothalamic thermoregulation, and blocks peripheral pain signaling.",
-        target: {
-          name: "Cyclooxygenase-1 & 2 (COX-1/COX-2)",
-          action: "inhibitor",
-          result: "↓ Prostaglandins → ↓ inflammation, ↓ fever, ↓ pain",
-          system: "enzymatic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Secondary prevention of MI/stroke", "Acute coronary syndrome", "Chronic stable angina", "Peripheral arterial disease", "Mild to moderate pain"],
+    comorbidities: ["Coronary artery disease", "Prior MI or stroke", "Atrial fibrillation", "Peripheral arterial disease", "Type 2 diabetes"],
+    polypharmacy: ["Statins (atorvastatin, rosuvastatin)", "Beta blockers (metoprolol, carvedilol)", "ACE Inhibitors (lisinopril, enalapril)", "Clopidogrel", "Anticoagulants (warfarin, apixaban)"],
+    overdoseToxicity: ["Tinnitus and hyperventilation (early)", "Mixed respiratory alkalosis and metabolic acidosis", "Altered mental status progressing to seizures and coma", "Hyperthermia", "Noncardiogenic pulmonary edema"],
+    precautions: [
+      'Irreversibly inhibits platelets — <span class="hl hl--ci">bleeding risk persists 7–10 days</span> after last dose.',
+      'Concurrent <span class="hl hl--drug">anticoagulants</span> (warfarin, DOACs) or <span class="hl hl--drug">clopidogrel</span> markedly increases <span class="hl hl--ci">hemorrhage risk</span>.',
+      'Approximately 7% of asthma patients have aspirin sensitivity — can trigger <span class="hl hl--ci">bronchospasm</span>.',
+      'Salicylate toxicity presents with tinnitus, tachypnea, and <span class="hl hl--warn">altered mental status</span> — easily mistaken for sepsis or metabolic emergency.',
+      'Prehospital <span class="hl hl--drug">aspirin</span> administration for ACS adds to existing daily dose — confirm whether patient has already taken it today.'
     ],
-    patientIndications: ["ACS Prevention", "Post-MI", "Post-Stent", "Stroke Prevention", "Peripheral Artery Disease", "Pain", "Fever", "Rheumatoid Arthritis"],
-    considerations: [
-      'Irreversibly inhibits platelets, creating <span class="hl hl--ci">bleeding risk</span> that persists 7–10 days after the last dose. Even minor trauma (especially head injuries in elderly patients) can produce significant hemorrhage.',
-      'Patients often take aspirin alongside other anticoagulants (<span class="hl hl--drug">warfarin</span>, <span class="hl hl--drug">apixaban</span>, <span class="hl hl--drug">clopidogrel</span>), compounding bleeding risk substantially.',
-      'GI irritation is common — chronic use causes <span class="hl hl--ci">gastric ulcers</span> and GI bleeding. A patient on daily aspirin presenting with hematemesis or melena should raise suspicion for upper GI bleed.',
-      '<span class="hl hl--warn">Aspirin allergy</span> is more common in asthmatics (aspirin-exacerbated respiratory disease). Can trigger severe bronchospasm. Always confirm allergy status before field administration for suspected ACS.',
-      '<span class="hl hl--ci">Overdose</span>: salicylate toxicity produces tinnitus, tachypnea, mixed respiratory alkalosis and metabolic acidosis, hyperthermia, and altered mental status. Prehospital: supportive care, IV fluids, sodium bicarbonate if available per protocol.'
-    ]
+    summary: "Low-dose aspirin on a med list signals a patient with established cardiovascular disease — prior MI, stroke, stent placement, or significant atherosclerotic risk. Its irreversible antiplatelet effect means any trauma or bleeding emergency carries prolonged hemorrhage risk, especially when combined with other anticoagulants or antiplatelets. Salicylate overdose is a distinct toxicological emergency presenting with tinnitus, tachypnea, and progressive metabolic derangement that can deteriorate rapidly."
   },
   {
     id: "clopidogrel",
-    summary: "A thienopyridine antiplatelet agent used to prevent thrombotic events in patients with acute coronary syndrome, recent MI or stroke, peripheral arterial disease, and coronary stents. Often prescribed alongside aspirin as dual antiplatelet therapy (DAPT).",
-    genericName: "Clopidogrel",
-    tradeNames: ["Plavix"],
+    drugName: "Clopidogrel",
+    tradeName: ["Plavix"],
     category: ["Anticoagulation", "Cardiovascular"],
     classes: ["Antiplatelet"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "A prodrug converted by hepatic CYP2C19 into an active metabolite that irreversibly binds the P2Y12 ADP receptor on platelets, preventing ADP-mediated platelet activation and aggregation for the platelet's lifespan (7–10 days).",
-        target: {
-          name: "P2Y12 ADP receptor (platelets)",
-          action: "antagonist",
-          result: "↓ Platelet aggregation, ↓ thrombus formation",
-          system: "coagulation"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Acute coronary syndrome (UA/NSTEMI)", "Secondary prevention post-MI", "Secondary prevention post-stroke", "Peripheral arterial disease", "Post-PCI stent thrombosis prevention"],
+    comorbidities: ["Coronary artery disease", "Prior MI or stroke", "Peripheral arterial disease", "Atrial fibrillation", "Type 2 diabetes"],
+    polypharmacy: ["Aspirin", "Statins (atorvastatin, rosuvastatin)", "Beta blockers (metoprolol, carvedilol)", "ACE Inhibitors (lisinopril, enalapril)", "Proton pump inhibitors (omeprazole, pantoprazole)"],
+    overdoseToxicity: null,
+    precautions: [
+      'Irreversibly inhibits platelets for 7–10 days — <span class="hl hl--ci">no reversal agent exists</span>; platelet transfusion has limited effectiveness.',
+      'Concurrent <span class="hl hl--drug">aspirin</span>, anticoagulants, or NSAIDs markedly increases <span class="hl hl--ci">hemorrhage risk</span>.',
+      '<span class="hl hl--drug">Opioids</span> (morphine, fentanyl) delay clopidogrel absorption and reduce antiplatelet effect in acute ACS.',
+      '<span class="hl hl--warn">Omeprazole and esomeprazole</span> inhibit CYP2C19 activation, reducing clopidogrel efficacy — relevant when reviewing the full med list.',
+      'Premature discontinuation after coronary stenting risks <span class="hl hl--ci">acute stent thrombosis</span> — a STEMI equivalent.'
     ],
-    patientIndications: ["Acute Coronary Syndrome", "Post-MI", "Recent Stroke", "Peripheral Arterial Disease", "Post-PCI With Stenting", "Atrial Fibrillation"],
-    considerations: [
-      '<span class="hl hl--ci">Bleeding</span> is the primary adverse effect and can occur at any site, including intracranial. No reversal agent exists — platelet transfusion may partially restore hemostasis but is less effective within 6 hours of the last dose.',
-      'Patients on clopidogrel with <span class="hl hl--warn">head trauma</span> are at increased risk for traumatic intracranial hemorrhage. Field triage guidelines recommend transport to a trauma center capable of rapid neurosurgical evaluation.',
-      'Platelet inhibition is <span class="hl hl--warn">irreversible</span> — effects persist 7–10 days after discontinuation. A patient who stopped clopidogrel 2–3 days ago still has significant antiplatelet activity.',
-      '<span class="hl hl--ci">Premature discontinuation</span> — especially in post-stent patients — dramatically increases the risk of stent thrombosis, MI, and death. Do not advise patients to skip doses.',
-      'CYP2C19 poor metabolizers have reduced conversion to the active drug and may have inadequate platelet inhibition despite taking clopidogrel as prescribed.'
-    ]
+    summary: "Clopidogrel on a med list indicates a patient with established atherosclerotic disease — prior MI, stroke, PAD, or coronary stent placement. Its irreversible antiplatelet effect means all bleeding is prolonged, and there is no pharmacologic reversal. In acute ACS, prehospital opioid administration can impair clopidogrel absorption, reducing its therapeutic effect. Patients on dual antiplatelet therapy (clopidogrel plus aspirin) carry significantly elevated hemorrhage risk with any trauma."
   },
   {
     id: "warfarin",
-    summary: "A vitamin K antagonist anticoagulant used to prevent and treat thromboembolic disorders. Patients take it for atrial fibrillation, mechanical heart valves, DVT/PE treatment, and stroke prevention.",
-    genericName: "Warfarin",
-    tradeNames: ["Coumadin", "Jantoven"],
+    drugName: "Warfarin",
+    tradeName: ["Coumadin", "Jantoven"],
     category: ["Anticoagulation"],
-    classes: ["Anticoagulant", "Vitamin K Antagonist"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Inhibits vitamin K epoxide reductase, preventing the recycling of vitamin K to its active form. This leaves clotting factors II, VII, IX, and X unable to undergo gamma-carboxylation, rendering them inactive and reducing the blood's ability to clot.",
-        target: {
-          name: "Vitamin K epoxide reductase",
-          action: "inhibitor",
-          result: "↓ Active clotting factors II, VII, IX, X → ↓ coagulation",
-          system: "coagulation"
-        }
-      }
+    classes: ["Vitamin K Antagonist", "Anticoagulant"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Atrial fibrillation", "Venous thromboembolism", "Mechanical heart valve", "Post-MI thromboprophylaxis", "Pulmonary embolism"],
+    comorbidities: ["Atrial fibrillation", "Deep vein thrombosis", "Heart failure", "Coronary artery disease", "Cerebrovascular disease"],
+    polypharmacy: ["Beta blockers (metoprolol, carvedilol)", "ACE Inhibitors (lisinopril, enalapril)", "Statins (atorvastatin, rosuvastatin)", "Digoxin", "Aspirin"],
+    overdoseToxicity: ["Hemorrhage from any tissue or organ", "Intracranial hemorrhage", "GI bleeding (hematemesis, melena)", "Prolonged or spontaneous epistaxis", "Hematuria"],
+    precautions: [
+      'Any trauma in a warfarin patient risks <span class="hl hl--ci">uncontrolled hemorrhage</span> — minor mechanisms can produce major bleeding.',
+      'Head trauma warrants high suspicion for <span class="hl hl--ci">intracranial hemorrhage</span> even without focal neurological deficits.',
+      'Concurrent <span class="hl hl--drug">aspirin</span> or NSAIDs dramatically increases bleeding risk beyond anticoagulation alone.',
+      '<span class="hl hl--warn">No prehospital reversal agent exists</span> — hemorrhage control is limited to direct pressure and rapid transport.',
+      '<span class="hl hl--drug">Amiodarone</span> inhibits warfarin metabolism, significantly potentiating its anticoagulant effect.'
     ],
-    patientIndications: ["Atrial Fibrillation", "DVT", "Pulmonary Embolism", "Mechanical Heart Valve", "Stroke Prevention", "Hypercoagulable States"],
-    considerations: [
-      'Significant <span class="hl hl--ci">bleeding risk</span> — any trauma patient on warfarin should be treated as high-risk for hemorrhage, including occult intracranial bleeding after even minor head injuries.',
-      'Narrow therapeutic index with an extremely long list of drug and food interactions. Vitamin K-rich foods (leafy greens), antibiotics, NSAIDs, and many other medications can push INR dangerously high or low.',
-      'Anticoagulant effect is <span class="hl hl--warn">not immediately reversible</span> — vitamin K takes 6–24 hours to restore clotting factor production. Life-threatening bleeding requires 4-factor PCC or FFP for immediate reversal.',
-      'Fall risk patients on warfarin are a high-priority transport — subdural hematomas can develop insidiously and expand over hours even from minor mechanisms.',
-      '<span class="hl hl--ci">Supratherapeutic INR</span> can present with spontaneous bleeding: gingival bleeding, epistaxis, hematuria, melena, hematemesis, or extensive bruising without significant trauma.'
-    ]
+    summary: "Warfarin on a med list flags a patient who cannot clot normally. Any bleeding — traumatic or spontaneous — is prolonged and potentially life-threatening, with intracranial hemorrhage being the highest-stakes concern after head trauma. There is no prehospital reversal; definitive management requires vitamin K and prothrombin complex concentrate in-hospital. Assume an exaggerated bleeding response to all injuries, and maintain a low threshold for rapid transport to a facility capable of INR testing and reversal."
   },
   {
     id: "apixaban",
-    summary: "A direct oral anticoagulant (DOAC) that inhibits factor Xa, used to prevent stroke in nonvalvular atrial fibrillation and to treat or prevent DVT and PE. Unlike warfarin, it does not require INR monitoring.",
-    genericName: "Apixaban",
-    tradeNames: ["Eliquis"],
+    drugName: "Apixaban",
+    tradeName: ["Eliquis"],
     category: ["Anticoagulation"],
-    classes: ["Anticoagulant", "Direct Oral Anticoagulant (DOAC)", "Factor Xa Inhibitor"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Selectively and reversibly inhibits free and clot-bound factor Xa, blocking the propagation phase of the coagulation cascade without requiring antithrombin III as a cofactor.",
-        target: {
-          name: "Factor Xa",
-          action: "inhibitor",
-          result: "↓ Thrombin generation, ↓ clot formation",
-          system: "coagulation"
-        }
-      }
+    classes: ["Direct Oral Anticoagulant (DOAC)", "Factor Xa Inhibitor"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Nonvalvular atrial fibrillation (stroke prevention)", "Deep vein thrombosis", "Pulmonary embolism", "DVT/PE prophylaxis (post-surgical)"],
+    comorbidities: ["Atrial fibrillation", "Heart failure", "Venous thromboembolism", "Chronic kidney disease", "Prior stroke or TIA"],
+    polypharmacy: ["Beta blockers (metoprolol, carvedilol)", "ACE Inhibitors (lisinopril, enalapril)", "Statins (atorvastatin, rosuvastatin)", "Digoxin", "Amiodarone"],
+    overdoseToxicity: ["Hemorrhage from any site", "GI bleeding (hematemesis, melena, hematochezia)", "Intracranial hemorrhage", "Hemorrhagic shock in severe cases"],
+    precautions: [
+      'No reliable prehospital reversal — <span class="hl hl--ci">bleeding may be prolonged and refractory</span> to standard measures.',
+      'Concurrent <span class="hl hl--drug">aspirin</span> or NSAIDs significantly increases <span class="hl hl--ci">hemorrhage risk</span>, including fatal GI and intracranial bleeding.',
+      'Standard coagulation tests (PT/INR, aPTT) do not reliably reflect <span class="hl hl--warn">apixaban anticoagulant effect</span>.',
+      'Abrupt discontinuation raises <span class="hl hl--ci">stroke and thromboembolism risk</span> — noncompliance may be the reason for the call.',
+      'Unlike warfarin, there is <span class="hl hl--warn">no routine lab monitoring</span> — the patient may not know their anticoagulation status.'
     ],
-    patientIndications: ["Nonvalvular Atrial Fibrillation", "Deep Vein Thrombosis", "Pulmonary Embolism", "DVT Prophylaxis Post-Hip/Knee Surgery"],
-    considerations: [
-      'Primary risk is <span class="hl hl--ci">bleeding</span> — can cause serious or fatal hemorrhage. Assess for signs of occult blood loss (weakness, pallor, hypotension) in any patient on apixaban.',
-      'Reversal agent <span class="hl hl--drug">andexanet alfa (Andexxa)</span> is available but hospital-based. Prehospital management of major bleeding is supportive — direct pressure, IV fluids, rapid transport.',
-      'Unlike warfarin, <span class="hl hl--general">no INR monitoring</span> is required — standard coagulation studies (PT/INR, aPTT) do not reliably reflect apixaban activity. A normal INR does not rule out anticoagulation.',
-      'Abrupt discontinuation increases <span class="hl hl--ci">thrombotic risk</span> — patients who stopped taking their apixaban are at elevated risk for stroke or PE.',
-      'Concurrent use with <span class="hl hl--warn">aspirin, NSAIDs, or other anticoagulants</span> significantly increases bleeding risk. Check the full med list for stacked anticoagulation.'
-    ]
+    summary: "Apixaban is a factor Xa inhibitor prescribed for stroke prevention in atrial fibrillation and treatment of venous thromboembolism. Its presence signals a patient at high thrombotic risk who is simultaneously at increased bleeding risk from any trauma or spontaneous hemorrhage. Standard coagulation labs are unreliable for gauging its effect, and no prehospital reversal exists — hospital-based andexanet alfa is the specific antidote. Treat any bleeding in these patients as potentially significant and transport with urgency."
   },
   {
     id: "rivaroxaban",
-    summary: "A direct oral anticoagulant (DOAC) that inhibits Factor Xa, used for stroke prevention in atrial fibrillation, treatment and prevention of DVT/PE, and secondary prevention after acute coronary syndrome or peripheral artery disease.",
-    genericName: "Rivaroxaban",
-    tradeNames: ["Xarelto"],
+    drugName: "Rivaroxaban",
+    tradeName: ["Xarelto"],
     category: ["Anticoagulation", "Cardiovascular"],
-    classes: ["Anticoagulant", "Direct Oral Anticoagulant (DOAC)", "Factor Xa Inhibitor"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Binds directly and reversibly to Factor Xa, blocking the final common pathway of the coagulation cascade and preventing thrombin generation. Inhibits both free and clot-bound Factor Xa without requiring antithrombin as a cofactor.",
-        target: {
-          name: "Factor Xa",
-          action: "inhibitor",
-          result: "↓ Thrombin generation, ↓ clot formation",
-          system: "coagulation"
-        }
-      }
+    classes: ["Factor Xa Inhibitor", "Direct Oral Anticoagulant (DOAC)", "Anticoagulant"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Nonvalvular atrial fibrillation", "Deep vein thrombosis", "Pulmonary embolism", "Coronary artery disease", "Peripheral artery disease"],
+    comorbidities: ["Atrial fibrillation", "Heart failure", "Venous thromboembolism", "Coronary artery disease", "Peripheral artery disease"],
+    polypharmacy: ["Aspirin", "Beta blockers (metoprolol, carvedilol)", "Statins (atorvastatin, rosuvastatin)", "ACE Inhibitors (lisinopril, enalapril)", "Loop diuretics (furosemide)"],
+    overdoseToxicity: [
+      "Hemorrhage — GI bleeding is more common than with warfarin",
+      "Intracranial hemorrhage",
+      "Hemodynamic instability from occult blood loss",
+      "Supratherapeutic doses above 50 mg show a ceiling effect with limited additional absorption"
     ],
-    patientIndications: ["Nonvalvular Atrial Fibrillation", "Deep Vein Thrombosis", "Pulmonary Embolism", "DVT/PE Prophylaxis", "Coronary Artery Disease", "Peripheral Artery Disease"],
-    considerations: [
-      'Primary risk is <span class="hl hl--ci">bleeding</span> — GI hemorrhage rates are slightly higher than warfarin. Any trauma patient on rivaroxaban should be treated as high-risk for hemorrhagic complications.',
-      'No routine lab monitoring exists — standard coagulation tests (PT, aPTT) are unreliable for measuring rivaroxaban effect. A normal PT with a sensitive reagent suggests minimal drug activity.',
-      '<span class="hl hl--drug">Andexanet alfa</span> is the specific reversal agent for life-threatening bleeding. Prothrombin complex concentrate (PCC) is an alternative when andexanet is unavailable.',
-      'Short half-life (5–9 hours, longer in elderly) means anticoagulant effect diminishes faster than warfarin after the last dose — relevant when timing surgery or assessing bleeding risk.',
-      'Abrupt discontinuation increases <span class="hl hl--ci">thrombotic risk</span> — patients who stopped taking rivaroxaban are at elevated risk for stroke, DVT, or PE.'
-    ]
+    precautions: [
+      'Causes <span class="hl hl--ci">serious or fatal hemorrhage</span> — any trauma or bleeding complaint in these patients warrants high suspicion.',
+      'Standard coagulation labs (PT/INR, aPTT) are <span class="hl hl--warn">unreliable</span> for assessing rivaroxaban effect in the field.',
+      'No prehospital reversal agent exists — hospital-based <span class="hl hl--drug">andexanet alfa</span> or PCC is required for life-threatening bleeds.',
+      '<span class="hl hl--drug">Aspirin</span> co-administration is common in CAD/PAD patients, compounding <span class="hl hl--ci">bleeding risk</span>.',
+      'Protamine sulfate and <span class="hl hl--drug">vitamin K</span> have no effect on rivaroxaban — do not use for reversal.'
+    ],
+    summary: "Rivaroxaban is a factor Xa inhibitor used for stroke prevention in atrial fibrillation, treatment of DVT/PE, and cardiovascular risk reduction in CAD and PAD. Its presence flags a patient on full anticoagulation who is at elevated bleeding risk from any mechanism — trauma, GI hemorrhage, or intracranial bleeding. Routine coagulation testing does not reliably reflect drug levels, and there is no field reversal option. Patients on concurrent aspirin therapy carry compounded hemorrhage risk."
   },
   {
     id: "potassium-chloride",
-    summary: "An oral potassium supplement used to prevent and treat hypokalemia. Patients on diuretics, particularly loop and thiazide diuretics, are the most likely to have this on their med list.",
-    genericName: "Potassium Chloride",
-    tradeNames: ["K-Dur", "Klor-Con", "Micro-K", "K-Tab"],
+    drugName: "Potassium Chloride",
+    tradeName: ["K-Dur", "Klor-Con", "Micro-K", "Slow-K"],
     category: ["Cardiovascular"],
-    classes: ["Electrolyte Supplement"],
-    source: "StatPearls",
-    moa: [
-      {
-        brief: "Directly replenishes potassium stores. Potassium is the primary intracellular cation responsible for maintaining cell membrane potential, cardiac electrical conduction, and skeletal muscle function.",
-        target: {
-          name: "Intracellular potassium stores",
-          action: "donor",
-          result: "Restores normal serum K⁺ levels, stabilizes cardiac conduction",
-          system: "ion-channel"
-        }
-      }
+    classes: ["Electrolyte"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Hypokalemia", "Diuretic-induced potassium loss", "Digitalis toxicity (adjunct)"],
+    comorbidities: ["Heart failure", "Hypertension", "Chronic kidney disease", "Atrial fibrillation", "Type 2 diabetes"],
+    polypharmacy: ["Loop diuretics (furosemide, bumetanide)", "Thiazide diuretics (hydrochlorothiazide)", "ACE Inhibitors (lisinopril, enalapril)", "Digoxin", "Magnesium supplements"],
+    overdoseToxicity: [
+      "Peaked T waves progressing to loss of P waves and QRS widening",
+      "Severe bradycardia and high-degree AV block",
+      "Ventricular fibrillation or asystole (K⁺ >9 mEq/L)",
+      "Flaccid paralysis and muscle weakness",
+      "Nausea, vomiting, and abdominal pain"
     ],
-    patientIndications: ["Hypokalemia", "Hypokalemia Prevention (Diuretic-Induced)", "Heart Failure", "Chronic Kidney Disease"],
-    considerations: [
-      'Presence on a med list signals the patient is at risk for <span class="hl hl--ci">hypokalemia</span> — check for concurrent diuretic use and consider potassium-related dysrhythmias if the patient presents with cardiac complaints.',
-      'Both <span class="hl hl--ci">hypokalemia</span> and <span class="hl hl--ci">hyperkalemia</span> cause life-threatening dysrhythmias — peaked T waves (high K⁺) and flattened T waves with U waves (low K⁺) are key ECG findings.',
-      'Concurrent use of <span class="hl hl--warn">ACE inhibitors, ARBs, or potassium-sparing diuretics</span> increases the risk of hyperkalemia — look for these combinations on the med list.',
-      'Patients on <span class="hl hl--drug">digoxin</span> are especially vulnerable to hypokalemia — low potassium potentiates digitalis toxicity and increases the risk of fatal dysrhythmias.',
-      'Non-compliance or missed doses can cause rapid potassium drops in patients dependent on supplementation, presenting as <span class="hl hl--ci">muscle weakness</span>, cramping, or cardiac irritability.'
-    ]
+    precautions: [
+      'Concurrent use of <span class="hl hl--drug">ACE inhibitors</span>, ARBs, or potassium-sparing diuretics raises risk of <span class="hl hl--ci">fatal hyperkalemia</span>.',
+      'Patients with <span class="hl hl--warn">renal impairment</span> cannot excrete excess potassium — even therapeutic doses can cause toxicity.',
+      'Hyperkalemia-induced ECG changes may mimic acute MI — <span class="hl hl--warn">peaked T waves</span> can be mistaken for STEMI.',
+      '<span class="hl hl--drug">Calcium chloride</span> or calcium gluconate stabilizes the myocardium but does not lower potassium levels.',
+      'Patients on <span class="hl hl--drug">digoxin</span> and potassium have a dangerous interdependence — both hypo- and hyperkalemia worsen <span class="hl hl--ci">digoxin toxicity</span>.'
+    ],
+    summary: "Potassium chloride is an electrolyte supplement prescribed to patients on diuretics or with conditions that deplete potassium. Its presence on a med list signals a patient at risk for both hypokalemia (missed doses, vomiting) and hyperkalemia (renal decline, drug interactions with ACE inhibitors or potassium-sparing diuretics). Hyperkalemia produces characteristic ECG changes — peaked T waves, widened QRS, and eventually fatal dysrhythmias — that a paramedic must recognize. The 12-lead is the most important prehospital tool for detecting potassium-related cardiac toxicity."
   },
   {
     id: "metformin",
-    summary: "A biguanide oral antihyperglycemic used for type 2 diabetes. Lowers blood glucose by decreasing hepatic glucose production, reducing intestinal absorption, and improving peripheral insulin sensitivity — without directly causing hypoglycemia.",
-    genericName: "Metformin",
-    tradeNames: ["Glucophage", "Glucophage XR", "Fortamet", "Glumetza", "Riomet"],
+    drugName: "Metformin",
+    tradeName: ["Glucophage", "Glucophage XR", "Fortamet", "Glumetza", "Riomet"],
     category: ["Endocrine"],
     classes: ["Biguanide"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Decreases hepatic glucose production, reduces intestinal glucose absorption, and increases peripheral glucose uptake and utilization by improving insulin sensitivity. Unlike sulfonylureas, does not stimulate insulin secretion or cause hyperinsulinemia.",
-        target: {
-          name: "Hepatic gluconeogenesis & peripheral insulin receptors",
-          action: "inhibitor",
-          result: "↓ Hepatic glucose output, ↑ peripheral glucose uptake, ↓ blood glucose",
-          system: "metabolic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Type 2 diabetes mellitus"],
+    comorbidities: ["Obesity", "Hypertension", "Coronary artery disease", "Chronic kidney disease", "Dyslipidemia"],
+    polypharmacy: ["Sulfonylureas (glipizide, glimepiride)", "Insulin (glargine, lispro)", "Statins (atorvastatin, rosuvastatin)", "ACE Inhibitors (lisinopril, enalapril)", "Aspirin"],
+    overdoseToxicity: ["Severe lactic acidosis (pH < 7.35, lactate > 5 mmol/L)", "Tachypnea and hyperpnea from metabolic compensation", "Hypotension progressing to refractory shock", "Altered mental status progressing to coma", "Hypothermia in severe acidemia"],
+    precautions: [
+      'Metformin alone rarely causes <span class="hl hl--warn">hypoglycemia</span> — if hypoglycemic, suspect a co-ingested sulfonylurea or insulin.',
+      '<span class="hl hl--ci">Lactic acidosis</span> (MALA) is rare but carries up to 50% mortality; renal failure, sepsis, and shock increase risk.',
+      'Severe acidemia impairs myocardial contractility and <span class="hl hl--ci">catecholamine binding</span> — vasopressors may have reduced efficacy.',
+      'Kussmaul respirations in a diabetic patient may indicate MALA rather than <span class="hl hl--warn">DKA</span> — check the med list.',
+      'Combined formulations may contain <span class="hl hl--drug">sulfonylureas</span> — intentional overdose of combination pills adds true hypoglycemia risk.'
     ],
-    patientIndications: ["Type 2 Diabetes", "Prediabetes", "Polycystic Ovary Syndrome", "Gestational Diabetes"],
-    considerations: [
-      '<span class="hl hl--ci">Lactic acidosis</span> is rare but carries high mortality — risk increases with renal impairment, hepatic disease, sepsis, hypoxia, and alcoholism. Suspect it in a metformin patient presenting with malaise, tachypnea, and altered mental status.',
-      'Does not cause <span class="hl hl--indication">hypoglycemia</span> when used alone — but can when combined with insulin or sulfonylureas. A hypoglycemic patient on metformin monotherapy likely has another cause.',
-      'Contraindicated in low-perfusion states — <span class="hl hl--warn">shock, sepsis, and acute MI</span> all increase lactic acidosis risk. Relevant when assessing a critically ill diabetic patient.',
-      'GI effects (nausea, vomiting, diarrhea) are the most common adverse effects and can mimic other abdominal complaints on EMS calls.',
-      'Long-term use causes <span class="hl hl--warn">vitamin B12 deficiency</span>, which can present as peripheral neuropathy — relevant for history-taking in patients with numbness or weakness complaints.'
-    ]
+    summary: "Metformin is the most widely prescribed oral antihyperglycemic and signals a patient with type 2 diabetes and likely cardiovascular comorbidities. It does not cause hypoglycemia on its own, so low glucose in a metformin-only patient points to another cause. The critical prehospital concern is metformin-associated lactic acidosis (MALA) — rare but lethal, presenting with vague GI symptoms, tachypnea, and shock that may be refractory to standard vasopressor therapy. Always check whether the formulation includes a sulfonylurea, which adds hypoglycemia risk in overdose."
   },
   {
     id: "insulin-glargine",
-    summary: "A long-acting basal insulin analog injected once daily to maintain background glycemic control in type 1 and type 2 diabetes. Provides a steady insulin level over 24 hours without a pronounced peak.",
-    genericName: "Insulin Glargine",
-    tradeNames: ["Lantus", "Basaglar", "Semglee", "Toujeo"],
+    drugName: "Insulin Glargine",
+    tradeName: ["Lantus", "Basaglar", "Semglee", "Toujeo"],
     category: ["Endocrine"],
-    classes: ["Insulin", "Hormone"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Binds to insulin receptors on skeletal muscle and adipose tissue, promoting cellular glucose uptake. Simultaneously suppresses hepatic glucose production and inhibits lipolysis and proteolysis. Modified amino acid structure forms microprecipitates at physiologic pH after subcutaneous injection, creating a slow, peakless absorption over 24 hours.",
-        target: {
-          name: "Insulin receptors (IR)",
-          action: "agonist",
-          result: "↑ Cellular glucose uptake, ↓ hepatic glucose output, ↓ blood glucose",
-          system: "metabolic"
-        }
-      }
+    classes: ["Insulin"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Type 1 diabetes mellitus", "Type 2 diabetes mellitus"],
+    comorbidities: ["Coronary artery disease", "Chronic kidney disease", "Peripheral neuropathy", "Hypertension", "Obesity"],
+    polypharmacy: ["Metformin", "Sulfonylureas (glipizide, glimepiride)", "ACE Inhibitors (lisinopril, enalapril)", "Statins (atorvastatin, rosuvastatin)", "Aspirin"],
+    overdoseToxicity: ["Severe prolonged hypoglycemia lasting 24–96+ hours", "Seizures", "Coma and neurologic impairment", "Hypokalemia", "Recurrent hypoglycemic episodes despite dextrose administration"],
+    precautions: [
+      'Long-acting depot effect causes <span class="hl hl--ci">prolonged hypoglycemia</span> — glucose may drop again hours after initial correction.',
+      'Concurrent <span class="hl hl--drug">beta blockers</span> and <span class="hl hl--drug">clonidine</span> mask adrenergic symptoms of hypoglycemia — patient may not appear symptomatic until severely low.',
+      '<span class="hl hl--drug">Epinephrine</span> and other sympathomimetics raise blood glucose — prehospital catecholamine administration may temporarily mask ongoing insulin effect.',
+      'Renal or hepatic impairment <span class="hl hl--warn">slows insulin clearance</span>, increasing duration and severity of hypoglycemia.',
+      'Patients on <span class="hl hl--drug">sulfonylureas</span> in addition to glargine have compounded hypoglycemia risk — two independent glucose-lowering mechanisms.'
     ],
-    patientIndications: ["Type 1 Diabetes", "Type 2 Diabetes", "Gestational Diabetes"],
-    considerations: [
-      '<span class="hl hl--ci">Hypoglycemia</span> is the primary risk — presents with diaphoresis, tremors, tachycardia, altered mental status, seizures, or coma. Check blood glucose on any insulin-dependent patient with AMS.',
-      'Beta blockers and clonidine can <span class="hl hl--warn">mask tachycardia and diaphoresis</span> in hypoglycemia — a patient on both insulin and a beta blocker may present with AMS as the only sign.',
-      '<span class="hl hl--ci">Overdose</span> causes prolonged hypoglycemia lasting up to 24 hours due to the long-acting formulation. Dextrose boluses may need to be repeated; a single correction does not mean the patient is safe.',
-      'Insulin-dependent patients found unresponsive should be assumed hypoglycemic until proven otherwise — <span class="hl hl--warn">treat empirically with dextrose or glucagon</span> if glucose check is delayed.',
-      'Patients may also take rapid-acting insulin (e.g., lispro, aspart) in addition to glargine — the presence of <span class="hl hl--drug">multiple insulin types</span> increases overdose and dosing-error risk.'
-    ]
+    summary: "Insulin glargine is a long-acting basal insulin that signals insulin-dependent diabetes with significant metabolic disease burden. The primary prehospital threat is hypoglycemia — and because glargine forms a subcutaneous depot, hypoglycemia can recur for 24–96 hours after overdose, well beyond a single dextrose bolus. A patient on glargine who is found hypoglycemic should not be treated and released; the long-acting depot means recurrence is likely. Beta blockers and clonidine — frequently co-prescribed in this population — mask the classic adrenergic warning signs, so hypoglycemia may present as altered mental status without tachycardia or diaphoresis."
   },
   {
     id: "glipizide",
-    summary: "A second-generation sulfonylurea used to lower blood glucose in type 2 diabetes. Works by stimulating insulin release from pancreatic beta cells, which means hypoglycemia can occur independently of food intake.",
-    genericName: "Glipizide",
-    tradeNames: ["Glucotrol", "Glucotrol XL"],
+    drugName: "Glipizide",
+    tradeName: ["Glucotrol", "Glucotrol XL"],
     category: ["Endocrine"],
     classes: ["Sulfonylurea"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Blocks ATP-sensitive potassium channels on pancreatic beta cells, causing depolarization and calcium influx that triggers insulin granule exocytosis. Insulin release occurs regardless of blood glucose level, which is why hypoglycemia is the dominant risk.",
-        target: {
-          name: "ATP-sensitive K⁺ channels (pancreatic beta cells)",
-          action: "blocker",
-          result: "↑ Insulin secretion, ↓ blood glucose",
-          system: "metabolic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Type 2 diabetes mellitus"],
+    comorbidities: ["Obesity", "Hypertension", "Dyslipidemia", "Coronary artery disease", "Chronic kidney disease"],
+    polypharmacy: ["Metformin", "Statins (atorvastatin, rosuvastatin)", "ACE Inhibitors (lisinopril, enalapril)", "Insulin (glargine, lispro)", "Aspirin"],
+    overdoseToxicity: [
+      "Profound, prolonged hypoglycemia — may recur for 24–48 hours",
+      "Seizures",
+      "Coma and neurological impairment",
+      "Rebound hypoglycemia after dextrose administration due to stimulated insulin release"
     ],
-    patientIndications: ["Type 2 Diabetes"],
-    considerations: [
-      '<span class="hl hl--ci">Hypoglycemia</span> is the primary adverse effect — presents with diaphoresis, tremors, tachycardia, confusion, seizures, or coma. Because the drug forces insulin release independent of glucose levels, hypoglycemia can be severe and prolonged.',
-      'Sulfonylurea-induced hypoglycemia has a high risk of <span class="hl hl--warn">recurrence after initial dextrose correction</span>. These patients should not be treated and released in the field — transport is indicated even if glucose normalizes after treatment.',
-      'Elderly, malnourished, and renally impaired patients are at <span class="hl hl--warn">highest risk</span> for severe hypoglycemia due to decreased drug clearance and reduced glycogen stores.',
-      'Extended-release formulations (<span class="hl hl--drug">Glucotrol XL</span>) can cause delayed-onset hypoglycemia up to 24–48 hours post-ingestion, making accidental or intentional overdose particularly dangerous.',
-      '<span class="hl hl--ci">Overdose</span>: prolonged, refractory hypoglycemia that may require repeated dextrose boluses and continuous dextrose infusion. Glucagon is a temporizing measure only — it can paradoxically stimulate further insulin release. Octreotide is the definitive adjunct in-hospital.'
-    ]
+    precautions: [
+      'Sulfonylurea-induced <span class="hl hl--ci">hypoglycemia</span> is prolonged — a single <span class="hl hl--drug">dextrose</span> bolus may trigger rebound hypoglycemia from further insulin release.',
+      '<span class="hl hl--drug">Beta blockers</span> mask adrenergic warning signs of hypoglycemia — tachycardia and tremor may be absent despite critically low glucose.',
+      '<span class="hl hl--drug">Epinephrine</span> and other sympathomimetics antagonize glipizide by raising blood glucose, potentially causing <span class="hl hl--warn">loss of glycemic control</span>.',
+      'Elderly patients and those with <span class="hl hl--warn">renal or hepatic impairment</span> have prolonged drug clearance and increased hypoglycemia risk.',
+      'Patients on sulfonylureas who are treated and released in the field are at risk for <span class="hl hl--ci">recurrent hypoglycemia</span> — transport is strongly indicated.'
+    ],
+    summary: "Glipizide is a second-generation sulfonylurea that stimulates pancreatic insulin release independent of blood glucose levels. Its presence on a med list flags a type 2 diabetic at risk for hypoglycemia, especially if the patient has missed meals, is acutely ill, or has renal impairment. The key prehospital concern is that sulfonylurea-induced hypoglycemia recurs after dextrose correction because the drug continues to drive insulin secretion — these patients should not be treated and released. Beta blockers, frequently co-prescribed in this population, mask the classic adrenergic warning signs of low glucose."
   },
   {
     id: "glimepiride",
-    summary: "A second-generation sulfonylurea used to lower blood glucose in type 2 diabetes. Stimulates insulin release from functioning pancreatic beta cells, making hypoglycemia the primary prehospital concern.",
-    genericName: "Glimepiride",
-    tradeNames: ["Amaryl"],
+    drugName: "Glimepiride",
+    tradeName: ["Amaryl"],
     category: ["Endocrine"],
     classes: ["Sulfonylurea"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Blocks ATP-sensitive potassium channels on pancreatic beta cells, triggering membrane depolarization, calcium influx, and insulin exocytosis. Insulin release is glucose-independent, meaning the drug can drive blood glucose dangerously low even in fasting states.",
-        target: {
-          name: "ATP-sensitive K⁺ channels (pancreatic beta cells)",
-          action: "blocker",
-          result: "↑ Insulin secretion, ↓ blood glucose",
-          system: "metabolic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Type 2 diabetes mellitus"],
+    comorbidities: ["Hypertension", "Coronary artery disease", "Chronic kidney disease", "Obesity", "Peripheral neuropathy"],
+    polypharmacy: ["Metformin", "Insulin (glargine, lispro)", "ACE Inhibitors (lisinopril, enalapril)", "Statins (atorvastatin, rosuvastatin)", "Aspirin"],
+    overdoseToxicity: [
+      "Profound, prolonged hypoglycemia lasting hours to days",
+      "Seizures and coma from neuroglycopenia",
+      "Tachycardia, diaphoresis, tremor (autonomic response)",
+      "Recurrent hypoglycemia after initial dextrose correction",
+      "Hypoglycemic unawareness in long-standing diabetics"
     ],
-    patientIndications: ["Type 2 Diabetes"],
-    considerations: [
-      '<span class="hl hl--ci">Hypoglycemia</span> is the dominant adverse effect — presents with diaphoresis, tremors, tachycardia, altered mental status, seizures, or coma. Occurs because insulin release is not glucose-dependent.',
-      'Sulfonylurea-induced hypoglycemia is prone to <span class="hl hl--warn">recurrence after dextrose correction</span>. The drug continues stimulating insulin release for hours — these patients require transport even if glucose normalizes on scene.',
-      'Glimepiride has a longer duration of action than glipizide, increasing the risk of <span class="hl hl--warn">delayed and prolonged hypoglycemia</span> — especially in elderly and renally impaired patients with decreased clearance.',
-      'Contraindicated in patients with <span class="hl hl--warn">sulfonamide allergy</span> — cross-reactivity is possible. Ask about sulfa allergies during history-taking.',
-      '<span class="hl hl--ci">Overdose</span>: severe, prolonged hypoglycemia that can persist 24–72 hours. Repeated dextrose boluses are temporizing. Glucagon may paradoxically worsen hypoglycemia by stimulating further insulin release. Octreotide is the definitive in-hospital adjunct.'
-    ]
+    precautions: [
+      'Sulfonylurea-induced <span class="hl hl--ci">hypoglycemia recurs after dextrose</span> because the drug continues to stimulate insulin secretion for hours.',
+      '<span class="hl hl--drug">Glucagon</span> can paradoxically worsen hypoglycemia by triggering further <span class="hl hl--ci">insulin release</span> from sulfonylurea-primed beta cells.',
+      'Co-prescribed <span class="hl hl--drug">beta blockers</span> mask adrenergic symptoms of hypoglycemia — patient may present with <span class="hl hl--warn">altered mental status as the first sign</span>.',
+      '<span class="hl hl--warn">Renal impairment</span> prolongs drug clearance and increases hypoglycemia risk at therapeutic doses.',
+      'A single tablet ingestion in a non-diabetic (especially a child) can cause <span class="hl hl--ci">life-threatening hypoglycemia</span>.'
+    ],
+    summary: "Glimepiride is a second-generation sulfonylurea that stimulates insulin release from pancreatic beta cells regardless of blood glucose levels. Finding it on a med list identifies a type 2 diabetic at significant risk for hypoglycemia, particularly with missed meals, acute illness, or declining renal function. The critical prehospital concern is that sulfonylurea-induced hypoglycemia is prolonged and recurrent — dextrose provides only temporary correction while the drug continues driving insulin secretion, making transport mandatory. Unlike other sulfonylureas, glimepiride has fewer direct cardiac effects, but the co-prescribed medications in this population (beta blockers, insulin) compound the hypoglycemia risk."
   },
   {
     id: "semaglutide",
-    summary: "A GLP-1 receptor agonist used for type 2 diabetes and chronic weight management. Available as a weekly subcutaneous injection (Ozempic, Wegovy) and a daily oral tablet (Rybelsus).",
-    genericName: "Semaglutide",
-    tradeNames: ["Ozempic", "Wegovy", "Rybelsus"],
-    category: ["Endocrine"],
+    drugName: "Semaglutide",
+    tradeName: ["Ozempic", "Wegovy", "Rybelsus"],
+    category: ["Endocrine", "Cardiovascular"],
     classes: ["GLP-1 Agonist"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Binds to and activates GLP-1 receptors, stimulating glucose-dependent insulin secretion and suppressing glucagon release. Also delays gastric emptying and activates central satiety pathways, reducing appetite and food intake.",
-        target: {
-          name: "GLP-1 receptors",
-          action: "agonist",
-          result: "↑ Insulin secretion, ↓ glucagon, delayed gastric emptying, ↓ appetite",
-          system: "metabolic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Type 2 diabetes", "Obesity (chronic weight management)", "Cardiovascular risk reduction (T2DM)"],
+    comorbidities: ["Obesity", "Coronary artery disease", "Hypertension", "Dyslipidemia", "Obstructive sleep apnea"],
+    polypharmacy: ["Metformin", "Statins (atorvastatin, rosuvastatin)", "ACE Inhibitors (lisinopril, enalapril)", "Insulin (glargine, lispro)", "Sulfonylureas (glipizide, glimepiride)"],
+    overdoseToxicity: ["Severe, persistent nausea and vomiting", "Dehydration with orthostatic hypotension", "Hypoglycemia (primarily when co-prescribed insulin or sulfonylureas)", "Acute pancreatitis", "Acute kidney injury secondary to volume depletion"],
+    precautions: [
+      'Delays <span class="hl hl--warn">gastric emptying</span> — increases aspiration risk during airway management or sedation.',
+      '<span class="hl hl--ci">Hypoglycemia</span> risk escalates sharply when combined with <span class="hl hl--drug">insulin</span> or sulfonylureas.',
+      'Persistent vomiting from overdose or dose escalation can cause <span class="hl hl--ci">severe dehydration</span> and acute kidney injury.',
+      'One-week half-life means overdose symptoms <span class="hl hl--warn">persist for days</span> — no antidote exists.',
+      'Severe epigastric pain radiating to the back may indicate <span class="hl hl--ci">acute pancreatitis</span>.'
     ],
-    patientIndications: ["Type 2 Diabetes", "Obesity", "Chronic Weight Management", "Cardiovascular Risk Reduction in T2DM"],
-    considerations: [
-      'GI effects are the most common reason for EMS contact — <span class="hl hl--ci">nausea, vomiting, diarrhea, and abdominal pain</span> can cause significant dehydration. Assess fluid status carefully and consider IV fluid resuscitation.',
-      '<span class="hl hl--ci">Hypoglycemia</span> risk increases substantially when combined with sulfonylureas or insulin. Check blood glucose on all patients taking semaglutide, especially diabetics on multiple agents.',
-      'Delayed gastric emptying raises <span class="hl hl--warn">aspiration risk</span> in patients with altered mental status. Treat airway management with heightened caution.',
-      'Associated with <span class="hl hl--ci">acute pancreatitis</span> — consider in patients presenting with severe epigastric pain radiating to the back.',
-      '<span class="hl hl--ci">Overdose</span>: presents with severe nausea/vomiting, hypotension, hypoglycemia, and altered mental status. Counterfeit and compounded products are increasingly encountered — the patient may not be taking FDA-approved semaglutide.'
-    ]
+    summary: "Semaglutide is a GLP-1 receptor agonist prescribed for type 2 diabetes and weight management, now among the most commonly encountered home medications. Its primary prehospital relevance is delayed gastric emptying, which creates aspiration risk during airway management, and the potential for hypoglycemia when co-prescribed with insulin or sulfonylureas. Overdose — increasingly seen with compounded and counterfeit products — presents as protracted GI symptoms, dehydration, and hypoglycemia, complicated by the drug's one-week half-life. Assess fluid status, blood glucose, and watch for pancreatitis in any symptomatic patient on this drug."
   },
   {
     id: "empagliflozin",
-    summary: "An SGLT2 inhibitor used for type 2 diabetes, heart failure, and chronic kidney disease. Lowers blood glucose by blocking renal glucose reabsorption, and has significant cardiovascular and renal protective effects independent of glycemic control.",
-    genericName: "Empagliflozin",
-    tradeNames: ["Jardiance"],
+    drugName: "Empagliflozin",
+    tradeName: ["Jardiance"],
     category: ["Endocrine", "Cardiovascular"],
     classes: ["SGLT2 Inhibitor"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Inhibits SGLT2 in the proximal renal tubule, preventing reabsorption of filtered glucose and sodium. This increases urinary glucose excretion (lowering blood glucose independent of insulin) and produces natriuresis and osmotic diuresis, reducing intravascular volume and cardiac preload.",
-        target: {
-          name: "Sodium-glucose co-transporter 2 (SGLT2)",
-          action: "inhibitor",
-          result: "↑ Urinary glucose excretion, ↓ blood glucose, ↓ intravascular volume",
-          system: "metabolic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Type 2 diabetes", "Heart failure", "Chronic kidney disease", "CV death risk reduction"],
+    comorbidities: ["Coronary artery disease", "Heart failure", "Chronic kidney disease", "Hypertension", "Obesity"],
+    polypharmacy: ["Metformin", "ACE Inhibitors (lisinopril, ramipril)", "Loop diuretics (furosemide)", "Statins (atorvastatin, rosuvastatin)", "Insulin (glargine, lispro)"],
+    overdoseToxicity: [
+      "Euglycemic diabetic ketoacidosis (normal glucose with high anion gap acidosis)",
+      "Severe dehydration and hypovolemia",
+      "Hypotension and syncope",
+      "Acute kidney injury"
     ],
-    patientIndications: ["Type 2 Diabetes", "Heart Failure", "Chronic Kidney Disease"],
-    considerations: [
-      'Causes <span class="hl hl--ci">volume depletion</span> through osmotic diuresis — can present as hypotension, dehydration, or syncope, especially in patients also taking diuretics, ACE inhibitors, or ARBs.',
-      'Can cause <span class="hl hl--ci">euglycemic diabetic ketoacidosis</span> — DKA with normal or near-normal blood glucose. A BGL in range does not rule out DKA in a patient on an SGLT2 inhibitor.',
-      'Increases risk of <span class="hl hl--warn">urinary tract infections</span> and genital mycotic infections due to elevated urinary glucose concentration.',
-      '<span class="hl hl--ci">Fournier gangrene</span> (necrotizing fasciitis of the perineum) is a rare but serious complication — FDA black box concern. Suspect in patients with perineal pain, tenderness, or swelling.',
-      'Does not typically cause <span class="hl hl--indication">hypoglycemia</span> as monotherapy because the mechanism is insulin-independent — but risk increases when combined with insulin or sulfonylureas.'
-    ]
+    precautions: [
+      'Can cause <span class="hl hl--ci">euglycemic DKA</span> — ketoacidosis with a normal blood glucose, easily missed on standard BGL check.',
+      'Osmotic diuresis causes <span class="hl hl--ci">volume depletion</span> and hypotension, compounded by concurrent diuretics or ACE inhibitors.',
+      'Ketoacidosis risk persists up to <span class="hl hl--warn">14 days after discontinuation</span> due to prolonged pharmacologic effects.',
+      '<span class="hl hl--drug">Dextrose</span> administration in euglycemic DKA requires concurrent insulin — glucose alone does not correct the acidosis.',
+      'Hypoglycemia risk increases when co-prescribed with <span class="hl hl--drug">insulin</span> or <span class="hl hl--drug">sulfonylureas</span>.'
+    ],
+    summary: "Empagliflozin is an SGLT2 inhibitor prescribed for type 2 diabetes, heart failure, and chronic kidney disease. Its presence on a med list signals a patient with significant cardiovascular or renal comorbidity. The critical prehospital concern is euglycemic DKA — ketoacidosis presenting with a normal blood glucose — which will be missed if the medic relies on BGL alone to rule out diabetic emergency. Assess for Kussmaul respirations, fruity breath, nausea, and abdominal pain in any acutely ill patient on this drug, regardless of glucose reading."
   },
   {
     id: "dapagliflozin",
-    summary: "An SGLT2 inhibitor used for type 2 diabetes, heart failure, and chronic kidney disease. Blocks glucose reabsorption in the kidneys, causing glucosuria and osmotic diuresis that lowers blood glucose and reduces fluid volume.",
-    genericName: "Dapagliflozin",
-    tradeNames: ["Farxiga"],
+    drugName: "Dapagliflozin",
+    tradeName: ["Farxiga", "Forxiga"],
     category: ["Endocrine", "Cardiovascular"],
     classes: ["SGLT2 Inhibitor"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Inhibits the sodium-glucose cotransporter 2 in the proximal tubule, preventing reabsorption of filtered glucose. This produces glucosuria and osmotic diuresis, lowering blood glucose and reducing intravascular volume.",
-        target: {
-          name: "Sodium-glucose cotransporter 2 (SGLT2)",
-          action: "inhibitor",
-          result: "↓ Glucose reabsorption, glucosuria, osmotic diuresis",
-          system: "metabolic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Type 2 diabetes", "Heart failure", "Chronic kidney disease", "CV death risk reduction"],
+    comorbidities: ["Coronary artery disease", "Heart failure", "Chronic kidney disease", "Hypertension", "Obesity"],
+    polypharmacy: ["Metformin", "ACE Inhibitors (lisinopril, enalapril)", "Loop diuretics (furosemide)", "Statins (atorvastatin, rosuvastatin)", "Insulin (glargine, lispro)"],
+    overdoseToxicity: [
+      "Euglycemic diabetic ketoacidosis (normal glucose with high anion gap acidosis)",
+      "Severe dehydration from osmotic diuresis",
+      "Hypotension and orthostatic syncope",
+      "Acute kidney injury"
     ],
-    patientIndications: ["Type 2 Diabetes", "Heart Failure", "Chronic Kidney Disease"],
-    considerations: [
-      '<span class="hl hl--ci">Euglycemic DKA</span> — SGLT2 inhibitors can cause diabetic ketoacidosis with normal or near-normal blood glucose levels. Suspect in any patient on this drug presenting with nausea, vomiting, abdominal pain, or Kussmaul breathing, even without hyperglycemia.',
-      'Causes <span class="hl hl--ci">volume depletion</span> through osmotic diuresis — risk of symptomatic hypotension and dehydration, especially in elderly patients or those on loop diuretics.',
-      '<span class="hl hl--ci">Fournier gangrene</span> (necrotizing fasciitis of the perineum) is a rare but serious complication — FDA black box concern. Suspect in patients with perineal pain, tenderness, or swelling.',
-      'Increases risk of <span class="hl hl--warn">genitourinary infections</span> (genital mycotic infections, UTIs) due to persistent glucosuria.',
-      'Does not typically cause <span class="hl hl--indication">hypoglycemia</span> as monotherapy because the mechanism is insulin-independent — but risk increases when combined with insulin or sulfonylureas.'
-    ]
+    precautions: [
+      'Can cause <span class="hl hl--ci">euglycemic DKA</span> — ketoacidosis with a normal blood glucose, easily missed on standard BGL check.',
+      'Osmotic diuresis causes <span class="hl hl--ci">volume depletion</span> and hypotension, especially with concurrent diuretics or ACE inhibitors.',
+      '<span class="hl hl--drug">Dextrose</span> administration in euglycemic DKA requires concurrent insulin — glucose alone does not correct the acidosis.',
+      'Hypoglycemia risk increases significantly when co-prescribed with <span class="hl hl--drug">insulin</span> or <span class="hl hl--drug">sulfonylureas</span>.',
+      'Fournier gangrene (necrotizing perineal fasciitis) is a rare but <span class="hl hl--warn">life-threatening complication</span> — assess for perineal pain, erythema, or crepitus.'
+    ],
+    summary: "Dapagliflozin is an SGLT2 inhibitor prescribed for type 2 diabetes, heart failure, and chronic kidney disease. Its presence on a med list indicates a patient with significant cardiovascular or renal comorbidity. The primary prehospital concern is euglycemic DKA — ketoacidosis with a normal blood glucose — which will be missed if the medic relies on BGL alone. Assess for Kussmaul respirations, fruity breath, nausea, and abdominal pain in any acutely ill patient on this drug, regardless of glucose reading."
   },
   {
     id: "albuterol",
-    summary: "A short-acting beta-2 agonist (SABA) used as a rescue inhaler for acute bronchospasm in asthma and COPD. Patients carrying an albuterol inhaler have reactive airway disease until proven otherwise.",
-    genericName: "Albuterol",
-    tradeNames: ["ProAir", "Ventolin", "AccuNeb", "Proventil"],
+    drugName: "Albuterol",
+    tradeName: ["ProAir HFA", "Ventolin HFA", "AccuNeb", "Proventil HFA"],
     category: ["Pulmonary"],
     classes: ["Beta-2 Agonist", "Bronchodilator"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Selectively activates beta-2 adrenergic receptors on bronchial smooth muscle, increasing intracellular cAMP and causing rapid bronchodilation. Also enhances mucociliary clearance.",
-        target: {
-          name: "Beta-2 adrenergic receptors",
-          action: "agonist",
-          result: "Bronchodilation, ↑ mucociliary clearance",
-          system: "adrenergic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Asthma", "COPD", "Exercise-induced bronchospasm", "Acute bronchospasm"],
+    comorbidities: ["Allergic rhinitis", "GERD", "Obesity", "Atopic dermatitis", "Obstructive sleep apnea"],
+    polypharmacy: ["Inhaled corticosteroids (fluticasone, budesonide)", "Ipratropium", "Montelukast", "Prednisone", "Fluticasone-salmeterol"],
+    overdoseToxicity: ["Tachycardia and cardiac arrhythmias", "Hypokalemia (transcellular shift)", "Hyperglycemia", "Tremors and agitation", "Lactic acidosis"],
+    precautions: [
+      'Excessive use causes <span class="hl hl--ci">hypokalemia</span> — may potentiate arrhythmias, especially in patients on digoxin.',
+      '<span class="hl hl--drug">Beta blockers</span> (especially non-selective) antagonize albuterol and can trigger severe <span class="hl hl--ci">bronchospasm</span> in asthma patients.',
+      'Patients on <span class="hl hl--drug">MAOIs or TCAs</span> may have exaggerated cardiovascular effects from beta-2 stimulation.',
+      'Paradoxical <span class="hl hl--warn">bronchospasm</span> can occur — worsening dyspnea after nebulization is not always a sign to give more albuterol.',
+      'Hyperventilation during toxicity is a compensatory response to <span class="hl hl--ci">metabolic acidosis</span>, not worsening bronchospasm.'
     ],
-    patientIndications: ["Asthma", "COPD", "Exercise-Induced Bronchospasm"],
-    considerations: [
-      'Causes <span class="hl hl--ci">tachycardia</span> and <span class="hl hl--warn">tremor</span> — the two most predictable side effects. Stop or hold in the setting of tachyarrhythmia.',
-      'Can cause <span class="hl hl--ci">hypokalemia</span> through intracellular potassium shift — this is a transcellular redistribution, not a true body deficit. Significant after repeated or high doses.',
-      '<span class="hl hl--ci">Paradoxical bronchospasm</span> can occur, especially with nebulizers containing benzalkonium chloride preservative. If wheezing worsens after treatment, discontinue immediately.',
-      '<span class="hl hl--drug">Beta blockers</span> neutralize the bronchodilatory effect and can trigger severe bronchospasm in asthma patients — a critical interaction on calls where both drugs are in play.',
-      'Albuterol is an adjunct in anaphylaxis for lower airway wheezing — <span class="hl hl--drug">epinephrine</span> remains first-line. Do not substitute albuterol for epi in anaphylaxis.'
-    ]
+    summary: "Albuterol is a short-acting beta-2 agonist found on the med list of nearly every asthma and COPD patient. Its presence confirms reactive airway disease and sets expectations for the call — wheezing, dyspnea, and possible respiratory failure. The key prehospital concern with overuse is hypokalemia and tachyarrhythmias, not just bronchospasm. In a patient who has been self-administering frequent albuterol treatments before EMS arrival, monitor for tremors, tachycardia, and ECG changes."
   },
   {
     id: "ipratropium",
-    summary: "An inhaled anticholinergic bronchodilator used for maintenance treatment of COPD and as an add-on to albuterol in acute asthma exacerbations.",
-    genericName: "Ipratropium",
-    tradeNames: ["Atrovent", "Combivent"],
+    drugName: "Ipratropium",
+    tradeName: ["Atrovent", "Combivent"],
     category: ["Pulmonary"],
-    classes: ["Bronchodilator", "LAMA"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Antagonizes acetylcholine at muscarinic receptors on bronchial smooth muscle, reducing vagally mediated bronchoconstriction and decreasing mucus secretion.",
-        target: {
-          name: "Muscarinic cholinergic receptors (M3)",
-          action: "antagonist",
-          result: "Bronchodilation, ↓ airway secretions",
-          system: "cholinergic"
-        }
-      }
+    classes: ["LAMA", "Bronchodilator"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["COPD maintenance", "Asthma exacerbation (adjunct)", "Chronic bronchitis", "Emphysema"],
+    comorbidities: ["COPD", "Asthma", "Heart failure", "Coronary artery disease", "Type 2 diabetes"],
+    polypharmacy: ["Beta-2 agonists (albuterol, levalbuterol)", "Inhaled corticosteroids (fluticasone, budesonide)", "Systemic corticosteroids (prednisone)", "Statins (atorvastatin)", "ACE Inhibitors (lisinopril, enalapril)"],
+    overdoseToxicity: null,
+    precautions: [
+      'Anticholinergic effects include <span class="hl hl--ci">tachycardia</span>, urinary retention, and mydriasis — assess for these in patients using high or frequent doses.',
+      'Nebulizer mist contacting the eyes can precipitate or worsen <span class="hl hl--ci">acute narrow-angle glaucoma</span>.',
+      '<span class="hl hl--warn">Paradoxical bronchospasm</span> can occur, particularly on first use — worsening dyspnea after administration is not always treatment failure.',
+      'Structurally related to <span class="hl hl--drug">atropine</span> — patients with atropine allergy are contraindicated.',
+      'Additive anticholinergic effects when combined with other anticholinergic drugs (e.g., <span class="hl hl--drug">diphenhydramine</span>, promethazine).'
     ],
-    patientIndications: ["COPD", "Chronic Bronchitis", "Emphysema", "Asthma Exacerbation"],
-    considerations: [
-      'In EMS, ipratropium is combined with <span class="hl hl--drug">albuterol</span> in the first nebulizer for acute bronchospasm — the anticholinergic and beta-agonist mechanisms are complementary.',
-      'Use caution in patients with <span class="hl hl--warn">narrow-angle glaucoma</span> — nebulized ipratropium can worsen intraocular pressure, especially if mist contacts the eyes. Use a mouthpiece over a face mask when possible.',
-      'Can cause <span class="hl hl--ci">paradoxical bronchospasm</span> on initial use. If wheezing worsens after administration, discontinue immediately.',
-      '<span class="hl hl--warn">Anticholinergic effects</span> include dry mouth, urinary retention, and tachycardia — assess for these in patients already taking other anticholinergic medications.',
-      'Overdose by inhalation is unlikely due to poor systemic absorption. High-dose toxicity would present as classic <span class="hl hl--ci">anticholinergic syndrome</span>: hyperthermia, agitation, mydriasis, mucosal dryness.'
-    ]
+    summary: "Ipratropium is a short-acting inhaled anticholinergic used for COPD maintenance and as an adjunct to albuterol in severe asthma and COPD exacerbations. Its presence on a med list confirms chronic obstructive airway disease. Systemic toxicity from inhaled ipratropium is rare due to poor absorption, but additive anticholinergic effects are a concern when combined with other anticholinergic medications encountered on the same patient's med list."
   },
   {
     id: "fluticasone",
-    summary: "An inhaled corticosteroid used as a maintenance controller for asthma and COPD. Patients take it daily to reduce airway inflammation — it does not treat acute bronchospasm.",
-    genericName: "Fluticasone",
-    tradeNames: ["Flovent", "ArmonAir", "Flonase"],
+    drugName: "Fluticasone",
+    tradeName: ["Flovent", "Flovent HFA", "Flonase", "ArmonAir"],
     category: ["Pulmonary"],
     classes: ["Corticosteroid"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Binds intracellular glucocorticoid receptors, suppressing inflammatory gene transcription and reducing airway inflammation, mucus production, and bronchial hyperresponsiveness.",
-        target: {
-          name: "Glucocorticoid receptors",
-          action: "agonist",
-          result: "↓ Airway inflammation, ↓ mucus production, ↓ bronchial hyperresponsiveness",
-          system: "inflammatory"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Asthma (maintenance)", "COPD", "Allergic rhinitis", "Nonallergic rhinitis", "Chronic rhinosinusitis"],
+    comorbidities: ["COPD", "Allergic rhinitis", "Nasal polyps", "Atopic dermatitis", "Obesity"],
+    polypharmacy: ["Beta-2 agonists (albuterol, salmeterol)", "Montelukast", "Ipratropium", "Prednisone", "Antihistamines (cetirizine, loratadine)"],
+    overdoseToxicity: null,
+    precautions: [
+      'Long-term high-dose use (>500 mcg/day) can cause <span class="hl hl--ci">HPA axis suppression</span> — consider adrenal insufficiency in patients presenting with unexplained hypotension or shock.',
+      'Concurrent use of <span class="hl hl--warn">CYP3A4 inhibitors</span> (ritonavir, itraconazole) potentiates systemic steroid effects and increases adrenal suppression risk.',
+      'Inhaled fluticasone does <span class="hl hl--warn">not treat acute bronchospasm</span> — it is a controller medication, not a rescue inhaler.',
+      'Patients on chronic inhaled corticosteroids are often also on <span class="hl hl--drug">prednisone</span> burst packs — assess total steroid burden.',
+      'Presence of a steroid inhaler confirms <span class="hl hl--warn">reactive airway disease</span> — anticipate bronchospasm as a potential complication during the call.'
     ],
-    patientIndications: ["Asthma", "COPD", "Allergic Rhinitis"],
-    considerations: [
-      'Not a rescue inhaler — fluticasone does <span class="hl hl--ci">not treat acute bronchospasm</span>. If a patient in respiratory distress is only using their fluticasone inhaler, they need a beta-2 agonist.',
-      'Long-term use can cause <span class="hl hl--warn">adrenal suppression</span>. Patients who abruptly stop or who are under physiological stress may develop adrenal crisis — consider this in unexplained hypotension or altered mental status.',
-      '<span class="hl hl--warn">Immunosuppression</span> increases susceptibility to infections. Oropharyngeal candidiasis (thrush) is the most common local adverse effect.',
-      'Patients on high-dose inhaled corticosteroids may have <span class="hl hl--warn">blunted stress responses</span> — their cortisol production may be insufficient during acute illness, trauma, or surgery.',
-      'Systemic effects are generally minimal at standard inhaled doses, but co-administration with strong <span class="hl hl--drug">CYP3A4 inhibitors</span> (ritonavir, ketoconazole) can significantly increase systemic exposure and toxicity.'
-    ]
+    summary: "Fluticasone is an inhaled corticosteroid used for maintenance control of asthma and COPD. Its presence on a med list confirms chronic airway disease and signals a patient prone to bronchospasm under physiological stress. It is not a rescue medication and provides no acute bronchodilation. At high doses or with prolonged use, HPA axis suppression is a real concern — unexplained hypotension in a patient on chronic inhaled steroids should raise suspicion for adrenal insufficiency."
   },
   {
     id: "fluticasone-salmeterol",
-    summary: "A combination inhaled corticosteroid and long-acting beta-2 agonist (ICS/LABA) used for maintenance treatment of asthma and COPD. Not a rescue inhaler — patients still need albuterol for acute symptoms.",
-    genericName: "Fluticasone/Salmeterol",
-    tradeNames: ["Advair Diskus", "Advair HFA", "AirDuo RespiClick"],
+    drugName: "Fluticasone-Salmeterol",
+    tradeName: ["Advair Diskus", "Advair HFA", "AirDuo RespiClick"],
     category: ["Pulmonary"],
     classes: ["Corticosteroid", "LABA", "Bronchodilator"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Fluticasone suppresses airway inflammation by inhibiting the release of inflammatory cytokines, leukotrienes, and prostaglandins, reducing mucosal edema, mucus production, and bronchial hyperresponsiveness.",
-        target: {
-          name: "Glucocorticoid receptors (airway)",
-          action: "agonist",
-          result: "↓ Airway inflammation, ↓ mucus production, ↓ bronchial hyperreactivity",
-          system: "inflammatory"
-        }
-      },
-      {
-        brief: "Salmeterol activates beta-2 receptors on bronchial smooth muscle, producing sustained bronchodilation lasting approximately 12 hours per dose.",
-        target: {
-          name: "Beta-2 adrenergic receptors (bronchial smooth muscle)",
-          action: "agonist",
-          result: "Sustained bronchodilation, ↑ airflow",
-          system: "adrenergic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Asthma (maintenance)", "COPD (maintenance)", "Prevention of exacerbations"],
+    comorbidities: ["Allergic rhinitis", "GERD", "Obesity", "Obstructive sleep apnea", "Heart failure"],
+    polypharmacy: ["Short-acting beta agonists (albuterol)", "Montelukast", "Proton pump inhibitors (omeprazole, pantoprazole)", "Tiotropium", "Prednisone"],
+    overdoseToxicity: ["Tachycardia with QTc prolongation", "Hypokalemia", "Hyperglycemia", "Tremor and agitation", "Lactic acidosis (massive ingestion)"],
+    precautions: [
+      'Not a rescue inhaler — provides <span class="hl hl--warn">no acute bronchodilation</span> during an asthma or COPD exacerbation.',
+      '<span class="hl hl--drug">MAOIs</span> and <span class="hl hl--drug">TCAs</span> potentiate the cardiovascular effects of salmeterol — risk of tachycardia and hypertension.',
+      'Long-term corticosteroid component can cause <span class="hl hl--ci">adrenal suppression</span> — consider adrenal crisis in unexplained hypotension.',
+      'Salmeterol can produce <span class="hl hl--ci">QTc prolongation</span> at supratherapeutic doses, with potential for ventricular arrhythmias.',
+      'COPD patients on ICS component have <span class="hl hl--warn">increased pneumonia risk</span> — respiratory decline may be infectious rather than an exacerbation.'
     ],
-    patientIndications: ["Asthma", "COPD", "Chronic Bronchitis", "Emphysema"],
-    considerations: [
-      'This is a <span class="hl hl--warn">maintenance inhaler, not a rescue inhaler</span> — it will not relieve acute bronchospasm. Patients should still carry a short-acting beta-2 agonist (albuterol) for acute episodes.',
-      'The salmeterol component can cause <span class="hl hl--ci">tachycardia</span>, palpitations, and QTc prolongation, particularly in overdose or when combined with other sympathomimetics.',
-      '<span class="hl hl--ci">Paradoxical bronchospasm</span> can occur after inhalation — treat with a short-acting bronchodilator and discontinue the combination inhaler.',
-      'Long-term inhaled corticosteroid use can cause <span class="hl hl--warn">adrenal suppression</span> — patients on high doses may have blunted cortisol responses during acute illness or trauma.',
-      'Concurrent use with <span class="hl hl--drug">MAOIs or TCAs</span> can potentiate the cardiovascular effects of salmeterol — use extreme caution.'
-    ]
+    summary: "Fluticasone-salmeterol is a combination ICS/LABA inhaler for maintenance control of asthma and COPD. It is not a rescue inhaler and will not relieve acute bronchospasm. Its presence on a med list confirms chronic airway disease with enough severity to require dual maintenance therapy. Key prehospital concerns are adrenal suppression from the steroid component, cardiovascular stimulation from the LABA, and increased pneumonia risk in COPD patients."
   },
   {
     id: "montelukast",
-    summary: "A leukotriene receptor antagonist used for chronic asthma prophylaxis, exercise-induced bronchoconstriction prevention, and allergic rhinitis. Not a rescue medication — does not treat acute asthma attacks.",
-    genericName: "Montelukast",
-    tradeNames: ["Singulair"],
+    drugName: "Montelukast",
+    tradeName: ["Singulair"],
     category: ["Pulmonary"],
     classes: ["Leukotriene Modifier"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Selectively blocks the cysteinyl leukotriene CysLT1 receptor, preventing LTD4 and LTE4 from triggering airway smooth muscle contraction, mucus secretion, and eosinophilic inflammation.",
-        target: {
-          name: "Cysteinyl leukotriene receptor (CysLT1)",
-          action: "antagonist",
-          result: "↓ Bronchoconstriction, ↓ airway inflammation, ↓ mucus production",
-          system: "inflammatory"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Asthma (prophylaxis)", "Exercise-induced bronchoconstriction", "Seasonal allergic rhinitis", "Perennial allergic rhinitis"],
+    comorbidities: ["Allergic rhinitis", "Eczema / atopic dermatitis", "Nasal polyps", "GERD", "Aspirin-exacerbated respiratory disease"],
+    polypharmacy: ["Inhaled corticosteroids (fluticasone, budesonide)", "Short-acting beta agonists (albuterol)", "Antihistamines (cetirizine, loratadine)", "Intranasal corticosteroids (fluticasone nasal)", "Long-acting beta agonists (salmeterol, formoterol)"],
+    overdoseToxicity: null,
+    precautions: [
+      'FDA boxed warning for <span class="hl hl--ci">neuropsychiatric events</span> — agitation, hallucinations, depression, and suicidal ideation reported at therapeutic doses.',
+      'Not a rescue medication — provides <span class="hl hl--warn">no acute bronchodilation</span> during an asthma attack.',
+      'Rare association with <span class="hl hl--ci">Churg-Strauss syndrome</span> (eosinophilic vasculitis), particularly when oral corticosteroids are tapered.',
+      'Patients with aspirin-sensitive asthma should <span class="hl hl--warn">continue avoiding aspirin and NSAIDs</span> while on montelukast.',
+      'No significant interactions with standard prehospital drugs — does not alter hemodynamics or coagulation.'
     ],
-    patientIndications: ["Asthma", "Exercise-Induced Bronchoconstriction", "Seasonal Allergic Rhinitis", "Perennial Allergic Rhinitis"],
-    considerations: [
-      '<span class="hl hl--ci">Neuropsychiatric effects</span> including agitation, depression, hallucinations, and suicidal ideation have been reported — carries an FDA boxed warning. Ask about behavioral changes during history-taking.',
-      'Not a rescue inhaler and has <span class="hl hl--warn">no role in acute asthma attacks</span>. If a patient is relying on montelukast during an exacerbation, they need appropriate bronchodilator therapy.',
-      'Systemic <span class="hl hl--warn">eosinophilia</span> and vasculitis consistent with Churg-Strauss syndrome have been reported rarely, particularly when oral corticosteroid doses are being reduced.',
-      'Generally well tolerated with a wide therapeutic margin — <span class="hl hl--general">overdose is not a significant prehospital concern</span>. No specific toxidrome or antidote.',
-      'Seeing montelukast on a med list confirms a history of <span class="hl hl--indication">reactive airway disease or allergies</span> — factor this into respiratory assessment and treatment decisions.'
-    ]
+    summary: "Montelukast is a leukotriene receptor antagonist used for chronic asthma prophylaxis and allergic rhinitis. It signals a patient with reactive airway disease, often with an allergic component. The drug has no acute bronchodilator effect and will not help during an active asthma exacerbation. The primary prehospital relevance is the FDA-boxed neuropsychiatric warning — behavioral changes, agitation, and suicidal ideation can occur and may be the reason for the call."
   },
   {
     id: "prednisone",
-    summary: "A synthetic corticosteroid used for a wide range of inflammatory, autoimmune, and allergic conditions. Patients on chronic prednisone have suppressed adrenal function and are immunocompromised — both directly affect prehospital assessment and management.",
-    genericName: "Prednisone",
-    tradeNames: ["Deltasone", "Rayos", "Sterapred"],
-    category: ["Endocrine", "Pulmonary"],
+    drugName: "Prednisone",
+    tradeName: ["Deltasone", "Rayos", "Sterapred"],
+    category: ["Pulmonary", "Pain & Anti-inflammatory", "Endocrine"],
     classes: ["Corticosteroid"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Binds intracellular glucocorticoid receptors, modifying gene transcription to suppress inflammatory mediators (prostaglandins, leukotrienes, cytokines) and reduce immune cell activation. The result is broad anti-inflammatory and immunosuppressive activity across multiple organ systems.",
-        target: {
-          name: "Glucocorticoid receptors",
-          action: "agonist",
-          result: "↓ Inflammatory mediators, ↓ immune response",
-          system: "inflammatory"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Asthma / COPD exacerbation", "Rheumatoid arthritis", "Inflammatory bowel disease", "Systemic lupus erythematosus", "Allergic reactions"],
+    comorbidities: ["COPD / asthma", "Autoimmune disease", "Type 2 diabetes", "Osteoporosis", "Hypertension"],
+    polypharmacy: ["Inhaled corticosteroids (fluticasone, budesonide)", "Bronchodilators (albuterol, ipratropium)", "Methotrexate", "PPIs (omeprazole, pantoprazole)", "Calcium and vitamin D supplements"],
+    overdoseToxicity: null,
+    precautions: [
+      'Chronic use causes <span class="hl hl--ci">HPA axis suppression</span> — abrupt discontinuation or physiologic stress can trigger adrenal crisis.',
+      'Adrenal crisis presents as <span class="hl hl--ci">refractory hypotension</span> unresponsive to fluids and vasopressors — suspect in any chronically steroid-dependent patient in unexplained shock.',
+      'Causes <span class="hl hl--warn">hyperglycemia</span> — blood glucose may be significantly elevated even in non-diabetic patients.',
+      'Chronic immunosuppression <span class="hl hl--warn">masks signs of infection</span> — fever and inflammatory markers may be blunted despite serious illness.',
+      '<span class="hl hl--drug">NSAIDs</span> combined with prednisone significantly increases risk of <span class="hl hl--ci">GI hemorrhage</span>.'
     ],
-    patientIndications: ["Asthma", "COPD exacerbation", "Rheumatoid arthritis", "Systemic lupus erythematosus", "Inflammatory bowel disease", "Allergic reactions", "Adrenal insufficiency", "Organ transplant rejection prophylaxis"],
-    considerations: [
-      'Chronic use causes <span class="hl hl--ci">adrenal suppression</span> — patients cannot mount an appropriate stress response to illness or injury. Abrupt discontinuation or physiological stress without supplemental steroids can precipitate <span class="hl hl--ci">adrenal crisis</span> (refractory hypotension, altered mental status).',
-      '<span class="hl hl--ci">Immunosuppression</span> masks signs of infection — fever, tachycardia, and localized tenderness may be blunted or absent. Maintain a high index of suspicion for sepsis even with a benign-appearing exam.',
-      'Causes <span class="hl hl--warn">hyperglycemia</span> — can worsen diabetic control or unmask latent diabetes. Check blood glucose in any prednisone patient with altered mental status.',
-      'Chronic use leads to <span class="hl hl--warn">osteoporosis</span>, thin fragile skin, and poor wound healing — expect increased fracture risk from minor mechanisms and easy bruising or skin tears during assessment and IV access.',
-      'Can cause psychiatric effects including <span class="hl hl--ci">agitation, psychosis, and severe mood changes</span> — consider steroid-induced psychiatric disturbance in patients on high-dose prednisone presenting with behavioral emergencies.'
-    ]
+    summary: "Prednisone is a systemic corticosteroid found across a wide range of inflammatory and autoimmune conditions. Its presence on a med list signals chronic disease requiring immune modulation and a patient at risk for adrenal suppression. The highest-stakes prehospital concern is adrenal crisis — refractory hypotension in a steroid-dependent patient who missed doses, ran out of medication, or is acutely ill without stress-dose coverage. Expect baseline hyperglycemia and blunted inflammatory responses that can mask serious infection."
   },
   {
     id: "levothyroxine",
-    summary: "A synthetic thyroid hormone (T4) used to replace deficient thyroid function in patients with hypothyroidism. Patients on levothyroxine have an underlying thyroid disorder — typically Hashimoto's thyroiditis or prior thyroidectomy — and depend on this medication to maintain normal metabolism.",
-    genericName: "Levothyroxine",
-    tradeNames: ["Synthroid", "Levoxyl", "Levothroid", "Unithroid", "Tirosint"],
+    drugName: "Levothyroxine",
+    tradeName: ["Synthroid", "Levoxyl", "Levothroid", "Unithroid", "Tirosint"],
     category: ["Endocrine"],
     classes: ["Thyroid Agent", "Hormone"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Provides exogenous T4 identical to the hormone produced by the thyroid gland. T4 is converted peripherally to T3, which binds nuclear thyroid receptors and regulates metabolic rate, cardiac output, and thermogenesis.",
-        target: {
-          name: "Thyroid hormone receptors",
-          action: "donor",
-          result: "Restores normal metabolic rate, HR, and thermogenesis",
-          system: "metabolic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Hypothyroidism", "TSH suppression (thyroid cancer)", "Hashimoto's thyroiditis", "Myxedema"],
+    comorbidities: ["Hyperlipidemia", "Hypertension", "Type 2 diabetes", "Depression", "Osteoporosis"],
+    polypharmacy: ["PPIs (omeprazole, pantoprazole)", "Statins (atorvastatin, rosuvastatin)", "Calcium and vitamin D supplements", "SSRIs (sertraline, escitalopram)", "Antihypertensives (lisinopril, amlodipine)"],
+    overdoseToxicity: ["Tachycardia and atrial arrhythmias", "Hypertension with widened pulse pressure", "Tremor, agitation, and anxiety", "Hyperthermia", "Seizures (rare, large ingestions)"],
+    precautions: [
+      'Symptoms of overdose may be <span class="hl hl--warn">delayed 1–3 days</span> after ingestion — do not clear patients based on initial presentation.',
+      'Levothyroxine increases the effect of <span class="hl hl--drug">warfarin</span>, raising <span class="hl hl--ci">bleeding risk</span> in anticoagulated patients.',
+      'In patients with underlying coronary artery disease, excess thyroid hormone can precipitate <span class="hl hl--ci">angina, MI, or arrhythmias</span>.',
+      '<span class="hl hl--drug">Epinephrine</span> and other sympathomimetics have an exaggerated cardiovascular effect in hyperthyroid states — monitor for <span class="hl hl--ci">tachyarrhythmias</span>.',
+      'Hypothyroid patients presenting with <span class="hl hl--warn">altered mental status, hypothermia, and bradycardia</span> may be in myxedema coma — a life-threatening emergency.'
     ],
-    patientIndications: ["Hypothyroidism", "Hashimoto's Thyroiditis", "Post-Thyroidectomy", "Thyroid Cancer (TSH Suppression)", "Myxedema"],
-    considerations: [
-      'Excessive replacement produces a <span class="hl hl--ci">hyperthyroid state</span> — tachycardia, hypertension, tremor, anxiety, and heat intolerance. Consider levothyroxine overdosage in any patient presenting with unexplained sinus tachycardia.',
-      'Patients on levothyroxine with <span class="hl hl--warn">uncorrected adrenal insufficiency</span> can develop acute adrenal crisis — thyroid hormone replacement increases cortisol metabolism and unmasks the deficiency.',
-      'A hypothyroid patient who has missed or discontinued levothyroxine is at risk for <span class="hl hl--ci">myxedema coma</span> — altered mental status, hypothermia, bradycardia, and hypotension. This is a life-threatening emergency.',
-      'Levothyroxine <span class="hl hl--warn">potentiates oral anticoagulants</span> — patients on concurrent warfarin have increased bleeding risk.',
-      'Symptoms of overdose may be <span class="hl hl--warn">delayed several days</span> due to the long half-life of T4. An asymptomatic patient with a recent large ingestion still requires monitoring and follow-up.'
-    ]
+    summary: "Levothyroxine is synthetic T4 used to replace thyroid hormone in hypothyroid patients. Its presence signals a patient whose metabolic rate, cardiac function, and thermoregulation depend on exogenous hormone replacement. In overdose or overreplacement, expect a sympathomimetic-like picture with tachycardia, hypertension, and agitation — but symptom onset is delayed up to several days. The critical prehospital concern is the undertreated or noncompliant patient presenting with myxedema coma: profound hypothermia, bradycardia, hypotension, and altered mental status."
   },
   {
     id: "omeprazole",
-    summary: "A proton pump inhibitor used for GERD, peptic ulcer disease, and erosive esophagitis. Available OTC and by prescription, making it one of the most frequently seen GI medications on home med lists.",
-    genericName: "Omeprazole",
-    tradeNames: ["Prilosec"],
+    drugName: "Omeprazole",
+    tradeName: ["Prilosec", "Prilosec OTC"],
     category: ["GI"],
     classes: ["Proton Pump Inhibitor"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Irreversibly inhibits the H⁺/K⁺ ATPase pump on gastric parietal cells, blocking the final step of acid secretion. Suppresses both basal and stimulated acid production regardless of the stimulus.",
-        target: {
-          name: "H⁺/K⁺ ATPase (proton pump)",
-          action: "inhibitor",
-          result: "↓ Gastric acid secretion",
-          system: "enzymatic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["GERD", "Peptic ulcer disease", "Erosive esophagitis", "H. pylori eradication (adjunct)", "Zollinger-Ellison syndrome"],
+    comorbidities: ["Chronic GERD", "Peptic ulcer disease", "Barrett esophagus", "Obesity", "NSAID-dependent pain conditions"],
+    polypharmacy: ["NSAIDs (ibuprofen, naproxen)", "Aspirin", "Anticoagulants (warfarin, apixaban)", "Clopidogrel", "SSRIs (sertraline, citalopram)"],
+    overdoseToxicity: null,
+    precautions: [
+      'Inhibits CYP2C19 metabolism of <span class="hl hl--drug">clopidogrel</span>, reducing its <span class="hl hl--ci">antiplatelet effect</span>.',
+      'Increases <span class="hl hl--drug">warfarin</span> exposure via CYP2C19 inhibition — elevated <span class="hl hl--ci">INR and bleeding risk</span>.',
+      'Increases <span class="hl hl--drug">digoxin</span> absorption and impairs its clearance, raising risk of <span class="hl hl--ci">digoxin toxicity</span>.',
+      'Long-term use causes <span class="hl hl--ci">hypomagnesemia</span>, which can present as seizures, arrhythmias, or tetany.',
+      'Potentiates <span class="hl hl--drug">midazolam</span> and <span class="hl hl--drug">diazepam</span> sedation through <span class="hl hl--warn">impaired benzodiazepine metabolism</span>.'
     ],
-    patientIndications: ["GERD", "Peptic Ulcer Disease", "Erosive Esophagitis", "Zollinger-Ellison Syndrome", "H. pylori Eradication"],
-    considerations: [
-      'Long-term use increases risk of <span class="hl hl--ci">C. difficile</span>-associated diarrhea — relevant if a patient presents with severe watery diarrhea and is on chronic PPI therapy.',
-      'Chronic use can cause <span class="hl hl--ci">hypomagnesemia</span>, potentially leading to tetany, seizures, or cardiac arrhythmias. Consider in patients with unexplained QT prolongation or neuromuscular symptoms.',
-      'Reduces absorption of <span class="hl hl--warn">clopidogrel</span> by inhibiting CYP2C19 — patients on both drugs may have reduced antiplatelet effect and higher thrombotic risk.',
-      'Overdose is clinically benign — confusion, drowsiness, tachycardia, and nausea reported at massive doses, but no serious outcomes with monotherapy. No specific antidote exists.',
-      'Masks symptoms of <span class="hl hl--warn">gastric malignancy</span> — symptomatic relief does not rule out serious underlying pathology in patients with persistent GI complaints.'
-    ]
+    summary: "Omeprazole is a proton pump inhibitor that signals a patient with chronic acid-related GI disease. It carries no direct hemodynamic effects and overdose is clinically benign. The prehospital relevance is entirely drug-interaction driven: it reduces clopidogrel efficacy (increasing thrombotic risk in cardiac patients), potentiates warfarin (increasing bleeding risk), and raises digoxin levels. In long-term users, hypomagnesemia can cause arrhythmias or seizures that mimic primary cardiac or neurological emergencies."
   },
   {
     id: "pantoprazole",
-    summary: "A proton pump inhibitor used for erosive esophagitis, GERD maintenance, and pathological hypersecretory conditions including Zollinger-Ellison syndrome. Also used off-label for stress ulcer prophylaxis and prevention of NSAID-induced ulcers.",
-    genericName: "Pantoprazole",
-    tradeNames: ["Protonix"],
+    drugName: "Pantoprazole",
+    tradeName: ["Protonix"],
     category: ["GI"],
     classes: ["Proton Pump Inhibitor"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Irreversibly binds to the H+/K+ ATPase proton pump on gastric parietal cells, blocking the final step of acid secretion. The effect persists for up to 24 hours regardless of the stimulus for acid production.",
-        target: {
-          name: "H+/K+ ATPase (proton pump)",
-          action: "inhibitor",
-          result: "↓ Gastric acid secretion (basal and stimulated)",
-          system: "enzymatic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["GERD", "Erosive esophagitis", "Zollinger-Ellison syndrome", "Stress ulcer prophylaxis", "H. pylori eradication (off-label)"],
+    comorbidities: ["Gastroesophageal reflux disease", "Peptic ulcer disease", "Chronic NSAID use", "Barrett's esophagus", "Coronary artery disease"],
+    polypharmacy: ["NSAIDs (ibuprofen, naproxen)", "Anticoagulants (warfarin, apixaban)", "Antiplatelets (clopidogrel, aspirin)", "Corticosteroids (prednisone)", "Digoxin"],
+    overdoseToxicity: null,
+    precautions: [
+      'Reduces <span class="hl hl--drug">clopidogrel</span> activation — <span class="hl hl--ci">diminished antiplatelet effect</span> increases thrombotic risk in cardiac patients.',
+      'Long-term use causes <span class="hl hl--ci">hypomagnesemia</span> — can present as seizures, arrhythmias, or tetany mimicking primary cardiac or neurological emergencies.',
+      'Raises <span class="hl hl--drug">digoxin</span> serum levels — increases risk of <span class="hl hl--ci">digoxin toxicity</span> in patients on both drugs.',
+      'Chronic use associated with <span class="hl hl--warn">bone demineralization</span> — increased fracture risk in older adults on long-term therapy.',
+      'Can mask symptoms of <span class="hl hl--warn">gastric malignancy</span> — symptom relief does not exclude serious underlying pathology.'
     ],
-    patientIndications: ["GERD", "Erosive Esophagitis", "Zollinger-Ellison Syndrome", "Peptic Ulcer Disease", "Stress Ulcer Prophylaxis"],
-    considerations: [
-      'Long-term use causes <span class="hl hl--ci">hypomagnesemia</span>, which can present as tetany, seizures, or arrhythmias — secondary hypocalcemia and hypokalemia may also occur.',
-      'Reduces absorption of <span class="hl hl--drug">clopidogrel</span> by inhibiting CYP2C19 — patients on both drugs may have diminished antiplatelet effect.',
-      'Chronic use increases risk of <span class="hl hl--warn">C. difficile</span> infection, bone fractures, and vitamin B12/iron deficiency — particularly in older adults.',
-      'Overdose is not clinically significant — no serious outcomes reported with pantoprazole alone, no specific antidote, not removable by hemodialysis.',
-      'Masks symptoms of <span class="hl hl--warn">gastric malignancy</span> — symptomatic improvement does not rule out serious underlying GI pathology.'
-    ]
+    summary: "Pantoprazole is a proton pump inhibitor prescribed for chronic acid-related GI conditions. It has no direct hemodynamic effects and overdose is not a realistic field concern. Prehospital relevance centers on drug interactions: it impairs clopidogrel activation in cardiac patients and raises digoxin levels. In long-term users, hypomagnesemia can produce seizures or arrhythmias that mimic primary cardiac or neurological events."
   },
   {
     id: "gabapentin",
-    summary: "An anticonvulsant and nerve pain medication used for partial seizures, postherpetic neuralgia, and a wide range of off-label pain and psychiatric conditions. Structurally related to GABA but does not act directly on GABA receptors.",
-    genericName: "Gabapentin",
-    tradeNames: ["Neurontin", "Gralise", "Horizant"],
+    drugName: "Gabapentin",
+    tradeName: ["Neurontin", "Gralise", "Horizant"],
     category: ["Neurological", "Pain & Anti-inflammatory"],
     classes: ["Anticonvulsant"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Binds the α2δ-1 subunit of voltage-gated calcium channels in the CNS, reducing presynaptic calcium influx and inhibiting the release of excitatory neurotransmitters including glutamate, norepinephrine, and substance P.",
-        target: {
-          name: "α2δ-1 voltage-gated calcium channels",
-          action: "blocker",
-          result: "↓ Excitatory neurotransmitter release, ↓ neuronal hyperexcitability",
-          system: "ion-channel"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Postherpetic neuralgia", "Partial onset seizures", "Neuropathic pain", "Restless legs syndrome", "Fibromyalgia"],
+    comorbidities: ["Chronic pain", "Epilepsy", "Anxiety disorders", "Chronic kidney disease", "Substance use disorder"],
+    polypharmacy: ["Opioid analgesics (hydrocodone, oxycodone)", "SSRIs (sertraline, escitalopram)", "NSAIDs (ibuprofen, naproxen)", "Benzodiazepines (alprazolam, clonazepam)", "Pregabalin"],
+    overdoseToxicity: ["CNS depression progressing to coma", "Respiratory depression", "Ataxia and nystagmus", "Diarrhea and drowsiness", "Rhabdomyolysis (rare)"],
+    precautions: [
+      'Co-administration with <span class="hl hl--drug">opioids</span> significantly increases risk of <span class="hl hl--ci">fatal respiratory depression</span>.',
+      'No antidote exists — overdose management is <span class="hl hl--warn">entirely supportive</span>.',
+      'Abrupt discontinuation can trigger <span class="hl hl--ci">withdrawal seizures</span> and status epilepticus.',
+      'Toxicity accumulates in <span class="hl hl--warn">renal impairment</span> — even therapeutic doses can produce overdose symptoms.',
+      'Increasingly <span class="hl hl--warn">misused</span> to potentiate opioid euphoria — does not appear on standard urine drug screens.'
     ],
-    patientIndications: ["Postherpetic Neuralgia", "Partial Seizures", "Neuropathic Pain", "Restless Legs Syndrome", "Fibromyalgia", "Anxiety Disorders"],
-    considerations: [
-      'Causes <span class="hl hl--ci">sedation</span>, dizziness, and ataxia — contributes to fall risk, especially in elderly patients. Effects are amplified with concurrent CNS depressants.',
-      'Combined with <span class="hl hl--ci">opioids</span>, gabapentin significantly increases the risk of respiratory depression and death — increasingly recognized as a dangerous combination.',
-      'Abrupt discontinuation can trigger <span class="hl hl--ci">withdrawal seizures</span> and status epilepticus, even in patients not originally prescribed it for epilepsy.',
-      'Gabapentin is <span class="hl hl--warn">renally excreted</span> — patients with kidney disease or on dialysis accumulate toxic levels, presenting with altered consciousness, tremors, and respiratory depression.',
-      'Increasingly a <span class="hl hl--warn">drug of misuse</span> — patients may take supratherapeutic amounts or combine it with opioids and benzodiazepines for potentiated euphoria. No specific antidote exists for overdose.'
-    ]
+    summary: "Gabapentin is an anticonvulsant widely prescribed for neuropathic pain, seizures, and numerous off-label conditions. Its presence on a med list should raise suspicion for chronic pain and possible concurrent opioid use. The critical prehospital concern is synergistic respiratory depression when combined with opioids or other CNS depressants — a combination implicated in a growing number of overdose deaths. In patients with renal impairment, gabapentin accumulates and can produce toxicity at standard doses, presenting as altered mental status, ataxia, and respiratory depression."
   },
   {
     id: "phenytoin",
-    summary: "A first-generation anticonvulsant used for tonic-clonic and complex partial seizures. Also used for seizure prophylaxis following neurosurgery. Has a narrow therapeutic index with concentration-dependent neurotoxicity.",
-    genericName: "Phenytoin",
-    tradeNames: ["Dilantin", "Phenytek"],
+    drugName: "Phenytoin",
+    tradeName: ["Dilantin", "Phenytek"],
     category: ["Neurological"],
     classes: ["Anticonvulsant"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Blocks voltage-gated sodium channels by stabilizing their inactive state, prolonging the neuronal refractory period and preventing the high-frequency repetitive firing that propagates seizure activity.",
-        target: {
-          name: "Voltage-gated sodium channels",
-          action: "blocker",
-          result: "↓ Seizure propagation, stabilized neuronal membranes",
-          system: "ion-channel"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Tonic-clonic seizures", "Complex partial seizures", "Post-neurosurgery seizure prophylaxis"],
+    comorbidities: ["Epilepsy", "Traumatic brain injury", "Brain tumor", "Cerebrovascular disease"],
+    polypharmacy: ["Levetiracetam", "Benzodiazepines (clonazepam, lorazepam)", "Valproic acid", "Anticoagulants (warfarin, apixaban)", "Proton pump inhibitors (omeprazole, pantoprazole)"],
+    overdoseToxicity: ["Nystagmus progressing to ataxia and slurred speech", "Lethargy and confusion", "Coma and paradoxical seizures at very high levels", "Hyperglycemia"],
+    precautions: [
+      'Narrow therapeutic index — minor dose changes or drug interactions can push levels into <span class="hl hl--ci">toxicity</span>.',
+      'Potent <span class="hl hl--warn">CYP450 inducer</span> — accelerates metabolism of many drugs including warfarin, leading to unpredictable anticoagulation.',
+      'Toxicity mimics stroke: <span class="hl hl--ci">nystagmus, ataxia, dysarthria, and diplopia</span> require differentiation from CVA.',
+      '<span class="hl hl--drug">Midazolam</span> clearance is increased in chronic phenytoin users — standard doses may be less effective for seizure control.',
+      'Chronic use causes <span class="hl hl--warn">gingival hyperplasia</span> and folate-deficiency anemia — visual clues on scene exam.'
     ],
-    patientIndications: ["Generalized Tonic-Clonic Seizures", "Complex Partial Seizures", "Seizure Prophylaxis Post-Neurosurgery"],
-    considerations: [
-      '<span class="hl hl--warn">Narrow therapeutic index</span> — toxicity is concentration-dependent: nystagmus at lower levels, progressing to ataxia, slurred speech, lethargy, and eventually coma and paradoxical seizures at very high levels.',
-      'Heavily protein-bound (~90% to albumin) — patients with <span class="hl hl--warn">hypoalbuminemia</span> (liver disease, renal failure, malnutrition) can be toxic despite "normal" total phenytoin levels.',
-      'Potent <span class="hl hl--warn">CYP450 inducer</span> with extensive drug interactions — new medications, illness, or formulation changes can push levels into toxicity without any dose change.',
-      'Chronic use causes <span class="hl hl--ci">gingival hyperplasia</span>, folate-deficiency anemia, peripheral neuropathy, and decreased bone density.',
-      '<span class="hl hl--ci">Overdose</span>: primarily neurotoxicity — nystagmus, ataxia, dysarthria, altered mental status. No specific antidote; treatment is supportive. Paradoxical seizures possible at extreme levels.'
-    ]
+    summary: "Phenytoin is a sodium channel-blocking anticonvulsant with a narrow therapeutic index, prescribed for tonic-clonic and complex partial seizures. Its presence signals a seizure disorder and a patient at risk for both breakthrough seizures and dose-related toxicity. Toxicity presents with cerebellar signs — nystagmus, ataxia, slurred speech — that closely mimic stroke and must be considered in the differential. As a potent CYP450 inducer, phenytoin alters the metabolism of numerous drugs, making polypharmacy interactions a constant concern."
   },
   {
     id: "levetiracetam",
-    summary: "An anticonvulsant used for partial-onset seizures, myoclonic seizures, and primary generalized tonic-clonic seizures. Chemically unrelated to other antiepileptic drugs, with minimal drug interactions and a favorable safety profile.",
-    genericName: "Levetiracetam",
-    tradeNames: ["Keppra", "Keppra XR"],
+    drugName: "Levetiracetam",
+    tradeName: ["Keppra", "Keppra XR"],
     category: ["Neurological"],
     classes: ["Anticonvulsant"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Binds to synaptic vesicle protein 2A (SV2A), modulating neurotransmitter release by decreasing the rate of vesicle fusion. This reduces excitatory neurotransmission and raises the seizure threshold.",
-        target: {
-          name: "Synaptic vesicle protein 2A (SV2A)",
-          action: "modulator",
-          result: "↓ Excitatory neurotransmitter release, ↑ seizure threshold",
-          system: "other"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Partial-onset seizures", "Myoclonic seizures (JME)", "Primary generalized tonic-clonic seizures"],
+    comorbidities: ["Epilepsy", "Traumatic brain injury", "Intellectual disability", "Mood disorders"],
+    polypharmacy: ["Other anticonvulsants (phenytoin, valproic acid)", "Benzodiazepines (clonazepam, lorazepam)", "SSRIs (sertraline, escitalopram)", "Lamotrigine"],
+    overdoseToxicity: ["Profound somnolence progressing to coma", "Respiratory depression", "Agitation and aggression", "Decreased level of consciousness"],
+    precautions: [
+      'Behavioral changes including <span class="hl hl--ci">aggression</span>, agitation, and psychosis can develop at therapeutic levels.',
+      '<span class="hl hl--warn">Suicidal ideation</span> is an FDA-boxed risk across all anticonvulsants — assess mental status beyond seizure activity.',
+      'Abrupt discontinuation risks <span class="hl hl--ci">breakthrough seizures</span> or status epilepticus.',
+      'Renally cleared without hepatic metabolism — <span class="hl hl--warn">minimal drug interactions</span> with prehospital medications.',
+      'Overdose causes <span class="hl hl--ci">respiratory depression</span> requiring airway management — recovery is typically rapid with supportive care.'
     ],
-    patientIndications: ["Partial-Onset Seizures", "Myoclonic Seizures", "Primary Generalized Tonic-Clonic Seizures", "Seizure Prophylaxis (TBI)", "Status Epilepticus (Off-Label)"],
-    considerations: [
-      'Causes <span class="hl hl--ci">somnolence</span> and fatigue in up to 15% of patients — may present as altered mental status or excessive drowsiness on a call.',
-      '<span class="hl hl--warn">Behavioral changes</span> including aggression, irritability, agitation, and psychosis occur in roughly 13% of patients. Ask about recent medication changes in psychiatric-appearing calls.',
-      'Does <span class="hl hl--indication">not cause respiratory depression</span> at therapeutic levels — an important distinction from benzodiazepines and phenytoin when evaluating a seizure patient.',
-      'Abrupt discontinuation can precipitate <span class="hl hl--ci">breakthrough seizures</span> or status epilepticus — ask whether the patient has been taking their medication as prescribed.',
-      'Minimal drug interactions and no hepatic metabolism — unlikely to complicate medication administration in the field.'
-    ]
+    summary: "Levetiracetam is a broad-spectrum anticonvulsant prescribed for partial-onset, myoclonic, and generalized tonic-clonic seizures. Its presence confirms a seizure disorder and a patient at risk for breakthrough seizures if doses are missed. Unlike most anticonvulsants, it has minimal drug interactions due to renal elimination without CYP450 involvement. The key prehospital concern is behavioral disturbance — aggression, agitation, and psychosis occur at therapeutic levels and can complicate scene management."
   },
   {
     id: "valproic-acid",
-    summary: "An anticonvulsant and mood stabilizer used for seizure disorders, bipolar disorder, and migraine prophylaxis. Available as valproic acid, sodium valproate, and divalproex sodium (Depakote).",
-    genericName: "Valproic Acid",
-    tradeNames: ["Depakote", "Depakene", "Depacon", "Stavzor"],
+    drugName: "Valproic Acid",
+    tradeName: ["Depakote", "Depakote ER", "Depakene", "Stavzor"],
     category: ["Neurological", "Psychiatric"],
     classes: ["Anticonvulsant", "Mood Stabilizer"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Enhances GABA activity by inhibiting GABA degradation and increasing GABA synthesis, raising inhibitory tone in the CNS. Also blocks voltage-gated sodium, calcium, and potassium channels, reducing high-frequency neuronal firing.",
-        target: {
-          name: "GABA pathways & voltage-gated ion channels",
-          action: "enhancer",
-          result: "↑ GABAergic inhibition, ↓ neuronal excitability",
-          system: "GABAergic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Complex partial seizures", "Absence seizures", "Bipolar mania", "Migraine prophylaxis"],
+    comorbidities: ["Epilepsy", "Bipolar disorder", "Chronic migraines", "Traumatic brain injury"],
+    polypharmacy: ["Anticonvulsants (levetiracetam, lamotrigine)", "Antipsychotics (quetiapine, risperidone)", "SSRIs (sertraline, fluoxetine)", "Benzodiazepines (clonazepam, lorazepam)"],
+    overdoseToxicity: [
+      "CNS depression ranging from drowsiness to coma",
+      "Hyperammonemic encephalopathy with seizures",
+      "Hypotension and tachycardia",
+      "High anion gap metabolic acidosis",
+      "Cerebral edema (may present 2–3 days post-ingestion)"
     ],
-    patientIndications: ["Complex Partial Seizures", "Absence Seizures", "Bipolar Disorder", "Migraine Prophylaxis"],
-    considerations: [
-      'Has a <span class="hl hl--warn">narrow therapeutic index</span> (50–100 mcg/mL) — toxicity can occur with dose adjustments, drug interactions, or hypoalbuminemia even at "normal" total levels.',
-      'Causes <span class="hl hl--ci">thrombocytopenia</span> and platelet dysfunction — increases bleeding risk, relevant when assessing trauma patients or those on concurrent anticoagulants.',
-      '<span class="hl hl--ci">Hyperammonemic encephalopathy</span> can occur even at therapeutic levels — presents as confusion, lethargy, and vomiting that may mimic stroke or postictal state.',
-      'Abrupt discontinuation can trigger <span class="hl hl--ci">breakthrough seizures</span> or status epilepticus — confirm medication adherence in any seizure patient.',
-      '<span class="hl hl--ci">Overdose</span>: CNS depression ranging from drowsiness to coma, hypotension, tachycardia, metabolic acidosis, and cerebral edema. Naloxone may partially reverse mild CNS depression. Benzodiazepines for seizures.'
-    ]
+    precautions: [
+      'Toxicity causes <span class="hl hl--ci">hyperammonemia</span> even without hepatic failure — altered mental status in a valproate patient warrants ammonia level.',
+      '<span class="hl hl--ci">Cerebral edema</span> can develop days after ingestion despite falling drug levels.',
+      '<span class="hl hl--drug">Aspirin</span> displaces valproate from albumin, increasing free drug levels and worsening toxicity.',
+      'Chronic use causes <span class="hl hl--warn">thrombocytopenia</span> — expect prolonged bleeding from trauma.',
+      '<span class="hl hl--drug">Naloxone</span> may partially reverse CNS depression in mild-to-moderate valproate overdose.'
+    ],
+    summary: "Valproic acid is a broad-spectrum anticonvulsant and mood stabilizer used for seizures, bipolar disorder, and migraine prevention. Overdose is a realistic field scenario — intentional ingestions can produce profound CNS depression, hyperammonemia, metabolic acidosis, and delayed cerebral edema. Chronic users are at baseline risk for thrombocytopenia and hepatotoxicity. Avoid administering aspirin to these patients, as it increases free valproate levels and can precipitate toxicity."
   },
   {
     id: "topiramate",
-    summary: "An anticonvulsant used for epilepsy, migraine prevention, and weight management. Acts through multiple mechanisms including sodium channel blockade, GABA enhancement, and glutamate antagonism.",
-    genericName: "Topiramate",
-    tradeNames: ["Topamax", "Trokendi XR", "Qudexy XR"],
+    drugName: "Topiramate",
+    tradeName: ["Topamax", "Trokendi XR", "Qudexy XR"],
     category: ["Neurological"],
     classes: ["Anticonvulsant"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Blocks voltage-gated sodium channels, controlling sustained neuronal depolarization during seizures. Also enhances GABA-A receptor activity, antagonizes AMPA/kainate glutamate receptors, and weakly inhibits carbonic anhydrase.",
-        target: {
-          name: "Voltage-gated Na⁺ channels, GABA-A receptors, AMPA/kainate receptors",
-          action: "modulator",
-          result: "↓ Neuronal excitability, ↑ inhibitory tone",
-          system: "ion-channel"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Partial-onset seizures", "Primary generalized tonic-clonic seizures", "Lennox-Gastaut syndrome", "Migraine prevention"],
+    comorbidities: ["Epilepsy", "Chronic migraine", "Obesity", "Bipolar disorder", "Kidney stones"],
+    polypharmacy: ["Anticonvulsants (valproic acid, levetiracetam)", "SSRIs (sertraline, escitalopram)", "Oral contraceptives", "Metformin", "Benzodiazepines (clonazepam, lorazepam)"],
+    overdoseToxicity: ["Somnolence progressing to coma", "Non-anion gap metabolic acidosis (hyperchloremic)", "Seizures, particularly in non-tolerant patients", "Hypotension", "Mydriasis and agitation"],
+    precautions: [
+      'Carbonic anhydrase inhibition causes chronic <span class="hl hl--ci">metabolic acidosis</span> — low bicarb may be the patient\'s baseline, not an acute finding.',
+      'Concurrent <span class="hl hl--drug">valproic acid</span> use risks <span class="hl hl--ci">hyperammonemic encephalopathy</span> — altered mental status with normal liver function tests.',
+      'Reduces sweating — patients are at increased risk of <span class="hl hl--warn">hyperthermia</span> in hot environments.',
+      'Cognitive impairment (word-finding difficulty, confusion) is a common side effect and may mimic <span class="hl hl--warn">neurological emergency</span>.',
+      '<span class="hl hl--drug">Midazolam</span> and other CNS depressants have additive sedation with topiramate.'
     ],
-    patientIndications: ["Epilepsy", "Migraine Prevention", "Weight Management"],
-    considerations: [
-      'Causes significant <span class="hl hl--ci">cognitive impairment</span> — patients report word-finding difficulty, memory problems, and psychomotor slowing. Relevant when assessing altered mental status.',
-      'Inhibits carbonic anhydrase, causing <span class="hl hl--ci">metabolic acidosis</span> (non-anion gap, hyperchloremic). Risk increases when combined with <span class="hl hl--drug">metformin</span> or other carbonic anhydrase inhibitors.',
-      'Can cause <span class="hl hl--warn">decreased sweating and hyperthermia</span>, particularly in pediatric patients or hot environments — consider in heat-related illness presentations.',
-      'Concomitant use with <span class="hl hl--drug">valproic acid</span> increases risk of <span class="hl hl--ci">hyperammonemic encephalopathy</span> — presents as lethargy, vomiting, confusion, or hypothermia.',
-      'Abrupt discontinuation can trigger <span class="hl hl--ci">breakthrough seizures</span> — confirm medication adherence in any seizure patient on topiramate.'
-    ]
+    summary: "Topiramate is an anticonvulsant used for seizure disorders and migraine prevention. Its carbonic anhydrase inhibition produces a chronic non-anion gap metabolic acidosis that can confound field blood gas interpretation. Patients on concurrent valproic acid are at risk for hyperammonemic encephalopathy presenting as altered mental status with hypothermia. Cognitive side effects (confusion, word-finding difficulty) are common at therapeutic levels and may mimic stroke or other neurological emergencies."
   },
   {
     id: "sertraline",
-    summary: "An SSRI antidepressant used for depression, anxiety disorders, OCD, PTSD, and panic disorder. One of the first-line agents for unipolar major depression.",
-    genericName: "Sertraline",
-    tradeNames: ["Zoloft"],
+    drugName: "Sertraline",
+    tradeName: ["Zoloft"],
     category: ["Psychiatric"],
-    classes: ["Antidepressant", "SSRI"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Selectively inhibits presynaptic reuptake of serotonin (5-HT), increasing serotonin concentration in the synaptic cleft. Has minor dopaminergic reuptake inhibition compared to other SSRIs.",
-        target: {
-          name: "Serotonin reuptake transporter (SERT)",
-          action: "inhibitor",
-          result: "↑ Synaptic serotonin → improved mood regulation",
-          system: "serotonergic"
-        }
-      }
+    classes: ["SSRI", "Antidepressant"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Major depressive disorder", "PTSD", "Panic disorder", "OCD", "Social anxiety disorder"],
+    comorbidities: ["Generalized anxiety disorder", "Insomnia", "Chronic pain", "Substance use disorder", "Bipolar disorder (undiagnosed)"],
+    polypharmacy: ["Benzodiazepines (alprazolam, clonazepam)", "Trazodone", "Atypical antipsychotics (quetiapine, aripiprazole)", "Gabapentin", "Bupropion"],
+    overdoseToxicity: ["Serotonin toxicity: clonus, hyperreflexia, agitation, diaphoresis", "Tachycardia and hypertension", "Seizures (rare, large ingestions)", "Altered mental status progressing to coma", "QTc prolongation (rare, typically with co-ingestants)"],
+    precautions: [
+      'Coadministration with <span class="hl hl--drug">fentanyl</span> or <span class="hl hl--drug">tramadol</span> increases risk of <span class="hl hl--ci">serotonin syndrome</span>.',
+      'Impairs platelet aggregation — <span class="hl hl--warn">increased bleeding risk</span> with concurrent anticoagulants or antiplatelet agents.',
+      'Can produce <span class="hl hl--ci">false-positive urine benzodiazepine</span> screens due to immunoassay cross-reactivity.',
+      'Abrupt discontinuation causes withdrawal: dizziness, paresthesias, irritability, and "brain zaps."',
+      '<span class="hl hl--warn">Hyponatremia</span> (SIADH) occurs more often in elderly and volume-depleted patients.'
     ],
-    patientIndications: ["Depression", "Obsessive-Compulsive Disorder", "Panic Disorder", "PTSD", "Social Anxiety Disorder", "Premenstrual Dysphoric Disorder"],
-    considerations: [
-      '<span class="hl hl--ci">Serotonin syndrome</span> risk when combined with other serotonergic drugs (tramadol, fentanyl, MAOIs, triptans, lithium) — presents with clonus, hyperreflexia, hyperthermia, agitated delirium, and muscle rigidity.',
-      'Inhibits platelet aggregation, increasing <span class="hl hl--warn">bleeding risk</span> — especially when combined with aspirin, NSAIDs, or anticoagulants. Ask about bruising or epistaxis.',
-      'Abrupt discontinuation causes a <span class="hl hl--ci">withdrawal syndrome</span> — dizziness, paresthesias ("brain zaps"), irritability, nausea, and sensory disturbances. Confirm adherence in patients with new neurologic complaints.',
-      '<span class="hl hl--ci">Overdose</span> is generally well-tolerated compared to TCAs, but large ingestions or polypharmacy can produce serotonin syndrome. Prehospital: supportive care, benzodiazepines for agitation or seizures, active cooling for hyperthermia.',
-      'In elderly patients, can cause <span class="hl hl--warn">hyponatremia</span> via SIADH — presents as confusion, lethargy, or seizures. Consider in any altered geriatric patient on an SSRI.'
-    ]
+    summary: "Sertraline is an SSRI prescribed for depression, anxiety disorders, and PTSD. Its presence flags a psychiatric history that may be relevant to the chief complaint, particularly in behavioral emergencies or intentional overdose. The primary prehospital concern is serotonin syndrome when combined with other serotonergic agents — fentanyl being the most likely EMS-administered trigger. SSRIs also impair platelet function, increasing bleeding risk in trauma or in patients already on anticoagulants."
   },
   {
     id: "escitalopram",
-    summary: "An SSRI used for major depressive disorder and generalized anxiety disorder. The S-enantiomer of citalopram, considered one of the most selective serotonin reuptake inhibitors available.",
-    genericName: "Escitalopram",
-    tradeNames: ["Lexapro"],
+    drugName: "Escitalopram",
+    tradeName: ["Lexapro"],
     category: ["Psychiatric"],
-    classes: ["Antidepressant", "SSRI"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Selectively inhibits the reuptake of serotonin at the presynaptic neuron, increasing serotonin concentration in the synaptic cleft and enhancing serotonergic neurotransmission.",
-        target: {
-          name: "Serotonin reuptake transporter (SERT)",
-          action: "inhibitor",
-          result: "↑ Synaptic serotonin, enhanced serotonergic transmission",
-          system: "serotonergic"
-        }
-      }
+    classes: ["SSRI", "Antidepressant"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Major depressive disorder", "Generalized anxiety disorder"],
+    comorbidities: ["Anxiety disorders", "Insomnia", "Panic disorder", "PTSD", "Chronic pain"],
+    polypharmacy: ["Benzodiazepines (alprazolam, clonazepam)", "Trazodone", "Buspirone", "Gabapentin", "Antipsychotics (quetiapine, aripiprazole)"],
+    overdoseToxicity: ["QT prolongation and torsades de pointes", "Seizures", "Serotonin syndrome (agitation, clonus, hyperthermia)", "Altered mental status progressing to coma", "Tachycardia with hypertension"],
+    precautions: [
+      'Co-administration with <span class="hl hl--drug">fentanyl</span> increases risk of <span class="hl hl--ci">serotonin syndrome</span>.',
+      '<span class="hl hl--ci">QT prolongation</span> is dose-dependent and more pronounced than other SSRIs — relevant if patient is also on amiodarone or other QT-prolonging drugs.',
+      'Impairs platelet aggregation — increases <span class="hl hl--warn">bleeding risk</span> in patients on anticoagulants or antiplatelet agents.',
+      'Abrupt discontinuation causes withdrawal symptoms: dizziness, paresthesias, irritability, and <span class="hl hl--warn">electric shock sensations</span>.',
+      '<span class="hl hl--warn">Hyponatremia</span> (SIADH) is more common in elderly patients and can present as altered mental status or seizures.'
     ],
-    patientIndications: ["Major Depressive Disorder", "Generalized Anxiety Disorder", "Social Anxiety Disorder", "Panic Disorder", "OCD", "PTSD"],
-    considerations: [
-      'Risk of <span class="hl hl--ci">serotonin syndrome</span> when combined with other serotonergic agents (MAOIs, SNRIs, triptans, tramadol, fentanyl). Presents with agitation, clonus, hyperreflexia, hyperthermia, and diaphoresis.',
-      '<span class="hl hl--ci">QT prolongation</span> is dose-dependent and more pronounced than with other SSRIs. Risk increases with electrolyte imbalances, concurrent QT-prolonging drugs, or overdose.',
-      'Inhibits platelet function, increasing <span class="hl hl--warn">bleeding risk</span> — especially when combined with anticoagulants, antiplatelets, or NSAIDs.',
-      'Abrupt discontinuation causes <span class="hl hl--warn">withdrawal symptoms</span>: dizziness, nausea, irritability, paresthesias ("brain zaps"), and lethargy.',
-      '<span class="hl hl--ci">Overdose</span> above 300 mg carries significant risk of QT prolongation and torsades de pointes. Prehospital: cardiac monitoring, benzodiazepines for seizures or agitation, magnesium sulfate for TdP.'
-    ]
+    summary: "Escitalopram is an SSRI prescribed for depression and generalized anxiety. It signals a psychiatric history that may factor into behavioral emergencies or intentional overdose. Among SSRIs, escitalopram carries a higher risk of dose-dependent QT prolongation — in overdose, cardiac monitoring is critical. Serotonin syndrome is the primary drug interaction concern, especially with prehospital fentanyl, and SSRIs impair platelet function, compounding bleeding risk in trauma patients on anticoagulants."
   },
   {
     id: "citalopram",
-    summary: "An SSRI used for depression, with off-label use for anxiety disorders, OCD, and panic disorder. Notable among SSRIs for dose-dependent QT prolongation, which carries prehospital significance in overdose.",
-    genericName: "Citalopram",
-    tradeNames: ["Celexa"],
+    drugName: "Citalopram",
+    tradeName: ["Celexa"],
     category: ["Psychiatric"],
-    classes: ["Antidepressant", "SSRI"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Selectively inhibits serotonin reuptake at the presynaptic neuron, increasing serotonin concentration in the synaptic cleft. Has minimal effects on norepinephrine and dopamine reuptake.",
-        target: {
-          name: "Serotonin reuptake transporter (SERT)",
-          action: "inhibitor",
-          result: "↑ Synaptic serotonin, improved mood regulation",
-          system: "serotonergic"
-        }
-      }
+    classes: ["SSRI", "Antidepressant"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Major depressive disorder"],
+    comorbidities: ["Generalized anxiety disorder", "Panic disorder", "Insomnia", "Chronic pain", "Substance use disorder"],
+    polypharmacy: ["Benzodiazepines (alprazolam, clonazepam)", "Trazodone", "Gabapentin", "Antipsychotics (quetiapine, aripiprazole)", "PPIs (omeprazole, pantoprazole)"],
+    overdoseToxicity: ["Dose-dependent QTc prolongation with risk of torsades de pointes", "Seizures, more common above 600 mg ingestion", "Serotonin syndrome (agitation, hyperthermia, rigidity, clonus)", "Sinus tachycardia or bradycardia", "Altered mental status progressing to coma"],
+    precautions: [
+      'Citalopram has the <span class="hl hl--warn">highest cardiotoxicity risk among SSRIs</span> — dose-dependent QTc prolongation can cause torsades de pointes.',
+      'Co-administration with <span class="hl hl--drug">amiodarone</span> or other QT-prolonging drugs compounds <span class="hl hl--ci">dysrhythmia risk</span>.',
+      'Concomitant use of serotonergic drugs including prehospital <span class="hl hl--drug">fentanyl</span> increases risk of <span class="hl hl--ci">serotonin syndrome</span>.',
+      'SSRIs impair platelet aggregation — increased <span class="hl hl--warn">bleeding risk</span> in patients also taking anticoagulants or antiplatelet agents.',
+      '<span class="hl hl--warn">Hyponatremia</span> (SIADH) is more common in elderly patients and can present as altered mental status or seizures.'
     ],
-    patientIndications: ["Depression", "Generalized Anxiety Disorder", "Panic Disorder", "OCD", "PTSD"],
-    considerations: [
-      'Causes dose-dependent <span class="hl hl--ci">QT prolongation</span> — the highest cardiac risk among SSRIs. Patients on citalopram with other QT-prolonging drugs (amiodarone, antipsychotics) are at increased risk for torsades de pointes.',
-      '<span class="hl hl--ci">Serotonin syndrome</span> risk increases with co-ingestion of other serotonergic drugs (tramadol, triptans, MAOIs). Presents with hyperthermia, rigidity, clonus, and autonomic instability.',
-      'Increases <span class="hl hl--warn">bleeding risk</span> by depleting platelet serotonin — relevant when patients are also on warfarin, aspirin, or NSAIDs.',
-      'Abrupt discontinuation causes <span class="hl hl--warn">withdrawal symptoms</span>: dizziness, nausea, irritability, paresthesias ("brain zaps"), and lethargy.',
-      '<span class="hl hl--ci">Overdose</span> above 600 mg carries significant risk of QT prolongation, seizures, and torsades de pointes. Prehospital: cardiac monitoring, benzodiazepines for seizures or agitation, magnesium sulfate for TdP.'
-    ]
+    summary: "Citalopram is an SSRI prescribed for depression. It stands out from other SSRIs because of dose-dependent QTc prolongation caused by its metabolite — in overdose, it carries the highest cardiac risk in the SSRI class, including torsades de pointes and seizures. In the field, its presence signals psychiatric history relevant to behavioral emergencies and intentional ingestion. Serotonin syndrome is the key drug interaction concern with prehospital fentanyl, and impaired platelet function adds bleeding risk in trauma."
   },
   {
     id: "fluoxetine",
-    summary: "An SSRI antidepressant used for major depression, OCD, panic disorder, and bulimia nervosa. Has the longest half-life of any SSRI, which means drug effects and interactions persist for weeks after discontinuation.",
-    genericName: "Fluoxetine",
-    tradeNames: ["Prozac", "Sarafem"],
+    drugName: "Fluoxetine",
+    tradeName: ["Prozac", "Prozac Weekly", "Sarafem"],
     category: ["Psychiatric"],
-    classes: ["Antidepressant", "SSRI"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Selectively blocks the serotonin reuptake transporter on presynaptic neurons, increasing serotonin availability in the synaptic cleft and enhancing serotonergic neurotransmission.",
-        target: {
-          name: "Serotonin reuptake transporter (SERT)",
-          action: "inhibitor",
-          result: "↑ Synaptic serotonin, improved mood regulation",
-          system: "serotonergic"
-        }
-      }
+    classes: ["SSRI", "Antidepressant"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Major depressive disorder", "Obsessive-compulsive disorder", "Bulimia nervosa", "Panic disorder"],
+    comorbidities: ["Anxiety disorders", "Insomnia", "Chronic pain", "Eating disorders", "Substance use disorder"],
+    polypharmacy: ["Benzodiazepines (alprazolam, clonazepam)", "Atypical antipsychotics (aripiprazole, quetiapine)", "Trazodone", "Gabapentin", "Bupropion"],
+    overdoseToxicity: ["Serotonin syndrome (agitation, clonus, hyperthermia, diaphoresis)", "Tachycardia", "Seizures (large ingestions)", "Drowsiness progressing to decreased LOC", "QTc prolongation (less common than citalopram)"],
+    precautions: [
+      'Coadministration of <span class="hl hl--drug">fentanyl</span> increases risk of <span class="hl hl--ci">serotonin syndrome</span>.',
+      'Impairs platelet aggregation — increases <span class="hl hl--warn">bleeding risk</span> in trauma, especially with concurrent anticoagulants or NSAIDs.',
+      'Potent <span class="hl hl--warn">CYP2D6 inhibitor</span> — elevates levels of many coadministered drugs including metoprolol, codeine (reduced efficacy), and TCAs.',
+      'Extremely long half-life (4–6 days, active metabolite 4–16 days) — drug interactions persist <span class="hl hl--warn">weeks after discontinuation</span>.',
+      '<span class="hl hl--warn">Hyponatremia</span> (SIADH) can present as altered mental status or seizures, particularly in elderly patients.'
     ],
-    patientIndications: ["Major Depressive Disorder", "Obsessive-Compulsive Disorder", "Panic Disorder", "Bulimia Nervosa", "PTSD", "Premenstrual Dysphoric Disorder"],
-    considerations: [
-      '<span class="hl hl--ci">Serotonin syndrome</span> risk when combined with other serotonergic agents (tramadol, fentanyl, triptans, lithium, MAOIs). Look for agitation, clonus, hyperreflexia, diaphoresis, and hyperthermia.',
-      'Fluoxetine has an exceptionally <span class="hl hl--warn">long half-life</span> (~1–3 days for parent drug, ~4–16 days for active metabolite norfluoxetine). Drug effects and interactions can persist 5+ weeks after discontinuation.',
-      'Can prolong the <span class="hl hl--ci">QT interval</span> — use caution in patients with cardiac history or those on other QT-prolonging medications.',
-      'May increase <span class="hl hl--warn">bleeding risk</span> due to impaired platelet aggregation, especially when combined with anticoagulants or NSAIDs.',
-      '<span class="hl hl--ci">Overdose</span>: generally less toxic than TCAs, but large ingestions cause serotonin syndrome, seizures, and QT prolongation. Prehospital: supportive care, benzodiazepines for seizures and agitation, cardiac monitoring.'
-    ]
+    summary: "Fluoxetine is the prototypical SSRI, prescribed for depression, OCD, panic disorder, and bulimia. Its presence flags psychiatric history relevant to behavioral emergencies and intentional ingestion. Unlike other SSRIs, fluoxetine has an exceptionally long half-life — drug effects and interactions persist for weeks after the last dose. Serotonin syndrome is the primary interaction concern with prehospital fentanyl, and impaired platelet function increases bleeding risk in trauma patients."
   },
   {
     id: "venlafaxine",
-    summary: "An SNRI antidepressant used for major depressive disorder, generalized anxiety disorder, social anxiety disorder, and panic disorder. Also prescribed off-label for neuropathic pain, migraines, and fibromyalgia.",
-    genericName: "Venlafaxine",
-    tradeNames: ["Effexor", "Effexor XR"],
+    drugName: "Venlafaxine",
+    tradeName: ["Effexor", "Effexor XR"],
     category: ["Psychiatric"],
-    classes: ["Antidepressant", "SNRI"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Inhibits reuptake of serotonin and norepinephrine, increasing their synaptic concentrations. At higher doses, also weakly inhibits dopamine reuptake. The dual monoamine effect provides both antidepressant and anxiolytic action.",
-        target: {
-          name: "Serotonin & norepinephrine reuptake transporters",
-          action: "inhibitor",
-          result: "↑ Synaptic serotonin & norepinephrine",
-          system: "serotonergic"
-        }
-      }
+    classes: ["SNRI", "Antidepressant"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Major depressive disorder", "Generalized anxiety disorder", "Social anxiety disorder", "Panic disorder"],
+    comorbidities: ["Anxiety disorders", "Chronic pain syndromes", "Hypertension", "Migraines", "Fibromyalgia"],
+    polypharmacy: ["Benzodiazepines (alprazolam, clonazepam)", "Buspirone", "Trazodone", "Gabapentin", "Antihypertensives (lisinopril, amlodipine)"],
+    overdoseToxicity: ["Seizures, often abrupt onset and recurrent", "Sinus tachycardia progressing to ventricular dysrhythmias", "QRS widening and QTc prolongation", "Serotonin syndrome (hyperthermia, clonus, agitation)", "Hypotension and cardiovascular collapse in massive ingestions"],
+    precautions: [
+      'Significantly more toxic in overdose than SSRIs — <span class="hl hl--ci">seizures</span> occur in ~13% of ingestions and may be delayed up to 19 hours with XR formulations.',
+      'Co-administration with <span class="hl hl--drug">fentanyl</span> or <span class="hl hl--drug">tramadol</span> increases risk of <span class="hl hl--ci">serotonin syndrome</span>.',
+      'Causes dose-dependent <span class="hl hl--warn">sustained hypertension</span> at therapeutic doses — baseline BP may be elevated.',
+      'QRS widening in overdose resembles <span class="hl hl--warn">TCA toxicity</span> and may respond to sodium bicarbonate.',
+      'Abrupt discontinuation causes a severe <span class="hl hl--ci">withdrawal syndrome</span> — agitation, confusion, and sensory disturbances ("brain zaps") may mimic neurological emergencies.'
     ],
-    patientIndications: ["Major Depressive Disorder", "Generalized Anxiety Disorder", "Social Anxiety Disorder", "Panic Disorder", "Neuropathic Pain", "Migraine Prophylaxis"],
-    considerations: [
-      'Can cause dose-dependent <span class="hl hl--ci">hypertension</span> — one of the few antidepressants that raises blood pressure. Factor this in when assessing a hypertensive patient.',
-      'Risk of <span class="hl hl--ci">serotonin syndrome</span> in overdose or when combined with other serotonergic drugs (SSRIs, tramadol, fentanyl, MAOIs). Look for clonus, hyperthermia, agitation, and hyperreflexia.',
-      'Abrupt discontinuation causes a severe <span class="hl hl--warn">withdrawal syndrome</span> — "brain zaps," dizziness, nausea, irritability, and rebound anxiety. Non-compliance or missed doses can mimic new neurological complaints.',
-      '<span class="hl hl--ci">Overdose</span>: more dangerous than SSRIs — causes tachycardia, seizures, QRS/QTc prolongation, and ventricular dysrhythmias. Carries the highest mortality rate among SNRI/SSRI overdoses. Prehospital: benzodiazepines for seizures, cardiac monitoring, sodium bicarbonate for wide QRS.',
-      'May increase <span class="hl hl--warn">bleeding risk</span> by impairing platelet serotonin uptake, especially when combined with anticoagulants or NSAIDs.'
-    ]
+    summary: "Venlafaxine is an SNRI prescribed for depression, anxiety, and panic disorder. It carries substantially more overdose toxicity than SSRIs — seizures, QRS/QTc prolongation, and serotonin syndrome are well-documented. Its toxicity profile in overdose is a hybrid of TCA and SSRI patterns: cardiac conduction changes and seizures from sodium channel blockade, plus serotonergic excess. On scene, expect baseline hypertension, watch for serotonin syndrome when co-administered with prehospital fentanyl, and treat abrupt-discontinuation symptoms as a possible explanation for neurological presentations."
   },
   {
     id: "duloxetine",
-    summary: "An SNRI antidepressant used for depression, generalized anxiety, diabetic neuropathy, fibromyalgia, and chronic musculoskeletal pain. Also inhibits norepinephrine reuptake, giving it dual utility for mood disorders and pain syndromes.",
-    genericName: "Duloxetine",
-    tradeNames: ["Cymbalta"],
+    drugName: "Duloxetine",
+    tradeName: ["Cymbalta"],
     category: ["Psychiatric", "Pain & Anti-inflammatory", "Neurological"],
-    classes: ["Antidepressant", "SNRI"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Inhibits reuptake of both serotonin and norepinephrine at the presynaptic terminal, increasing their availability in the synaptic cleft. The dual mechanism addresses both mood regulation and descending pain inhibition pathways.",
-        target: {
-          name: "Serotonin & norepinephrine transporters (SERT/NET)",
-          action: "inhibitor",
-          result: "↑ Serotonin & norepinephrine in synaptic cleft",
-          system: "serotonergic"
-        }
-      }
+    classes: ["SNRI", "Antidepressant"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Major depressive disorder", "Generalized anxiety disorder", "Fibromyalgia", "Diabetic peripheral neuropathy", "Chronic musculoskeletal pain"],
+    comorbidities: ["Chronic pain syndromes", "Type 2 diabetes", "Anxiety disorders", "Osteoarthritis", "Depression"],
+    polypharmacy: ["Gabapentin", "NSAIDs (ibuprofen, naproxen, meloxicam)", "PPIs (omeprazole, pantoprazole)", "Benzodiazepines (alprazolam, clonazepam)", "Oral hypoglycemics (metformin, glipizide)"],
+    overdoseToxicity: ["Tachycardia and hypertension (sympathomimetic toxicity)", "Serotonin syndrome (clonus, agitation, diaphoresis, hyperthermia)", "Seizures", "Somnolence progressing to altered mental status", "QTc prolongation (uncommon)"],
+    precautions: [
+      'Risk of <span class="hl hl--ci">serotonin syndrome</span> when combined with prehospital <span class="hl hl--drug">fentanyl</span> or other serotonergic agents.',
+      'Impairs platelet aggregation — increased <span class="hl hl--ci">bleeding risk</span> when combined with aspirin or anticoagulants.',
+      'Causes <span class="hl hl--ci">orthostatic hypotension</span> and falls, particularly in elderly patients and early in treatment.',
+      'Abrupt discontinuation causes a <span class="hl hl--warn">withdrawal syndrome</span> — dizziness, nausea, paresthesia, irritability, and "brain zaps" may mimic neurological emergencies.',
+      'May cause <span class="hl hl--ci">hyponatremia</span> (SIADH), especially in elderly patients on diuretics.'
     ],
-    patientIndications: ["Major Depressive Disorder", "Generalized Anxiety Disorder", "Diabetic Peripheral Neuropathy", "Fibromyalgia", "Chronic Musculoskeletal Pain"],
-    considerations: [
-      'Causes <span class="hl hl--ci">orthostatic hypotension</span>, falls, and syncope — particularly within the first week of therapy or after dose increases. Assess orthostatics in patients reporting dizziness or falls.',
-      '<span class="hl hl--ci">Serotonin syndrome</span> risk when combined with other serotonergic drugs (SSRIs, MAOIs, tramadol, fentanyl). Look for agitation, clonus, tremor, diaphoresis, and hyperthermia.',
-      'Abrupt discontinuation causes a pronounced <span class="hl hl--warn">withdrawal syndrome</span> — dizziness, nausea, paresthesia, irritability, and insomnia. A distressed patient who recently stopped duloxetine may be in withdrawal rather than having a new complaint.',
-      '<span class="hl hl--ci">Overdose</span>: produces tachycardia, hypertension, and serotonin toxicity. Isolated duloxetine OD is generally survivable without major complications, but co-ingestions significantly increase severity. Prehospital: benzodiazepines for agitation/seizures, cardiac monitoring.',
-      'Increases <span class="hl hl--warn">bleeding risk</span> by impairing platelet serotonin uptake — particularly relevant in patients also on anticoagulants or NSAIDs.'
-    ]
+    summary: "Duloxetine is an SNRI used across psychiatric, pain, and neurological conditions — its presence on a med list signals chronic pain, mood disorders, or both. In overdose it produces sympathomimetic toxicity (tachycardia, hypertension) and serotonin syndrome rather than the cardiac conduction changes seen with TCAs. On scene, the key concern is serotonin syndrome risk when administering fentanyl, and the potential for discontinuation symptoms to mimic stroke or seizure presentations."
   },
   {
     id: "bupropion",
-    summary: "An aminoketone antidepressant used for major depressive disorder, seasonal affective disorder, and smoking cessation. Also prescribed off-label for ADHD and as augmentation for treatment-resistant depression.",
-    genericName: "Bupropion",
-    tradeNames: ["Wellbutrin", "Wellbutrin SR", "Wellbutrin XL", "Zyban", "Aplenzin", "Forfivo XL"],
+    drugName: "Bupropion",
+    tradeName: ["Wellbutrin", "Wellbutrin SR", "Wellbutrin XL", "Zyban", "Forfivo XL", "Aplenzin"],
     category: ["Psychiatric"],
     classes: ["Antidepressant"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Inhibits reuptake of norepinephrine and dopamine, increasing their synaptic availability. Also antagonizes nicotinic acetylcholine receptors, which contributes to its efficacy in smoking cessation.",
-        target: {
-          name: "Norepinephrine-dopamine reuptake transporters",
-          action: "inhibitor",
-          result: "↑ Synaptic norepinephrine and dopamine",
-          system: "dopaminergic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Major depressive disorder", "Seasonal affective disorder", "Smoking cessation"],
+    comorbidities: ["Anxiety disorders", "ADHD", "Nicotine dependence", "Obesity", "Chronic pain"],
+    polypharmacy: ["SSRIs (sertraline, escitalopram)", "Benzodiazepines (alprazolam, clonazepam)", "Stimulants (amphetamine salts)", "Trazodone", "Gabapentin"],
+    overdoseToxicity: [
+      "Seizures, including delayed-onset and status epilepticus",
+      "Sinus tachycardia and hypertension",
+      "QRS widening and QTc prolongation",
+      "Agitation, delirium, and hallucinations",
+      "Cardiogenic shock in massive ingestions"
     ],
-    patientIndications: ["Major Depressive Disorder", "Seasonal Affective Disorder", "Smoking Cessation", "ADHD"],
-    considerations: [
-      '<span class="hl hl--ci">Seizures</span> are the primary danger — risk is dose-dependent and increases sharply above therapeutic range. Bupropion lowers the seizure threshold more than other antidepressants.',
-      'Can cause <span class="hl hl--warn">tachycardia</span>, agitation, insomnia, and tremor at therapeutic doses. These symptoms also serve as warning signs of toxicity.',
-      'May cause a false-positive <span class="hl hl--warn">urine amphetamine</span> screen due to structural similarity — do not assume stimulant use based on UDS alone.',
-      'Contraindicated in patients with <span class="hl hl--ci">seizure disorders</span>, eating disorders (bulimia/anorexia), and those undergoing abrupt alcohol or benzodiazepine withdrawal.',
-      '<span class="hl hl--ci">Overdose</span>: seizures (17–47% of cases), tachycardia, agitation, QRS/QT prolongation, and potential cardiogenic shock. Extended-release formulations cause delayed seizures up to 24 hours post-ingestion. Prehospital: benzodiazepines for seizures, cardiac monitoring. No specific antidote exists.'
-    ]
+    precautions: [
+      'Overdose presents as a <span class="hl hl--warn">sympathomimetic toxidrome</span> — tachycardia, hypertension, agitation, mydriasis, and seizures.',
+      '<span class="hl hl--ci">Delayed seizures</span> can occur up to 24 hours post-ingestion with extended-release formulations.',
+      'Triggers <span class="hl hl--ci">false-positive urine amphetamine</span> screens due to structural similarity to cathinones.',
+      'QRS widening is caused by gap junction inhibition, not sodium channel blockade — <span class="hl hl--drug">sodium bicarbonate</span> may be ineffective.',
+      'Lowers seizure threshold at therapeutic doses — concurrent alcohol withdrawal or <span class="hl hl--warn">pro-convulsant drugs</span> compound the risk.'
+    ],
+    summary: "Bupropion is a norepinephrine-dopamine reuptake inhibitor prescribed for depression, smoking cessation, and off-label for ADHD. It is one of the most dangerous antidepressants in overdose — seizures occur in 17–47% of intentional ingestions and can be delayed up to 24 hours with extended-release formulations. Cardiotoxicity from gap junction inhibition does not respond to sodium bicarbonate, making severe overdose uniquely resistant to standard interventions. On scene, suspect bupropion in any antidepressant overdose presenting with a sympathomimetic picture and seizures, and note that a positive amphetamine screen may be a false positive."
   },
   {
     id: "trazodone",
-    summary: "A serotonin antagonist and reuptake inhibitor (SARI) used for major depressive disorder and widely prescribed off-label as a sleep aid. Also used to manage agitation in dementia patients.",
-    genericName: "Trazodone",
-    tradeNames: ["Desyrel"],
+    drugName: "Trazodone",
+    tradeName: ["Desyrel", "Oleptro"],
     category: ["Psychiatric"],
-    classes: ["Antidepressant", "Sedative"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Blocks 5-HT2A receptors and weakly inhibits serotonin reuptake, enhancing serotonergic transmission. The 5-HT2A antagonism produces sedation and anxiolysis, while serotonin reuptake inhibition contributes to antidepressant effects.",
-        target: {
-          name: "5-HT2A receptors & serotonin transporter",
-          action: "antagonist",
-          result: "↑ Serotonergic activity, sedation, anxiolysis",
-          system: "serotonergic"
-        }
-      },
-      {
-        brief: "Blocks alpha-1 adrenergic receptors, causing vasodilation and contributing to orthostatic hypotension — the primary hemodynamic effect seen in both therapeutic use and overdose.",
-        target: {
-          name: "Alpha-1 adrenergic receptors",
-          action: "antagonist",
-          result: "Vasodilation, ↓ BP",
-          system: "adrenergic"
-        }
-      }
+    classes: ["Antidepressant"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Major depressive disorder", "Insomnia (off-label)", "Anxiety (off-label)"],
+    comorbidities: ["Depression", "Insomnia", "Anxiety disorders", "Chronic pain", "PTSD"],
+    polypharmacy: ["SSRIs (sertraline, escitalopram)", "SNRIs (venlafaxine, duloxetine)", "Benzodiazepines (alprazolam, clonazepam)", "Gabapentin", "Quetiapine"],
+    overdoseToxicity: ["CNS depression progressing to coma", "QT prolongation with torsades de pointes", "Hypotension from alpha-1 blockade", "Seizures", "Priapism"],
+    precautions: [
+      'Concomitant <span class="hl hl--drug">fentanyl</span> administration risks <span class="hl hl--ci">serotonin syndrome</span> — agitation, clonus, hyperthermia, and autonomic instability.',
+      '<span class="hl hl--ci">QT prolongation</span> is dose-dependent and additive with other QT-prolonging agents including <span class="hl hl--drug">ondansetron</span> and <span class="hl hl--drug">amiodarone</span>.',
+      'Causes <span class="hl hl--ci">orthostatic hypotension</span> via alpha-1 blockade — compounded by concurrent antihypertensives.',
+      'Potent <span class="hl hl--warn">sedation</span> is additive with opioids, benzodiazepines, and other CNS depressants.',
+      'Increases <span class="hl hl--warn">bleeding risk</span> when combined with aspirin, NSAIDs, or anticoagulants.'
     ],
-    patientIndications: ["Major Depressive Disorder", "Insomnia", "Anxiety", "Agitation in Dementia"],
-    considerations: [
-      'Causes significant <span class="hl hl--ci">orthostatic hypotension</span> and syncope via alpha-1 blockade — assess for fall risk and positional vitals, especially in elderly patients.',
-      'Prolongs the <span class="hl hl--ci">QT interval</span> and can cause torsades de pointes, particularly in patients with preexisting cardiac disease, hypokalemia, or hypomagnesemia.',
-      '<span class="hl hl--ci">Serotonin syndrome</span> risk increases with coadministration of other serotonergic drugs (SSRIs, SNRIs, fentanyl, tramadol). Look for agitation, clonus, hyperthermia, and diaphoresis.',
-      '<span class="hl hl--warn">Priapism</span> is a rare but well-documented adverse effect — a sustained painful erection requiring emergent urological intervention.',
-      '<span class="hl hl--ci">Overdose</span>: CNS depression, severe hypotension from alpha blockade, QT prolongation with risk of fatal arrhythmias, and seizures. Prehospital: supportive care, IV fluids for hypotension, benzodiazepines for seizures, cardiac monitoring.'
-    ]
+    summary: "Trazodone is a serotonin antagonist and reuptake inhibitor prescribed for depression but far more commonly encountered as a sleep aid. Its alpha-1 blockade causes orthostatic hypotension, and it prolongs the QT interval — both effects are amplified in overdose, where severe hypotension and torsades de pointes are the primary life threats. The critical prehospital interaction is with fentanyl: administering fentanyl to a patient on trazodone can precipitate serotonin syndrome."
   },
   {
     id: "alprazolam",
-    summary: "A short-acting benzodiazepine used for generalized anxiety disorder and panic disorder. Has a high potential for dependence and is more toxic in overdose than most other benzodiazepines.",
-    genericName: "Alprazolam",
-    tradeNames: ["Xanax", "Xanax XR"],
+    drugName: "Alprazolam",
+    tradeName: ["Xanax", "Xanax XR"],
     category: ["Psychiatric"],
     classes: ["Benzodiazepine", "Sedative"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Binds the benzodiazepine site on GABA-A receptors, enhancing GABA-mediated chloride influx and increasing inhibitory neurotransmission throughout the CNS.",
-        target: {
-          name: "GABA-A receptors (benzodiazepine site)",
-          action: "enhancer",
-          result: "↑ GABAergic inhibition, CNS depression",
-          system: "GABAergic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Generalized anxiety disorder", "Panic disorder"],
+    comorbidities: ["Major depressive disorder", "PTSD", "Insomnia", "Substance use disorder", "Agoraphobia"],
+    polypharmacy: ["SSRIs (sertraline, escitalopram)", "SNRIs (venlafaxine, duloxetine)", "Trazodone", "Gabapentin", "Opioid analgesics (hydrocodone, oxycodone)"],
+    overdoseToxicity: ["CNS depression with somnolence and confusion", "Impaired coordination and diminished reflexes", "Respiratory depression, especially with coingestants", "Hypotension", "Coma"],
+    precautions: [
+      'Concomitant use with <span class="hl hl--drug">fentanyl</span>, <span class="hl hl--drug">morphine</span>, or other opioids risks <span class="hl hl--ci">fatal respiratory depression</span>.',
+      'Alprazolam is more toxic in overdose than other benzodiazepines — higher rates of ICU admission and mechanical ventilation.',
+      '<span class="hl hl--drug">Flumazenil</span> can precipitate <span class="hl hl--ci">withdrawal seizures</span> in chronic users — use is rarely indicated in the field.',
+      'Abrupt discontinuation causes <span class="hl hl--ci">withdrawal seizures</span> — a patient without their Xanax is a seizure risk.',
+      '<span class="hl hl--warn">Additive CNS depression</span> with alcohol, antihistamines, and any sedating prehospital medications including <span class="hl hl--drug">midazolam</span> and <span class="hl hl--drug">ketamine</span>.'
     ],
-    patientIndications: ["Generalized Anxiety Disorder", "Panic Disorder"],
-    considerations: [
-      'Causes <span class="hl hl--ci">CNS depression</span> — sedation, impaired coordination, slurred speech, and respiratory depression, especially when combined with <span class="hl hl--warn">opioids or alcohol</span>.',
-      'High dependence potential with chronic use. Abrupt discontinuation can cause life-threatening <span class="hl hl--ci">withdrawal seizures</span>, rebound anxiety, and autonomic instability.',
-      'Masks tachycardia and agitation that would otherwise signal an underlying condition — altered patients on alprazolam may have a coingestant or other pathology driving the presentation.',
-      'More toxic in overdose than other benzodiazepines — higher rates of ICU admission, mechanical ventilation, and <span class="hl hl--ci">respiratory depression</span> compared to diazepam or lorazepam.',
-      '<span class="hl hl--ci">Overdose</span>: CNS depression with near-normal vitals in isolated ingestion. Coingestants (alcohol, opioids, TCAs) dramatically worsen respiratory compromise. Prehospital: airway management, supportive care. <span class="hl hl--warn">Flumazenil is generally avoided</span> — risk of seizures in chronic users or mixed ingestions.'
-    ]
+    summary: "Alprazolam is a short-acting, high-potency benzodiazepine prescribed for anxiety and panic disorder. Its presence on a med list flags potential physical dependence — patients who miss doses or run out are at risk for withdrawal seizures. The highest-stakes prehospital concern is co-ingestion with opioids or alcohol, which dramatically increases the risk of respiratory arrest. Alprazolam is notably more toxic in overdose than other benzodiazepines, with higher rates of respiratory failure requiring ventilation."
   },
   {
     id: "clonazepam",
-    summary: "A long-acting, high-potency benzodiazepine used for seizure disorders and panic disorder. Also prescribed off-label for REM sleep behavior disorder, restless leg syndrome, and acute mania.",
-    genericName: "Clonazepam",
-    tradeNames: ["Klonopin"],
+    drugName: "Clonazepam",
+    tradeName: ["Klonopin"],
     category: ["Psychiatric", "Neurological"],
-    classes: ["Benzodiazepine", "Anticonvulsant", "Sedative"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Acts as a positive allosteric modulator at GABA-A receptors, enhancing the inhibitory effect of GABA in the CNS. This increases chloride conductance, hyperpolarizing neurons and reducing neuronal excitability.",
-        target: {
-          name: "GABA-A receptors",
-          action: "enhancer",
-          result: "↑ GABA-mediated inhibition, ↓ neuronal excitability",
-          system: "GABAergic"
-        }
-      }
+    classes: ["Benzodiazepine", "Anticonvulsant"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Panic disorder", "Seizure disorders (Lennox-Gastaut)", "Myoclonic seizures", "Absence seizures"],
+    comorbidities: ["Generalized anxiety disorder", "Epilepsy", "Depression", "Insomnia", "Agoraphobia"],
+    polypharmacy: ["SSRIs (sertraline, escitalopram)", "Anticonvulsants (levetiracetam, valproic acid)", "Antipsychotics (quetiapine)", "Opioid analgesics (hydrocodone, oxycodone)", "Trazodone"],
+    overdoseToxicity: ["Somnolence progressing to coma", "Respiratory depression, especially with co-ingestants", "Hypotension and bradycardia", "Diminished reflexes and ataxia", "Pulmonary aspiration"],
+    precautions: [
+      'Concurrent <span class="hl hl--drug">opioid</span> use causes synergistic <span class="hl hl--ci">respiratory depression</span> — the leading cause of benzodiazepine-related death.',
+      '<span class="hl hl--drug">Flumazenil</span> is contraindicated in chronic users — precipitates <span class="hl hl--ci">withdrawal seizures</span> and is not recommended in the field.',
+      'Abrupt discontinuation after chronic use risks <span class="hl hl--ci">status epilepticus</span> and life-threatening withdrawal.',
+      'Long half-life (18–50 hours) means <span class="hl hl--warn">delayed or recurrent CNS depression</span> hours after ingestion.',
+      'Additive <span class="hl hl--warn">CNS depression</span> with alcohol, <span class="hl hl--drug">midazolam</span>, <span class="hl hl--drug">ketamine</span>, and any sedating prehospital medications.'
     ],
-    patientIndications: ["Panic Disorder", "Seizure Disorders", "Lennox-Gastaut Syndrome", "Myoclonic Seizures", "Absence Seizures", "REM Sleep Behavior Disorder", "Restless Leg Syndrome"],
-    considerations: [
-      'Causes <span class="hl hl--ci">sedation</span>, drowsiness, and <span class="hl hl--ci">ataxia</span> — expect impaired coordination and slowed mentation. Falls are a major concern, especially in elderly patients.',
-      'Concurrent use with <span class="hl hl--ci">opioids or alcohol</span> dramatically increases the risk of respiratory depression, coma, and death. Ask about other CNS depressants on every call.',
-      '<span class="hl hl--warn">Abrupt discontinuation</span> after chronic use can precipitate life-threatening withdrawal — seizures, status epilepticus, hallucinations, and autonomic instability. A patient without their clonazepam is a seizure risk.',
-      'High abuse and dependence potential. Long half-life (18–50 hours) means effects and toxicity can persist or recur well after ingestion.',
-      '<span class="hl hl--ci">Overdose</span>: CNS depression with near-normal vitals in isolated ingestion — somnolence, confusion, slurred speech, coma. Coingestants (opioids, alcohol) cause severe respiratory depression. Prehospital: airway management, supportive care. <span class="hl hl--warn">Flumazenil is generally avoided</span> — seizure risk in chronic users or mixed ingestions.'
-    ]
+    summary: "Clonazepam is a long-acting benzodiazepine used for panic disorder and seizure control. Chronic users develop physical dependence — abrupt discontinuation or missed doses can trigger withdrawal seizures. The primary prehospital threat is co-ingestion with opioids or alcohol, which converts a typically survivable benzodiazepine overdose into respiratory arrest. Its long half-life means patients can deteriorate hours after initial assessment appears reassuring."
   },
   {
     id: "zolpidem",
-    summary: "A non-benzodiazepine sedative-hypnotic (Z-drug) used for short-term treatment of insomnia. Acts on the same GABA-A receptor complex as benzodiazepines but with more selective sedative effects.",
-    genericName: "Zolpidem",
-    tradeNames: ["Ambien", "Ambien CR", "Edluar", "Intermezzo", "Zolpimist"],
+    drugName: "Zolpidem",
+    tradeName: ["Ambien", "Ambien CR", "Edluar", "Intermezzo"],
     category: ["Psychiatric"],
     classes: ["Hypnotic", "Sedative"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Binds selectively to the alpha-1 subunit of the GABA-A receptor, increasing chloride channel opening frequency and enhancing GABA-mediated neuronal inhibition. This selectivity produces sedation with less anxiolytic, anticonvulsant, and muscle relaxant activity compared to benzodiazepines.",
-        target: {
-          name: "GABA-A receptor (alpha-1 subunit)",
-          action: "enhancer",
-          result: "↑ GABA inhibition → sedation, ↓ sleep latency",
-          system: "GABAergic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Insomnia (sleep onset)"],
+    comorbidities: ["Anxiety disorders", "Depression", "Chronic pain", "COPD", "Obstructive sleep apnea"],
+    polypharmacy: ["SSRIs (sertraline, escitalopram)", "Benzodiazepines (alprazolam, clonazepam)", "Opioid Analgesics (hydrocodone, oxycodone)", "Trazodone", "Gabapentin"],
+    overdoseToxicity: ["Excessive sedation progressing to coma", "Respiratory depression, especially with co-ingestants", "Hypotension", "Ataxia and falls", "Hallucinations and agitation"],
+    precautions: [
+      'Responds to <span class="hl hl--drug">flumazenil</span> — acts on the benzodiazepine binding site despite not being a benzodiazepine.',
+      'Co-ingestion with <span class="hl hl--drug">opioids</span>, alcohol, or benzodiazepines dramatically increases risk of <span class="hl hl--ci">respiratory arrest</span>.',
+      'Single-drug overdose is typically benign — <span class="hl hl--warn">polysubstance ingestion</span> is the real danger.',
+      'Causes <span class="hl hl--warn">complex sleep behaviors</span> (sleepwalking, sleep-driving) — patients may be found confused and ambulatory with no memory of events.',
+      'Additive <span class="hl hl--warn">CNS depression</span> with prehospital <span class="hl hl--drug">midazolam</span>, <span class="hl hl--drug">fentanyl</span>, and <span class="hl hl--drug">ketamine</span>.'
     ],
-    patientIndications: ["Insomnia"],
-    considerations: [
-      'Causes <span class="hl hl--ci">CNS depression</span> — drowsiness, confusion, ataxia, and impaired coordination. Effects are amplified significantly when combined with alcohol, opioids, benzodiazepines, or other CNS depressants.',
-      '<span class="hl hl--warn">Complex sleep behaviors</span> (FDA boxed warning): sleepwalking, sleep-driving, cooking, phone calls — all with no memory of the event. Can occur at recommended doses without coingestants.',
-      'Causes <span class="hl hl--ci">falls</span>, especially in elderly patients — hip fractures and intracranial hemorrhage have been reported. Increased risk of delirium in older adults.',
-      'Does <span class="hl hl--warn">not cross-react</span> on standard urine drug screens for benzodiazepines, opiates, barbiturates, or amphetamines — a negative UDS does not rule out zolpidem use.',
-      '<span class="hl hl--ci">Overdose</span>: isolated zolpidem ingestion typically causes somnolence to light coma with relatively preserved hemodynamics. Combined ingestion with other CNS depressants can produce severe respiratory depression and cardiovascular collapse. <span class="hl hl--drug">Flumazenil</span> may partially reverse effects but risks seizures.'
-    ]
+    summary: "Zolpidem is a non-benzodiazepine hypnotic (Z-drug) prescribed for insomnia. It binds the same GABA-A receptor site as benzodiazepines and produces similar CNS depression. Isolated zolpidem overdose rarely causes serious harm, but co-ingestion with opioids, alcohol, or benzodiazepines converts it into a life-threatening respiratory emergency. Paramedics should also be aware of complex sleep behaviors — patients found wandering, driving, or acting bizarrely with no recall may be experiencing a known zolpidem effect, not a psychiatric emergency."
   },
   {
     id: "quetiapine",
-    summary: "An atypical antipsychotic used for schizophrenia, bipolar disorder (manic and depressive episodes), and off-label as a sleep aid. Antagonizes multiple receptor types, producing significant sedation and orthostatic hypotension.",
-    genericName: "Quetiapine",
-    tradeNames: ["Seroquel", "Seroquel XR"],
+    drugName: "Quetiapine",
+    tradeName: ["Seroquel", "Seroquel XR"],
     category: ["Psychiatric"],
-    classes: ["Atypical Antipsychotic", "Antipsychotic"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Antagonizes serotonin 5-HT2A and dopamine D2 receptors in the mesolimbic pathway, with higher affinity for 5-HT2A than D2. This ratio accounts for its antipsychotic effect with relatively lower risk of extrapyramidal symptoms compared to typical antipsychotics.",
-        target: {
-          name: "Serotonin 5-HT2A & Dopamine D2 receptors",
-          action: "antagonist",
-          result: "↓ Psychosis, mood stabilization",
-          system: "dopaminergic"
-        }
-      },
-      {
-        brief: "Potent antagonism of histamine H1 receptors produces significant sedation and weight gain. Also blocks alpha-1 adrenergic receptors, causing orthostatic hypotension and reflex tachycardia.",
-        target: {
-          name: "Histamine H1 & Alpha-1 adrenergic receptors",
-          action: "antagonist",
-          result: "Sedation, orthostatic hypotension",
-          system: "histaminergic"
-        }
-      }
+    classes: ["Atypical Antipsychotic"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Schizophrenia", "Bipolar mania", "Bipolar depression", "Major depressive disorder (adjunct)"],
+    comorbidities: ["Bipolar disorder", "Schizophrenia", "Major depressive disorder", "Insomnia", "Type 2 diabetes"],
+    polypharmacy: ["SSRIs (sertraline, escitalopram)", "Mood stabilizers (lithium, valproic acid)", "Benzodiazepines (lorazepam, clonazepam)", "Metformin", "Antihypertensives (lisinopril, amlodipine)"],
+    overdoseToxicity: ["Dose-dependent CNS depression progressing to coma", "Sinus tachycardia", "Hypotension from alpha-1 blockade", "QTc prolongation", "Seizures"],
+    precautions: [
+      '<span class="hl hl--drug">Epinephrine</span> is contraindicated in quetiapine overdose — alpha blockade causes <span class="hl hl--ci">paradoxical hypotension</span> via unopposed beta-2 vasodilation.',
+      'Significant <span class="hl hl--warn">anticholinergic effects</span> in overdose — tachycardia, urinary retention, delirium, and dry mucous membranes.',
+      'Causes <span class="hl hl--ci">rapid loss of consciousness</span> — GCS can deteriorate quickly, requiring early airway management.',
+      'Risk of <span class="hl hl--ci">neuroleptic malignant syndrome</span> — hyperthermia, rigidity, altered mental status, and autonomic instability.',
+      'Additive <span class="hl hl--warn">CNS depression</span> with prehospital <span class="hl hl--drug">midazolam</span>, <span class="hl hl--drug">fentanyl</span>, and <span class="hl hl--drug">ketamine</span>.'
     ],
-    patientIndications: ["Schizophrenia", "Bipolar Disorder (Manic Episodes)", "Bipolar Disorder (Depressive Episodes)", "Insomnia (Off-Label)", "Major Depressive Disorder (Adjunct)"],
-    considerations: [
-      'Causes significant <span class="hl hl--ci">orthostatic hypotension</span> via alpha-1 blockade — assess positional vitals carefully, especially in elderly patients or those on other antihypertensives.',
-      '<span class="hl hl--ci">Neuroleptic malignant syndrome</span> (NMS) is rare but life-threatening: hyperthermia, rigidity, altered mental status, autonomic instability. Treat as a medical emergency.',
-      'Can cause <span class="hl hl--warn">hyperglycemia</span> and metabolic syndrome with chronic use — a patient on quetiapine with altered mental status should have a glucose check.',
-      'Produces dose-dependent <span class="hl hl--warn">sedation</span> and anticholinergic effects (dry mouth, urinary retention, tachycardia). Sedation can mask assessment findings.',
-      '<span class="hl hl--ci">Overdose</span>: CNS depression progressing to coma, tachycardia, and hypotension. Alpha-1 blockade means <span class="hl hl--drug">epinephrine</span> can paradoxically worsen hypotension — use norepinephrine for vasopressor support. No specific antidote.'
-    ]
+    summary: "Quetiapine is an atypical antipsychotic prescribed for schizophrenia, bipolar disorder, and as an adjunct for depression. It is one of the most frequently encountered antipsychotics in overdose, causing predictable dose-dependent CNS depression, tachycardia, and hypotension. The critical prehospital concern is the epinephrine contraindication — alpha-1 blockade means epinephrine worsens hypotension rather than correcting it. Rapid GCS deterioration is common, and airway protection should be prioritized early."
   },
   {
     id: "aripiprazole",
-    summary: "An atypical (third-generation) antipsychotic used for schizophrenia, bipolar mania, and as adjunctive therapy in major depressive disorder. Acts as a partial dopamine agonist rather than a pure antagonist, giving it a more favorable metabolic and extrapyramidal side effect profile than older antipsychotics.",
-    genericName: "Aripiprazole",
-    tradeNames: ["Abilify"],
+    drugName: "Aripiprazole",
+    tradeName: ["Abilify", "Abilify MyCite", "Abilify Maintena"],
     category: ["Psychiatric"],
     classes: ["Atypical Antipsychotic"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Partially activates D2 dopamine receptors — acting as a functional antagonist in hyperdopaminergic pathways (mesolimbic) while preserving dopamine signaling in hypodopaminergic pathways (mesocortical). Also partially agonizes 5-HT1A and antagonizes 5-HT2A serotonin receptors, contributing to mood stabilization and reduced EPS.",
-        target: {
-          name: "D2 dopamine receptors",
-          action: "modulator",
-          result: "Stabilized dopamine signaling, ↓ positive symptoms, improved negative/cognitive symptoms",
-          system: "dopaminergic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Schizophrenia", "Bipolar I disorder (acute mania)", "Major depressive disorder (adjunct)", "Irritability in autism", "Tourette's disorder"],
+    comorbidities: ["Bipolar disorder", "Schizophrenia", "Major depressive disorder", "Anxiety disorders", "Type 2 diabetes"],
+    polypharmacy: ["SSRIs (sertraline, escitalopram)", "Mood stabilizers (lithium, valproic acid)", "Benzodiazepines (lorazepam, clonazepam)", "Metformin", "Antihypertensives (lisinopril, amlodipine)"],
+    overdoseToxicity: ["Sedation and somnolence (predominant finding)", "Tachycardia", "Orthostatic hypotension", "QTc prolongation (rare)", "Tremor and ataxia"],
+    precautions: [
+      'Additive <span class="hl hl--warn">CNS depression</span> with prehospital <span class="hl hl--drug">midazolam</span>, <span class="hl hl--drug">fentanyl</span>, and <span class="hl hl--drug">ketamine</span>.',
+      'Alpha-1 antagonism causes <span class="hl hl--ci">orthostatic hypotension</span> — compounded by dehydration or concurrent antihypertensives.',
+      'Risk of <span class="hl hl--ci">neuroleptic malignant syndrome</span> — hyperthermia, rigidity, altered mental status, and autonomic instability.',
+      'Impaired <span class="hl hl--warn">thermoregulation</span> — increased risk of heat-related illness in hot environments or with exertion.',
+      '<span class="hl hl--drug">Ondansetron</span> coadministration carries additive <span class="hl hl--warn">QTc prolongation</span> risk.'
     ],
-    patientIndications: ["Schizophrenia", "Bipolar I Disorder (Manic/Mixed Episodes)", "Major Depressive Disorder (Adjunctive)", "Irritability Associated with Autism", "Tourette Syndrome"],
-    considerations: [
-      '<span class="hl hl--ci">Akathisia</span> (inner restlessness and inability to sit still) is the most common movement-related side effect. Can be mistaken for agitation from the underlying psychiatric condition.',
-      'Causes <span class="hl hl--ci">orthostatic hypotension</span> due to alpha-1 antagonism — use caution in dehydrated or hypovolemic patients.',
-      '<span class="hl hl--ci">Neuroleptic malignant syndrome</span> is rare but potentially fatal: hyperthermia, muscle rigidity, altered mental status, and autonomic instability. Treat as a medical emergency.',
-      'Impairs <span class="hl hl--warn">thermoregulation</span> — patients on aripiprazole are at increased risk of heat-related illness, especially during exertion or in hot environments.',
-      '<span class="hl hl--ci">Overdose</span>: somnolence, tachycardia, and CNS depression. No specific antidote — management is supportive with continuous cardiac monitoring. Activated charcoal may help if given early.'
-    ]
+    summary: "Aripiprazole is an atypical antipsychotic with partial D2 agonist activity, prescribed across a wide range of psychiatric conditions including schizophrenia, bipolar mania, and adjunctive MDD treatment. Its overdose profile is relatively benign compared to other antipsychotics — predominantly sedation and mild hemodynamic changes — but NMS remains a risk with any antipsychotic. The key prehospital concerns are additive CNS depression with sedatives and orthostatic hypotension from alpha-1 blockade, particularly in volume-depleted patients."
   },
   {
     id: "risperidone",
-    summary: "An atypical antipsychotic used for schizophrenia, acute mania in bipolar I disorder, and irritability associated with autism. Also used off-label for agitation in dementia, delirium, and behavioral disorders.",
-    genericName: "Risperidone",
-    tradeNames: ["Risperdal"],
+    drugName: "Risperidone",
+    tradeName: ["Risperdal", "Risperdal M-Tab"],
     category: ["Psychiatric"],
-    classes: ["Atypical Antipsychotic", "Antipsychotic"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Blocks dopamine D2 receptors in the mesolimbic pathway, reducing positive psychotic symptoms such as hallucinations and delusions. Also antagonizes serotonin 5-HT2A receptors, which reduces extrapyramidal side effects compared to typical antipsychotics and may improve negative symptoms.",
-        target: {
-          name: "Dopamine D2 & Serotonin 5-HT2A receptors",
-          action: "antagonist",
-          result: "↓ Psychotic symptoms, ↓ EPS risk vs typicals",
-          system: "dopaminergic"
-        }
-      }
+    classes: ["Atypical Antipsychotic"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Schizophrenia", "Bipolar I (acute mania)", "Irritability (autism-related)"],
+    comorbidities: ["Metabolic syndrome", "Type 2 diabetes", "Hypertension", "Substance use disorder", "Depression"],
+    polypharmacy: ["Mood stabilizers (lithium, valproate)", "SSRIs (sertraline, fluoxetine)", "Benzodiazepines (lorazepam, clonazepam)", "Metformin", "Benztropine"],
+    overdoseToxicity: ["Tachycardia", "Orthostatic hypotension", "Extrapyramidal symptoms (dystonia)", "QTc prolongation", "Sedation progressing to CNS depression"],
+    precautions: [
+      '<span class="hl hl--ci">Neuroleptic malignant syndrome</span> — fever, lead-pipe rigidity, autonomic instability, and altered mental status.',
+      'Alpha-1 blockade causes <span class="hl hl--ci">orthostatic hypotension</span> — exaggerated in hypovolemic or dehydrated patients.',
+      '<span class="hl hl--drug">Epinephrine</span> beta stimulation may worsen hypotension in the setting of risperidone-induced alpha blockade; <span class="hl hl--drug">norepinephrine</span> is preferred.',
+      '<span class="hl hl--warn">Impaired thermoregulation</span> — patients are vulnerable to both heat stroke and hypothermia.',
+      '<span class="hl hl--drug">Ondansetron</span> and other QT-prolonging agents carry additive <span class="hl hl--warn">QTc prolongation</span> risk.'
     ],
-    patientIndications: ["Schizophrenia", "Bipolar I Disorder (Acute Mania)", "Autism-Associated Irritability", "Agitation", "Delirium"],
-    considerations: [
-      'Causes <span class="hl hl--ci">orthostatic hypotension</span>, tachycardia, and syncope due to alpha-1 adrenergic blockade — risk increases with dehydration, concurrent antihypertensives, or volume depletion.',
-      'Can cause <span class="hl hl--ci">extrapyramidal symptoms</span> including acute dystonia, akathisia, and parkinsonism, especially at higher doses. More EPS-prone than other atypicals like quetiapine.',
-      '<span class="hl hl--ci">Neuroleptic malignant syndrome</span> is rare but life-threatening — presents with hyperthermia, severe muscle rigidity, altered mental status, and autonomic instability. Treat as a medical emergency.',
-      'Impairs <span class="hl hl--warn">thermoregulation</span> — patients are at increased risk of heat-related illness during exertion or in hot environments.',
-      '<span class="hl hl--ci">Overdose</span>: drowsiness, tachycardia, hypotension, extrapyramidal effects, and QT prolongation. No specific antidote — management is supportive with cardiac monitoring.'
-    ]
+    summary: "Risperidone is an atypical antipsychotic used for schizophrenia, bipolar mania, and autism-related irritability. Its alpha-1 antagonism causes orthostatic hypotension that worsens with dehydration or concurrent antihypertensives. In overdose, expect tachycardia and extrapyramidal symptoms (especially dystonia) rather than deep sedation — cardiac toxicity is uncommon with risperidone alone. Key prehospital flags: NMS risk with any antipsychotic, impaired thermoregulation, and avoid epinephrine for hypotension since beta stimulation can paradoxically drop BP further."
   },
   {
     id: "haloperidol",
-    summary: "A first-generation (typical) antipsychotic used for schizophrenia, acute psychosis, Tourette syndrome, and severe agitation. Also carried on many EMS units for chemical restraint of acutely violent patients.",
-    genericName: "Haloperidol",
-    tradeNames: ["Haldol"],
+    drugName: "Haloperidol",
+    tradeName: ["Haldol", "Haldol Decanoate"],
     category: ["Psychiatric"],
     classes: ["Antipsychotic"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Blocks postsynaptic dopamine D2 receptors in the mesolimbic and mesocortical pathways, reducing positive psychotic symptoms such as hallucinations and delusions.",
-        target: {
-          name: "Dopamine D2 receptors",
-          action: "antagonist",
-          result: "↓ Dopaminergic transmission, ↓ psychotic symptoms",
-          system: "dopaminergic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Schizophrenia", "Acute psychosis", "Tourette syndrome", "Severe behavioral disturbance"],
+    comorbidities: ["Schizophrenia", "Bipolar disorder", "Substance use disorder", "Dementia"],
+    polypharmacy: ["Benztropine", "Benzodiazepines (lorazepam, clonazepam)", "Mood stabilizers (lithium, valproic acid)", "SSRIs (sertraline, fluoxetine)", "Atypical antipsychotics (quetiapine, risperidone)"],
+    overdoseToxicity: ["Severe extrapyramidal symptoms (rigidity, dystonia, tremor)", "Hypotension progressing to circulatory collapse", "Deep sedation to coma with respiratory depression", "QT prolongation and torsades de pointes", "Neuroleptic malignant syndrome (hyperthermia, rigidity, autonomic instability)"],
+    precautions: [
+      '<span class="hl hl--ci">QT prolongation</span> and <span class="hl hl--ci">torsades de pointes</span> risk — additive with <span class="hl hl--drug">ondansetron</span>, <span class="hl hl--drug">amiodarone</span>, and other QT-prolonging agents.',
+      '<span class="hl hl--drug">Epinephrine</span> is contraindicated for haloperidol-induced hypotension — causes <span class="hl hl--ci">paradoxical BP drop</span> due to unopposed beta-2 stimulation.',
+      'Acute <span class="hl hl--ci">dystonic reactions</span> (torticollis, oculogyric crisis, laryngospasm) can occur and may compromise the airway.',
+      '<span class="hl hl--warn">Neuroleptic malignant syndrome</span> presents as hyperthermia, lead-pipe rigidity, altered mental status, and autonomic instability — mimics sepsis.',
+      'Lowers the <span class="hl hl--warn">seizure threshold</span> — relevant in patients with known epilepsy or concurrent use of <span class="hl hl--drug">phenytoin</span> or other anticonvulsants.'
     ],
-    patientIndications: ["Schizophrenia", "Acute Psychosis", "Tourette Syndrome", "Severe Agitation", "Acute Mania"],
-    considerations: [
-      '<span class="hl hl--ci">Extrapyramidal symptoms</span> — acute dystonia (muscle spasms, oculogyric crisis), akathisia, and rigidity can develop within hours of administration. Treat acute dystonia with diphenhydramine or benztropine.',
-      'Prolongs the <span class="hl hl--ci">QT interval</span> — risk of torsades de pointes increases with higher doses, IV administration, hypokalemia, or hypomagnesemia. Cardiac monitoring is essential.',
-      '<span class="hl hl--ci">Neuroleptic malignant syndrome</span> (NMS) — hyperthermia, severe rigidity, altered mental status, and autonomic instability. Rare but life-threatening; discontinue the drug and provide aggressive supportive care.',
-      'Causes <span class="hl hl--warn">hypotension</span> and sedation — worsened in elderly patients, those on other CNS depressants, or volume-depleted patients. Avoid epinephrine for hypotension (paradoxical BP drop); use norepinephrine or phenylephrine.',
-      '<span class="hl hl--ci">Contraindicated</span> in Parkinson disease and dementia with Lewy bodies — dopamine blockade worsens motor symptoms and increases mortality in elderly dementia patients.'
-    ]
+    summary: "Haloperidol is a high-potency typical antipsychotic prescribed for schizophrenia, acute psychosis, and Tourette syndrome. It carries significant QT prolongation risk, especially at higher doses or with concurrent QT-prolonging medications — cardiac monitoring is critical in overdose. Extrapyramidal symptoms are the hallmark adverse effect and can be severe, including airway-threatening dystonia. Epinephrine is contraindicated for haloperidol-induced hypotension; use norepinephrine or phenylephrine instead."
   },
   {
     id: "lithium",
-    summary: "A mood stabilizer used for bipolar disorder, particularly for acute mania and long-term prophylaxis against manic and depressive episodes. Has a narrow therapeutic index — toxic levels are close to therapeutic levels.",
-    genericName: "Lithium",
-    tradeNames: ["Lithobid", "Eskalith"],
+    drugName: "Lithium",
+    tradeName: ["Lithobid", "Eskalith"],
     category: ["Psychiatric"],
     classes: ["Mood Stabilizer"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Alters sodium transport in nerve and muscle cells and shifts intraneuronal catecholamine metabolism. The exact mechanism in mania is unknown, but lithium modulates multiple second messenger systems including inositol phosphate and glycogen synthase kinase-3, stabilizing neuronal activity.",
-        target: {
-          name: "Multiple intracellular second messenger systems",
-          action: "modulator",
-          result: "Mood stabilization, ↓ manic episodes",
-          system: "other"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Bipolar I disorder (acute mania)", "Bipolar I disorder (maintenance)"],
+    comorbidities: ["Depression", "Anxiety disorders", "Hypothyroidism (drug-induced)", "Chronic kidney disease", "Substance use disorder"],
+    polypharmacy: ["Atypical antipsychotics (quetiapine, aripiprazole)", "SSRIs (sertraline, fluoxetine)", "Benzodiazepines (lorazepam, clonazepam)", "Levothyroxine", "Valproic Acid"],
+    overdoseToxicity: ["Coarse tremor, hyperreflexia, and clonus", "Confusion progressing to delirium, seizures, and coma", "Bradycardia and hypotension", "Hyperthermia", "Nausea, vomiting, and diarrhea"],
+    precautions: [
+      'Extremely <span class="hl hl--warn">narrow therapeutic index</span> — toxicity occurs at levels just above the therapeutic range (0.8–1.2 mEq/L).',
+      'Dehydration, <span class="hl hl--ci">sodium depletion</span>, and renal impairment rapidly increase lithium levels — any volume loss on scene is a red flag.',
+      'Coadministration with <span class="hl hl--drug">serotonergic drugs</span> increases risk of <span class="hl hl--ci">serotonin syndrome</span>.',
+      'Activated charcoal does <span class="hl hl--warn">not adsorb lithium</span> — standard GI decontamination is ineffective.',
+      'Chronic toxicity presents primarily with <span class="hl hl--ci">neurological findings</span> (ataxia, tremor, altered mental status) and may occur at lower serum levels than acute ingestion.'
     ],
-    patientIndications: ["Bipolar Disorder", "Acute Mania", "Bipolar Depression Prophylaxis"],
-    considerations: [
-      '<span class="hl hl--ci">Narrow therapeutic index</span> — therapeutic range is 0.6–1.2 mEq/L, and toxicity begins at 1.5 mEq/L. Dehydration, febrile illness, vomiting, diarrhea, and renal impairment all raise lithium levels toward toxicity.',
-      'Chronic use causes <span class="hl hl--warn">nephrogenic diabetes insipidus</span> (polyuria, polydipsia) and <span class="hl hl--warn">hypothyroidism</span> — both relevant to understanding the patient\'s baseline presentation.',
-      'NSAIDs, ACE inhibitors, ARBs, and diuretics all <span class="hl hl--warn">increase serum lithium levels</span> and can precipitate toxicity. Ask about recent medication changes or new prescriptions.',
-      'Can precipitate <span class="hl hl--ci">serotonin syndrome</span> when combined with SSRIs, SNRIs, or other serotonergic drugs — watch for agitation, clonus, hyperthermia, and diaphoresis.',
-      '<span class="hl hl--ci">Overdose</span>: progressive neurotoxicity — tremor, ataxia, slurred speech, confusion, seizures, coma. Cardiac effects include bradycardia and QT prolongation. No antidote exists; prehospital care is supportive with IV normal saline to promote renal excretion.'
-    ]
+    summary: "Lithium is the cornerstone mood stabilizer for bipolar disorder, with a notoriously narrow therapeutic window. Its presence on a med list flags a patient at risk for toxicity from any cause of dehydration or sodium loss — vomiting, diarrhea, heat exposure, or diuretic use. Toxicity is primarily neurological: tremor, ataxia, confusion, and seizures, with cardiac effects including bradycardia and ECG changes. No antidote exists, and activated charcoal is ineffective against lithium."
   },
   {
     id: "hydrocodone-acetaminophen",
-    summary: "A combination opioid analgesic pairing hydrocodone with acetaminophen, prescribed for moderate to moderately severe pain. Found on scene as Norco or Vicodin — its presence flags both opioid and acetaminophen toxicity risks.",
-    genericName: "Hydrocodone/Acetaminophen",
-    tradeNames: ["Norco", "Vicodin", "Lortab"],
+    drugName: "Hydrocodone/Acetaminophen",
+    tradeName: ["Vicodin", "Norco", "Lortab"],
     category: ["Pain & Anti-inflammatory"],
     classes: ["Opioid Analgesic", "Antipyretic"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Hydrocodone is a full mu-opioid receptor agonist that inhibits ascending pain pathways and alters the perception of and emotional response to pain. Acetaminophen provides additive analgesia through central COX inhibition and activation of descending serotonergic inhibitory pathways.",
-        target: {
-          name: "Mu-opioid receptors",
-          action: "agonist",
-          result: "Analgesia, ↓ pain perception, CNS depression",
-          system: "opioid"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Moderate to severe pain", "Postoperative pain", "Trauma pain", "Cancer pain"],
+    comorbidities: ["Chronic pain syndrome", "Opioid use disorder", "Depression", "Osteoarthritis", "Low back pain"],
+    polypharmacy: ["Benzodiazepines (alprazolam, lorazepam)", "Gabapentin", "Muscle relaxants (cyclobenzaprine)", "SSRIs (sertraline, fluoxetine)", "NSAIDs (ibuprofen, naproxen)"],
+    overdoseToxicity: [
+      "Respiratory depression progressing to apnea",
+      "Pinpoint pupils (miosis) with altered mental status",
+      "Hypotension and bradycardia",
+      "Delayed hepatic necrosis from acetaminophen component (may not manifest for 48–72 hours)",
+      "Noncardiogenic pulmonary edema"
     ],
-    patientIndications: ["Moderate to Severe Pain", "Post-Surgical Pain", "Trauma Pain", "Cancer Pain"],
-    considerations: [
-      '<span class="hl hl--ci">Respiratory depression</span> is the primary life threat — worsened significantly by concurrent benzodiazepines, alcohol, or other CNS depressants.',
-      'Overdose presents as a <span class="hl hl--ci">polydrug toxicity</span>: opioid toxidrome (miosis, respiratory depression, sedation) plus delayed acetaminophen hepatotoxicity that may not manifest for 48–72 hours.',
-      '<span class="hl hl--ci">Naloxone</span> reverses the hydrocodone component but does not address acetaminophen toxicity — all overdose patients require ED evaluation for NAC consideration regardless of naloxone response.',
-      'Causes <span class="hl hl--warn">orthostatic hypotension</span>, sedation, and suppressed cough reflex — relevant during patient positioning and airway assessment.',
-      'High abuse potential (Schedule II controlled substance). Abrupt discontinuation in dependent patients causes <span class="hl hl--warn">opioid withdrawal</span> — tachycardia, diaphoresis, agitation, GI distress.'
-    ]
+    precautions: [
+      'Concurrent <span class="hl hl--drug">benzodiazepine</span> use dramatically increases the risk of fatal <span class="hl hl--ci">respiratory depression</span>.',
+      '<span class="hl hl--drug">Naloxone</span> reversal may be shorter-acting than hydrocodone — <span class="hl hl--warn">recurrent respiratory depression</span> can occur after initial improvement.',
+      'The acetaminophen component causes <span class="hl hl--ci">hepatotoxicity</span> in overdose that may not be clinically apparent for 48–72 hours.',
+      'Chronic use causes <span class="hl hl--warn">opioid tolerance</span> — standard analgesic doses of <span class="hl hl--drug">fentanyl</span> or <span class="hl hl--drug">morphine</span> may be ineffective.',
+      'Abrupt discontinuation in dependent patients triggers <span class="hl hl--ci">withdrawal</span> — tachycardia, hypertension, agitation, and diaphoresis.'
+    ],
+    summary: "Hydrocodone/acetaminophen is the most frequently prescribed opioid in the U.S. and among the most common drugs encountered in overdose calls. Its dual-threat toxicity — acute respiratory depression from hydrocodone plus delayed hepatic necrosis from acetaminophen — makes it particularly dangerous because the patient may appear to recover from naloxone reversal while liver injury progresses silently. Expect co-ingestion with benzodiazepines or alcohol, which compounds CNS and respiratory depression."
   },
   {
     id: "oxycodone",
-    summary: "A semisynthetic opioid analgesic prescribed for moderate to severe pain. Available as immediate-release and extended-release (OxyContin) formulations, and in combination with acetaminophen (Percocet).",
-    genericName: "Oxycodone",
-    tradeNames: ["OxyContin", "Percocet", "Roxicodone", "Oxaydo"],
+    drugName: "Oxycodone",
+    tradeName: ["Percocet", "OxyContin", "Roxicodone", "Xtampza ER"],
     category: ["Pain & Anti-inflammatory"],
     classes: ["Opioid Analgesic"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Binds mu-opioid receptors in the CNS, activating descending inhibitory pain pathways and altering the perception and emotional response to pain. Also depresses respiratory centers in the brainstem and suppresses the cough reflex.",
-        target: {
-          name: "Mu-opioid receptors",
-          action: "agonist",
-          result: "Analgesia, ↓ respiratory drive, CNS depression",
-          system: "opioid"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Moderate to severe pain", "Chronic pain (extended-release)"],
+    comorbidities: ["Chronic back pain", "Osteoarthritis", "Cancer", "Opioid use disorder", "Depression"],
+    polypharmacy: ["Benzodiazepines (alprazolam, clonazepam)", "Gabapentin", "Muscle relaxants (cyclobenzaprine)", "Antidepressants (sertraline, duloxetine)", "Acetaminophen"],
+    overdoseToxicity: [
+      "Respiratory depression progressing to apnea",
+      "Pinpoint pupils (miosis)",
+      "Bradycardia and hypotension",
+      "Cold, clammy skin with muscle flaccidity",
+      "Decreased level of consciousness progressing to coma"
     ],
-    patientIndications: ["Moderate to Severe Pain", "Chronic Pain", "Post-Surgical Pain", "Cancer Pain"],
-    considerations: [
-      '<span class="hl hl--ci">Respiratory depression</span> is the primary lethal risk — worsened by concurrent benzodiazepines, alcohol, or other CNS depressants.',
-      'Causes <span class="hl hl--ci">hypotension</span> through peripheral vasodilation — significant in hypovolemic or hemodynamically unstable patients.',
-      '<span class="hl hl--ci">Overdose</span> presents with the classic opioid triad: pinpoint pupils, respiratory depression, and decreased LOC. Cold, clammy skin, bradycardia, and skeletal muscle flaccidity follow. Prehospital: BVM ventilation and <span class="hl hl--drug">naloxone</span> — titrate to restore respirations, not full consciousness.',
-      'Patients on chronic oxycodone develop tolerance — a "normal" heart rate and blood pressure do not rule out toxicity. Monitor respiratory rate and mental status closely.',
-      'Naloxone reversal in opioid-dependent patients can precipitate acute <span class="hl hl--warn">withdrawal</span> and combative behavior. Use the lowest effective dose and be prepared to manage agitation.'
-    ]
+    precautions: [
+      'Concurrent <span class="hl hl--drug">benzodiazepine</span> or alcohol use dramatically increases risk of <span class="hl hl--ci">fatal respiratory depression</span>.',
+      '<span class="hl hl--drug">Naloxone</span> duration is shorter than oxycodone — monitor for <span class="hl hl--warn">recurrent respiratory depression</span> after reversal.',
+      'Extended-release formulations (OxyContin) cause <span class="hl hl--warn">prolonged toxicity</span> that may outlast multiple naloxone doses.',
+      '<span class="hl hl--drug">Fentanyl</span> and <span class="hl hl--drug">midazolam</span> administered prehospitally compound existing <span class="hl hl--ci">CNS and respiratory depression</span>.',
+      'Abrupt <span class="hl hl--drug">naloxone</span> reversal in dependent patients can precipitate <span class="hl hl--ci">acute withdrawal</span> — vomiting, agitation, and combativeness.'
+    ],
+    summary: "Oxycodone is a potent semi-synthetic opioid prescribed for moderate to severe pain. Finding it on a med list — especially OxyContin — signals a patient with significant pain burden and high risk for opioid dependence. Overdose presents with the classic opioid triad: miosis, respiratory depression, and decreased consciousness. Extended-release formulations pose a particular prehospital challenge because toxicity can recur after naloxone wears off, requiring sustained monitoring and potentially repeated dosing."
   },
   {
     id: "tramadol",
-    summary: "A centrally acting synthetic opioid analgesic with a dual mechanism — weak mu-opioid agonism plus norepinephrine and serotonin reuptake inhibition. Prescribed for moderate-to-severe pain, classified as Schedule IV.",
-    genericName: "Tramadol",
-    tradeNames: ["Ultram", "Ultram ER", "ConZip"],
+    drugName: "Tramadol",
+    tradeName: ["Ultram", "Ultram ER", "ConZip"],
     category: ["Pain & Anti-inflammatory"],
     classes: ["Opioid Analgesic", "SNRI"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Binds mu-opioid receptors in the CNS, producing analgesia. Affinity is weaker than traditional opioids, but the active metabolite (M1, via CYP2D6) has significantly higher mu-receptor binding.",
-        target: {
-          name: "Mu-opioid receptors",
-          action: "agonist",
-          result: "Analgesia, CNS depression, respiratory depression",
-          system: "opioid"
-        }
-      },
-      {
-        brief: "Inhibits reuptake of norepinephrine and serotonin, contributing to analgesia through descending pain inhibition pathways. This monoamine activity also accounts for its seizure and serotonin syndrome risk.",
-        target: {
-          name: "Norepinephrine & serotonin reuptake transporters",
-          action: "inhibitor",
-          result: "↑ Norepinephrine & serotonin in synaptic cleft",
-          system: "serotonergic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Moderate to moderately severe pain"],
+    comorbidities: ["Chronic musculoskeletal pain", "Osteoarthritis", "Neuropathic pain", "Depression or anxiety", "History of substance use"],
+    polypharmacy: ["SSRIs (sertraline, escitalopram, fluoxetine)", "SNRIs (venlafaxine, duloxetine)", "Gabapentin", "Acetaminophen", "NSAIDs (ibuprofen, naproxen)"],
+    overdoseToxicity: [
+      "Seizures, often dose-related and distinct from typical opioid overdose",
+      "Respiratory depression progressing to apnea",
+      "Tachycardia and hypertension (atypical for opioid OD)",
+      "Altered mental status progressing to coma",
+      "Serotonin toxicity when co-ingested with serotonergic drugs"
     ],
-    patientIndications: ["Moderate-to-Severe Pain", "Chronic Pain"],
-    considerations: [
-      '<span class="hl hl--ci">Seizures</span> can occur at therapeutic doses — risk increases with SSRIs, SNRIs, TCAs, MAOIs, and in patients with epilepsy or head trauma. Unique among opioids.',
-      'Risk of <span class="hl hl--ci">serotonin syndrome</span> when combined with serotonergic drugs (SSRIs, SNRIs, MAOIs, triptans). Look for agitation, clonus, hyperthermia, and diaphoresis.',
-      'Causes <span class="hl hl--ci">respiratory depression</span> like other opioids, particularly with CNS depressants or in CYP2D6 ultra-rapid metabolizers who generate excess active metabolite.',
-      '<span class="hl hl--ci">Overdose</span> presents with classic opioid toxidrome (miosis, respiratory depression, altered mental status) plus seizures, hypertension, and tachycardia. <span class="hl hl--drug">Naloxone</span> is effective but may require repeated doses.',
-      'Schedule IV controlled substance with significant <span class="hl hl--warn">misuse potential</span> — often underestimated because of its "weaker opioid" reputation. Physical dependence and withdrawal occur with chronic use.'
-    ]
+    precautions: [
+      'Dual mechanism (mu-agonist + serotonin/NE reuptake inhibition) means overdose presents <span class="hl hl--warn">atypically for an opioid</span> — expect seizures, tachycardia, and hypertension alongside sedation.',
+      'High <span class="hl hl--ci">serotonin syndrome</span> risk when combined with SSRIs, SNRIs, or MAOIs — look for agitation, clonus, hyperthermia, and diaphoresis.',
+      '<span class="hl hl--drug">Naloxone</span> only partially reverses tramadol toxicity and may <span class="hl hl--ci">lower the seizure threshold</span> further.',
+      'Avoid <span class="hl hl--drug">fentanyl</span> for analgesia in tramadol-toxic patients — serotonergic properties can worsen toxicity.',
+      '<span class="hl hl--drug">Midazolam</span> is first-line for tramadol-induced <span class="hl hl--ci">seizures</span>, not naloxone.'
+    ],
+    summary: "Tramadol is a synthetic opioid with a dual mechanism — weak mu-receptor agonism plus serotonin and norepinephrine reuptake inhibition. This dual action makes its overdose presentation uniquely dangerous: seizures and serotonin toxicity layer on top of classic opioid effects. Many patients on tramadol are co-prescribed antidepressants, which compounds the serotonin risk. Naloxone addresses the opioid component but does not prevent seizures and may worsen them — benzodiazepines are the critical intervention."
   },
   {
     id: "acetaminophen",
-    summary: "An analgesic and antipyretic used for mild to moderate pain and fever. Found in hundreds of OTC and prescription combination products, making unintentional overdose a major concern.",
-    genericName: "Acetaminophen",
-    tradeNames: ["Tylenol"],
+    drugName: "Acetaminophen",
+    tradeName: ["Tylenol", "Tylenol Extra Strength"],
     category: ["Pain & Anti-inflammatory"],
     classes: ["Antipyretic"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Inhibits prostaglandin synthesis centrally, reducing pain perception and resetting the hypothalamic thermoregulatory center. Unlike NSAIDs, it has minimal peripheral anti-inflammatory activity.",
-        target: {
-          name: "Central cyclooxygenase (COX) enzymes",
-          action: "inhibitor",
-          result: "↓ Central pain signaling, ↓ fever",
-          system: "enzymatic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Mild to moderate pain", "Fever", "Osteoarthritis", "Headache"],
+    comorbidities: ["Chronic pain", "Osteoarthritis", "Alcohol use disorder", "Chronic liver disease"],
+    polypharmacy: ["Opioid analgesics (hydrocodone, oxycodone)", "NSAIDs (ibuprofen, naproxen)", "Muscle relaxants (cyclobenzaprine)", "Anticoagulants (warfarin)"],
+    overdoseToxicity: [
+      "Initially asymptomatic — nausea, vomiting, and diaphoresis may be the only early findings",
+      "Hepatotoxicity with transaminases exceeding 10,000 IU/L at 72–96 hours",
+      "Fulminant hepatic failure with coagulopathy, encephalopathy, and hypoglycemia",
+      "Acute renal failure from tubular necrosis",
+      "Metabolic acidosis with elevated lactate in massive ingestions"
     ],
-    patientIndications: ["Pain", "Fever", "Osteoarthritis", "Headache"],
-    considerations: [
-      '<span class="hl hl--ci">Hepatotoxicity</span> is the primary danger — doses exceeding 4 g/day or acute ingestion above 150 mg/kg can cause fatal hepatic necrosis. Risk increases with alcohol use and chronic liver disease.',
-      '<span class="hl hl--ci">Overdose</span> is deceptive: patients are asymptomatic or have only mild nausea for the first 24 hours, then develop liver failure at 72–96 hours. Do not be reassured by a well-appearing patient with a reported large ingestion.',
-      'Present in hundreds of OTC and prescription combination products (Norco, Percocet, NyQuil). <span class="hl hl--warn">Unintentional overdose</span> from stacking multiple acetaminophen-containing products accounts for roughly half of all cases.',
-      '<span class="hl hl--drug">N-acetylcysteine (NAC)</span> is the antidote — most effective within 8 hours of ingestion. Prehospital: establish IV access, obtain ingestion history and timing, transport promptly.',
-      'At therapeutic doses, acetaminophen has no effect on platelet function, blood pressure, or respiratory drive — making it safe in patients where NSAIDs or opioids are contraindicated.'
-    ]
+    precautions: [
+      'Patients often take <span class="hl hl--warn">multiple acetaminophen-containing products</span> without realizing it — combination opioids (Norco, Percocet) are a major source of unintentional overdose.',
+      'Toxicity is <span class="hl hl--ci">initially asymptomatic</span> — a well-appearing patient does not rule out a lethal ingestion.',
+      'Chronic alcohol use depletes glutathione and <span class="hl hl--warn">lowers the threshold for hepatotoxicity</span>.',
+      '<span class="hl hl--drug">Warfarin</span> effect is potentiated by regular acetaminophen use — expect elevated INR.',
+      'Obtaining <span class="hl hl--warn">time of ingestion</span> is critical for hospital treatment decisions — document it in the PCR.'
+    ],
+    summary: "Acetaminophen is ubiquitous — found in OTC pain relievers, cold medicines, and combination opioid prescriptions. Its overdose is the leading cause of acute liver failure in the United States, yet patients are often asymptomatic for the first 24 hours after a toxic ingestion. The prehospital priority is documenting the time of ingestion, the amount, and whether the patient takes other acetaminophen-containing products. Chronic alcohol use and liver disease significantly increase the risk of hepatotoxicity at lower doses."
   },
   {
     id: "ibuprofen",
-    summary: "An NSAID with analgesic, antipyretic, and anti-inflammatory properties used for pain, fever, and inflammatory conditions. Found in nearly every medicine cabinet — relevant to EMS because of GI bleeding risk, renal effects, and interactions with antihypertensives and anticoagulants.",
-    genericName: "Ibuprofen",
-    tradeNames: ["Advil", "Motrin"],
+    drugName: "Ibuprofen",
+    tradeName: ["Advil", "Motrin"],
     category: ["Pain & Anti-inflammatory"],
-    classes: ["NSAID", "Antipyretic"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Nonselectively inhibits cyclooxygenase (COX-1 and COX-2), reducing prostaglandin synthesis. This decreases inflammation, pain signaling, and fever. COX-1 inhibition also reduces the protective prostaglandin layer in the GI mucosa, accounting for the GI bleeding risk.",
-        target: {
-          name: "Cyclooxygenase (COX-1 & COX-2)",
-          action: "inhibitor",
-          result: "↓ Prostaglandin synthesis → ↓ inflammation, pain, fever",
-          system: "enzymatic"
-        }
-      }
+    classes: ["NSAID"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Osteoarthritis", "Rheumatoid arthritis", "Mild to moderate pain", "Dysmenorrhea", "Fever"],
+    comorbidities: ["Chronic low back pain", "Osteoarthritis", "Coronary artery disease", "Chronic kidney disease", "Peptic ulcer disease"],
+    polypharmacy: ["Antihypertensives (lisinopril, amlodipine)", "Aspirin", "Proton pump inhibitors (omeprazole, pantoprazole)", "Anticoagulants (warfarin, apixaban)", "Acetaminophen"],
+    overdoseToxicity: ["GI hemorrhage", "Metabolic acidosis (high anion gap)", "CNS depression progressing to seizures and coma", "Acute kidney injury", "Thrombocytopenia"],
+    precautions: [
+      'Chronic use can attenuate the <span class="hl hl--warn">antiplatelet effect</span> of <span class="hl hl--drug">aspirin</span> — relevant when administering prehospital aspirin for ACS.',
+      'Increases <span class="hl hl--ci">bleeding risk</span> in patients on anticoagulants or antiplatelets through platelet inhibition and GI mucosal injury.',
+      'Can cause <span class="hl hl--ci">acute kidney injury</span>, especially in hypovolemic or hypotensive patients — renal perfusion is already compromised.',
+      'May elevate blood pressure and <span class="hl hl--warn">blunt the effect of antihypertensives</span> — a hypertensive emergency in a chronic NSAID user may be drug-related.',
+      'GI bleeding from chronic NSAID use can present as <span class="hl hl--ci">occult hemorrhagic shock</span> — melena, pallor, and unexplained tachycardia.'
     ],
-    patientIndications: ["Osteoarthritis", "Rheumatoid Arthritis", "Mild to Moderate Pain", "Fever", "Dysmenorrhea", "Headache", "Pericarditis"],
-    considerations: [
-      'Increases risk of <span class="hl hl--ci">GI bleeding</span>, ulceration, and perforation — risk compounds with anticoagulants, antiplatelets, corticosteroids, or alcohol use. Can occur without warning symptoms.',
-      'Can cause <span class="hl hl--ci">acute kidney injury</span>, especially in dehydrated patients, those on ACE inhibitors or diuretics, or patients with preexisting renal impairment. Volume status matters.',
-      'Interferes with <span class="hl hl--warn">aspirin\'s antiplatelet effect</span> if taken before or concurrently with aspirin — relevant for patients on daily aspirin for cardiac protection.',
-      'Reduces the antihypertensive effect of <span class="hl hl--drug">ACE inhibitors</span>, <span class="hl hl--drug">ARBs</span>, and <span class="hl hl--drug">diuretics</span> by inhibiting renal prostaglandin synthesis. Can also cause fluid retention and edema.',
-      'Increases plasma <span class="hl hl--drug">lithium</span> levels by reducing renal lithium clearance — patients on both medications are at risk for lithium toxicity.'
-    ]
+    summary: "Ibuprofen is the most widely used NSAID, taken for everything from arthritis to headaches. Its presence on a med list raises the bleeding risk profile — both from direct GI mucosal injury and platelet inhibition. For prehospital care, the key interaction is with aspirin: chronic ibuprofen can block aspirin's cardioprotective antiplatelet effect, which matters when giving aspirin for suspected ACS. In overdose, most patients have only mild GI symptoms, but massive ingestions can cause metabolic acidosis, seizures, and renal failure."
   },
   {
     id: "naproxen",
-    summary: "An NSAID with analgesic, anti-inflammatory, and antipyretic properties used for arthritis, musculoskeletal pain, gout, and dysmenorrhea. Available OTC and by prescription, with a longer half-life than ibuprofen allowing twice-daily dosing.",
-    genericName: "Naproxen",
-    tradeNames: ["Aleve", "Naprosyn", "Anaprox"],
+    drugName: "Naproxen",
+    tradeName: ["Aleve", "Naprosyn", "Anaprox", "EC-Naprosyn"],
     category: ["Pain & Anti-inflammatory"],
-    classes: ["NSAID"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Competitively inhibits both COX-1 and COX-2, blocking arachidonic acid conversion to prostaglandins. This reduces inflammation, pain signaling, and fever.",
-        target: {
-          name: "COX-1 & COX-2",
-          action: "inhibitor",
-          result: "↓ Prostaglandin synthesis, ↓ inflammation, ↓ pain",
-          system: "enzymatic"
-        }
-      }
+    classes: ["NSAID", "Antipyretic"],
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Osteoarthritis", "Rheumatoid arthritis", "Acute gout", "Chronic pain", "Dysmenorrhea"],
+    comorbidities: ["Osteoarthritis", "Rheumatoid arthritis", "Gout", "Chronic low back pain", "Coronary artery disease"],
+    polypharmacy: ["PPIs (omeprazole, pantoprazole)", "Acetaminophen", "Antihypertensives (lisinopril, amlodipine)", "Anticoagulants (warfarin, apixaban)", "SSRIs (sertraline, escitalopram)"],
+    overdoseToxicity: ["Drowsiness, lethargy, or coma", "Metabolic acidosis", "Seizures", "Acute renal failure", "GI hemorrhage"],
+    precautions: [
+      'Concurrent use with <span class="hl hl--drug">anticoagulants</span> nearly doubles the risk of <span class="hl hl--ci">GI hemorrhage</span>.',
+      'Inhibits platelet aggregation and can interfere with <span class="hl hl--drug">aspirin</span>\u2019s cardioprotective antiplatelet effect.',
+      'Reduces efficacy of <span class="hl hl--warn">antihypertensives</span> (ACE inhibitors, ARBs, diuretics) and can worsen renal function when combined.',
+      'Raises serum <span class="hl hl--drug">lithium</span> and <span class="hl hl--drug">methotrexate</span> levels, increasing toxicity risk.',
+      'Chronic use can cause <span class="hl hl--ci">occult GI bleeding</span> presenting as unexplained anemia or hemorrhagic shock.'
     ],
-    patientIndications: ["Osteoarthritis", "Rheumatoid Arthritis", "Acute Gout", "Musculoskeletal Pain", "Dysmenorrhea", "Ankylosing Spondylitis", "Migraine"],
-    considerations: [
-      'Inhibits platelet aggregation via <span class="hl hl--moa">COX-1 inhibition</span>, increasing bleeding time. This effect is reversible on discontinuation but significant in trauma or when combined with <span class="hl hl--drug">anticoagulants</span>.',
-      'Causes <span class="hl hl--ci">GI bleeding</span>, ulceration, and perforation — can occur without warning symptoms. Risk increases with age, alcohol use, concurrent corticosteroids, and anticoagulant therapy.',
-      'Increases the risk of <span class="hl hl--ci">cardiovascular thrombotic events</span> including MI and stroke, particularly with prolonged use or in patients with existing heart disease. Avoid in severe heart failure.',
-      'Reduces renal prostaglandin synthesis, causing <span class="hl hl--warn">fluid retention</span> and worsening renal function in volume-depleted patients. Can blunt the effect of <span class="hl hl--drug">antihypertensives</span> and <span class="hl hl--drug">diuretics</span>.',
-      'Cross-reactivity with <span class="hl hl--drug">aspirin</span> — contraindicated in patients with NSAID- or aspirin-induced asthma. Can trigger <span class="hl hl--ci">bronchospasm</span> and <span class="hl hl--ci">anaphylaxis</span> in sensitized patients.'
-    ]
+    summary: "Naproxen is a long-acting NSAID taken for arthritis, gout, and chronic pain. Its 12–15 hour half-life means antiplatelet effects persist longer than shorter-acting NSAIDs like ibuprofen. The primary prehospital concerns are bleeding risk — especially in patients co-prescribed anticoagulants or antiplatelet agents — and the potential to mask tachycardia by reducing pain-driven sympathetic tone in patients with occult hemorrhage. In overdose, most cases are benign, but massive ingestions can produce metabolic acidosis, seizures, and renal failure."
   },
   {
     id: "meloxicam",
-    summary: "A preferential COX-2 NSAID used for osteoarthritis and rheumatoid arthritis. Patients take it for chronic joint pain and inflammation.",
-    genericName: "Meloxicam",
-    tradeNames: ["Mobic"],
+    drugName: "Meloxicam",
+    tradeName: ["Mobic"],
     category: ["Pain & Anti-inflammatory"],
     classes: ["NSAID"],
-    source: "DailyMed",
-    moa: [
-      {
-        brief: "Preferentially inhibits COX-2 over COX-1, reducing prostaglandin synthesis involved in inflammation, pain, and fever while partially sparing COX-1-mediated gastric mucosal protection.",
-        target: {
-          name: "COX-2 (preferential)",
-          action: "inhibitor",
-          result: "↓ Prostaglandin synthesis, ↓ inflammation, ↓ pain",
-          system: "enzymatic"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Osteoarthritis", "Rheumatoid arthritis", "Juvenile rheumatoid arthritis"],
+    comorbidities: ["Hypertension", "Chronic kidney disease", "Coronary artery disease", "Type 2 diabetes", "Obesity"],
+    polypharmacy: ["Antihypertensives (lisinopril, amlodipine, metoprolol)", "PPIs (omeprazole, pantoprazole)", "Statins (atorvastatin)", "Metformin", "Acetaminophen"],
+    overdoseToxicity: ["Nausea, vomiting, and epigastric pain", "GI hemorrhage (hematemesis, melena)", "Acute renal failure", "Metabolic acidosis", "Drowsiness progressing to coma in massive ingestions"],
+    precautions: [
+      'Concurrent <span class="hl hl--drug">anticoagulants</span> (warfarin, apixaban, rivaroxaban) significantly increases <span class="hl hl--ci">bleeding risk</span> without reliable clinical warning signs.',
+      'Reduces efficacy of <span class="hl hl--drug">ACE inhibitors</span>, ARBs, beta blockers, and diuretics — blood pressure may be higher than expected.',
+      'Can cause <span class="hl hl--ci">acute renal failure</span> in dehydrated or hypovolemic patients by inhibiting prostaglandin-mediated renal perfusion.',
+      'Concurrent <span class="hl hl--drug">SSRIs/SNRIs</span> impair platelet function and compound <span class="hl hl--warn">GI bleeding risk</span>.',
+      'Aspirin-sensitive patients may develop <span class="hl hl--ci">bronchospasm</span> or anaphylaxis — cross-reactivity exists across all NSAIDs.'
     ],
-    patientIndications: ["Osteoarthritis", "Rheumatoid Arthritis", "Juvenile Rheumatoid Arthritis"],
-    considerations: [
-      'Increases risk of serious <span class="hl hl--ci">GI bleeding</span>, ulceration, and perforation — can occur without warning, especially in elderly patients or those with prior peptic ulcer disease.',
-      'Increases risk of <span class="hl hl--ci">cardiovascular thrombotic events</span> including MI and stroke, particularly with prolonged use or in patients with existing CV disease.',
-      'Causes <span class="hl hl--warn">fluid retention</span> and edema — can worsen heart failure and blunt the effect of <span class="hl hl--drug">antihypertensives</span>, <span class="hl hl--drug">ACE inhibitors</span>, <span class="hl hl--drug">ARBs</span>, and <span class="hl hl--drug">diuretics</span>.',
-      'Impairs renal prostaglandin synthesis — risk of <span class="hl hl--ci">acute renal failure</span> in dehydrated, hypovolemic, or elderly patients, and those on ACE inhibitors or diuretics.',
-      'Contraindicated in <span class="hl hl--warn">aspirin-sensitive asthma</span> — can trigger bronchospasm and anaphylaxis in sensitized patients.'
-    ]
+    summary: "Meloxicam is a COX-2 preferential NSAID prescribed for osteoarthritis and rheumatoid arthritis. Its presence signals a patient with chronic joint disease who likely has cardiovascular comorbidities and a multi-drug regimen including antihypertensives. The primary prehospital concerns are occult GI bleeding — especially when combined with anticoagulants or antiplatelet agents — and the risk of acute renal injury in any patient who is dehydrated or hypotensive. NSAIDs also blunt the effectiveness of most antihypertensive classes, so blood pressure readings may not reflect the patient's usual baseline."
   },
   {
     id: "cyclobenzaprine",
-    summary: "A centrally acting muscle relaxant structurally related to tricyclic antidepressants, used for acute musculoskeletal pain and muscle spasm. Its anticholinergic and sedating properties make it relevant on EMS calls.",
-    genericName: "Cyclobenzaprine",
-    tradeNames: ["Flexeril", "Amrix", "Fexmid"],
+    drugName: "Cyclobenzaprine",
+    tradeName: ["Flexeril", "Amrix"],
     category: ["Pain & Anti-inflammatory"],
     classes: ["Muscle Relaxant"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Acts centrally in the brainstem to reduce tonic somatic motor activity, relieving skeletal muscle spasm without affecting muscle function directly. Also antagonizes muscarinic receptors and alpha-1 adrenergic receptors, producing anticholinergic and vasodilatory effects.",
-        target: {
-          name: "Brainstem motor neurons",
-          action: "inhibitor",
-          result: "↓ Muscle hyperactivity, ↓ spasm",
-          system: "other"
-        }
-      }
+    sources: ["DailyMed", "StatPearls"],
+    indications: ["Acute musculoskeletal spasm"],
+    comorbidities: ["Chronic low back pain", "Cervical strain", "Fibromyalgia", "Osteoarthritis"],
+    polypharmacy: ["NSAIDs (ibuprofen, naproxen)", "Opioid Analgesics (hydrocodone, oxycodone)", "Benzodiazepines (diazepam)", "Gabapentin", "SSRIs (sertraline, escitalopram)"],
+    overdoseToxicity: ["Anticholinergic toxidrome — tachycardia, mydriasis, dry skin, agitated delirium", "QRS widening and cardiac dysrhythmias", "Seizures", "CNS depression progressing to coma", "Hypotension"],
+    precautions: [
+      'Structurally related to TCAs — overdose produces <span class="hl hl--ci">QRS widening</span> and cardiac dysrhythmias mimicking tricyclic toxicity.',
+      'Potent <span class="hl hl--warn">anticholinergic effects</span> — expect tachycardia, altered mental status, and urinary retention at therapeutic and toxic doses.',
+      'Combined with SSRIs or SNRIs, risk of <span class="hl hl--ci">serotonin syndrome</span> — agitation, clonus, hyperthermia, diaphoresis.',
+      'Enhances CNS depression from <span class="hl hl--drug">opioids</span>, benzodiazepines, and alcohol — may mask respiratory compromise.',
+      'Concurrent use with <span class="hl hl--drug">MAOIs</span> is contraindicated — risk of hyperpyretic crisis, seizures, and death.'
     ],
-    patientIndications: ["Acute Musculoskeletal Pain", "Muscle Spasm", "Fibromyalgia"],
-    considerations: [
-      'Causes significant <span class="hl hl--ci">sedation</span> — drowsiness reported in up to 39% of patients. Combined with alcohol, opioids, or benzodiazepines, CNS depression can become dangerous.',
-      'Strong <span class="hl hl--warn">anticholinergic effects</span>: dry mouth, tachycardia, urinary retention, confusion, and mydriasis. Elderly patients are especially susceptible.',
-      'Structurally related to TCAs — <span class="hl hl--ci">overdose mimics TCA toxicity</span> with tachycardia, QRS widening, seizures, and dysrhythmias. Treat with sodium bicarbonate for QRS prolongation.',
-      'Can precipitate <span class="hl hl--ci">serotonin syndrome</span> when combined with SSRIs, SNRIs, or MAOIs — look for agitation, hyperthermia, clonus, and altered mental status.',
-      'Contraindicated in patients with <span class="hl hl--warn">arrhythmias, heart block, heart failure</span>, or recent MI — can worsen conduction disturbances.'
-    ]
-  },
-  {
-    id: "amphetamine-salts",
-    summary: "A mixed amphetamine salt CNS stimulant used for ADHD and narcolepsy. Contains a 3:1 ratio of d-amphetamine to l-amphetamine, producing sustained increases in attention and wakefulness through enhanced catecholamine signaling.",
-    genericName: "Amphetamine Salts",
-    tradeNames: ["Adderall", "Adderall XR"],
-    category: ["Psychiatric", "Neurological"],
-    classes: ["CNS Stimulant"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Increases synaptic dopamine and norepinephrine by promoting vesicular release and blocking reuptake at presynaptic terminals. The net effect is enhanced catecholamine signaling in prefrontal and subcortical circuits involved in attention and executive function.",
-        target: {
-          name: "Dopamine & norepinephrine transporters",
-          action: "inhibitor",
-          result: "↑ Synaptic dopamine, ↑ norepinephrine",
-          system: "dopaminergic"
-        }
-      }
-    ],
-    patientIndications: ["ADHD", "Narcolepsy"],
-    considerations: [
-      'Causes <span class="hl hl--ci">tachycardia</span> and <span class="hl hl--ci">hypertension</span> at therapeutic doses — a patient on amphetamine salts with chest pain warrants a full cardiac workup.',
-      'Schedule II controlled substance with high abuse potential. Patients may take supratherapeutic doses or use the drug recreationally, altering the expected clinical picture.',
-      'Contraindicated with <span class="hl hl--warn">MAOIs</span> (within 14 days) — combination can trigger hypertensive crisis.',
-      'Can cause <span class="hl hl--ci">agitation, psychosis, and paranoia</span>, especially at high doses or with chronic use — presentation may mimic a primary psychiatric emergency.',
-      '<span class="hl hl--ci">Overdose</span> produces a sympathomimetic toxidrome: hypertension, tachycardia, hyperthermia, mydriasis, agitation, and seizures. Prehospital: benzodiazepines for agitation and seizures, active cooling for hyperthermia, IV fluids. No specific antidote.'
-    ]
-  },
-  {
-    id: "methylphenidate",
-    summary: "A CNS stimulant used for ADHD and narcolepsy. Blocks reuptake of dopamine and norepinephrine, increasing catecholamine activity in the prefrontal cortex to improve attention and impulse control.",
-    genericName: "Methylphenidate",
-    tradeNames: ["Ritalin", "Concerta", "Metadate", "Methylin", "Daytrana", "Quillivant XR", "QuilliChew ER", "Jornay PM"],
-    category: ["Psychiatric"],
-    classes: ["CNS Stimulant"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Blocks reuptake of dopamine and norepinephrine at presynaptic transporters, increasing the concentration of both neurotransmitters in the synaptic cleft. The net effect is enhanced catecholamine signaling in the prefrontal cortex, improving sustained attention and executive function.",
-        target: {
-          name: "Dopamine & norepinephrine reuptake transporters",
-          action: "inhibitor",
-          result: "↑ Dopamine & norepinephrine in synaptic cleft",
-          system: "dopaminergic"
-        }
-      }
-    ],
-    patientIndications: ["ADHD", "Narcolepsy"],
-    considerations: [
-      'Causes <span class="hl hl--ci">tachycardia</span> and <span class="hl hl--ci">hypertension</span> — avoid in patients with structural cardiac abnormalities, cardiomyopathy, or serious arrhythmias due to risk of sudden death.',
-      'Schedule II controlled substance with significant <span class="hl hl--warn">abuse potential</span> — can be crushed and snorted or injected for a cocaine-like high. Consider diversion or misuse in any stimulant-related call.',
-      'Can precipitate <span class="hl hl--ci">psychosis, hallucinations, or mania</span> even at therapeutic doses — presentation may be indistinguishable from a primary psychiatric emergency.',
-      'Contraindicated with <span class="hl hl--drug">MAOIs</span> — concurrent use can trigger <span class="hl hl--ci">hypertensive crisis</span>. Check the med list for phenelzine, tranylcypromine, or selegiline.',
-      '<span class="hl hl--ci">Overdose</span> produces sympathomimetic toxicity: tachycardia, hypertension, hyperthermia, agitation, tremors, seizures, and delirium. Prehospital: benzodiazepines for agitation and seizures, active cooling for hyperthermia. Avoid beta blockers due to unopposed alpha stimulation.'
-    ]
-  },
-  {
-    id: "diphenhydramine",
-    summary: "A first-generation antihistamine with strong anticholinergic and sedative properties, used for allergic reactions, urticaria, pruritus, motion sickness, and as an OTC sleep aid. Also used to treat drug-induced dystonia and extrapyramidal symptoms.",
-    genericName: "Diphenhydramine",
-    tradeNames: ["Benadryl"],
-    category: ["Pain & Anti-inflammatory"],
-    classes: ["Antihistamine"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Competitively blocks H1 histamine receptors on effector cells, reducing the vascular permeability, bronchoconstriction, and pruritus caused by histamine release. Readily crosses the blood-brain barrier, producing significant sedation and suppressing the medullary cough center.",
-        target: {
-          name: "H1 histamine receptors",
-          action: "antagonist",
-          result: "↓ Allergic response, ↓ vascular permeability, sedation",
-          system: "histaminergic"
-        }
-      },
-      {
-        brief: "Competitively antagonizes muscarinic acetylcholine receptors, producing anticholinergic effects including dry mucous membranes, urinary retention, tachycardia, and decreased GI motility.",
-        target: {
-          name: "Muscarinic acetylcholine receptors",
-          action: "antagonist",
-          result: "Anticholinergic effects: dry mouth, urinary retention, tachycardia",
-          system: "cholinergic"
-        }
-      }
-    ],
-    patientIndications: ["Allergic Rhinitis", "Urticaria", "Pruritus", "Insomnia", "Motion Sickness", "Drug-Induced Dystonia"],
-    considerations: [
-      'Causes significant <span class="hl hl--ci">sedation</span> and CNS depression — additive with alcohol, opioids, benzodiazepines, and other CNS depressants. High fall risk in elderly patients.',
-      'Strong <span class="hl hl--warn">anticholinergic effects</span>: dry mouth, urinary retention, tachycardia, constipation, blurred vision. Beers Criteria lists it as high-risk in older adults.',
-      'Blocks sodium channels at supratherapeutic levels, causing <span class="hl hl--ci">QRS widening</span> and <span class="hl hl--ci">QT prolongation</span> — structurally and toxicologically similar to TCAs in overdose.',
-      '<span class="hl hl--ci">Overdose</span> produces the classic anticholinergic toxidrome: delirium, hallucinations, mydriasis, tachycardia, dry flushed skin, hyperthermia, seizures. Prehospital: benzodiazepines for agitation and seizures, sodium bicarbonate for QRS widening.',
-      'Paradoxical <span class="hl hl--warn">excitation</span> in pediatric patients — confusion and agitation rather than sedation may be the initial presentation.'
-    ]
-  },
-  {
-    id: "cetirizine",
-    summary: "A second-generation antihistamine used for allergic rhinitis and chronic urticaria. Derived from hydroxyzine but with minimal CNS penetration, producing far less sedation than first-generation antihistamines.",
-    genericName: "Cetirizine",
-    tradeNames: ["Zyrtec"],
-    category: ["Pulmonary"],
-    classes: ["Antihistamine"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Selectively blocks peripheral H1 receptors on respiratory smooth muscle, vascular endothelium, and immune cells, suppressing the histamine-mediated allergic response without significant CNS depression.",
-        target: {
-          name: "Peripheral H1 receptors",
-          action: "antagonist",
-          result: "↓ Histamine-mediated allergic response",
-          system: "histaminergic"
-        }
-      }
-    ],
-    patientIndications: ["Seasonal Allergic Rhinitis", "Perennial Allergic Rhinitis", "Chronic Urticaria", "Allergic Conjunctivitis"],
-    considerations: [
-      'Causes less <span class="hl hl--warn">sedation</span> than diphenhydramine but is not truly non-sedating — somnolence and fatigue still occur and are dose-dependent.',
-      'Used as an adjunct to <span class="hl hl--drug">epinephrine</span> in anaphylaxis management — does not replace epinephrine and should never delay its administration.',
-      'Additive CNS depression when combined with <span class="hl hl--warn">alcohol, opioids, or benzodiazepines</span>.',
-      'Abrupt discontinuation after long-term use can cause <span class="hl hl--ci">rebound pruritus</span> — severe itching within days of stopping the drug.',
-      'No specific antidote for overdose and not removable by dialysis — treatment is supportive and symptomatic.'
-    ]
-  },
-  {
-    id: "loratadine",
-    summary: "A second-generation antihistamine used for allergic rhinitis and urticaria. Unlike first-generation agents such as diphenhydramine, loratadine does not significantly cross the blood-brain barrier and causes minimal sedation.",
-    genericName: "Loratadine",
-    tradeNames: ["Claritin", "Alavert"],
-    category: ["Pulmonary"],
-    classes: ["Antihistamine"],
-    source: "StatPearls",
-    moa: [
-      {
-        brief: "Selectively antagonizes peripheral H1 receptors on respiratory smooth muscle, vascular endothelium, and immune cells, blocking histamine-mediated allergic responses without significant CNS penetration.",
-        target: {
-          name: "Peripheral histamine H1 receptors",
-          action: "antagonist",
-          result: "↓ Allergic response — reduced sneezing, rhinorrhea, pruritus",
-          system: "histaminergic"
-        }
-      }
-    ],
-    patientIndications: ["Allergic Rhinitis", "Urticaria", "Atopic Dermatitis"],
-    considerations: [
-      'Generally <span class="hl hl--indication">non-sedating</span>, but mild drowsiness can still occur — distinguish from altered mental status on a call by reviewing timing and context.',
-      'Weak anticholinergic effects at therapeutic doses can cause <span class="hl hl--warn">dry mouth and mydriasis</span> — more pronounced in overdose or in elderly patients.',
-      '<span class="hl hl--ci">QT prolongation</span> and cardiac arrhythmias are possible in overdose or when doses exceed the recommended amount, particularly in elderly patients.',
-      'Overdose presents with <span class="hl hl--ci">anticholinergic toxidrome</span> — tachycardia, mydriasis, urinary retention, flushing, agitation. Treat with supportive care and benzodiazepines for agitation.',
-      'Available OTC — patients may not report it on their medication list. Ask specifically about allergy medications during med reconciliation.'
-    ]
-  },
-  {
-    id: "hydroxychloroquine",
-    summary: "A 4-aminoquinoline antimalarial and antirheumatic agent used to treat systemic lupus erythematosus, rheumatoid arthritis, and malaria. Patients on this drug have an autoimmune or rheumatic condition in the vast majority of cases.",
-    genericName: "Hydroxychloroquine",
-    tradeNames: ["Plaquenil"],
-    category: ["Pain & Anti-inflammatory"],
-    classes: ["Antirheumatic"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Accumulates in lysosomes and raises intracellular pH, disrupting antigen processing and downregulating the immune response. The exact antirheumatic mechanism is not fully understood, but the net effect is reduced inflammatory cytokine release and immune activation.",
-        target: {
-          name: "Lysosomal pH / Toll-like receptors",
-          action: "inhibitor",
-          result: "↓ Immune activation, ↓ inflammatory cytokine release",
-          system: "other"
-        }
-      }
-    ],
-    patientIndications: ["Systemic Lupus Erythematosus", "Rheumatoid Arthritis", "Discoid Lupus Erythematosus", "Malaria Prophylaxis"],
-    considerations: [
-      'Prolongs the <span class="hl hl--ci">QT, QRS, and PR intervals</span> — risk of ventricular arrhythmias and torsades de pointes, especially with other QT-prolonging drugs or electrolyte abnormalities.',
-      'Chronic use causes irreversible <span class="hl hl--warn">retinal toxicity</span> (bull\'s eye maculopathy) — if a patient reports visual changes, this drug should be flagged to the receiving team.',
-      'Can cause <span class="hl hl--ci">severe hypoglycemia</span> even without antidiabetic medications — check glucose in any HCQ patient with altered mental status.',
-      'Causes <span class="hl hl--ci">hemolysis</span> in patients with G6PD deficiency — consider in any patient on HCQ presenting with acute anemia or jaundice.',
-      '<span class="hl hl--ci">Overdose</span> is rapidly lethal — cardiac toxicity (QRS/QT prolongation, V-tach, arrest), hypotension, seizures, and hypokalemia within 1–3 hours. Prehospital: cardiac monitoring, prepare for defibrillation, benzodiazepines for seizures.'
-    ]
-  },
-  {
-    id: "methotrexate",
-    summary: "A folate antagonist used as an immunosuppressant for rheumatoid arthritis, psoriasis, and other autoimmune conditions, and as a chemotherapeutic agent for certain cancers. Patients on methotrexate are immunocompromised and at risk for serious infections and bone marrow suppression.",
-    genericName: "Methotrexate",
-    tradeNames: ["Trexall", "Rasuvo", "Otrexup"],
-    category: ["Pain & Anti-inflammatory"],
-    classes: ["Antimetabolite", "Immunosuppressant"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Inhibits dihydrofolate reductase, blocking the conversion of dihydrofolate to tetrahydrofolate. This disrupts DNA and RNA synthesis. At low immunosuppressive doses, it also inhibits AICAR transformylase, leading to adenosine accumulation that suppresses T-cell activation and B-cell function.",
-        target: {
-          name: "Dihydrofolate reductase (DHFR)",
-          action: "inhibitor",
-          result: "↓ DNA/RNA synthesis, immunosuppression",
-          system: "enzymatic"
-        }
-      }
-    ],
-    patientIndications: ["Rheumatoid Arthritis", "Psoriasis", "Juvenile Idiopathic Arthritis", "Acute Lymphoblastic Leukemia", "Non-Hodgkin Lymphoma", "Ectopic Pregnancy"],
-    considerations: [
-      'Causes <span class="hl hl--ci">immunosuppression</span> — patients are at increased risk for serious and opportunistic infections, including Pneumocystis pneumonia. Any fever or signs of infection in a methotrexate patient should be taken seriously.',
-      '<span class="hl hl--ci">Bone marrow suppression</span> can cause pancytopenia — look for unexplained bleeding, bruising, or pallor. Risk increases with concurrent trimethoprim, NSAIDs, or renal impairment.',
-      'Can cause <span class="hl hl--ci">hepatotoxicity</span> ranging from transaminase elevation to cirrhosis with chronic use. Patients may present with signs of liver failure.',
-      '<span class="hl hl--warn">NSAIDs and aspirin</span> reduce methotrexate renal clearance, increasing toxicity risk. Relevant when assessing a patient\'s full medication list on scene.',
-      '<span class="hl hl--warn">Nitrous oxide</span> potentiates methotrexate toxicity by further inhibiting folate metabolism — avoid N₂O analgesia in patients taking methotrexate.'
-    ]
-  },
-  {
-    id: "colchicine",
-    summary: "An anti-inflammatory alkaloid used for gout flares, gout prophylaxis, familial Mediterranean fever, and pericarditis. It has a narrow therapeutic window and is extremely toxic in overdose.",
-    genericName: "Colchicine",
-    tradeNames: ["Colcrys", "Mitigare"],
-    category: ["Pain & Anti-inflammatory"],
-    classes: ["Anti-inflammatory"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Binds to tubulin and inhibits microtubule polymerization, disrupting neutrophil migration, chemotaxis, and inflammasome activation. This suppresses the inflammatory response driven by urate crystal deposition in gout.",
-        target: {
-          name: "Tubulin / microtubules",
-          action: "inhibitor",
-          result: "↓ Neutrophil migration, ↓ inflammasome activation, ↓ inflammation",
-          system: "purinergic"
-        }
-      }
-    ],
-    patientIndications: ["Acute Gout", "Gout Prophylaxis", "Familial Mediterranean Fever", "Pericarditis"],
-    considerations: [
-      'Has a <span class="hl hl--ci">narrow therapeutic window</span> — toxicity can occur at doses close to therapeutic range, especially in patients with renal or hepatic impairment.',
-      'GI symptoms (<span class="hl hl--ci">nausea, vomiting, diarrhea</span>) are the earliest signs of toxicity and may appear within hours of ingestion. Profuse diarrhea can cause hypovolemic shock.',
-      '<span class="hl hl--ci">Overdose</span> is potentially lethal with no antidote. Progresses in phases: GI symptoms (0–24h), then multiorgan failure with pancytopenia, rhabdomyolysis, metabolic acidosis, and cardiovascular collapse (1–7 days).',
-      'Ingestion >0.5 mg/kg carries significant mortality risk. <span class="hl hl--warn">Activated charcoal</span> given early is the primary decontamination measure — neither hemodialysis nor hemoperfusion effectively removes colchicine.',
-      'Concurrent use of <span class="hl hl--warn">CYP3A4 inhibitors or P-glycoprotein inhibitors</span> (including many antibiotics and antifungals) can precipitate life-threatening toxicity even at standard doses.'
-    ]
-  },
-  {
-    id: "allopurinol",
-    summary: "A xanthine oxidase inhibitor used to lower uric acid levels in patients with gout, recurrent kidney stones, and tumor lysis syndrome prevention. Patients on allopurinol have a history of hyperuricemia-related disease.",
-    genericName: "Allopurinol",
-    tradeNames: ["Zyloprim"],
-    category: ["Pain & Anti-inflammatory"],
-    classes: ["Xanthine Oxidase Inhibitor"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Inhibits xanthine oxidase, the enzyme that converts hypoxanthine to xanthine and xanthine to uric acid. This blocks the final steps of purine catabolism, reducing uric acid production in both serum and urine.",
-        target: {
-          name: "Xanthine oxidase",
-          action: "inhibitor",
-          result: "↓ Uric acid production, ↓ serum and urinary urate",
-          system: "purinergic"
-        }
-      }
-    ],
-    patientIndications: ["Gout", "Recurrent Calcium Nephrolithiasis", "Tumor Lysis Syndrome Prevention", "Hyperuricemia"],
-    considerations: [
-      '<span class="hl hl--ci">Allopurinol hypersensitivity syndrome (AHS)</span> is rare (~1 in 1000) but carries 20–25% mortality — presents with Stevens-Johnson syndrome, toxic epidermal necrolysis, hepatic injury, and renal failure. Must be discontinued at the first sign of rash.',
-      'AHS risk increases with <span class="hl hl--warn">renal impairment</span> and concurrent thiazide diuretic use. Patients of Korean, Han Chinese, or Thai descent with HLA-B*5801 are at particularly high risk.',
-      'Initiating allopurinol can paradoxically trigger <span class="hl hl--warn">acute gout flares</span> — a patient presenting with a gout attack may have recently started this medication.',
-      'Critical interaction with <span class="hl hl--drug">azathioprine</span> and <span class="hl hl--drug">6-mercaptopurine</span> — allopurinol blocks their metabolism, potentially causing severe pancytopenia and agranulocytosis.',
-      'Overdose is not a significant prehospital concern — massive overdose has rarely been reported, and there is no specific antidote or recognizable toxidrome.'
-    ]
-  },
-  {
-    id: "alendronate",
-    summary: "A bisphosphonate used for osteoporosis and Paget disease of bone. Inhibits osteoclast-mediated bone resorption to increase bone density and reduce fracture risk.",
-    genericName: "Alendronate",
-    tradeNames: ["Fosamax"],
-    category: ["Pain & Anti-inflammatory"],
-    classes: ["Bisphosphonate"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Binds to hydroxyapatite in bone and inhibits osteoclast activity, reducing bone resorption without directly affecting bone formation. The net effect is decreased bone turnover and increased bone mineral density.",
-        target: {
-          name: "Osteoclasts (via hydroxyapatite binding)",
-          action: "inhibitor",
-          result: "↓ Bone resorption, ↑ bone mineral density",
-          system: "enzymatic"
-        }
-      }
-    ],
-    patientIndications: ["Osteoporosis", "Glucocorticoid-Induced Osteoporosis", "Paget Disease of Bone"],
-    considerations: [
-      'Patients on bisphosphonates have increased <span class="hl hl--warn">fracture risk from underlying osteoporosis</span> — low-mechanism falls can produce hip, vertebral, or wrist fractures. Maintain a high index of suspicion for occult fractures.',
-      'Long-term use is associated with <span class="hl hl--ci">atypical femoral fractures</span> — spontaneous or low-energy fractures of the femoral shaft. A patient reporting thigh or groin pain may have an impending stress fracture.',
-      '<span class="hl hl--ci">Osteonecrosis of the jaw</span> is a rare but recognized complication, typically following dental procedures. Not an acute prehospital concern but relevant history.',
-      'Can cause <span class="hl hl--warn">esophageal irritation</span>, ulceration, and stricture — patients presenting with dysphagia, chest pain, or new-onset heartburn on a bisphosphonate may have esophageal injury.',
-      'May cause <span class="hl hl--ci">hypocalcemia</span>, especially in patients with vitamin D deficiency or renal impairment — consider in patients presenting with muscle cramps, paresthesias, or tetany.'
-    ]
-  },
-  {
-    id: "tamsulosin",
-    summary: "An alpha-1A adrenergic antagonist used for benign prostatic hyperplasia (BPH). Relaxes smooth muscle in the prostate and bladder neck to improve urinary flow in men with enlarged prostates.",
-    genericName: "Tamsulosin",
-    tradeNames: ["Flomax"],
-    category: ["Cardiovascular"],
-    classes: ["Alpha-1 Antagonist", "Antihypertensive"],
-    source: "DailyMed",
-    moa: [
-      {
-        brief: "Selectively blocks alpha-1A adrenergic receptors concentrated in prostatic smooth muscle and the bladder neck, reducing urethral resistance without significant vascular effects at therapeutic doses.",
-        target: {
-          name: "Alpha-1A adrenergic receptors",
-          action: "antagonist",
-          result: "Prostatic smooth muscle relaxation, ↑ urinary flow",
-          system: "adrenergic"
-        }
-      }
-    ],
-    patientIndications: ["Benign Prostatic Hyperplasia"],
-    considerations: [
-      'Causes <span class="hl hl--ci">orthostatic hypotension</span>, especially after the first dose or when restarting after interruption — assess positional vitals in patients reporting dizziness or syncope.',
-      'Concomitant use with <span class="hl hl--drug">PDE5 inhibitors</span> (sildenafil, tadalafil) significantly increases hypotension risk — ask about erectile dysfunction medications.',
-      'Associated with <span class="hl hl--warn">intraoperative floppy iris syndrome</span> (IFIS) — relevant history if the patient is presenting with eye complaints or headed for ophthalmic surgery.',
-      'Although marketed as prostate-selective, alpha-1 blockade can still cause <span class="hl hl--ci">dizziness</span> and <span class="hl hl--ci">syncope</span> — consider tamsulosin as a contributing factor in fall-related calls in older men.',
-      'Not indicated for hypertension despite being an alpha blocker — its presence on a med list points to BPH, not cardiovascular disease.'
-    ]
-  },
-  {
-    id: "sildenafil",
-    summary: "A PDE-5 inhibitor used for erectile dysfunction and pulmonary arterial hypertension. Its critical EMS relevance is the absolute contraindication with nitrates — coadministration causes severe, potentially fatal hypotension.",
-    genericName: "Sildenafil",
-    tradeNames: ["Viagra", "Revatio"],
-    category: ["Cardiovascular"],
-    classes: ["Vasodilator"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Inhibits PDE-5, preventing the breakdown of cGMP in vascular smooth muscle. Increased cGMP causes smooth muscle relaxation and vasodilation — in the pulmonary vasculature this reduces pulmonary arterial pressure, and in the corpus cavernosum it facilitates erection.",
-        target: {
-          name: "Phosphodiesterase type 5 (PDE-5)",
-          action: "inhibitor",
-          result: "↑ cGMP → vasodilation, ↓ pulmonary vascular resistance",
-          system: "enzymatic"
-        }
-      }
-    ],
-    patientIndications: ["Erectile Dysfunction", "Pulmonary Arterial Hypertension"],
-    considerations: [
-      '<span class="hl hl--ci">Absolutely contraindicated with nitrates</span> — sildenafil prevents cGMP breakdown while nitrates increase cGMP production, causing synergistic and potentially fatal hypotension. Do not administer nitroglycerin within 24 hours of sildenafil use.',
-      'Causes systemic <span class="hl hl--ci">hypotension</span>, especially in patients on alpha blockers, multiple antihypertensives, or who are volume-depleted. Assess blood pressure before any vasodilator administration.',
-      'Patients may not volunteer sildenafil use due to embarrassment — ask directly about <span class="hl hl--warn">PDE-5 inhibitors</span> or "erectile dysfunction medications" when chest pain patients need nitrates.',
-      'When sildenafil is prescribed as <span class="hl hl--drug">Revatio</span> for pulmonary arterial hypertension, the patient has significant underlying cardiopulmonary disease — expect baseline hypoxia and right heart strain.',
-      'Overdose is primarily supportive — no antidote exists. Expect headache, flushing, and visual disturbances (blue-green color changes from PDE-6 inhibition). Dialysis is ineffective due to high protein binding.'
-    ]
-  },
-  {
-    id: "tadalafil",
-    summary: "A PDE-5 inhibitor used for erectile dysfunction, benign prostatic hyperplasia, and pulmonary arterial hypertension. Its long half-life (~17.5 hours) extends the nitrate contraindication window to 48 hours — significantly longer than sildenafil.",
-    genericName: "Tadalafil",
-    tradeNames: ["Cialis", "Adcirca"],
-    category: ["Cardiovascular"],
-    classes: ["Vasodilator"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Inhibits PDE-5, preventing the breakdown of cGMP in vascular smooth muscle. Increased cGMP causes smooth muscle relaxation and vasodilation — reducing pulmonary arterial pressure in PAH and facilitating erection in ED. Also relaxes prostatic and bladder neck smooth muscle, improving urinary flow in BPH.",
-        target: {
-          name: "Phosphodiesterase type 5 (PDE-5)",
-          action: "inhibitor",
-          result: "↑ cGMP → vasodilation, ↓ pulmonary vascular resistance, prostatic smooth muscle relaxation",
-          system: "enzymatic"
-        }
-      }
-    ],
-    patientIndications: ["Erectile Dysfunction", "Benign Prostatic Hyperplasia", "Pulmonary Arterial Hypertension"],
-    considerations: [
-      '<span class="hl hl--ci">Absolutely contraindicated with nitrates</span> — do not administer nitroglycerin within 48 hours of tadalafil use. Its long half-life makes this window twice as long as sildenafil.',
-      'Causes <span class="hl hl--ci">hypotension</span>, especially combined with alpha blockers, antihypertensives, or alcohol. Assess blood pressure before administering any vasodilator.',
-      'Patients may not volunteer tadalafil use — ask directly about <span class="hl hl--warn">PDE-5 inhibitors</span> or "erectile dysfunction medications" when evaluating chest pain patients for nitrate administration.',
-      'When prescribed as <span class="hl hl--drug">Adcirca</span> for pulmonary arterial hypertension, the patient has significant cardiopulmonary disease — expect baseline hypoxia and right heart strain.',
-      '<span class="hl hl--warn">Priapism</span> is a rare but serious adverse effect requiring emergent urological intervention — a prolonged painful erection lasting more than 4 hours risks permanent tissue damage.'
-    ]
-  },
-  {
-    id: "testosterone",
-    summary: "An androgen hormone used as replacement therapy in males with hypogonadism. Prescribed to restore physiological testosterone levels and reverse symptoms of androgen deficiency including fatigue, low libido, and loss of muscle mass.",
-    genericName: "Testosterone",
-    tradeNames: ["AndroGel", "Testim", "Depo-Testosterone", "Axiron", "Fortesta", "Natesto"],
-    category: ["Endocrine"],
-    classes: ["Hormone"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Exogenous testosterone binds to intracellular androgen receptors, restoring physiological androgen signaling that drives protein synthesis, erythropoiesis, bone mineral density, and male secondary sexual characteristics.",
-        target: {
-          name: "Androgen receptors",
-          action: "agonist",
-          result: "Restored androgenic signaling, ↑ muscle mass, ↑ erythropoiesis, ↑ bone density",
-          system: "hormonal"
-        }
-      }
-    ],
-    patientIndications: ["Male hypogonadism", "Testosterone deficiency", "Delayed puberty"],
-    considerations: [
-      '<span class="hl hl--ci">Erythrocytosis</span> — testosterone stimulates red blood cell production, increasing hematocrit and raising the risk of thromboembolic events including stroke and MI.',
-      'Increases risk of <span class="hl hl--ci">venous thromboembolism</span>, particularly in the first months of therapy. A patient on TRT presenting with unilateral leg swelling or acute dyspnea warrants high suspicion for DVT/PE.',
-      'Can cause <span class="hl hl--warn">fluid retention</span> and worsen congestive heart failure — relevant when assessing a CHF patient with new or worsening edema.',
-      'Testosterone is a <span class="hl hl--general">DEA Schedule III controlled substance</span>. Abuse at supraphysiologic doses (anabolic steroid misuse) causes aggression, cardiomyopathy, hepatotoxicity, and testicular atrophy.',
-      'Suppresses endogenous gonadotropins and <span class="hl hl--warn">spermatogenesis</span> — exogenous testosterone on a med list indicates the patient is likely infertile while on therapy and may have hypothalamic-pituitary axis suppression.'
-    ]
-  },
-  {
-    id: "oral-contraceptives",
-    summary: "A combined oral contraceptive containing ethinyl estradiol (estrogen) and norethindrone (progestin) used for pregnancy prevention, menstrual regulation, and acne. The primary EMS relevance is the increased risk of thromboembolic events.",
-    genericName: "Ethinyl Estradiol/Norethindrone",
-    tradeNames: ["Ovcon 35", "Brevicon", "Modicon", "Necon", "Nortrel", "Ortho-Novum"],
-    category: ["Endocrine"],
-    classes: ["Hormone"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Synthetic estrogen and progestin suppress gonadotropin release from the hypothalamus and pituitary, preventing follicular development and ovulation. Progestin also thickens cervical mucus and thins the endometrium.",
-        target: {
-          name: "Hypothalamic-pituitary-gonadal axis",
-          action: "inhibitor",
-          result: "↓ FSH, ↓ LH, suppressed ovulation",
-          system: "hormonal"
-        }
-      }
-    ],
-    patientIndications: ["Contraception", "Menstrual Irregularity", "Dysmenorrhea", "Endometriosis", "Acne"],
-    considerations: [
-      'Increases risk of <span class="hl hl--ci">venous thromboembolism</span> (DVT, PE) — risk is highest in the first year of use, in smokers over 35, and in obese patients. A young woman with sudden dyspnea or unilateral leg swelling on OCPs warrants high suspicion for VTE.',
-      'Increases risk of <span class="hl hl--ci">ischemic stroke</span> and <span class="hl hl--ci">myocardial infarction</span>, particularly in patients who smoke, have hypertension, or have migraines with aura.',
-      'Exogenous estrogen creates a <span class="hl hl--warn">hypercoagulable state</span> — relevant when assessing any patient with unexplained chest pain, neurological deficits, or acute limb complaints.',
-      'Can cause <span class="hl hl--warn">hypertension</span> in 4–5% of healthy users and worsen pre-existing hypertension.',
-      'Overdose is not life-threatening — causes nausea, vomiting, and withdrawal bleeding. No specific antidote or prehospital intervention required.'
-    ]
-  },
-  {
-    id: "azithromycin",
-    summary: "A macrolide antibiotic used for respiratory infections, skin infections, and sexually transmitted infections. Prescribed as a short course (Z-Pack) and encountered on med lists during active treatment or recent illness.",
-    genericName: "Azithromycin",
-    tradeNames: ["Zithromax", "Z-Pack"],
-    category: ["Pain & Anti-inflammatory"],
-    classes: ["Macrolide Antibiotic"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Binds to the 50S bacterial ribosomal subunit, blocking translocation of aminoacyl-tRNA and inhibiting bacterial protein synthesis. Bacteriostatic at standard concentrations.",
-        target: {
-          name: "50S bacterial ribosomal subunit",
-          action: "inhibitor",
-          result: "Inhibition of bacterial protein synthesis",
-          system: "other"
-        }
-      }
-    ],
-    patientIndications: ["Community-Acquired Pneumonia", "Acute Bacterial Sinusitis", "COPD Exacerbation", "Pharyngitis", "Otitis Media", "Chlamydia", "Skin Infections"],
-    considerations: [
-      'Causes <span class="hl hl--ci">QTc prolongation</span>, which can trigger torsades de pointes — risk increases in patients with existing cardiac disease, electrolyte abnormalities, or concurrent QT-prolonging medications.',
-      'Observational studies show an approximately two-fold increased short-term risk of <span class="hl hl--ci">cardiovascular death</span> compared to amoxicillin, greatest in patients with high baseline cardiac risk.',
-      'GI effects (nausea, diarrhea, abdominal pain) are the most common adverse reactions — relevant for EMS if the patient presents with vomiting or dehydration during a course of treatment.',
-      'May potentiate the effects of <span class="hl hl--drug">warfarin</span> and increase bleeding risk — ask about anticoagulant use if the patient is on azithromycin and presents with bleeding.',
-      'Long tissue half-life (2–4 days) means adverse effects, including QT prolongation, can persist for days after the last dose.'
-    ]
-  },
-  {
-    id: "amoxicillin",
-    summary: "A penicillin-class antibiotic used for a wide range of bacterial infections including otitis media, sinusitis, pharyngitis, pneumonia, and urinary tract infections. Also used in combination therapy for H. pylori eradication.",
-    genericName: "Amoxicillin",
-    tradeNames: ["Amoxil"],
-    category: ["Pain & Anti-inflammatory"],
-    classes: ["Antibiotic"],
-    source: "Mixed",
-    moa: [
-      {
-        brief: "Binds to penicillin-binding proteins and inhibits bacterial cell wall synthesis by blocking cross-linking of peptidoglycan, resulting in cell lysis and death during active bacterial multiplication.",
-        target: {
-          name: "Penicillin-binding proteins (PBPs)",
-          action: "inhibitor",
-          result: "Bacterial cell wall disruption → cell lysis",
-          system: "other"
-        }
-      }
-    ],
-    patientIndications: ["Otitis Media", "Sinusitis", "Pharyngitis", "Community-Acquired Pneumonia", "Urinary Tract Infection", "H. Pylori Eradication", "Skin and Soft Tissue Infection", "Lyme Disease", "Endocarditis Prophylaxis"],
-    considerations: [
-      '<span class="hl hl--ci">Anaphylaxis</span> risk in patients with true penicillin allergy — always ask about penicillin and beta-lactam allergy history before assuming this is a benign home med.',
-      'Patients reporting a childhood "amoxicillin rash" often had a delayed maculopapular reaction (type IV), not true anaphylaxis — but distinguish carefully, as <span class="hl hl--ci">type-I IgE-mediated reactions</span> carry life-threatening risk on re-exposure.',
-      'GI symptoms (<span class="hl hl--warn">nausea, vomiting, diarrhea</span>) are the most common adverse effects and may mimic an acute abdominal presentation on a call.',
-      'Prolonged use can cause <span class="hl hl--warn">pseudomembranous colitis</span> (C. difficile) — consider in patients on amoxicillin presenting with severe diarrhea, fever, and abdominal pain.',
-      'Cross-reactivity with <span class="hl hl--drug">cephalosporins</span> and carbapenems exists but is lower than historically reported — relevant when considering prehospital antibiotic protocols.'
-    ]
+    summary: "Cyclobenzaprine is a centrally acting muscle relaxant structurally related to tricyclic antidepressants, prescribed short-term for acute musculoskeletal spasm. Its presence on a med list flags a patient likely taking multiple analgesics and CNS depressants — particularly opioids and benzodiazepines — raising the risk of compounded sedation and respiratory depression. In overdose, it produces an anticholinergic toxidrome with the added threat of TCA-like cardiotoxicity including QRS widening. Any altered patient on cyclobenzaprine warrants a 12-lead ECG and close monitoring for rapid deterioration."
   },
 ];
