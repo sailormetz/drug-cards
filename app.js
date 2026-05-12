@@ -349,7 +349,7 @@
       if (examples) examples = examples.charAt(0).toUpperCase() + examples.slice(1);
       return '<li class="poly-row">' +
         '<span class="poly-pill">' + name + '</span>' +
-        '<span class="poly-examples">' + examples + '</span>' +
+        (examples ? '<span class="poly-examples">' + examples + '</span>' : '') +
       '</li>';
     }
 
