@@ -348,7 +348,7 @@
       var examples = m ? m[2].trim() : '';
       return '<li class="poly-row">' +
         '<span class="poly-pill">' + name + '</span>' +
-        (examples ? '<span class="poly-examples">' + examples + '</span>' : '') +
+        '<span class="poly-examples">' + examples + '</span>' +
       '</li>';
     }
 

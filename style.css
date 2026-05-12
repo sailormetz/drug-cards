@@ -1282,15 +1282,13 @@ body {
 }
 .poly-list {
   list-style: none;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 14px;
   row-gap: 6px;
 }
 .poly-row {
-  display: flex;
-  align-items: baseline;
-  column-gap: 10px;
-  flex-wrap: wrap;
+  display: contents;
 }
 .poly-pill {
   font-size: 14px;
@@ -1301,10 +1299,14 @@ body {
   color: var(--pill-amber-text);
   border: 1px solid var(--pill-amber-border);
   white-space: nowrap;
+  justify-self: start;
+  align-self: center;
 }
 .poly-examples {
   font-size: 13px;
   color: var(--text-mut);
+  align-self: center;
+  min-width: 0;
 }
 /* ===== CONTRAINDICATION LIST ===== */
 .contra-cols {
