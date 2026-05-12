@@ -38,6 +38,9 @@ button, input, select, textarea { font: inherit; }
   --pill-amber-fill:   hsla(41, 45%, 25%, 0.35);
   --pill-amber-text:   hsl(41, 50%, 70%);
   --pill-amber-border: hsl(41, 45%, 38%);
+  --pill-gray-fill:    hsla(45, 4%, 22%, 0.4);
+  --pill-gray-text:    hsl(45, 4%, 74%);
+  --pill-gray-border:  hsl(45, 4%, 42%);
   /* Population colors: fill (tab bg) / border */
   --pop-adult-fill:      hsl(214, 50%, 21%);
   --pop-adult-border:    hsl(214, 55%, 60%);
@@ -1295,17 +1298,18 @@ body {
   font-weight: 500;
   padding: 4px 12px;
   border-radius: 999px;
-  background: var(--pill-amber-fill);
-  color: var(--pill-amber-text);
-  border: 1px solid var(--pill-amber-border);
+  background: var(--pill-gray-fill);
+  color: var(--pill-gray-text);
+  border: 1px solid var(--pill-gray-border);
   white-space: nowrap;
   justify-self: start;
   align-self: center;
 }
 .poly-examples {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-mut);
   align-self: center;
+  text-align: right;
   min-width: 0;
 }
 /* ===== CONTRAINDICATION LIST ===== */

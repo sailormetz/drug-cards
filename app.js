@@ -346,6 +346,7 @@
       var m = s.match(/^(.*?)\s*\(([^)]+)\)\s*$/);
       var name = m ? m[1].trim() : s.trim();
       var examples = m ? m[2].trim() : '';
+      if (examples) examples = examples.charAt(0).toUpperCase() + examples.slice(1);
       return '<li class="poly-row">' +
         '<span class="poly-pill">' + name + '</span>' +
         '<span class="poly-examples">' + examples + '</span>' +
@@ -354,10 +355,14 @@
 
     function polySection(items) {
       if (!items || !items.length) return '';
+      var hasEx = /\([^)]+\)\s*$/;
+      var withEx = items.filter(function (s) { return hasEx.test(s); });
+      var without = items.filter(function (s) { return !hasEx.test(s); });
+      var ordered = withEx.concat(without);
       return '<div class="section-wrap">' +
         '<h2 class="section-label">Polypharmacy</h2>' +
         '<section class="section">' +
-          '<ul class="poly-list">' + items.map(polyRow).join('') + '</ul>' +
+          '<ul class="poly-list">' + ordered.map(polyRow).join('') + '</ul>' +
         '</section>' +
       '</div>';
     }
