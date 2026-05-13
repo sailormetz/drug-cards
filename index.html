@@ -76,9 +76,12 @@
   </div>
 </div>
 
-<div class="user-menu" id="user-menu" hidden role="menu">
-  <span class="user-menu__email" id="user-menu-email"></span>
-  <button class="user-menu__signout" id="user-menu-signout" type="button">Sign out</button>
+<div class="user-menu" id="user-menu" hidden role="dialog" aria-modal="true" aria-labelledby="user-menu-email">
+  <div class="user-menu-panel">
+    <button class="user-menu__close" id="user-menu-close" type="button" aria-label="Close">&#x2715;</button>
+    <span class="user-menu__email" id="user-menu-email"></span>
+    <button class="user-menu__signout" id="user-menu-signout" type="button">Sign out</button>
+  </div>
 </div>
 
 <script src="data/drug_classes.js"></script>
