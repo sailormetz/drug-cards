@@ -59,7 +59,7 @@ All text in this dataset is written for a paramedic audience. Follow these rules
   genericName: "",               // Proper-case generic name as it appears on labeling
   tradeNames: [],                // Array of trade name strings — critical, medics read bottle labels
   category: [],                  // Clinical groupings for filtering (see Category Enums)
-  classes: [],                   // Pharmacological classes (see Classes section)
+  classes: [],                   // Pharmacological class keys (snake_case, from drug_classes.js)
   source: "",                    // Primary data source (see Source Values)
   moa: [],                       // Mechanism of action (see MOA section)
   patientIndications: [],        // Why patients are prescribed this drug — simple string array
@@ -192,40 +192,20 @@ Categories describe **what type of condition the patient is being treated for** 
 | **Required** | Yes |
 | **Min length** | 1 |
 
-Array of pharmacological class strings. These are the drug's formal classifications — not its clinical use category (that's `category`).
+Array of snake_case class keys referencing `data/drug_classes.js`. These are the drug's formal pharmacological classifications — not its clinical use category (that's `category`).
 
-Use the preferred spellings below. Add new values only when none of the existing ones fit.
+The canonical list of valid keys and their display names lives in `data/drug_classes.js` (`DRUG_CLASSES` object). Always use keys from that file. If a new class is needed, add it to `drug_classes.js` first, then reference the key here.
 
-#### Preferred Class Spellings
-
-```
-ACE Inhibitor              Alpha-1 Antagonist         Antiarrhythmic
-Anticoagulant              Anticonvulsant             Antidepressant
-Antihistamine              Antihypertensive           Antiplatelet
-Antipsychotic              Antipyretic                ARB
-Atypical Antipsychotic     Benzodiazepine             Beta Blocker
-Beta-2 Agonist             Biguanide                  Bronchodilator
-Calcium Channel Blocker    Cardiac Glycoside          Cholinesterase Inhibitor
-Corticosteroid             Direct Oral Anticoagulant (DOAC)
-Direct Thrombin Inhibitor  Factor Xa Inhibitor        GLP-1 Agonist
-H2 Blocker                 Hormone                    Hypnotic
-Insulin                    LABA                       LAMA
-Leukotriene Modifier       Loop Diuretic              MAOI
-Mood Stabilizer            Muscle Relaxant            Nitrate
-NSAID                      Opioid Analgesic           Potassium-Sparing Diuretic
-Proton Pump Inhibitor      Sedative                   SGLT2 Inhibitor
-SNRI                       SSRI                       Statin
-Sulfonylurea               TCA                        Thiazide Diuretic
-Thyroid Agent              Vasodilator                Vitamin K Antagonist
-```
+**Key format:** All lowercase, words separated by underscores (e.g. `"calcium_channel_blocker"`, `"beta2_agonist"`). The front-end resolves display names via `DRUG_CLASSES[key]`.
 
 **Examples:**
-- **Lisinopril:** `["ACE Inhibitor", "Antihypertensive"]`
-- **Metoprolol:** `["Beta Blocker", "Antihypertensive", "Antiarrhythmic"]`
-- **Amlodipine:** `["Calcium Channel Blocker", "Antihypertensive"]`
-- **Warfarin:** `["Anticoagulant", "Vitamin K Antagonist"]`
-- **Sertraline:** `["Antidepressant", "SSRI"]`
-- **Amitriptyline:** `["Antidepressant", "TCA"]`
+- **Lisinopril:** `["ace_inhibitor", "antihypertensive"]`
+- **Metoprolol:** `["beta_blocker", "antihypertensive", "antiarrhythmic"]`
+- **Amlodipine:** `["calcium_channel_blocker", "antihypertensive", "vasodilator"]`
+- **Warfarin:** `["anticoagulant"]`
+- **Sertraline:** `["ssri", "antidepressant"]`
+- **Alprazolam:** `["benzodiazepine", "anxiolytic", "sedative"]`
+- **Diphenhydramine:** `["antihistamine", "anticholinergic", "sedative"]`
 
 ---
 
@@ -590,7 +570,7 @@ function validateHomeMed(entry) {
   genericName: "Lisinopril",
   tradeNames: ["Zestril", "Prinivil"],
   category: ["Cardiovascular"],
-  classes: ["ACE Inhibitor", "Antihypertensive"],
+  classes: ["ace_inhibitor", "antihypertensive"],
   source: "DailyMed",
   moa: [
     {
@@ -625,7 +605,7 @@ function validateHomeMed(entry) {
   genericName           // proper-case generic name
   tradeNames[]          // brand names found on bottles
   category[]            // clinical grouping enums (8 values — see Category Enums)
-  classes[]             // pharmacological classes (see Preferred Class Spellings)
+  classes[]             // pharmacological class keys (snake_case, from drug_classes.js)
   source                // "DailyMed" | "StatPearls" | "Mixed"
   moa[]                 // { brief, target: { name, action, result, system } }
   patientIndications[]  // why patients take it — condition name strings

@@ -53,7 +53,7 @@ Every drug entry is verified against authoritative sources before being committe
   genericName: "",
   tradeNames: [],                 // Array of trade name strings
   category: [],                   // Clinical categories — array (see Category Enums)
-  classes: [],                    // Pharmacological classes
+  classes: [],                    // Pharmacological class keys (snake_case, from drug_classes.js)
   source: "",                     // Primary data source (see Source Values)
   moa: [],                        // Array of MOA entries (see MOA section below)
 
@@ -160,46 +160,22 @@ Design rule: Categories describe *clinical scenarios on a call* — not pharmaco
 - **Droperidol:** `["Neurological", "Nausea & Vomiting", "Sedation & Anesthesia"]`
 
 ### `classes`
-Array of pharmacological class strings. These are the drug's formal classifications, not its use category.
+Array of snake_case class keys referencing `data/drug_classes.js`. These are the drug's formal pharmacological classifications, not its use category.
 
-- **Epinephrine:** `["Sympathomimetic", "Catecholamine", "Vasopressor"]`
-- **Diltiazem:** `["Class IV Antiarrhythmic", "Calcium Channel Blocker"]`
-- **Naloxone:** `["Opioid Antagonist", "Antidote"]`
-- **Albuterol:** `["Bronchodilator", "Beta-2 Agonist", "Sympathomimetic"]`
-- **Magnesium Sulfate:** `["Electrolyte", "Anticonvulsant", "Antiarrhythmic", "Bronchodilator"]`
-- **Aspirin:** `["NSAID", "Antiplatelet"]`
-- **Atropine:** `["Anticholinergic", "Vagolytic"]`
-- **Ketamine:** `["Dissociative Anesthetic", "Analgesic", "Sedative"]`
-- **Droperidol:** `["Antipsychotic", "Antiemetic", "Butyrophenone"]`
+The canonical list of valid keys and their display names lives in `data/drug_classes.js` (`DRUG_CLASSES` object). Always use keys from that file. If a new class is needed, add it to `drug_classes.js` first, then reference the key here.
 
-**Not an enum** — add new values when none of the existing ones fit. But use these preferred spellings for consistency across the dataset:
+**Examples:**
+- **Epinephrine:** `["sympathomimetic", "catecholamine", "vasopressor", "inotrope", "chronotrope", "bronchodilator", "alpha1_agonist", "beta1_agonist", "beta2_agonist"]`
+- **Diltiazem:** `["antiarrhythmic", "calcium_channel_blocker", "antihypertensive"]`
+- **Naloxone:** `["opioid_antagonist", "antidote"]`
+- **Albuterol:** `["bronchodilator", "beta2_agonist", "sympathomimetic"]`
+- **Magnesium Sulfate:** `["electrolyte", "antiarrhythmic", "anticonvulsant", "bronchodilator", "tocolytic"]`
+- **Aspirin:** `["nsaid", "antiplatelet", "analgesic", "antipyretic"]`
+- **Atropine:** `["anticholinergic"]`
+- **Ketamine:** `["dissociative_anesthetic", "analgesic", "sedative", "bronchodilator", "sympathomimetic"]`
+- **Droperidol:** `["typical_antipsychotic", "antiemetic", "butyrophenone", "sedative"]`
 
-```
-Adsorbent                    Alkalinizing Agent       Alpha-1 Agonist
-Alpha-1 Antagonist           Analgesic
-Anticholinergic            Anticoagulant            Anticonvulsant
-Antidiuretic               Antidote                 Antiemetic
-Antifibrinolytic           Antihistamine            Antihypertensive
-Antiplatelet               Antipsychotic            Antipyretic
-Benzodiazepine             Benzodiazepine Antagonist  Beta-1 Agonist
-Beta-2 Agonist
-Beta Blocker               Bronchodilator           Butyrophenone
-Calcium Channel Blocker    Carbohydrate             Catecholamine
-Chronotrope                Class Ia Antiarrhythmic  Class Ib Antiarrhythmic
-Class II Antiarrhythmic    Class III Antiarrhythmic Class IV Antiarrhythmic
-Class V Antiarrhythmic     Corticosteroid           Crystalloid
-Cyanide Antagonist         Dissociative Anesthetic  Dromotrope
-Electrolyte                H2 Blocker               Hemostatic
-Hormone                    Hypnotic                 Induction Agent          Inotrope
-Local Anesthetic           Loop Diuretic            Medical Gas
-Nitrate
-NSAID                      Opioid Analgesic         Opioid Antagonist
-Osmotic Diuretic           Paralytic                Phenothiazine
-Potassium Channel Blocker  Sedative                 Sodium Channel Blocker
-Sympathomimetic            Tocolytic                Uterotonic
-Vagolytic                  Vasodilator              Vasopressor
-Vitamin
-```
+**Key format:** All lowercase, words separated by underscores (e.g. `"calcium_channel_blocker"`, `"beta2_agonist"`). The front-end resolves display names via `DRUG_CLASSES[key]`.
 
 ### `source`
 Primary data source for this entry. Gives credibility and audit trail.
@@ -1217,7 +1193,7 @@ precautions: [
   genericName: "Epinephrine",
   tradeNames: ["Adrenalin", "EpiPen"],
   category: ["Resuscitation", "Cardiovascular", "Airway & Respiratory"],
-  classes: ["Sympathomimetic", "Catecholamine", "Vasopressor"],
+  classes: ["sympathomimetic", "catecholamine", "vasopressor", "inotrope", "chronotrope", "bronchodilator", "alpha1_agonist", "beta1_agonist", "beta2_agonist"],
   source: "NASEMSO 2022 v3.0",
   moa: [
     {
