@@ -530,6 +530,7 @@
     var menu  = document.getElementById('user-menu');
     var email = document.getElementById('user-menu-email');
     var out   = document.getElementById('user-menu-signout');
+    var close = document.getElementById('user-menu-close');
     if (!btn || !menu) return;
 
     var unlocked = !!(state.user && state.hasPaid);
@@ -542,20 +543,28 @@
 
     if (email) email.textContent = state.user.email || '';
 
+    function closeMenu() {
+      menu.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+    }
+
     if (!btn.dataset.bound) {
-      btn.addEventListener('click', function (e) {
-        e.stopPropagation();
+      btn.addEventListener('click', function () {
         var open = menu.hidden;
         menu.hidden = !open;
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
-      document.addEventListener('click', function (e) {
-        if (menu.hidden) return;
-        if (menu.contains(e.target) || btn.contains(e.target)) return;
-        menu.hidden = true;
-        btn.setAttribute('aria-expanded', 'false');
+      menu.addEventListener('click', function (e) {
+        if (e.target === menu) closeMenu();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !menu.hidden) closeMenu();
       });
       btn.dataset.bound = '1';
+    }
+    if (close && !close.dataset.bound) {
+      close.addEventListener('click', closeMenu);
+      close.dataset.bound = '1';
     }
     if (out && !out.dataset.bound) {
       out.addEventListener('click', function () { signOut(); });
