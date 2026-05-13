@@ -35,10 +35,15 @@
       return acc.concat(d.category || []);
     }, []))).sort();
   }
+  function className(key) {
+    return (typeof DRUG_CLASSES !== 'undefined' && DRUG_CLASSES[key]) || key;
+  }
   function getAllClasses() {
     return Array.from(new Set(getDataset().reduce(function (acc, d) {
       return acc.concat(d.classes || []);
-    }, []))).sort();
+    }, []))).sort(function (a, b) {
+      return className(a).localeCompare(className(b));
+    });
   }
 
   function matchesFilters(d) {
@@ -251,7 +256,7 @@
 
     // --- Classes ---
     var classesHTML = drug.classes.map(function (c) {
-      return '<span class="drug-class-pill">' + c + '</span>';
+      return '<span class="drug-class-pill">' + className(c) + '</span>';
     }).join('');
 
     return (
@@ -328,7 +333,7 @@
 
   function renderHomeMedCard(med) {
     var classesHTML = (med.classes || []).map(function (c) {
-      return '<span class="drug-class-pill">' + c + '</span>';
+      return '<span class="drug-class-pill">' + className(c) + '</span>';
     }).join('');
 
     function pillSection(label, items, variant) {
@@ -433,7 +438,7 @@
       html += '<div class="active-pills-row active-pills-row--class">' +
         st.activeClasses.map(function (cls) {
           return '<span class="active-pill active-pill--class" data-type="class" data-value="' + cls + '">' +
-            cls + '<button class="active-pill-x" aria-label="Remove">&#x2715;</button></span>';
+            className(cls) + '<button class="active-pill-x" aria-label="Remove">&#x2715;</button></span>';
         }).join('') + '</div>';
     }
     el.innerHTML = html;
@@ -497,7 +502,7 @@
         '<button class="active-filter-chip-x" aria-label="Remove">&#x2715;</button></span>';
     });
     st.activeClasses.forEach(function (cls) {
-      html += '<span class="active-filter-chip" data-type="class" data-value="' + cls + '">' + cls +
+      html += '<span class="active-filter-chip" data-type="class" data-value="' + cls + '">' + className(cls) +
         '<button class="active-filter-chip-x" aria-label="Remove">&#x2715;</button></span>';
     });
     chipsEl.innerHTML = html;
@@ -521,12 +526,13 @@
       var searchVal = searchEl ? searchEl.value : '';
       var allCls = getAllClasses();
       var filtered = searchVal
-        ? allCls.filter(function (c) { return c.toLowerCase().indexOf(searchVal.toLowerCase()) !== -1; })
+        ? allCls.filter(function (c) { return className(c).toLowerCase().indexOf(searchVal.toLowerCase()) !== -1; })
         : allCls;
       var classItems = ['All'].concat(filtered).map(function (cls) {
         var isActive = cls === 'All' ? st.activeClasses.length === 0 : st.activeClasses.indexOf(cls) !== -1;
+        var label = cls === 'All' ? 'All' : className(cls);
         return '<button class="filter-list-item' + (isActive ? ' filter-list-item--active' : '') +
-          '" data-value="' + cls + '">' + cls + '</button>';
+          '" data-value="' + cls + '">' + label + '</button>';
       }).join('');
       el.innerHTML =
         '<input class="filter-class-search" type="search" placeholder="Search classes..." value="' +
