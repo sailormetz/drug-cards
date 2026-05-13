@@ -8,7 +8,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Hypertension", "Heart failure (HFrEF)", "Angina pectoris", "Atrial fibrillation", "Post-MI"],
     comorbidities: ["Coronary artery disease", "Type 2 diabetes", "Chronic kidney disease", "Hyperlipidemia", "Atrial fibrillation"],
-    polypharmacy: ["ACE Inhibitors (lisinopril, enalapril)", "Statins (atorvastatin, rosuvastatin)", "Loop diuretics (furosemide)", "Aspirin", "Anticoagulants (apixaban, warfarin)"],
+    polypharmacy: ["ace_inhibitor", "statin", "loop_diuretic", "antiplatelet", "anticoagulant"],
     overdoseToxicity: ["Severe bradycardia, including high-degree AV block", "Hypotension, often refractory to fluids", "Hypoglycemia with masked symptoms", "Bronchospasm", "Altered mental status progressing to seizures"],
     precautions: [
       '<span class="hl hl--drug">Epinephrine</span> response is diminished — standard doses may not restore BP or HR in <span class="hl hl--ci">anaphylaxis</span>.',
@@ -28,7 +28,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Hypertension", "Angina pectoris", "Acute MI (secondary prevention)", "SVT (off-label)", "Migraine prophylaxis (off-label)"],
     comorbidities: ["Coronary artery disease", "Hyperlipidemia", "Type 2 diabetes", "Chronic kidney disease", "Atrial fibrillation"],
-    polypharmacy: ["Thiazide diuretics (hydrochlorothiazide)", "ACE Inhibitors (lisinopril, ramipril)", "Statins (atorvastatin, rosuvastatin)", "Aspirin", "Calcium Channel Blockers (amlodipine)"],
+    polypharmacy: ["thiazide_diuretic", "ace_inhibitor", "statin", "antiplatelet", "calcium_channel_blocker"],
     overdoseToxicity: ["Severe bradycardia with AV block", "Hypotension progressing to cardiogenic shock", "Hypoglycemia", "Lethargy progressing to coma", "Seizures"],
     precautions: [
       '<span class="hl hl--drug">Epinephrine</span> response is diminished — standard doses may fail to restore HR and BP in <span class="hl hl--ci">anaphylaxis</span>.',
@@ -48,7 +48,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Heart failure (HFrEF)", "Hypertension", "Post-MI LV dysfunction", "Atrial fibrillation (off-label)", "Esophageal variceal prophylaxis (off-label)"],
     comorbidities: ["Coronary artery disease", "Type 2 diabetes", "Chronic kidney disease", "Atrial fibrillation", "Cirrhosis with portal hypertension"],
-    polypharmacy: ["ACE Inhibitors (lisinopril, enalapril)", "Loop diuretics (furosemide)", "Statins (atorvastatin)", "Aspirin", "Digoxin"],
+    polypharmacy: ["ace_inhibitor", "loop_diuretic", "statin", "antiplatelet", "cardiac_glycoside"],
     overdoseToxicity: ["Severe bradycardia, including high-degree AV block", "Hypotension, often refractory due to combined alpha and beta blockade", "Bronchospasm", "Hypoglycemia with masked symptoms", "QRS widening from sodium channel blockade"],
     precautions: [
       '<span class="hl hl--drug">Atropine</span> is largely ineffective for carvedilol-induced <span class="hl hl--ci">bradycardia</span>.',
@@ -68,7 +68,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Hypertension", "Hypertensive crisis", "Gestational hypertension", "Preeclampsia"],
     comorbidities: ["Coronary artery disease", "Chronic kidney disease", "Type 2 diabetes", "Preeclampsia or eclampsia", "Stroke history"],
-    polypharmacy: ["Thiazide diuretics (hydrochlorothiazide)", "Loop diuretics (furosemide)", "ACE Inhibitors (lisinopril, enalapril)", "Statins (atorvastatin)", "Aspirin"],
+    polypharmacy: ["thiazide_diuretic", "loop_diuretic", "ace_inhibitor", "statin", "antiplatelet"],
     overdoseToxicity: ["Severe hypotension, worsened by standing", "Bradycardia, including high-degree AV block", "Bronchospasm", "Hypoglycemia (masked symptoms)", "Altered mental status progressing to seizures"],
     precautions: [
       '<span class="hl hl--drug">Epinephrine</span> response is diminished — both alpha and beta blockade reduce effectiveness in <span class="hl hl--ci">anaphylaxis</span>.',
@@ -88,7 +88,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Hypertension", "Heart failure (HFrEF)", "Post-MI mortality reduction"],
     comorbidities: ["Coronary artery disease", "Type 2 diabetes", "Chronic kidney disease", "Heart failure", "Cerebrovascular disease"],
-    polypharmacy: ["Beta blockers (metoprolol, carvedilol)", "Diuretics (furosemide, hydrochlorothiazide)", "Statins (atorvastatin)", "Aspirin", "Potassium chloride"],
+    polypharmacy: ["beta_blocker", "loop_diuretic", "thiazide_diuretic", "statin", "antiplatelet", "electrolyte"],
     overdoseToxicity: ["Hypotension, often refractory to standard vasopressors", "Hyperkalemia with cardiac dysrhythmia risk", "Acute renal failure", "Angioedema with airway compromise"],
     precautions: [
       'Can cause <span class="hl hl--ci">angioedema</span> at any point during therapy — tongue, glottis, and laryngeal swelling may require emergent airway management.',
@@ -108,7 +108,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Hypertension", "Diabetic nephropathy", "Stroke risk reduction (with LVH)", "Heart failure"],
     comorbidities: ["Type 2 diabetes", "Chronic kidney disease", "Left ventricular hypertrophy", "Coronary artery disease", "Gout"],
-    polypharmacy: ["Thiazide diuretics (hydrochlorothiazide)", "Statins (atorvastatin, rosuvastatin)", "Oral hypoglycemics (metformin)", "Calcium channel blockers (amlodipine)", "Aspirin"],
+    polypharmacy: ["thiazide_diuretic", "statin", "biguanide", "calcium_channel_blocker", "antiplatelet"],
     overdoseToxicity: ["Hypotension, potentially refractory to catecholamines", "Hyperkalemia with cardiac dysrhythmia risk", "Acute kidney injury", "Dizziness and syncope"],
     precautions: [
       'ARB blockade of the RAAS can cause <span class="hl hl--ci">hypotension</span> refractory to standard vasopressors — vasopressin may be required in overdose.',
@@ -128,7 +128,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Hypertension", "Chronic stable angina", "Vasospastic angina (Prinzmetal)", "Coronary artery disease"],
     comorbidities: ["Coronary artery disease", "Type 2 diabetes", "Hyperlipidemia", "Chronic kidney disease", "Peripheral vascular disease"],
-    polypharmacy: ["ACE Inhibitors (lisinopril, enalapril)", "ARBs (losartan, valsartan)", "Statins (atorvastatin, rosuvastatin)", "Beta blockers (metoprolol, atenolol)", "Aspirin"],
+    polypharmacy: ["ace_inhibitor", "arb", "statin", "beta_blocker", "antiplatelet"],
     overdoseToxicity: ["Profound refractory hypotension from vasodilation", "Reflex tachycardia progressing to bradycardia in severe overdose", "Hyperglycemia from impaired insulin release", "Metabolic acidosis from tissue hypoperfusion", "Non-cardiogenic pulmonary edema"],
     precautions: [
       '<span class="hl hl--drug">Nitroglycerin</span> has additive hypotensive effect — monitor BP closely before and after administration in patients on <span class="hl hl--ci">amlodipine</span>.',
@@ -148,7 +148,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Hypertension", "Chronic stable angina", "Atrial fibrillation (rate control)", "PSVT", "Vasospastic angina"],
     comorbidities: ["Coronary artery disease", "Atrial fibrillation", "Heart failure (HFpEF)", "Hypertensive heart disease", "Type 2 diabetes"],
-    polypharmacy: ["Beta blockers (metoprolol, atenolol)", "ACE Inhibitors (lisinopril, enalapril)", "Statins (atorvastatin, simvastatin)", "Anticoagulants (apixaban, warfarin)", "Digoxin"],
+    polypharmacy: ["beta_blocker", "ace_inhibitor", "statin", "anticoagulant", "cardiac_glycoside"],
     overdoseToxicity: ["Profound bradycardia with high-degree AV block", "Hypotension progressing to cardiovascular collapse", "Hyperglycemia from impaired insulin release", "Lactic acidosis from end-organ hypoperfusion", "Cardiac arrest"],
     precautions: [
       'Concurrent <span class="hl hl--drug">IV beta blockers</span> with diltiazem is <span class="hl hl--ci">contraindicated</span> — combined negative chronotropy and inotropy risks cardiovascular collapse.',
@@ -168,7 +168,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Hypertension", "Chronic stable angina", "Vasospastic angina (Prinzmetal)", "Raynaud phenomenon"],
     comorbidities: ["Coronary artery disease", "Peripheral vascular disease", "Chronic kidney disease", "Type 2 diabetes", "Left ventricular hypertrophy"],
-    polypharmacy: ["ACE Inhibitors (lisinopril, enalapril)", "Beta blockers (metoprolol, atenolol)", "Statins (atorvastatin)", "Thiazide diuretics (hydrochlorothiazide)", "Aspirin"],
+    polypharmacy: ["ace_inhibitor", "beta_blocker", "statin", "thiazide_diuretic", "antiplatelet"],
     overdoseToxicity: ["Severe hypotension progressing to distributive shock", "Reflex sinus tachycardia", "Hyperglycemia", "Metabolic acidosis from prolonged hypoperfusion", "Altered mental status progressing to coma"],
     precautions: [
       'Causes significant <span class="hl hl--ci">hypotension</span> — additive with <span class="hl hl--drug">nitroglycerin</span>, fentanyl, and other vasodilators.',
@@ -188,7 +188,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Hypertension", "ADHD", "Opioid withdrawal", "Anxiety"],
     comorbidities: ["Chronic kidney disease", "Type 2 diabetes", "Anxiety disorders", "Substance use disorder", "ADHD"],
-    polypharmacy: ["Beta blockers (metoprolol, atenolol)", "Diuretics (hydrochlorothiazide, furosemide)", "ACE Inhibitors (lisinopril, enalapril)", "Benzodiazepines (alprazolam, clonazepam)", "Stimulants (amphetamine salts, methylphenidate)"],
+    polypharmacy: ["beta_blocker", "thiazide_diuretic", "loop_diuretic", "ace_inhibitor", "benzodiazepine", "cns_stimulant"],
     overdoseToxicity: ["Bradycardia, often severe and prolonged", "Hypotension preceded by transient early hypertension", "CNS depression with somnolence and miosis", "Respiratory depression and apnea", "Hypothermia"],
     precautions: [
       'Toxidrome mimics opioid overdose — <span class="hl hl--warn">hypothermia</span> is a key differentiator (absent in opioid OD).',
@@ -208,7 +208,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Hypertension", "Peripheral edema (CHF)", "Calcium nephrolithiasis", "Nephrogenic diabetes insipidus"],
     comorbidities: ["Coronary artery disease", "Type 2 diabetes", "Chronic kidney disease", "Heart failure", "Gout"],
-    polypharmacy: ["ACE Inhibitors (lisinopril, enalapril)", "ARBs (losartan, valsartan)", "Beta blockers (metoprolol, atenolol)", "Statins (atorvastatin, rosuvastatin)", "Potassium supplements (potassium chloride)"],
+    polypharmacy: ["ace_inhibitor", "arb", "beta_blocker", "statin", "electrolyte"],
     overdoseToxicity: ["Severe hypokalemia with cardiac dysrhythmias", "Hyponatremia with altered mental status and seizures", "Dehydration and hypotension", "Acute kidney injury"],
     precautions: [
       'Chronic <span class="hl hl--ci">hypokalemia</span> increases sensitivity to <span class="hl hl--drug">digoxin</span> — risk of lethal dysrhythmias even at therapeutic digoxin levels.',
@@ -228,7 +228,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Heart failure (edema)", "Hepatic cirrhosis (ascites)", "Renal disease (edema)", "Hypertension (second-line)"],
     comorbidities: ["Congestive heart failure", "Chronic kidney disease", "Hepatic cirrhosis", "Hypertension", "Type 2 diabetes"],
-    polypharmacy: ["ACE Inhibitors (lisinopril, enalapril)", "Beta blockers (metoprolol, carvedilol)", "Potassium chloride", "Digoxin", "Spironolactone"],
+    polypharmacy: ["ace_inhibitor", "beta_blocker", "electrolyte", "cardiac_glycoside", "potassium_sparing_diuretic"],
     overdoseToxicity: ["Profound dehydration and circulatory collapse", "Severe hypokalemia with dysrhythmias", "Hypotension", "Hypochloremic metabolic alkalosis", "Altered mental status and muscle cramping"],
     precautions: [
       'Furosemide-induced <span class="hl hl--ci">hypokalemia</span> potentiates <span class="hl hl--drug">digoxin</span> toxicity — expect dysrhythmias at otherwise therapeutic digoxin levels.',
@@ -248,7 +248,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Heart failure (HFrEF)", "Resistant hypertension", "Edema (cirrhosis/nephrotic)", "Primary hyperaldosteronism", "Hypokalemia prevention"],
     comorbidities: ["Coronary artery disease", "Chronic kidney disease", "Hepatic cirrhosis", "Type 2 diabetes", "Atrial fibrillation"],
-    polypharmacy: ["ACE Inhibitors (lisinopril, enalapril)", "Loop diuretics (furosemide)", "Beta blockers (metoprolol, carvedilol)", "Digoxin", "Statins (atorvastatin)"],
+    polypharmacy: ["ace_inhibitor", "loop_diuretic", "beta_blocker", "cardiac_glycoside", "statin"],
     overdoseToxicity: ["Hyperkalemia with dysrhythmias", "Drowsiness and mental confusion", "Hypotension", "Hyponatremia", "Nausea, vomiting, diarrhea"],
     precautions: [
       'Concurrent <span class="hl hl--drug">ACE inhibitors</span> or <span class="hl hl--drug">ARBs</span> significantly increase the risk of <span class="hl hl--ci">severe hyperkalemia</span>.',
@@ -268,7 +268,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Hyperlipidemia", "ASCVD risk reduction", "Post-MI secondary prevention", "Stroke prevention", "Hypertriglyceridemia"],
     comorbidities: ["Coronary artery disease", "Type 2 diabetes", "Hypertension", "Peripheral artery disease", "Chronic kidney disease"],
-    polypharmacy: ["ACE Inhibitors (lisinopril, enalapril)", "Beta blockers (metoprolol, carvedilol)", "Aspirin", "Clopidogrel", "Oral hypoglycemics (metformin, glipizide)"],
+    polypharmacy: ["ace_inhibitor", "beta_blocker", "antiplatelet", "biguanide", "sulfonylurea"],
     overdoseToxicity: null,
     precautions: [
       'Patients on <span class="hl hl--drug">atorvastatin</span> with <span class="hl hl--drug">diltiazem</span> are at increased risk of <span class="hl hl--ci">rhabdomyolysis</span>.',
@@ -288,7 +288,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Hyperlipidemia", "ASCVD primary prevention", "Hypertriglyceridemia", "Familial hypercholesterolemia", "Atherosclerosis progression"],
     comorbidities: ["Coronary artery disease", "Type 2 diabetes", "Hypertension", "Chronic kidney disease", "Metabolic syndrome"],
-    polypharmacy: ["ACE Inhibitors (lisinopril, enalapril)", "Beta blockers (metoprolol, carvedilol)", "Aspirin", "Anticoagulants (warfarin, apixaban)", "Oral hypoglycemics (metformin, glipizide)"],
+    polypharmacy: ["ace_inhibitor", "beta_blocker", "antiplatelet", "anticoagulant", "biguanide", "sulfonylurea"],
     overdoseToxicity: null,
     precautions: [
       'Rosuvastatin carries a higher signal for <span class="hl hl--ci">rhabdomyolysis</span> than most other statins — complaints of muscle pain or weakness in these patients warrant serious consideration.',
@@ -308,7 +308,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Angina pectoris", "Acute coronary syndrome", "Hypertensive heart failure", "Pulmonary edema"],
     comorbidities: ["Coronary artery disease", "Heart failure (HFrEF)", "Hypertension", "Prior myocardial infarction", "Peripheral vascular disease"],
-    polypharmacy: ["Beta blockers (metoprolol, atenolol)", "Aspirin", "Statins (atorvastatin, rosuvastatin)", "ACE Inhibitors (lisinopril, enalapril)", "Clopidogrel"],
+    polypharmacy: ["beta_blocker", "antiplatelet", "statin", "ace_inhibitor"],
     overdoseToxicity: ["Profound hypotension with syncope", "Reflex tachycardia progressing to bradycardia", "Persistent throbbing headache with confusion", "Methemoglobinemia (cyanosis despite normal PaO2)", "Seizures and cardiovascular collapse"],
     precautions: [
       'Concurrent <span class="hl hl--drug">PDE-5 inhibitor</span> use (sildenafil, tadalafil) causes <span class="hl hl--ci">severe refractory hypotension</span> — always ask about erectile dysfunction medications.',
@@ -328,7 +328,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Heart failure (HFrEF)", "Atrial fibrillation (rate control)"],
     comorbidities: ["Coronary artery disease", "Atrial fibrillation", "Chronic kidney disease", "Valvular heart disease", "Type 2 diabetes"],
-    polypharmacy: ["Beta blockers (metoprolol, carvedilol)", "ACE Inhibitors (lisinopril, enalapril)", "Loop diuretics (furosemide)", "Warfarin", "Potassium supplements (potassium chloride)"],
+    polypharmacy: ["beta_blocker", "ace_inhibitor", "loop_diuretic", "anticoagulant", "electrolyte"],
     overdoseToxicity: [
       "Bradycardia and high-degree AV block, including complete heart block",
       "Ventricular dysrhythmias, including bidirectional VT (pathognomonic)",
@@ -354,7 +354,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Ventricular fibrillation (refractory)", "Ventricular tachycardia (recurrent)", "Atrial fibrillation (off-label)"],
     comorbidities: ["Coronary artery disease", "Heart failure (HFrEF)", "Prior cardiac arrest", "Atrial fibrillation", "Cardiomyopathy"],
-    polypharmacy: ["Warfarin", "Digoxin", "Beta blockers (metoprolol, carvedilol)", "ACE Inhibitors (lisinopril, enalapril)", "Loop diuretics (furosemide)"],
+    polypharmacy: ["anticoagulant", "cardiac_glycoside", "beta_blocker", "ace_inhibitor", "loop_diuretic"],
     overdoseToxicity: ["Hypotension, often refractory", "Severe bradycardia and high-degree AV block", "Torsades de pointes", "Delayed toxicity onset (up to 2–3 days post-ingestion)"],
     precautions: [
       'Inhibits CYP450 metabolism — doubles <span class="hl hl--drug">digoxin</span> levels and potentiates <span class="hl hl--drug">warfarin</span> (elevated INR and bleeding risk).',
@@ -374,7 +374,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Secondary prevention of MI/stroke", "Acute coronary syndrome", "Chronic stable angina", "Peripheral arterial disease", "Mild to moderate pain"],
     comorbidities: ["Coronary artery disease", "Prior MI or stroke", "Atrial fibrillation", "Peripheral arterial disease", "Type 2 diabetes"],
-    polypharmacy: ["Statins (atorvastatin, rosuvastatin)", "Beta blockers (metoprolol, carvedilol)", "ACE Inhibitors (lisinopril, enalapril)", "Clopidogrel", "Anticoagulants (warfarin, apixaban)"],
+    polypharmacy: ["statin", "beta_blocker", "ace_inhibitor", "antiplatelet", "anticoagulant"],
     overdoseToxicity: ["Tinnitus and hyperventilation (early)", "Mixed respiratory alkalosis and metabolic acidosis", "Altered mental status progressing to seizures and coma", "Hyperthermia", "Noncardiogenic pulmonary edema"],
     precautions: [
       'Irreversibly inhibits platelets — <span class="hl hl--ci">bleeding risk persists 7–10 days</span> after last dose.',
@@ -394,7 +394,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Acute coronary syndrome (UA/NSTEMI)", "Secondary prevention post-MI", "Secondary prevention post-stroke", "Peripheral arterial disease", "Post-PCI stent thrombosis prevention"],
     comorbidities: ["Coronary artery disease", "Prior MI or stroke", "Peripheral arterial disease", "Atrial fibrillation", "Type 2 diabetes"],
-    polypharmacy: ["Aspirin", "Statins (atorvastatin, rosuvastatin)", "Beta blockers (metoprolol, carvedilol)", "ACE Inhibitors (lisinopril, enalapril)", "Proton pump inhibitors (omeprazole, pantoprazole)"],
+    polypharmacy: ["antiplatelet", "statin", "beta_blocker", "ace_inhibitor", "proton_pump_inhibitor"],
     overdoseToxicity: null,
     precautions: [
       'Irreversibly inhibits platelets for 7–10 days — <span class="hl hl--ci">no reversal agent exists</span>; platelet transfusion has limited effectiveness.',
@@ -414,7 +414,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Atrial fibrillation", "Venous thromboembolism", "Mechanical heart valve", "Post-MI thromboprophylaxis", "Pulmonary embolism"],
     comorbidities: ["Atrial fibrillation", "Deep vein thrombosis", "Heart failure", "Coronary artery disease", "Cerebrovascular disease"],
-    polypharmacy: ["Beta blockers (metoprolol, carvedilol)", "ACE Inhibitors (lisinopril, enalapril)", "Statins (atorvastatin, rosuvastatin)", "Digoxin", "Aspirin"],
+    polypharmacy: ["beta_blocker", "ace_inhibitor", "statin", "cardiac_glycoside", "antiplatelet"],
     overdoseToxicity: ["Hemorrhage from any tissue or organ", "Intracranial hemorrhage", "GI bleeding (hematemesis, melena)", "Prolonged or spontaneous epistaxis", "Hematuria"],
     precautions: [
       'Any trauma in a warfarin patient risks <span class="hl hl--ci">uncontrolled hemorrhage</span> — minor mechanisms can produce major bleeding.',
@@ -434,7 +434,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Nonvalvular atrial fibrillation (stroke prevention)", "Deep vein thrombosis", "Pulmonary embolism", "DVT/PE prophylaxis (post-surgical)"],
     comorbidities: ["Atrial fibrillation", "Heart failure", "Venous thromboembolism", "Chronic kidney disease", "Prior stroke or TIA"],
-    polypharmacy: ["Beta blockers (metoprolol, carvedilol)", "ACE Inhibitors (lisinopril, enalapril)", "Statins (atorvastatin, rosuvastatin)", "Digoxin", "Amiodarone"],
+    polypharmacy: ["beta_blocker", "ace_inhibitor", "statin", "cardiac_glycoside", "antiarrhythmic"],
     overdoseToxicity: ["Hemorrhage from any site", "GI bleeding (hematemesis, melena, hematochezia)", "Intracranial hemorrhage", "Hemorrhagic shock in severe cases"],
     precautions: [
       'No reliable prehospital reversal — <span class="hl hl--ci">bleeding may be prolonged and refractory</span> to standard measures.',
@@ -454,7 +454,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Nonvalvular atrial fibrillation", "Deep vein thrombosis", "Pulmonary embolism", "Coronary artery disease", "Peripheral artery disease"],
     comorbidities: ["Atrial fibrillation", "Heart failure", "Venous thromboembolism", "Coronary artery disease", "Peripheral artery disease"],
-    polypharmacy: ["Aspirin", "Beta blockers (metoprolol, carvedilol)", "Statins (atorvastatin, rosuvastatin)", "ACE Inhibitors (lisinopril, enalapril)", "Loop diuretics (furosemide)"],
+    polypharmacy: ["antiplatelet", "beta_blocker", "statin", "ace_inhibitor", "loop_diuretic"],
     overdoseToxicity: [
       "Hemorrhage — GI bleeding is more common than with warfarin",
       "Intracranial hemorrhage",
@@ -479,7 +479,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Hypokalemia", "Diuretic-induced potassium loss", "Digitalis toxicity (adjunct)"],
     comorbidities: ["Heart failure", "Hypertension", "Chronic kidney disease", "Atrial fibrillation", "Type 2 diabetes"],
-    polypharmacy: ["Loop diuretics (furosemide, bumetanide)", "Thiazide diuretics (hydrochlorothiazide)", "ACE Inhibitors (lisinopril, enalapril)", "Digoxin", "Magnesium supplements"],
+    polypharmacy: ["loop_diuretic", "thiazide_diuretic", "ace_inhibitor", "cardiac_glycoside", "electrolyte"],
     overdoseToxicity: [
       "Peaked T waves progressing to loss of P waves and QRS widening",
       "Severe bradycardia and high-degree AV block",
@@ -505,7 +505,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Type 2 diabetes mellitus"],
     comorbidities: ["Obesity", "Hypertension", "Coronary artery disease", "Chronic kidney disease", "Dyslipidemia"],
-    polypharmacy: ["Sulfonylureas (glipizide, glimepiride)", "Insulin (glargine, lispro)", "Statins (atorvastatin, rosuvastatin)", "ACE Inhibitors (lisinopril, enalapril)", "Aspirin"],
+    polypharmacy: ["sulfonylurea", "insulin", "statin", "ace_inhibitor", "antiplatelet"],
     overdoseToxicity: ["Severe lactic acidosis (pH < 7.35, lactate > 5 mmol/L)", "Tachypnea and hyperpnea from metabolic compensation", "Hypotension progressing to refractory shock", "Altered mental status progressing to coma", "Hypothermia in severe acidemia"],
     precautions: [
       'Metformin alone rarely causes <span class="hl hl--warn">hypoglycemia</span> — if hypoglycemic, suspect a co-ingested sulfonylurea or insulin.',
@@ -525,7 +525,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Type 1 diabetes mellitus", "Type 2 diabetes mellitus"],
     comorbidities: ["Coronary artery disease", "Chronic kidney disease", "Peripheral neuropathy", "Hypertension", "Obesity"],
-    polypharmacy: ["Metformin", "Sulfonylureas (glipizide, glimepiride)", "ACE Inhibitors (lisinopril, enalapril)", "Statins (atorvastatin, rosuvastatin)", "Aspirin"],
+    polypharmacy: ["biguanide", "sulfonylurea", "ace_inhibitor", "statin", "antiplatelet"],
     overdoseToxicity: ["Severe prolonged hypoglycemia lasting 24–96+ hours", "Seizures", "Coma and neurologic impairment", "Hypokalemia", "Recurrent hypoglycemic episodes despite dextrose administration"],
     precautions: [
       'Long-acting depot effect causes <span class="hl hl--ci">prolonged hypoglycemia</span> — glucose may drop again hours after initial correction.',
@@ -545,7 +545,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Type 2 diabetes mellitus"],
     comorbidities: ["Obesity", "Hypertension", "Dyslipidemia", "Coronary artery disease", "Chronic kidney disease"],
-    polypharmacy: ["Metformin", "Statins (atorvastatin, rosuvastatin)", "ACE Inhibitors (lisinopril, enalapril)", "Insulin (glargine, lispro)", "Aspirin"],
+    polypharmacy: ["biguanide", "statin", "ace_inhibitor", "insulin", "antiplatelet"],
     overdoseToxicity: [
       "Profound, prolonged hypoglycemia — may recur for 24–48 hours",
       "Seizures",
@@ -570,7 +570,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Type 2 diabetes mellitus"],
     comorbidities: ["Hypertension", "Coronary artery disease", "Chronic kidney disease", "Obesity", "Peripheral neuropathy"],
-    polypharmacy: ["Metformin", "Insulin (glargine, lispro)", "ACE Inhibitors (lisinopril, enalapril)", "Statins (atorvastatin, rosuvastatin)", "Aspirin"],
+    polypharmacy: ["biguanide", "insulin", "ace_inhibitor", "statin", "antiplatelet"],
     overdoseToxicity: [
       "Profound, prolonged hypoglycemia lasting hours to days",
       "Seizures and coma from neuroglycopenia",
@@ -596,7 +596,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Type 2 diabetes", "Obesity (chronic weight management)", "Cardiovascular risk reduction (T2DM)"],
     comorbidities: ["Obesity", "Coronary artery disease", "Hypertension", "Dyslipidemia", "Obstructive sleep apnea"],
-    polypharmacy: ["Metformin", "Statins (atorvastatin, rosuvastatin)", "ACE Inhibitors (lisinopril, enalapril)", "Insulin (glargine, lispro)", "Sulfonylureas (glipizide, glimepiride)"],
+    polypharmacy: ["biguanide", "statin", "ace_inhibitor", "insulin", "sulfonylurea"],
     overdoseToxicity: ["Severe, persistent nausea and vomiting", "Dehydration with orthostatic hypotension", "Hypoglycemia (primarily when co-prescribed insulin or sulfonylureas)", "Acute pancreatitis", "Acute kidney injury secondary to volume depletion"],
     precautions: [
       'Delays <span class="hl hl--warn">gastric emptying</span> — increases aspiration risk during airway management or sedation.',
@@ -616,7 +616,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Type 2 diabetes", "Heart failure", "Chronic kidney disease", "CV death risk reduction"],
     comorbidities: ["Coronary artery disease", "Heart failure", "Chronic kidney disease", "Hypertension", "Obesity"],
-    polypharmacy: ["Metformin", "ACE Inhibitors (lisinopril, ramipril)", "Loop diuretics (furosemide)", "Statins (atorvastatin, rosuvastatin)", "Insulin (glargine, lispro)"],
+    polypharmacy: ["biguanide", "ace_inhibitor", "loop_diuretic", "statin", "insulin"],
     overdoseToxicity: [
       "Euglycemic diabetic ketoacidosis (normal glucose with high anion gap acidosis)",
       "Severe dehydration and hypovolemia",
@@ -641,7 +641,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Type 2 diabetes", "Heart failure", "Chronic kidney disease", "CV death risk reduction"],
     comorbidities: ["Coronary artery disease", "Heart failure", "Chronic kidney disease", "Hypertension", "Obesity"],
-    polypharmacy: ["Metformin", "ACE Inhibitors (lisinopril, enalapril)", "Loop diuretics (furosemide)", "Statins (atorvastatin, rosuvastatin)", "Insulin (glargine, lispro)"],
+    polypharmacy: ["biguanide", "ace_inhibitor", "loop_diuretic", "statin", "insulin"],
     overdoseToxicity: [
       "Euglycemic diabetic ketoacidosis (normal glucose with high anion gap acidosis)",
       "Severe dehydration from osmotic diuresis",
@@ -666,7 +666,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Asthma", "COPD", "Exercise-induced bronchospasm", "Acute bronchospasm"],
     comorbidities: ["Allergic rhinitis", "GERD", "Obesity", "Atopic dermatitis", "Obstructive sleep apnea"],
-    polypharmacy: ["Inhaled corticosteroids (fluticasone, budesonide)", "Ipratropium", "Montelukast", "Prednisone", "Fluticasone-salmeterol"],
+    polypharmacy: ["corticosteroid", "anticholinergic", "leukotriene_modifier", "beta2_agonist"],
     overdoseToxicity: ["Tachycardia and cardiac arrhythmias", "Hypokalemia (transcellular shift)", "Hyperglycemia", "Tremors and agitation", "Lactic acidosis"],
     precautions: [
       'Excessive use causes <span class="hl hl--ci">hypokalemia</span> — may potentiate arrhythmias, especially in patients on digoxin.',
@@ -686,7 +686,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["COPD maintenance", "Asthma exacerbation (adjunct)", "Chronic bronchitis", "Emphysema"],
     comorbidities: ["COPD", "Asthma", "Heart failure", "Coronary artery disease", "Type 2 diabetes"],
-    polypharmacy: ["Beta-2 agonists (albuterol, levalbuterol)", "Inhaled corticosteroids (fluticasone, budesonide)", "Systemic corticosteroids (prednisone)", "Statins (atorvastatin)", "ACE Inhibitors (lisinopril, enalapril)"],
+    polypharmacy: ["beta2_agonist", "corticosteroid", "statin", "ace_inhibitor"],
     overdoseToxicity: null,
     precautions: [
       'Anticholinergic effects include <span class="hl hl--ci">tachycardia</span>, urinary retention, and mydriasis — assess for these in patients using high or frequent doses.',
@@ -706,7 +706,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Asthma (maintenance)", "COPD", "Allergic rhinitis", "Nonallergic rhinitis", "Chronic rhinosinusitis"],
     comorbidities: ["COPD", "Allergic rhinitis", "Nasal polyps", "Atopic dermatitis", "Obesity"],
-    polypharmacy: ["Beta-2 agonists (albuterol, salmeterol)", "Montelukast", "Ipratropium", "Prednisone", "Antihistamines (cetirizine, loratadine)"],
+    polypharmacy: ["beta2_agonist", "leukotriene_modifier", "anticholinergic", "corticosteroid", "antihistamine"],
     overdoseToxicity: null,
     precautions: [
       'Long-term high-dose use (>500 mcg/day) can cause <span class="hl hl--ci">HPA axis suppression</span> — consider adrenal insufficiency in patients presenting with unexplained hypotension or shock.',
@@ -726,7 +726,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Asthma (maintenance)", "COPD (maintenance)", "Prevention of exacerbations"],
     comorbidities: ["Allergic rhinitis", "GERD", "Obesity", "Obstructive sleep apnea", "Heart failure"],
-    polypharmacy: ["Short-acting beta agonists (albuterol)", "Montelukast", "Proton pump inhibitors (omeprazole, pantoprazole)", "Tiotropium", "Prednisone"],
+    polypharmacy: ["beta2_agonist", "leukotriene_modifier", "proton_pump_inhibitor", "lama", "corticosteroid"],
     overdoseToxicity: ["Tachycardia with QTc prolongation", "Hypokalemia", "Hyperglycemia", "Tremor and agitation", "Lactic acidosis (massive ingestion)"],
     precautions: [
       'Not a rescue inhaler — provides <span class="hl hl--warn">no acute bronchodilation</span> during an asthma or COPD exacerbation.',
@@ -746,7 +746,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Asthma (prophylaxis)", "Exercise-induced bronchoconstriction", "Seasonal allergic rhinitis", "Perennial allergic rhinitis"],
     comorbidities: ["Allergic rhinitis", "Eczema / atopic dermatitis", "Nasal polyps", "GERD", "Aspirin-exacerbated respiratory disease"],
-    polypharmacy: ["Inhaled corticosteroids (fluticasone, budesonide)", "Short-acting beta agonists (albuterol)", "Antihistamines (cetirizine, loratadine)", "Intranasal corticosteroids (fluticasone nasal)", "Long-acting beta agonists (salmeterol, formoterol)"],
+    polypharmacy: ["corticosteroid", "beta2_agonist", "antihistamine"],
     overdoseToxicity: null,
     precautions: [
       'FDA boxed warning for <span class="hl hl--ci">neuropsychiatric events</span> — agitation, hallucinations, depression, and suicidal ideation reported at therapeutic doses.',
@@ -766,7 +766,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Asthma / COPD exacerbation", "Rheumatoid arthritis", "Inflammatory bowel disease", "Systemic lupus erythematosus", "Allergic reactions"],
     comorbidities: ["COPD / asthma", "Autoimmune disease", "Type 2 diabetes", "Osteoporosis", "Hypertension"],
-    polypharmacy: ["Inhaled corticosteroids (fluticasone, budesonide)", "Bronchodilators (albuterol, ipratropium)", "Methotrexate", "PPIs (omeprazole, pantoprazole)", "Calcium and vitamin D supplements"],
+    polypharmacy: ["corticosteroid", "bronchodilator", "antimetabolite", "proton_pump_inhibitor", "electrolyte", "vitamin"],
     overdoseToxicity: null,
     precautions: [
       'Chronic use causes <span class="hl hl--ci">HPA axis suppression</span> — abrupt discontinuation or physiologic stress can trigger adrenal crisis.',
@@ -786,7 +786,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Hypothyroidism", "TSH suppression (thyroid cancer)", "Hashimoto's thyroiditis", "Myxedema"],
     comorbidities: ["Hyperlipidemia", "Hypertension", "Type 2 diabetes", "Depression", "Osteoporosis"],
-    polypharmacy: ["PPIs (omeprazole, pantoprazole)", "Statins (atorvastatin, rosuvastatin)", "Calcium and vitamin D supplements", "SSRIs (sertraline, escitalopram)", "Antihypertensives (lisinopril, amlodipine)"],
+    polypharmacy: ["proton_pump_inhibitor", "statin", "electrolyte", "vitamin", "ssri", "antihypertensive"],
     overdoseToxicity: ["Tachycardia and atrial arrhythmias", "Hypertension with widened pulse pressure", "Tremor, agitation, and anxiety", "Hyperthermia", "Seizures (rare, large ingestions)"],
     precautions: [
       'Symptoms of overdose may be <span class="hl hl--warn">delayed 1–3 days</span> after ingestion — do not clear patients based on initial presentation.',
@@ -806,7 +806,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["GERD", "Peptic ulcer disease", "Erosive esophagitis", "H. pylori eradication (adjunct)", "Zollinger-Ellison syndrome"],
     comorbidities: ["Chronic GERD", "Peptic ulcer disease", "Barrett esophagus", "Obesity", "NSAID-dependent pain conditions"],
-    polypharmacy: ["NSAIDs (ibuprofen, naproxen)", "Aspirin", "Anticoagulants (warfarin, apixaban)", "Clopidogrel", "SSRIs (sertraline, citalopram)"],
+    polypharmacy: ["nsaid", "antiplatelet", "anticoagulant", "ssri"],
     overdoseToxicity: null,
     precautions: [
       'Inhibits CYP2C19 metabolism of <span class="hl hl--drug">clopidogrel</span>, reducing its <span class="hl hl--ci">antiplatelet effect</span>.',
@@ -826,7 +826,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["GERD", "Erosive esophagitis", "Zollinger-Ellison syndrome", "Stress ulcer prophylaxis", "H. pylori eradication (off-label)"],
     comorbidities: ["Gastroesophageal reflux disease", "Peptic ulcer disease", "Chronic NSAID use", "Barrett's esophagus", "Coronary artery disease"],
-    polypharmacy: ["NSAIDs (ibuprofen, naproxen)", "Anticoagulants (warfarin, apixaban)", "Antiplatelets (clopidogrel, aspirin)", "Corticosteroids (prednisone)", "Digoxin"],
+    polypharmacy: ["nsaid", "anticoagulant", "antiplatelet", "corticosteroid", "cardiac_glycoside"],
     overdoseToxicity: null,
     precautions: [
       'Reduces <span class="hl hl--drug">clopidogrel</span> activation — <span class="hl hl--ci">diminished antiplatelet effect</span> increases thrombotic risk in cardiac patients.',
@@ -846,7 +846,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Postherpetic neuralgia", "Partial onset seizures", "Neuropathic pain", "Restless legs syndrome", "Fibromyalgia"],
     comorbidities: ["Chronic pain", "Epilepsy", "Anxiety disorders", "Chronic kidney disease", "Substance use disorder"],
-    polypharmacy: ["Opioid analgesics (hydrocodone, oxycodone)", "SSRIs (sertraline, escitalopram)", "NSAIDs (ibuprofen, naproxen)", "Benzodiazepines (alprazolam, clonazepam)", "Pregabalin"],
+    polypharmacy: ["opioid_analgesic", "ssri", "nsaid", "benzodiazepine", "anticonvulsant"],
     overdoseToxicity: ["CNS depression progressing to coma", "Respiratory depression", "Ataxia and nystagmus", "Diarrhea and drowsiness", "Rhabdomyolysis (rare)"],
     precautions: [
       'Co-administration with <span class="hl hl--drug">opioids</span> significantly increases risk of <span class="hl hl--ci">fatal respiratory depression</span>.',
@@ -866,7 +866,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Tonic-clonic seizures", "Complex partial seizures", "Post-neurosurgery seizure prophylaxis"],
     comorbidities: ["Epilepsy", "Traumatic brain injury", "Brain tumor", "Cerebrovascular disease"],
-    polypharmacy: ["Levetiracetam", "Benzodiazepines (clonazepam, lorazepam)", "Valproic acid", "Anticoagulants (warfarin, apixaban)", "Proton pump inhibitors (omeprazole, pantoprazole)"],
+    polypharmacy: ["anticonvulsant", "benzodiazepine", "mood_stabilizer", "anticoagulant", "proton_pump_inhibitor"],
     overdoseToxicity: ["Nystagmus progressing to ataxia and slurred speech", "Lethargy and confusion", "Coma and paradoxical seizures at very high levels", "Hyperglycemia"],
     precautions: [
       'Narrow therapeutic index — minor dose changes or drug interactions can push levels into <span class="hl hl--ci">toxicity</span>.',
@@ -886,7 +886,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Partial-onset seizures", "Myoclonic seizures (JME)", "Primary generalized tonic-clonic seizures"],
     comorbidities: ["Epilepsy", "Traumatic brain injury", "Intellectual disability", "Mood disorders"],
-    polypharmacy: ["Other anticonvulsants (phenytoin, valproic acid)", "Benzodiazepines (clonazepam, lorazepam)", "SSRIs (sertraline, escitalopram)", "Lamotrigine"],
+    polypharmacy: ["anticonvulsant", "benzodiazepine", "ssri"],
     overdoseToxicity: ["Profound somnolence progressing to coma", "Respiratory depression", "Agitation and aggression", "Decreased level of consciousness"],
     precautions: [
       'Behavioral changes including <span class="hl hl--ci">aggression</span>, agitation, and psychosis can develop at therapeutic levels.',
@@ -906,7 +906,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Complex partial seizures", "Absence seizures", "Bipolar mania", "Migraine prophylaxis"],
     comorbidities: ["Epilepsy", "Bipolar disorder", "Chronic migraines", "Traumatic brain injury"],
-    polypharmacy: ["Anticonvulsants (levetiracetam, lamotrigine)", "Antipsychotics (quetiapine, risperidone)", "SSRIs (sertraline, fluoxetine)", "Benzodiazepines (clonazepam, lorazepam)"],
+    polypharmacy: ["anticonvulsant", "atypical_antipsychotic", "ssri", "benzodiazepine"],
     overdoseToxicity: [
       "CNS depression ranging from drowsiness to coma",
       "Hyperammonemic encephalopathy with seizures",
@@ -932,7 +932,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Partial-onset seizures", "Primary generalized tonic-clonic seizures", "Lennox-Gastaut syndrome", "Migraine prevention"],
     comorbidities: ["Epilepsy", "Chronic migraine", "Obesity", "Bipolar disorder", "Kidney stones"],
-    polypharmacy: ["Anticonvulsants (valproic acid, levetiracetam)", "SSRIs (sertraline, escitalopram)", "Oral contraceptives", "Metformin", "Benzodiazepines (clonazepam, lorazepam)"],
+    polypharmacy: ["anticonvulsant", "ssri", "hormone", "biguanide", "benzodiazepine"],
     overdoseToxicity: ["Somnolence progressing to coma", "Non-anion gap metabolic acidosis (hyperchloremic)", "Seizures, particularly in non-tolerant patients", "Hypotension", "Mydriasis and agitation"],
     precautions: [
       'Carbonic anhydrase inhibition causes chronic <span class="hl hl--ci">metabolic acidosis</span> — low bicarb may be the patient\'s baseline, not an acute finding.',
@@ -952,7 +952,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Major depressive disorder", "PTSD", "Panic disorder", "OCD", "Social anxiety disorder"],
     comorbidities: ["Generalized anxiety disorder", "Insomnia", "Chronic pain", "Substance use disorder", "Bipolar disorder (undiagnosed)"],
-    polypharmacy: ["Benzodiazepines (alprazolam, clonazepam)", "Trazodone", "Atypical antipsychotics (quetiapine, aripiprazole)", "Gabapentin", "Bupropion"],
+    polypharmacy: ["benzodiazepine", "antidepressant", "atypical_antipsychotic", "anticonvulsant"],
     overdoseToxicity: ["Serotonin toxicity: clonus, hyperreflexia, agitation, diaphoresis", "Tachycardia and hypertension", "Seizures (rare, large ingestions)", "Altered mental status progressing to coma", "QTc prolongation (rare, typically with co-ingestants)"],
     precautions: [
       'Coadministration with <span class="hl hl--drug">fentanyl</span> or <span class="hl hl--drug">tramadol</span> increases risk of <span class="hl hl--ci">serotonin syndrome</span>.',
@@ -972,7 +972,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Major depressive disorder", "Generalized anxiety disorder"],
     comorbidities: ["Anxiety disorders", "Insomnia", "Panic disorder", "PTSD", "Chronic pain"],
-    polypharmacy: ["Benzodiazepines (alprazolam, clonazepam)", "Trazodone", "Buspirone", "Gabapentin", "Antipsychotics (quetiapine, aripiprazole)"],
+    polypharmacy: ["benzodiazepine", "antidepressant", "anxiolytic", "anticonvulsant", "atypical_antipsychotic"],
     overdoseToxicity: ["QT prolongation and torsades de pointes", "Seizures", "Serotonin syndrome (agitation, clonus, hyperthermia)", "Altered mental status progressing to coma", "Tachycardia with hypertension"],
     precautions: [
       'Co-administration with <span class="hl hl--drug">fentanyl</span> increases risk of <span class="hl hl--ci">serotonin syndrome</span>.',
@@ -992,7 +992,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Major depressive disorder"],
     comorbidities: ["Generalized anxiety disorder", "Panic disorder", "Insomnia", "Chronic pain", "Substance use disorder"],
-    polypharmacy: ["Benzodiazepines (alprazolam, clonazepam)", "Trazodone", "Gabapentin", "Antipsychotics (quetiapine, aripiprazole)", "PPIs (omeprazole, pantoprazole)"],
+    polypharmacy: ["benzodiazepine", "antidepressant", "anticonvulsant", "atypical_antipsychotic", "proton_pump_inhibitor"],
     overdoseToxicity: ["Dose-dependent QTc prolongation with risk of torsades de pointes", "Seizures, more common above 600 mg ingestion", "Serotonin syndrome (agitation, hyperthermia, rigidity, clonus)", "Sinus tachycardia or bradycardia", "Altered mental status progressing to coma"],
     precautions: [
       'Citalopram has the <span class="hl hl--warn">highest cardiotoxicity risk among SSRIs</span> — dose-dependent QTc prolongation can cause torsades de pointes.',
@@ -1012,7 +1012,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Major depressive disorder", "Obsessive-compulsive disorder", "Bulimia nervosa", "Panic disorder"],
     comorbidities: ["Anxiety disorders", "Insomnia", "Chronic pain", "Eating disorders", "Substance use disorder"],
-    polypharmacy: ["Benzodiazepines (alprazolam, clonazepam)", "Atypical antipsychotics (aripiprazole, quetiapine)", "Trazodone", "Gabapentin", "Bupropion"],
+    polypharmacy: ["benzodiazepine", "atypical_antipsychotic", "antidepressant", "anticonvulsant"],
     overdoseToxicity: ["Serotonin syndrome (agitation, clonus, hyperthermia, diaphoresis)", "Tachycardia", "Seizures (large ingestions)", "Drowsiness progressing to decreased LOC", "QTc prolongation (less common than citalopram)"],
     precautions: [
       'Coadministration of <span class="hl hl--drug">fentanyl</span> increases risk of <span class="hl hl--ci">serotonin syndrome</span>.',
@@ -1032,7 +1032,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Major depressive disorder", "Generalized anxiety disorder", "Social anxiety disorder", "Panic disorder"],
     comorbidities: ["Anxiety disorders", "Chronic pain syndromes", "Hypertension", "Migraines", "Fibromyalgia"],
-    polypharmacy: ["Benzodiazepines (alprazolam, clonazepam)", "Buspirone", "Trazodone", "Gabapentin", "Antihypertensives (lisinopril, amlodipine)"],
+    polypharmacy: ["benzodiazepine", "anxiolytic", "antidepressant", "anticonvulsant", "antihypertensive"],
     overdoseToxicity: ["Seizures, often abrupt onset and recurrent", "Sinus tachycardia progressing to ventricular dysrhythmias", "QRS widening and QTc prolongation", "Serotonin syndrome (hyperthermia, clonus, agitation)", "Hypotension and cardiovascular collapse in massive ingestions"],
     precautions: [
       'Significantly more toxic in overdose than SSRIs — <span class="hl hl--ci">seizures</span> occur in ~13% of ingestions and may be delayed up to 19 hours with XR formulations.',
@@ -1052,7 +1052,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Major depressive disorder", "Generalized anxiety disorder", "Fibromyalgia", "Diabetic peripheral neuropathy", "Chronic musculoskeletal pain"],
     comorbidities: ["Chronic pain syndromes", "Type 2 diabetes", "Anxiety disorders", "Osteoarthritis", "Depression"],
-    polypharmacy: ["Gabapentin", "NSAIDs (ibuprofen, naproxen, meloxicam)", "PPIs (omeprazole, pantoprazole)", "Benzodiazepines (alprazolam, clonazepam)", "Oral hypoglycemics (metformin, glipizide)"],
+    polypharmacy: ["anticonvulsant", "nsaid", "proton_pump_inhibitor", "benzodiazepine", "biguanide", "sulfonylurea"],
     overdoseToxicity: ["Tachycardia and hypertension (sympathomimetic toxicity)", "Serotonin syndrome (clonus, agitation, diaphoresis, hyperthermia)", "Seizures", "Somnolence progressing to altered mental status", "QTc prolongation (uncommon)"],
     precautions: [
       'Risk of <span class="hl hl--ci">serotonin syndrome</span> when combined with prehospital <span class="hl hl--drug">fentanyl</span> or other serotonergic agents.',
@@ -1072,7 +1072,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Major depressive disorder", "Seasonal affective disorder", "Smoking cessation"],
     comorbidities: ["Anxiety disorders", "ADHD", "Nicotine dependence", "Obesity", "Chronic pain"],
-    polypharmacy: ["SSRIs (sertraline, escitalopram)", "Benzodiazepines (alprazolam, clonazepam)", "Stimulants (amphetamine salts)", "Trazodone", "Gabapentin"],
+    polypharmacy: ["ssri", "benzodiazepine", "cns_stimulant", "antidepressant", "anticonvulsant"],
     overdoseToxicity: [
       "Seizures, including delayed-onset and status epilepticus",
       "Sinus tachycardia and hypertension",
@@ -1098,7 +1098,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Major depressive disorder", "Insomnia (off-label)", "Anxiety (off-label)"],
     comorbidities: ["Depression", "Insomnia", "Anxiety disorders", "Chronic pain", "PTSD"],
-    polypharmacy: ["SSRIs (sertraline, escitalopram)", "SNRIs (venlafaxine, duloxetine)", "Benzodiazepines (alprazolam, clonazepam)", "Gabapentin", "Quetiapine"],
+    polypharmacy: ["ssri", "snri", "benzodiazepine", "anticonvulsant", "atypical_antipsychotic"],
     overdoseToxicity: ["CNS depression progressing to coma", "QT prolongation with torsades de pointes", "Hypotension from alpha-1 blockade", "Seizures", "Priapism"],
     precautions: [
       'Concomitant <span class="hl hl--drug">fentanyl</span> administration risks <span class="hl hl--ci">serotonin syndrome</span> — agitation, clonus, hyperthermia, and autonomic instability.',
@@ -1118,7 +1118,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Generalized anxiety disorder", "Panic disorder"],
     comorbidities: ["Major depressive disorder", "PTSD", "Insomnia", "Substance use disorder", "Agoraphobia"],
-    polypharmacy: ["SSRIs (sertraline, escitalopram)", "SNRIs (venlafaxine, duloxetine)", "Trazodone", "Gabapentin", "Opioid analgesics (hydrocodone, oxycodone)"],
+    polypharmacy: ["ssri", "snri", "antidepressant", "anticonvulsant", "opioid_analgesic"],
     overdoseToxicity: ["CNS depression with somnolence and confusion", "Impaired coordination and diminished reflexes", "Respiratory depression, especially with coingestants", "Hypotension", "Coma"],
     precautions: [
       'Concomitant use with <span class="hl hl--drug">fentanyl</span>, <span class="hl hl--drug">morphine</span>, or other opioids risks <span class="hl hl--ci">fatal respiratory depression</span>.',
@@ -1138,7 +1138,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Panic disorder", "Seizure disorders (Lennox-Gastaut)", "Myoclonic seizures", "Absence seizures"],
     comorbidities: ["Generalized anxiety disorder", "Epilepsy", "Depression", "Insomnia", "Agoraphobia"],
-    polypharmacy: ["SSRIs (sertraline, escitalopram)", "Anticonvulsants (levetiracetam, valproic acid)", "Antipsychotics (quetiapine)", "Opioid analgesics (hydrocodone, oxycodone)", "Trazodone"],
+    polypharmacy: ["ssri", "anticonvulsant", "atypical_antipsychotic", "opioid_analgesic", "antidepressant"],
     overdoseToxicity: ["Somnolence progressing to coma", "Respiratory depression, especially with co-ingestants", "Hypotension and bradycardia", "Diminished reflexes and ataxia", "Pulmonary aspiration"],
     precautions: [
       'Concurrent <span class="hl hl--drug">opioid</span> use causes synergistic <span class="hl hl--ci">respiratory depression</span> — the leading cause of benzodiazepine-related death.',
@@ -1158,7 +1158,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Insomnia (sleep onset)"],
     comorbidities: ["Anxiety disorders", "Depression", "Chronic pain", "COPD", "Obstructive sleep apnea"],
-    polypharmacy: ["SSRIs (sertraline, escitalopram)", "Benzodiazepines (alprazolam, clonazepam)", "Opioid Analgesics (hydrocodone, oxycodone)", "Trazodone", "Gabapentin"],
+    polypharmacy: ["ssri", "benzodiazepine", "opioid_analgesic", "antidepressant", "anticonvulsant"],
     overdoseToxicity: ["Excessive sedation progressing to coma", "Respiratory depression, especially with co-ingestants", "Hypotension", "Ataxia and falls", "Hallucinations and agitation"],
     precautions: [
       'Responds to <span class="hl hl--drug">flumazenil</span> — acts on the benzodiazepine binding site despite not being a benzodiazepine.',
@@ -1178,7 +1178,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Schizophrenia", "Bipolar mania", "Bipolar depression", "Major depressive disorder (adjunct)"],
     comorbidities: ["Bipolar disorder", "Schizophrenia", "Major depressive disorder", "Insomnia", "Type 2 diabetes"],
-    polypharmacy: ["SSRIs (sertraline, escitalopram)", "Mood stabilizers (lithium, valproic acid)", "Benzodiazepines (lorazepam, clonazepam)", "Metformin", "Antihypertensives (lisinopril, amlodipine)"],
+    polypharmacy: ["ssri", "mood_stabilizer", "benzodiazepine", "biguanide", "antihypertensive"],
     overdoseToxicity: ["Dose-dependent CNS depression progressing to coma", "Sinus tachycardia", "Hypotension from alpha-1 blockade", "QTc prolongation", "Seizures"],
     precautions: [
       '<span class="hl hl--drug">Epinephrine</span> is contraindicated in quetiapine overdose — alpha blockade causes <span class="hl hl--ci">paradoxical hypotension</span> via unopposed beta-2 vasodilation.',
@@ -1198,7 +1198,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Schizophrenia", "Bipolar I disorder (acute mania)", "Major depressive disorder (adjunct)", "Irritability in autism", "Tourette's disorder"],
     comorbidities: ["Bipolar disorder", "Schizophrenia", "Major depressive disorder", "Anxiety disorders", "Type 2 diabetes"],
-    polypharmacy: ["SSRIs (sertraline, escitalopram)", "Mood stabilizers (lithium, valproic acid)", "Benzodiazepines (lorazepam, clonazepam)", "Metformin", "Antihypertensives (lisinopril, amlodipine)"],
+    polypharmacy: ["ssri", "mood_stabilizer", "benzodiazepine", "biguanide", "antihypertensive"],
     overdoseToxicity: ["Sedation and somnolence (predominant finding)", "Tachycardia", "Orthostatic hypotension", "QTc prolongation (rare)", "Tremor and ataxia"],
     precautions: [
       'Additive <span class="hl hl--warn">CNS depression</span> with prehospital <span class="hl hl--drug">midazolam</span>, <span class="hl hl--drug">fentanyl</span>, and <span class="hl hl--drug">ketamine</span>.',
@@ -1218,7 +1218,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Schizophrenia", "Bipolar I (acute mania)", "Irritability (autism-related)"],
     comorbidities: ["Metabolic syndrome", "Type 2 diabetes", "Hypertension", "Substance use disorder", "Depression"],
-    polypharmacy: ["Mood stabilizers (lithium, valproate)", "SSRIs (sertraline, fluoxetine)", "Benzodiazepines (lorazepam, clonazepam)", "Metformin", "Benztropine"],
+    polypharmacy: ["mood_stabilizer", "ssri", "benzodiazepine", "biguanide", "anticholinergic"],
     overdoseToxicity: ["Tachycardia", "Orthostatic hypotension", "Extrapyramidal symptoms (dystonia)", "QTc prolongation", "Sedation progressing to CNS depression"],
     precautions: [
       '<span class="hl hl--ci">Neuroleptic malignant syndrome</span> — fever, lead-pipe rigidity, autonomic instability, and altered mental status.',
@@ -1238,7 +1238,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Schizophrenia", "Acute psychosis", "Tourette syndrome", "Severe behavioral disturbance"],
     comorbidities: ["Schizophrenia", "Bipolar disorder", "Substance use disorder", "Dementia"],
-    polypharmacy: ["Benztropine", "Benzodiazepines (lorazepam, clonazepam)", "Mood stabilizers (lithium, valproic acid)", "SSRIs (sertraline, fluoxetine)", "Atypical antipsychotics (quetiapine, risperidone)"],
+    polypharmacy: ["anticholinergic", "benzodiazepine", "mood_stabilizer", "ssri", "atypical_antipsychotic"],
     overdoseToxicity: ["Severe extrapyramidal symptoms (rigidity, dystonia, tremor)", "Hypotension progressing to circulatory collapse", "Deep sedation to coma with respiratory depression", "QT prolongation and torsades de pointes", "Neuroleptic malignant syndrome (hyperthermia, rigidity, autonomic instability)"],
     precautions: [
       '<span class="hl hl--ci">QT prolongation</span> and <span class="hl hl--ci">torsades de pointes</span> risk — additive with <span class="hl hl--drug">ondansetron</span>, <span class="hl hl--drug">amiodarone</span>, and other QT-prolonging agents.',
@@ -1258,7 +1258,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Bipolar I disorder (acute mania)", "Bipolar I disorder (maintenance)"],
     comorbidities: ["Depression", "Anxiety disorders", "Hypothyroidism (drug-induced)", "Chronic kidney disease", "Substance use disorder"],
-    polypharmacy: ["Atypical antipsychotics (quetiapine, aripiprazole)", "SSRIs (sertraline, fluoxetine)", "Benzodiazepines (lorazepam, clonazepam)", "Levothyroxine", "Valproic Acid"],
+    polypharmacy: ["atypical_antipsychotic", "ssri", "benzodiazepine", "thyroid_agent", "mood_stabilizer"],
     overdoseToxicity: ["Coarse tremor, hyperreflexia, and clonus", "Confusion progressing to delirium, seizures, and coma", "Bradycardia and hypotension", "Hyperthermia", "Nausea, vomiting, and diarrhea"],
     precautions: [
       'Extremely <span class="hl hl--warn">narrow therapeutic index</span> — toxicity occurs at levels just above the therapeutic range (0.8–1.2 mEq/L).',
@@ -1278,7 +1278,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Moderate to severe pain", "Postoperative pain", "Trauma pain", "Cancer pain"],
     comorbidities: ["Chronic pain syndrome", "Opioid use disorder", "Depression", "Osteoarthritis", "Low back pain"],
-    polypharmacy: ["Benzodiazepines (alprazolam, lorazepam)", "Gabapentin", "Muscle relaxants (cyclobenzaprine)", "SSRIs (sertraline, fluoxetine)", "NSAIDs (ibuprofen, naproxen)"],
+    polypharmacy: ["benzodiazepine", "anticonvulsant", "muscle_relaxant", "ssri", "nsaid"],
     overdoseToxicity: [
       "Respiratory depression progressing to apnea",
       "Pinpoint pupils (miosis) with altered mental status",
@@ -1304,7 +1304,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Moderate to severe pain", "Chronic pain (extended-release)"],
     comorbidities: ["Chronic back pain", "Osteoarthritis", "Cancer", "Opioid use disorder", "Depression"],
-    polypharmacy: ["Benzodiazepines (alprazolam, clonazepam)", "Gabapentin", "Muscle relaxants (cyclobenzaprine)", "Antidepressants (sertraline, duloxetine)", "Acetaminophen"],
+    polypharmacy: ["benzodiazepine", "anticonvulsant", "muscle_relaxant", "antidepressant", "antipyretic"],
     overdoseToxicity: [
       "Respiratory depression progressing to apnea",
       "Pinpoint pupils (miosis)",
@@ -1330,7 +1330,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Moderate to moderately severe pain"],
     comorbidities: ["Chronic musculoskeletal pain", "Osteoarthritis", "Neuropathic pain", "Depression or anxiety", "History of substance use"],
-    polypharmacy: ["SSRIs (sertraline, escitalopram, fluoxetine)", "SNRIs (venlafaxine, duloxetine)", "Gabapentin", "Acetaminophen", "NSAIDs (ibuprofen, naproxen)"],
+    polypharmacy: ["ssri", "snri", "anticonvulsant", "antipyretic", "nsaid"],
     overdoseToxicity: [
       "Seizures, often dose-related and distinct from typical opioid overdose",
       "Respiratory depression progressing to apnea",
@@ -1356,7 +1356,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Mild to moderate pain", "Fever", "Osteoarthritis", "Headache"],
     comorbidities: ["Chronic pain", "Osteoarthritis", "Alcohol use disorder", "Chronic liver disease"],
-    polypharmacy: ["Opioid analgesics (hydrocodone, oxycodone)", "NSAIDs (ibuprofen, naproxen)", "Muscle relaxants (cyclobenzaprine)", "Anticoagulants (warfarin)"],
+    polypharmacy: ["opioid_analgesic", "nsaid", "muscle_relaxant", "anticoagulant"],
     overdoseToxicity: [
       "Initially asymptomatic — nausea, vomiting, and diaphoresis may be the only early findings",
       "Hepatotoxicity with transaminases exceeding 10,000 IU/L at 72–96 hours",
@@ -1382,7 +1382,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Osteoarthritis", "Rheumatoid arthritis", "Mild to moderate pain", "Dysmenorrhea", "Fever"],
     comorbidities: ["Chronic low back pain", "Osteoarthritis", "Coronary artery disease", "Chronic kidney disease", "Peptic ulcer disease"],
-    polypharmacy: ["Antihypertensives (lisinopril, amlodipine)", "Aspirin", "Proton pump inhibitors (omeprazole, pantoprazole)", "Anticoagulants (warfarin, apixaban)", "Acetaminophen"],
+    polypharmacy: ["antihypertensive", "antiplatelet", "proton_pump_inhibitor", "anticoagulant", "antipyretic"],
     overdoseToxicity: ["GI hemorrhage", "Metabolic acidosis (high anion gap)", "CNS depression progressing to seizures and coma", "Acute kidney injury", "Thrombocytopenia"],
     precautions: [
       'Chronic use can attenuate the <span class="hl hl--warn">antiplatelet effect</span> of <span class="hl hl--drug">aspirin</span> — relevant when administering prehospital aspirin for ACS.',
@@ -1402,7 +1402,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Osteoarthritis", "Rheumatoid arthritis", "Acute gout", "Chronic pain", "Dysmenorrhea"],
     comorbidities: ["Osteoarthritis", "Rheumatoid arthritis", "Gout", "Chronic low back pain", "Coronary artery disease"],
-    polypharmacy: ["PPIs (omeprazole, pantoprazole)", "Acetaminophen", "Antihypertensives (lisinopril, amlodipine)", "Anticoagulants (warfarin, apixaban)", "SSRIs (sertraline, escitalopram)"],
+    polypharmacy: ["proton_pump_inhibitor", "antipyretic", "antihypertensive", "anticoagulant", "ssri"],
     overdoseToxicity: ["Drowsiness, lethargy, or coma", "Metabolic acidosis", "Seizures", "Acute renal failure", "GI hemorrhage"],
     precautions: [
       'Concurrent use with <span class="hl hl--drug">anticoagulants</span> nearly doubles the risk of <span class="hl hl--ci">GI hemorrhage</span>.',
@@ -1422,7 +1422,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Osteoarthritis", "Rheumatoid arthritis", "Juvenile rheumatoid arthritis"],
     comorbidities: ["Hypertension", "Chronic kidney disease", "Coronary artery disease", "Type 2 diabetes", "Obesity"],
-    polypharmacy: ["Antihypertensives (lisinopril, amlodipine, metoprolol)", "PPIs (omeprazole, pantoprazole)", "Statins (atorvastatin)", "Metformin", "Acetaminophen"],
+    polypharmacy: ["antihypertensive", "proton_pump_inhibitor", "statin", "biguanide", "antipyretic"],
     overdoseToxicity: ["Nausea, vomiting, and epigastric pain", "GI hemorrhage (hematemesis, melena)", "Acute renal failure", "Metabolic acidosis", "Drowsiness progressing to coma in massive ingestions"],
     precautions: [
       'Concurrent <span class="hl hl--drug">anticoagulants</span> (warfarin, apixaban, rivaroxaban) significantly increases <span class="hl hl--ci">bleeding risk</span> without reliable clinical warning signs.',
@@ -1442,7 +1442,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Acute musculoskeletal spasm"],
     comorbidities: ["Chronic low back pain", "Cervical strain", "Fibromyalgia", "Osteoarthritis"],
-    polypharmacy: ["NSAIDs (ibuprofen, naproxen)", "Opioid Analgesics (hydrocodone, oxycodone)", "Benzodiazepines (diazepam)", "Gabapentin", "SSRIs (sertraline, escitalopram)"],
+    polypharmacy: ["nsaid", "opioid_analgesic", "benzodiazepine", "anticonvulsant", "ssri"],
     overdoseToxicity: ["Anticholinergic toxidrome — tachycardia, mydriasis, dry skin, agitated delirium", "QRS widening and cardiac dysrhythmias", "Seizures", "CNS depression progressing to coma", "Hypotension"],
     precautions: [
       'Structurally related to TCAs — overdose produces <span class="hl hl--ci">QRS widening</span> and cardiac dysrhythmias mimicking tricyclic toxicity.',
@@ -1462,7 +1462,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["ADHD", "Narcolepsy"],
     comorbidities: ["Anxiety disorders", "Depression", "Substance use disorder", "Insomnia", "Hypertension"],
-    polypharmacy: ["SSRIs (sertraline, escitalopram)", "SNRIs (venlafaxine, duloxetine)", "Bupropion", "Benzodiazepines (alprazolam, clonazepam)", "Antihypertensives (lisinopril, amlodipine)"],
+    polypharmacy: ["ssri", "snri", "antidepressant", "benzodiazepine", "antihypertensive"],
     overdoseToxicity: ["Sympathomimetic toxidrome — tachycardia, hypertension, hyperthermia, mydriasis, diaphoresis", "Severe agitation, psychosis, and hallucinations", "Seizures", "Rhabdomyolysis", "Cardiac dysrhythmias, including acute coronary syndrome and aortic dissection"],
     precautions: [
       'Produces a <span class="hl hl--ci">sympathomimetic surge</span> — expect elevated HR and BP at baseline; hypertension and tachycardia may be drug-related rather than pathological.',
@@ -1482,7 +1482,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["ADHD", "Narcolepsy"],
     comorbidities: ["Anxiety disorders", "Depression", "Insomnia", "Tic disorders", "Substance use disorder"],
-    polypharmacy: ["SSRIs (sertraline, escitalopram)", "SNRIs (venlafaxine, duloxetine)", "Bupropion", "Alpha-2 agonists (clonidine, guanfacine)", "Benzodiazepines (alprazolam, clonazepam)"],
+    polypharmacy: ["ssri", "snri", "antidepressant", "alpha2_agonist", "benzodiazepine"],
     overdoseToxicity: ["Sympathomimetic toxidrome — tachycardia, hypertension, mydriasis, diaphoresis", "Agitation, hallucinations, and psychosis", "Seizures", "Hyperthermia", "Cardiac dysrhythmias"],
     precautions: [
       'Contraindicated within 14 days of <span class="hl hl--drug">MAOIs</span> — risk of <span class="hl hl--ci">hypertensive crisis</span>.',
@@ -1502,7 +1502,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Allergic rhinitis", "Urticaria", "Insomnia (short-term)", "Motion sickness", "Drug-induced parkinsonism"],
     comorbidities: ["Seasonal allergies", "Chronic insomnia", "Anxiety", "Eczema / dermatitis", "GERD"],
-    polypharmacy: ["SSRIs (sertraline, escitalopram)", "Benzodiazepines (alprazolam, lorazepam)", "Proton pump inhibitors (omeprazole)", "Cetirizine", "Melatonin"],
+    polypharmacy: ["ssri", "benzodiazepine", "proton_pump_inhibitor", "antihistamine", "hypnotic"],
     overdoseToxicity: [
       "Anticholinergic toxidrome — tachycardia, mydriasis, dry skin, hyperthermia, delirium",
       "Seizures, particularly at ingestions exceeding 1 gram",
@@ -1528,7 +1528,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Allergic rhinitis", "Chronic urticaria", "Allergic conjunctivitis"],
     comorbidities: ["Asthma", "Eczema / atopic dermatitis", "Chronic sinusitis", "Food allergies"],
-    polypharmacy: ["Inhaled corticosteroids (fluticasone, budesonide)", "Montelukast", "Albuterol", "Nasal corticosteroids (fluticasone, mometasone)", "Epinephrine auto-injector"],
+    polypharmacy: ["corticosteroid", "leukotriene_modifier", "beta2_agonist", "sympathomimetic"],
     overdoseToxicity: null,
     precautions: [
       'Additive <span class="hl hl--ci">CNS depression</span> when combined with opioids, benzodiazepines, or alcohol.',
@@ -1547,7 +1547,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Allergic rhinitis", "Urticaria (chronic)", "Atopic dermatitis (adjunct)"],
     comorbidities: ["Asthma", "Eczema / atopic dermatitis", "Chronic sinusitis", "Food or drug allergies"],
-    polypharmacy: ["Inhaled corticosteroids (fluticasone, budesonide)", "Albuterol", "Montelukast", "Nasal corticosteroids (fluticasone nasal)", "Epinephrine auto-injector"],
+    polypharmacy: ["corticosteroid", "beta2_agonist", "leukotriene_modifier", "sympathomimetic"],
     overdoseToxicity: ["Tachycardia", "QT prolongation (supratherapeutic doses)", "Anticholinergic symptoms (mydriasis, urinary retention, flushing)", "Agitation or drowsiness"],
     precautions: [
       'Supratherapeutic doses can cause <span class="hl hl--ci">QT prolongation</span> and cardiac arrhythmias — especially in elderly patients.',
@@ -1567,7 +1567,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Rheumatoid arthritis", "Systemic lupus erythematosus", "Discoid lupus erythematosus", "Malaria prophylaxis"],
     comorbidities: ["Systemic lupus erythematosus", "Rheumatoid arthritis", "Chronic kidney disease", "Interstitial lung disease", "Antiphospholipid syndrome"],
-    polypharmacy: ["Corticosteroids (prednisone, methylprednisolone)", "Methotrexate", "NSAIDs (ibuprofen, naproxen)", "Immunosuppressants (azathioprine, mycophenolate)", "Anticoagulants (warfarin, apixaban)"],
+    polypharmacy: ["corticosteroid", "antimetabolite", "nsaid", "immunosuppressant", "anticoagulant"],
     overdoseToxicity: ["QRS and QTc prolongation with ventricular arrhythmias", "Life-threatening hypotension", "Severe hypokalemia from intracellular shift", "Seizures and CNS depression", "Hypoglycemia"],
     precautions: [
       'Overdose toxicity onset is rapid — an ambulatory patient can progress to <span class="hl hl--ci">cardiac arrest</span> within minutes.',
@@ -1587,7 +1587,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Rheumatoid arthritis", "Psoriasis", "Acute lymphoblastic leukemia", "Non-Hodgkin lymphoma", "Juvenile idiopathic arthritis"],
     comorbidities: ["Rheumatoid arthritis", "Psoriasis", "Chronic kidney disease", "Hepatic fibrosis", "Interstitial lung disease"],
-    polypharmacy: ["Folic acid", "NSAIDs (ibuprofen, naproxen)", "Corticosteroids (prednisone)", "DMARDs (hydroxychloroquine, sulfasalazine)", "Proton pump inhibitors (omeprazole)"],
+    polypharmacy: ["vitamin", "nsaid", "corticosteroid", "dmard", "proton_pump_inhibitor"],
     overdoseToxicity: ["Pancytopenia and severe myelosuppression", "Hemorrhagic oral ulcers and diffuse mucositis", "Acute renal failure", "Interstitial pneumonitis and respiratory failure", "Hepatotoxicity with elevated transaminases"],
     precautions: [
       'Patient is <span class="hl hl--warn">immunosuppressed</span> — fever or signs of infection may indicate sepsis.',
@@ -1607,7 +1607,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Gout flares", "Gout prophylaxis", "Familial Mediterranean fever", "Pericarditis"],
     comorbidities: ["Chronic kidney disease", "Hypertension", "Coronary artery disease", "Metabolic syndrome", "Hyperuricemia"],
-    polypharmacy: ["Allopurinol", "NSAIDs (ibuprofen, naproxen)", "Statins (atorvastatin, rosuvastatin)", "Diuretics (hydrochlorothiazide, furosemide)", "ACE Inhibitors (lisinopril)"],
+    polypharmacy: ["xanthine_oxidase_inhibitor", "nsaid", "statin", "thiazide_diuretic", "loop_diuretic", "ace_inhibitor"],
     overdoseToxicity: [
       "Profuse vomiting and diarrhea progressing to hypovolemic shock",
       "Pancytopenia and bone marrow suppression (onset 2–7 days)",
@@ -1633,7 +1633,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Gout (chronic)", "Hyperuricemia (secondary)", "Tumor lysis syndrome prevention", "Recurrent uric acid nephrolithiasis"],
     comorbidities: ["Chronic kidney disease", "Hypertension", "Type 2 diabetes", "Coronary artery disease", "Nephrolithiasis"],
-    polypharmacy: ["Colchicine", "NSAIDs (naproxen, indomethacin)", "Thiazide diuretics (hydrochlorothiazide)", "Warfarin", "ACE Inhibitors (lisinopril, enalapril)"],
+    polypharmacy: ["antigout", "nsaid", "thiazide_diuretic", "anticoagulant", "ace_inhibitor"],
     overdoseToxicity: null,
     precautions: [
       'Potentiates <span class="hl hl--drug">warfarin</span> — may enhance anticoagulant effect and increase <span class="hl hl--ci">bleeding risk</span>.',
@@ -1653,7 +1653,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Postmenopausal osteoporosis", "Male osteoporosis", "Glucocorticoid-induced osteoporosis", "Paget disease of bone"],
     comorbidities: ["Osteoporosis", "Vertebral compression fractures", "Chronic kidney disease", "Rheumatoid arthritis (steroid use)", "Vitamin D deficiency"],
-    polypharmacy: ["Calcium supplements", "Vitamin D", "Corticosteroids (prednisone)", "Proton pump inhibitors (omeprazole, pantoprazole)", "Levothyroxine"],
+    polypharmacy: ["electrolyte", "vitamin", "corticosteroid", "proton_pump_inhibitor", "thyroid_agent"],
     overdoseToxicity: ["Hypocalcemia", "Esophageal ulceration or perforation", "Gastric erosion"],
     precautions: [
       'Concomitant <span class="hl hl--drug">aspirin</span> or NSAIDs increases risk of <span class="hl hl--ci">upper GI ulceration and bleeding</span>.',
@@ -1673,7 +1673,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Benign prostatic hyperplasia (BPH)"],
     comorbidities: ["Hypertension", "Urinary retention", "Coronary artery disease", "Type 2 diabetes", "Chronic kidney disease"],
-    polypharmacy: ["Finasteride", "Antihypertensives (amlodipine, lisinopril)", "PDE5 Inhibitors (sildenafil, tadalafil)", "Statins (atorvastatin)", "Diuretics (furosemide, hydrochlorothiazide)"],
+    polypharmacy: ["hormone", "antihypertensive", "vasodilator", "statin", "loop_diuretic", "thiazide_diuretic"],
     overdoseToxicity: ["Acute hypotension with systolic BP as low as 70 mmHg", "Reflex tachycardia", "Syncope", "Dizziness and altered mental status"],
     precautions: [
       'Causes <span class="hl hl--ci">orthostatic hypotension</span> and syncope — risk is highest after the first dose or dose increase.',
@@ -1693,7 +1693,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Erectile dysfunction", "Pulmonary arterial hypertension"],
     comorbidities: ["Coronary artery disease", "Hypertension", "Pulmonary arterial hypertension", "Heart failure", "Benign prostatic hyperplasia"],
-    polypharmacy: ["Antihypertensives (amlodipine, lisinopril)", "Nitrates (nitroglycerin, isosorbide)", "Alpha-1 blockers (tamsulosin, doxazosin)", "Anticoagulants (warfarin, apixaban)", "Statins (atorvastatin)"],
+    polypharmacy: ["antihypertensive", "nitrate", "alpha1_antagonist", "anticoagulant", "statin"],
     overdoseToxicity: ["Hypotension", "Visual disturbances (blue-tinted vision, light sensitivity)", "Flushing and headache", "Priapism"],
     precautions: [
       '<span class="hl hl--drug">Nitroglycerin</span> is absolutely contraindicated within 24 hours of sildenafil use — combination causes <span class="hl hl--ci">severe, refractory hypotension</span>.',
@@ -1713,7 +1713,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Erectile dysfunction", "Benign prostatic hyperplasia", "Pulmonary arterial hypertension"],
     comorbidities: ["Coronary artery disease", "Hypertension", "Type 2 diabetes", "Hyperlipidemia", "BPH / lower urinary tract symptoms"],
-    polypharmacy: ["Antihypertensives (amlodipine, lisinopril)", "Statins (atorvastatin, rosuvastatin)", "Alpha-1 blockers (tamsulosin)", "Aspirin", "Metformin"],
+    polypharmacy: ["antihypertensive", "statin", "alpha1_antagonist", "antiplatelet", "biguanide"],
     overdoseToxicity: ["Hypotension", "Headache and dizziness", "Priapism"],
     precautions: [
       '<span class="hl hl--drug">Nitroglycerin</span> is absolutely contraindicated within <span class="hl hl--ci">48 hours</span> of tadalafil use — risk of severe, refractory hypotension.',
@@ -1733,7 +1733,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Male hypogonadism", "Delayed puberty", "Transgender hormone therapy"],
     comorbidities: ["Obesity", "Type 2 diabetes", "Depression", "Osteoporosis", "Obstructive sleep apnea"],
-    polypharmacy: ["PDE5 inhibitors (sildenafil, tadalafil)", "Anastrozole", "HCG (human chorionic gonadotropin)", "Statins (atorvastatin, rosuvastatin)", "Metformin"],
+    polypharmacy: ["vasodilator", "hormone", "statin", "biguanide"],
     overdoseToxicity: null,
     precautions: [
       '<span class="hl hl--ci">Polycythemia</span> — increases hematocrit and blood viscosity, raising risk of MI, stroke, and VTE.',
@@ -1753,7 +1753,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Contraception", "Dysmenorrhea", "Endometriosis", "Acne", "Menstrual irregularity"],
     comorbidities: ["Migraines", "Polycystic ovary syndrome", "Endometriosis", "Iron-deficiency anemia", "Anxiety or depression"],
-    polypharmacy: ["SSRIs (sertraline, escitalopram)", "NSAIDs (ibuprofen, naproxen)", "Spironolactone", "Levothyroxine", "Iron supplements"],
+    polypharmacy: ["ssri", "nsaid", "potassium_sparing_diuretic", "thyroid_agent", "electrolyte"],
     overdoseToxicity: null,
     precautions: [
       'Estrogen component increases risk of <span class="hl hl--ci">venous thromboembolism</span> — DVT and pulmonary embolism, especially in the first year of use.',
@@ -1773,7 +1773,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Community-acquired pneumonia", "COPD exacerbation", "Acute sinusitis", "Chlamydial infection", "Otitis media"],
     comorbidities: ["COPD", "Asthma", "Heart failure", "Immunocompromised states", "Recurrent respiratory infections"],
-    polypharmacy: ["Inhaled bronchodilators (albuterol, ipratropium)", "Inhaled corticosteroids (fluticasone)", "Prednisone", "Anticoagulants (warfarin, apixaban)", "Amoxicillin"],
+    polypharmacy: ["bronchodilator", "corticosteroid", "anticoagulant", "antibiotic"],
     overdoseToxicity: null,
     precautions: [
       'Causes <span class="hl hl--ci">QTc prolongation</span> — risk of torsades de pointes, especially in patients with baseline cardiac disease or electrolyte abnormalities.',
@@ -1793,7 +1793,7 @@ const home_meds = [
     sources: ["DailyMed", "StatPearls"],
     indications: ["Upper respiratory infections", "Urinary tract infections", "Skin infections", "H. pylori eradication", "Lower respiratory infections"],
     comorbidities: ["Recurrent otitis media", "Chronic sinusitis", "COPD (acute exacerbation)", "Peptic ulcer disease"],
-    polypharmacy: ["Proton pump inhibitors (omeprazole, lansoprazole)", "Clarithromycin", "NSAIDs (ibuprofen, naproxen)", "Oral contraceptives"],
+    polypharmacy: ["proton_pump_inhibitor", "antibiotic", "nsaid", "hormone"],
     overdoseToxicity: null,
     precautions: [
       'Risk of <span class="hl hl--ci">anaphylaxis</span> — penicillin allergy affects 1–10% of patients and can be life-threatening on first or repeat exposure.',
