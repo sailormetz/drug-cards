@@ -38,6 +38,11 @@
   function className(key) {
     return (typeof DRUG_CLASSES !== 'undefined' && DRUG_CLASSES[key]) || key;
   }
+  function findHomeMedsByClass(key, excludeId) {
+    return HOME_MEDS.filter(function (m) {
+      return m.id !== excludeId && (m.classes || []).indexOf(key) !== -1;
+    });
+  }
   function getAllClasses() {
     return Array.from(new Set(getDataset().reduce(function (acc, d) {
       return acc.concat(d.classes || []);
@@ -347,6 +352,30 @@
       '</div>';
     }
 
+    function polyTabsSection() {
+      var keys = med.polypharmacy || [];
+      if (!keys.length) return '';
+      var pillsHTML = keys.map(function (k, i) {
+        var active = i === 0 ? ' poly-key--active' : '';
+        return '<li class="poly-key' + active + '" data-poly="' + k + '">' + className(k) + '</li>';
+      }).join('');
+      var panesHTML = keys.map(function (k, i) {
+        var matches = findHomeMedsByClass(k, med.id);
+        var inner = matches.length
+          ? matches.map(function (m) { return m.genericName; }).join(', ')
+          : '<span class="poly-examples__empty">No other home meds.</span>';
+        var hidden = i === 0 ? '' : ' style="display:none"';
+        return '<div class="poly-examples" data-poly="' + k + '"' + hidden + '>' + inner + '</div>';
+      }).join('');
+      return '<div class="section-wrap">' +
+        '<h2 class="section-label">Polypharmacy</h2>' +
+        '<section class="section section--poly">' +
+          '<ul class="pill-list pill-list--polypharmacy">' + pillsHTML + '</ul>' +
+          panesHTML +
+        '</section>' +
+      '</div>';
+    }
+
     function precautionSection(label, items) {
       if (!items || !items.length) return '';
       var lis = items.map(function (x) {
@@ -384,7 +413,7 @@
         summarySection +
         pillSection('Indications',   med.indications,   'pill-list--indications') +
         pillSection('Comorbidities', med.comorbidities, 'pill-list--comorbidities') +
-        pillSection('Polypharmacy',  (med.polypharmacy || []).map(className), 'pill-list--polypharmacy') +
+        polyTabsSection() +
         precautionSection('Overdose & Toxicity', med.overdoseToxicity) +
         precautionSection('Precautions',         med.precautions) +
 
@@ -727,6 +756,19 @@
         });
         block.querySelectorAll('.dose-route[data-route]').forEach(function (r) {
           r.style.display = r.dataset.route === route ? '' : 'none';
+        });
+        return;
+      }
+
+      var polyKey = e.target.closest('.poly-key');
+      if (polyKey) {
+        var key = polyKey.dataset.poly;
+        var polySection = polyKey.closest('.section--poly');
+        polySection.querySelectorAll('.poly-key').forEach(function (t) {
+          t.classList.toggle('poly-key--active', t === polyKey);
+        });
+        polySection.querySelectorAll('.poly-examples[data-poly]').forEach(function (p) {
+          p.style.display = p.dataset.poly === key ? '' : 'none';
         });
       }
     });
