@@ -1285,8 +1285,31 @@ body {
 }
 .pill-list--polypharmacy li {
   background: var(--pill-gray-fill);
-  color: var(--pill-gray-text);
+  color: hsl(45, 4%, 70%);
   border-color: var(--pill-gray-border);
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 120ms ease, color 120ms ease;
+}
+.pill-list--polypharmacy li.poly-key--active {
+  border-color: var(--text);
+  color: var(--text);
+  font-weight: 600;
+}
+.poly-examples {
+  margin-top: 10px;
+  font-size: 15px;
+  color: var(--text-mut);
+  line-height: 1.5;
+}
+.poly-examples::before {
+  content: "\2192";
+  margin-right: 8px;
+  color: var(--text-faint);
+}
+.poly-examples__empty {
+  font-style: italic;
+  opacity: 0.75;
 }
 /* ===== CONTRAINDICATION LIST ===== */
 .contra-cols {
