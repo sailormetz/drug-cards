@@ -1298,9 +1298,14 @@ body {
 }
 .poly-examples {
   margin-top: 10px;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-mut);
   line-height: 1.5;
+}
+.poly-examples::before {
+  content: "\2192";
+  margin-right: 8px;
+  color: var(--text-faint);
 }
 .poly-examples__empty {
   font-style: italic;
