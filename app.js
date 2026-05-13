@@ -4,9 +4,15 @@
   var activeMode = localStorage.getItem('drugCards.mode') || 'drugs';
   if (activeMode === 'home' && !HOME_MEDS.length) activeMode = 'drugs';
 
+  var firstHomeId = HOME_MEDS.length
+    ? HOME_MEDS.slice().sort(function (a, b) {
+        return a.genericName.localeCompare(b.genericName);
+      })[0].id
+    : null;
+
   var modeState = {
-    drugs: { activeId: DRUGS[0].id,                              activeCategories: [], activeClasses: [], sortAsc: true, searchQuery: '' },
-    home:  { activeId: (HOME_MEDS[0] && HOME_MEDS[0].id) || null, activeCategories: [], activeClasses: [], sortAsc: true, searchQuery: '' }
+    drugs: { activeId: DRUGS[0].id,  activeCategories: [], activeClasses: [], sortAsc: true, searchQuery: '' },
+    home:  { activeId: firstHomeId,  activeCategories: [], activeClasses: [], sortAsc: true, searchQuery: '' }
   };
   var filterTab = 'category';
   var cardContainer;
