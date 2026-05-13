@@ -347,31 +347,6 @@
       '</div>';
     }
 
-    function polyRow(s) {
-      var m = s.match(/^(.*?)\s*\(([^)]+)\)\s*$/);
-      var name = m ? m[1].trim() : s.trim();
-      var examples = m ? m[2].trim() : '';
-      if (examples) examples = examples.charAt(0).toUpperCase() + examples.slice(1);
-      return '<li class="poly-row">' +
-        '<span class="poly-pill">' + name + '</span>' +
-        (examples ? '<span class="poly-examples">' + examples + '</span>' : '') +
-      '</li>';
-    }
-
-    function polySection(items) {
-      if (!items || !items.length) return '';
-      var hasEx = /\([^)]+\)\s*$/;
-      var withEx = items.filter(function (s) { return hasEx.test(s); });
-      var without = items.filter(function (s) { return !hasEx.test(s); });
-      var ordered = withEx.concat(without);
-      return '<div class="section-wrap">' +
-        '<h2 class="section-label">Polypharmacy</h2>' +
-        '<section class="section">' +
-          '<ul class="poly-list">' + ordered.map(polyRow).join('') + '</ul>' +
-        '</section>' +
-      '</div>';
-    }
-
     function precautionSection(label, items) {
       if (!items || !items.length) return '';
       var lis = items.map(function (x) {
@@ -409,7 +384,7 @@
         summarySection +
         pillSection('Indications',   med.indications,   'pill-list--indications') +
         pillSection('Comorbidities', med.comorbidities, 'pill-list--comorbidities') +
-        polySection(med.polypharmacy) +
+        pillSection('Polypharmacy',  (med.polypharmacy || []).map(className), 'pill-list--polypharmacy') +
         precautionSection('Overdose & Toxicity', med.overdoseToxicity) +
         precautionSection('Precautions',         med.precautions) +
 

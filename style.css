@@ -1283,31 +1283,10 @@ body {
   color: var(--pill-red-text);
   border-color: var(--pill-red-border);
 }
-.poly-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  row-gap: 6px;
-}
-.poly-row {
-  display: flex;
-  align-items: center;
-  column-gap: 10px;
-  flex-wrap: wrap;
-}
-.poly-pill {
-  font-size: 14px;
-  font-weight: 500;
-  padding: 4px 12px;
-  border-radius: 999px;
+.pill-list--polypharmacy li {
   background: var(--pill-gray-fill);
   color: var(--pill-gray-text);
-  border: 1px solid var(--pill-gray-border);
-  white-space: nowrap;
-}
-.poly-examples {
-  font-size: 14px;
-  color: var(--text-mut);
+  border-color: var(--pill-gray-border);
 }
 /* ===== CONTRAINDICATION LIST ===== */
 .contra-cols {
