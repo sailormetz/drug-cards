@@ -29,6 +29,18 @@ button, input, select, textarea { font: inherit; }
   --pill-lilac-fill:   hsla(275, 25%, 25%, 0.4);
   --pill-lilac-text:   hsl(275, 25%, 70%);
   --pill-lilac-border: hsl(275, 25%, 33%);
+  --pill-blue-fill:    hsla(214, 40%, 25%, 0.35);
+  --pill-blue-text:    hsl(214, 45%, 72%);
+  --pill-blue-border:  hsl(214, 40%, 38%);
+  --pill-red-fill:     hsla(4, 55%, 28%, 0.35);
+  --pill-red-text:     hsl(4, 65%, 75%);
+  --pill-red-border:   hsl(4, 55%, 42%);
+  --pill-amber-fill:   hsla(41, 45%, 25%, 0.35);
+  --pill-amber-text:   hsl(41, 50%, 70%);
+  --pill-amber-border: hsl(41, 45%, 38%);
+  --pill-gray-fill:    hsla(45, 4%, 22%, 0.4);
+  --pill-gray-text:    hsl(45, 4%, 84%);
+  --pill-gray-border:  hsl(45, 4%, 42%);
   /* Population colors: fill (tab bg) / border */
   --pop-adult-fill:      hsl(214, 50%, 21%);
   --pop-adult-border:    hsl(214, 55%, 60%);
@@ -1265,6 +1277,37 @@ body {
   background: var(--pill-lilac-fill);
   color: var(--pill-lilac-text);
   border-color: var(--pill-lilac-border);
+}
+.pill-list--comorbidities li {
+  background: var(--pill-red-fill);
+  color: var(--pill-red-text);
+  border-color: var(--pill-red-border);
+}
+.poly-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
+}
+.poly-row {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  flex-wrap: wrap;
+}
+.poly-pill {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--pill-gray-fill);
+  color: var(--pill-gray-text);
+  border: 1px solid var(--pill-gray-border);
+  white-space: nowrap;
+}
+.poly-examples {
+  font-size: 14px;
+  color: var(--text-mut);
 }
 /* ===== CONTRAINDICATION LIST ===== */
 .contra-cols {
