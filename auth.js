@@ -71,6 +71,26 @@
     window.location.href = body.url;
   }
 
+  async function redeemCode(code) {
+    if (!state.session) throw new Error('Not signed in');
+    var resp = await fetch('/api/redeem-code', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + state.session.access_token,
+      },
+      body: JSON.stringify({ code: code }),
+    });
+    var body = await resp.json().catch(function () { return {}; });
+    if (!resp.ok) {
+      var e = new Error(body.error || 'Redeem failed');
+      e.status = resp.status;
+      e.code = body.error;
+      throw e;
+    }
+    return body;
+  }
+
   // ---------- Live demo bootstrap ----------
   // window.renderDrugCard / DRUGS are defined by app.js + data/drugs.js — which load
   // synchronously before us. But Supabase's onAuthStateChange can fire during the
@@ -505,6 +525,60 @@
     modal.appendChild(cta);
     modal.appendChild(msg);
 
+    var redeem = el('div', { class: 'redeem-section' });
+    redeem.appendChild(el('p', { class: 'redeem-label' }, ['Have a code?']));
+    var redeemMsg = el('p', { class: 'redeem-msg' });
+    var redeemForm = el('form', {
+      class: 'redeem-form',
+      onsubmit: function (e) {
+        e.preventDefault();
+        var input = redeemForm.querySelector('.redeem-input');
+        var btn = redeemForm.querySelector('.redeem-btn');
+        var code = (input.value || '').trim();
+        if (!code) return;
+        btn.disabled = true;
+        input.disabled = true;
+        redeemMsg.textContent = 'Redeeming…';
+        redeemMsg.className = 'redeem-msg';
+        redeemCode(code).then(function () {
+          // Switch URL signal so the existing welcome modal fires once unlocked.
+          var clean = window.location.pathname + '?redeem=success' + window.location.hash;
+          history.replaceState(null, '', clean);
+          return fetchEntitlement();
+        }).then(function () {
+          renderGate();
+          emit();
+        }).catch(function (err) {
+          btn.disabled = false;
+          input.disabled = false;
+          if (err && err.code === 'already_paid') {
+            redeemMsg.textContent = 'You already have access.';
+          } else if (err && err.code === 'invalid_code') {
+            redeemMsg.textContent = 'Invalid or already-used code.';
+          } else {
+            redeemMsg.textContent = (err && err.message) || 'Could not redeem code.';
+          }
+          redeemMsg.className = 'redeem-msg redeem-msg--err';
+        });
+      },
+    });
+    redeemForm.appendChild(el('input', {
+      class: 'redeem-input',
+      type: 'text',
+      name: 'code',
+      autocomplete: 'off',
+      autocapitalize: 'characters',
+      spellcheck: 'false',
+      placeholder: 'FRIEND-XXXX',
+    }));
+    redeemForm.appendChild(el('button', {
+      type: 'submit',
+      class: 'redeem-btn',
+    }, ['Redeem']));
+    redeem.appendChild(redeemForm);
+    redeem.appendChild(redeemMsg);
+    modal.appendChild(redeem);
+
     var footer = el('div', { class: 'checkout-footer' });
     var trust = el('div', { class: 'checkout-trust' });
     var lock = '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">'
@@ -602,6 +676,7 @@
     signOut: signOut,
     refresh: refresh,
     startCheckout: startCheckout,
+    redeemCode: redeemCode,
   };
 
   // ── Post-checkout welcome modal ──
@@ -645,7 +720,7 @@
 
   document.addEventListener('auth:unlocked', function () {
     if (welcomeShown) return;
-    if (!/[?&]checkout=success\b/.test(window.location.search)) return;
+    if (!/[?&](checkout|redeem)=success\b/.test(window.location.search)) return;
     welcomeShown = true;
     showWelcomeModal();
     // Strip the param so refresh doesn't re-show the modal

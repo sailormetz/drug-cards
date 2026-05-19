@@ -2007,6 +2007,77 @@ body {
 .auth-gate.signed-in-unpaid .checkout-msg--err { color: var(--coral); }
 .auth-gate.signed-in-unpaid .checkout-msg--ok  { color: var(--blue); }
 
+/* Redeem code (secondary path under the Stripe CTA) */
+.auth-gate.signed-in-unpaid .redeem-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+.auth-gate.signed-in-unpaid .redeem-label {
+  margin: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+}
+.auth-gate.signed-in-unpaid .redeem-form {
+  display: flex;
+  gap: 6px;
+}
+.auth-gate.signed-in-unpaid .redeem-input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.auth-gate.signed-in-unpaid .redeem-input::placeholder {
+  color: var(--muted);
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+.auth-gate.signed-in-unpaid .redeem-input:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+.auth-gate.signed-in-unpaid .redeem-btn {
+  padding: 8px 14px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.auth-gate.signed-in-unpaid .redeem-btn:hover { border-color: var(--blue); color: var(--blue); }
+.auth-gate.signed-in-unpaid .redeem-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.auth-gate.signed-in-unpaid .redeem-msg {
+  margin: 0;
+  min-height: 0;
+  font-size: 12px;
+  text-align: center;
+  color: var(--muted);
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+.auth-gate.signed-in-unpaid .redeem-msg:empty { display: none; }
+.auth-gate.signed-in-unpaid .redeem-msg--err { color: var(--coral); }
+
 /* Footer row: Stripe trust · Sign out */
 .auth-gate.signed-in-unpaid .checkout-footer {
   display: flex;
