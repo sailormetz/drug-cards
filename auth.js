@@ -569,7 +569,7 @@
       autocomplete: 'off',
       autocapitalize: 'characters',
       spellcheck: 'false',
-      placeholder: 'FRIEND-XXXX',
+      placeholder: 'YOUR CODE',
     }));
     redeemForm.appendChild(el('button', {
       type: 'submit',
