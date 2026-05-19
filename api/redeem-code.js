@@ -21,7 +21,7 @@ module.exports = async function handler(req, res) {
   const user = userData.user;
 
   const rawCode = (req.body && req.body.code) || '';
-  const code = String(rawCode).trim();
+  const code = String(rawCode).trim().toUpperCase();
   if (!code) return res.status(400).json({ error: 'Missing code' });
 
   // Already-paid users don't burn codes.

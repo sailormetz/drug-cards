@@ -534,7 +534,7 @@
         e.preventDefault();
         var input = redeemForm.querySelector('.redeem-input');
         var btn = redeemForm.querySelector('.redeem-btn');
-        var code = (input.value || '').trim();
+        var code = (input.value || '').trim().toUpperCase();
         if (!code) return;
         btn.disabled = true;
         input.disabled = true;
